@@ -12,7 +12,7 @@
   }
 
   .topProjectsCard {
-    width: 100%;
+    width: 1000px;
     height: 248px;
 
     .topProjectsContainer {
@@ -48,6 +48,9 @@
 }
 
 :global {
+  .TableV2--cell {
+    width: 200px !important;
+  }
   .summaryTableHeader {
     align-items: center !important;
   }
