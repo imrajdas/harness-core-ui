@@ -33,6 +33,9 @@ import { returnLaunchUrl } from '@common/utils/routeUtils'
 import { LaunchButton } from '@common/components/LaunchButton/LaunchButton'
 import type { ModuleLicenseType } from '@common/constants/SubscriptionTypes'
 import { useGetCommunity } from '@common/utils/utils'
+import { useGetPipelines } from '@pipeline/hooks/useGetPipelines'
+import { useSideNavContext } from 'framework/SideNavStore/SideNavContext'
+import type { PagePMSPipelineSummaryResponse } from 'services/pipeline-ng'
 
 export default function CDSideNav(): React.ReactElement {
   const params = useParams<
@@ -61,11 +64,45 @@ export default function CDSideNav(): React.ReactElement {
   const routeMatch = useRouteMatch()
   const history = useHistory()
   const module = 'cd'
-  const { updateAppStore } = useAppStore()
+  const { updateAppStore, selectedProject } = useAppStore()
   const { ARGO_PHASE1, ARGO_PHASE2_MANAGED } = useFeatureFlags()
+  const CIE_HOSTED_BUILDS = true
+  const CI_OVERVIEW_PAGE = true
   const { getString } = useStrings()
   const { experience } = useQueryParams<{ experience?: ModuleLicenseType }>()
   const isCommunity = useGetCommunity()
+  const { showGetStartedTabInMainMenu, setShowGetStartedTabInMainMenu } = useSideNavContext()
+  const {
+    data: fetchPipelinesData,
+    loading: fetchingPipelines,
+    refetch: fetchPipelines
+  } = useGetPipelines({
+    accountIdentifier: accountId,
+    projectIdentifier,
+    orgIdentifier,
+    module,
+    lazy: true,
+    size: 1
+  })
+
+  React.useEffect(() => {
+    if (CIE_HOSTED_BUILDS && selectedProject?.identifier) {
+      fetchPipelines()
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedProject?.identifier])
+
+  React.useEffect(() => {
+    if (!fetchingPipelines && fetchPipelinesData) {
+      const { data, status } = fetchPipelinesData
+      setShowGetStartedTabInMainMenu(
+        status === 'SUCCESS' && (data as PagePMSPipelineSummaryResponse)?.totalElements === 0
+      )
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fetchPipelinesData])
+
   return (
     <Layout.Vertical spacing="small">
       <ProjectSelector
@@ -170,7 +207,12 @@ export default function CDSideNav(): React.ReactElement {
       />
       {projectIdentifier && orgIdentifier ? (
         <React.Fragment>
-          {!isCommunity && <SidebarLink label="Overview" to={routes.toProjectOverview({ ...params, module })} />}
+          {showGetStartedTabInMainMenu && (
+            <SidebarLink label={getString('getStarted')} to={routes.toGetStartedWithCI({ ...params, module })} />
+          )}
+          {!showGetStartedTabInMainMenu && CI_OVERVIEW_PAGE && !isCommunity && (
+            <SidebarLink label="Overview" to={routes.toProjectOverview({ ...params, module })} />
+          )}
           <SidebarLink label="Deployments" to={routes.toDeployments({ ...params, module })} />
           <SidebarLink label="Pipelines" to={routes.toPipelines({ ...params, module })} />
           <SidebarLink label="Services" to={routes.toServices({ ...params, module })} />
