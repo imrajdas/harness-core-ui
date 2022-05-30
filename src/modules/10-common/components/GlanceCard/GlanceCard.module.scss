@@ -6,7 +6,8 @@
  */
 
 .card {
-  height: 116px;
+  height: 115px;
+  min-width: 160px;
   padding: var(--spacing-large) var(--spacing-medium) !important;
 
   .icon {

@@ -157,7 +157,7 @@ const OverviewGlanceCards: React.FC<OverviewGlanceCardsProp> = props => {
 
   return (
     <Layout.Horizontal spacing="large" style={{ flex: 1 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'auto auto', gap: '10px', width: '100%' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'auto auto', gap: '16px', width: '100%' }}>
         <RenderGlanceCard loading={!!loading} data={getDataForCard(OverviewGalanceCard.PROJECT, projectsCountDetail)} />
         <RenderGlanceCard loading={!!loading} data={getDataForCard(OverviewGalanceCard.ENV, envCountDetail)} />
         <RenderGlanceCard
