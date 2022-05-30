@@ -137,7 +137,6 @@ getStartedWithCI:
   configInfra: Configure Infrastructure
   connectRepo: Connect to Git Repository
   selectRepo: Select Repository
-  buildPipeline: Build Pipeline
   hostedByHarness: Hosted by Harness
   takeToTheNextLevel: Take your software build process to the next level using our Harness Continuous Integration
   ti: Test Intelligence

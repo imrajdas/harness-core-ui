@@ -28,7 +28,7 @@ export function getSelectPlaceholder({
     return ''
   }
 
-  return isNamespace ? getString('cv.selectNamespace') : getString('cv.selectWorkload')
+  return isNamespace ? getString('cv.selectNamespace') : getString('common.getStarted.selectWorkload')
 }
 
 export function getWorkloadNamespaceOptions({

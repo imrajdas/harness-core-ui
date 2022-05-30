@@ -6,19 +6,27 @@
  */
 
 .cdIcon {
-  margin-top: calc(2 * var(--spacing-xxxlarge)) !important;
-  margin-bottom: var(--spacing-medium) !important;
+  margin-top: var(--spacing-large) !important;
+  margin-bottom: var(--spacing-large) !important;
+  padding: var(--spacing-medium);
+}
+.cdName {
+  width: 76px;
 }
 
 .buildYourOwnPipeline {
-  height: 152px;
-  width: 920px !important;
+  height: 400px !important;
   border-radius: 8px;
-  background: var(--primary-1) !important;
+  background: var(--green-50) !important;
   border: 0.5px solid var(--grey-100);
-  box-shadow: 0px 0px 2px rgba(40, 41, 61, 0.04), 0px 4px 8px rgba(96, 97, 112, 0.16);
-  margin-bottom: var(--spacing-medium) !important;
-  padding: var(--spacing-xlarge) var(--spacing-xlarge) var(--spacing-large) var(--spacing-xlarge) !important;
+  box-shadow: 0px 0px 2px rgba(70, 72, 107, 0.04), 0px 4px 8px rgba(96, 97, 112, 0.16);
+  margin: 100px 200px var(--spacing-small) 200px !important;
+  padding: var(--spacing-xlarge) var(--spacing-xlarge) var(--spacing-xlarge) var(--spacing-xlarge) !important;
+}
+
+.vertical {
+  padding-right: 'medium';
+  padding-bottom: 'xxlarge';
 }
 
 .separator {
@@ -26,39 +34,24 @@
   height: 55px;
   opacity: 0.3;
 }
+.horizontal {
+  width: 500px;
+  height: 0;
+}
+
+.createPipeline {
+  width: 178px;
+  height: 32px;
+  margin-left: 200px !important;
+  font-size: medium !important;
+}
 
 .nextLevel {
   width: 40%;
   text-align: center;
 }
 
-.divider {
-  width: 327px;
-  border: 1px solid var(--grey-200);
-}
-
-.samplePipeline {
-  width: 416px;
-  height: 112px;
-}
-
-.label {
-  line-height: var(--spacing-medium) !important;
-}
-
-.horizontal {
-  width: 55px;
-  height: 0;
-}
-
-.pipelineBg {
-  width: 300px;
-  height: 118px;
-}
-
-.icon {
-  background: var(--primary-2) !important;
-  border-radius: 5px;
+.arrow {
   svg {
     path {
       fill: var(--black) !important;
@@ -66,7 +59,9 @@
   }
 }
 
-.arrow {
+.icon {
+  background: var(--green-200) !important;
+  border-radius: 5px;
   svg {
     path {
       fill: var(--black) !important;
@@ -79,9 +74,9 @@
 }
 
 .iconPaddingSmall {
-  padding: 3px !important;
+  padding: 5px !important;
 }
 
 .iconPadding {
-  padding: 6px !important;
+  padding: 10px !important;
 }

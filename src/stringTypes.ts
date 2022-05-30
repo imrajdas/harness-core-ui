@@ -283,6 +283,12 @@ export interface StringsMap {
   'common.genericErrors.inviteExpired': string
   'common.genericErrors.licenseCallFailed': string
   'common.genericErrors.unauthorized': string
+  'common.getStarted.buildPipeline': string
+  'common.getStarted.firstPipeline': string
+  'common.getStarted.quicklyCreate': string
+  'common.getStarted.selectArtifact': string
+  'common.getStarted.selectInfra': string
+  'common.getStarted.selectWorkload': string
   'common.git.APIAccessDescription': string
   'common.git.APIAuthentication': string
   'common.git.addUserCredentialLabel': string
@@ -5724,7 +5730,6 @@ export interface StringsMap {
   'ci.getStartedWithCI.authMethodLabel': string
   'ci.getStartedWithCI.awsBuildLocation': string
   'ci.getStartedWithCI.buildLocation': string
-  'ci.getStartedWithCI.buildPipeline': string
   'ci.getStartedWithCI.buildyourOwnPipeline': string
   'ci.getStartedWithCI.carousel.helptext.complexPipelines': string
   'ci.getStartedWithCI.carousel.helptext.connectToRepo': string
@@ -5755,7 +5760,6 @@ export interface StringsMap {
   'ci.getStartedWithCI.duration': string
   'ci.getStartedWithCI.fetchingRepos': string
   'ci.getStartedWithCI.fieldIsMissing': string
-  'ci.getStartedWithCI.firstPipeline': string
   'ci.getStartedWithCI.flexibleInfra': string
   'ci.getStartedWithCI.flexibleInfraHelpText': string
   'ci.getStartedWithCI.genericGit': string
@@ -6498,7 +6502,6 @@ export interface StringsMap {
   'cv.selectOrCreateEnv': string
   'cv.selectQuery': string
   'cv.selectTimeRange': string
-  'cv.selectWorkload': string
   'cv.selectedTimeInterval': string
   'cv.sensitivityValidation': string
   'cv.serviceDashboardPage.fifteenMinutes': string

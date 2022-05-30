@@ -10,16 +10,15 @@ declare const styles: {
   readonly arrow: string
   readonly buildYourOwnPipeline: string
   readonly cdIcon: string
-  readonly divider: string
+  readonly cdName: string
+  readonly createPipeline: string
   readonly horizontal: string
   readonly icon: string
   readonly iconPadding: string
   readonly iconPaddingSmall: string
-  readonly label: string
   readonly nextLevel: string
   readonly paddingXSmall: string
-  readonly pipelineBg: string
-  readonly samplePipeline: string
   readonly separator: string
+  readonly vertical: string
 }
 export default styles

@@ -180,7 +180,7 @@ export default function GetStartedWithCI(): React.ReactElement {
                     size: 20,
                     className: cx(css.icon, css.iconPaddingSmall)
                   },
-                  label: 'ci.getStartedWithCI.buildPipeline',
+                  label: 'common.getStarted.buildPipeline',
                   isLastStep: true
                 })}
               </Layout.Horizontal>
