@@ -123,8 +123,8 @@ const renderModuleSummary = (
           responseData?.[dataKey]?.response as TopProjectsDashboardInfoCountWithSuccessFailureDetails[],
           accountId
         )}
-        columnWidth={[200, 700]}
-        barLength={630}
+        columnWidth={[200, 640]}
+        barLength={540}
       ></StackedSummaryTable>
     ) : (
       <DashboardNoDataWidget
