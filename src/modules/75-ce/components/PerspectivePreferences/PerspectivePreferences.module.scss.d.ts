@@ -7,16 +7,7 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
-  readonly chartGridContainer: string
-  readonly chartLoadingContainer: string
-  readonly emptyContainer: string
-  readonly emptyIllustrationContainer: string
-  readonly headerContent: string
-  readonly headerContentSection: string
+  readonly container: string
   readonly prefLabel: string
-  readonly preferenceMenu: string
-  readonly preferencesContainer: string
-  readonly preferencesPopover: string
-  readonly subscriptionLimitCtn: string
 }
 export default styles

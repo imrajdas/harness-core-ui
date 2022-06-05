@@ -7,5 +7,9 @@
 
 .groupByContainer {
   display: grid;
-  grid-template-columns: 1fr 50px;
+  grid-template-columns: 1fr 180px 50px;
+
+  span[class*='bp3-popover-wrapper'] {
+    align-self: center;
+  }
 }

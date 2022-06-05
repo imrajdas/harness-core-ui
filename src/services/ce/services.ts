@@ -722,12 +722,13 @@ export const FetchPerspectiveTimeSeriesDocument = gql`
     $filters: [QLCEViewFilterWrapperInput]
     $groupBy: [QLCEViewGroupByInput]
     $limit: Int
+    $preferences: QLCEViewPreferencesInput
   ) {
     perspectiveTimeSeriesStats(
       filters: $filters
       groupBy: $groupBy
       limit: $limit
-      preferences: { includeOthers: false, includeUnallocatedCost: false }
+      preferences: $preferences
       aggregateFunction: [{ operationType: SUM, columnName: "cost" }]
       sortCriteria: [{ sortType: COST, sortOrder: DESCENDING }]
     ) {
@@ -1814,6 +1815,7 @@ export type FetchPerspectiveTimeSeriesQueryVariables = Exact<{
   filters: InputMaybe<Array<InputMaybe<QlceViewFilterWrapperInput>> | InputMaybe<QlceViewFilterWrapperInput>>
   groupBy: InputMaybe<Array<InputMaybe<QlceViewGroupByInput>> | InputMaybe<QlceViewGroupByInput>>
   limit: InputMaybe<Scalars['Int']>
+  preferences: InputMaybe<QlceViewPreferencesInput>
 }>
 
 export type FetchPerspectiveTimeSeriesQuery = {

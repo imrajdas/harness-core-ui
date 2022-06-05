@@ -135,7 +135,12 @@ const FolderSelection: React.FC<FolderSelectionProps> = ({ selectedFolder, setSe
   )
 }
 
-const PerspectiveBuilder: React.FC<{ perspectiveData?: CEView; onNext: (resource: CEView) => void }> = props => {
+interface PerspectiveBuilderProps {
+  perspectiveData?: CEView
+  onNext: (resource: CEView, payload: CEView) => void
+}
+
+const PerspectiveBuilder: React.FC<PerspectiveBuilderProps> = props => {
   const { getString } = useStrings()
   const { perspectiveId, accountId } = useParams<{ perspectiveId: string; accountId: string }>()
   const history = useHistory()
@@ -199,7 +204,7 @@ const PerspectiveBuilder: React.FC<{ perspectiveData?: CEView; onNext: (resource
     try {
       const { data } = await createView(apiObject as CEView)
       if (data) {
-        props.onNext(data)
+        props.onNext(data, apiObject as CEView)
       }
     } catch (err: any) {
       const errMessage = err.data.message

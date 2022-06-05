@@ -7,12 +7,13 @@ query FetchPerspectiveTimeSeries(
   $filters: [QLCEViewFilterWrapperInput]
   $groupBy: [QLCEViewGroupByInput]
   $limit: Int
+  $preferences: QLCEViewPreferencesInput
 ) {
   perspectiveTimeSeriesStats(
     filters: $filters
     groupBy: $groupBy
     limit: $limit
-    preferences: { includeOthers: false, includeUnallocatedCost: false }
+    preferences: $preferences
     aggregateFunction: [{ operationType: SUM, columnName: "cost" }]
     sortCriteria: [{ sortType: COST, sortOrder: DESCENDING }]
   ) {

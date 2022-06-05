@@ -1,0 +1,19 @@
+/*
+ * Copyright 2022 Harness Inc. All rights reserved.
+ * Use of this source code is governed by the PolyForm Shield 1.0.0 license
+ * that can be found in the licenses directory at the root of this repository, also available at
+ * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
+ */
+
+.container {
+  height: calc(100vh - 124px);
+  display: flex;
+
+  .prefLabel {
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--grey-1000) !important;
+    letter-spacing: 0.2px;
+    padding-top: var(--spacing-small);
+  }
+}

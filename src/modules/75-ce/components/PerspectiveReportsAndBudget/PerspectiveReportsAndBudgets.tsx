@@ -8,7 +8,7 @@
 import React, { useState, useMemo, ReactNode, useEffect } from 'react'
 import cronstrue from 'cronstrue'
 import { isEmpty } from 'lodash-es'
-import { useHistory, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import type { Column, CellProps, Renderer } from 'react-table'
 import {
   Button,
@@ -26,7 +26,6 @@ import {
 import { FontVariation, Color } from '@harness/design-system'
 import { Popover, Position, Classes, PopoverInteractionKind } from '@blueprintjs/core'
 import { DEFAULT_GROUP_BY } from '@ce/utils/perspectiveUtils'
-import routes from '@common/RouteDefinitions'
 import { QlceViewFieldInputInput, ViewChartType, AlertThreshold } from 'services/ce/services'
 import {
   CEView,
@@ -71,6 +70,7 @@ interface TableActionsProps {
 interface ReportsAndBudgetsProps {
   values?: CEView
   onPrevButtonClick: () => void
+  onNext: () => void
 }
 
 interface SelectedAlertType {
@@ -83,7 +83,7 @@ export interface UrlParams {
   accountId: string
 }
 
-const ReportsAndBudgets: React.FC<ReportsAndBudgetsProps> = ({ values, onPrevButtonClick }) => {
+const ReportsAndBudgets: React.FC<ReportsAndBudgetsProps> = ({ values, onPrevButtonClick, onNext }) => {
   const [groupBy, setGroupBy] = useState<QlceViewFieldInputInput>(() => {
     return (values?.viewVisualization?.groupBy as QlceViewFieldInputInput) || DEFAULT_GROUP_BY
   })
@@ -96,20 +96,7 @@ const ReportsAndBudgets: React.FC<ReportsAndBudgetsProps> = ({ values, onPrevBut
     return (values?.viewVisualization?.chartType as ViewChartType) || ViewChartType.StackedLineChart
   })
 
-  const history = useHistory()
-  const { trackEvent } = useTelemetry()
   const { getString } = useStrings()
-  const { perspectiveId, accountId } = useParams<UrlParams>()
-
-  const savePerspective = (): void => {
-    history.push(
-      routes.toPerspectiveDetails({
-        accountId,
-        perspectiveId,
-        perspectiveName: perspectiveId
-      })
-    )
-  }
 
   return (
     <Container className={css.mainContainer}>
@@ -131,14 +118,7 @@ const ReportsAndBudgets: React.FC<ReportsAndBudgetsProps> = ({ values, onPrevBut
           <FlexExpander />
           <Layout.Horizontal padding={{ top: 'medium' }} spacing="large">
             <Button icon="chevron-left" text={getString('previous')} onClick={onPrevButtonClick} />
-            <Button
-              intent="primary"
-              text={getString('ce.perspectives.save')}
-              onClick={() => {
-                trackEvent(USER_JOURNEY_EVENTS.SAVE_PERSPECTIVE, {})
-                savePerspective()
-              }}
-            />
+            <Button intent="primary" icon="chevron-right" text={getString('next')} onClick={onNext} />
           </Layout.Horizontal>
         </Layout.Vertical>
         {values && (

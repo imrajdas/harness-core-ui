@@ -82,7 +82,11 @@ const PerspectiveBuilderPreview: React.FC<PerspectiveBuilderPreviewProps> = ({
           (formValues.viewVisualization?.granularity as QlceViewTimeGroupType) || QlceViewTimeGroupType.Day
         ),
         getGroupByFilter(groupBy)
-      ]
+      ],
+      preferences: {
+        includeOthers: false,
+        includeUnallocatedCost: false
+      }
     }
   })
 

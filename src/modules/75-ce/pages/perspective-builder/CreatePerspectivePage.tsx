@@ -19,10 +19,12 @@ import {
   PageBody,
   PageSpinner
 } from '@wings-software/uicore'
+import { Color } from '@harness/design-system'
 import { Breadcrumbs } from '@common/components/Breadcrumbs/Breadcrumbs'
 import routes from '@common/RouteDefinitions'
 import { useGetPerspective, CEView } from 'services/ce/'
 
+import PerspectivePreferences from '@ce/components/PerspectivePreferences/PerspectivePreferences'
 import PerspectiveBuilder from '../../components/PerspectiveBuilder'
 import ReportsAndBudgets from '../../components/PerspectiveReportsAndBudget/PerspectiveReportsAndBudgets'
 import css from './CreatePerspectivePage.module.scss'
@@ -54,10 +56,11 @@ const PerspectiveHeader: React.FC<{ title: string }> = ({ title }) => {
 }
 
 const CreatePerspectivePage: React.FC = () => {
-  const tabHeadings = ['1. Perspective Builder', '2. Reports and Budget']
+  const tabHeadings = ['1. Perspective Builder', '2. Reports and Budget', '3. Preferences']
   const [selectedTabId, setSelectedTabId] = useState(tabHeadings[0])
 
   const [perspectiveData, setPerspectiveData] = useState<CEView | null>(null)
+  const [updatePayload, setUpdatePayload] = useState<CEView | null>(null)
 
   const { perspectiveId, accountId } = useParams<{
     perspectiveId: string
@@ -124,9 +127,10 @@ const CreatePerspectivePage: React.FC = () => {
                 panel={
                   <PerspectiveBuilder
                     perspectiveData={perspectiveData}
-                    onNext={resource => {
+                    onNext={(resource, payload) => {
                       setSelectedTabId(tabHeadings[1])
                       setPerspectiveData(resource)
+                      setUpdatePayload(payload)
                     }}
                   />
                 }
@@ -167,9 +171,43 @@ const CreatePerspectivePage: React.FC = () => {
                       setSelectedTabId(tabHeadings[0])
                     }}
                     values={perspectiveData}
+                    onNext={() => {
+                      setSelectedTabId(tabHeadings[2])
+                    }}
                   />
                 }
                 data-testid={tabHeadings[1]}
+              />
+              <Icon
+                name="chevron-right"
+                height={20}
+                size={20}
+                margin={{ right: 'small', left: 'small' }}
+                color={Color.GREY_400}
+                style={{ alignSelf: 'center' }}
+              />
+              <Tab
+                disabled={selectedTabId !== tabHeadings[2]}
+                id={tabHeadings[2]}
+                panelClassName={css.panelClass}
+                title={
+                  <>
+                    <span data-tooltip-id="perspectivePreferences" className={css.tab}>
+                      {tabHeadings[2]}
+                    </span>
+                    <HarnessDocTooltip tooltipId="perspectivePreferences" useStandAlone={true} />
+                  </>
+                }
+                panel={
+                  <PerspectivePreferences
+                    perspectiveData={perspectiveData}
+                    onPrevButtonClick={() => {
+                      setSelectedTabId(tabHeadings[1])
+                    }}
+                    updatePayload={updatePayload}
+                  />
+                }
+                data-testid={tabHeadings[2]}
               />
             </Tabs>
           </div>

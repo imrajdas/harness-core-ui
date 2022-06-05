@@ -61,6 +61,7 @@ interface PerspectiveExplorerGroupByProps {
   groupBy: QlceViewFieldInputInput
   setGroupBy: setGroupByFn
   timeFilter: QlceViewFilterWrapperInput[]
+  preferencesDropDown?: React.ReactNode
 }
 
 const PerspectiveExplorerGroupBy: React.FC<PerspectiveExplorerGroupByProps> = ({
@@ -68,7 +69,8 @@ const PerspectiveExplorerGroupBy: React.FC<PerspectiveExplorerGroupByProps> = ({
   setChartType,
   groupBy,
   setGroupBy,
-  timeFilter
+  timeFilter,
+  preferencesDropDown
 }) => {
   const { perspectiveId } = useParams<{ perspectiveId: string }>()
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
@@ -119,6 +121,7 @@ const PerspectiveExplorerGroupBy: React.FC<PerspectiveExplorerGroupByProps> = ({
           setDrawerOpen(true)
         }}
       />
+      {preferencesDropDown}
       <ChartTypeSwitcher chartType={chartType} setChartType={setChartType} />
       <Drawer
         autoFocus
