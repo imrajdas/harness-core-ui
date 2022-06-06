@@ -364,3 +364,6 @@ overrideYaml: Override Yaml Values
 manifestId: Manifest Id
 azureWebAppRollbackDescription: Rollback to the last successfully deployed app.
 azureWebAppSwapSlotDescription: Azure Swap environment slot with new instance.
+getStartedWithCD:
+  workloadDeploy: What workload would you like to deploy?
+  serverless: Serverless Function

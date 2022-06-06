@@ -5,17 +5,18 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import cx from 'classnames'
 import { Text, FontVariation, Icon, Layout, Button, ButtonVariation, Container } from '@harness/uicore'
 import type { IconProps } from '@harness/icons'
 import { useStrings } from 'framework/strings'
 import type { StringsMap } from 'stringTypes'
+import { InfraProvisioningWizard } from './DeployProvisioningWizard/DeployProvisioningWizard'
 import css from './GetStartedWithCD.module.scss'
 
 export default function GetStartedWithCI(): React.ReactElement {
   const { getString } = useStrings()
-
+  const [showWizard, setShowWizard] = useState<boolean>(false)
   const renderBuildPipelineStep = React.useCallback(
     ({ iconProps, label, isLastStep }: { iconProps: IconProps; label: keyof StringsMap; isLastStep?: boolean }) => (
       <Layout.Horizontal flex padding={{ right: 'xsmall' }} spacing="small">
@@ -29,7 +30,9 @@ export default function GetStartedWithCI(): React.ReactElement {
     []
   )
 
-  return (
+  return showWizard ? (
+    <InfraProvisioningWizard />
+  ) : (
     <>
       <Layout.Vertical flex className={css.buildYourOwnPipeline}>
         <Layout.Horizontal flex className={css.cdIcon}>
@@ -84,6 +87,7 @@ export default function GetStartedWithCI(): React.ReactElement {
           <Button
             variation={ButtonVariation.PRIMARY}
             className={css.createPipeline}
+            onClick={() => setShowWizard(true)}
             text={getString('common.createPipeline')}
           />
         </Layout.Vertical>
