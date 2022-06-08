@@ -13,9 +13,15 @@ import routes from '@common/RouteDefinitions'
 import { RouteWithLayout } from '@common/router'
 import {
   accountPathProps,
+  connectorPathProps,
+  delegateConfigProps,
+  delegatePathProps,
+  orgPathProps,
+  pipelineModuleParams,
   projectPathProps,
   resourceGroupPathProps,
   rolePathProps,
+  secretPathProps,
   serviceAccountProps,
   userGroupPathProps,
   userPathProps
@@ -40,9 +46,24 @@ import { useAppStore } from 'framework/AppStore/AppStoreContext'
 import { PAGE_NAME } from '@common/pages/pageContext/PageName'
 import ConnectorsPage from '@connectors/pages/connectors/ConnectorsPage'
 import { ConnectorReferenceField } from '@connectors/components/ConnectorReferenceField/ConnectorReferenceField'
-import ChaosSideNav from './components/ChaosSideNav/ChaosSideNav'
+import CreateConnectorFromYamlPage from '@connectors/pages/createConnectorFromYaml/CreateConnectorFromYamlPage'
+import SecretsPage from '@secrets/pages/secrets/SecretsPage'
+import VariablesPage from '@variables/pages/variables/VariablesPage'
+import ConnectorDetailsPage from '@connectors/pages/connectors/ConnectorDetailsPage/ConnectorDetailsPage'
+import { RedirectToSecretDetailHome } from '@secrets/RouteDestinations'
+import SecretDetailsHomePage from '@secrets/pages/secretDetailsHomePage/SecretDetailsHomePage'
+import SecretDetails from '@secrets/pages/secretDetails/SecretDetails'
+import SecretReferences from '@secrets/pages/secretReferences/SecretReferences'
+import DelegatesPage from '@delegates/pages/delegates/DelegatesPage'
+import DelegateListing from '@delegates/pages/delegates/DelegateListing'
+import DelegateConfigurations from '@delegates/pages/delegates/DelegateConfigurations'
+import DelegateDetails from '@delegates/pages/delegates/DelegateDetails'
+import DelegateProfileDetails from '@delegates/pages/delegates/DelegateConfigurationDetailPage'
+import DelegateTokens from '@delegates/components/DelegateTokens/DelegateTokens'
+import CreateSecretFromYamlPage from '@secrets/pages/createSecretFromYaml/CreateSecretFromYamlPage'
 import ChaosHomePage from './pages/home/ChaosHomePage'
 import type { ChaosCustomMicroFrontendProps } from './interfaces/Chaos.types'
+import ChaosSideNav from './components/ChaosSideNav/ChaosSideNav'
 
 // eslint-disable-next-line import/no-unresolved
 const ChaosMicroFrontend = React.lazy(() => import('chaos/MicroFrontendApp'))
@@ -125,6 +146,184 @@ export default (
       path={routes.toConnectors({ ...accountPathProps, ...projectPathProps, ...chaosModuleParams })}
     >
       <ConnectorsPage />
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toCreateConnectorFromYaml({ ...accountPathProps, ...projectPathProps, ...chaosModuleParams })}
+      pageName={PAGE_NAME.CreateConnectorFromYamlPage}
+    >
+      <CreateConnectorFromYamlPage />
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toCreateConnectorFromYaml({ ...accountPathProps, ...orgPathProps })}
+      pageName={PAGE_NAME.CreateConnectorFromYamlPage}
+    >
+      <CreateConnectorFromYamlPage />
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toSecrets({ ...accountPathProps, ...projectPathProps, ...chaosModuleParams })}
+      pageName={PAGE_NAME.SecretsPage}
+    >
+      <SecretsPage />
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toVariables({ ...accountPathProps, ...projectPathProps, ...chaosModuleParams })}
+    >
+      <VariablesPage />
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toConnectorDetails({
+        ...accountPathProps,
+        ...projectPathProps,
+        ...connectorPathProps,
+        ...pipelineModuleParams
+      })}
+      pageName={PAGE_NAME.ConnectorDetailsPage}
+    >
+      <ConnectorDetailsPage />
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toSecretDetails({
+        ...accountPathProps,
+        ...projectPathProps,
+        ...secretPathProps,
+        ...pipelineModuleParams
+      })}
+    >
+      <RedirectToSecretDetailHome />
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toSecretDetailsOverview({
+        ...accountPathProps,
+        ...projectPathProps,
+        ...secretPathProps,
+        ...pipelineModuleParams
+      })}
+      pageName={PAGE_NAME.SecretDetails}
+    >
+      <SecretDetailsHomePage>
+        <SecretDetails />
+      </SecretDetailsHomePage>
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toSecretDetailsReferences({
+        ...accountPathProps,
+        ...projectPathProps,
+        ...secretPathProps,
+        ...pipelineModuleParams
+      })}
+      pageName={PAGE_NAME.SecretReferences}
+    >
+      <SecretDetailsHomePage>
+        <SecretReferences />
+      </SecretDetailsHomePage>
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toDelegateList({
+        ...accountPathProps,
+        ...projectPathProps,
+        ...pipelineModuleParams
+      })}
+      pageName={PAGE_NAME.DelegateListing}
+    >
+      <DelegatesPage>
+        <DelegateListing />
+      </DelegatesPage>
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toDelegateConfigs({
+        ...accountPathProps,
+        ...projectPathProps,
+        ...pipelineModuleParams
+      })}
+      pageName={PAGE_NAME.DelegateConfigurations}
+    >
+      <DelegatesPage>
+        <DelegateConfigurations />
+      </DelegatesPage>
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toDelegatesDetails({
+        ...accountPathProps,
+        ...projectPathProps,
+        ...delegatePathProps,
+        ...pipelineModuleParams
+      })}
+      pageName={PAGE_NAME.DelegateDetails}
+    >
+      <DelegateDetails />
+    </RouteWithLayout>
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={[
+        routes.toDelegateConfigsDetails({
+          ...accountPathProps,
+          ...projectPathProps,
+          ...delegateConfigProps,
+          ...pipelineModuleParams
+        }),
+        routes.toEditDelegateConfigsDetails({
+          ...accountPathProps,
+          ...projectPathProps,
+          ...delegateConfigProps,
+          ...pipelineModuleParams
+        })
+      ]}
+      pageName={PAGE_NAME.DelegateProfileDetails}
+    >
+      <DelegateProfileDetails />
+    </RouteWithLayout>
+
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={[
+        routes.toDelegateTokens({
+          ...accountPathProps,
+          ...projectPathProps,
+          ...pipelineModuleParams
+        })
+      ]}
+      pageName={PAGE_NAME.DelegateTokens}
+    >
+      <DelegatesPage>
+        <DelegateTokens />
+      </DelegatesPage>
+    </RouteWithLayout>
+    <RouteWithLayout
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toCreateSecretFromYaml({
+        ...accountPathProps,
+        ...projectPathProps,
+        ...orgPathProps,
+        ...pipelineModuleParams
+      })}
+      exact
+      pageName={PAGE_NAME.CreateSecretFromYamlPage}
+    >
+      <CreateSecretFromYamlPage />
     </RouteWithLayout>
     <RouteWithLayout
       sidebarProps={ChaosSideNavProps}
