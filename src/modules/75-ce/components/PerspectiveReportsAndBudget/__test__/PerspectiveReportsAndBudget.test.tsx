@@ -164,7 +164,7 @@ describe('test cases for Perspective Reports and Budget page', () => {
     const handlePrevButtonClick = jest.fn().mockImplementationOnce(() => ({}))
     const { container } = render(
       <TestWrapper pathParams={params}>
-        <PerspectiveReportsAndBudgets onPrevButtonClick={handlePrevButtonClick} />
+        <PerspectiveReportsAndBudgets onPrevButtonClick={handlePrevButtonClick} onNext={jest.fn()} />
       </TestWrapper>
     )
     expect(container).toMatchSnapshot()

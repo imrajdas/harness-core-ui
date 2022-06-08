@@ -37,6 +37,9 @@ const PerspectivePreferences: React.FC<PerspectivePreferencesProps> = ({
 
   const [preferences, setPreferences] = useState<ViewPreferences | undefined>(perspectiveData.viewPreferences)
 
+  const isClusterDatasource =
+    perspectiveData.dataSources?.length === 1 && perspectiveData.dataSources.includes('CLUSTER')
+
   const { mutate: updatePerspective } = useUpdatePerspective({
     queryParams: {
       accountIdentifier: accountId
@@ -77,19 +80,20 @@ const PerspectivePreferences: React.FC<PerspectivePreferencesProps> = ({
         </Text>
         <Container height={'100%'} width={500}>
           <Text color={Color.GREY_500} font={{ variation: FontVariation.SMALL }} margin={{ bottom: 'medium' }}>
-            You can change them later when vieweing perspectives
+            {getString('ce.perspectives.createPerspective.preferences.changeLater')}
           </Text>
           <Switch
             large
             checked={preferences?.includeOthers}
-            label={'Include Others'}
+            label={getString('ce.perspectives.createPerspective.preferences.includeOthers')}
             className={css.prefLabel}
             onChange={() => setPreferences(prevPref => ({ ...prevPref, includeOthers: !prevPref?.includeOthers }))}
           />
           <Switch
             large
             checked={preferences?.includeUnallocatedCost}
-            label={'Include Unallocated'}
+            label={getString('ce.perspectives.createPerspective.preferences.includeUnallocated')}
+            disabled={!isClusterDatasource}
             className={css.prefLabel}
             onChange={() =>
               setPreferences(prevPref => ({ ...prevPref, includeUnallocatedCost: !prevPref?.includeUnallocatedCost }))

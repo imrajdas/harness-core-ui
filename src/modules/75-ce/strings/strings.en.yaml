@@ -764,6 +764,10 @@ perspectives:
       opNull: 'NULL'
       opNotNull: 'NOT NULL'
       opLike: 'LIKE'
+    preferences:
+      changeLater: You can change them later when vieweing perspectives
+      includeOthers: Include Others
+      includeUnallocated: Include Unallocated
   reports:
     title: 'Report Schedules({{ count }})'
     desc: Reports can send a cost report to specified users at the specified frequency.
