@@ -1595,8 +1595,8 @@ const routes = {
 
   // These RoutesDestinations are defined in the MicroFrontend
   toChaosWorkflows: withAccountId(
-    ({ orgIdentifier, projectIdentifier }: Partial<ProjectPathProps>) =>
-      `/chaos/orgs/${orgIdentifier}/projects/${projectIdentifier}/workflows`
+    ({ orgIdentifier, projectIdentifier }: Partial<ProjectPathProps & ModulePathParams>) =>
+      `/chaos/orgs/${orgIdentifier}/projects/${projectIdentifier}/scenarios/runs`
   ),
   toChaosHubs: withAccountId(
     ({ orgIdentifier, projectIdentifier }: Partial<ProjectPathProps>) =>

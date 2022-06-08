@@ -38,15 +38,14 @@ import RbacFactory from '@rbac/factories/RbacFactory'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { useAppStore } from 'framework/AppStore/AppStoreContext'
 import { PAGE_NAME } from '@common/pages/pageContext/PageName'
+import ConnectorsPage from '@connectors/pages/connectors/ConnectorsPage'
+import { ConnectorReferenceField } from '@connectors/components/ConnectorReferenceField/ConnectorReferenceField'
 import ChaosSideNav from './components/ChaosSideNav/ChaosSideNav'
 import ChaosHomePage from './pages/home/ChaosHomePage'
+import type { ChaosCustomMicroFrontendProps } from './interfaces/Chaos.types'
 
 // eslint-disable-next-line import/no-unresolved
 const ChaosMicroFrontend = React.lazy(() => import('chaos/MicroFrontendApp'))
-
-export interface ChaosCustomMicroFrontendProps {
-  customComponents: Record<string, never>
-}
 
 RbacFactory.registerResourceCategory(ResourceCategory.CHAOS, {
   icon: 'ci-dev-exp',
@@ -120,6 +119,13 @@ export default (
     </RouteWithLayout>
 
     {/* Access Control */}
+    <RouteWithLayout
+      exact
+      sidebarProps={ChaosSideNavProps}
+      path={routes.toConnectors({ ...accountPathProps, ...projectPathProps, ...chaosModuleParams })}
+    >
+      <ConnectorsPage />
+    </RouteWithLayout>
     <RouteWithLayout
       sidebarProps={ChaosSideNavProps}
       path={routes.toAccessControl({ ...projectPathProps, ...chaosModuleParams })}
@@ -228,7 +234,12 @@ export default (
 
     {/* Loads the Chaos MicroFrontend */}
     <RouteWithLayout sidebarProps={ChaosSideNavProps} path={routes.toChaosMicroFrontend({ ...projectPathProps })}>
-      <ChildAppMounter<ChaosCustomMicroFrontendProps> ChildApp={ChaosMicroFrontend} customComponents={{}} />
+      <ChildAppMounter<ChaosCustomMicroFrontendProps>
+        ChildApp={ChaosMicroFrontend}
+        customComponents={{
+          ConnectorReferenceField
+        }}
+      />
     </RouteWithLayout>
   </>
 )
