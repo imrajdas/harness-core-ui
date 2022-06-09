@@ -637,6 +637,42 @@ exports[`test cases for Perspective details Page should be able to render no dat
               </span>
             </div>
           </section>
+          <span
+            class="bp3-popover-wrapper"
+          >
+            <span
+              class="bp3-popover-target preferencesPopover"
+            >
+              <div
+                class="StyledProps--font StyledProps--main preferencesContainer"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-variation-small-semi"
+                >
+                  preferences
+                </p>
+                <span
+                  class="bp3-icon bp3-icon-chevron-down StyledProps--main"
+                  icon="chevron-down"
+                >
+                  <svg
+                    data-icon="chevron-down"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                  >
+                    <desc>
+                      chevron-down
+                    </desc>
+                    <path
+                      d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </span>
+          </span>
           <div
             class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
             style="align-items: center; justify-content: flex-end;"
@@ -1480,6 +1516,42 @@ exports[`test cases for Perspective details Page should be able to render the de
               </span>
             </div>
           </section>
+          <span
+            class="bp3-popover-wrapper"
+          >
+            <span
+              class="bp3-popover-target preferencesPopover"
+            >
+              <div
+                class="StyledProps--font StyledProps--main preferencesContainer"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-variation-small-semi"
+                >
+                  preferences
+                </p>
+                <span
+                  class="bp3-icon bp3-icon-chevron-down StyledProps--main"
+                  icon="chevron-down"
+                >
+                  <svg
+                    data-icon="chevron-down"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                  >
+                    <desc>
+                      chevron-down
+                    </desc>
+                    <path
+                      d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </span>
+          </span>
           <div
             class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
             style="align-items: center; justify-content: flex-end;"

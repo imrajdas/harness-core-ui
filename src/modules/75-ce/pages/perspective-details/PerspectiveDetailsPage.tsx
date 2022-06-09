@@ -571,16 +571,17 @@ const PreferencesDropDown: React.FC<{
               setPreferences(prevPref => ({ ...prevPref, includeOthers: event.currentTarget.checked }))
             }}
           />
-          <Switch
-            large
-            checked={Boolean(preferences.includeUnallocatedCost)}
-            label={getString('ce.perspectives.createPerspective.preferences.includeUnallocated')}
-            disabled={!isClusterDatasource}
-            className={css.prefLabel}
-            onChange={event => {
-              setPreferences(prevPref => ({ ...prevPref, includeUnallocatedCost: event.currentTarget.checked }))
-            }}
-          />
+          {isClusterDatasource ? (
+            <Switch
+              large
+              checked={Boolean(preferences.includeUnallocatedCost)}
+              label={getString('ce.perspectives.createPerspective.preferences.includeUnallocated')}
+              className={css.prefLabel}
+              onChange={event => {
+                setPreferences(prevPref => ({ ...prevPref, includeUnallocatedCost: event.currentTarget.checked }))
+              }}
+            />
+          ) : null}
         </Container>
       }
       minimal

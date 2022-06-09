@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { fireEvent, getAllByText, getByLabelText, render } from '@testing-library/react'
+import { fireEvent, getByLabelText, getByText, render } from '@testing-library/react'
 import { omit } from 'lodash-es'
 
 import { TestWrapper } from '@common/utils/testUtils'
@@ -123,7 +123,7 @@ describe('Tests for PerspectivePreferences Component', () => {
       </TestWrapper>
     )
 
-    expect(getAllByText(container, 'preferences')).toBeDefined()
+    expect(getByText(container, 'preferences')).toBeDefined()
     expect(getByLabelText(container, 'ce.perspectives.createPerspective.preferences.includeOthers')).toBeDefined()
     expect(getByLabelText(container, 'ce.perspectives.createPerspective.preferences.includeUnallocated')).toBeDefined()
   })
@@ -139,8 +139,7 @@ describe('Tests for PerspectivePreferences Component', () => {
       </TestWrapper>
     )
 
-    const includeUnallocatedCheckbox = container.querySelectorAll('input[type="checkbox"]')[1]
-    expect(includeUnallocatedCheckbox).toBeDisabled()
+    expect(container.querySelectorAll('input[type="checkbox"]').length).toBe(1)
   })
 
   test('Should be able to set preferences', () => {
@@ -181,6 +180,6 @@ describe('Tests for PerspectivePreferences Component', () => {
     const includeUnallocatedCheckbox = container.querySelectorAll('input[type="checkbox"]')[1]
 
     expect(includeOthersCheckbox).not.toBeChecked()
-    expect(includeUnallocatedCheckbox).not.toBeChecked()
+    expect(includeUnallocatedCheckbox).toBeUndefined()
   })
 })

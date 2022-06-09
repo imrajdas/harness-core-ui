@@ -52,7 +52,10 @@ const PerspectivePreferences: React.FC<PerspectivePreferencesProps> = ({
       viewPreferences: preferences
     })
 
-    trackEvent(USER_JOURNEY_EVENTS.SAVE_PERSPECTIVE, {})
+    trackEvent(USER_JOURNEY_EVENTS.SAVE_PERSPECTIVE, {
+      include_others: preferences?.includeOthers,
+      include_unallocated: preferences?.includeUnallocatedCost
+    })
 
     history.push(
       routes.toPerspectiveDetails({
@@ -76,7 +79,7 @@ const PerspectivePreferences: React.FC<PerspectivePreferencesProps> = ({
           padding={{ bottom: 'small' }}
           border={{ bottom: true, color: Color.GREY_200 }}
         >
-          {getString('preferences')}
+          {getString('ce.perspectives.sideNavText')}
         </Text>
         <Container height={'100%'} width={500}>
           <Text color={Color.GREY_500} font={{ variation: FontVariation.SMALL }} margin={{ bottom: 'medium' }}>
@@ -89,16 +92,17 @@ const PerspectivePreferences: React.FC<PerspectivePreferencesProps> = ({
             className={css.prefLabel}
             onChange={() => setPreferences(prevPref => ({ ...prevPref, includeOthers: !prevPref?.includeOthers }))}
           />
-          <Switch
-            large
-            checked={preferences?.includeUnallocatedCost}
-            label={getString('ce.perspectives.createPerspective.preferences.includeUnallocated')}
-            disabled={!isClusterDatasource}
-            className={css.prefLabel}
-            onChange={() =>
-              setPreferences(prevPref => ({ ...prevPref, includeUnallocatedCost: !prevPref?.includeUnallocatedCost }))
-            }
-          />
+          {isClusterDatasource ? (
+            <Switch
+              large
+              checked={preferences?.includeUnallocatedCost}
+              label={getString('ce.perspectives.createPerspective.preferences.includeUnallocated')}
+              className={css.prefLabel}
+              onChange={() =>
+                setPreferences(prevPref => ({ ...prevPref, includeUnallocatedCost: !prevPref?.includeUnallocatedCost }))
+              }
+            />
+          ) : null}
         </Container>
         <Layout.Horizontal padding={{ top: 'medium' }} spacing="large">
           <Button
