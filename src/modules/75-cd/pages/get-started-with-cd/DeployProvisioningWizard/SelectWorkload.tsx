@@ -8,73 +8,56 @@
 import React, { useRef, useState } from 'react'
 
 import cx from 'classnames'
-import { Text, FontVariation, Layout, CardSelect, Icon, Container, Formik, FormikForm as Form } from '@harness/uicore'
+import {
+  Text,
+  FontVariation,
+  Layout,
+  CardSelect,
+  Icon,
+  Container,
+  Formik,
+  FormikForm as Form,
+  ThumbnailSelect,
+  Color
+} from '@harness/uicore'
 import type { FormikContextType } from 'formik'
 import { useStrings } from 'framework/strings'
 
-import {
-  GitAuthenticationMethod,
-  Hosting,
-  WorkloadProvider,
-  AllSaaSWorkloadProviders,
-  AllOnPremWorkloadProviders
-} from './Constants'
+import { WorkloadType, AllSaaSWorkloadProviders, deploymentTypes } from './Constants'
 
 import css from './DeployProvisioningWizard.module.scss'
 
-export interface SelectGitProviderRef {
-  values: SelectGitProviderInterface
-  setFieldTouched(field: keyof SelectGitProviderInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
+export interface SelectWorkloadRef {
+  values: SelectWorkloadInterface
+  setFieldTouched(field: keyof SelectWorkloadInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
   validate: () => boolean
   showValidationErrors: () => void
-  // validatedConnector?: ConnectorInfoDTO
-  // validatedSecret?: SecretDTOV2
+}
+export interface SelectWorkloadInterface {
+  workloadType?: string
+  deploymentType?: string
 }
 
-export type SelectGitProviderForwardRef =
-  | ((instance: SelectGitProviderRef | null) => void)
-  | React.MutableRefObject<SelectGitProviderRef | null>
-  | null
-
-interface SelectWorkloadProviderProps {
-  selectedHosting?: Hosting
+interface SelectWorkloadProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
 }
 
-export interface SelectGitProviderInterface {
-  url?: string
-  accessToken?: string
-  username?: string
-  applicationPassword?: string
-  accessKey?: string
-  gitAuthenticationMethod?: GitAuthenticationMethod
-  gitProvider?: WorkloadProvider
-}
-
-const SelectWorkloadRef = (
-  props: SelectWorkloadProviderProps
-  //   forwardRef: SelectGitProviderForwardRef
-): React.ReactElement => {
-  const { selectedHosting } = props
+const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
   const { getString } = useStrings()
-  const formikRef = useRef<FormikContextType<SelectGitProviderInterface>>()
-  const [workloadProvider] = useState<WorkloadProvider | undefined>()
+  const { disableNextBtn, enableNextBtn } = props
+  const [workloadType, setWorkloadType] = useState<WorkloadType | undefined>()
+  const formikRef = useRef<FormikContextType<SelectWorkloadInterface>>()
+
   return (
     <Layout.Vertical width="70%">
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
-      <Formik<SelectGitProviderInterface>
-        initialValues={
-          {
-            //   ...getInitialValues(),
-            //   gitProvider: undefined,
-            //   gitAuthenticationMethod: undefined
-          }
-        }
+      <Formik<SelectWorkloadInterface>
+        initialValues={{}}
         formName="ciInfraProvisiong-gitProvider"
         // validationSchema={getValidationSchema()}
         validateOnChange={true}
-        onSubmit={(values: SelectGitProviderInterface) => Promise.resolve(values)}
+        onSubmit={(values: SelectWorkloadInterface) => Promise.resolve(values)}
       >
         {formikProps => {
           formikRef.current = formikProps
@@ -82,14 +65,14 @@ const SelectWorkloadRef = (
             <Form>
               <Container
                 padding={{ top: 'xxlarge', bottom: 'xxxlarge' }}
-                className={cx({ [css.borderBottom]: workloadProvider })}
+                className={cx({ [css.borderBottom]: workloadType })}
               >
                 <CardSelect
-                  data={selectedHosting === Hosting.SaaS ? AllSaaSWorkloadProviders : AllOnPremWorkloadProviders}
+                  data={AllSaaSWorkloadProviders}
                   cornerSelected={true}
                   className={css.icons}
-                  cardClassName={css.gitProviderCard}
-                  renderItem={(item: WorkloadProvider) => (
+                  cardClassName={css.workloadTypeCard}
+                  renderItem={(item: WorkloadType) => (
                     <>
                       <Layout.Vertical flex>
                         <Icon
@@ -99,8 +82,7 @@ const SelectWorkloadRef = (
                           className={cx(
                             { [css.serviceIcon]: item.icon === 'services' },
                             { [css.gitlabIcon]: item.icon === 'service-serverless' },
-                            { [css.bitbucketIcon]: item.icon === 'services' },
-                            { [css.genericGitIcon]: item.icon === 'service-github' }
+                            { [css.bitbucketIcon]: item.icon === 'services' }
                           )}
                         />
                         <Text font={{ variation: FontVariation.SMALL_SEMI }} padding={{ top: 'small' }}>
@@ -109,17 +91,47 @@ const SelectWorkloadRef = (
                       </Layout.Vertical>
                     </>
                   )}
-                  selected={workloadProvider}
-                  onChange={() => {
-                    // formikProps.setFieldValue('gitProvider', item)
-                    // setGitProvider(item)
-                    // setTestConnectionStatus(TestStatus.NOT_INITIATED)
-                    // resetFormFields()
-                    // setAuthMethod(undefined)
+                  selected={workloadType}
+                  onChange={(item: WorkloadType) => {
+                    formikProps.setFieldValue('workloadType', item)
+                    setWorkloadType(item)
                   }}
                 />
               </Container>
-              <Container padding={{ top: 'large', bottom: 'xxxlarge' }} className={css.borderBottom}></Container>
+
+              {workloadType?.label === 'services' ? (
+                <Layout.Horizontal>
+                  <Container padding={{ bottom: 'xxlarge' }}>
+                    <Text font={{ variation: FontVariation.H5 }} padding={{ top: 'xlarge', bottom: 'xlarge' }}>
+                      {getString('cd.getStartedWithCD.serviceDeploy')}
+                    </Text>
+                    <ThumbnailSelect
+                      name="deploymentType"
+                      items={deploymentTypes}
+                      onChange={type => {
+                        formikProps?.setFieldValue('deploymentType', type)
+                      }}
+                    ></ThumbnailSelect>
+                    <Container padding={{ bottom: 'xxlarge' }}>
+                      <Text font={{ variation: FontVariation.H5 }} padding={{ top: 'xlarge', bottom: 'xlarge' }}>
+                        {getString('cd.getStartedWithCD.serviceName')}
+                      </Text>
+                      <Text color={Color.GREY_600} iconProps={{ size: 14 }} padding={{ bottom: 'xlarge' }}>
+                        {getString('cd.getStartedWithCD.serviceName')}
+                      </Text>
+                      {/* <DropDown
+                        filterable={false}
+                        width={180}
+                        icon={'main-sort'}
+                        iconProps={{ size: 16, color: Color.GREY_400 }}
+                        onChange={onChange()}
+                        items={[]}
+                      /> */}
+                      {/* {disableNextBtn()} */}
+                    </Container>
+                  </Container>
+                </Layout.Horizontal>
+              ) : null}
             </Form>
           )
         }}

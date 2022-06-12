@@ -21,13 +21,7 @@
   background: var(--primary-1);
 }
 
-.hostingToggle {
-  :global(.PillToggle--item) {
-    width: 167px !important;
-  }
-}
-
-.gitProviderCard {
+.workloadTypeCard {
   height: 110px;
   width: 110px;
   margin-right: var(--spacing-large);
@@ -57,75 +51,10 @@
   border-bottom: 1px solid var(--grey-200);
 }
 
-.comingSoonPill {
-  background: linear-gradient(152.65deg, var(--purple-200) 5.9%, var(--purple-400) 89.46%) !important;
-  border-radius: 4px;
-  height: 18px;
-  width: 77px;
-}
-
-.repositories {
-  height: 63vh;
-  width: 676px;
-}
-
-.repositoryTable {
-  height: fit-content;
-  max-height: 100%;
-  overflow-y: scroll;
-  border-radius: 8px;
-  border: 1px solid var(--grey-200);
-  > div {
-    max-height: 100%;
-    > div {
-      padding: 0 !important;
-    }
-  }
-}
-
-.repositoryRow {
-  height: 51px;
-  padding: var(--spacing-medium) var(--spacing-xlarge) !important;
-}
-
-.repositoryRow:hover {
-  background-color: var(--primary-1);
-  cursor: pointer;
-}
-
-.repositorySearch {
-  [class*='bp3-input'] {
-    height: 42px;
-    width: 675px;
-    border-radius: 6px;
-    padding-left: var(--spacing-xxxlarge) !important;
-  }
-}
-
 .authMethodBtn {
   border: 1px solid var(--grey-100) !important;
   box-sizing: border-box;
   box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04), 0px 2px 4px rgba(96, 97, 112, 0.16) !important;
-}
-
-.learnMore {
-  padding: 0 !important;
-}
-
-.testConnectionBtn {
-  width: fit-content;
-}
-
-.provisioningFailed {
-  width: fit-content !important;
-  background-color: var(--red-50) !important;
-  border-radius: 4px;
-}
-
-.provisioningSuccessful {
-  width: fit-content !important;
-  background-color: var(--green-50) !important;
-  border-radius: 4px;
 }
 
 .main {

@@ -366,4 +366,8 @@ azureWebAppRollbackDescription: Rollback to the last successfully deployed app.
 azureWebAppSwapSlotDescription: Azure Swap environment slot with new instance.
 getStartedWithCD:
   workloadDeploy: What workload would you like to deploy?
+  serviceDeploy: Where do you want to deploy your service?
+  serviceName: What is the name of your Service?
+  configureRepo: Configure Repository
+  serviceName: Service Name
   serverless: Serverless Function

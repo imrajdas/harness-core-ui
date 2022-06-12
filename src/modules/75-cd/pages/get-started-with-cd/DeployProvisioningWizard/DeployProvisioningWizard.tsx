@@ -15,69 +15,67 @@ import {
   InfraProvisioningWizardProps,
   WizardStep,
   InfraProvisiongWizardStepId,
-  StepStatus,
-  Hosting
+  StepStatus
+
   // eslint-disable-next-line import/namespace
 } from './Constants'
-import { SelectWorkload } from './SelectWorkload'
+import { SelectWorkload, SelectWorkloadRef } from './SelectWorkload'
 import css from './DeployProvisioningWizard.module.scss'
 export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = props => {
-  const { lastConfiguredWizardStepId = InfraProvisiongWizardStepId.SelectGitProvider } = props
+  const { lastConfiguredWizardStepId = InfraProvisiongWizardStepId.SelectWorkload } = props
   const { getString } = useStrings()
   const [disableBtn, setDisableBtn] = useState<boolean>(false)
-  const [currentWizardStepId] = useState<InfraProvisiongWizardStepId>(lastConfiguredWizardStepId)
+
+  const [currentWizardStepId, setCurrentWizardStepId] =
+    useState<InfraProvisiongWizardStepId>(lastConfiguredWizardStepId)
+
+  const selectWorkloadRef = React.useRef<SelectWorkloadRef | null>(null)
   // const [showError, setShowError] = useState<boolean>(false)
   // const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
   // const history = useHistory()
   const [showPageLoader] = useState<boolean>(false)
 
-  const [wizardStepStatus] = useState<Map<InfraProvisiongWizardStepId, StepStatus>>(
+  const [wizardStepStatus, setWizardStepStatus] = useState<Map<InfraProvisiongWizardStepId, StepStatus>>(
     new Map<InfraProvisiongWizardStepId, StepStatus>([
-      [InfraProvisiongWizardStepId.SelectGitProvider, StepStatus.InProgress],
-      [InfraProvisiongWizardStepId.SelectRepository, StepStatus.ToDo]
+      [InfraProvisiongWizardStepId.SelectWorkload, StepStatus.InProgress],
+      [InfraProvisiongWizardStepId.SelectRepository, StepStatus.ToDo],
+      [InfraProvisiongWizardStepId.SelectInfraStructure, StepStatus.ToDo]
     ])
   )
 
-  // const updateStepStatus = React.useCallback((stepIds: InfraProvisiongWizardStepId[], status: StepStatus) => {
-  //   if (Array.isArray(stepIds)) {
-  //     setWizardStepStatus((prevState: Map<InfraProvisiongWizardStepId, StepStatus>) => {
-  //       const clonedState = new Map(prevState)
-  //       stepIds.forEach((item: InfraProvisiongWizardStepId) => clonedState.set(item, status))
-  //       return clonedState
-  //     })
-  //   }
-  // }, [])
+  const updateStepStatus = React.useCallback((stepIds: InfraProvisiongWizardStepId[], status: StepStatus) => {
+    if (Array.isArray(stepIds)) {
+      setWizardStepStatus((prevState: Map<InfraProvisiongWizardStepId, StepStatus>) => {
+        const clonedState = new Map(prevState)
+        stepIds.forEach((item: InfraProvisiongWizardStepId) => clonedState.set(item, status))
+        return clonedState
+      })
+    }
+  }, [])
 
   const WizardSteps: Map<InfraProvisiongWizardStepId, WizardStep> = new Map([
     [
-      InfraProvisiongWizardStepId.SelectGitProvider,
+      InfraProvisiongWizardStepId.SelectWorkload,
       {
         stepRender: (
           <SelectWorkload
             // ref={selectGitProviderRef}
             disableNextBtn={() => setDisableBtn(true)}
             enableNextBtn={() => setDisableBtn(false)}
-            selectedHosting={Hosting.SaaS}
+            // selectedHosting={Hosting.SaaS}
           />
         ),
-        // onClickNext: () => {
-        //   const { values, setFieldTouched, validate } = selectGitProviderRef.current || {}
-        //   const { gitProvider, gitAuthenticationMethod } = values || {}
-        //   if (!gitProvider) {
-        //     setFieldTouched?.('gitProvider', true)
-        //     return
-        //   }
-        //   if (!gitAuthenticationMethod) {
-        //     setFieldTouched?.('gitAuthenticationMethod', true)
-        //     return
-        //   }
-        //   if (validate?.()) {
-        //     setCurrentWizardStepId(InfraProvisiongWizardStepId.SelectRepository)
-        //     updateStepStatus([InfraProvisiongWizardStepId.SelectGitProvider], StepStatus.Success)
-        //     updateStepStatus([InfraProvisiongWizardStepId.SelectRepository], StepStatus.InProgress)
-        //   }
-        // },
-        stepFooterLabel: 'ci.getStartedWithCI.selectRepo'
+        onClickNext: () => {
+          const { validate } = selectWorkloadRef.current || {}
+
+          if (validate?.()) {
+            setCurrentWizardStepId(InfraProvisiongWizardStepId.SelectRepository)
+            updateStepStatus([InfraProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
+            updateStepStatus([InfraProvisiongWizardStepId.SelectRepository], StepStatus.InProgress)
+            updateStepStatus([InfraProvisiongWizardStepId.SelectInfraStructure], StepStatus.ToDo)
+          }
+        },
+        stepFooterLabel: 'cd.getStartedWithCD.configureRepo'
       }
     ]
     // [
@@ -178,7 +176,7 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
             new Map([
               [0, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectWorkload) || 'TODO'],
               [1, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectRepository) || 'TODO'],
-              [2, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectRepository) || 'TODO']
+              [2, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectInfraStructure) || 'TODO']
             ])
           }
         />

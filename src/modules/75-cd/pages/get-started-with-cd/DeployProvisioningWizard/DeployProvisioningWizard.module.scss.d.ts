@@ -11,23 +11,13 @@ declare const styles: {
   readonly bitbucketIcon: string
   readonly borderBottom: string
   readonly card: string
-  readonly comingSoonPill: string
   readonly footer: string
   readonly genericGitIcon: string
-  readonly gitProviderCard: string
   readonly gitlabIcon: string
-  readonly hostingToggle: string
   readonly icons: string
-  readonly learnMore: string
   readonly main: string
-  readonly provisioningFailed: string
-  readonly provisioningSuccessful: string
-  readonly repositories: string
-  readonly repositoryRow: string
-  readonly repositorySearch: string
-  readonly repositoryTable: string
   readonly selectedCard: string
   readonly serviceIcon: string
-  readonly testConnectionBtn: string
+  readonly workloadTypeCard: string
 }
 export default styles
