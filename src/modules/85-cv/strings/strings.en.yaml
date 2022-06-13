@@ -506,7 +506,6 @@ monitoredServices:
     serviceHealth: Service Health
     configurations: Configurations
   table:
-    serviceName: Service Name
     lastestHealthTrend: Health trend (Last 24h)
     serviceHealthScore: service Health Score
     healthMonitoring: Health Monitoring

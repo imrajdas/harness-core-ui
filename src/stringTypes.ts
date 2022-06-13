@@ -659,6 +659,7 @@ export interface StringsMap {
   'common.serviceCreated': string
   'common.serviceOverrides': string
   'common.serviceReliabilityManagement': string
+  'common.serviceName': string
   'common.serviceType': string
   'common.serviceUpdated': string
   'common.setAsDefault': string
@@ -3969,7 +3970,8 @@ export interface StringsMap {
   'cd.getStartedWithCD.configureRepo': string
   'cd.getStartedWithCD.serverless': string
   'cd.getStartedWithCD.serviceDeploy': string
-  'cd.getStartedWithCD.serviceName': string
+  'cd.getStartedWithCD.serviceHeading': string
+  'cd.getStartedWithCD.servicesName': string
   'cd.getStartedWithCD.workloadDeploy': string
   'cd.gitFetchTypeRequired': string
   'cd.gitOps': string
@@ -6188,7 +6190,6 @@ export interface StringsMap {
   'cv.monitoredServices.table.healthMonitoring': string
   'cv.monitoredServices.table.lastestHealthTrend': string
   'cv.monitoredServices.table.serviceHealthScore': string
-  'cv.monitoredServices.table.serviceName': string
   'cv.monitoredServices.title': string
   'cv.monitoredServices.youHaveNoMonitoredServices': string
   'cv.monitoringSources.addMetric': string

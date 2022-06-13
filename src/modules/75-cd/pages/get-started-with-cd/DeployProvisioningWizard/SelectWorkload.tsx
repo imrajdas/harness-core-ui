@@ -114,10 +114,10 @@ const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
                     ></ThumbnailSelect>
                     <Container padding={{ bottom: 'xxlarge' }}>
                       <Text font={{ variation: FontVariation.H5 }} padding={{ top: 'xlarge', bottom: 'xlarge' }}>
-                        {getString('cd.getStartedWithCD.serviceName')}
+                        {getString('cd.getStartedWithCD.serviceHeading')}
                       </Text>
                       <Text color={Color.GREY_600} iconProps={{ size: 14 }} padding={{ bottom: 'xlarge' }}>
-                        {getString('cd.getStartedWithCD.serviceName')}
+                        {getString('common.serviceName')}
                       </Text>
                       {/* <DropDown
                         filterable={false}
