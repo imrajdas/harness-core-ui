@@ -658,8 +658,8 @@ export interface StringsMap {
   'common.selected': string
   'common.serviceCreated': string
   'common.serviceOverrides': string
-  'common.serviceReliabilityManagement': string
   'common.serviceName': string
+  'common.serviceReliabilityManagement': string
   'common.serviceType': string
   'common.serviceUpdated': string
   'common.setAsDefault': string
@@ -3971,7 +3971,6 @@ export interface StringsMap {
   'cd.getStartedWithCD.serverless': string
   'cd.getStartedWithCD.serviceDeploy': string
   'cd.getStartedWithCD.serviceHeading': string
-  'cd.getStartedWithCD.servicesName': string
   'cd.getStartedWithCD.workloadDeploy': string
   'cd.gitFetchTypeRequired': string
   'cd.gitOps': string

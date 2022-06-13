@@ -20,6 +20,7 @@ import {
   // eslint-disable-next-line import/namespace
 } from './Constants'
 import { SelectWorkload, SelectWorkloadRef } from './SelectWorkload'
+import { SelectInfrastructure, SelectInfrastructureRef } from './SelectInfrastructure'
 import css from './DeployProvisioningWizard.module.scss'
 export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = props => {
   const { lastConfiguredWizardStepId = InfraProvisiongWizardStepId.SelectWorkload } = props
@@ -30,6 +31,7 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
     useState<InfraProvisiongWizardStepId>(lastConfiguredWizardStepId)
 
   const selectWorkloadRef = React.useRef<SelectWorkloadRef | null>(null)
+  const selectInfrastructureRef = React.useRef<SelectInfrastructureRef | null>(null)
   // const [showError, setShowError] = useState<boolean>(false)
   // const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
   // const history = useHistory()
@@ -39,7 +41,7 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
     new Map<InfraProvisiongWizardStepId, StepStatus>([
       [InfraProvisiongWizardStepId.SelectWorkload, StepStatus.InProgress],
       [InfraProvisiongWizardStepId.SelectRepository, StepStatus.ToDo],
-      [InfraProvisiongWizardStepId.SelectInfraStructure, StepStatus.ToDo]
+      [InfraProvisiongWizardStepId.SelectInfrastructure, StepStatus.ToDo]
     ])
   )
 
@@ -59,10 +61,9 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
       {
         stepRender: (
           <SelectWorkload
-            // ref={selectGitProviderRef}
+            // ref={selectWorkloadProviderRef}
             disableNextBtn={() => setDisableBtn(true)}
             enableNextBtn={() => setDisableBtn(false)}
-            // selectedHosting={Hosting.SaaS}
           />
         ),
         onClickNext: () => {
@@ -72,12 +73,12 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
             setCurrentWizardStepId(InfraProvisiongWizardStepId.SelectRepository)
             updateStepStatus([InfraProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
             updateStepStatus([InfraProvisiongWizardStepId.SelectRepository], StepStatus.InProgress)
-            updateStepStatus([InfraProvisiongWizardStepId.SelectInfraStructure], StepStatus.ToDo)
+            updateStepStatus([InfraProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
           }
         },
         stepFooterLabel: 'cd.getStartedWithCD.configureRepo'
       }
-    ]
+    ],
     // [
     //   InfraProvisiongWizardStepId.SelectRepository,
     //   {
@@ -148,7 +149,35 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
     //     },
     //     stepFooterLabel: 'ci.getStartedWithCI.createPipeline'
     //   }
-    // ]
+    // ],
+    [
+      InfraProvisiongWizardStepId.SelectInfrastructure,
+      {
+        stepRender: (
+          <SelectInfrastructure
+            // ref={selectInfrastructureProviderRef}
+            disableNextBtn={() => setDisableBtn(true)}
+            enableNextBtn={() => setDisableBtn(false)}
+          />
+        ),
+        onClickBack: () => {
+          setCurrentWizardStepId(InfraProvisiongWizardStepId.SelectRepository)
+          updateStepStatus(
+            [InfraProvisiongWizardStepId.SelectWorkload, InfraProvisiongWizardStepId.SelectRepository],
+            StepStatus.ToDo
+          )
+        },
+        onClickNext: () => {
+          const selectedInfra = selectInfrastructureRef.current
+          if (selectedInfra) {
+            updateStepStatus([InfraProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
+            updateStepStatus([InfraProvisiongWizardStepId.SelectRepository], StepStatus.Success)
+            updateStepStatus([InfraProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
+          }
+        },
+        stepFooterLabel: 'common.createPipeline'
+      }
+    ]
   ])
 
   const { stepRender, onClickBack, onClickNext, stepFooterLabel } = WizardSteps.get(currentWizardStepId) ?? {}
@@ -176,7 +205,7 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
             new Map([
               [0, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectWorkload) || 'TODO'],
               [1, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectRepository) || 'TODO'],
-              [2, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectInfraStructure) || 'TODO']
+              [2, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectInfrastructure) || 'TODO']
             ])
           }
         />

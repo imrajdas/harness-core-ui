@@ -21,26 +21,29 @@
   background: var(--primary-1);
 }
 
+.text {
+  padding-top: var(--spacing-xxlarge) !important;
+}
+
 .workloadTypeCard {
   height: 110px;
   width: 110px;
   margin-right: var(--spacing-large);
 }
 
-.serviceIcon {
+.workloadTypeIcon {
   padding: var(--spacing-xsmall) !important;
+  margin-top: var(--spacing-small) !important;
 }
 
-.gitlabIcon {
-  padding: var(--spacing-3) var(--spacing-xsmall) 0 var(--spacing-3) !important;
+.serviceDeploymentTypeCard {
+  height: 80px;
+  width: 80px;
+  margin-right: var(--spacing-large);
 }
 
-.bitbucketIcon {
-  padding: var(--spacing-small) var(--spacing-xsmall) 0 var(--spacing-3) !important;
-}
-
-.genericGitIcon {
-  padding: var(--spacing-xsmall) var(--spacing-xsmall) var(--spacing-xsmall) var(--spacing-3) !important;
+.serviceDeploymentTypeIcon {
+  margin-top: var(--spacing-xsmall) !important;
 }
 
 .icons {
@@ -48,6 +51,7 @@
 }
 
 .borderBottom {
+  margin-top: 90px !important;
   border-bottom: 1px solid var(--grey-200);
 }
 

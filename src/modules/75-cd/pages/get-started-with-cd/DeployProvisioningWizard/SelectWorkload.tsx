@@ -5,8 +5,8 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useRef, useState } from 'react'
-
+import React, { useEffect, useRef, useState } from 'react'
+import * as Yup from 'yup'
 import cx from 'classnames'
 import {
   Text,
@@ -17,13 +17,13 @@ import {
   Container,
   Formik,
   FormikForm as Form,
-  ThumbnailSelect,
-  Color
+  Color,
+  FormError
 } from '@harness/uicore'
 import type { FormikContextType } from 'formik'
 import { useStrings } from 'framework/strings'
 
-import { WorkloadType, AllSaaSWorkloadProviders, deploymentTypes } from './Constants'
+import { WorkloadType, deploymentTypes, ServiceDeploymentTypes, WorkloadProviders } from './Constants'
 
 import css from './DeployProvisioningWizard.module.scss'
 
@@ -34,8 +34,9 @@ export interface SelectWorkloadRef {
   showValidationErrors: () => void
 }
 export interface SelectWorkloadInterface {
-  workloadType?: string
-  deploymentType?: string
+  workloadType?: WorkloadType
+  serviceDeploymentType?: ServiceDeploymentTypes
+  serviceName: string
 }
 
 interface SelectWorkloadProps {
@@ -47,15 +48,34 @@ const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
   const { getString } = useStrings()
   const { disableNextBtn, enableNextBtn } = props
   const [workloadType, setWorkloadType] = useState<WorkloadType | undefined>()
+  const [serviceDeploymentType, setServiceDeploymnetType] = useState<ServiceDeploymentTypes | undefined>()
   const formikRef = useRef<FormikContextType<SelectWorkloadInterface>>()
+
+  useEffect(() => {
+    if (workloadType) {
+      enableNextBtn()
+    } else {
+      disableNextBtn()
+    }
+  }, [workloadType])
 
   return (
     <Layout.Vertical width="70%">
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
       <Formik<SelectWorkloadInterface>
-        initialValues={{}}
-        formName="ciInfraProvisiong-gitProvider"
-        // validationSchema={getValidationSchema()}
+        initialValues={{
+          workloadType: undefined,
+          serviceDeploymentType: undefined,
+          serviceName: ''
+        }}
+        formName="cdWorkload-provider"
+        validationSchema={Yup.object().shape({
+          serviceName: Yup.string().required(
+            getString('fieldRequired', {
+              field: getString('common.serviceName')
+            })
+          )
+        })}
         validateOnChange={true}
         onSubmit={(values: SelectWorkloadInterface) => Promise.resolve(values)}
       >
@@ -63,29 +83,17 @@ const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
           formikRef.current = formikProps
           return (
             <Form>
-              <Container
-                padding={{ top: 'xxlarge', bottom: 'xxxlarge' }}
-                className={cx({ [css.borderBottom]: workloadType })}
-              >
+              <Container padding={{ top: 'xxlarge', bottom: 'xxxlarge' }}>
                 <CardSelect
-                  data={AllSaaSWorkloadProviders}
+                  data={WorkloadProviders}
                   cornerSelected={true}
                   className={css.icons}
                   cardClassName={css.workloadTypeCard}
                   renderItem={(item: WorkloadType) => (
                     <>
                       <Layout.Vertical flex>
-                        <Icon
-                          name={item.icon}
-                          size={30}
-                          flex
-                          className={cx(
-                            { [css.serviceIcon]: item.icon === 'services' },
-                            { [css.gitlabIcon]: item.icon === 'service-serverless' },
-                            { [css.bitbucketIcon]: item.icon === 'services' }
-                          )}
-                        />
-                        <Text font={{ variation: FontVariation.SMALL_SEMI }} padding={{ top: 'small' }}>
+                        <Icon name={item.icon} size={45} flex className={css.workloadTypeIcon} />
+                        <Text font={{ variation: FontVariation.BODY2 }} className={css.text}>
                           {getString(item.label)}
                         </Text>
                       </Layout.Vertical>
@@ -97,21 +105,60 @@ const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
                     setWorkloadType(item)
                   }}
                 />
+                {formikProps.touched.workloadType && !formikProps.values.workloadType ? (
+                  <Container padding={{ top: 'xsmall' }}>
+                    <FormError
+                      name={'workloadType'}
+                      errorMessage={getString('fieldRequired', {
+                        field: getString('cd.workloadRequired')
+                      })}
+                    />
+                  </Container>
+                ) : null}
+
+                <Container className={cx({ [css.borderBottom]: workloadType })} />
               </Container>
 
               {workloadType?.label === 'services' ? (
                 <Layout.Horizontal>
                   <Container padding={{ bottom: 'xxlarge' }}>
-                    <Text font={{ variation: FontVariation.H5 }} padding={{ top: 'xlarge', bottom: 'xlarge' }}>
+                    <Text font={{ variation: FontVariation.H5 }} padding={{ bottom: 'xlarge' }}>
                       {getString('cd.getStartedWithCD.serviceDeploy')}
                     </Text>
-                    <ThumbnailSelect
-                      name="deploymentType"
-                      items={deploymentTypes}
-                      onChange={type => {
-                        formikProps?.setFieldValue('deploymentType', type)
+                    <CardSelect
+                      data={deploymentTypes}
+                      cornerSelected={true}
+                      className={css.icons}
+                      cardClassName={css.serviceDeploymentTypeCard}
+                      renderItem={(item: WorkloadType) => (
+                        <>
+                          <Layout.Vertical flex>
+                            <Icon name={item.icon} size={30} flex className={css.serviceDeploymentTypeIcon} />
+                            <Text font={{ variation: FontVariation.BODY2 }} className={css.text}>
+                              {getString(item.label)}
+                            </Text>
+                          </Layout.Vertical>
+                        </>
+                      )}
+                      selected={serviceDeploymentType}
+                      onChange={(item: ServiceDeploymentTypes) => {
+                        formikProps.setFieldValue('serviceDeploymentType', item)
+                        setServiceDeploymnetType(item)
                       }}
-                    ></ThumbnailSelect>
+                    />
+
+                    {formikProps.touched.serviceDeploymentType && !formikProps.values.serviceDeploymentType ? (
+                      <Container padding={{ top: 'xsmall' }}>
+                        <FormError
+                          name={'serviceDeploymentType'}
+                          errorMessage={getString('fieldRequired', {
+                            field: getString('deploymentTypeText')
+                          })}
+                        />
+                      </Container>
+                    ) : null}
+
+                    <Container className={css.borderBottom} />
                     <Container padding={{ bottom: 'xxlarge' }}>
                       <Text font={{ variation: FontVariation.H5 }} padding={{ top: 'xlarge', bottom: 'xlarge' }}>
                         {getString('cd.getStartedWithCD.serviceHeading')}
@@ -121,7 +168,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
                       </Text>
                       {/* <DropDown
                         filterable={false}
-                        width={180}
+                        width={320}
                         icon={'main-sort'}
                         iconProps={{ size: 16, color: Color.GREY_400 }}
                         onChange={onChange()}

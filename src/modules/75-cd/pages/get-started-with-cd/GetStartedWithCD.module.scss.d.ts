@@ -16,6 +16,7 @@ declare const styles: {
   readonly icon: string
   readonly iconPadding: string
   readonly iconPaddingSmall: string
+  readonly image: string
   readonly nextLevel: string
   readonly paddingXSmall: string
   readonly separator: string

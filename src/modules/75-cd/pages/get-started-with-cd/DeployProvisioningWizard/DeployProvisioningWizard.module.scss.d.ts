@@ -8,16 +8,16 @@
 // this is an auto-generated file, do not update this manually
 declare const styles: {
   readonly authMethodBtn: string
-  readonly bitbucketIcon: string
   readonly borderBottom: string
   readonly card: string
   readonly footer: string
-  readonly genericGitIcon: string
-  readonly gitlabIcon: string
   readonly icons: string
   readonly main: string
   readonly selectedCard: string
-  readonly serviceIcon: string
+  readonly serviceDeploymentTypeCard: string
+  readonly serviceDeploymentTypeIcon: string
+  readonly text: string
   readonly workloadTypeCard: string
+  readonly workloadTypeIcon: string
 }
 export default styles

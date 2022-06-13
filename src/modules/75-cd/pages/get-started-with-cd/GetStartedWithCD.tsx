@@ -12,8 +12,8 @@ import type { IconProps } from '@harness/icons'
 import { useStrings } from 'framework/strings'
 import type { StringsMap } from 'stringTypes'
 import { InfraProvisioningWizard } from './DeployProvisioningWizard/DeployProvisioningWizard'
+import bgImageURL from '../home/images/cd.svg'
 import css from './GetStartedWithCD.module.scss'
-
 export default function GetStartedWithCI(): React.ReactElement {
   const { getString } = useStrings()
   const [showWizard, setShowWizard] = useState<boolean>(false)
@@ -92,6 +92,7 @@ export default function GetStartedWithCI(): React.ReactElement {
           />
         </Layout.Vertical>
       </Layout.Vertical>
+      <img src={bgImageURL} className={css.image} />
     </>
   )
 }

@@ -6,8 +6,6 @@
  */
 
 import type { IconName } from '@harness/uicore'
-import type { Item } from '@harness/uicore/dist/components/ThumbnailSelect/ThumbnailSelect'
-import { ServiceDeploymentType } from '@pipeline/utils/stageHelpers'
 
 import type { StringsMap } from 'stringTypes'
 
@@ -35,9 +33,9 @@ export enum ProvisioningStatus {
 
 export enum InfraProvisiongWizardStepId {
   SelectGitProvider = 'SELECT_GIT_PROVIDER',
-  SelectInfraStructure = 'SELECT_INFRASTRUCTURE',
   SelectRepository = 'SELECT_REPOSITORY',
-  SelectWorkload = 'SELECT_WORKLOAD'
+  SelectWorkload = 'SELECT_WORKLOAD',
+  SelectInfrastructure = 'SelectInfrastructure'
 }
 
 // TODO Need to use exported StepStatus from uicore -> MultiStepProgressIndicator component
@@ -54,35 +52,65 @@ export interface WorkloadType {
   disabled?: boolean
 }
 
-export const AllSaaSWorkloadProviders: WorkloadType[] = [
-  { icon: 'services', label: 'services' },
-  { icon: 'service-serverless', label: 'cd.getStartedWithCD.serverless' },
-  { icon: 'services', label: 'cd.gitOps' }
+export const WorkloadProviders: WorkloadType[] = [
+  { icon: 'services', label: 'services', disabled: false },
+  { icon: 'service-serverless', label: 'cd.getStartedWithCD.serverless', disabled: true },
+  { icon: 'services', label: 'cd.gitOps', disabled: true }
 ]
 
-export const deploymentTypes: Item[] = [
+export interface ServiceDeploymentTypes {
+  icon: IconName
+  label: keyof StringsMap
+  disabled?: boolean
+}
+
+export const deploymentTypes: ServiceDeploymentTypes[] = [
   {
-    label: ServiceDeploymentType.Kubernetes,
-    value: 'service',
+    label: 'pipeline.serviceDeploymentTypes.kubernetes',
     icon: 'service-kubernetes',
     disabled: false
   },
   {
-    label: ServiceDeploymentType.amazonEcs,
-    value: 'multiple-service',
+    label: 'pipeline.serviceDeploymentTypes.amazonEcs',
     icon: 'service-ecs',
     disabled: true
   },
   {
-    label: ServiceDeploymentType.AzureFunctions,
-    value: 'functions',
-    icon: 'functions',
+    label: 'pipeline.serviceDeploymentTypes.azureFunctions',
+    icon: 'cloudformation',
     disabled: true
   },
   {
-    label: ServiceDeploymentType.amazonAmi,
-    value: 'other-workloads',
-    icon: 'other-workload',
+    label: 'pipeline.serviceDeploymentTypes.azureFunctions',
+    icon: 'service-aws',
+    disabled: true
+  },
+  {
+    label: 'pipeline.serviceDeploymentTypes.awsCodeDeploy',
+    icon: 'service-azure',
+    disabled: true
+  },
+  {
+    label: 'pipeline.serviceDeploymentTypes.azureFunctions',
+    icon: 'service-azure',
+    disabled: true
+  },
+  {
+    label: 'pipeline.serviceDeploymentTypes.awsSAM',
+    icon: 'service-aws',
     disabled: true
   }
+]
+
+export interface InfrastructureType {
+  icon: IconName
+  label: keyof StringsMap
+  disabled?: boolean
+}
+
+export const InfrastructureTypes: InfrastructureType[] = [
+  { icon: 'service-kubernetes', label: 'pipeline.serviceDeploymentTypes.kubernetes', disabled: false },
+  { icon: 'google-kubernetes-engine', label: 'pipelineSteps.deploymentTypes.gk8engine', disabled: true },
+  { icon: 'service-azure', label: 'cd.gitOps', disabled: true },
+  { icon: 'service-aws', label: 'cd.gitOps', disabled: true }
 ]
