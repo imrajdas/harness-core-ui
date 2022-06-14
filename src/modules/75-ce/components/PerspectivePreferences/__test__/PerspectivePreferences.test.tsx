@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { fireEvent, getByLabelText, getByText, render } from '@testing-library/react'
+import { fireEvent, getByLabelText, getByText, render, waitFor } from '@testing-library/react'
 import { omit } from 'lodash-es'
 
 import { TestWrapper } from '@common/utils/testUtils'
@@ -107,8 +107,8 @@ jest.mock('services/ce', () => {
 
 const params = {
   accountId: 'TEST_ACC',
-  perspetiveId: 'perspectiveId',
-  perspectiveName: 'sample perspective'
+  perspectiveId: 'MOCK_ID',
+  perspectiveName: 'MOCK_NAME'
 }
 
 describe('Tests for PerspectivePreferences Component', () => {
@@ -163,14 +163,14 @@ describe('Tests for PerspectivePreferences Component', () => {
     expect(includeUnallocatedCheckbox).not.toBeChecked()
   })
 
-  test('Should be able to render No Preferences / No Datasources', () => {
+  test('Should be able to render No Preferences ', () => {
     const noPreferenceData = omit(perspectiveData, 'viewPreferences')
 
     const { container } = render(
       <TestWrapper pathParams={params}>
         <PerspectivePreferences
           onPrevButtonClick={jest.fn()}
-          perspectiveData={{ ...noPreferenceData, dataSources: [] } as CEView}
+          perspectiveData={{ ...noPreferenceData } as CEView}
           updatePayload={payload as CEView}
         />
       </TestWrapper>
@@ -180,6 +180,48 @@ describe('Tests for PerspectivePreferences Component', () => {
     const includeUnallocatedCheckbox = container.querySelectorAll('input[type="checkbox"]')[1]
 
     expect(includeOthersCheckbox).not.toBeChecked()
+    expect(includeUnallocatedCheckbox).not.toBeChecked()
+
+    fireEvent.click(includeOthersCheckbox)
+    expect(includeOthersCheckbox).toBeChecked()
+    fireEvent.click(includeUnallocatedCheckbox)
+    expect(includeUnallocatedCheckbox).toBeChecked()
+  })
+
+  test('Should be able to render No Datasources ', () => {
+    const noDatasources = omit(perspectiveData, 'dataSources')
+
+    const { container } = render(
+      <TestWrapper pathParams={params}>
+        <PerspectivePreferences
+          onPrevButtonClick={jest.fn()}
+          perspectiveData={{ ...noDatasources } as CEView}
+          updatePayload={payload as CEView}
+        />
+      </TestWrapper>
+    )
+
+    const includeOthersCheckbox = container.querySelectorAll('input[type="checkbox"]')[0]
+    const includeUnallocatedCheckbox = container.querySelectorAll('input[type="checkbox"]')[1]
+
+    expect(includeOthersCheckbox).toBeChecked()
     expect(includeUnallocatedCheckbox).toBeUndefined()
+  })
+
+  test('Should be able to save a Perspective', async () => {
+    const { container, getByTestId } = render(
+      <TestWrapper path="/account/:accountId/ce/perspectives/:perspectiveId/create" pathParams={params}>
+        <PerspectivePreferences
+          onPrevButtonClick={jest.fn()}
+          perspectiveData={perspectiveData as CEView}
+          updatePayload={payload as CEView}
+        />
+      </TestWrapper>
+    )
+
+    fireEvent.click(getByText(container, 'ce.perspectives.save'))
+
+    await waitFor(() => getByTestId('location'))
+    expect(getByTestId('location')).toHaveTextContent('/account/TEST_ACC/ce/perspectives/MOCK_ID/name/MOCK_ID')
   })
 })
