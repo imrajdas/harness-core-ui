@@ -7,12 +7,16 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
+  readonly alignIcon: string
+  readonly artifactSections: string
+  readonly artifactTypeCard: string
   readonly authMethodBtn: string
   readonly borderBottom: string
-  readonly card: string
   readonly footer: string
+  readonly header: string
   readonly icons: string
   readonly main: string
+  readonly repoborderBottom: string
   readonly selectedCard: string
   readonly serviceDeploymentTypeCard: string
   readonly serviceDeploymentTypeIcon: string

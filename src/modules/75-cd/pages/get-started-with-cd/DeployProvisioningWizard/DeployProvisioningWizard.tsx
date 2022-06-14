@@ -12,52 +12,53 @@ import { Container, Button, ButtonVariation, Layout, MultiStepProgressIndicator,
 import { useStrings } from 'framework/strings'
 
 import {
-  InfraProvisioningWizardProps,
   WizardStep,
-  InfraProvisiongWizardStepId,
-  StepStatus
+  StepStatus,
+  DeployProvisiongWizardStepId,
+  DeployProvisioningWizardProps
 
   // eslint-disable-next-line import/namespace
 } from './Constants'
-import { SelectWorkload, SelectWorkloadRef } from './SelectWorkload'
-import { SelectInfrastructure, SelectInfrastructureRef } from './SelectInfrastructure'
+import { SelectWorkload } from '../SelectWorkload/SelectWorkload'
+import { SelectInfrastructure } from '../SelectInfrastructure/SelectInfrastructure'
+import { SelectArtifact } from '../SelectArtifact/SelectArtifact'
 import css from './DeployProvisioningWizard.module.scss'
-export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = props => {
-  const { lastConfiguredWizardStepId = InfraProvisiongWizardStepId.SelectWorkload } = props
+export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> = props => {
+  const { lastConfiguredWizardStepId = DeployProvisiongWizardStepId.SelectWorkload } = props
   const { getString } = useStrings()
   const [disableBtn, setDisableBtn] = useState<boolean>(false)
 
   const [currentWizardStepId, setCurrentWizardStepId] =
-    useState<InfraProvisiongWizardStepId>(lastConfiguredWizardStepId)
+    useState<DeployProvisiongWizardStepId>(lastConfiguredWizardStepId)
 
-  const selectWorkloadRef = React.useRef<SelectWorkloadRef | null>(null)
-  const selectInfrastructureRef = React.useRef<SelectInfrastructureRef | null>(null)
+  // const selectWorkloadRef = React.useRef<SelectWorkloadRef | null>(null)
+  // const selectInfrastructureRef = React.useRef<SelectInfrastructureRef | null>(null)
   // const [showError, setShowError] = useState<boolean>(false)
   // const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
   // const history = useHistory()
   const [showPageLoader] = useState<boolean>(false)
 
-  const [wizardStepStatus, setWizardStepStatus] = useState<Map<InfraProvisiongWizardStepId, StepStatus>>(
-    new Map<InfraProvisiongWizardStepId, StepStatus>([
-      [InfraProvisiongWizardStepId.SelectWorkload, StepStatus.InProgress],
-      [InfraProvisiongWizardStepId.SelectRepository, StepStatus.ToDo],
-      [InfraProvisiongWizardStepId.SelectInfrastructure, StepStatus.ToDo]
+  const [wizardStepStatus, setWizardStepStatus] = useState<Map<DeployProvisiongWizardStepId, StepStatus>>(
+    new Map<DeployProvisiongWizardStepId, StepStatus>([
+      [DeployProvisiongWizardStepId.SelectWorkload, StepStatus.InProgress],
+      [DeployProvisiongWizardStepId.SelectArtifact, StepStatus.ToDo],
+      [DeployProvisiongWizardStepId.SelectInfrastructure, StepStatus.ToDo]
     ])
   )
 
-  const updateStepStatus = React.useCallback((stepIds: InfraProvisiongWizardStepId[], status: StepStatus) => {
+  const updateStepStatus = React.useCallback((stepIds: DeployProvisiongWizardStepId[], status: StepStatus) => {
     if (Array.isArray(stepIds)) {
-      setWizardStepStatus((prevState: Map<InfraProvisiongWizardStepId, StepStatus>) => {
+      setWizardStepStatus((prevState: Map<DeployProvisiongWizardStepId, StepStatus>) => {
         const clonedState = new Map(prevState)
-        stepIds.forEach((item: InfraProvisiongWizardStepId) => clonedState.set(item, status))
+        stepIds.forEach((item: DeployProvisiongWizardStepId) => clonedState.set(item, status))
         return clonedState
       })
     }
   }, [])
 
-  const WizardSteps: Map<InfraProvisiongWizardStepId, WizardStep> = new Map([
+  const WizardSteps: Map<DeployProvisiongWizardStepId, WizardStep> = new Map([
     [
-      InfraProvisiongWizardStepId.SelectWorkload,
+      DeployProvisiongWizardStepId.SelectWorkload,
       {
         stepRender: (
           <SelectWorkload
@@ -67,91 +68,47 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
           />
         ),
         onClickNext: () => {
-          const { validate } = selectWorkloadRef.current || {}
+          // const { validate } = selectWorkloadRef.current || {}
 
-          if (validate?.()) {
-            setCurrentWizardStepId(InfraProvisiongWizardStepId.SelectRepository)
-            updateStepStatus([InfraProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
-            updateStepStatus([InfraProvisiongWizardStepId.SelectRepository], StepStatus.InProgress)
-            updateStepStatus([InfraProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
-          }
+          // if (validate?.()) {
+          setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectArtifact)
+          updateStepStatus([DeployProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
+          updateStepStatus([DeployProvisiongWizardStepId.SelectArtifact], StepStatus.InProgress)
+          updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
+          // }
         },
         stepFooterLabel: 'cd.getStartedWithCD.configureRepo'
       }
     ],
-    // [
-    //   InfraProvisiongWizardStepId.SelectRepository,
-    //   {
-    //     stepRender: (
-    //       <SelectRepository
-    //         ref={selectRepositoryRef}
-    //         showError={showError}
-    //         validatedConnectorRef={selectGitProviderRef.current?.validatedConnector?.identifier}
-    //         disableNextBtn={() => setDisableBtn(true)}
-    //         enableNextBtn={() => setDisableBtn(false)}
-    //       />
-    //     ),
-    //     onClickBack: () => {
-    //       setCurrentWizardStepId(InfraProvisiongWizardStepId.SelectGitProvider)
-    //       updateStepStatus(
-    //         [InfraProvisiongWizardStepId.SelectGitProvider, InfraProvisiongWizardStepId.SelectRepository],
-    //         StepStatus.ToDo
-    //       )
-    //     },
-    //     onClickNext: () => {
-    //       const selectedRepo = selectRepositoryRef.current?.repository
-    //       if (selectedRepo && selectGitProviderRef?.current?.validatedConnector?.spec) {
-    //         updateStepStatus([InfraProvisiongWizardStepId.SelectRepository], StepStatus.Success)
-    //         setDisableBtn(true)
-    //         setShowPageLoader(true)
-    //         createSCMConnector({
-    //           connector: set(
-    //             set(
-    //               selectGitProviderRef.current.validatedConnector,
-    //               'spec.validationRepo',
-    //               getFullRepoName(selectRepositoryRef?.current?.repository || {})
-    //             ),
-    //             'spec.authentication.spec.spec.username',
-    //             OAUTH2_USER_NAME
-    //           ),
-    //           secret: selectGitProviderRef?.current?.validatedSecret
-    //         }).then((validateRepositoryResponse: ResponseScmConnectorResponse) => {
-    //           if (validateRepositoryResponse.status === Status.SUCCESS) {
-    //             createPipelineV2Promise({
-    //               body: constructPipelinePayload(selectedRepo) || '',
-    //               queryParams: {
-    //                 accountIdentifier: accountId,
-    //                 orgIdentifier,
-    //                 projectIdentifier
-    //               },
-    //               requestOptions: { headers: { 'Content-Type': 'application/yaml' } }
-    //             })
-    //               .then((createPipelineResponse: ResponsePipelineSaveResponse) => {
-    //                 const { status } = createPipelineResponse
-    //                 if (status === Status.SUCCESS && createPipelineResponse?.data?.identifier) {
-    //                   const commonQueryParams = {
-    //                     accountIdentifier: accountId,
-    //                     orgIdentifier,
-    //                     projectIdentifier,
-    //                     targetIdentifier: createPipelineResponse?.data?.identifier
-    //                   }
-    //                 }
-    //               })
-    //               .catch(() => {
-    //                 setDisableBtn(false)
-    //                 setShowPageLoader(false)
-    //               })
-    //           }
-    //         })
-    //       } else {
-    //         setShowError(true)
-    //       }
-    //     },
-    //     stepFooterLabel: 'ci.getStartedWithCI.createPipeline'
-    //   }
-    // ],
     [
-      InfraProvisiongWizardStepId.SelectInfrastructure,
+      DeployProvisiongWizardStepId.SelectArtifact,
+      {
+        stepRender: (
+          <SelectArtifact
+            // ref={selectRepositoryRef}
+            // showError={showError}
+            // validatedConnectorRef={selectGitProviderRef.current?.validatedConnector?.identifier}
+            disableNextBtn={() => setDisableBtn(true)}
+            enableNextBtn={() => setDisableBtn(false)}
+          />
+        ),
+        onClickBack: () => {
+          setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectWorkload)
+        },
+        onClickNext: () => {
+          setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectInfrastructure)
+          updateStepStatus(
+            [DeployProvisiongWizardStepId.SelectWorkload, DeployProvisiongWizardStepId.SelectArtifact],
+            StepStatus.Success
+          )
+          updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
+        },
+
+        stepFooterLabel: 'cd.getStartedWithCD.manifestFile'
+      }
+    ],
+    [
+      DeployProvisiongWizardStepId.SelectInfrastructure,
       {
         stepRender: (
           <SelectInfrastructure
@@ -161,19 +118,21 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
           />
         ),
         onClickBack: () => {
-          setCurrentWizardStepId(InfraProvisiongWizardStepId.SelectRepository)
+          setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectArtifact)
           updateStepStatus(
-            [InfraProvisiongWizardStepId.SelectWorkload, InfraProvisiongWizardStepId.SelectRepository],
+            [DeployProvisiongWizardStepId.SelectWorkload, DeployProvisiongWizardStepId.SelectArtifact],
             StepStatus.ToDo
           )
         },
         onClickNext: () => {
-          const selectedInfra = selectInfrastructureRef.current
-          if (selectedInfra) {
-            updateStepStatus([InfraProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
-            updateStepStatus([InfraProvisiongWizardStepId.SelectRepository], StepStatus.Success)
-            updateStepStatus([InfraProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
-          }
+          updateStepStatus(
+            [
+              DeployProvisiongWizardStepId.SelectWorkload,
+              DeployProvisiongWizardStepId.SelectArtifact,
+              DeployProvisiongWizardStepId.SelectInfrastructure
+            ],
+            StepStatus.Success
+          )
         },
         stepFooterLabel: 'common.createPipeline'
       }
@@ -184,7 +143,7 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
 
   let buttonLabel: string
   if (stepFooterLabel) {
-    if (currentWizardStepId === InfraProvisiongWizardStepId.SelectRepository) {
+    if (currentWizardStepId === DeployProvisiongWizardStepId.SelectArtifact) {
       buttonLabel = getString(stepFooterLabel)
     } else {
       buttonLabel = `${getString('next')}: ${getString(stepFooterLabel)}`
@@ -194,49 +153,51 @@ export const InfraProvisioningWizard: React.FC<InfraProvisioningWizardProps> = p
   }
 
   return stepRender ? (
-    <Layout.Vertical
-      padding={{ left: 'huge', right: 'huge', top: 'huge' }}
-      flex={{ justifyContent: 'space-between', alignItems: 'flex-start' }}
-      height="100%"
-    >
-      <Container padding={{ top: 'large', bottom: 'large' }}>
+    <>
+      <Container className={css.header}>
         <MultiStepProgressIndicator
           progressMap={
             new Map([
-              [0, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectWorkload) || 'TODO'],
-              [1, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectRepository) || 'TODO'],
-              [2, wizardStepStatus.get(InfraProvisiongWizardStepId.SelectInfrastructure) || 'TODO']
+              [0, wizardStepStatus.get(DeployProvisiongWizardStepId.SelectWorkload) || 'TODO'],
+              [1, wizardStepStatus.get(DeployProvisiongWizardStepId.SelectArtifact) || 'TODO'],
+              [2, wizardStepStatus.get(DeployProvisiongWizardStepId.SelectInfrastructure) || 'TODO']
             ])
           }
         />
       </Container>
-      <Layout.Vertical width="100%" height="80%" className={css.main}>
-        {stepRender}
-      </Layout.Vertical>
-      <Layout.Horizontal
-        spacing="medium"
-        padding={{ top: 'large', bottom: 'xlarge' }}
-        className={css.footer}
-        width="100%"
+      <Layout.Vertical
+        padding={{ left: 'huge', right: 'huge', top: 'huge' }}
+        flex={{ justifyContent: 'space-between', alignItems: 'flex-start' }}
+        height="90%"
       >
-        {currentWizardStepId !== InfraProvisiongWizardStepId.SelectWorkload ? (
+        <Layout.Vertical width="100%" height="80%" className={css.main}>
+          {stepRender}
+        </Layout.Vertical>
+        <Layout.Horizontal
+          spacing="medium"
+          padding={{ top: 'large', bottom: 'xlarge' }}
+          className={css.footer}
+          width="100%"
+        >
+          {currentWizardStepId !== DeployProvisiongWizardStepId.SelectWorkload ? (
+            <Button
+              variation={ButtonVariation.SECONDARY}
+              text={getString('back')}
+              icon="chevron-left"
+              minimal
+              onClick={() => onClickBack?.()}
+            />
+          ) : null}
           <Button
-            variation={ButtonVariation.SECONDARY}
-            text={getString('back')}
-            icon="chevron-left"
-            minimal
-            onClick={() => onClickBack?.()}
+            text={buttonLabel}
+            variation={ButtonVariation.PRIMARY}
+            rightIcon="chevron-right"
+            onClick={() => onClickNext?.()}
+            disabled={disableBtn}
           />
-        ) : null}
-        <Button
-          text={buttonLabel}
-          variation={ButtonVariation.PRIMARY}
-          rightIcon="chevron-right"
-          onClick={() => onClickNext?.()}
-          disabled={disableBtn}
-        />
-      </Layout.Horizontal>
-      {showPageLoader ? <PageSpinner /> : null}
-    </Layout.Vertical>
+        </Layout.Horizontal>
+        {showPageLoader ? <PageSpinner /> : null}
+      </Layout.Vertical>
+    </>
   ) : null
 }

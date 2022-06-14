@@ -23,9 +23,14 @@ import {
 import type { FormikContextType } from 'formik'
 import { useStrings } from 'framework/strings'
 
-import { WorkloadType, deploymentTypes, ServiceDeploymentTypes, WorkloadProviders } from './Constants'
+import {
+  WorkloadType,
+  deploymentTypes,
+  ServiceDeploymentTypes,
+  WorkloadProviders
+} from '../DeployProvisioningWizard/Constants'
 
-import css from './DeployProvisioningWizard.module.scss'
+import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectWorkloadRef {
   values: SelectWorkloadInterface

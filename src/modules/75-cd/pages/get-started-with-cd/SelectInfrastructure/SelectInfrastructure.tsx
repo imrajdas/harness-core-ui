@@ -10,9 +10,9 @@ import { Text, FontVariation, Layout, CardSelect, Icon, Container, Formik, Formi
 import type { FormikContextType } from 'formik'
 import { useStrings } from 'framework/strings'
 
-import { InfrastructureTypes, InfrastructureType } from './Constants'
+import { InfrastructureTypes, InfrastructureType } from '../DeployProvisioningWizard/Constants'
 
-import css from './DeployProvisioningWizard.module.scss'
+import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectInfrastructureRef {
   values: SelectInfrastructureInterface

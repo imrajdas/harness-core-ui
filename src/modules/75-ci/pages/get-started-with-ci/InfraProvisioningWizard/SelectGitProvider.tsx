@@ -875,9 +875,7 @@ const SelectGitProviderRef = (
                   >
                     <Text font={{ variation: FontVariation.H5 }} padding={{ top: 'xlarge', bottom: 'small' }}>
                       {getString(
-                        selectedHosting === Hosting.SaaS
-                          ? 'ci.getStartedWithCI.authMethod'
-                          : 'ci.getStartedWithCI.setUpAuth'
+                        selectedHosting === Hosting.SaaS ? 'common.authMethod' : 'ci.getStartedWithCI.setUpAuth'
                       )}
                     </Text>
                     {selectedHosting === Hosting.SaaS ? (

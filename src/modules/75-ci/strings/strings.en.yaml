@@ -175,7 +175,6 @@ getStartedWithCI:
   accessTokenLabel: Access Token
   codeRepoLabel: Code repository
   authMethodLabel: Authentication method
-  selectYourRepo: Select your Repository
   createPipeline: Create Pipeline
   gitProviderURLs:
     github: 'https://github.com/account/'

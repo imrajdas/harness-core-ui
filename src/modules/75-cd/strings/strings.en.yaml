@@ -369,4 +369,12 @@ getStartedWithCD:
   serviceDeploy: Where do you want to deploy your service?
   serviceHeading: What is the name of your Service?
   configureRepo: Configure Repository
+  manifestFile: Configure Infra
   serverless: Serverless Function
+  artifactLocation: Where is your Artifact?
+  codeRepos: Where is your code repository?
+  inManifest: In Manifest
+  inManifestContent: Harness can take your existing Kubernetes manifests and can proceed to deploy with them
+  artifactManifest: Artifact + Manifest
+  artifactManifestContent: Harness can take your existing Kubernetes manifests and artifacts and can proceed to deploy with them
+  provideManifest: Provide Manifest Details

@@ -11,7 +11,7 @@ import { Text, FontVariation, Icon, Layout, Button, ButtonVariation, Container }
 import type { IconProps } from '@harness/icons'
 import { useStrings } from 'framework/strings'
 import type { StringsMap } from 'stringTypes'
-import { InfraProvisioningWizard } from './DeployProvisioningWizard/DeployProvisioningWizard'
+import { DeployProvisioningWizard } from './DeployProvisioningWizard/DeployProvisioningWizard'
 import bgImageURL from '../home/images/cd.svg'
 import css from './GetStartedWithCD.module.scss'
 export default function GetStartedWithCI(): React.ReactElement {
@@ -31,7 +31,7 @@ export default function GetStartedWithCI(): React.ReactElement {
   )
 
   return showWizard ? (
-    <InfraProvisioningWizard />
+    <DeployProvisioningWizard />
   ) : (
     <>
       <Layout.Vertical flex className={css.buildYourOwnPipeline}>

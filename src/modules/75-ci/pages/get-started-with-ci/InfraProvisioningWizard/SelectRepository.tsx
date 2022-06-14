@@ -157,7 +157,7 @@ const SelectRepositoryRef = (
 
   return (
     <Layout.Vertical spacing="small">
-      <Text font={{ variation: FontVariation.H4 }}>{getString('ci.getStartedWithCI.selectYourRepo')}</Text>
+      <Text font={{ variation: FontVariation.H4 }}>{getString('common.selectYourRepo')}</Text>
       <Text font={{ variation: FontVariation.BODY2 }}>{getString('ci.getStartedWithCI.codebaseHelptext')}</Text>
       <Container padding={{ top: 'small' }} className={cx(css.repositories)}>
         <TextInput

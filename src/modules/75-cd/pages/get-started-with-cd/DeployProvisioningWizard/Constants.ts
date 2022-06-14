@@ -9,8 +9,8 @@ import type { IconName } from '@harness/uicore'
 
 import type { StringsMap } from 'stringTypes'
 
-export interface InfraProvisioningWizardProps {
-  lastConfiguredWizardStepId?: InfraProvisiongWizardStepId
+export interface DeployProvisioningWizardProps {
+  lastConfiguredWizardStepId?: DeployProvisiongWizardStepId
 }
 
 export const enum Hosting {
@@ -31,11 +31,11 @@ export enum ProvisioningStatus {
   SUCCESS
 }
 
-export enum InfraProvisiongWizardStepId {
+export enum DeployProvisiongWizardStepId {
   SelectGitProvider = 'SELECT_GIT_PROVIDER',
-  SelectRepository = 'SELECT_REPOSITORY',
+  SelectArtifact = 'SELECT_ARTIFACT',
   SelectWorkload = 'SELECT_WORKLOAD',
-  SelectInfrastructure = 'SelectInfrastructure'
+  SelectInfrastructure = 'SELECT_INFRASTRUCTURE'
 }
 
 // TODO Need to use exported StepStatus from uicore -> MultiStepProgressIndicator component
@@ -113,4 +113,26 @@ export const InfrastructureTypes: InfrastructureType[] = [
   { icon: 'google-kubernetes-engine', label: 'pipelineSteps.deploymentTypes.gk8engine', disabled: true },
   { icon: 'service-azure', label: 'cd.gitOps', disabled: true },
   { icon: 'service-aws', label: 'cd.gitOps', disabled: true }
+]
+
+export interface ArtifactType {
+  icon: IconName
+  label: keyof StringsMap
+  disabled?: boolean
+  details: keyof StringsMap
+}
+
+export const ArtifactProviders: ArtifactType[] = [
+  {
+    icon: 'service-kubernetes',
+    label: 'cd.getStartedWithCD.inManifest',
+    details: 'cd.getStartedWithCD.inManifestContent',
+    disabled: false
+  },
+  {
+    icon: 'git-configure',
+    label: 'cd.getStartedWithCD.artifactManifest',
+    details: 'cd.getStartedWithCD.artifactManifestContent',
+    disabled: true
+  }
 ]
