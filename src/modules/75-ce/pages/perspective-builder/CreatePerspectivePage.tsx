@@ -21,6 +21,7 @@ import {
 } from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
 import { Breadcrumbs } from '@common/components/Breadcrumbs/Breadcrumbs'
+import { useStrings } from 'framework/strings'
 import routes from '@common/RouteDefinitions'
 import { useGetPerspective, CEView } from 'services/ce/'
 
@@ -56,7 +57,13 @@ const PerspectiveHeader: React.FC<{ title: string }> = ({ title }) => {
 }
 
 const CreatePerspectivePage: React.FC = () => {
-  const tabHeadings = ['1. Perspective Builder', '2. Reports and Budget', '3. Preferences']
+  const { getString } = useStrings()
+
+  const tabHeadings = [
+    getString('ce.perspectives.createPerspective.tabHeaders.perspectiveBuilder'),
+    getString('ce.perspectives.createPerspective.tabHeaders.reportsAndBudget'),
+    getString('ce.perspectives.createPerspective.tabHeaders.preferences')
+  ]
   const [selectedTabId, setSelectedTabId] = useState(tabHeadings[0])
 
   const [perspectiveData, setPerspectiveData] = useState<CEView | null>(null)

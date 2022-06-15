@@ -10,6 +10,7 @@ import { Button, Container, Layout, Text } from '@harness/uicore'
 import { Switch } from '@blueprintjs/core'
 import { Color, FontVariation } from '@harness/design-system'
 import { useHistory, useParams } from 'react-router-dom'
+import { isEqual } from 'lodash-es'
 
 import { useStrings } from 'framework/strings'
 import { CEView, useUpdatePerspective, ViewPreferences } from 'services/ce'
@@ -47,10 +48,12 @@ const PerspectivePreferences: React.FC<PerspectivePreferencesProps> = ({
   })
 
   const savePerspective = async (): Promise<void> => {
-    await updatePerspective({
-      ...updatePayload,
-      viewPreferences: preferences
-    })
+    if (!isEqual(preferences, perspectiveData.viewPreferences)) {
+      await updatePerspective({
+        ...updatePayload,
+        viewPreferences: preferences
+      })
+    }
 
     trackEvent(USER_JOURNEY_EVENTS.SAVE_PERSPECTIVE, {
       include_others: preferences?.includeOthers,

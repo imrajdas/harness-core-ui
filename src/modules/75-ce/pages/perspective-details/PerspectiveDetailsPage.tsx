@@ -52,7 +52,8 @@ import {
   highlightNode,
   resetNodeState,
   clusterInfoUtil,
-  getQueryFiltersFromPerspectiveResponse
+  getQueryFiltersFromPerspectiveResponse,
+  UnallocatedCostClusterFields
 } from '@ce/utils/perspectiveUtils'
 import { AGGREGATE_FUNCTION, getGridColumnsByGroupBy } from '@ce/components/PerspectiveGrid/Columns'
 import { getGMTStartDateTime, getGMTEndDateTime, DEFAULT_TIME_RANGE } from '@ce/utils/momentUtils'
@@ -470,7 +471,10 @@ const PerspectiveDetailsPage: React.FC = () => {
                 <PreferencesDropDown
                   preferences={preferences}
                   setPreferences={setPreferences}
-                  isClusterDatasource={isClusterDatasource}
+                  showIncludeUnallocatedCost={
+                    isClusterDatasource &&
+                    (Object.values(UnallocatedCostClusterFields) as string[]).includes(groupBy.fieldId)
+                  }
                 />
               }
             />
@@ -552,8 +556,8 @@ export default PerspectiveDetailsPage
 const PreferencesDropDown: React.FC<{
   preferences: QlceViewPreferencesInput
   setPreferences: React.Dispatch<React.SetStateAction<QlceViewPreferencesInput>>
-  isClusterDatasource: boolean
-}> = ({ preferences, setPreferences, isClusterDatasource }) => {
+  showIncludeUnallocatedCost: boolean
+}> = ({ preferences, setPreferences, showIncludeUnallocatedCost }) => {
   const { getString } = useStrings()
 
   return (
@@ -571,7 +575,7 @@ const PreferencesDropDown: React.FC<{
               setPreferences(prevPref => ({ ...prevPref, includeOthers: event.currentTarget.checked }))
             }}
           />
-          {isClusterDatasource ? (
+          {showIncludeUnallocatedCost ? (
             <Switch
               large
               checked={Boolean(preferences.includeUnallocatedCost)}

@@ -730,6 +730,10 @@ perspectives:
     upgradeOffer: now for data retention upto 5 years.
   createPerspective:
     title: 'Perspective Builder'
+    tabHeaders:
+      perspectiveBuilder: '1. Perspective Builder'
+      reportsAndBudget: '2. Reports and Budget'
+      preferences: '3. Preferences'
     nameLabel: 'Enter a name for the view*'
     name: 'Perspective name'
     proTipText: 'Pro tip: Create custom fields for advanced filtering. Apart from the given fields, you can

@@ -179,6 +179,7 @@ const PerspectiveBuilder: React.FC<PerspectiveBuilderProps> = props => {
       ...values,
       viewState: 'DRAFT',
       viewType: 'CUSTOMER',
+      viewPreferences: perspectiveData?.viewPreferences,
       uuid: perspectiveId,
       folderId: selectedFolder?.uuid || ''
     }

@@ -4819,6 +4819,9 @@ export interface StringsMap {
   'ce.perspectives.createPerspective.preview.groupBy': string
   'ce.perspectives.createPerspective.preview.title': string
   'ce.perspectives.createPerspective.proTipText': string
+  'ce.perspectives.createPerspective.tabHeaders.perspectiveBuilder': string
+  'ce.perspectives.createPerspective.tabHeaders.preferences': string
+  'ce.perspectives.createPerspective.tabHeaders.reportsAndBudget': string
   'ce.perspectives.createPerspective.title': string
   'ce.perspectives.createPerspective.validationErrors.nameError': string
   'ce.perspectives.createPerspective.validationErrors.nameLengthError': string

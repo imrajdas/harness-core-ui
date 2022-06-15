@@ -296,3 +296,11 @@ export const searchList = (searchVal: string, perspectiveList: any) => {
 
   return perspectiveList
 }
+
+export enum UnallocatedCostClusterFields {
+  NAMESPACE_FIELD_ID = 'namespace',
+  WORKLOAD_NAME_FIELD_ID = 'workloadName',
+  CLOUD_SERVICE_NAME_FIELD_ID = 'cloudServiceName',
+  TASK_FIELD_ID = 'taskId',
+  LAUNCH_TYPE_FIELD_ID = 'launchType'
+}
