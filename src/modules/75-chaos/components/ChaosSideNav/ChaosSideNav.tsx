@@ -34,6 +34,7 @@ export default function ChaosSideNav(): React.ReactElement {
       {projectIdentifier && orgIdentifier ? (
         <>
           <SidebarLink label="Overview" to={routes.toProjectOverview({ ...params, module: 'chaos' })} />
+          <SidebarLink label="Scenarios" to={routes.toChaosScenarios({ ...params })} />
           <SidebarLink label="Workflows" to={routes.toChaosWorkflows({ ...params })} />
           <SidebarLink label="ChaosHubs" to={routes.toChaosHubs({ ...params })} />
           <SidebarLink label="ChaosAgents" to={routes.toChaosAgents({ ...params })} />

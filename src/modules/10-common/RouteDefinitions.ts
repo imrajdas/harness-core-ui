@@ -1594,6 +1594,10 @@ const routes = {
   ),
 
   // These RoutesDestinations are defined in the MicroFrontend
+  toChaosScenarios: withAccountId(
+    ({ orgIdentifier, projectIdentifier }: Partial<ProjectPathProps & ModulePathParams>) =>
+      `/chaos/orgs/${orgIdentifier}/projects/${projectIdentifier}/scenarios`
+  ),
   toChaosWorkflows: withAccountId(
     ({ orgIdentifier, projectIdentifier }: Partial<ProjectPathProps & ModulePathParams>) =>
       `/chaos/orgs/${orgIdentifier}/projects/${projectIdentifier}/scenarios/runs`
@@ -1604,7 +1608,7 @@ const routes = {
   ),
   toChaosAgents: withAccountId(
     ({ orgIdentifier, projectIdentifier }: Partial<ProjectPathProps>) =>
-      `/chaos/orgs/${orgIdentifier}/projects/${projectIdentifier}/agents`
+      `/chaos/orgs/${orgIdentifier}/projects/${projectIdentifier}/execution-planes`
   )
 }
 
