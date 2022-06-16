@@ -6,6 +6,8 @@
  */
 
 import type { IconName } from '@harness/uicore'
+import { Connectors } from '@connectors/constants'
+import type { ConnectorInfoDTO, UserRepoResponse } from 'services/cd-ng'
 
 import type { StringsMap } from 'stringTypes'
 
@@ -135,4 +137,68 @@ export const ArtifactProviders: ArtifactType[] = [
     details: 'cd.getStartedWithCD.artifactManifestContent',
     disabled: true
   }
+]
+
+export interface GitProvider {
+  icon: IconName
+  label: keyof StringsMap
+  type: ConnectorInfoDTO['type']
+  disabled?: boolean
+}
+
+export const AllSaaSGitProviders: GitProvider[] = [
+  { icon: 'github', label: 'common.repo_provider.githubLabel', type: Connectors.GITHUB },
+  { icon: 'gitlab', label: 'common.repo_provider.gitlabLabel', type: Connectors.GITLAB },
+  { icon: 'bitbucket-blue', label: 'pipeline.manifestType.bitBucketLabel', type: Connectors.BITBUCKET }
+]
+
+export const AllOnPremGitProviders: GitProvider[] = [
+  ...AllSaaSGitProviders,
+  { icon: 'service-github', label: 'ci.getStartedWithCI.genericGit', type: Connectors.GIT }
+]
+
+export enum GitAuthenticationMethod {
+  OAuth = 'OAUTH',
+  AccessToken = 'ACCESS_TOKEN',
+  AccessKey = 'ACCESS_KEY',
+  UserNameAndApplicationPassword = 'USERNAME_AND_PASSWORD'
+}
+
+export interface GitProviderPermission {
+  type: ConnectorInfoDTO['type']
+  permissions: string[]
+}
+
+export const GitProviderPermissions: GitProviderPermission[] = [
+  { type: Connectors.GITHUB, permissions: ['repo', 'admin:repo_hook', 'user'] },
+  { type: Connectors.BITBUCKET, permissions: ['Issues:read', 'Webhooks:read and write', 'Pull requests:write'] },
+  { type: Connectors.GITLAB, permissions: ['api', 'read_repository', 'write_repository'] }
+]
+
+export const GitProviderTypeToAuthenticationMethodMapping: Map<ConnectorInfoDTO['type'], GitAuthenticationMethod> =
+  new Map([
+    [Connectors.GITHUB, GitAuthenticationMethod.AccessToken],
+    [Connectors.GITLAB, GitAuthenticationMethod.AccessKey],
+    [Connectors.BITBUCKET, GitAuthenticationMethod.UserNameAndApplicationPassword]
+  ])
+
+export const DEFAULT_HARNESS_KMS = 'harnessSecretManager'
+
+export const ACCOUNT_SCOPE_PREFIX = 'account.'
+
+export const OAUTH_REDIRECT_URL_PREFIX = `${location.protocol}//${location.host}/gateway/`
+
+export const getFullRepoName = (repository: UserRepoResponse): string => {
+  const { name: repositoryName, namespace } = repository
+  return namespace && repositoryName ? `${namespace}/${repositoryName}` : repositoryName ?? ''
+}
+
+export enum GitFetchTypes {
+  Branch = 'Branch',
+  Commit = 'Commit'
+}
+
+export const gitFetchTypeList = [
+  { label: 'Latest from Branch', value: 'Branch' },
+  { label: 'Specific Commit Id / Git Tag', value: 'Commit' }
 ]

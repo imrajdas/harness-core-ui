@@ -72,7 +72,7 @@ describe('Test SelectRepository component', () => {
       'div[class*="FormError--errorDiv"][data-name="repository"]'
     )
     expect(repositoryValidationError).toBeInTheDocument()
-    expect(getByText('ci.getStartedWithCI.plsChoose')).toBeTruthy()
+    expect(getByText('common.getStarted.plsChoose')).toBeTruthy()
     const testRepoName = getFullRepoName(repos[1])
     const testRepository = getByText(testRepoName)
     expect(testRepository).toBeInTheDocument()

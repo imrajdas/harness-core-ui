@@ -15,11 +15,18 @@ declare const styles: {
   readonly footer: string
   readonly header: string
   readonly icons: string
+  readonly learnMore: string
   readonly main: string
+  readonly repoCard: string
   readonly repoborderBottom: string
+  readonly repositories: string
+  readonly repositoryRow: string
+  readonly repositorySearch: string
+  readonly repositoryTable: string
   readonly selectedCard: string
   readonly serviceDeploymentTypeCard: string
   readonly serviceDeploymentTypeIcon: string
+  readonly testConnectionBtn: string
   readonly text: string
   readonly workloadTypeCard: string
   readonly workloadTypeIcon: string

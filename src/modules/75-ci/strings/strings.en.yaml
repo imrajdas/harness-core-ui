@@ -190,9 +190,6 @@ getStartedWithCI:
   provisioningFailed: Provisioning failed
   setUpAuth: Set up Authentication
   genericGit: Generic Git
-  fetchingRepos: Please wait while we fetch repositories...
-  plsChoose: 'Please choose {{field}}'
-  fieldIsMissing: '{{field}} is missing'
   startProvisioning: Start Provisioning
   provisioningHelpText: Provision the '{{ $.ci.getStartedWithCI.hostedByHarness }}' Infrastructure (~2 mins)
   carousel:

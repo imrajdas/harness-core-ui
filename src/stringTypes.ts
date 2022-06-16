@@ -284,12 +284,22 @@ export interface StringsMap {
   'common.genericErrors.inviteExpired': string
   'common.genericErrors.licenseCallFailed': string
   'common.genericErrors.unauthorized': string
+  'common.getStarted.accessTokenLabel': string
+  'common.getStarted.apiUrlLabel': string
+  'common.getStarted.appPassword': string
   'common.getStarted.buildPipeline': string
+  'common.getStarted.codeRepoLabel': string
+  'common.getStarted.fetchingRepos': string
   'common.getStarted.firstPipeline': string
+  'common.getStarted.learnMoreAboutPermissions': string
+  'common.getStarted.oAuthLabel': string
+  'common.getStarted.plsChoose': string
   'common.getStarted.quicklyCreate': string
+  'common.getStarted.searchRepo': string
   'common.getStarted.selectArtifact': string
   'common.getStarted.selectInfra': string
   'common.getStarted.selectWorkload': string
+  'common.getStarted.verifyConnection': string
   'common.git.APIAccessDescription': string
   'common.git.APIAuthentication': string
   'common.git.addUserCredentialLabel': string
@@ -3978,6 +3988,7 @@ export interface StringsMap {
   'cd.getStartedWithCD.inManifestContent': string
   'cd.getStartedWithCD.manifestFile': string
   'cd.getStartedWithCD.provideManifest': string
+  'cd.getStartedWithCD.reposubheading': string
   'cd.getStartedWithCD.serverless': string
   'cd.getStartedWithCD.serviceDeploy': string
   'cd.getStartedWithCD.serviceHeading': string
@@ -5739,10 +5750,6 @@ export interface StringsMap {
   'ci.description': string
   'ci.executionLabel': string
   'ci.fileStore': string
-  'ci.getStartedWithCI.accessTokenLabel': string
-  'ci.getStartedWithCI.apiUrlLabel': string
-  'ci.getStartedWithCI.appPassword': string
-  'ci.getStartedWithCI.authMethodLabel': string
   'ci.getStartedWithCI.awsBuildLocation': string
   'ci.getStartedWithCI.buildLocation': string
   'ci.getStartedWithCI.buildyourOwnPipeline': string
@@ -5763,8 +5770,6 @@ export interface StringsMap {
   'ci.getStartedWithCI.carousel.labels.usePlugins': string
   'ci.getStartedWithCI.chooseDiffInfra': string
   'ci.getStartedWithCI.codeRepo': string
-  'ci.getStartedWithCI.codeRepoLabel': string
-  'ci.getStartedWithCI.codebaseHelptext': string
   'ci.getStartedWithCI.configInfra': string
   'ci.getStartedWithCI.connectRepo': string
   'ci.getStartedWithCI.createPipeline': string
@@ -5773,7 +5778,6 @@ export interface StringsMap {
   'ci.getStartedWithCI.dockerRunner': string
   'ci.getStartedWithCI.dockerRunnerBuildLocation': string
   'ci.getStartedWithCI.duration': string
-  'ci.getStartedWithCI.fetchingRepos': string
   'ci.getStartedWithCI.fieldIsMissing': string
   'ci.getStartedWithCI.flexibleInfra': string
   'ci.getStartedWithCI.flexibleInfraHelpText': string
@@ -5798,12 +5802,10 @@ export interface StringsMap {
   'ci.getStartedWithCI.parallelizationHelpText': string
   'ci.getStartedWithCI.parameterization': string
   'ci.getStartedWithCI.parameterizationHelpText': string
-  'ci.getStartedWithCI.plsChoose': string
   'ci.getStartedWithCI.provisionSecureEnv': string
   'ci.getStartedWithCI.provisioningFailed': string
   'ci.getStartedWithCI.provisioningHelpText': string
   'ci.getStartedWithCI.provisioningSuccessful': string
-  'ci.getStartedWithCI.searchRepo': string
   'ci.getStartedWithCI.security': string
   'ci.getStartedWithCI.securityHelpText': string
   'ci.getStartedWithCI.selectInfra': string
@@ -5814,7 +5816,6 @@ export interface StringsMap {
   'ci.getStartedWithCI.ti': string
   'ci.getStartedWithCI.tiHelpText': string
   'ci.getStartedWithCI.troubleShootFailedProvisioning': string
-  'ci.getStartedWithCI.verifyConnection': string
   'ci.gradleNote1': string
   'ci.gradleNote2': string
   'ci.gradleNotesTitle': string

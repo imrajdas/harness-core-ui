@@ -132,7 +132,7 @@ describe('Test SelectGitProvider component', () => {
     }
 
     await act(async () => {
-      fireEvent.click(getByText('ci.getStartedWithCI.accessTokenLabel'))
+      fireEvent.click(getByText('common.getStarted.accessTokenLabel'))
     })
 
     expect(container.querySelector('span[data-tooltip-id="accessToken"]')).toBeTruthy()
@@ -343,7 +343,7 @@ describe('Test SelectGitProvider component', () => {
     }
 
     await act(async () => {
-      fireEvent.click(getByText('username & ci.getStartedWithCI.appPassword'))
+      fireEvent.click(getByText('username & common.getStarted.appPassword'))
     })
 
     expect(container.querySelector('span[data-tooltip-id="username"]')).toBeTruthy()
@@ -413,7 +413,7 @@ describe('Test SelectGitProvider component', () => {
 
     // Schema validation error should show up for if Git Provider is not selected
     expect(container.querySelector('div[class*="FormError--errorDiv"][data-name="gitProvider"]')).toBeInTheDocument()
-    expect(getByText('ci.getStartedWithCI.plsChoose')).toBeTruthy()
+    expect(getByText('common.getStarted.plsChoose')).toBeTruthy()
 
     const gitProviderCards = Array.from(container.querySelectorAll('div[class*="bp3-card"]')) as HTMLElement[]
 
@@ -435,7 +435,7 @@ describe('Test SelectGitProvider component', () => {
     })
 
     await act(async () => {
-      fireEvent.click(getByText('ci.getStartedWithCI.accessTokenLabel'))
+      fireEvent.click(getByText('common.getStarted.accessTokenLabel'))
     })
 
     expect(gitAuthenticationMethodValidationError).not.toBeInTheDocument()

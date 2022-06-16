@@ -25,9 +25,9 @@ import {
 import { useGetListOfAllReposByRefConnector, UserRepoResponse } from 'services/cd-ng'
 import { useStrings } from 'framework/strings'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
-import { ACCOUNT_SCOPE_PREFIX, getFullRepoName } from './Constants'
+import { ACCOUNT_SCOPE_PREFIX, getFullRepoName } from '../DeployProvisioningWizard/Constants'
 
-import css from './InfraProvisioningWizard.module.scss'
+import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectRepositoryRef {
   repository: UserRepoResponse
@@ -110,9 +110,7 @@ const SelectRepositoryRef = (
 
   useEffect(() => {
     if (query) {
-      setRepositories(
-        (repoData?.data || []).filter(item => getFullRepoName(item).toLowerCase().includes(query.toLowerCase()))
-      )
+      setRepositories((repoData?.data || []).filter(item => item.name?.includes(query)))
     } else {
       setRepositories(repoData?.data)
     }
@@ -157,7 +155,6 @@ const SelectRepositoryRef = (
 
   return (
     <Layout.Vertical spacing="small">
-      <Text font={{ variation: FontVariation.H4 }}>{getString('common.selectYourRepo')}</Text>
       <Text font={{ variation: FontVariation.BODY2 }}>{getString('common.getStarted.codebaseHelptext')}</Text>
       <Container padding={{ top: 'small' }} className={cx(css.repositories)}>
         <TextInput
@@ -208,7 +205,7 @@ function RepositorySelectionTable({ repositories, onRowClick }: RepositorySelect
         width: '100%',
         Cell: ({ row }: CellProps<UserRepoResponse>) => {
           const { name: repositoryName } = row.original
-          const isRowSelected = selectedRow && getFullRepoName(row.original) === getFullRepoName(selectedRow)
+          const isRowSelected = repositoryName === selectedRow?.name
           return (
             <Layout.Horizontal
               data-testid={repositoryName}

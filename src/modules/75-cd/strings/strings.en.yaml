@@ -378,3 +378,4 @@ getStartedWithCD:
   artifactManifest: Artifact + Manifest
   artifactManifestContent: Harness can take your existing Kubernetes manifests and artifacts and can proceed to deploy with them
   provideManifest: Provide Manifest Details
+  reposubheading: We need to connect to your repo to access serverless.yaml file

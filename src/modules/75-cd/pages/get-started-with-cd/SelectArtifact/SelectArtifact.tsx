@@ -6,13 +6,27 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react'
-import { Text, FontVariation, Layout, CardSelect, Icon, Container, Formik, FormikForm as Form } from '@harness/uicore'
+import {
+  Text,
+  FontVariation,
+  Layout,
+  CardSelect,
+  Icon,
+  Container,
+  Formik,
+  FormikForm as Form,
+  Collapse
+} from '@harness/uicore'
 import type { FormikContextType } from 'formik'
 import { useStrings } from 'framework/strings'
 
-import { ArtifactProviders, ArtifactType } from '../DeployProvisioningWizard/Constants'
+import { ArtifactProviders, ArtifactType, Hosting } from '../DeployProvisioningWizard/Constants'
 
+import { SelectGitProvider } from './SelectGitProvider'
+import { SelectRepository } from './SelectRepository'
+import { ProvideManifest } from './ProvideManifest'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
+
 export interface SelectArtifactRef {
   values: SelectArtifactInterface
   setFieldTouched(field: keyof SelectArtifactInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
@@ -28,12 +42,20 @@ interface SelectArtifactProps {
   enableNextBtn: () => void
 }
 
+// const collapseProps = {
+//   collapsedIcon: 'main-chevron-right' as IconName,
+//   expandedIcon: 'main-chevron-down' as IconName,
+//   iconProps: { size: 16 } as IconProps,
+//   // className: 'a',
+//   isRemovable: false
+// }
+
 const SelectArtifactRef = (props: SelectArtifactProps): React.ReactElement => {
   const { getString } = useStrings()
   const { disableNextBtn, enableNextBtn } = props
   const [artifactType, setArtifactType] = useState<ArtifactType | undefined>()
   const formikRef = useRef<FormikContextType<SelectArtifactInterface>>()
-
+  const [disableBtn, setDisableBtn] = useState<boolean>(false)
   useEffect(() => {
     if (artifactType) {
       enableNextBtn()
@@ -42,7 +64,6 @@ const SelectArtifactRef = (props: SelectArtifactProps): React.ReactElement => {
     }
   }, [artifactType])
 
-  const borderBottom = <div className={css.repoborderBottom} />
   return (
     <Layout.Vertical width="70%">
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.artifactLocation')}</Text>
@@ -79,30 +100,49 @@ const SelectArtifactRef = (props: SelectArtifactProps): React.ReactElement => {
                   onChange={(item: ArtifactType) => setArtifactType(item)}
                 />
               </Container>
-              {borderBottom}
+
               <div>
-                <div className={css.artifactSections}>
-                  <Text font={{ variation: FontVariation.H5 }}>{getString('cd.getStartedWithCD.codeRepos')}</Text>
-                </div>
-                {borderBottom}
+                <Collapse
+                  heading={
+                    <div className={css.artifactSections}>
+                      <Text font={{ variation: FontVariation.H5 }}>{getString('cd.getStartedWithCD.codeRepos')}</Text>
+                    </div>
+                  }
+                >
+                  <SelectGitProvider
+                    disableNextBtn={() => setDisableBtn(true)}
+                    enableNextBtn={() => setDisableBtn(false)}
+                    selectedHosting={Hosting.SaaS}
+                  ></SelectGitProvider>
+                </Collapse>
+              </div>
+
+              <div>
+                <Collapse
+                  heading={
+                    <div className={css.artifactSections}>
+                      <Text font={{ variation: FontVariation.H5 }}>{getString('common.selectYourRepo')}</Text>
+                    </div>
+                  }
+                >
+                  <SelectRepository
+                    disableNextBtn={() => setDisableBtn(true)}
+                    enableNextBtn={() => setDisableBtn(false)}
+                  ></SelectRepository>
+                </Collapse>
               </div>
               <div>
-                <div className={css.artifactSections}>
-                  <Text font={{ variation: FontVariation.H5 }}>{getString('common.authMethod')}</Text>
-                </div>
-                {borderBottom}
-              </div>
-              <div>
-                <div className={css.artifactSections}>
-                  <Text font={{ variation: FontVariation.H5 }}>{getString('common.selectYourRepo')}</Text>
-                </div>
-                {borderBottom}
-              </div>
-              <div>
-                <div className={css.artifactSections}>
-                  <Text font={{ variation: FontVariation.H5 }}>{getString('cd.getStartedWithCD.provideManifest')}</Text>
-                </div>
-                {borderBottom}
+                <Collapse
+                  heading={
+                    <div className={css.artifactSections}>
+                      <Text font={{ variation: FontVariation.H5 }}>
+                        {getString('cd.getStartedWithCD.provideManifest')}
+                      </Text>
+                    </div>
+                  }
+                >
+                  <ProvideManifest />
+                </Collapse>
               </div>
             </Form>
           )
