@@ -13,7 +13,7 @@
   justify-content: space-between;
   z-index: 16;
   /* sticky positioning */
-  height: 880px;
+  height: var(--min-page-height);
   position: sticky;
   bottom: 0;
   align-self: flex-end;

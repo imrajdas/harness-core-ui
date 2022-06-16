@@ -5,6 +5,11 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
+:root {
+  --main-nav-height: 880px;
+  --min-page-height: max(100vh, var(--main-nav-height));
+}
+
 .trialLicenseBanner {
   display: flex;
   align-items: center;
@@ -47,12 +52,7 @@
   align-items: center;
 }
 
-.children {
-  min-height: 100vh;
-  overflow-y: auto;
-  background-color: var(--primary-bg);
-}
-
+/*
 .featuresBanner + .children {
   height: calc(100vh - 58px);
 }
@@ -64,18 +64,22 @@
 .trialLicenseBanner + .featuresBanner + .children {
   height: calc(100vh - 95px);
 }
+*/
 
 .rhs {
-  overflow-y: auto;
-  min-height: 100vh;
+  .children {
+    min-height: var(--min-page-height);
+    overflow-y: auto;
+    background-color: var(--primary-bg);
+  }
 }
 
 .main {
   display: grid;
-  grid-template-columns: 88px 184px calc(100vw - 272px);
+  grid-template-columns: 88px 184px calc(100% - 272px);
 
   &[data-layout='minimal'] {
-    grid-template-columns: 88px calc(100vw - 88px);
+    grid-template-columns: 88px calc(100% - 88px);
   }
 
   &[data-layout='empty'] {
