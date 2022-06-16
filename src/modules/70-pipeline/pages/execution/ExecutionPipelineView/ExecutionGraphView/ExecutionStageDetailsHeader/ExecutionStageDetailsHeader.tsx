@@ -17,7 +17,7 @@ import type { StageDetailProps } from '@pipeline/factories/ExecutionFactory/type
 import factory from '@pipeline/factories/ExecutionFactory'
 import type { StageType } from '@pipeline/utils/stageHelpers'
 import { Duration } from '@common/components/Duration/Duration'
-import { ExecutionStatus, isExecutionFailed } from '@pipeline/utils/statusHelpers'
+import { ExecutionStatus, isExecutionComplete, isExecutionFailed } from '@pipeline/utils/statusHelpers'
 import ExecutionStatusLabel from '@pipeline/components/ExecutionStatusLabel/ExecutionStatusLabel'
 import ExecutionActions from '@pipeline/components/ExecutionActions/ExecutionActions'
 import { usePermission } from '@rbac/hooks/usePermission'
@@ -106,47 +106,47 @@ export function ExecutionStageDetailsHeader(): React.ReactElement {
       <div className={css.stageDetails}>
         <div className={css.lhs} data-has-sibling={Boolean(stage && stageDetail?.component)}>
           <div className={css.stageTop}>
-            <div className={css.stageName}>
-              {stage?.name}
-              {!!pipelineExecutionDetail?.pipelineExecutionSummary?.allowStageExecutions && (
-                <RbacButton
-                  icon="repeat"
-                  tooltip={getString('pipeline.execution.actions.rerunStage')}
-                  onClick={runPipeline}
-                  variation={ButtonVariation.ICON}
-                  disabled={!canExecute}
-                  minimal
-                  withoutBoxShadow
-                  small
-                  tooltipProps={{
-                    isDark: true
-                  }}
-                />
-              )}
-            </div>
-            <ExecutionActions
-              executionStatus={stageNode?.status as ExecutionStatus}
-              refetch={refetch}
-              params={{
-                orgIdentifier,
-                pipelineIdentifier,
-                projectIdentifier,
-                accountId,
-                executionIdentifier,
-                module,
-                repoIdentifier: pipelineExecutionDetail?.pipelineExecutionSummary?.gitDetails?.repoIdentifier,
-                connectorRef: pipelineExecutionDetail?.pipelineExecutionSummary?.connectorRef,
-                repoName: pipelineExecutionDetail?.pipelineExecutionSummary?.gitDetails?.repoName,
-                branch: pipelineExecutionDetail?.pipelineExecutionSummary?.gitDetails?.branch,
-                storeType: pipelineExecutionDetail?.pipelineExecutionSummary?.storeType as StoreType
-              }}
-              noMenu
-              stageName={stageNode?.name}
-              stageId={stageNode?.uuid}
-              canEdit={canEdit}
-              canExecute={canExecute}
-              modules={pipelineExecutionDetail?.pipelineExecutionSummary?.modules}
-            />
+            <div className={css.stageName}>{stage?.name}</div>
+            {!!pipelineExecutionDetail?.pipelineExecutionSummary?.allowStageExecutions &&
+            isExecutionComplete(stage?.status as ExecutionStatus) ? (
+              <RbacButton
+                icon="repeat"
+                tooltip={getString('pipeline.execution.actions.rerunStage')}
+                onClick={runPipeline}
+                variation={ButtonVariation.ICON}
+                disabled={!canExecute}
+                minimal
+                withoutBoxShadow
+                small
+                tooltipProps={{
+                  isDark: true
+                }}
+              />
+            ) : (
+              <ExecutionActions
+                executionStatus={stageNode?.status as ExecutionStatus}
+                refetch={refetch}
+                params={{
+                  orgIdentifier,
+                  pipelineIdentifier,
+                  projectIdentifier,
+                  accountId,
+                  executionIdentifier,
+                  module,
+                  repoIdentifier: pipelineExecutionDetail?.pipelineExecutionSummary?.gitDetails?.repoIdentifier,
+                  connectorRef: pipelineExecutionDetail?.pipelineExecutionSummary?.connectorRef,
+                  repoName: pipelineExecutionDetail?.pipelineExecutionSummary?.gitDetails?.repoName,
+                  branch: pipelineExecutionDetail?.pipelineExecutionSummary?.gitDetails?.branch,
+                  storeType: pipelineExecutionDetail?.pipelineExecutionSummary?.storeType as StoreType
+                }}
+                noMenu
+                stageName={stageNode?.name}
+                stageId={stageNode?.uuid}
+                canEdit={canEdit}
+                canExecute={canExecute}
+                modules={pipelineExecutionDetail?.pipelineExecutionSummary?.modules}
+              />
+            )}
           </div>
           {times}
           {/* TODO: Need to uncomment and finish */}
