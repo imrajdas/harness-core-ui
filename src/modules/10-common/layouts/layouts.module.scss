@@ -48,7 +48,7 @@
 }
 
 .children {
-  height: 100vh;
+  min-height: 100vh;
   overflow-y: auto;
   background-color: var(--primary-bg);
 }
@@ -67,7 +67,7 @@
 
 .rhs {
   overflow-y: auto;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .main {

@@ -12,6 +12,11 @@
   flex-direction: column;
   justify-content: space-between;
   z-index: 16;
+  /* sticky positioning */
+  height: 880px;
+  position: sticky;
+  bottom: 0;
+  align-self: flex-end;
 
   .navList {
     list-style: none;
