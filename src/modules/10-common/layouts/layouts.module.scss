@@ -87,6 +87,12 @@
   }
 }
 
+:global {
+  .PageBody--filled {
+    min-height: var(--min-page-height);
+  }
+}
+
 .info {
   background-color: var(--primary-1) !important;
 }

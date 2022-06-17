@@ -10,7 +10,7 @@
 }
 
 .container {
-  height: 100vh;
+  min-height: var(--min-page-height);
   padding-left: 80px !important;
   padding-top: 80px !important;
   background-size: contain !important;
