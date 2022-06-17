@@ -88,8 +88,10 @@
 }
 
 :global {
-  .PageBody--filled {
-    min-height: var(--min-page-height);
+  .PageBody--pageBody {
+    min-height: var(--min-page-height) !important;
+    height: unset !important;
+    overflow: unset !important;
   }
 }
 
