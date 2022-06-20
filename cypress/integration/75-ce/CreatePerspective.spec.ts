@@ -110,6 +110,11 @@ describe('CCM Perspective Creation flow', () => {
     cy.contains('span', '+ create new Report schedule').should('exist')
     cy.contains('span', '+ create new Budget').should('exist')
 
+    cy.contains('span', 'Next').click()
+
+    cy.contains('p', 'Preferences').should('exist')
+    cy.get('input[type=checkbox]').should('not.be.checked')
+
     cy.contains('span', 'Save Perspective').click()
   })
 })
