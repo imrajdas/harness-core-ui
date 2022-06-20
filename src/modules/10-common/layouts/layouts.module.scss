@@ -6,8 +6,9 @@
  */
 
 :root {
-  --main-nav-height: 880px;
-  --min-page-height: max(100vh, var(--main-nav-height));
+  --nav-items-count: 12; /* overriden via JS in MainNav.tsx */
+  --main-nav-height: calc(var(--nav-items-count) * 92px); /*92px is the height of each nav item */
+  --page-min-height: max(100vh, var(--main-nav-height)); /* take the larger of the screen or the nav */
 }
 
 .trialLicenseBanner {
@@ -68,7 +69,7 @@
 
 .rhs {
   .children {
-    min-height: var(--min-page-height);
+    min-height: var(--page-min-height);
     overflow-y: auto;
     background-color: var(--primary-bg);
   }
@@ -87,9 +88,11 @@
   }
 }
 
+/* this is required to fix the height of the PageBody component
+   coming from UICore, with height coming from NGUI */
 :global {
   .PageBody--pageBody {
-    min-height: var(--min-page-height) !important;
+    min-height: calc(var(--page-min-height) - var(--page-header-height)) !important;
     height: unset !important;
     overflow: unset !important;
   }

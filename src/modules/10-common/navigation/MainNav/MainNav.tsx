@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import cx from 'classnames'
 import { NavLink as Link, useParams } from 'react-router-dom'
 import type { NavLinkProps } from 'react-router-dom'
@@ -41,6 +41,13 @@ export default function L1Nav(): React.ReactElement {
   } = useFeatureFlags()
 
   const { currentUserInfo: user } = useAppStore()
+
+  useLayoutEffect(() => {
+    const itemsCount = document.querySelectorAll(`.${css.navItem}`).length
+    // console.log(css.navItem, { itemsCount })
+    const root = document.querySelector(':root') as HTMLElement
+    root?.style.setProperty('--nav-items-count', itemsCount.toString())
+  })
 
   return (
     <nav className={css.main}>
