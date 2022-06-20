@@ -111,10 +111,10 @@ export interface InfrastructureType {
 }
 
 export const InfrastructureTypes: InfrastructureType[] = [
-  { icon: 'service-kubernetes', label: 'pipeline.serviceDeploymentTypes.kubernetes', disabled: false },
-  { icon: 'google-kubernetes-engine', label: 'pipelineSteps.deploymentTypes.gk8engine', disabled: true },
-  { icon: 'service-azure', label: 'cd.gitOps', disabled: true },
-  { icon: 'service-aws', label: 'cd.gitOps', disabled: true }
+  { icon: 'service-kubernetes', label: 'cd.getStartedWithCD.directK8s', disabled: false },
+  { icon: 'google-kubernetes-engine', label: 'cd.getStartedWithCD.googleK8s', disabled: true },
+  { icon: 'service-azure', label: 'cd.getStartedWithCD.azureK8s', disabled: true },
+  { icon: 'service-aws', label: 'cd.getStartedWithCD.awsElasticK8s', disabled: true }
 ]
 
 export interface ArtifactType {

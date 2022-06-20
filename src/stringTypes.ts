@@ -289,7 +289,9 @@ export interface StringsMap {
   'common.getStarted.appPassword': string
   'common.getStarted.buildPipeline': string
   'common.getStarted.codeRepoLabel': string
+  'common.getStarted.codebaseHelptext': string
   'common.getStarted.fetchingRepos': string
+  'common.getStarted.fieldIsMissing': string
   'common.getStarted.firstPipeline': string
   'common.getStarted.learnMoreAboutPermissions': string
   'common.getStarted.oAuthLabel': string
@@ -2184,6 +2186,8 @@ export interface StringsMap {
   'connectors.k8.clientSecretOptional': string
   'connectors.k8.delegateInClusterInfo': string
   'connectors.k8.delegateOutClusterInfo': string
+  'connectors.k8.learnMore': string
+  'connectors.k8.masterUrlInfo': string
   'connectors.k8.masterUrlLabel': string
   'connectors.k8.placeholder.masterUrl': string
   'connectors.k8.serviceAccountKey': string
@@ -3982,8 +3986,14 @@ export interface StringsMap {
   'cd.getStartedWithCD.artifactLocation': string
   'cd.getStartedWithCD.artifactManifest': string
   'cd.getStartedWithCD.artifactManifestContent': string
+  'cd.getStartedWithCD.awsElasticK8s': string
+  'cd.getStartedWithCD.azureK8s': string
   'cd.getStartedWithCD.codeRepos': string
   'cd.getStartedWithCD.configureRepo': string
+  'cd.getStartedWithCD.delegateInfo': string
+  'cd.getStartedWithCD.directK8s': string
+  'cd.getStartedWithCD.envName': string
+  'cd.getStartedWithCD.googleK8s': string
   'cd.getStartedWithCD.inManifest': string
   'cd.getStartedWithCD.inManifestContent': string
   'cd.getStartedWithCD.manifestFile': string
@@ -3992,6 +4002,8 @@ export interface StringsMap {
   'cd.getStartedWithCD.serverless': string
   'cd.getStartedWithCD.serviceDeploy': string
   'cd.getStartedWithCD.serviceHeading': string
+  'cd.getStartedWithCD.setupDelegate': string
+  'cd.getStartedWithCD.setupaNewDelegate': string
   'cd.getStartedWithCD.workloadDeploy': string
   'cd.gitFetchTypeRequired': string
   'cd.gitOps': string
@@ -5750,6 +5762,7 @@ export interface StringsMap {
   'ci.description': string
   'ci.executionLabel': string
   'ci.fileStore': string
+  'ci.getStartedWithCI.authMethodLabel': string
   'ci.getStartedWithCI.awsBuildLocation': string
   'ci.getStartedWithCI.buildLocation': string
   'ci.getStartedWithCI.buildyourOwnPipeline': string
@@ -5778,7 +5791,6 @@ export interface StringsMap {
   'ci.getStartedWithCI.dockerRunner': string
   'ci.getStartedWithCI.dockerRunnerBuildLocation': string
   'ci.getStartedWithCI.duration': string
-  'ci.getStartedWithCI.fieldIsMissing': string
   'ci.getStartedWithCI.flexibleInfra': string
   'ci.getStartedWithCI.flexibleInfraHelpText': string
   'ci.getStartedWithCI.genericGit': string

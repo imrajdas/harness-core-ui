@@ -6,37 +6,45 @@
  */
 
 import { FormInput, Layout } from '@harness/uicore'
-import { Form, Formik } from 'formik'
-import React from 'react'
+import { Form, Formik, FormikContextType } from 'formik'
+import React, { useRef } from 'react'
 import { useStrings } from 'framework/strings'
-import { gitFetchTypeList } from '../DeployProvisioningWizard/Constants'
+import { gitFetchTypeList, GitFetchTypes } from '../DeployProvisioningWizard/Constants'
 
-interface ProvideManifestProps {
+export interface ProvideManifestRef {
+  values: ProvideManifestInterface
+  showValidationErrors: () => void
+}
+interface ProvideManifestInterface {
   manifestName?: string
   branch?: string | undefined
   commitId?: string | undefined
   gitFetchType?: 'Branch' | 'Commit'
 }
-export const ProvideManifest = (): //   props: ProvideManifestProps
-// forwardRef: SelectGitProviderForwardRef
-React.ReactElement => {
+
+interface ProvideManifestProps {
+  disableNextBtn: () => void
+  enableNextBtn: () => void
+}
+
+const ProvideManifestRef = (props: ProvideManifestProps): React.ReactElement => {
   const { getString } = useStrings()
+  const { disableNextBtn, enableNextBtn } = props
+  const formikRef = useRef<FormikContextType<ProvideManifestInterface>>()
 
   return (
     <Layout.Vertical width="70%">
-      <Formik
+      <Formik<ProvideManifestInterface>
         initialValues={{}}
-        formName="cdArtifact-provideManifest"
+        // formName="cdArtifact-provideManifest"
         validationSchema={{}}
-        onSubmit={(values: ProvideManifestProps) => Promise.resolve(values)}
+        onSubmit={(values: ProvideManifestInterface) => Promise.resolve(values)}
       >
-        {formikProps => (
-          <Form>
-            <Layout.Vertical
-              flex={{ justifyContent: 'space-between', alignItems: 'flex-start' }}
-              // className={css.manifestForm}
-            >
-              <div>
+        {formikProps => {
+          formikRef.current = formikProps
+          return (
+            <Form>
+              <Layout.Vertical width={320}>
                 <div>
                   <FormInput.Text
                     name="identifier"
@@ -52,11 +60,26 @@ React.ReactElement => {
                     items={gitFetchTypeList}
                   />
                 </div>
-              </div>
-            </Layout.Vertical>
-          </Form>
-        )}
+                {formikProps.values?.gitFetchType === GitFetchTypes.Branch ? (
+                  <FormInput.Text
+                    label={getString('pipelineSteps.deploy.inputSet.branch')}
+                    placeholder={getString('pipeline.manifestType.branchPlaceholder')}
+                    name="branch"
+                  />
+                ) : (
+                  <FormInput.Text
+                    label={getString('pipeline.manifestType.commitId')}
+                    placeholder={getString('pipeline.manifestType.commitPlaceholder')}
+                    name="commitId"
+                  />
+                )}
+              </Layout.Vertical>
+            </Form>
+          )
+        }}
       </Formik>
     </Layout.Vertical>
   )
 }
+
+export const ProvideManifest = React.forwardRef(ProvideManifestRef)

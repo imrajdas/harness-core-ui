@@ -17,8 +17,9 @@ import {
   Container,
   Formik,
   FormikForm as Form,
-  Color,
-  FormError
+  FormError,
+  SelectOption,
+  FormInput
 } from '@harness/uicore'
 import type { FormikContextType } from 'formik'
 import { useStrings } from 'framework/strings'
@@ -35,15 +36,19 @@ import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scs
 export interface SelectWorkloadRef {
   values: SelectWorkloadInterface
   setFieldTouched(field: keyof SelectWorkloadInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
-  validate: () => boolean
+
   showValidationErrors: () => void
 }
 export interface SelectWorkloadInterface {
   workloadType?: WorkloadType
   serviceDeploymentType?: ServiceDeploymentTypes
-  serviceName: string
+  serviceRef: string
 }
 
+// export type SelectWorkloadForwardRef =
+//   | ((instance: SelectWorkloadRef | null) => void)
+//   | React.MutableRefObject<SelectWorkloadRef | null>
+//   | null
 interface SelectWorkloadProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
@@ -55,6 +60,19 @@ const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
   const [workloadType, setWorkloadType] = useState<WorkloadType | undefined>()
   const [serviceDeploymentType, setServiceDeploymnetType] = useState<ServiceDeploymentTypes | undefined>()
   const formikRef = useRef<FormikContextType<SelectWorkloadInterface>>()
+
+  // const memoizedQueryParam = useMemo(
+  //   () => ({
+  //     accountIdentifier: queryParams.accountId,
+  //     orgIdentifier: queryParams.orgIdentifier,
+  //     projectIdentifier: queryParams.projectIdentifier
+  //   }),
+  //   [queryParams]
+  // )
+  // const { data: serviceResponse } = useGetServiceV2({
+  //   queryParams: memoizedQueryParam,
+  //   lazy: true
+  // })
 
   useEffect(() => {
     if (workloadType) {
@@ -71,7 +89,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
         initialValues={{
           workloadType: undefined,
           serviceDeploymentType: undefined,
-          serviceName: ''
+          serviceRef: ''
         }}
         formName="cdWorkload-provider"
         validationSchema={Yup.object().shape({
@@ -168,17 +186,16 @@ const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
                       <Text font={{ variation: FontVariation.H5 }} padding={{ top: 'xlarge', bottom: 'xlarge' }}>
                         {getString('cd.getStartedWithCD.serviceHeading')}
                       </Text>
-                      <Text color={Color.GREY_600} iconProps={{ size: 14 }} padding={{ bottom: 'xlarge' }}>
-                        {getString('common.serviceName')}
-                      </Text>
-                      {/* <DropDown
-                        filterable={false}
-                        width={320}
-                        icon={'main-sort'}
-                        iconProps={{ size: 16, color: Color.GREY_400 }}
-                        onChange={onChange()}
-                        items={[]}
-                      /> */}
+
+                      <FormInput.Text
+                        tooltipProps={{ dataTooltipId: 'specifyYourService' }}
+                        label={getString('common.serviceName')}
+                        name="serviceRef"
+                        className={css.dropdownWidth}
+                        placeholder={getString('cd.pipelineSteps.serviceTab.selectService')}
+                        // onChange={val => onServiceChange(val as SelectOption, values, setFieldValue)}
+                        // items={selectOptions || []}
+                      />
                       {/* {disableNextBtn()} */}
                     </Container>
                   </Container>

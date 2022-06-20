@@ -141,7 +141,10 @@ const SelectArtifactRef = (props: SelectArtifactProps): React.ReactElement => {
                     </div>
                   }
                 >
-                  <ProvideManifest />
+                  <ProvideManifest
+                    disableNextBtn={() => setDisableBtn(true)}
+                    enableNextBtn={() => setDisableBtn(false)}
+                  />
                 </Collapse>
               </div>
             </Form>

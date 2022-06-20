@@ -379,3 +379,22 @@ getStartedWithCD:
   artifactManifestContent: Harness can take your existing Kubernetes manifests and artifacts and can proceed to deploy with them
   provideManifest: Provide Manifest Details
   reposubheading: We need to connect to your repo to access serverless.yaml file
+  directK8s: Direct K8s
+  googleK8s: Google K8s Engine
+  azureK8s: Azure K8s Engine
+  awsElasticK8s: AWS Elastic K8s Service
+  envName: Environment Name
+  setupDelegate: Setup Delegate
+  delegateInfo: Delegates are worker processes that run on your infrastructure to execute tasks on behalf of the Harness platform.
+  setupaNewDelegate: + Setup a New Delegate
+gitOpsCluster: 'GitOps Clusters'
+selectGitopsCluster: 'Select GitOps Clusters to add to Environment'
+clustersSelected: 'Clusters Selected'
+selectClusterLabel: 'Select Cluster(s)'
+noLinkedClusters: 'No Linked Clusters Available'
+selectedLabel: 'Selected'
+successfullyLinkedClusters: 'SuccessFully Linked Clusters'
+unLink: 'UnLink'
+unLinkedCluster: 'Unlinked Successfully'
+overrideYaml: Override Yaml Values
+manifestId: Manifest Id

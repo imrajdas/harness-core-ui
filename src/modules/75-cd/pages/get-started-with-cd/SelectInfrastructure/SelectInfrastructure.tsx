@@ -6,12 +6,27 @@
  */
 
 import React, { useEffect, useRef, useState } from 'react'
-import { Text, FontVariation, Layout, CardSelect, Icon, Container, Formik, FormikForm as Form } from '@harness/uicore'
+import {
+  Text,
+  FontVariation,
+  Layout,
+  CardSelect,
+  Icon,
+  Container,
+  Formik,
+  FormikForm as Form,
+  Color,
+  DropDown,
+  Button,
+  ButtonVariation,
+  Collapse
+} from '@harness/uicore'
 import type { FormikContextType } from 'formik'
 import { useStrings } from 'framework/strings'
 
+import type { ConnectorRequestBody } from 'services/cd-ng'
+import Stepk8ClusterDetails from '@connectors/components/CreateConnector/K8sConnector/StepAuth/Stepk8ClusterDetails'
 import { InfrastructureTypes, InfrastructureType } from '../DeployProvisioningWizard/Constants'
-
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectInfrastructureRef {
@@ -26,11 +41,15 @@ export interface SelectInfrastructureRef {
 }
 export interface SelectInfrastructureInterface {
   infraType?: string
+  envName?: string
 }
 
 interface SelectInfrastructureProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
+  onClose: () => void
+  onSuccess: (data?: ConnectorRequestBody) => void | Promise<void>
+  setIsEditMode: (val: boolean) => void
 }
 
 const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactElement => {
@@ -45,7 +64,7 @@ const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactE
   })
 
   return (
-    <Layout.Vertical width="70%">
+    <Layout.Vertical>
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
       <Formik<SelectInfrastructureInterface>
         initialValues={{}}
@@ -63,13 +82,13 @@ const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactE
                   data={InfrastructureTypes}
                   cornerSelected={true}
                   className={css.icons}
-                  cardClassName={css.workloadTypeCard}
+                  cardClassName={css.serviceDeploymentTypeCard}
                   renderItem={(item: InfrastructureType) => (
                     <>
                       <Layout.Vertical flex>
-                        <Icon name={item.icon} size={30} flex className={css.workloadTypeIcon} />
+                        <Icon name={item.icon} size={30} flex className={css.serviceDeploymentTypeIcon} />
 
-                        <Text font={{ variation: FontVariation.SMALL_SEMI }} padding={{ top: 'small' }}>
+                        <Text font={{ variation: FontVariation.SMALL_SEMI }} padding={{ top: 'xxlarge' }} width={78}>
                           {getString(item.label)}
                         </Text>
                       </Layout.Vertical>
@@ -81,6 +100,60 @@ const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactE
                     setInfrastructureType(item)
                   }}
                 />
+              </Container>
+              <Container padding={{ bottom: 'xxlarge' }}>
+                <Text color={Color.GREY_600} padding={{ top: 'xlarge', bottom: 'xsmall' }}>
+                  {getString('cd.getStartedWithCD.envName')}
+                </Text>
+                <DropDown
+                  filterable={false}
+                  width={320}
+                  onChange={item => {
+                    formikProps.setFieldValue('envName', item.value)
+                  }}
+                  items={[]}
+                />
+              </Container>
+              <Container padding={{ top: 'medium' }}>
+                <Collapse
+                  heading={
+                    <div className={css.artifactSections}>
+                      <Text font={{ variation: FontVariation.H5 }} padding={{ bottom: 'small' }}>
+                        {getString('common.authMethod')}
+                      </Text>
+                    </div>
+                  }
+                >
+                  <Stepk8ClusterDetails
+                    setIsEditMode={props.setIsEditMode}
+                    connectorInfo={undefined}
+                    accountId={''}
+                    orgIdentifier={''}
+                    projectIdentifier={''}
+                    isEditMode={false}
+                    onConnectorCreated={props.onSuccess}
+                    hideModal={props.onClose}
+                    onBoarding={true}
+                  ></Stepk8ClusterDetails>
+                </Collapse>
+              </Container>
+
+              <Container padding={{ top: 'medium' }}>
+                <Collapse
+                  heading={
+                    <div className={css.artifactSections}>
+                      <Text font={{ variation: FontVariation.H5 }} padding={{ bottom: 'small' }}>
+                        {getString('cd.getStartedWithCD.setupDelegate')}
+                      </Text>
+                    </div>
+                  }
+                >
+                  <Text padding={{ bottom: 'medium' }}>{getString('cd.getStartedWithCD.delegateInfo')}</Text>
+                  <Button
+                    text={getString('cd.getStartedWithCD.setupaNewDelegate')}
+                    variation={ButtonVariation.SECONDARY}
+                  />
+                </Collapse>
               </Container>
             </Form>
           )

@@ -12,6 +12,7 @@ declare const styles: {
   readonly artifactTypeCard: string
   readonly authMethodBtn: string
   readonly borderBottom: string
+  readonly dropdownWidth: string
   readonly footer: string
   readonly header: string
   readonly icons: string

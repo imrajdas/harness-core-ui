@@ -54,6 +54,7 @@ interface K8ClusterDetailsProps {
   accountId: string
   orgIdentifier: string
   projectIdentifier: string
+  onBoarding?: boolean
 }
 
 interface KubeFormInterface {
@@ -359,13 +360,15 @@ const Stepk8ClusterDetails: React.FC<StepProps<Stepk8ClusterDetailsProps> & K8Cl
     <PageSpinner />
   ) : (
     <Layout.Vertical spacing="medium" className={css.secondStep}>
-      <Text
-        font={{ variation: FontVariation.H3 }}
-        color={Color.BLACK}
-        tooltipProps={{ dataTooltipId: 'K8sConnectorDetails' }}
-      >
-        {getString('details')}
-      </Text>
+      {!props.onBoarding ? (
+        <Text
+          font={{ variation: FontVariation.H3 }}
+          color={Color.BLACK}
+          tooltipProps={{ dataTooltipId: 'K8sConnectorDetails' }}
+        >
+          {getString('details')}
+        </Text>
+      ) : null}
       <Formik
         initialValues={{
           ...initialValues,
@@ -399,6 +402,15 @@ const Stepk8ClusterDetails: React.FC<StepProps<Stepk8ClusterDetailsProps> & K8Cl
                     name="masterUrl"
                     className={css.formFieldWidth}
                   />
+                  {props.onBoarding ? (
+                    <>
+                      <Text className={css.formFieldWidth}>
+                        {getString('connectors.k8.masterUrlInfo')}
+                        <Button variation={ButtonVariation.LINK} text={getString('connectors.k8.learnMore')} />
+                      </Text>
+                      <div className={css.borderBottom} />
+                    </>
+                  ) : null}
 
                   <Container className={css.authHeaderRow}>
                     <Text
@@ -422,23 +434,25 @@ const Stepk8ClusterDetails: React.FC<StepProps<Stepk8ClusterDetailsProps> & K8Cl
                 <></>
               )}
             </Container>
-            <Layout.Horizontal padding={{ top: 'small' }} spacing="medium">
-              <Button
-                text={getString('back')}
-                icon="chevron-left"
-                variation={ButtonVariation.SECONDARY}
-                onClick={() => props?.previousStep?.(props?.prevStepData)}
-                data-name="k8sBackButton"
-              />
-              <Button
-                type="submit"
-                variation={ButtonVariation.PRIMARY}
-                text={getString('continue')}
-                rightIcon="chevron-right"
-                onClick={formikProps.submitForm}
-                margin={{ left: 'medium' }}
-              />
-            </Layout.Horizontal>
+            {!props.onBoarding ? (
+              <Layout.Horizontal padding={{ top: 'small' }} spacing="medium">
+                <Button
+                  text={getString('back')}
+                  icon="chevron-left"
+                  variation={ButtonVariation.SECONDARY}
+                  onClick={() => props?.previousStep?.(props?.prevStepData)}
+                  data-name="k8sBackButton"
+                />
+                <Button
+                  type="submit"
+                  variation={ButtonVariation.PRIMARY}
+                  text={getString('continue')}
+                  rightIcon="chevron-right"
+                  onClick={formikProps.submitForm}
+                  margin={{ left: 'medium' }}
+                />
+              </Layout.Horizontal>
+            ) : null}
           </>
         )}
       </Formik>

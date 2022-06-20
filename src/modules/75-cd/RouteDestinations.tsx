@@ -263,6 +263,15 @@ export default (
       <RedirectToCDProject />
     </Route>
     <RouteWithLayout
+      exact
+      licenseRedirectData={licenseRedirectData}
+      sidebarProps={CDSideNavProps}
+      pageName={PAGE_NAME.GetStartedWithCI}
+      path={routes.toGetStartedWithCI({ ...accountPathProps, ...projectPathProps, ...moduleParams })}
+    >
+      <GetStartedWithCD />
+    </RouteWithLayout>
+    <RouteWithLayout
       licenseRedirectData={licenseRedirectData}
       sidebarProps={CDSideNavProps}
       path={routes.toCDHome({ ...accountPathProps })}
