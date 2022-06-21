@@ -76,6 +76,7 @@ export type SelectGitProviderForwardRef =
   | null
 
 interface SelectGitProviderProps {
+  className?: string
   selectedHosting?: Hosting
   disableNextBtn: () => void
   enableNextBtn: () => void

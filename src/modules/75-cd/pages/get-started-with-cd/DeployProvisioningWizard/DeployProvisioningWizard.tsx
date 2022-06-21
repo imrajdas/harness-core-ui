@@ -19,7 +19,7 @@ import {
 
   // eslint-disable-next-line import/namespace
 } from './Constants'
-import { SelectWorkload } from '../SelectWorkload/SelectWorkload'
+import { SelectWorkload, SelectWorkloadRef } from '../SelectWorkload/SelectWorkload'
 import { SelectInfrastructure } from '../SelectInfrastructure/SelectInfrastructure'
 import { SelectArtifact } from '../SelectArtifact/SelectArtifact'
 import css from './DeployProvisioningWizard.module.scss'
@@ -31,7 +31,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
   const [currentWizardStepId, setCurrentWizardStepId] =
     useState<DeployProvisiongWizardStepId>(lastConfiguredWizardStepId)
 
-  // const selectWorkloadRef = React.useRef<SelectWorkloadRef | null>(null)
+  const selectWorkloadRef = React.useRef<SelectWorkloadRef | null>(null)
   // const selectInfrastructureRef = React.useRef<SelectInfrastructureRef | null>(null)
   // const [showError, setShowError] = useState<boolean>(false)
   // const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
@@ -62,13 +62,22 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       {
         stepRender: (
           <SelectWorkload
-            // ref={selectWorkloadProviderRef}
+            ref={selectWorkloadRef}
             disableNextBtn={() => setDisableBtn(true)}
             enableNextBtn={() => setDisableBtn(false)}
           />
         ),
         onClickNext: () => {
-          // const { validate } = selectWorkloadRef.current || {}
+          // const { values, setFieldTouched, validate } = selectWorkloadRef.current || {}
+          // const { workloadType, serviceDeploymentType } = values || {}
+          // if (!workloadType) {
+          //   setFieldTouched?.('workloadType', true)
+          //   return
+          // }
+          // if (!serviceDeploymentType) {
+          //   setFieldTouched?.('serviceDeploymentType', true)
+          //   return
+          // }
 
           // if (validate?.()) {
           setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectArtifact)

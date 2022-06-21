@@ -15,11 +15,11 @@ import {
   Container,
   Formik,
   FormikForm as Form,
-  Collapse
+  Accordion
 } from '@harness/uicore'
 import type { FormikContextType } from 'formik'
+// import cx from 'classnames'
 import { useStrings } from 'framework/strings'
-
 import { ArtifactProviders, ArtifactType, Hosting } from '../DeployProvisioningWizard/Constants'
 
 import { SelectGitProvider } from './SelectGitProvider'
@@ -64,8 +64,10 @@ const SelectArtifactRef = (props: SelectArtifactProps): React.ReactElement => {
     }
   }, [artifactType])
 
+  const borderBottom = <div className={css.repoborderBottom} />
+  // const isActiveAccordion: boolean = artifactType ? true : false
   return (
-    <Layout.Vertical width="70%">
+    <Layout.Vertical width="80%">
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.artifactLocation')}</Text>
       <Formik<SelectArtifactInterface>
         formName="cdRepo"
@@ -100,53 +102,70 @@ const SelectArtifactRef = (props: SelectArtifactProps): React.ReactElement => {
                   onChange={(item: ArtifactType) => setArtifactType(item)}
                 />
               </Container>
-
-              <div>
-                <Collapse
-                  heading={
-                    <div className={css.artifactSections}>
-                      <Text font={{ variation: FontVariation.H5 }}>{getString('cd.getStartedWithCD.codeRepos')}</Text>
-                    </div>
-                  }
-                >
-                  <SelectGitProvider
-                    disableNextBtn={() => setDisableBtn(true)}
-                    enableNextBtn={() => setDisableBtn(false)}
-                    selectedHosting={Hosting.SaaS}
-                  ></SelectGitProvider>
-                </Collapse>
-              </div>
-
-              <div>
-                <Collapse
-                  heading={
-                    <div className={css.artifactSections}>
-                      <Text font={{ variation: FontVariation.H5 }}>{getString('common.selectYourRepo')}</Text>
-                    </div>
-                  }
-                >
-                  <SelectRepository
-                    disableNextBtn={() => setDisableBtn(true)}
-                    enableNextBtn={() => setDisableBtn(false)}
-                  ></SelectRepository>
-                </Collapse>
-              </div>
-              <div>
-                <Collapse
-                  heading={
-                    <div className={css.artifactSections}>
-                      <Text font={{ variation: FontVariation.H5 }}>
-                        {getString('cd.getStartedWithCD.provideManifest')}
-                      </Text>
-                    </div>
-                  }
-                >
-                  <ProvideManifest
-                    disableNextBtn={() => setDisableBtn(true)}
-                    enableNextBtn={() => setDisableBtn(false)}
+              {borderBottom}
+              <div className={css.accordionPadding}>
+                <Accordion className={css.accordion} activeId={'codeRepo'}>
+                  <Accordion.Panel
+                    id="codeRepo"
+                    summary={
+                      <Layout.Horizontal width={300}>
+                        <Text font={{ variation: FontVariation.H5 }}>{getString('cd.getStartedWithCD.codeRepos')}</Text>
+                        {/* <Icon name="success-tick" size={20} /> */}
+                      </Layout.Horizontal>
+                    }
+                    details={
+                      <SelectGitProvider
+                        disableNextBtn={() => setDisableBtn(true)}
+                        enableNextBtn={() => setDisableBtn(false)}
+                        selectedHosting={Hosting.SaaS}
+                      ></SelectGitProvider>
+                    }
                   />
-                </Collapse>
+                </Accordion>
               </div>
+              {borderBottom}
+              <div className={css.accordionPadding}>
+                <Accordion className={css.accordion}>
+                  <Accordion.Panel
+                    id="selectYourRepo"
+                    summary={
+                      <Layout.Horizontal width={300}>
+                        <Text font={{ variation: FontVariation.H5 }}>{getString('common.selectYourRepo')}</Text>
+                        {/* <Icon name="success-tick" size={20} /> */}
+                      </Layout.Horizontal>
+                    }
+                    details={
+                      <SelectRepository
+                        disableNextBtn={() => setDisableBtn(true)}
+                        enableNextBtn={() => setDisableBtn(false)}
+                      ></SelectRepository>
+                    }
+                  />
+                </Accordion>
+              </div>
+              {borderBottom}
+              <div className={css.accordionPadding}>
+                <Accordion className={css.accordion}>
+                  <Accordion.Panel
+                    id="provideManifest"
+                    summary={
+                      <Layout.Horizontal width={300}>
+                        <Text font={{ variation: FontVariation.H5 }}>
+                          {getString('cd.getStartedWithCD.provideManifest')}
+                        </Text>
+                        {/* <Icon name="success-tick" size={20} /> */}
+                      </Layout.Horizontal>
+                    }
+                    details={
+                      <ProvideManifest
+                        disableNextBtn={() => setDisableBtn(true)}
+                        enableNextBtn={() => setDisableBtn(false)}
+                      />
+                    }
+                  />
+                </Accordion>
+              </div>
+              {borderBottom}
             </Form>
           )
         }}

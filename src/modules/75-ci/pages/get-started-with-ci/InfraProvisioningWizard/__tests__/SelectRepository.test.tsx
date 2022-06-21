@@ -82,7 +82,7 @@ describe('Test SelectRepository component', () => {
     expect(repositoryValidationError).not.toBeInTheDocument()
 
     const repositorySearch = container.querySelector(
-      'input[placeholder="ci.getStartedWithCI.searchRepo"]'
+      'input[placeholder="common.getStarted.searchRepo"]'
     ) as HTMLInputElement
     expect(repositorySearch).toBeTruthy()
     await act(async () => {

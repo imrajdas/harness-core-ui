@@ -175,7 +175,7 @@ describe('Test SelectGitProvider component', () => {
       fireEvent.click(testConnectionBtn)
     })
     // should show correct error messages once test connection is done
-    expect(getAllByText('ci.getStartedWithCI.fieldIsMissing').length).toBe(2)
+    expect(getAllByText('common.getStarted.fieldIsMissing').length).toBe(2)
   })
 
   test('User selects Github provider and OAuth authentication method', async () => {

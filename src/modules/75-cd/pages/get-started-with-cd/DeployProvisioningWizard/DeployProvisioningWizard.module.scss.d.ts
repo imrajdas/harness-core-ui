@@ -7,6 +7,8 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
+  readonly accordion: string
+  readonly accordionPadding: string
   readonly alignIcon: string
   readonly artifactSections: string
   readonly artifactTypeCard: string

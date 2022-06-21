@@ -36,7 +36,7 @@ import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scs
 export interface SelectWorkloadRef {
   values: SelectWorkloadInterface
   setFieldTouched(field: keyof SelectWorkloadInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
-
+  validate: () => boolean
   showValidationErrors: () => void
 }
 export interface SelectWorkloadInterface {
@@ -104,6 +104,9 @@ const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
       >
         {formikProps => {
           formikRef.current = formikProps
+          {
+            console.log(formikProps)
+          }
           return (
             <Form>
               <Container padding={{ top: 'xxlarge', bottom: 'xxxlarge' }}>
@@ -170,7 +173,8 @@ const SelectWorkloadRef = (props: SelectWorkloadProps): React.ReactElement => {
                       }}
                     />
 
-                    {formikProps.touched.serviceDeploymentType && !formikProps.values.serviceDeploymentType ? (
+                    {formikProps.touched.serviceDeploymentType &&
+                    formikProps.values.serviceDeploymentType === undefined ? (
                       <Container padding={{ top: 'xsmall' }}>
                         <FormError
                           name={'serviceDeploymentType'}

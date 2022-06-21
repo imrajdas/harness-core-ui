@@ -19,7 +19,7 @@ import {
   DropDown,
   Button,
   ButtonVariation,
-  Collapse
+  Accordion
 } from '@harness/uicore'
 import type { FormikContextType } from 'formik'
 import { useStrings } from 'framework/strings'
@@ -63,8 +63,9 @@ const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactE
     else disableNextBtn()
   })
 
+  const borderBottom = <div className={css.repoborderBottom} />
   return (
-    <Layout.Vertical>
+    <Layout.Vertical width="80%">
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
       <Formik<SelectInfrastructureInterface>
         initialValues={{}}
@@ -114,47 +115,55 @@ const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactE
                   items={[]}
                 />
               </Container>
-              <Container padding={{ top: 'medium' }}>
-                <Collapse
-                  heading={
-                    <div className={css.artifactSections}>
-                      <Text font={{ variation: FontVariation.H5 }} padding={{ bottom: 'small' }}>
+              {borderBottom}
+              <div className={css.accordionPadding}>
+                <Accordion className={css.accordion}>
+                  <Accordion.Panel
+                    id="codeRepo"
+                    summary={
+                      <Text font={{ variation: FontVariation.H5 }} width={300}>
                         {getString('common.authMethod')}
                       </Text>
-                    </div>
-                  }
-                >
-                  <Stepk8ClusterDetails
-                    setIsEditMode={props.setIsEditMode}
-                    connectorInfo={undefined}
-                    accountId={''}
-                    orgIdentifier={''}
-                    projectIdentifier={''}
-                    isEditMode={false}
-                    onConnectorCreated={props.onSuccess}
-                    hideModal={props.onClose}
-                    onBoarding={true}
-                  ></Stepk8ClusterDetails>
-                </Collapse>
-              </Container>
-
-              <Container padding={{ top: 'medium' }}>
-                <Collapse
-                  heading={
-                    <div className={css.artifactSections}>
-                      <Text font={{ variation: FontVariation.H5 }} padding={{ bottom: 'small' }}>
+                    }
+                    details={
+                      <Stepk8ClusterDetails
+                        setIsEditMode={props.setIsEditMode}
+                        connectorInfo={undefined}
+                        accountId={''}
+                        orgIdentifier={''}
+                        projectIdentifier={''}
+                        isEditMode={false}
+                        onConnectorCreated={props.onSuccess}
+                        hideModal={props.onClose}
+                        onBoarding={true}
+                      ></Stepk8ClusterDetails>
+                    }
+                  />
+                </Accordion>
+              </div>
+              {borderBottom}
+              <div className={css.accordionPadding}>
+                <Accordion className={css.accordion}>
+                  <Accordion.Panel
+                    id="codeRepo"
+                    summary={
+                      <Text font={{ variation: FontVariation.H5 }} width={300}>
                         {getString('cd.getStartedWithCD.setupDelegate')}
                       </Text>
-                    </div>
-                  }
-                >
-                  <Text padding={{ bottom: 'medium' }}>{getString('cd.getStartedWithCD.delegateInfo')}</Text>
-                  <Button
-                    text={getString('cd.getStartedWithCD.setupaNewDelegate')}
-                    variation={ButtonVariation.SECONDARY}
+                    }
+                    details={
+                      <>
+                        <Text padding={{ bottom: 'medium' }}>{getString('cd.getStartedWithCD.delegateInfo')}</Text>
+                        <Button
+                          text={getString('cd.getStartedWithCD.setupaNewDelegate')}
+                          variation={ButtonVariation.SECONDARY}
+                        />
+                      </>
+                    }
                   />
-                </Collapse>
-              </Container>
+                </Accordion>
+              </div>
+              {borderBottom}
             </Form>
           )
         }}

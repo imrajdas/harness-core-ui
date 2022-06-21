@@ -5,10 +5,11 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import { FormInput, Layout } from '@harness/uicore'
+import { FormInput, Layout, MultiTypeInputType } from '@harness/uicore'
 import { Form, Formik, FormikContextType } from 'formik'
 import React, { useRef } from 'react'
 import { useStrings } from 'framework/strings'
+import DragnDropPaths from '@pipeline/components/ManifestSelection/DragnDropPaths'
 import { gitFetchTypeList, GitFetchTypes } from '../DeployProvisioningWizard/Constants'
 
 export interface ProvideManifestRef {
@@ -20,6 +21,8 @@ interface ProvideManifestInterface {
   branch?: string | undefined
   commitId?: string | undefined
   gitFetchType?: 'Branch' | 'Commit'
+  paths?: any
+  valuesPath?: any
 }
 
 interface ProvideManifestProps {
@@ -73,6 +76,26 @@ const ProvideManifestRef = (props: ProvideManifestProps): React.ReactElement => 
                     name="commitId"
                   />
                 )}
+                <div>
+                  <DragnDropPaths
+                    formik={formikProps}
+                    expressions={[]}
+                    allowableTypes={[MultiTypeInputType.FIXED]}
+                    fieldPath="paths"
+                    pathLabel={getString('fileFolderPathText')}
+                    placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+                  />
+                </div>
+                <div>
+                  <DragnDropPaths
+                    formik={formikProps}
+                    fieldPath="valuesPaths"
+                    pathLabel={getString('pipeline.manifestType.valuesYamlPath')}
+                    placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+                    expressions={[]}
+                    allowableTypes={[MultiTypeInputType.FIXED]}
+                  />
+                </div>
               </Layout.Vertical>
             </Form>
           )

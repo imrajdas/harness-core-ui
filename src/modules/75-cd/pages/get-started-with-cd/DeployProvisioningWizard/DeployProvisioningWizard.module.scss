@@ -146,3 +146,15 @@
     padding-left: var(--spacing-xxxlarge) !important;
   }
 }
+
+.accordionPadding {
+  padding-top: var(--spacing-medium);
+  padding-bottom: var(--spacing-small);
+}
+
+.accordion {
+  :global(.Accordion--chevron) {
+    margin-left: 700px;
+    color: var(--grey-700);
+  }
+}
