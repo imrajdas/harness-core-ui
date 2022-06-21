@@ -43,10 +43,16 @@ export default function L1Nav(): React.ReactElement {
   const { currentUserInfo: user } = useAppStore()
 
   useLayoutEffect(() => {
-    const itemsCount = document.querySelectorAll(`.${css.navItem}`).length
-    // console.log(css.navItem, { itemsCount })
+    // main nav consists of two UL sections with classname "css.navList"
+    const items = Array.from(document.querySelectorAll(`.${css.navList}`))
+    // add the real height of both sections
+    // real height is needed because number of items can change based on feature flags, license etc
+    const minNavHeight = items.reduce((previousValue, listitem) => {
+      return previousValue + listitem.getBoundingClientRect().height
+    }, 0)
+    // set the CSS variable defined in src/modules/10-common/layouts/layouts.module.scss
     const root = document.querySelector(':root') as HTMLElement
-    root?.style.setProperty('--nav-items-count', itemsCount.toString())
+    root.style.setProperty('--main-nav-height', `${minNavHeight}px`)
   })
 
   return (
@@ -187,7 +193,6 @@ export default function L1Nav(): React.ReactElement {
           </li>
         )}
       </ul>
-
       <ul className={css.navList}>
         {RESOURCE_CENTER_ENABLED && (
           <li className={css.navItem}>

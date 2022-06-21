@@ -6,8 +6,7 @@
  */
 
 :root {
-  --nav-items-count: 12; /* overriden via JS in MainNav.tsx */
-  --main-nav-height: calc(var(--nav-items-count) * 92px); /*92px is the height of each nav item */
+  --main-nav-height: 880px; /* overriden via JS in src/modules/10-common/navigation/MainNav/MainNav.tsx */
   --page-min-height: max(100vh, var(--main-nav-height)); /* take the larger of the screen or the nav */
 }
 
