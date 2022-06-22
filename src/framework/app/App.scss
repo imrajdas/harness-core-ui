@@ -24,7 +24,6 @@ body {
   --font-family-mono: Monaco, 'Ubuntu Mono', 'Courier New', monospace;
   --font-size: var(--font-size-small);
   min-width: 1280px;
-  min-height: 100vh;
 }
 
 @import '@common/styles/index.scss';

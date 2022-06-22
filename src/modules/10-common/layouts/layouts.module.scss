@@ -8,6 +8,7 @@
 :root {
   --main-nav-height: 880px; /* overriden via JS in src/modules/10-common/navigation/MainNav/MainNav.tsx */
   --page-min-height: max(100vh, var(--main-nav-height)); /* take the larger of the screen or the nav */
+  --page-header-height: 73px; /* default value. to be override per page */
 }
 
 .trialLicenseBanner {
