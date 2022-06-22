@@ -16,7 +16,7 @@ import {
   refreshAndUpdateTemplateInputsPromise as refreshAndUpdateTemplate,
   refreshAllPromise as refreshAllTemplatePromise,
   ErrorNodeSummary,
-  TemplateInfo
+  TemplateResponse
 } from 'services/template-ng'
 import { YamlDiffView } from '@pipeline/components/TemplateLibraryErrorHandling/YamlDiffView/YamlDiffView'
 import { ErrorNode } from '@pipeline/components/TemplateLibraryErrorHandling/ErrorDirectory/ErrorNode'
@@ -28,11 +28,7 @@ import {
   refreshAndUpdateTemplateInputsPromise as refreshAndUpdatePipeline,
   refreshAllPromise as refreshAllPipelinePromise
 } from 'services/pipeline-ng'
-import {
-  getIdentifierFromValue,
-  getScopeBasedProjectPathParams,
-  getScopeFromValue
-} from '@common/components/EntityReference/EntityReference'
+import { getScopeBasedProjectPathParams, getScopeFromDTO } from '@common/components/EntityReference/EntityReference'
 import type { GitQueryParams, ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import useRBACError from '@rbac/utils/useRBACError/useRBACError'
 import { Scope } from '@common/interfaces/SecretsInterface'
@@ -44,19 +40,19 @@ import css from './ReconcileDialog.module.scss'
 export interface ReconcileDialogProps {
   templateInputsErrorNodeSummary: ErrorNodeSummary
   entity: 'Pipeline' | 'Template'
-  setResolvedTemplateInfos: (resolvedTemplateInfos: TemplateInfo[]) => void
+  setResolvedTemplateResponses: (resolvedTemplateInfos: TemplateResponse[]) => void
   reload: () => void
 }
 
 export function ReconcileDialog({
   templateInputsErrorNodeSummary,
   entity,
-  setResolvedTemplateInfos: setResolvedTemplates,
+  setResolvedTemplateResponses: setResolvedTemplates,
   reload
 }: ReconcileDialogProps) {
   const hasChildren = !isEmpty(templateInputsErrorNodeSummary.childrenErrorNodes)
   const [selectedErrorNodeSummary, setSelectedErrorNodeSummary] = React.useState<ErrorNodeSummary>()
-  const [resolvedTemplateInfos, setResolvedTemplateInfos] = React.useState<TemplateInfo[]>([])
+  const [resolvedTemplateResponses, setResolvedTemplateResponses] = React.useState<TemplateResponse[]>([])
   const params = useParams<ProjectPathProps>()
   const { branch, repoIdentifier } = useQueryParams<GitQueryParams>()
   const [loading, setLoading] = React.useState<boolean>(false)
@@ -83,8 +79,8 @@ export function ReconcileDialog({
   }, [])
 
   React.useEffect(() => {
-    setResolvedTemplates(resolvedTemplateInfos)
-  }, [resolvedTemplateInfos])
+    setResolvedTemplates(resolvedTemplateResponses)
+  }, [resolvedTemplateResponses])
 
   React.useEffect(() => {
     setSelectedErrorNodeSummary(getFirstLeafNode(templateInputsErrorNodeSummary))
@@ -92,15 +88,14 @@ export function ReconcileDialog({
 
   const onUpdateAll = async (): Promise<void> => {
     setLoading(true)
-    if (templateInputsErrorNodeSummary.templateInfo) {
-      const templateRef = defaultTo(templateInputsErrorNodeSummary.templateInfo.templateIdentifier, '')
-      const scope = getScopeFromValue(templateRef)
+    if (templateInputsErrorNodeSummary.templateResponse) {
+      const scope = getScopeFromDTO(templateInputsErrorNodeSummary.templateResponse)
       try {
         const response = await refreshAllTemplatePromise({
           queryParams: {
             ...getScopeBasedProjectPathParams(params, scope),
-            templateIdentifier: getIdentifierFromValue(templateRef),
-            versionLabel: defaultTo(templateInputsErrorNodeSummary.templateInfo.versionLabel, ''),
+            templateIdentifier: defaultTo(templateInputsErrorNodeSummary.templateResponse.identifier, ''),
+            versionLabel: defaultTo(templateInputsErrorNodeSummary.templateResponse.versionLabel, ''),
             branch,
             repoIdentifier,
             getDefaultFromOtherRepo: true
@@ -144,15 +139,14 @@ export function ReconcileDialog({
 
   const onUpdateNode = async (): Promise<void> => {
     setLoading(true)
-    if (selectedErrorNodeSummary?.templateInfo) {
-      const templateRef = defaultTo(selectedErrorNodeSummary.templateInfo.templateIdentifier, '')
-      const scope = getScopeFromValue(templateRef)
+    if (selectedErrorNodeSummary?.templateResponse) {
+      const scope = getScopeFromDTO(selectedErrorNodeSummary.templateResponse)
       try {
         const response = await refreshAndUpdateTemplate({
           queryParams: {
             ...getScopeBasedProjectPathParams(params, scope),
-            templateIdentifier: getIdentifierFromValue(templateRef),
-            versionLabel: defaultTo(selectedErrorNodeSummary.templateInfo.versionLabel, ''),
+            templateIdentifier: defaultTo(selectedErrorNodeSummary.templateResponse.identifier, ''),
+            versionLabel: defaultTo(selectedErrorNodeSummary.templateResponse.versionLabel, ''),
             branch,
             repoIdentifier,
             getDefaultFromOtherRepo: true
@@ -162,8 +156,11 @@ export function ReconcileDialog({
         if (response && response.status === 'SUCCESS') {
           if (isEqual(selectedErrorNodeSummary.nodeInfo, templateInputsErrorNodeSummary.nodeInfo)) {
             reload()
-          } else if (selectedErrorNodeSummary.templateInfo) {
-            setResolvedTemplateInfos([...resolvedTemplateInfos, clone(selectedErrorNodeSummary.templateInfo)])
+          } else if (selectedErrorNodeSummary.templateResponse) {
+            setResolvedTemplateResponses([
+              ...resolvedTemplateResponses,
+              clone(selectedErrorNodeSummary.templateResponse)
+            ])
           }
         } else {
           throw response
@@ -248,7 +245,7 @@ export function ReconcileDialog({
                 {hasChildren && (
                   <ErrorNode
                     templateInputsErrorNodeSummary={templateInputsErrorNodeSummary}
-                    resolvedTemplateInfos={resolvedTemplateInfos}
+                    resolvedTemplateResponses={resolvedTemplateResponses}
                     selectedErrorNodeSummary={selectedErrorNodeSummary}
                     setSelectedErrorNodeSummary={setSelectedErrorNodeSummary}
                   />
@@ -258,7 +255,7 @@ export function ReconcileDialog({
             <Container style={{ flex: 1 }}>
               <YamlDiffView
                 errorNodeSummary={selectedErrorNodeSummary}
-                resolvedTemplateInfos={resolvedTemplateInfos}
+                resolvedTemplateResponses={resolvedTemplateResponses}
                 onUpdate={onUpdateNode}
               />
             </Container>

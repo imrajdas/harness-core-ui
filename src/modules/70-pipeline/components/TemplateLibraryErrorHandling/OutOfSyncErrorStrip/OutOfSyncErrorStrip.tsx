@@ -12,7 +12,7 @@ import { Color, FontVariation } from '@wings-software/design-system'
 import { useModalHook } from '@harness/use-modal'
 import { isEmpty } from 'lodash-es'
 import { useStrings } from 'framework/strings'
-import type { ErrorNodeSummary, TemplateInfo } from 'services/template-ng'
+import type { ErrorNodeSummary, TemplateResponse } from 'services/template-ng'
 import { ReconcileDialog } from '@pipeline/components/TemplateLibraryErrorHandling/ReconcileDialog/ReconcileDialog'
 import css from './OutOfSyncErrorStrip.module.scss'
 
@@ -30,13 +30,13 @@ export function OutOfSyncErrorStrip({
   onRefreshEntity
 }: OutOfSyncErrorStripProps) {
   const { getString } = useStrings()
-  const [resolvedTemplateInfos, setResolvedTemplateInfos] = React.useState<TemplateInfo[]>([])
+  const [resolvedTemplateResponses, setResolvedTemplateResponses] = React.useState<TemplateResponse[]>([])
   const hasChildren = !isEmpty(templateInputsErrorNodeSummary.childrenErrorNodes)
 
   const [showReconcileDialog, hideReconcileDialog] = useModalHook(() => {
     const onClose = () => {
       hideReconcileDialog()
-      if (!isEmpty(resolvedTemplateInfos)) {
+      if (!isEmpty(resolvedTemplateResponses)) {
         onRefreshEntity()
       }
     }
@@ -46,12 +46,12 @@ export function OutOfSyncErrorStrip({
         <ReconcileDialog
           templateInputsErrorNodeSummary={templateInputsErrorNodeSummary}
           entity={entity}
-          setResolvedTemplateInfos={setResolvedTemplateInfos}
+          setResolvedTemplateResponses={setResolvedTemplateResponses}
           reload={onRefreshEntity}
         />
       </Dialog>
     )
-  }, [resolvedTemplateInfos])
+  }, [resolvedTemplateResponses])
 
   return (
     <Container className={css.mainContainer}>

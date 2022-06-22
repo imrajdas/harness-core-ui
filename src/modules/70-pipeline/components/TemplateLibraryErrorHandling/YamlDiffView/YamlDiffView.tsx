@@ -16,12 +16,12 @@ import { FontVariation } from '@harness/design-system'
 import {
   getYamlDiffPromise as getYamlDiffPromiseForTemplate,
   ErrorNodeSummary,
-  TemplateInfo
+  TemplateResponse
 } from 'services/template-ng'
 import {
   getIdentifierFromValue,
   getScopeBasedProjectPathParams,
-  getScopeFromValue
+  getScopeFromDTO
 } from '@common/components/EntityReference/EntityReference'
 import type { GitQueryParams, ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { getYamlDiffPromise as getYamlDiffPromiseForPipeline } from 'services/pipeline-ng'
@@ -35,11 +35,11 @@ import css from './YamlDiffView.module.scss'
 
 export interface YamlDiffViewProps {
   errorNodeSummary?: ErrorNodeSummary
-  resolvedTemplateInfos?: TemplateInfo[]
+  resolvedTemplateResponses?: TemplateResponse[]
   onUpdate: () => Promise<void>
 }
 
-export function YamlDiffView({ errorNodeSummary, resolvedTemplateInfos = [], onUpdate }: YamlDiffViewProps) {
+export function YamlDiffView({ errorNodeSummary, resolvedTemplateResponses = [], onUpdate }: YamlDiffViewProps) {
   const { getString } = useStrings()
   const { isGitSyncEnabled } = useAppStore()
   const params = useParams<ProjectPathProps>()
@@ -51,8 +51,8 @@ export function YamlDiffView({ errorNodeSummary, resolvedTemplateInfos = [], onU
   const [refreshedYaml, setRefreshedYaml] = React.useState<string>('')
 
   const isTemplateResolved = React.useMemo(
-    () => !!resolvedTemplateInfos.find(item => isEqual(item, errorNodeSummary?.templateInfo)),
-    [resolvedTemplateInfos, errorNodeSummary?.templateInfo]
+    () => !!resolvedTemplateResponses.find(item => isEqual(item, errorNodeSummary?.templateResponse)),
+    [resolvedTemplateResponses, errorNodeSummary?.templateResponse]
   )
 
   const onNodeUpdate = () => {
@@ -65,17 +65,17 @@ export function YamlDiffView({ errorNodeSummary, resolvedTemplateInfos = [], onU
     if (errorNodeSummary) {
       setLoading(true)
       setError(undefined)
-      const templateInfo = errorNodeSummary.templateInfo
-      if (templateInfo) {
-        const templateRef = defaultTo(templateInfo.templateIdentifier, '')
-        const scope = getScopeFromValue(templateRef)
+      const templateResponse = errorNodeSummary.templateResponse
+      if (templateResponse) {
+        const templateRef = defaultTo(templateResponse.identifier, '')
+        const scope = getScopeFromDTO(templateResponse)
         const defaultQueryParams = getScopeBasedProjectPathParams(params, scope)
         try {
           const response = await getYamlDiffPromiseForTemplate({
             queryParams: {
               ...defaultQueryParams,
               templateIdentifier: getIdentifierFromValue(templateRef),
-              versionLabel: defaultTo(templateInfo.versionLabel, ''),
+              versionLabel: defaultTo(templateResponse.versionLabel, ''),
               branch,
               repoIdentifier,
               getDefaultFromOtherRepo: true

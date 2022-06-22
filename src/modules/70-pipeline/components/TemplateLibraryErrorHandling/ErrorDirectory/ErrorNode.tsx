@@ -11,41 +11,41 @@ import { FontVariation } from '@harness/design-system'
 import { Intent, Radio } from '@blueprintjs/core'
 import { defaultTo, isEqual, noop } from 'lodash-es'
 import cx from 'classnames'
-import type { ErrorNodeSummary, TemplateInfo } from 'services/template-ng'
+import type { ErrorNodeSummary, TemplateResponse } from 'services/template-ng'
 import css from './ErrorNode.module.scss'
 
 export interface ErrorDirectoryProps {
   templateInputsErrorNodeSummary: ErrorNodeSummary
-  resolvedTemplateInfos?: TemplateInfo[]
+  resolvedTemplateResponses?: TemplateResponse[]
   selectedErrorNodeSummary?: ErrorNodeSummary
   setSelectedErrorNodeSummary: (errorNodeSummary: ErrorNodeSummary) => void
 }
 
 export function ErrorNode({
   templateInputsErrorNodeSummary,
-  resolvedTemplateInfos = [],
+  resolvedTemplateResponses = [],
   selectedErrorNodeSummary,
   setSelectedErrorNodeSummary
 }: ErrorDirectoryProps) {
-  const { childrenErrorNodes, nodeInfo, templateInfo } = templateInputsErrorNodeSummary
+  const { childrenErrorNodes, nodeInfo, templateResponse } = templateInputsErrorNodeSummary
 
   const isEnabled = React.useMemo(() => {
     const childNodes = defaultTo(templateInputsErrorNodeSummary.childrenErrorNodes, [])
     for (const child of childNodes) {
-      if (!resolvedTemplateInfos.find(item => isEqual(item, child.templateInfo))) {
+      if (!resolvedTemplateResponses.find(item => isEqual(item, child.templateResponse))) {
         return false
       }
     }
     return true
-  }, [resolvedTemplateInfos])
+  }, [resolvedTemplateResponses])
 
   const onNodeClick = React.useCallback(() => {
     setSelectedErrorNodeSummary(templateInputsErrorNodeSummary)
   }, [])
 
   const isTemplateResolved = React.useMemo(
-    () => !!resolvedTemplateInfos.find(item => isEqual(item, templateInputsErrorNodeSummary?.templateInfo)),
-    [resolvedTemplateInfos]
+    () => !!resolvedTemplateResponses.find(item => isEqual(item, templateInputsErrorNodeSummary?.templateResponse)),
+    [resolvedTemplateResponses]
   )
 
   return (
@@ -64,12 +64,12 @@ export function ErrorNode({
             <Container className={css.label} margin={{ right: 'medium' }}>
               <Layout.Horizontal spacing={'xsmall'}>
                 <Text lineClamp={1} font={{ variation: FontVariation.SMALL }}>
-                  {templateInfo
-                    ? `${templateInfo?.templateEntityType}: ${nodeInfo?.name}: ${templateInfo?.templateIdentifier} (
-                  ${templateInfo?.versionLabel})`
+                  {templateResponse
+                    ? `${templateResponse?.templateEntityType}: ${nodeInfo?.name}: ${templateResponse?.identifier} (
+                  ${templateResponse?.versionLabel})`
                     : `Pipeline: ${nodeInfo?.name}`}
                 </Text>
-                {templateInfo && <Icon name="template-library" size={8} />}
+                {templateResponse && <Icon name="template-library" size={8} />}
               </Layout.Horizontal>
             </Container>
             {isTemplateResolved ? (
@@ -91,7 +91,7 @@ export function ErrorNode({
                   <Container className={css.childrenContainer}>
                     <ErrorNode
                       templateInputsErrorNodeSummary={item}
-                      resolvedTemplateInfos={resolvedTemplateInfos}
+                      resolvedTemplateResponses={resolvedTemplateResponses}
                       selectedErrorNodeSummary={selectedErrorNodeSummary}
                       setSelectedErrorNodeSummary={setSelectedErrorNodeSummary}
                     />
