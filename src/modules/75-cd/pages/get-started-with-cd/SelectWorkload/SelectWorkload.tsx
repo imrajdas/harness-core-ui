@@ -21,6 +21,7 @@ import {
   FormInput
 } from '@harness/uicore'
 import type { FormikContextType } from 'formik'
+import { get } from 'lodash-es'
 import { useStrings } from 'framework/strings'
 
 import {
@@ -30,6 +31,7 @@ import {
   WorkloadProviders
 } from '../DeployProvisioningWizard/Constants'
 
+import { useCDOnboardingContext } from '../CDOnboardingStore'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectWorkloadRef {
@@ -47,17 +49,30 @@ interface SelectWorkloadProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
 }
-
+export interface SelecWorkloadRef {
+  values: SelectWorkloadInterface
+  setFieldTouched(field: keyof SelectWorkloadInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
+  // validate: () => boolean
+  // showValidationErrors: () => void
+}
 export type SelectWorkloadForwardRef =
-  | ((instance: SelectWorkloadRef | null) => void)
-  | React.MutableRefObject<SelectWorkloadRef | null>
+  | ((instance: SelecWorkloadRef | null) => void)
+  | React.MutableRefObject<SelecWorkloadRef | null>
   | null
 
 const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloadForwardRef): React.ReactElement => {
   const { getString } = useStrings()
   // const { disableNextBtn, enableNextBtn } = props
-  const [workloadType, setWorkloadType] = useState<WorkloadType | undefined>()
-  const [serviceDeploymentType, setServiceDeploymnetType] = useState<ServiceDeploymentTypes | undefined>()
+  const {
+    state: { service: serviceData }
+  } = useCDOnboardingContext()
+  const [workloadType, setWorkloadType] = useState<WorkloadType | undefined>(
+    WorkloadProviders.find(item => item.value === serviceData?.workload)
+  )
+  const [serviceDeploymentType, setServiceDeploymnetType] = useState<ServiceDeploymentTypes | undefined>(
+    deploymentTypes.find(item => item.value === serviceData?.serviceDefinition?.type)
+  )
+
   const formikRef = useRef<FormikContextType<SelectWorkloadInterface>>()
 
   // const validateWorkloadSetup = React.useCallback((): boolean => {
@@ -95,6 +110,15 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
         setFieldTouched: formikRef.current.setFieldTouched
       })
     }
+  }, [formikRef.current, formikRef.current?.values, formikRef.current?.setFieldTouched])
+
+  useEffect(() => {
+    if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
+      setForwardRef({
+        values: formikRef.current.values,
+        setFieldTouched: formikRef.current.setFieldTouched
+      })
+    }
   }, [formikRef?.current?.values, formikRef?.current?.setFieldTouched])
 
   return (
@@ -102,9 +126,9 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
       <Formik<SelectWorkloadInterface>
         initialValues={{
-          workloadType: undefined,
-          serviceDeploymentType: undefined,
-          serviceRef: ''
+          workloadType: get(serviceData, 'workload') || undefined,
+          serviceDeploymentType: get(serviceData, 'serviceDefinition.type') || undefined,
+          serviceRef: get(serviceData, 'name') || ''
         }}
         formName="cdWorkload-provider"
         onSubmit={(values: SelectWorkloadInterface) => Promise.resolve(values)}
@@ -131,7 +155,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
                   )}
                   selected={workloadType}
                   onChange={(item: WorkloadType) => {
-                    formikProps.setFieldValue('workloadType', item)
+                    formikProps.setFieldValue('workloadType', item.value)
                     setWorkloadType(item)
                   }}
                 />
@@ -169,7 +193,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
                       )}
                       selected={serviceDeploymentType}
                       onChange={(item: ServiceDeploymentTypes) => {
-                        formikProps.setFieldValue('serviceDeploymentType', item)
+                        formikProps.setFieldValue('serviceDeploymentType', item.value)
                         setServiceDeploymnetType(item)
                       }}
                     />

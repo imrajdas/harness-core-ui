@@ -10,6 +10,7 @@ import { Connectors } from '@connectors/constants'
 import type { ConnectorInfoDTO, UserRepoResponse } from 'services/cd-ng'
 
 import type { StringsMap } from 'stringTypes'
+import { ServiceDeploymentType } from '@pipeline/utils/stageHelpers'
 
 export interface DeployProvisioningWizardProps {
   lastConfiguredWizardStepId?: DeployProvisiongWizardStepId
@@ -51,18 +52,20 @@ export enum StepStatus {
 export interface WorkloadType {
   icon: IconName
   label: keyof StringsMap
+  value: string
   disabled?: boolean
 }
 
 export const WorkloadProviders: WorkloadType[] = [
-  { icon: 'services', label: 'services', disabled: false },
-  { icon: 'service-serverless', label: 'cd.getStartedWithCD.serverless', disabled: true },
-  { icon: 'services', label: 'cd.gitOps', disabled: true }
+  { icon: 'services', label: 'services', value: 'services', disabled: false },
+  { icon: 'service-serverless', label: 'cd.getStartedWithCD.serverless', value: 'service-serverless', disabled: true },
+  { icon: 'services', label: 'cd.gitOps', value: 'services', disabled: true }
 ]
 
 export interface ServiceDeploymentTypes {
   icon: IconName
   label: keyof StringsMap
+  value: string
   disabled?: boolean
 }
 
@@ -70,37 +73,44 @@ export const deploymentTypes: ServiceDeploymentTypes[] = [
   {
     label: 'pipeline.serviceDeploymentTypes.kubernetes',
     icon: 'service-kubernetes',
-    disabled: false
+    disabled: false,
+    value: ServiceDeploymentType.Kubernetes
   },
   {
     label: 'pipeline.serviceDeploymentTypes.amazonEcs',
     icon: 'service-ecs',
-    disabled: true
+    disabled: true,
+    value: ServiceDeploymentType.amazonEcs
   },
   {
     label: 'pipeline.serviceDeploymentTypes.azureFunctions',
     icon: 'cloudformation',
-    disabled: true
+    disabled: true,
+    value: ServiceDeploymentType.AzureFunctions
   },
   {
     label: 'pipeline.serviceDeploymentTypes.azureFunctions',
     icon: 'service-aws',
-    disabled: true
+    disabled: true,
+    value: ServiceDeploymentType.AzureFunctions
   },
   {
     label: 'pipeline.serviceDeploymentTypes.awsCodeDeploy',
     icon: 'service-azure',
-    disabled: true
+    disabled: true,
+    value: ServiceDeploymentType.awsCodeDeploy
   },
   {
     label: 'pipeline.serviceDeploymentTypes.azureFunctions',
     icon: 'service-azure',
-    disabled: true
+    disabled: true,
+    value: ServiceDeploymentType.AzureFunctions
   },
   {
     label: 'pipeline.serviceDeploymentTypes.awsSAM',
     icon: 'service-aws',
-    disabled: true
+    disabled: true,
+    value: ServiceDeploymentType.AmazonSAM
   }
 ]
 

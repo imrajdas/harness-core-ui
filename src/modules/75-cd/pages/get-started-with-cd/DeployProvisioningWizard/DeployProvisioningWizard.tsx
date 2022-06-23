@@ -8,9 +8,23 @@
 
 import React, { useState } from 'react'
 
-import { Container, Button, ButtonVariation, Layout, MultiStepProgressIndicator, PageSpinner } from '@harness/uicore'
+import {
+  Container,
+  Button,
+  ButtonVariation,
+  Layout,
+  MultiStepProgressIndicator,
+  PageSpinner,
+  useToaster
+} from '@harness/uicore'
+import produce from 'immer'
+import { get, isEmpty, set } from 'lodash-es'
+import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 
+import { NGServiceConfig, ServiceRequestDTO, useCreateServiceV2 } from 'services/cd-ng'
+import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
+import useRBACError from '@rbac/utils/useRBACError/useRBACError'
 import {
   WizardStep,
   StepStatus,
@@ -22,10 +36,14 @@ import {
 import { SelectWorkload, SelectWorkloadRef } from '../SelectWorkload/SelectWorkload'
 import { SelectInfrastructure } from '../SelectInfrastructure/SelectInfrastructure'
 import { SelectArtifact, SelectArtifactRef } from '../SelectArtifact/SelectArtifact'
+import { useCDOnboardingContext } from '../CDOnboardingStore'
+import { cleanData, newServiceState } from '../cdOnboardingUtils'
 import css from './DeployProvisioningWizard.module.scss'
+
 export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> = props => {
   const { lastConfiguredWizardStepId = DeployProvisiongWizardStepId.SelectWorkload } = props
   const { getString } = useStrings()
+  const { getRBACErrorMessage } = useRBACError()
   const [disableBtn, setDisableBtn] = useState<boolean>(false)
 
   const [currentWizardStepId, setCurrentWizardStepId] =
@@ -34,7 +52,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
   const selectWorkloadRef = React.useRef<SelectWorkloadRef | null>(null)
   const selectArtifactRef = React.useRef<SelectArtifactRef | null>(null)
   // const [showError, setShowError] = useState<boolean>(false)
-  // const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
+  const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
   // const history = useHistory()
   const [showPageLoader] = useState<boolean>(false)
 
@@ -55,6 +73,22 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       })
     }
   }, [])
+  const { loading: createLoading, mutate: createService } = useCreateServiceV2({
+    queryParams: {
+      accountIdentifier: accountId
+    }
+  })
+
+  const { showSuccess, showError, clear } = useToaster()
+
+  const {
+    saveServiceData,
+    state: { service: serviceData }
+  } = useCDOnboardingContext()
+
+  const getUniqueServiceRef = (serviceRef: string): string => {
+    return `${serviceRef}_${new Date().getTime().toString()}`
+  }
 
   const WizardSteps: Map<DeployProvisiongWizardStepId, WizardStep> = new Map([
     [
@@ -67,9 +101,13 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
             enableNextBtn={() => setDisableBtn(false)}
           />
         ),
-        onClickNext: () => {
-          const { values, setFieldTouched } = selectWorkloadRef.current || {}
-          const { workloadType, serviceDeploymentType } = values || {}
+        onClickNext: async () => {
+          const {
+            values,
+            setFieldTouched
+            //  validate
+          } = selectWorkloadRef.current || {}
+          const { workloadType, serviceDeploymentType, serviceRef } = values || {}
           if (!workloadType) {
             setFieldTouched?.('workloadType', true)
             return
@@ -78,6 +116,37 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
             setFieldTouched?.('serviceDeploymentType', true)
             return
           }
+
+          const isServiceNameUpdated =
+            isEmpty(get(serviceData, 'serviceDefinition.type')) || get(serviceData, 'name') !== serviceRef
+          const updatedContextService = produce(newServiceState as NGServiceConfig, draft => {
+            set(draft, 'service.name', serviceRef)
+            set(
+              draft,
+              'service.identifier',
+              isServiceNameUpdated ? getUniqueServiceRef(serviceRef as string) : get(serviceData, 'identifier')
+            )
+            set(draft, 'service.workload', workloadType)
+            set(draft, 'service.serviceDefinition.type', serviceDeploymentType)
+          })
+
+          const cleanServiceData = cleanData(updatedContextService.service as ServiceRequestDTO)
+
+          if (isServiceNameUpdated) {
+            try {
+              const response = await createService({ ...cleanServiceData, orgIdentifier, projectIdentifier })
+              if (response.status === 'SUCCESS') {
+                serviceRef && saveServiceData({ service: updatedContextService.service, serviceResponse: response })
+                clear()
+                showSuccess(getString('cd.serviceCreated'))
+              } else {
+                throw response
+              }
+            } catch (error: any) {
+              showError(getRBACErrorMessage(error))
+            }
+          }
+
           // if (validate?.()) {
           setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectArtifact)
           updateStepStatus([DeployProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
@@ -168,6 +237,10 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
     }
   } else {
     buttonLabel = getString('next')
+  }
+
+  if (createLoading) {
+    return <PageSpinner />
   }
 
   return stepRender ? (

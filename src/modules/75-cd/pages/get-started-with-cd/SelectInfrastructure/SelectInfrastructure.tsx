@@ -47,9 +47,9 @@ export interface SelectInfrastructureInterface {
 interface SelectInfrastructureProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
-  onClose: () => void
-  onSuccess: (data?: ConnectorRequestBody) => void | Promise<void>
-  setIsEditMode: (val: boolean) => void
+  onClose?: () => void
+  onSuccess?: (data?: ConnectorRequestBody) => void | Promise<void>
+  setIsEditMode?: (val: boolean) => void
 }
 
 const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactElement => {

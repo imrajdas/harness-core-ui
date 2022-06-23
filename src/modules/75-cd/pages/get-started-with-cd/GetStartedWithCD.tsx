@@ -9,14 +9,21 @@ import React, { useState } from 'react'
 import cx from 'classnames'
 import { Text, FontVariation, Icon, Layout, Button, ButtonVariation, Container } from '@harness/uicore'
 import type { IconProps } from '@harness/icons'
+import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 import type { StringsMap } from 'stringTypes'
+import type { GitQueryParams, ProjectPathProps, ServicePathProps } from '@common/interfaces/RouteInterfaces'
+import { useQueryParams } from '@common/hooks'
 import { DeployProvisioningWizard } from './DeployProvisioningWizard/DeployProvisioningWizard'
 import bgImageURL from '../home/images/cd.svg'
+import { CDOnboardingProvider } from './CDOnboardingStore'
 import css from './GetStartedWithCD.module.scss'
+
 export default function GetStartedWithCI(): React.ReactElement {
   const { getString } = useStrings()
   const [showWizard, setShowWizard] = useState<boolean>(false)
+  const { accountId, orgIdentifier, projectIdentifier, serviceId } = useParams<ProjectPathProps & ServicePathProps>()
+  const { branch, repoIdentifier } = useQueryParams<GitQueryParams>()
   const renderBuildPipelineStep = React.useCallback(
     ({ iconProps, label, isLastStep }: { iconProps: IconProps; label: keyof StringsMap; isLastStep?: boolean }) => (
       <Layout.Horizontal flex padding={{ right: 'xsmall' }} spacing="small">
@@ -31,18 +38,24 @@ export default function GetStartedWithCI(): React.ReactElement {
   )
 
   return showWizard ? (
-    <DeployProvisioningWizard />
+    <CDOnboardingProvider
+      queryParams={{ accountIdentifier: accountId, orgIdentifier, projectIdentifier, repoIdentifier, branch }}
+      pipelineIdentifier=""
+      serviceIdentifier={serviceId}
+    >
+      <DeployProvisioningWizard />
+    </CDOnboardingProvider>
   ) : (
     <>
       <Layout.Vertical flex className={css.buildYourOwnPipeline}>
         <Layout.Horizontal flex className={css.cdIcon}>
           <Icon name="cd-main" size={50} />
-          <Text font={{ variation: FontVariation.H5 }} className={css.cdName}>
+          <Text font={{ variation: FontVariation.H6 }} className={css.cdName}>
             {getString('cd.continuous')}
           </Text>
         </Layout.Horizontal>
         <Layout.Vertical flex margin={{ bottom: 'large' }}>
-          <Text font={{ variation: FontVariation.H1_SEMI }}>{getString('common.getStarted.firstPipeline')}</Text>
+          <Text font={{ variation: FontVariation.H2 }}>{getString('common.getStarted.firstPipeline')}</Text>
         </Layout.Vertical>
         <Layout.Vertical className={css.vertical}>
           <Text font={{ variation: FontVariation.SMALL }}>{getString('common.getStarted.quicklyCreate')}</Text>
