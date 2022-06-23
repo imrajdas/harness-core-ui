@@ -48,7 +48,7 @@ const CreateDashboardForm: React.FC<CreateDashboardFormProps> = ({ hideModal }) 
       const response = await createDashboard(formData)
       onSuccess(response)
     } catch (e) {
-      modalErrorHandler?.showDanger(getString('dashboards.createModal.submitFail'))
+      modalErrorHandler?.showDanger(e?.data?.responseMessages || getString('dashboards.createModal.submitFail'))
     }
   }
 

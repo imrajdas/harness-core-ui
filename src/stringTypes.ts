@@ -2461,8 +2461,11 @@ export interface StringsMap {
   'dashboards.dashboardSortingOptions.mostViewed': string
   'dashboards.dashboardSortingOptions.recentlyCreated': string
   'dashboards.dashboardSortingOptions.recentlyViewed': string
+  'dashboards.deleteDashboard.failed': string
+  'dashboards.deleteDashboard.success': string
   'dashboards.deleteFolder.confirmDeleteText': string
   'dashboards.deleteFolder.confirmDeleteTitle': string
+  'dashboards.deleteFolder.failed': string
   'dashboards.deleteFolder.success': string
   'dashboards.editModal.editDashboard': string
   'dashboards.editModal.submitFail': string

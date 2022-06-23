@@ -42,7 +42,7 @@ const CloneDashboardForm: React.FC<CloneDashboardFormProps> = ({ hideModal, relo
       const response = await cloneDashboard({ ...completedFormData, dashboardId })
       onSuccess(response)
     } catch (e) {
-      modalErrorHandler?.showDanger(getString('dashboards.cloneDashboardModal.submitFail'))
+      modalErrorHandler?.showDanger(e?.data?.responseMessages || getString('dashboards.cloneDashboardModal.submitFail'))
     }
   }
 

@@ -43,8 +43,8 @@ const useDeleteFolder = (folder: FolderModel | undefined, onSuccess: () => void)
             showSuccess(getString('dashboards.deleteFolder.success'))
             onSuccess()
           }
-        } catch (error: unknown | any) {
-          showError(error?.data?.responseMessages)
+        } catch (error) {
+          showError(error?.data?.responseMessages || getString('dashboards.deleteFolder.failed'))
         }
       }
     }

@@ -59,7 +59,7 @@ const UpdateDashboardForm: React.FC<UpdateDashboardFormProps> = ({ hideModal, re
       const response = await updateDashboard({ ...completedFormData, dashboardId })
       onSuccess(response)
     } catch (e) {
-      modalErrorHandler?.showDanger(getString('dashboards.editModal.submitFail'))
+      modalErrorHandler?.showDanger(e?.data?.responseMessages || getString('dashboards.editModal.submitFail'))
     }
   }
 

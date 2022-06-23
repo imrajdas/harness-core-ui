@@ -36,7 +36,7 @@ import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import { PAGE_SIZE } from '@dashboards/pages/home/HomePage'
 import FolderCard from '@dashboards/components/FolderCard/FolderCard'
 import { useStrings } from 'framework/strings'
-import { FolderModel, useGetFolders } from 'services/custom-dashboards'
+import { ErrorResponse, FolderModel, useGetFolders } from 'services/custom-dashboards'
 import CreateFolder from './form/CreateFolder'
 import { useDashboardsContext } from '../DashboardsContext'
 
@@ -190,7 +190,11 @@ const FoldersPage: React.FC = () => {
   )
 
   return (
-    <Page.Body loading={loading} error={error?.message}>
+    <Page.Body
+      loading={loading}
+      error={(error?.data as ErrorResponse)?.responseMessages}
+      retryOnError={() => reloadFolders()}
+    >
       <Layout.Horizontal
         spacing="medium"
         background={Color.GREY_0}

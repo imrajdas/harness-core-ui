@@ -39,8 +39,8 @@ const CreateFolder: React.FC<CreateFolderProps> = ({ onFormCompleted }) => {
         })
         onFormCompleted()
       })
-      .catch(() => {
-        setErrorMessage(getString('dashboards.createFolder.folderSubmitFail'))
+      .catch(e => {
+        setErrorMessage(e?.data?.responseMessages || getString('dashboards.createFolder.folderSubmitFail'))
       })
   }
 

@@ -56,10 +56,14 @@ createFolder:
   folderSubmitFail: 'Folder creation failed, Please try again.'
 updateFolder:
   folderUpdateFail: 'Failed to update folder, Please try again.'
+deleteDashboard:
+  success: 'Successfully deleted dashboard'
+  failed: 'Failed to delete dashboard'
 deleteFolder:
   confirmDeleteTitle: 'Delete {{name}} folder'
   confirmDeleteText: 'Deleting the folder {{name}} would mean that you are also deleting all the dashboards associated with it. Are you sure you want to delete the Folder?'
   success: 'Successfully deleted folder'
+  failed: 'Failed to delete folder'
 resourceModal:
   folders: 'Folder Name'
   folderDetail: 'Folder Dashboards'

@@ -33,8 +33,8 @@ const UpdateFolder: React.FC<UpdateFolderProps> = ({ folderData, onFormCompleted
       .then(() => {
         onFormCompleted()
       })
-      .catch(() => {
-        setErrorMessage(getString('dashboards.updateFolder.folderUpdateFail'))
+      .catch(e => {
+        setErrorMessage(e?.data?.responseMessages || getString('dashboards.updateFolder.folderUpdateFail'))
       })
   }
 

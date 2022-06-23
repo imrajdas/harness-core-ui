@@ -16,7 +16,8 @@ import {
   Dialog,
   ExpandingSearchInput,
   Pagination,
-  SelectOption
+  SelectOption,
+  useToaster
 } from '@harness/uicore'
 import { useModalHook } from '@harness/use-modal'
 import type { Breadcrumb } from '@harness/uicore'
@@ -81,6 +82,7 @@ const getBreadcrumbLinks = (
 const HomePage: React.FC = () => {
   const { getString } = useStrings()
   const { accountId, folderId } = useParams<{ accountId: string; folderId: string }>()
+  const { showSuccess, showError } = useToaster()
 
   const defaultSortBy: SelectOption = {
     label: 'Select Option',
@@ -215,14 +217,22 @@ const HomePage: React.FC = () => {
     )
   }, [folderDetail, accountId, folderId])
 
-  const onDeleteDashboard = (dashboardId: string): void => {
-    deleteDashboard({ dashboardId }).then(() => {
+  const onDeleteDashboard = async (dashboardId: string): Promise<void> => {
+    try {
+      await deleteDashboard({ dashboardId })
+      showSuccess(getString('dashboards.deleteDashboard.success'))
       refetchDashboards()
-    })
+    } catch (e) {
+      showError(e?.data?.responseMessages || getString('dashboards.deleteDashboard.failed'))
+    }
   }
 
   return (
-    <Page.Body loading={loading || deleting} error={(error?.data as ErrorResponse)?.responseMessages}>
+    <Page.Body
+      loading={loading || deleting}
+      error={(error?.data as ErrorResponse)?.responseMessages}
+      retryOnError={() => refetchDashboards()}
+    >
       <Layout.Horizontal>
         <Layout.Horizontal
           padding="large"
