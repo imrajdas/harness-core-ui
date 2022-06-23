@@ -5,16 +5,16 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import { FormInput, Layout, MultiTypeInputType } from '@harness/uicore'
+import { FormError, FormInput, Layout, MultiTypeInputType } from '@harness/uicore'
 import { Form, Formik, FormikContextType } from 'formik'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useStrings } from 'framework/strings'
 import DragnDropPaths from '@pipeline/components/ManifestSelection/DragnDropPaths'
 import { gitFetchTypeList, GitFetchTypes } from '../DeployProvisioningWizard/Constants'
-
+// import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 export interface ProvideManifestRef {
   values: ProvideManifestInterface
-  showValidationErrors: () => void
+  validate: () => boolean
 }
 interface ProvideManifestInterface {
   manifestName?: string
@@ -22,7 +22,7 @@ interface ProvideManifestInterface {
   commitId?: string | undefined
   gitFetchType?: 'Branch' | 'Commit'
   paths?: any
-  valuesPath?: any
+  valuesPaths?: any
 }
 
 interface ProvideManifestProps {
@@ -30,17 +30,62 @@ interface ProvideManifestProps {
   enableNextBtn: () => void
 }
 
-const ProvideManifestRef = (props: ProvideManifestProps): React.ReactElement => {
+export type ProvideManifestForwardRef =
+  | ((instance: ProvideManifestRef | null) => void)
+  | React.MutableRefObject<ProvideManifestRef | null>
+  | null
+
+const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideManifestForwardRef): React.ReactElement => {
   const { getString } = useStrings()
-  const { disableNextBtn, enableNextBtn } = props
+  // const { disableNextBtn, enableNextBtn } = props
   const formikRef = useRef<FormikContextType<ProvideManifestInterface>>()
+
+  const validateProvideManifestDetails = React.useCallback(
+    (): any => {
+      const { manifestName } = formikRef?.current?.values || {}
+
+      if (!manifestName) return false
+    },
+
+    // return true
+    []
+  )
+
+  const setForwardRef = ({ values }: Omit<ProvideManifestRef, 'validate'>): void => {
+    if (!forwardRef) {
+      return
+    }
+    if (typeof forwardRef === 'function') {
+      return
+    }
+
+    if (values) {
+      forwardRef.current = {
+        values,
+        validate: validateProvideManifestDetails
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
+      setForwardRef({
+        values: formikRef.current.values
+      })
+    }
+  }, [formikRef.current?.values])
 
   return (
     <Layout.Vertical width="70%">
       <Formik<ProvideManifestInterface>
-        initialValues={{}}
-        // formName="cdArtifact-provideManifest"
-        validationSchema={{}}
+        initialValues={{
+          manifestName: '',
+          gitFetchType: 'Commit',
+          commitId: '',
+          branch: '',
+          paths: [],
+          valuesPaths: []
+        }}
         onSubmit={(values: ProvideManifestInterface) => Promise.resolve(values)}
       >
         {formikProps => {
@@ -50,10 +95,17 @@ const ProvideManifestRef = (props: ProvideManifestProps): React.ReactElement => 
               <Layout.Vertical width={320}>
                 <div>
                   <FormInput.Text
-                    name="identifier"
+                    name="manifestName"
                     label={getString('pipeline.manifestType.manifestIdentifier')}
                     placeholder={getString('pipeline.manifestType.manifestPlaceholder')}
                   />
+                  {formikProps.touched.manifestName && !formikProps.values.manifestName ? (
+                    <FormError
+                      name={'manifestName'}
+                      errorMessage={getString('validation.nameRequired')}
+                      // className={css.formError}
+                    />
+                  ) : null}
                 </div>
 
                 <div>
@@ -76,6 +128,15 @@ const ProvideManifestRef = (props: ProvideManifestProps): React.ReactElement => 
                     name="commitId"
                   />
                 )}
+                {formikProps.values?.gitFetchType === GitFetchTypes.Branch &&
+                !formikProps.values.branch &&
+                formikProps.touched.branch ? (
+                  <FormError name={'branch'} errorMessage={getString('validation.branchName')} />
+                ) : formikProps.values?.gitFetchType === GitFetchTypes.Commit &&
+                  !formikProps.values.commitId &&
+                  formikProps.touched.commitId ? (
+                  <FormError name={'commitId'} errorMessage={getString('validation.commitId')} />
+                ) : null}
                 <div>
                   <DragnDropPaths
                     formik={formikProps}

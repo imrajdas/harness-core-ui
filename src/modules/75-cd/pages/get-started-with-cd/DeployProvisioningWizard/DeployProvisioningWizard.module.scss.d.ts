@@ -20,6 +20,7 @@ declare const styles: {
   readonly icons: string
   readonly learnMore: string
   readonly main: string
+  readonly marginTop: string
   readonly repoCard: string
   readonly repoborderBottom: string
   readonly repositories: string

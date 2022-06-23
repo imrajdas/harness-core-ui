@@ -157,4 +157,17 @@
     margin-left: 700px;
     color: var(--grey-700);
   }
+  :global(.Accordion--panel) {
+    border-bottom: 1px solid var(--grey-200);
+    padding-top: var(--spacing-medium);
+    padding-bottom: var(--spacing-small);
+  }
+  :global(.Accordion--summary) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+.marginTop {
+  margin-top: 54px;
 }

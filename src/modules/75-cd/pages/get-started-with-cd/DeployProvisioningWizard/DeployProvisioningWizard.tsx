@@ -21,7 +21,7 @@ import {
 } from './Constants'
 import { SelectWorkload, SelectWorkloadRef } from '../SelectWorkload/SelectWorkload'
 import { SelectInfrastructure } from '../SelectInfrastructure/SelectInfrastructure'
-import { SelectArtifact } from '../SelectArtifact/SelectArtifact'
+import { SelectArtifact, SelectArtifactRef } from '../SelectArtifact/SelectArtifact'
 import css from './DeployProvisioningWizard.module.scss'
 export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> = props => {
   const { lastConfiguredWizardStepId = DeployProvisiongWizardStepId.SelectWorkload } = props
@@ -32,7 +32,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
     useState<DeployProvisiongWizardStepId>(lastConfiguredWizardStepId)
 
   const selectWorkloadRef = React.useRef<SelectWorkloadRef | null>(null)
-  // const selectInfrastructureRef = React.useRef<SelectInfrastructureRef | null>(null)
+  const selectArtifactRef = React.useRef<SelectArtifactRef | null>(null)
   // const [showError, setShowError] = useState<boolean>(false)
   // const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
   // const history = useHistory()
@@ -68,17 +68,16 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
           />
         ),
         onClickNext: () => {
-          // const { values, setFieldTouched, validate } = selectWorkloadRef.current || {}
-          // const { workloadType, serviceDeploymentType } = values || {}
-          // if (!workloadType) {
-          //   setFieldTouched?.('workloadType', true)
-          //   return
-          // }
-          // if (!serviceDeploymentType) {
-          //   setFieldTouched?.('serviceDeploymentType', true)
-          //   return
-          // }
-
+          const { values, setFieldTouched } = selectWorkloadRef.current || {}
+          const { workloadType, serviceDeploymentType } = values || {}
+          if (!workloadType) {
+            setFieldTouched?.('workloadType', true)
+            return
+          }
+          if (!serviceDeploymentType) {
+            setFieldTouched?.('serviceDeploymentType', true)
+            return
+          }
           // if (validate?.()) {
           setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectArtifact)
           updateStepStatus([DeployProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
@@ -94,7 +93,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       {
         stepRender: (
           <SelectArtifact
-            // ref={selectRepositoryRef}
+            ref={selectArtifactRef}
             // showError={showError}
             // validatedConnectorRef={selectGitProviderRef.current?.validatedConnector?.identifier}
             disableNextBtn={() => setDisableBtn(true)}
@@ -103,8 +102,18 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
         ),
         onClickBack: () => {
           setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectWorkload)
+          updateStepStatus(
+            [DeployProvisiongWizardStepId.SelectWorkload, DeployProvisiongWizardStepId.SelectArtifact],
+            StepStatus.ToDo
+          )
         },
         onClickNext: () => {
+          const { values, setFieldTouched } = selectArtifactRef.current || {}
+          const { artifactType } = values || {}
+          if (!artifactType) {
+            setFieldTouched?.('artifactType', true)
+            return
+          }
           setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectInfrastructure)
           updateStepStatus(
             [DeployProvisiongWizardStepId.SelectWorkload, DeployProvisiongWizardStepId.SelectArtifact],

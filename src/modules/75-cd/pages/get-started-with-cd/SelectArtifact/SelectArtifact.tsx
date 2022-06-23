@@ -15,23 +15,25 @@ import {
   Container,
   Formik,
   FormikForm as Form,
-  Accordion
+  Accordion,
+  FormError
 } from '@harness/uicore'
 import type { FormikContextType } from 'formik'
 // import cx from 'classnames'
 import { useStrings } from 'framework/strings'
+import type { SelectGitProviderRef } from './SelectGitProvider'
 import { ArtifactProviders, ArtifactType, Hosting } from '../DeployProvisioningWizard/Constants'
 
 import { SelectGitProvider } from './SelectGitProvider'
-import { SelectRepository } from './SelectRepository'
-import { ProvideManifest } from './ProvideManifest'
+import { SelectRepository, SelectRepositoryRef } from './SelectRepository'
+import { ProvideManifest, ProvideManifestRef } from './ProvideManifest'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectArtifactRef {
   values: SelectArtifactInterface
   setFieldTouched(field: keyof SelectArtifactInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
-  validate: () => boolean
-  showValidationErrors: () => void
+  validate?: () => boolean
+  showValidationErrors?: () => void
 }
 export interface SelectArtifactInterface {
   artifactType?: ArtifactType
@@ -42,37 +44,84 @@ interface SelectArtifactProps {
   enableNextBtn: () => void
 }
 
-// const collapseProps = {
-//   collapsedIcon: 'main-chevron-right' as IconName,
-//   expandedIcon: 'main-chevron-down' as IconName,
-//   iconProps: { size: 16 } as IconProps,
-//   // className: 'a',
-//   isRemovable: false
-// }
+export type SelectArtifactForwardRef =
+  | ((instance: SelectArtifactRef | null) => void)
+  | React.MutableRefObject<SelectArtifactRef | null>
+  | null
 
-const SelectArtifactRef = (props: SelectArtifactProps): React.ReactElement => {
+const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifactForwardRef): React.ReactElement => {
   const { getString } = useStrings()
-  const { disableNextBtn, enableNextBtn } = props
+  // const { disableNextBtn, enableNextBtn } = props
   const [artifactType, setArtifactType] = useState<ArtifactType | undefined>()
   const formikRef = useRef<FormikContextType<SelectArtifactInterface>>()
   const [disableBtn, setDisableBtn] = useState<boolean>(false)
-  useEffect(() => {
-    if (artifactType) {
-      enableNextBtn()
-    } else {
-      disableNextBtn()
-    }
-  }, [artifactType])
+  const selectGitProviderRef = React.useRef<SelectGitProviderRef | null>(null)
+  const selectRepositoryRef = React.useRef<SelectRepositoryRef | null>(null)
+  const provideManifestRef = React.useRef<ProvideManifestRef | null>(null)
 
-  const borderBottom = <div className={css.repoborderBottom} />
-  // const isActiveAccordion: boolean = artifactType ? true : false
+  const setForwardRef = ({
+    values,
+    setFieldTouched
+  }: Omit<SelectArtifactRef, 'validate' | 'showValidationErrors'>): void => {
+    if (!forwardRef) {
+      return
+    }
+    if (typeof forwardRef === 'function') {
+      return
+    }
+
+    if (values) {
+      forwardRef.current = {
+        values,
+        setFieldTouched: setFieldTouched
+      }
+    }
+  }
+
+  useEffect(() => {
+    if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
+      setForwardRef({
+        values: formikRef.current.values,
+        setFieldTouched: formikRef.current.setFieldTouched
+      })
+    }
+  }, [formikRef?.current?.values, formikRef?.current?.setFieldTouched])
+
+  const openSelectRepoAccordion = (): boolean | undefined => {
+    const { validate } = selectGitProviderRef.current || {}
+    return validate?.()
+  }
+  // useEffect(() => {
+  //   if (!selectGitProviderRef.current?.validate?.()) {
+  //     disableNextBtn()
+  //   } else {
+  //     enableNextBtn()
+  //   }
+  // }, [selectGitProviderRef.current?.validate?.()])
+
+  const openProvideManifestAccordion = (): boolean | undefined => {
+    if (selectRepositoryRef.current?.repository && selectGitProviderRef?.current?.validatedConnector?.spec) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  // useEffect(() => {
+  //   if (provideManifestRef?.current?.validate) {
+  //     console.log('sdfgh')
+  //   }
+  // }, [provideManifestRef?.current?.values])
+
+  const isActiveAccordion: boolean = artifactType ? true : false
   return (
     <Layout.Vertical width="80%">
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.artifactLocation')}</Text>
       <Formik<SelectArtifactInterface>
         formName="cdRepo"
-        initialValues={{}}
-        validateOnChange={true}
+        initialValues={{
+          artifactType: undefined
+        }}
         onSubmit={(values: SelectArtifactInterface) => Promise.resolve(values)}
       >
         {formikProps => {
@@ -84,68 +133,85 @@ const SelectArtifactRef = (props: SelectArtifactProps): React.ReactElement => {
                   cornerSelected={true}
                   data={ArtifactProviders}
                   cardClassName={css.artifactTypeCard}
-                  renderItem={(item: ArtifactType) => {
-                    const { icon, label, details } = item
-                    return (
+                  renderItem={(item: ArtifactType) => (
+                    <>
                       <Layout.Vertical height="100%" flex={{ justifyContent: 'space-between' }}>
                         <Layout.Vertical spacing="medium">
                           <Layout.Horizontal flex={{ justifyContent: 'flex-start' }} spacing="small">
-                            <Icon name={icon} size={20} />
-                            <Text font={{ variation: FontVariation.H5 }}>{getString(label)}</Text>
+                            <Icon name={item.icon} size={20} />
+                            <Text font={{ variation: FontVariation.H5 }}>{getString(item.label)}</Text>
                           </Layout.Horizontal>
-                          <Text font={{ variation: FontVariation.SMALL }}>{getString(details)}</Text>
+                          <Text font={{ variation: FontVariation.SMALL }}>{getString(item.details)}</Text>
                         </Layout.Vertical>
                       </Layout.Vertical>
-                    )
-                  }}
+                    </>
+                  )}
                   selected={artifactType}
-                  onChange={(item: ArtifactType) => setArtifactType(item)}
+                  onChange={(item: ArtifactType) => {
+                    formikProps.setFieldValue('artifactType', item)
+                    setArtifactType(item)
+                  }}
                 />
+                {formikProps.touched.artifactType && !formikProps.values.artifactType ? (
+                  <FormError
+                    name={'artifactType'}
+                    errorMessage={getString('common.getStarted.plsChoose', {
+                      field: `your ${getString('pipeline.artifactsSelection.artifactType')}`
+                    })}
+                  />
+                ) : null}
               </Container>
-              {borderBottom}
-              <div className={css.accordionPadding}>
-                <Accordion className={css.accordion} activeId={'codeRepo'}>
+
+              <div className={css.repoborderBottom} />
+
+              {isActiveAccordion ? (
+                <Accordion
+                  className={css.accordion}
+                  activeId={
+                    isActiveAccordion
+                      ? 'codeRepo'
+                      : openSelectRepoAccordion()
+                      ? 'selectYourRepo'
+                      : openSelectRepoAccordion() && openProvideManifestAccordion()
+                      ? 'provideManifest'
+                      : ''
+                  }
+                >
                   <Accordion.Panel
                     id="codeRepo"
                     summary={
                       <Layout.Horizontal width={300}>
                         <Text font={{ variation: FontVariation.H5 }}>{getString('cd.getStartedWithCD.codeRepos')}</Text>
-                        {/* <Icon name="success-tick" size={20} /> */}
+
+                        {openSelectRepoAccordion() ? <Icon name="success-tick" size={20} /> : null}
                       </Layout.Horizontal>
                     }
                     details={
                       <SelectGitProvider
+                        ref={selectGitProviderRef}
                         disableNextBtn={() => setDisableBtn(true)}
                         enableNextBtn={() => setDisableBtn(false)}
                         selectedHosting={Hosting.SaaS}
                       ></SelectGitProvider>
                     }
                   />
-                </Accordion>
-              </div>
-              {borderBottom}
-              <div className={css.accordionPadding}>
-                <Accordion className={css.accordion}>
                   <Accordion.Panel
                     id="selectYourRepo"
                     summary={
                       <Layout.Horizontal width={300}>
                         <Text font={{ variation: FontVariation.H5 }}>{getString('common.selectYourRepo')}</Text>
-                        {/* <Icon name="success-tick" size={20} /> */}
+                        {openProvideManifestAccordion() ? <Icon name="success-tick" size={20} /> : null}
                       </Layout.Horizontal>
                     }
                     details={
                       <SelectRepository
+                        ref={selectRepositoryRef}
+                        validatedConnectorRef={selectGitProviderRef.current?.values?.gitProvider?.type}
                         disableNextBtn={() => setDisableBtn(true)}
                         enableNextBtn={() => setDisableBtn(false)}
                       ></SelectRepository>
                     }
                   />
-                </Accordion>
-              </div>
-              {borderBottom}
-              <div className={css.accordionPadding}>
-                <Accordion className={css.accordion}>
                   <Accordion.Panel
                     id="provideManifest"
                     summary={
@@ -158,14 +224,14 @@ const SelectArtifactRef = (props: SelectArtifactProps): React.ReactElement => {
                     }
                     details={
                       <ProvideManifest
+                        ref={provideManifestRef}
                         disableNextBtn={() => setDisableBtn(true)}
                         enableNextBtn={() => setDisableBtn(false)}
                       />
                     }
                   />
                 </Accordion>
-              </div>
-              {borderBottom}
+              ) : null}
             </Form>
           )
         }}

@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import {
   Text,
   FontVariation,
@@ -54,14 +54,14 @@ interface SelectInfrastructureProps {
 
 const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactElement => {
   const { getString } = useStrings()
-  const { disableNextBtn, enableNextBtn } = props
+  // const { disableNextBtn, enableNextBtn } = props
   const [infrastructureType, setInfrastructureType] = useState<InfrastructureType | undefined>()
   const formikRef = useRef<FormikContextType<SelectInfrastructureInterface>>()
 
-  useEffect(() => {
-    if (infrastructureType) enableNextBtn()
-    else disableNextBtn()
-  })
+  // useEffect(() => {
+  //   if (infrastructureType) enableNextBtn()
+  //   else disableNextBtn()
+  // })
 
   const borderBottom = <div className={css.repoborderBottom} />
   return (
