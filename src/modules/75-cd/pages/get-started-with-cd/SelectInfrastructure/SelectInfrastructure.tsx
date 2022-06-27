@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   Text,
   FontVariation,
@@ -15,17 +15,21 @@ import {
   Container,
   Formik,
   FormikForm as Form,
-  Color,
-  DropDown,
   Button,
   ButtonVariation,
-  Accordion
+  Accordion,
+  FormInput,
+  FormError
 } from '@harness/uicore'
 import type { FormikContextType } from 'formik'
+import cx from 'classnames'
+import { Dialog, IDialogProps, Classes } from '@blueprintjs/core'
+import { useModalHook } from '@harness/use-modal'
 import { useStrings } from 'framework/strings'
-
-import type { ConnectorRequestBody } from 'services/cd-ng'
+import type { ConnectorInfoDTO, ConnectorRequestBody } from 'services/cd-ng'
 import Stepk8ClusterDetails from '@connectors/components/CreateConnector/K8sConnector/StepAuth/Stepk8ClusterDetails'
+import { CreateDelegateWizard } from '@delegates/components/CreateDelegate/CreateDelegateWizard'
+import { CONNECTOR_CREDENTIALS_STEP_IDENTIFIER } from '@connectors/constants'
 import { InfrastructureTypes, InfrastructureType } from '../DeployProvisioningWizard/Constants'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
@@ -36,8 +40,8 @@ export interface SelectInfrastructureRef {
     isTouched?: boolean,
     shouldValidate?: boolean
   ): void
-  validate: () => boolean
-  showValidationErrors: () => void
+  validate?: () => boolean
+  showValidationErrors?: () => void
 }
 export interface SelectInfrastructureInterface {
   infraType?: string
@@ -50,9 +54,18 @@ interface SelectInfrastructureProps {
   onClose?: () => void
   onSuccess?: (data?: ConnectorRequestBody) => void | Promise<void>
   setIsEditMode?: (val: boolean) => void
+  connectorInfo?: ConnectorInfoDTO | void
 }
 
-const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactElement => {
+export type SelectInfrastructureForwardRef =
+  | ((instance: SelectInfrastructureRef | null) => void)
+  | React.MutableRefObject<SelectInfrastructureRef | null>
+  | null
+
+const SelectInfrastructureRef = (
+  props: SelectInfrastructureProps,
+  forwardRef: SelectInfrastructureForwardRef
+): React.ReactElement => {
   const { getString } = useStrings()
   // const { disableNextBtn, enableNextBtn } = props
   const [infrastructureType, setInfrastructureType] = useState<InfrastructureType | undefined>()
@@ -63,6 +76,52 @@ const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactE
   //   else disableNextBtn()
   // })
 
+  const setForwardRef = ({ values, setFieldTouched }: Omit<SelectInfrastructureRef, 'validate'>): void => {
+    if (!forwardRef) {
+      return
+    }
+    if (typeof forwardRef === 'function') {
+      return
+    }
+
+    if (values) {
+      forwardRef.current = {
+        values,
+        setFieldTouched: setFieldTouched
+        // validate: validateInfraSetup
+      }
+    }
+  }
+  useEffect(() => {
+    if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
+      setForwardRef({
+        values: formikRef.current.values,
+        setFieldTouched: formikRef.current.setFieldTouched
+      })
+    }
+  }, [formikRef?.current?.values, formikRef?.current?.setFieldTouched])
+
+  const [showDelegateModal, hideDelegateModal] = useModalHook(() => {
+    const onClose = (): void => {
+      hideDelegateModal()
+    }
+    return (
+      <Dialog onClose={onClose} {...DIALOG_PROPS} className={cx(css.modal, Classes.DIALOG)}>
+        <CreateDelegateWizard></CreateDelegateWizard>
+        <Button minimal icon="cross" onClick={onClose} className={css.crossIcon} />
+      </Dialog>
+    )
+  }, [])
+  const DIALOG_PROPS: IDialogProps = {
+    isOpen: true,
+    usePortal: true,
+    autoFocus: true,
+    canEscapeKeyClose: false,
+    canOutsideClickClose: false,
+    enforceFocus: false,
+    style: { width: 1175, minHeight: 640, borderLeft: 0, paddingBottom: 0, position: 'relative', overflow: 'hidden' }
+  }
+
   const borderBottom = <div className={css.repoborderBottom} />
   return (
     <Layout.Vertical width="80%">
@@ -70,8 +129,6 @@ const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactE
       <Formik<SelectInfrastructureInterface>
         initialValues={{}}
         formName="cdInfrastructure"
-        // validationSchema={getValidationSchema()}
-        validateOnChange={true}
         onSubmit={(values: SelectInfrastructureInterface) => Promise.resolve(values)}
       >
         {formikProps => {
@@ -97,55 +154,57 @@ const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactE
                   )}
                   selected={infrastructureType}
                   onChange={(item: InfrastructureType) => {
-                    formikProps.setFieldValue('infrastructureType', item)
+                    formikProps.setFieldValue('infraType', item)
                     setInfrastructureType(item)
                   }}
                 />
+                {formikProps.touched.infraType && !formikProps.values.infraType ? (
+                  <FormError
+                    className={css.marginTop}
+                    name={'infraType'}
+                    errorMessage={getString('common.getStarted.plsChoose', {
+                      field: `${getString('infrastructureText')}`
+                    })}
+                  />
+                ) : null}
               </Container>
-              <Container padding={{ bottom: 'xxlarge' }}>
-                <Text color={Color.GREY_600} padding={{ top: 'xlarge', bottom: 'xsmall' }}>
-                  {getString('cd.getStartedWithCD.envName')}
-                </Text>
-                <DropDown
-                  filterable={false}
-                  width={320}
-                  onChange={item => {
-                    formikProps.setFieldValue('envName', item.value)
-                  }}
-                  items={[]}
+              <Container padding={{ top: 'xxlarge', bottom: 'xxlarge' }}>
+                <FormInput.Text
+                  tooltipProps={{ dataTooltipId: 'specifyYourEnvironment' }}
+                  label={getString('cd.getStartedWithCD.envName')}
+                  name="envName"
+                  className={css.formInput}
                 />
               </Container>
               {borderBottom}
-              <div className={css.accordionPadding}>
-                <Accordion className={css.accordion}>
+              {infrastructureType ? (
+                <Accordion className={css.accordion} activeId={infrastructureType ? 'authMethod' : 'setUpDelegate'}>
                   <Accordion.Panel
-                    id="codeRepo"
+                    id="authMethod"
                     summary={
-                      <Text font={{ variation: FontVariation.H5 }} width={300}>
-                        {getString('common.authMethod')}
-                      </Text>
+                      <Layout.Horizontal width={300}>
+                        <Text font={{ variation: FontVariation.H5 }}>{getString('common.authMethod')}</Text>
+                        {<Icon name="success-tick" size={20} className={css.accordionStatus} />}
+                      </Layout.Horizontal>
                     }
                     details={
                       <Stepk8ClusterDetails
                         setIsEditMode={props.setIsEditMode}
-                        connectorInfo={undefined}
+                        identifier={CONNECTOR_CREDENTIALS_STEP_IDENTIFIER}
+                        connectorInfo={props.connectorInfo}
                         accountId={''}
                         orgIdentifier={''}
                         projectIdentifier={''}
                         isEditMode={false}
+                        // gitDetails={props.gitDetails}
                         onConnectorCreated={props.onSuccess}
-                        hideModal={props.onClose}
                         onBoarding={true}
                       ></Stepk8ClusterDetails>
                     }
                   />
-                </Accordion>
-              </div>
-              {borderBottom}
-              <div className={css.accordionPadding}>
-                <Accordion className={css.accordion}>
+
                   <Accordion.Panel
-                    id="codeRepo"
+                    id="setUpDelegate"
                     summary={
                       <Text font={{ variation: FontVariation.H5 }} width={300}>
                         {getString('cd.getStartedWithCD.setupDelegate')}
@@ -157,13 +216,13 @@ const SelectInfrastructureRef = (props: SelectInfrastructureProps): React.ReactE
                         <Button
                           text={getString('cd.getStartedWithCD.setupaNewDelegate')}
                           variation={ButtonVariation.SECONDARY}
+                          onClick={showDelegateModal}
                         />
                       </>
                     }
                   />
                 </Accordion>
-              </div>
-              {borderBottom}
+              ) : null}
             </Form>
           )
         }}

@@ -34,7 +34,7 @@ import {
   // eslint-disable-next-line import/namespace
 } from './Constants'
 import { SelectWorkload, SelectWorkloadRef } from '../SelectWorkload/SelectWorkload'
-import { SelectInfrastructure } from '../SelectInfrastructure/SelectInfrastructure'
+import { SelectInfrastructure, SelectInfrastructureRef } from '../SelectInfrastructure/SelectInfrastructure'
 import { SelectArtifact, SelectArtifactRef } from '../SelectArtifact/SelectArtifact'
 import { useCDOnboardingContext } from '../CDOnboardingStore'
 import { cleanData, newServiceState } from '../cdOnboardingUtils'
@@ -51,6 +51,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
 
   const selectWorkloadRef = React.useRef<SelectWorkloadRef | null>(null)
   const selectArtifactRef = React.useRef<SelectArtifactRef | null>(null)
+  const selectInfrastructureRef = React.useRef<SelectInfrastructureRef | null>(null)
   // const [showError, setShowError] = useState<boolean>(false)
   const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
   // const history = useHistory()
@@ -152,6 +153,8 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
           updateStepStatus([DeployProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
           updateStepStatus([DeployProvisiongWizardStepId.SelectArtifact], StepStatus.InProgress)
           updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
+          updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.ToDo)
+
           // }
         },
         stepFooterLabel: 'cd.getStartedWithCD.configureRepo'
@@ -188,7 +191,9 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
             [DeployProvisiongWizardStepId.SelectWorkload, DeployProvisiongWizardStepId.SelectArtifact],
             StepStatus.Success
           )
+          updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.InProgress)
           updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
+          updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.ToDo)
         },
 
         stepFooterLabel: 'cd.getStartedWithCD.manifestFile'
@@ -199,7 +204,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       {
         stepRender: (
           <SelectInfrastructure
-            // ref={selectInfrastructureProviderRef}
+            ref={selectInfrastructureRef}
             disableNextBtn={() => setDisableBtn(true)}
             enableNextBtn={() => setDisableBtn(false)}
           />
@@ -212,6 +217,12 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
           )
         },
         onClickNext: () => {
+          const { values, setFieldTouched } = selectInfrastructureRef.current || {}
+          const { infraType } = values || {}
+          if (!infraType) {
+            setFieldTouched?.('infraType', true)
+            return
+          }
           updateStepStatus(
             [
               DeployProvisiongWizardStepId.SelectWorkload,
@@ -220,6 +231,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
             ],
             StepStatus.Success
           )
+          updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.ToDo)
         },
         stepFooterLabel: 'common.createPipeline'
       }
@@ -251,7 +263,8 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
             new Map([
               [0, wizardStepStatus.get(DeployProvisiongWizardStepId.SelectWorkload) || 'TODO'],
               [1, wizardStepStatus.get(DeployProvisiongWizardStepId.SelectArtifact) || 'TODO'],
-              [2, wizardStepStatus.get(DeployProvisiongWizardStepId.SelectInfrastructure) || 'TODO']
+              [2, wizardStepStatus.get(DeployProvisiongWizardStepId.SelectInfrastructure) || 'TODO'],
+              [3, wizardStepStatus.get(DeployProvisiongWizardStepId.CreatePipeline) || 'TODO']
             ])
           }
         />

@@ -49,20 +49,15 @@ interface SelectWorkloadProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
 }
-export interface SelecWorkloadRef {
-  values: SelectWorkloadInterface
-  setFieldTouched(field: keyof SelectWorkloadInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
-  // validate: () => boolean
-  // showValidationErrors: () => void
-}
+
 export type SelectWorkloadForwardRef =
-  | ((instance: SelecWorkloadRef | null) => void)
-  | React.MutableRefObject<SelecWorkloadRef | null>
+  | ((instance: SelectWorkloadRef | null) => void)
+  | React.MutableRefObject<SelectWorkloadRef | null>
   | null
 
 const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloadForwardRef): React.ReactElement => {
   const { getString } = useStrings()
-  // const { disableNextBtn, enableNextBtn } = props
+  const { disableNextBtn, enableNextBtn } = props
   const {
     state: { service: serviceData }
   } = useCDOnboardingContext()
@@ -83,10 +78,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
   //   }
   //   return false
   // }, [])
-  const setForwardRef = ({
-    values,
-    setFieldTouched
-  }: Omit<SelectWorkloadRef, 'validate' | 'showValidationErrors'>): void => {
+  const setForwardRef = ({ values, setFieldTouched }: Omit<SelectWorkloadRef, 'validate'>): void => {
     if (!forwardRef) {
       return
     }
@@ -104,13 +96,12 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
   }
 
   useEffect(() => {
-    if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
-      setForwardRef({
-        values: formikRef.current.values,
-        setFieldTouched: formikRef.current.setFieldTouched
-      })
+    if (formikRef.current?.values?.workloadType && formikRef?.current?.values?.serviceDeploymentType) {
+      enableNextBtn()
+    } else {
+      disableNextBtn()
     }
-  }, [formikRef.current, formikRef.current?.values, formikRef.current?.setFieldTouched])
+  }, [formikRef.current?.values])
 
   useEffect(() => {
     if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
@@ -146,7 +137,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
                   renderItem={(item: WorkloadType) => (
                     <>
                       <Layout.Vertical flex>
-                        <Icon name={item.icon} size={45} flex className={css.workloadTypeIcon} />
+                        <Icon name={item.icon} size={25} flex className={css.workloadTypeIcon} />
                         <Text font={{ variation: FontVariation.BODY2 }} className={css.text}>
                           {getString(item.label)}
                         </Text>
@@ -185,7 +176,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
                         <>
                           <Layout.Vertical flex>
                             <Icon name={item.icon} size={30} flex className={css.serviceDeploymentTypeIcon} />
-                            <Text font={{ variation: FontVariation.BODY2 }} className={css.text}>
+                            <Text font={{ variation: FontVariation.BODY2 }} className={css.text1}>
                               {getString(item.label)}
                             </Text>
                           </Layout.Vertical>
@@ -221,8 +212,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
                             tooltipProps={{ dataTooltipId: 'specifyYourService' }}
                             label={getString('common.serviceName')}
                             name="serviceRef"
-                            className={css.dropdownWidth}
-                            placeholder={getString('cd.pipelineSteps.serviceTab.selectService')}
+                            className={css.formInput}
                           />
                           {formikProps.values.serviceRef === '' ? (
                             <FormError

@@ -51,7 +51,7 @@ export type SelectArtifactForwardRef =
 
 const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifactForwardRef): React.ReactElement => {
   const { getString } = useStrings()
-  // const { disableNextBtn, enableNextBtn } = props
+  const { disableNextBtn, enableNextBtn } = props
   const [artifactType, setArtifactType] = useState<ArtifactType | undefined>()
   const formikRef = useRef<FormikContextType<SelectArtifactInterface>>()
   const [disableBtn, setDisableBtn] = useState<boolean>(false)
@@ -91,27 +91,26 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
     const { validate } = selectGitProviderRef.current || {}
     return validate?.()
   }
-  // useEffect(() => {
-  //   if (!selectGitProviderRef.current?.validate?.()) {
-  //     disableNextBtn()
-  //   } else {
-  //     enableNextBtn()
-  //   }
-  // }, [selectGitProviderRef.current?.validate?.()])
 
   const openProvideManifestAccordion = (): boolean | undefined => {
-    if (selectRepositoryRef.current?.repository && selectGitProviderRef?.current?.validatedConnector?.spec) {
+    if (selectRepositoryRef.current?.repository) {
       return true
     } else {
       return false
     }
   }
 
+  const validateProvide = () => {
+    return provideManifestRef?.current?.validate()
+  }
+
   // useEffect(() => {
-  //   if (provideManifestRef?.current?.validate) {
-  //     console.log('sdfgh')
+  //   if (openProvideManifestAccordion() && openProvideManifestAccordion() && validateProvide()) {
+  //     enableNextBtn()
+  //   } else {
+  //     disableNextBtn()
   //   }
-  // }, [provideManifestRef?.current?.values])
+  // }, [selectGitProviderRef?.current?.values, selectRepositoryRef?.current?.repository, validateProvide()])
 
   const isActiveAccordion: boolean = artifactType ? true : false
   return (
@@ -129,6 +128,7 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
           return (
             <Form>
               <Container padding={{ top: 'xxlarge', bottom: 'xxxlarge' }}>
+                {props.disableNextBtn()}
                 <CardSelect
                   cornerSelected={true}
                   data={ArtifactProviders}
@@ -172,7 +172,7 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
                       ? 'codeRepo'
                       : openSelectRepoAccordion()
                       ? 'selectYourRepo'
-                      : openSelectRepoAccordion() && openProvideManifestAccordion()
+                      : openProvideManifestAccordion()
                       ? 'provideManifest'
                       : ''
                   }
@@ -182,8 +182,11 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
                     summary={
                       <Layout.Horizontal width={300}>
                         <Text font={{ variation: FontVariation.H5 }}>{getString('cd.getStartedWithCD.codeRepos')}</Text>
-
-                        {openSelectRepoAccordion() ? <Icon name="success-tick" size={20} /> : null}
+                        {openSelectRepoAccordion() ? (
+                          <Icon name="success-tick" size={20} className={css.accordionStatus} />
+                        ) : selectGitProviderRef?.current?.showValidationErrors ? (
+                          <Icon name="danger-icon" size={20} className={css.accordionStatus} {...disableNextBtn()} />
+                        ) : null}
                       </Layout.Horizontal>
                     }
                     details={
@@ -200,7 +203,11 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
                     summary={
                       <Layout.Horizontal width={300}>
                         <Text font={{ variation: FontVariation.H5 }}>{getString('common.selectYourRepo')}</Text>
-                        {openProvideManifestAccordion() ? <Icon name="success-tick" size={20} /> : null}
+                        {openProvideManifestAccordion() ? (
+                          <Icon name="success-tick" size={20} className={css.accordionStatus} />
+                        ) : !selectRepositoryRef?.current?.repository?.name ? (
+                          <Icon name="danger-icon" size={20} className={css.accordionStatus} {...disableNextBtn()} />
+                        ) : null}
                       </Layout.Horizontal>
                     }
                     details={
@@ -219,14 +226,18 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
                         <Text font={{ variation: FontVariation.H5 }}>
                           {getString('cd.getStartedWithCD.provideManifest')}
                         </Text>
-                        {/* <Icon name="success-tick" size={20} /> */}
+                        {validateProvide() ? (
+                          <Icon name="success-tick" size={20} className={css.accordionStatus} {...enableNextBtn()} />
+                        ) : (
+                          <Icon name="danger-icon" size={20} className={css.accordionStatus} {...disableNextBtn()} />
+                        )}
                       </Layout.Horizontal>
                     }
                     details={
                       <ProvideManifest
                         ref={provideManifestRef}
                         disableNextBtn={() => setDisableBtn(true)}
-                        enableNextBtn={() => setDisableBtn(false)}
+                        enableNextBtn={() => setDisableBtn(disableBtn)}
                       />
                     }
                   />

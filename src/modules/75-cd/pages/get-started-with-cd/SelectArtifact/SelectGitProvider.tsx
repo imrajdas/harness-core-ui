@@ -211,13 +211,13 @@ const SelectGitProviderRef = (
     let url = ''
     switch (gitProvider?.type) {
       case Connectors.GITHUB:
-        url = getString('common.git.gitHubUrlPlaceholder')
+        url = getString('common.getStarted.gitProviderURLs.github')
         break
       case Connectors.BITBUCKET:
-        url = getString('common.git.bitbucketOrgUrlPlaceholder')
+        url = getString('common.getStarted.gitProviderURLs.bitbucket')
         break
       case Connectors.GITLAB:
-        url = getString('common.git.gitLabUrlPlaceholder')
+        url = getString('common.getStarted.gitProviderURLs.gitlab')
         break
     }
     return url ? url.replace('/account/', '') : ''

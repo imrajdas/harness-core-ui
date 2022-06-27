@@ -402,16 +402,6 @@ const Stepk8ClusterDetails: React.FC<StepProps<Stepk8ClusterDetailsProps> & K8Cl
                     name="masterUrl"
                     className={css.formFieldWidth}
                   />
-                  {props.onBoarding ? (
-                    <>
-                      <Text className={css.formFieldWidth}>
-                        {getString('connectors.k8.masterUrlInfo')}
-                        <Button variation={ButtonVariation.LINK} text={getString('connectors.k8.learnMore')} />
-                      </Text>
-                      <div className={css.borderBottom} />
-                    </>
-                  ) : null}
-
                   <Container className={css.authHeaderRow}>
                     <Text
                       font={{ variation: FontVariation.H6 }}

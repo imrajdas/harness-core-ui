@@ -329,13 +329,13 @@ const SelectGitProviderRef = (
     let url = ''
     switch (gitProvider?.type) {
       case Connectors.GITHUB:
-        url = getString('ci.getStartedWithCI.gitProviderURLs.github')
+        url = getString('common.getStarted.gitProviderURLs.github')
         break
       case Connectors.BITBUCKET:
-        url = getString('ci.getStartedWithCI.gitProviderURLs.bitbucket')
+        url = getString('common.getStarted.gitProviderURLs.bitbucket')
         break
       case Connectors.GITLAB:
-        url = getString('ci.getStartedWithCI.gitProviderURLs.gitlab')
+        url = getString('common.getStarted.gitProviderURLs.gitlab')
         break
     }
     return url ? url.replace('/account/', '') : ''
@@ -760,7 +760,7 @@ const SelectGitProviderRef = (
               .required(getString('fieldRequired', { field: getString('username') })),
             applicationPassword: Yup.string()
               .trim()
-              .required(getString('fieldRequired', { field: getString('ci.getStartedWithCI.appPassword') }))
+              .required(getString('fieldRequired', { field: getString('common.getStarted.appPassword') }))
           })
           .required()
         return selectedHosting === Hosting.SaaS ? baseSchema : urlSchema.concat(baseSchema)

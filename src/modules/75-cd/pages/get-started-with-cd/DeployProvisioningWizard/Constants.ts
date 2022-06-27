@@ -35,10 +35,10 @@ export enum ProvisioningStatus {
 }
 
 export enum DeployProvisiongWizardStepId {
-  SelectGitProvider = 'SELECT_GIT_PROVIDER',
   SelectArtifact = 'SELECT_ARTIFACT',
   SelectWorkload = 'SELECT_WORKLOAD',
-  SelectInfrastructure = 'SELECT_INFRASTRUCTURE'
+  SelectInfrastructure = 'SELECT_INFRASTRUCTURE',
+  CreatePipeline = 'CREATE_PIPELINE'
 }
 
 // TODO Need to use exported StepStatus from uicore -> MultiStepProgressIndicator component

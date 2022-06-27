@@ -9,18 +9,22 @@
 declare const styles: {
   readonly accordion: string
   readonly accordionPadding: string
+  readonly accordionStatus: string
   readonly alignIcon: string
   readonly artifactSections: string
   readonly artifactTypeCard: string
   readonly authMethodBtn: string
   readonly borderBottom: string
-  readonly dropdownWidth: string
+  readonly crossIcon: string
   readonly footer: string
+  readonly formError: string
+  readonly formInput: string
   readonly header: string
   readonly icons: string
   readonly learnMore: string
   readonly main: string
   readonly marginTop: string
+  readonly modal: string
   readonly repoCard: string
   readonly repoborderBottom: string
   readonly repositories: string
@@ -32,6 +36,7 @@ declare const styles: {
   readonly serviceDeploymentTypeIcon: string
   readonly testConnectionBtn: string
   readonly text: string
+  readonly text1: string
   readonly workloadTypeCard: string
   readonly workloadTypeIcon: string
 }

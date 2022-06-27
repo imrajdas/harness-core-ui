@@ -195,8 +195,6 @@ k8:
   delegateOutClusterInfo: 'Specify master URL and credentials'
   delegateInClusterInfo: '{{ $.connectors.delegateInClusterInfo }}'
   masterUrlLabel: 'Master URL'
-  masterUrlInfo: 'The Kubernetes master node URL. The easiest method to obtain the master URL is using kubectl: kubectl cluster -info.'
-  learnMore: 'Learn More'
   serviceAccountToken: 'Service Account Token'
   serviceAccountKey: 'Service Account Key'
   skipDefaultValidation: 'Skip default namespace validation'

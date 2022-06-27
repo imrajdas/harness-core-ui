@@ -302,6 +302,9 @@ export interface StringsMap {
   'common.getStarted.selectInfra': string
   'common.getStarted.selectWorkload': string
   'common.getStarted.verifyConnection': string
+  'common.getStarted.gitProviderURLs.github': string
+  'common.getStarted.gitProviderURLs.bitbucket': string
+  'common.getStarted.gitProviderURLs.gitlab': string
   'common.git.APIAccessDescription': string
   'common.git.APIAuthentication': string
   'common.git.addUserCredentialLabel': string
@@ -2186,8 +2189,6 @@ export interface StringsMap {
   'connectors.k8.clientSecretOptional': string
   'connectors.k8.delegateInClusterInfo': string
   'connectors.k8.delegateOutClusterInfo': string
-  'connectors.k8.learnMore': string
-  'connectors.k8.masterUrlInfo': string
   'connectors.k8.masterUrlLabel': string
   'connectors.k8.placeholder.masterUrl': string
   'connectors.k8.serviceAccountKey': string
@@ -5794,9 +5795,6 @@ export interface StringsMap {
   'ci.getStartedWithCI.flexibleInfra': string
   'ci.getStartedWithCI.flexibleInfraHelpText': string
   'ci.getStartedWithCI.genericGit': string
-  'ci.getStartedWithCI.gitProviderURLs.bitbucket': string
-  'ci.getStartedWithCI.gitProviderURLs.github': string
-  'ci.getStartedWithCI.gitProviderURLs.gitlab': string
   'ci.getStartedWithCI.hostedByHarness': string
   'ci.getStartedWithCI.hostedByHarnessBuildLocation': string
   'ci.getStartedWithCI.hosting': string
