@@ -13,8 +13,12 @@ declare const styles: {
   readonly alignIcon: string
   readonly artifactSections: string
   readonly artifactTypeCard: string
+  readonly authFormField: string
+  readonly authHeaderRow: string
   readonly authMethodBtn: string
+  readonly authTitle: string
   readonly borderBottom: string
+  readonly credentialsButton: string
   readonly crossIcon: string
   readonly footer: string
   readonly formError: string

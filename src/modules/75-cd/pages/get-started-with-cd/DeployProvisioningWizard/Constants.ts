@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import type { IconName } from '@harness/uicore'
+import type { IconName, SelectOption } from '@harness/uicore'
 import { Connectors } from '@connectors/constants'
 import type { ConnectorInfoDTO, UserRepoResponse } from 'services/cd-ng'
 
@@ -212,3 +212,24 @@ export const gitFetchTypeList = [
   { label: 'Latest from Branch', value: 'Branch' },
   { label: 'Specific Commit Id / Git Tag', value: 'Commit' }
 ]
+
+enum CLIENT_KEY_ALGO {
+  RSA = 'RSA',
+  EC = 'EC'
+}
+
+export const CLIENT_KEY_ALGO_OPTIONS: SelectOption[] = [
+  {
+    label: CLIENT_KEY_ALGO.RSA,
+    value: CLIENT_KEY_ALGO.RSA
+  },
+  {
+    label: CLIENT_KEY_ALGO.EC,
+    value: CLIENT_KEY_ALGO.EC
+  }
+]
+
+export enum DelegtaAuthMethod {
+  ManualConfig = 'Manual_Config',
+  InheritFromDelegate = 'InheritFromDelegate'
+}

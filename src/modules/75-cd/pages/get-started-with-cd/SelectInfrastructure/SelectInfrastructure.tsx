@@ -26,11 +26,9 @@ import cx from 'classnames'
 import { Dialog, IDialogProps, Classes } from '@blueprintjs/core'
 import { useModalHook } from '@harness/use-modal'
 import { useStrings } from 'framework/strings'
-import type { ConnectorInfoDTO, ConnectorRequestBody } from 'services/cd-ng'
-import Stepk8ClusterDetails from '@connectors/components/CreateConnector/K8sConnector/StepAuth/Stepk8ClusterDetails'
 import { CreateDelegateWizard } from '@delegates/components/CreateDelegate/CreateDelegateWizard'
-import { CONNECTOR_CREDENTIALS_STEP_IDENTIFIER } from '@connectors/constants'
 import { InfrastructureTypes, InfrastructureType } from '../DeployProvisioningWizard/Constants'
+import { SelectAuthenticationMethod, SelectAuthenticationMethodRef } from './SelectAuthenticationMethod'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectInfrastructureRef {
@@ -51,10 +49,6 @@ export interface SelectInfrastructureInterface {
 interface SelectInfrastructureProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
-  onClose?: () => void
-  onSuccess?: (data?: ConnectorRequestBody) => void | Promise<void>
-  setIsEditMode?: (val: boolean) => void
-  connectorInfo?: ConnectorInfoDTO | void
 }
 
 export type SelectInfrastructureForwardRef =
@@ -67,10 +61,10 @@ const SelectInfrastructureRef = (
   forwardRef: SelectInfrastructureForwardRef
 ): React.ReactElement => {
   const { getString } = useStrings()
-  // const { disableNextBtn, enableNextBtn } = props
+  const [disableBtn, setDisableBtn] = useState<boolean>(false)
   const [infrastructureType, setInfrastructureType] = useState<InfrastructureType | undefined>()
   const formikRef = useRef<FormikContextType<SelectInfrastructureInterface>>()
-
+  const selectAuthenticationMethodRef = React.useRef<SelectAuthenticationMethodRef | null>(null)
   // useEffect(() => {
   //   if (infrastructureType) enableNextBtn()
   //   else disableNextBtn()
@@ -100,6 +94,11 @@ const SelectInfrastructureRef = (
       })
     }
   }, [formikRef?.current?.values, formikRef?.current?.setFieldTouched])
+
+  // const openSetupDelegateAccordion = useCallback(() => {
+  //   console.log(selectAuthenticationMethodRef?.current?.values?.delegateType)
+  //   return selectAuthenticationMethodRef?.current?.validate
+  // }, [selectAuthenticationMethodRef?.current?.validate])
 
   const [showDelegateModal, hideDelegateModal] = useModalHook(() => {
     const onClose = (): void => {
@@ -177,7 +176,7 @@ const SelectInfrastructureRef = (
                 />
               </Container>
               {borderBottom}
-              {infrastructureType ? (
+              {infrastructureType && formikRef?.current?.values?.envName ? (
                 <Accordion className={css.accordion} activeId={infrastructureType ? 'authMethod' : 'setUpDelegate'}>
                   <Accordion.Panel
                     id="authMethod"
@@ -188,18 +187,23 @@ const SelectInfrastructureRef = (
                       </Layout.Horizontal>
                     }
                     details={
-                      <Stepk8ClusterDetails
-                        setIsEditMode={props.setIsEditMode}
-                        identifier={CONNECTOR_CREDENTIALS_STEP_IDENTIFIER}
-                        connectorInfo={props.connectorInfo}
-                        accountId={''}
-                        orgIdentifier={''}
-                        projectIdentifier={''}
-                        isEditMode={false}
-                        // gitDetails={props.gitDetails}
-                        onConnectorCreated={props.onSuccess}
-                        onBoarding={true}
-                      ></Stepk8ClusterDetails>
+                      <SelectAuthenticationMethod
+                        ref={selectAuthenticationMethodRef}
+                        disableNextBtn={() => setDisableBtn(true)}
+                        enableNextBtn={() => setDisableBtn(disableBtn)}
+                      ></SelectAuthenticationMethod>
+                      // <Stepk8ClusterDetails
+                      //   setIsEditMode={props.setIsEditMode}
+                      //   identifier={CONNECTOR_CREDENTIALS_STEP_IDENTIFIER}
+                      //   connectorInfo={props.connectorInfo}
+                      //   accountId={''}
+                      //   orgIdentifier={''}
+                      //   projectIdentifier={''}
+                      //   isEditMode={false}
+                      //   // gitDetails={props.gitDetails}
+                      //   onConnectorCreated={props.onSuccess}
+                      //   onBoarding={true}
+                      // ></Stepk8ClusterDetails>
                     }
                   />
 

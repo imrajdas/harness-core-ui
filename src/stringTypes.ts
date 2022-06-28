@@ -293,6 +293,9 @@ export interface StringsMap {
   'common.getStarted.fetchingRepos': string
   'common.getStarted.fieldIsMissing': string
   'common.getStarted.firstPipeline': string
+  'common.getStarted.gitProviderURLs.bitbucket': string
+  'common.getStarted.gitProviderURLs.github': string
+  'common.getStarted.gitProviderURLs.gitlab': string
   'common.getStarted.learnMoreAboutPermissions': string
   'common.getStarted.oAuthLabel': string
   'common.getStarted.plsChoose': string
@@ -302,9 +305,6 @@ export interface StringsMap {
   'common.getStarted.selectInfra': string
   'common.getStarted.selectWorkload': string
   'common.getStarted.verifyConnection': string
-  'common.getStarted.gitProviderURLs.github': string
-  'common.getStarted.gitProviderURLs.bitbucket': string
-  'common.getStarted.gitProviderURLs.gitlab': string
   'common.git.APIAccessDescription': string
   'common.git.APIAuthentication': string
   'common.git.addUserCredentialLabel': string

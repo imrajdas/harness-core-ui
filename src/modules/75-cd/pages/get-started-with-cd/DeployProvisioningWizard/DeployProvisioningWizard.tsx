@@ -174,10 +174,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
         ),
         onClickBack: () => {
           setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectWorkload)
-          updateStepStatus(
-            [DeployProvisiongWizardStepId.SelectWorkload, DeployProvisiongWizardStepId.SelectArtifact],
-            StepStatus.ToDo
-          )
+          updateStepStatus([DeployProvisiongWizardStepId.SelectArtifact], StepStatus.ToDo)
         },
         onClickNext: () => {
           const { values, setFieldTouched } = selectArtifactRef.current || {}
@@ -192,7 +189,6 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
             StepStatus.Success
           )
           updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.InProgress)
-          updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
           updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.ToDo)
         },
 
@@ -211,10 +207,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
         ),
         onClickBack: () => {
           setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectArtifact)
-          updateStepStatus(
-            [DeployProvisiongWizardStepId.SelectWorkload, DeployProvisiongWizardStepId.SelectArtifact],
-            StepStatus.ToDo
-          )
+          updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
         },
         onClickNext: () => {
           const { values, setFieldTouched } = selectInfrastructureRef.current || {}
@@ -223,6 +216,8 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
             setFieldTouched?.('infraType', true)
             return
           }
+
+          setCurrentWizardStepId(DeployProvisiongWizardStepId.CreatePipeline)
           updateStepStatus(
             [
               DeployProvisiongWizardStepId.SelectWorkload,
@@ -231,7 +226,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
             ],
             StepStatus.Success
           )
-          updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.ToDo)
+          updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.InProgress)
         },
         stepFooterLabel: 'common.createPipeline'
       }
@@ -261,10 +256,34 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
         <MultiStepProgressIndicator
           progressMap={
             new Map([
-              [0, wizardStepStatus.get(DeployProvisiongWizardStepId.SelectWorkload) || 'TODO'],
-              [1, wizardStepStatus.get(DeployProvisiongWizardStepId.SelectArtifact) || 'TODO'],
-              [2, wizardStepStatus.get(DeployProvisiongWizardStepId.SelectInfrastructure) || 'TODO'],
-              [3, wizardStepStatus.get(DeployProvisiongWizardStepId.CreatePipeline) || 'TODO']
+              [
+                0,
+                {
+                  StepStatus: wizardStepStatus.get(DeployProvisiongWizardStepId.SelectWorkload) || 'TODO',
+                  StepName: getString('pipelineSteps.workload')
+                }
+              ],
+              [
+                1,
+                {
+                  StepStatus: wizardStepStatus.get(DeployProvisiongWizardStepId.SelectArtifact) || 'TODO',
+                  StepName: getString('pipeline.artifactTriggerConfigPanel.artifact')
+                }
+              ],
+              [
+                2,
+                {
+                  StepStatus: wizardStepStatus.get(DeployProvisiongWizardStepId.SelectInfrastructure) || 'TODO',
+                  StepName: getString('infrastructureText')
+                }
+              ],
+              [
+                3,
+                {
+                  StepStatus: wizardStepStatus.get(DeployProvisiongWizardStepId.CreatePipeline) || 'TODO',
+                  StepName: getString('common.pipeline')
+                }
+              ]
             ])
           }
         />

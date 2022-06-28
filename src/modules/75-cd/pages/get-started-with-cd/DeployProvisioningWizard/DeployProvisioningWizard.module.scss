@@ -195,3 +195,29 @@
   margin-top: -10px;
   margin-bottom: var(--spacing-small);
 }
+
+.credentialsButton {
+  width: 300px;
+  display: flex;
+  border: 1px solid var(--grey-100) !important;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04), 0px 2px 4px rgba(96, 97, 112, 0.16) !important;
+}
+
+.authHeaderRow {
+  width: 42%;
+  display: flex;
+  justify-content: space-between;
+  & > [data-tooltip-id='K8sAuthenticationTooltip'] {
+    margin: 0 0 15px;
+  }
+}
+.authTitle {
+  font-size: var(font-size-normal);
+  color: var(--black-600);
+}
+
+.authFormField {
+  width: 320px;
+  margin-top: 20px;
+}

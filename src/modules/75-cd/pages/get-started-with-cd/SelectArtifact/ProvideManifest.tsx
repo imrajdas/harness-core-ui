@@ -40,16 +40,11 @@ const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideMani
   // const { disableNextBtn, enableNextBtn } = props
   const formikRef = useRef<FormikContextType<ProvideManifestInterface>>()
 
-  const validateProvideManifestDetails = React.useCallback(
-    (): any => {
-      const { manifestName } = formikRef?.current?.values || {}
-
-      if (!manifestName) return false
-    },
-
-    // return true
-    []
-  )
+  const validateProvideManifestDetails = React.useCallback((): any => {
+    const { manifestName } = formikRef?.current?.values || {}
+    if (!manifestName) return false
+    return true
+  }, [])
 
   const setForwardRef = ({ values }: Omit<ProvideManifestRef, 'validate'>): void => {
     if (!forwardRef) {
