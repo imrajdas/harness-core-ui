@@ -22,7 +22,7 @@ describe('Test Get Started With CI', () => {
         <GetStartedWithCI />
       </TestWrapper>
     )
-    expect(getByText('ci.getStartedWithCI.firstPipeline')).toBeTruthy()
+    expect(getByText('common.getStarted.firstPipeline')).toBeTruthy()
     const createPipelineBtn = getByText('getStarted')
     expect(createPipelineBtn).toBeInTheDocument()
   })

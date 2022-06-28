@@ -157,7 +157,7 @@ export default function GetStartedWithCI(): React.ReactElement {
               </Layout.Horizontal>
             </Container>
             <Layout.Vertical>
-              <Text font={{ variation: FontVariation.H2 }}>{getString('ci.getStartedWithCI.firstPipeline')}</Text>
+              <Text font={{ variation: FontVariation.H2 }}>{getString('common.getStarted.firstPipeline')}</Text>
               <Text font={{ variation: FontVariation.SMALL }} padding={{ top: 'small' }}>
                 {getString('common.purpose.ci.descriptionOnly')}
               </Text>
@@ -195,7 +195,7 @@ export default function GetStartedWithCI(): React.ReactElement {
             </Layout.Vertical>
             <img
               className={css.buildImg}
-              title={getString('ci.getStartedWithCI.buildPipeline')}
+              title={getString('common.getStarted.buildPipeline')}
               src={buildImgURL}
               width={413}
               height={260}

@@ -28,6 +28,7 @@ import {
   Color,
   FormError
 } from '@harness/uicore'
+import { Status } from '@common/utils/Constants'
 import { useStrings } from 'framework/strings'
 import type { StringsMap } from 'stringTypes'
 import {
@@ -42,7 +43,6 @@ import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { OAuthProviders, OAuthProviderType } from '@common/constants/OAuthProviders'
 import { joinAsASentence } from '@common/utils/StringUtils'
 import { TestStatus } from '@common/components/TestConnectionWidget/TestConnectionWidget'
-import { Status } from '@common/utils/CIConstants'
 import { ErrorHandler } from '@common/components/ErrorHandler/ErrorHandler'
 import { Connectors } from '@connectors/constants'
 import {
@@ -738,7 +738,7 @@ const SelectGitProviderRef = (
                             <Button
                               className={css.authMethodBtn}
                               round
-                              text={getString('common.getStarted.oAuthLabel')}
+                              text={getString('common.oAuthLabel')}
                               onClick={() => {
                                 const oAuthProviderDetails = OAuthProviders.filter(
                                   (oAuthProvider: OAuthProviderType) =>

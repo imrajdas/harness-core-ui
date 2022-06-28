@@ -297,7 +297,6 @@ export interface StringsMap {
   'common.getStarted.gitProviderURLs.github': string
   'common.getStarted.gitProviderURLs.gitlab': string
   'common.getStarted.learnMoreAboutPermissions': string
-  'common.getStarted.oAuthLabel': string
   'common.getStarted.plsChoose': string
   'common.getStarted.quicklyCreate': string
   'common.getStarted.searchRepo': string
@@ -5805,7 +5804,6 @@ export interface StringsMap {
   'ci.getStartedWithCI.languageAgnostic': string
   'ci.getStartedWithCI.languageAgnosticHelpText': string
   'ci.getStartedWithCI.learnMoreAboutCI': string
-  'ci.getStartedWithCI.learnMoreAboutPermissions': string
   'ci.getStartedWithCI.onCloudLabel': string
   'ci.getStartedWithCI.onPremLabel': string
   'ci.getStartedWithCI.parallelization': string

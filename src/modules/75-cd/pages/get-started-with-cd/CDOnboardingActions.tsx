@@ -1,6 +1,7 @@
 import { clone } from 'lodash-es'
 import { DefaultNewPipelineId } from '@templates-library/components/TemplateStudio/PipelineTemplateCanvas/PipelineTemplateCanvasWrapper'
-import type { PipelineInfoConfig, ServiceResponseDTO } from 'services/cd-ng'
+import type { PipelineInfoConfig } from 'services/pipeline-ng'
+import type { ServiceResponseDTO } from 'services/cd-ng'
 import { newServiceState as initialServiceState } from './cdOnboardingUtils'
 
 export const DefaultPipeline: PipelineInfoConfig = {

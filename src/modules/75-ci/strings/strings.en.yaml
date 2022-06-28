@@ -132,7 +132,6 @@ containerPort: Container Port
 baseConnectorImage: Base Image Connector
 getStartedWithCI:
   learnMoreAboutCI: Learn more about Harness CI
-  firstPipeline: 'Let’s get you started with your first Pipeline!'
   buildyourOwnPipeline: Build your own Pipeline
   configInfra: Configure Infrastructure
   connectRepo: Connect to Git Repository
