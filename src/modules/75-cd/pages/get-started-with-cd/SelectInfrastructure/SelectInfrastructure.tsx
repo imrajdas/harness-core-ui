@@ -43,8 +43,8 @@ export interface SelectInfrastructureRef {
 }
 export interface SelectInfrastructureInterface {
   infraType: string
-  envId: string
-  infraId: string
+  envName: string
+  infraName: string
 }
 
 interface SelectInfrastructureProps {
@@ -128,8 +128,8 @@ const SelectInfrastructureRef = (
       <Formik<SelectInfrastructureInterface>
         initialValues={{
           infraType: '',
-          infraId: '',
-          envId: ''
+          infraName: '',
+          envName: ''
         }}
         formName="cdInfrastructure"
         onSubmit={(values: SelectInfrastructureInterface) => Promise.resolve(values)}
@@ -174,19 +174,19 @@ const SelectInfrastructureRef = (
               <Layout.Vertical padding={{ top: 'xxlarge', bottom: 'xxlarge' }}>
                 <FormInput.Text
                   tooltipProps={{ dataTooltipId: 'specifyYourEnvironment' }}
-                  label={getString('cd.getStartedWithCD.envName')}
-                  name="envId"
+                  label={getString('cd.getStartedWithCD.infraName')}
+                  name="infraName"
                   className={css.formInput}
                 />
                 <FormInput.Text
-                  // tooltipProps={{ dataTooltipId: 'specifyYourEnvironment' }}
-                  label={getString('cd.getStartedWithCD.infraName')}
+                  tooltipProps={{ dataTooltipId: 'specifyYourEnvironment' }}
+                  label={getString('cd.getStartedWithCD.envName')}
                   name="infraId"
                   className={css.formInput}
                 />
               </Layout.Vertical>
               {borderBottom}
-              {infrastructureType && formikRef?.current?.values?.envId && formikRef?.current?.values?.infraId ? (
+              {infrastructureType && formikRef?.current?.values?.envName && formikRef?.current?.values?.infraName ? (
                 <Accordion className={css.accordion} activeId={infrastructureType ? 'authMethod' : 'setUpDelegate'}>
                   <Accordion.Panel
                     id="authMethod"
