@@ -18,13 +18,22 @@ import {
   useToaster
 } from '@harness/uicore'
 import produce from 'immer'
-import { get, isEmpty, set } from 'lodash-es'
+import { cloneDeep, defaultTo, get, isEmpty, omit, set } from 'lodash-es'
 import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 
-import { NGServiceConfig, ServiceRequestDTO, useCreateServiceV2 } from 'services/cd-ng'
+import {
+  ManifestConfigWrapper,
+  NGServiceConfig,
+  ServiceRequestDTO,
+  useCreateServiceV2,
+  useUpdateServiceV2
+} from 'services/cd-ng'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import useRBACError from '@rbac/utils/useRBACError/useRBACError'
+import { GitRepoName, ManifestDataType } from '@pipeline/components/ManifestSelection/Manifesthelper'
+import type { ManifestTypes } from '@pipeline/components/ManifestSelection/ManifestInterface'
+import { yamlStringify } from '@common/utils/YamlHelperMethods'
 import {
   WizardStep,
   StepStatus,
@@ -65,6 +74,11 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
     ])
   )
 
+  const {
+    saveServiceData,
+    state: { service: serviceData }
+  } = useCDOnboardingContext()
+
   const updateStepStatus = React.useCallback((stepIds: DeployProvisiongWizardStepId[], status: StepStatus) => {
     if (Array.isArray(stepIds)) {
       setWizardStepStatus((prevState: Map<DeployProvisiongWizardStepId, StepStatus>) => {
@@ -79,13 +93,18 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       accountIdentifier: accountId
     }
   })
+  const { mutate: updateService } = useUpdateServiceV2({
+    queryParams: {
+      accountIdentifier: accountId
+    },
+    requestOptions: {
+      headers: {
+        'content-type': 'application/yaml'
+      }
+    }
+  })
 
   const { showSuccess, showError, clear } = useToaster()
-
-  const {
-    saveServiceData,
-    state: { service: serviceData }
-  } = useCDOnboardingContext()
 
   const getUniqueServiceRef = (serviceRef: string): string => {
     return `${serviceRef}_${new Date().getTime().toString()}`
@@ -127,7 +146,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
               'service.identifier',
               isServiceNameUpdated ? getUniqueServiceRef(serviceRef as string) : get(serviceData, 'identifier')
             )
-            set(draft, 'service.workload', workloadType)
+            set(draft, 'service.data.workload', workloadType)
             set(draft, 'service.serviceDefinition.type', serviceDeploymentType)
           })
 
@@ -176,13 +195,85 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
           setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectWorkload)
           updateStepStatus([DeployProvisiongWizardStepId.SelectArtifact], StepStatus.ToDo)
         },
-        onClickNext: () => {
-          const { values, setFieldTouched } = selectArtifactRef.current || {}
+        onClickNext: async () => {
+          const { values, gitValues, manifestValues, repoValues, connectorResponse, setFieldTouched } =
+            selectArtifactRef.current || {}
           const { artifactType } = values || {}
           if (!artifactType) {
             setFieldTouched?.('artifactType', true)
             return
           }
+          const selectedManifest = ManifestDataType.K8sManifest as ManifestTypes
+          const connectionType = GitRepoName.Account
+          const manifestObj: ManifestConfigWrapper = {
+            manifest: {
+              identifier: defaultTo(manifestValues?.identifier, ''),
+              type: selectedManifest, // fixed for initial designs
+              spec: {
+                store: {
+                  type: gitValues?.gitProvider?.type,
+                  spec: {
+                    connectorRef: connectorResponse?.data?.connectorResponseDTO?.connector?.identifier,
+                    gitFetchType: manifestValues?.gitFetchType,
+                    paths:
+                      typeof manifestValues?.paths === 'string'
+                        ? manifestValues?.paths
+                        : manifestValues?.paths?.map((path: { path: string }) => path.path)
+                  }
+                },
+                valuesPaths:
+                  typeof manifestValues?.valuesPaths === 'string'
+                    ? manifestValues?.valuesPaths
+                    : manifestValues?.valuesPaths?.map((path: { path: string }) => path.path)
+              }
+            }
+          }
+          if (connectionType === GitRepoName.Account) {
+            set(manifestObj, 'manifest.spec.store.spec.repoName', repoValues?.name)
+          }
+
+          if (manifestObj?.manifest?.spec?.store) {
+            if (manifestValues?.gitFetchType === 'Branch') {
+              set(manifestObj, 'manifest.spec.store.spec.branch', manifestValues?.branch)
+            } else if (manifestValues?.gitFetchType === 'Commit') {
+              set(manifestObj, 'manifest.spec.store.spec.commitId', manifestValues?.commitId)
+            }
+          }
+
+          if (selectedManifest === ManifestDataType.K8sManifest) {
+            set(manifestObj, 'manifest.spec.skipResourceVersioning', false)
+          }
+
+          const updatedContextService = produce(serviceData as NGServiceConfig, draft => {
+            set(draft, 'serviceDefinition.spec.manifests[0]', manifestObj)
+            set(draft, 'data.artifactType', artifactType)
+            set(draft, 'data.gitValues', gitValues)
+            set(draft, 'data.manifestValues', manifestValues)
+            set(draft, 'data.repoValues', repoValues)
+          })
+
+          saveServiceData({ service: updatedContextService })
+
+          const serviceBody = { service: { ...omit(cloneDeep(updatedContextService), 'data') } }
+          const body = {
+            ...omit(cloneDeep(serviceBody.service), 'serviceDefinition', 'gitOpsEnabled'),
+            projectIdentifier,
+            orgIdentifier,
+            yaml: yamlStringify({ ...serviceBody })
+          }
+
+          try {
+            const response = await updateService(body)
+            if (response.status === 'SUCCESS') {
+              showSuccess(getString('common.serviceCreated'))
+              // fetchPipeline({ forceFetch: true, forceUpdate: true })
+            } else {
+              throw response
+            }
+          } catch (e: any) {
+            showError(e?.data?.message || e?.message || getString('commonError'))
+          }
+
           setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectInfrastructure)
           updateStepStatus(
             [DeployProvisiongWizardStepId.SelectWorkload, DeployProvisiongWizardStepId.SelectArtifact],

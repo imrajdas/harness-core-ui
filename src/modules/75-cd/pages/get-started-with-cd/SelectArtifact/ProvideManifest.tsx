@@ -8,16 +8,20 @@
 import { FormError, FormInput, Layout, MultiTypeInputType } from '@harness/uicore'
 import { Form, Formik, FormikContextType } from 'formik'
 import React, { useEffect, useRef } from 'react'
+import { get } from 'lodash-es'
+import { v4 as nameSpace, v5 as uuid } from 'uuid'
 import { useStrings } from 'framework/strings'
 import DragnDropPaths from '@pipeline/components/ManifestSelection/DragnDropPaths'
+import type { K8sValuesManifestDataType } from '@pipeline/components/ManifestSelection/ManifestInterface'
+import type { ManifestConfig } from 'services/cd-ng'
 import { gitFetchTypeList, GitFetchTypes } from '../DeployProvisioningWizard/Constants'
 // import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 export interface ProvideManifestRef {
   values: ProvideManifestInterface
   validate: () => boolean
 }
-interface ProvideManifestInterface {
-  manifestName?: string
+export interface ProvideManifestInterface {
+  identifier?: string
   branch?: string | undefined
   commitId?: string | undefined
   gitFetchType?: 'Branch' | 'Commit'
@@ -26,6 +30,7 @@ interface ProvideManifestInterface {
 }
 
 interface ProvideManifestProps {
+  initialValues: ManifestConfig
   disableNextBtn: () => void
   enableNextBtn: () => void
 }
@@ -37,12 +42,15 @@ export type ProvideManifestForwardRef =
 
 const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideManifestForwardRef): React.ReactElement => {
   const { getString } = useStrings()
-  // const { disableNextBtn, enableNextBtn } = props
+  const {
+    // disableNextBtn, enableNextBtn,
+    initialValues
+  } = props
   const formikRef = useRef<FormikContextType<ProvideManifestInterface>>()
 
   const validateProvideManifestDetails = React.useCallback((): any => {
-    const { manifestName } = formikRef?.current?.values || {}
-    if (!manifestName) return false
+    const { identifier } = formikRef?.current?.values || {}
+    if (!identifier) return false
     return true
   }, [])
 
@@ -70,17 +78,39 @@ const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideMani
     }
   }, [formikRef.current?.values])
 
+  const getInitialValues = React.useCallback((): K8sValuesManifestDataType => {
+    const specValues = get(initialValues, 'spec.store.spec', null)
+
+    if (specValues) {
+      return {
+        ...specValues,
+        identifier: initialValues.identifier,
+        skipResourceVersioning: initialValues?.spec?.skipResourceVersioning,
+        paths:
+          typeof specValues.paths === 'string'
+            ? specValues.paths
+            : specValues.paths?.map((path: string) => ({ path, uuid: uuid(path, nameSpace()) })),
+        valuesPaths:
+          typeof initialValues?.spec?.valuesPaths === 'string'
+            ? initialValues?.spec?.valuesPaths
+            : initialValues?.spec?.valuesPaths?.map((path: string) => ({ path, uuid: uuid(path, nameSpace()) }))
+      }
+    }
+    return {
+      identifier: '',
+      gitFetchType: 'Commit',
+      branch: undefined,
+      commitId: undefined,
+      paths: [],
+      valuesPaths: []
+      // skipResourceVersioning: false,
+    }
+  }, [])
+
   return (
     <Layout.Vertical width="70%">
       <Formik<ProvideManifestInterface>
-        initialValues={{
-          manifestName: '',
-          gitFetchType: 'Commit',
-          commitId: '',
-          branch: '',
-          paths: [],
-          valuesPaths: []
-        }}
+        initialValues={getInitialValues()}
         onSubmit={(values: ProvideManifestInterface) => Promise.resolve(values)}
       >
         {formikProps => {
@@ -90,13 +120,13 @@ const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideMani
               <Layout.Vertical width={320}>
                 <div>
                   <FormInput.Text
-                    name="manifestName"
+                    name="identifier"
                     label={getString('pipeline.manifestType.manifestIdentifier')}
                     placeholder={getString('pipeline.manifestType.manifestPlaceholder')}
                   />
-                  {formikProps.touched.manifestName && !formikProps.values.manifestName ? (
+                  {formikProps.touched.identifier && !formikProps.values.identifier ? (
                     <FormError
-                      name={'manifestName'}
+                      name={'identifier'}
                       errorMessage={getString('validation.nameRequired')}
                       // className={css.formError}
                     />

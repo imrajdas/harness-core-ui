@@ -11,6 +11,7 @@ import type { ConnectorInfoDTO, UserRepoResponse } from 'services/cd-ng'
 
 import type { StringsMap } from 'stringTypes'
 import { ServiceDeploymentType } from '@pipeline/utils/stageHelpers'
+import { InfraDeploymentType } from '@cd/components/PipelineSteps/PipelineStepsUtil'
 
 export interface DeployProvisioningWizardProps {
   lastConfiguredWizardStepId?: DeployProvisiongWizardStepId
@@ -117,19 +118,41 @@ export const deploymentTypes: ServiceDeploymentTypes[] = [
 export interface InfrastructureType {
   icon: IconName
   label: keyof StringsMap
+  value: string
   disabled?: boolean
 }
 
 export const InfrastructureTypes: InfrastructureType[] = [
-  { icon: 'service-kubernetes', label: 'cd.getStartedWithCD.directK8s', disabled: false },
-  { icon: 'google-kubernetes-engine', label: 'cd.getStartedWithCD.googleK8s', disabled: true },
-  { icon: 'service-azure', label: 'cd.getStartedWithCD.azureK8s', disabled: true },
-  { icon: 'service-aws', label: 'cd.getStartedWithCD.awsElasticK8s', disabled: true }
+  {
+    icon: 'service-kubernetes',
+    label: 'cd.getStartedWithCD.directK8s',
+    value: InfraDeploymentType.KubernetesDirect,
+    disabled: false
+  },
+  {
+    icon: 'google-kubernetes-engine',
+    label: 'cd.getStartedWithCD.googleK8s',
+    value: InfraDeploymentType.KubernetesGcp,
+    disabled: true
+  },
+  {
+    icon: 'service-azure',
+    label: 'cd.getStartedWithCD.azureK8s',
+    value: InfraDeploymentType.ServerlessAzureFunctions,
+    disabled: true
+  },
+  {
+    icon: 'service-aws',
+    label: 'cd.getStartedWithCD.awsElasticK8s',
+    value: InfraDeploymentType.ServerlessAwsLambda,
+    disabled: true
+  }
 ]
 
 export interface ArtifactType {
   icon: IconName
   label: keyof StringsMap
+  value: string
   disabled?: boolean
   details: keyof StringsMap
 }
@@ -139,12 +162,14 @@ export const ArtifactProviders: ArtifactType[] = [
     icon: 'service-kubernetes',
     label: 'cd.getStartedWithCD.inManifest',
     details: 'cd.getStartedWithCD.inManifestContent',
+    value: 'inManifest',
     disabled: false
   },
   {
     icon: 'git-configure',
     label: 'cd.getStartedWithCD.artifactManifest',
     details: 'cd.getStartedWithCD.artifactManifestContent',
+    value: 'artifactManifest',
     disabled: true
   }
 ]

@@ -62,7 +62,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
     state: { service: serviceData }
   } = useCDOnboardingContext()
   const [workloadType, setWorkloadType] = useState<WorkloadType | undefined>(
-    WorkloadProviders.find(item => item.value === serviceData?.workload)
+    WorkloadProviders.find((item: WorkloadType) => item.value === serviceData?.data?.workload)
   )
   const [serviceDeploymentType, setServiceDeploymnetType] = useState<ServiceDeploymentTypes | undefined>(
     deploymentTypes.find(item => item.value === serviceData?.serviceDefinition?.type)
@@ -117,7 +117,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
       <Formik<SelectWorkloadInterface>
         initialValues={{
-          workloadType: get(serviceData, 'workload') || undefined,
+          workloadType: get(serviceData, 'data.workload') || undefined,
           serviceDeploymentType: get(serviceData, 'serviceDefinition.type') || undefined,
           serviceRef: get(serviceData, 'name') || ''
         }}

@@ -28,6 +28,7 @@ import {
   Color,
   FormError
 } from '@harness/uicore'
+import { defaultTo } from 'lodash-es'
 import { Status } from '@common/utils/Constants'
 import { useStrings } from 'framework/strings'
 import type { StringsMap } from 'stringTypes'
@@ -63,6 +64,7 @@ import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scs
 
 export interface SelectGitProviderRef {
   values: SelectGitProviderInterface
+  connectorResponse?: ResponseScmConnectorResponse
   setFieldTouched(field: keyof SelectGitProviderInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
   validate: () => boolean
   showValidationErrors: () => void
@@ -77,6 +79,7 @@ export type SelectGitProviderForwardRef =
 
 interface SelectGitProviderProps {
   className?: string
+  gitValues?: SelectGitProviderInterface
   selectedHosting?: Hosting
   disableNextBtn: () => void
   enableNextBtn: () => void
@@ -96,10 +99,11 @@ const SelectGitProviderRef = (
   props: SelectGitProviderProps,
   forwardRef: SelectGitProviderForwardRef
 ): React.ReactElement => {
-  const { selectedHosting, disableNextBtn, enableNextBtn } = props
+  const { selectedHosting, disableNextBtn, enableNextBtn, gitValues } = props
   const { getString } = useStrings()
-  const [gitProvider, setGitProvider] = useState<GitProvider | undefined>()
-  const [authMethod, setAuthMethod] = useState<GitAuthenticationMethod>()
+  const [gitProvider, setGitProvider] = useState<GitProvider | undefined>(gitValues?.gitProvider)
+  const [connectorResponse, setConnectorResponse] = useState<ResponseScmConnectorResponse>({})
+  const [authMethod, setAuthMethod] = useState<GitAuthenticationMethod | undefined>(gitValues?.gitAuthenticationMethod)
   const [testConnectionStatus, setTestConnectionStatus] = useState<TestStatus>(TestStatus.NOT_INITIATED)
   const formikRef = useRef<FormikContextType<SelectGitProviderInterface>>()
   const { accountId } = useParams<ProjectPathProps>()
@@ -161,6 +165,7 @@ const SelectGitProviderRef = (
     if (values) {
       forwardRef.current = {
         values,
+        connectorResponse,
         setFieldTouched: setFieldTouched,
         validate: validateGitProviderSetup,
         showValidationErrors: markFieldsTouchedToShowValidationErrors,
@@ -309,6 +314,7 @@ const SelectGitProviderRef = (
                     })
                       .then((createSCMCtrResponse: ResponseScmConnectorResponse) => {
                         const { data: scmCtrData, status: scmCtrResponse } = createSCMCtrResponse
+                        setConnectorResponse(createSCMCtrResponse)
                         const connectorId = scmCtrData?.connectorResponseDTO?.connector?.identifier
                         const secretId = scmCtrData?.secretResponseWrapper?.secret?.identifier
                         if (
@@ -586,16 +592,19 @@ const SelectGitProviderRef = (
     let initialValues = {}
     switch (gitProvider?.type) {
       case Connectors.GITHUB:
-        initialValues = { accessToken: '' }
+        initialValues = { accessToken: defaultTo(gitValues?.accessToken, '') }
         break
       case Connectors.GITLAB:
-        initialValues = { accessKey: '' }
+        initialValues = { accessKey: defaultTo(gitValues?.accessKey, '') }
         break
       case Connectors.BITBUCKET:
-        initialValues = { applicationPassword: '', username: '' }
+        initialValues = {
+          applicationPassword: defaultTo(gitValues?.applicationPassword, ''),
+          username: defaultTo(gitValues?.username, '')
+        }
         break
     }
-    return selectedHosting === Hosting.SaaS ? initialValues : { ...initialValues, url: '' }
+    return selectedHosting === Hosting.SaaS ? initialValues : { ...initialValues, url: defaultTo(gitValues?.url, '') }
   }, [gitProvider, selectedHosting])
 
   const getValidationSchema = React.useCallback(() => {
@@ -679,8 +688,8 @@ const SelectGitProviderRef = (
       <Formik<SelectGitProviderInterface>
         initialValues={{
           ...getInitialValues(),
-          gitProvider: undefined,
-          gitAuthenticationMethod: undefined
+          gitProvider: gitValues?.gitProvider,
+          gitAuthenticationMethod: gitValues?.gitAuthenticationMethod
         }}
         formName="ciInfraProvisiong-gitProvider"
         validationSchema={getValidationSchema()}

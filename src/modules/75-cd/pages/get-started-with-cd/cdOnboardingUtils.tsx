@@ -13,7 +13,8 @@ export const newServiceState = {
     serviceDefinition: {
       type: '' as ServiceDefinition['type'],
       spec: {}
-    }
+    },
+    data: {}
   }
 }
 
