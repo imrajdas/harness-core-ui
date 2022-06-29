@@ -255,6 +255,6 @@ export const CLIENT_KEY_ALGO_OPTIONS: SelectOption[] = [
 ]
 
 export enum DelegtaAuthMethod {
-  ManualConfig = 'Manual_Config',
+  ManualConfig = 'ManualConfig',
   InheritFromDelegate = 'InheritFromDelegate'
 }

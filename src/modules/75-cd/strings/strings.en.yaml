@@ -384,6 +384,7 @@ getStartedWithCD:
   azureK8s: Azure K8s Engine
   awsElasticK8s: AWS Elastic K8s Service
   envName: Environment Name
+  infraName: Infrastructure Name
   setupDelegate: Setup Delegate
   delegateInfo: Delegates are worker processes that run on your infrastructure to execute tasks on behalf of the Harness platform.
   setupaNewDelegate: + Setup a New Delegate

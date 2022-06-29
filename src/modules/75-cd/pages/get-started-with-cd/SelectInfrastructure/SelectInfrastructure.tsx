@@ -42,8 +42,9 @@ export interface SelectInfrastructureRef {
   showValidationErrors?: () => void
 }
 export interface SelectInfrastructureInterface {
-  infraType?: string
-  envName?: string
+  infraType: string
+  envId: string
+  infraId: string
 }
 
 interface SelectInfrastructureProps {
@@ -70,6 +71,10 @@ const SelectInfrastructureRef = (
   //   else disableNextBtn()
   // })
 
+  const openSetUpDelegateAccordion = (): boolean | undefined => {
+    return selectAuthenticationMethodRef?.current?.validate()
+  }
+
   const setForwardRef = ({ values, setFieldTouched }: Omit<SelectInfrastructureRef, 'validate'>): void => {
     if (!forwardRef) {
       return
@@ -95,18 +100,13 @@ const SelectInfrastructureRef = (
     }
   }, [formikRef?.current?.values, formikRef?.current?.setFieldTouched])
 
-  // const openSetupDelegateAccordion = useCallback(() => {
-  //   console.log(selectAuthenticationMethodRef?.current?.values?.delegateType)
-  //   return selectAuthenticationMethodRef?.current?.validate
-  // }, [selectAuthenticationMethodRef?.current?.validate])
-
   const [showDelegateModal, hideDelegateModal] = useModalHook(() => {
     const onClose = (): void => {
       hideDelegateModal()
     }
     return (
       <Dialog onClose={onClose} {...DIALOG_PROPS} className={cx(css.modal, Classes.DIALOG)}>
-        <CreateDelegateWizard></CreateDelegateWizard>
+        <CreateDelegateWizard onClose={onClose}></CreateDelegateWizard>
         <Button minimal icon="cross" onClick={onClose} className={css.crossIcon} />
       </Dialog>
     )
@@ -126,7 +126,11 @@ const SelectInfrastructureRef = (
     <Layout.Vertical width="80%">
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
       <Formik<SelectInfrastructureInterface>
-        initialValues={{}}
+        initialValues={{
+          infraType: '',
+          infraId: '',
+          envId: ''
+        }}
         formName="cdInfrastructure"
         onSubmit={(values: SelectInfrastructureInterface) => Promise.resolve(values)}
       >
@@ -167,23 +171,33 @@ const SelectInfrastructureRef = (
                   />
                 ) : null}
               </Container>
-              <Container padding={{ top: 'xxlarge', bottom: 'xxlarge' }}>
+              <Layout.Vertical padding={{ top: 'xxlarge', bottom: 'xxlarge' }}>
                 <FormInput.Text
                   tooltipProps={{ dataTooltipId: 'specifyYourEnvironment' }}
                   label={getString('cd.getStartedWithCD.envName')}
-                  name="envName"
+                  name="envId"
                   className={css.formInput}
                 />
-              </Container>
+                <FormInput.Text
+                  // tooltipProps={{ dataTooltipId: 'specifyYourEnvironment' }}
+                  label={getString('cd.getStartedWithCD.infraName')}
+                  name="infraId"
+                  className={css.formInput}
+                />
+              </Layout.Vertical>
               {borderBottom}
-              {infrastructureType && formikRef?.current?.values?.envName ? (
+              {infrastructureType && formikRef?.current?.values?.envId && formikRef?.current?.values?.infraId ? (
                 <Accordion className={css.accordion} activeId={infrastructureType ? 'authMethod' : 'setUpDelegate'}>
                   <Accordion.Panel
                     id="authMethod"
                     summary={
                       <Layout.Horizontal width={300}>
                         <Text font={{ variation: FontVariation.H5 }}>{getString('common.authMethod')}</Text>
-                        {<Icon name="success-tick" size={20} className={css.accordionStatus} />}
+                        {openSetUpDelegateAccordion() ? (
+                          <Icon name="success-tick" size={20} className={css.accordionStatus} />
+                        ) : (
+                          <Icon name="danger-icon" size={20} className={css.accordionStatus} />
+                        )}
                       </Layout.Horizontal>
                     }
                     details={

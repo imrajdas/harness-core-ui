@@ -20,12 +20,12 @@ import commonStyles from '@connectors/components/CreateConnector/commonSteps/Con
 
 export interface SelectAuthenticationMethodRef {
   values: SelectAuthenticationMethodInterface
-  setFieldTouched(
-    field: keyof SelectAuthenticationMethodInterface & string,
-    isTouched?: boolean,
-    shouldValidate?: boolean
-  ): void
-  validate?: () => boolean
+  // setFieldTouched(
+  //   field: keyof SelectAuthenticationMethodInterface & string,
+  //   isTouched?: boolean,
+  //   shouldValidate?: boolean
+  // ): void
+  validate: () => boolean
   // showValidationErrors: () => void
   // validatedSecret?: SecretDTOV2
 }
@@ -36,8 +36,10 @@ export type SelectAuthMethodForwardRef =
   | null
 
 interface SelectAuthenticationMethodInterface {
+  connectorName: string
   delegateType: string
   authType?: string
+  masterUrl: string
   username: TextReferenceInterface | void
   password: SecretReferenceInterface | void
   serviceAccountToken: SecretReferenceInterface | void
@@ -55,8 +57,10 @@ interface SelectAuthenticationMethodInterface {
 }
 
 const defaultInitialFormData: SelectAuthenticationMethodInterface = {
+  connectorName: '',
   authType: AuthTypes.USER_PASSWORD,
   delegateType: '',
+  masterUrl: '',
   username: undefined,
   password: undefined,
   serviceAccountToken: undefined,
@@ -90,10 +94,49 @@ const SelectAuthenticationMethodRef = (
   const { getString } = useStrings()
   const formikRef = useRef<FormikContextType<SelectAuthenticationMethodInterface>>()
 
+  const validateAuthMethodSetup = (): boolean => {
+    const {
+      connectorName,
+      delegateType,
+      masterUrl,
+      authType,
+      username,
+      password,
+      serviceAccountToken,
+      oidcCleintId,
+      oidcIssuerUrl,
+      oidcPassword,
+      oidcUsername,
+      clientKey,
+      clientKeyCertificate,
+      clientKeyAlgo
+    } = formikRef?.current?.values || {}
+    if (!delegateType || !connectorName) {
+      return false
+    } else if (delegateType === DelegateTypes.DELEGATE_OUT_CLUSTER) {
+      if (!masterUrl) return false
+      else if (masterUrl) {
+        if (authType === AuthTypes.USER_PASSWORD) {
+          if (!username || !password) return false
+        }
+        if (authType === AuthTypes.SERVICE_ACCOUNT) {
+          if (!serviceAccountToken) return false
+        }
+        if (authType === AuthTypes.OIDC) {
+          if (!oidcCleintId || !oidcIssuerUrl || !oidcPassword || !oidcUsername) return false
+        }
+        if (authType === AuthTypes.CLIENT_KEY_CERT) {
+          if (!clientKey || !clientKeyAlgo || !clientKeyCertificate) return false
+        }
+      }
+    }
+    return true
+  }
+
   const setForwardRef = ({
-    values,
-    setFieldTouched
-  }: Omit<SelectAuthenticationMethodRef, 'validate' | 'showValidationErrors'>): void => {
+    values
+  }: // setFieldTouched
+  Omit<SelectAuthenticationMethodRef, 'validate'>): void => {
     if (!forwardRef) {
       return
     }
@@ -104,8 +147,8 @@ const SelectAuthenticationMethodRef = (
     if (values) {
       forwardRef.current = {
         values,
-        setFieldTouched: setFieldTouched
-        // validate: validateAuthMethodSetup
+        // setFieldTouched: setFieldTouched
+        validate: validateAuthMethodSetup
         // showValidationErrors: markFieldsTouchedToShowValidationErrors,
         // validatedSecret
       }
@@ -115,8 +158,8 @@ const SelectAuthenticationMethodRef = (
   useEffect(() => {
     if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
       setForwardRef({
-        values: formikRef.current.values,
-        setFieldTouched: formikRef.current.setFieldTouched
+        values: formikRef.current.values
+        // setFieldTouched: formikRef.current.setFieldTouched
       })
     }
   }, [formikRef.current?.values])
@@ -247,6 +290,12 @@ const SelectAuthenticationMethodRef = (
           return (
             <Form>
               <Layout.Vertical>
+                <FormInput.Text
+                  label={getString('name')}
+                  name="connectorName"
+                  tooltipProps={{ dataTooltipId: 'connectorDetailsStepFormK8sCluster_name' }}
+                  className={css.formInput}
+                />
                 <Layout.Horizontal spacing="medium">
                   <Button
                     className={css.credentialsButton}
@@ -262,7 +311,7 @@ const SelectAuthenticationMethodRef = (
                     round
                     text={'Use from a specific harness Delegate'}
                     onClick={() => {
-                      formikProps?.setFieldValue('delegateType', 'InheritFromDelegate')
+                      formikProps?.setFieldValue('delegateType', DelegateTypes.DELEGATE_IN_CLUSTER)
                     }}
                     intent={DelegateTypes.DELEGATE_IN_CLUSTER === formikProps.values.delegateType ? 'primary' : 'none'}
                   />

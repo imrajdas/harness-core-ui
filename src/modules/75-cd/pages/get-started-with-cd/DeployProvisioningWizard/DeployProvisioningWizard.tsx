@@ -264,10 +264,10 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
 
           try {
             const response = await updateService(body)
-            if (response.status === 'SUCCESS') {
-              showSuccess(getString('common.serviceCreated'))
-              // fetchPipeline({ forceFetch: true, forceUpdate: true })
-            } else {
+            if (response.status !== 'SUCCESS') {
+              //   showSuccess(getString('common.serviceCreated'))
+              //   // fetchPipeline({ forceFetch: true, forceUpdate: true })
+              // } else {
               throw response
             }
           } catch (e: any) {
