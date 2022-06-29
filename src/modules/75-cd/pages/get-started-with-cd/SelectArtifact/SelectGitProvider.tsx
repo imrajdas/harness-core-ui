@@ -63,8 +63,8 @@ import {
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectGitProviderRef {
+  testConnectionStatus?: TestStatus
   values: SelectGitProviderInterface
-  connectorResponse?: ResponseScmConnectorResponse
   setFieldTouched(field: keyof SelectGitProviderInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
   validate: () => boolean
   showValidationErrors: () => void
@@ -102,7 +102,6 @@ const SelectGitProviderRef = (
   const { selectedHosting, disableNextBtn, enableNextBtn, gitValues } = props
   const { getString } = useStrings()
   const [gitProvider, setGitProvider] = useState<GitProvider | undefined>(gitValues?.gitProvider)
-  const [connectorResponse, setConnectorResponse] = useState<ResponseScmConnectorResponse>({})
   const [authMethod, setAuthMethod] = useState<GitAuthenticationMethod | undefined>(gitValues?.gitAuthenticationMethod)
   const [testConnectionStatus, setTestConnectionStatus] = useState<TestStatus>(TestStatus.NOT_INITIATED)
   const formikRef = useRef<FormikContextType<SelectGitProviderInterface>>()
@@ -165,7 +164,7 @@ const SelectGitProviderRef = (
     if (values) {
       forwardRef.current = {
         values,
-        connectorResponse,
+        testConnectionStatus,
         setFieldTouched: setFieldTouched,
         validate: validateGitProviderSetup,
         showValidationErrors: markFieldsTouchedToShowValidationErrors,
@@ -314,7 +313,6 @@ const SelectGitProviderRef = (
                     })
                       .then((createSCMCtrResponse: ResponseScmConnectorResponse) => {
                         const { data: scmCtrData, status: scmCtrResponse } = createSCMCtrResponse
-                        setConnectorResponse(createSCMCtrResponse)
                         const connectorId = scmCtrData?.connectorResponseDTO?.connector?.identifier
                         const secretId = scmCtrData?.secretResponseWrapper?.secret?.identifier
                         if (

@@ -153,7 +153,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
         'service.identifier',
         isServiceNameUpdated ? getUniqueEntityIdentifier(serviceRef as string) : get(serviceData, 'identifier')
       )
-      set(draft, 'service.data.workload', workloadType)
+      set(draft, 'service.data.workload', workloadType?.value)
       set(draft, 'service.serviceDefinition.type', serviceDeploymentType?.value)
     })
 
@@ -176,6 +176,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
         return Promise.resolve(error)
       }
     }
+    onSuccess()
     return Promise.resolve({} as SelectWorkloadInterface)
   }
 

@@ -63,8 +63,10 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
   } = useCDOnboardingContext()
 
   const constructPipelinePayload = React.useCallback(
-    (repository: UserRepoResponse): string | undefined => {
+    (repository: UserRepoResponse, data): string | undefined => {
       const { name: repoName, namespace } = repository
+      const { serviceRef, environmentRef, infraStructureRef } = data
+
       if (
         !repoName ||
         !namespace
@@ -80,11 +82,10 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       )}_${getUniqueEntityIdentifier(repoName)}` // pipeline identifier cannot have spaces
       payload.pipeline.projectIdentifier = projectIdentifier
       payload.pipeline.orgIdentifier = orgIdentifier
-      // payload.pipeline.stages[0].stage.type = orgIdentifier
       // payload.pipeline.stages[0].stage.spec.deploymentType = get(serviceData, 'serviceDefinition.type')
-      // payload.pipeline.stages[0].stage.spec.service.serviceRef = orgIdentifier
-      // payload.pipeline.stages[0].stage.spec.environment.environmentRef = orgIdentifier
-      // payload.pipeline.stages[0].stage.spec.environment.infrastructureDefinitions[0].identifier = orgIdentifier
+      payload.pipeline.stages[0].stage.spec.service.serviceRef = serviceRef
+      payload.pipeline.stages[0].stage.spec.environment.environmentRef = environmentRef
+      payload.pipeline.stages[0].stage.spec.environment.infrastructureDefinitions[0].identifier = infraStructureRef
 
       try {
         return yamlStringify(payload)
@@ -95,10 +96,10 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
     [projectIdentifier, orgIdentifier]
   )
 
-  const setupPipeline = () => {
+  const setupPipeline = (data: any) => {
     try {
       createPipelineV2Promise({
-        body: constructPipelinePayload(get(serviceData, 'data.repoValues')) || '',
+        body: constructPipelinePayload(get(serviceData, 'data.repoValues'), data) || '',
         queryParams: {
           accountIdentifier: accountId,
           orgIdentifier,
@@ -210,8 +211,8 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       {
         stepRender: (
           <SelectInfrastructure
-            onSuccess={() => {
-              setupPipeline()
+            onSuccess={(data: any) => {
+              setupPipeline(data)
               updateStepStatus(
                 [
                   DeployProvisiongWizardStepId.SelectWorkload,

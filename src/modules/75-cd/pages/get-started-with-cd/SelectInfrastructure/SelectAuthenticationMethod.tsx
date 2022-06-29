@@ -64,6 +64,7 @@ export type SelectAuthMethodForwardRef =
 
 export interface SelectAuthenticationMethodInterface {
   connectorName: string
+  connectorIdentifier?: string
   delegateType: string
   masterUrl: string
   authType?: string
@@ -94,16 +95,17 @@ interface SelectAuthenticationMethodProps {
   authValues?: SelectAuthenticationMethodInterface
 
   onSuccess?: (value: any) => void
+  formikProps: FormikProps<any>
 }
 
 const SelectAuthenticationMethodRef = (
-  _props: SelectAuthenticationMethodProps,
+  props: SelectAuthenticationMethodProps,
   forwardRef: SelectAuthMethodForwardRef
 ): React.ReactElement => {
   const scrollRef = useRef<Element>()
   const { getString } = useStrings()
   const formikRef = useRef<FormikContextType<SelectAuthenticationMethodInterface>>()
-  const { authValues } = _props
+  const { formikProps } = props
   const validateAuthMethodSetup = (): boolean => {
     const {
       connectorName,
@@ -120,7 +122,7 @@ const SelectAuthenticationMethodRef = (
       clientKey,
       clientKeyCertificate,
       clientKeyAlgo
-    } = formikRef?.current?.values || {}
+    } = formikProps?.values || {}
     if (!delegateType || !connectorName) {
       return false
     } else if (delegateType === DelegateTypes.DELEGATE_OUT_CLUSTER) {
@@ -145,7 +147,7 @@ const SelectAuthenticationMethodRef = (
 
   const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
   const isDelegateSelectorMandatory = (): boolean => {
-    return DelegateTypes.DELEGATE_IN_CLUSTER === formikRef?.current?.values?.delegateType
+    return DelegateTypes.DELEGATE_IN_CLUSTER === formikProps?.values?.delegateType
   }
 
   const [delegateSelectors, setDelegateSelectors] = useState<Array<string>>([])
@@ -211,7 +213,7 @@ const SelectAuthenticationMethodRef = (
     if (validateAuthMethodSetup()) {
       setTestConnectionStatus(TestStatus.NOT_INITIATED)
     }
-  }, [formikRef?.current?.values?.delegateType])
+  }, [formikProps?.values?.delegateType])
 
   const TestConnection = (): React.ReactElement => {
     switch (testConnectionStatus) {
@@ -234,6 +236,22 @@ const SelectAuthenticationMethodRef = (
                   setTestConnectionStatus(TestStatus.IN_PROGRESS)
                   setTestConnectionErrors([])
                   // formikRef.current?.submitForm()
+                  const authValues = formikProps?.values
+
+                  const connectorIdentifier = getUniqueEntityIdentifier(authValues.connectorName)
+                  const connectorData = {
+                    ...authValues,
+                    name: authValues.connectorName,
+                    identifier: connectorIdentifier,
+                    projectIdentifier: projectIdentifier,
+                    orgIdentifier: orgIdentifier,
+                    delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors
+                  }
+                  formikProps.setFieldValue('connectorIdentifier', connectorIdentifier)
+                  onInitiate({
+                    connectorFormData: connectorData,
+                    buildPayload: buildKubPayload
+                  })
                 }
               }}
             />
@@ -262,23 +280,6 @@ const SelectAuthenticationMethodRef = (
     }
   }
 
-  // const { mutate: testConnectionLoad } = useGetTestConnectionResult({
-  //   identifier:
-  //     testConnectionStatus === TestStatus.SUCCESS && connectorInfo && connectorInfo.identifier
-  //       ? connectorInfo.identifier
-  //       : authStepData.identifier,
-  //   queryParams: {
-  //     accountIdentifier: accountId,
-  //     orgIdentifier: connectorInfo?.orgIdentifier,
-  //     projectIdentifier: connectorInfo?.projectIdentifier
-  //   },
-  //   requestOptions: {
-  //     headers: {
-  //       'content-type': 'application/json'
-  //     }
-  //   }
-  // })
-
   const setForwardRef = ({
     values
   }: // setFieldTouched
@@ -295,7 +296,7 @@ const SelectAuthenticationMethodRef = (
         values,
         connectorResponse,
         validate: validateAuthMethodSetup,
-        submitForm: formikRef?.current?.submitForm
+        submitForm: formikProps?.submitForm
       }
     }
   }
@@ -442,13 +443,13 @@ const SelectAuthenticationMethodRef = (
     })
 
     saveEnvironmentData({ environment: updatedContextService })
-    const data = _props?.onSuccess?.(connectorData) || {}
+    const data = props?.onSuccess?.(connectorData) || {}
     return Promise.resolve(data as any)
   }
 
   return (
     <Layout.Vertical width="70%">
-      <Formik<SelectAuthenticationMethodInterface>
+      {/* <Formik<SelectAuthenticationMethodInterface>
         initialValues={{
           ...defaultInitialFormData,
           connectorName: defaultTo(authValues?.connectorName, '')
@@ -459,109 +460,109 @@ const SelectAuthenticationMethodRef = (
         {formikProps => {
           formikRef.current = formikProps
 
-          return (
-            <Form>
-              <Layout.Vertical>
-                <FormInput.Text
-                  label={getString('name')}
-                  name="connectorName"
-                  tooltipProps={{ dataTooltipId: 'connectorDetailsStepFormK8sCluster_name' }}
-                  className={css.formInput}
+          return ( */}
+      <Form>
+        <Layout.Vertical>
+          <FormInput.Text
+            label={getString('name')}
+            name="connectorName"
+            tooltipProps={{ dataTooltipId: 'connectorDetailsStepFormK8sCluster_name' }}
+            className={css.formInput}
+          />
+          <Layout.Horizontal spacing="medium">
+            <Button
+              className={css.credentialsButton}
+              round
+              text={getString('connectors.k8.delegateOutClusterInfo')}
+              onClick={() => {
+                formikProps?.setFieldValue('delegateType', DelegateTypes.DELEGATE_OUT_CLUSTER)
+                setTestConnectionStatus(TestStatus.NOT_INITIATED)
+              }}
+              intent={DelegateTypes.DELEGATE_OUT_CLUSTER === formikProps.values.delegateType ? 'primary' : 'none'}
+            />
+            <Button
+              className={css.credentialsButton}
+              round
+              text={'Use from a specific harness Delegate'}
+              onClick={() => {
+                formikProps?.setFieldValue('delegateType', DelegateTypes.DELEGATE_IN_CLUSTER)
+                setTestConnectionStatus(TestStatus.NOT_INITIATED)
+              }}
+              intent={DelegateTypes.DELEGATE_IN_CLUSTER === formikProps.values.delegateType ? 'primary' : 'none'}
+            />
+          </Layout.Horizontal>
+          {formikProps.touched.delegateType && !formikProps.values.delegateType ? (
+            <Container padding={{ top: 'xsmall' }}>
+              <FormError
+                name={'delegateType'}
+                errorMessage={getString('connectors.chooseMethodForConnection', {
+                  name: getString('connectors.k8sConnection')
+                })}
+              />
+            </Container>
+          ) : null}
+          {DelegateTypes.DELEGATE_OUT_CLUSTER === formikProps.values.delegateType ? (
+            <Layout.Vertical margin={{ bottom: 'small' }}>
+              <FormInput.Text
+                label={getString('connectors.k8.masterUrlLabel')}
+                placeholder={getString('UrlLabel')}
+                name="masterUrl"
+                className={css.authFormField}
+                tooltipProps={{ dataTooltipId: 'k8ClusterForm_masterUrl' }}
+              />
+              <Container className={css.authHeaderRow}>
+                <Text
+                  font={{ variation: FontVariation.H5 }}
+                  tooltipProps={{ dataTooltipId: 'K8sAuthenticationTooltip' }}
+                >
+                  {getString('authentication')}
+                </Text>
+                <FormInput.Select
+                  name="authType"
+                  items={authOptions}
+                  disabled={false}
+                  className={commonStyles.authTypeSelect}
                 />
-                <Layout.Horizontal spacing="medium">
-                  <Button
-                    className={css.credentialsButton}
-                    round
-                    text={getString('connectors.k8.delegateOutClusterInfo')}
-                    onClick={() => {
-                      formikProps?.setFieldValue('delegateType', DelegateTypes.DELEGATE_OUT_CLUSTER)
-                      setTestConnectionStatus(TestStatus.NOT_INITIATED)
-                    }}
-                    intent={DelegateTypes.DELEGATE_OUT_CLUSTER === formikProps.values.delegateType ? 'primary' : 'none'}
-                  />
-                  <Button
-                    className={css.credentialsButton}
-                    round
-                    text={'Use from a specific harness Delegate'}
-                    onClick={() => {
-                      formikProps?.setFieldValue('delegateType', DelegateTypes.DELEGATE_IN_CLUSTER)
-                      setTestConnectionStatus(TestStatus.NOT_INITIATED)
-                    }}
-                    intent={DelegateTypes.DELEGATE_IN_CLUSTER === formikProps.values.delegateType ? 'primary' : 'none'}
-                  />
-                </Layout.Horizontal>
-                {formikProps.touched.delegateType && !formikProps.values.delegateType ? (
-                  <Container padding={{ top: 'xsmall' }}>
-                    <FormError
-                      name={'delegateType'}
-                      errorMessage={getString('connectors.chooseMethodForConnection', {
-                        name: getString('connectors.k8sConnection')
-                      })}
-                    />
-                  </Container>
-                ) : null}
-                {DelegateTypes.DELEGATE_OUT_CLUSTER === formikProps.values.delegateType ? (
-                  <Layout.Vertical margin={{ bottom: 'small' }}>
-                    <FormInput.Text
-                      label={getString('connectors.k8.masterUrlLabel')}
-                      placeholder={getString('UrlLabel')}
-                      name="masterUrl"
-                      className={css.authFormField}
-                      tooltipProps={{ dataTooltipId: 'k8ClusterForm_masterUrl' }}
-                    />
-                    <Container className={css.authHeaderRow}>
-                      <Text
-                        font={{ variation: FontVariation.H5 }}
-                        tooltipProps={{ dataTooltipId: 'K8sAuthenticationTooltip' }}
-                      >
-                        {getString('authentication')}
-                      </Text>
-                      <FormInput.Select
-                        name="authType"
-                        items={authOptions}
-                        disabled={false}
-                        className={commonStyles.authTypeSelect}
-                      />
-                    </Container>
-                    {renderK8AuthForm(formikProps)}
-                  </Layout.Vertical>
-                ) : (
-                  <></>
-                )}
-                {validateAuthMethodSetup() ? (
-                  <>
-                    <Text font={{ variation: FontVariation.H5 }} width={300} padding={{ top: 'large' }}>
-                      {getString('cd.getStartedWithCD.setupDelegate')}
-                    </Text>
+              </Container>
+              {renderK8AuthForm(formikProps)}
+            </Layout.Vertical>
+          ) : (
+            <></>
+          )}
+          {validateAuthMethodSetup() ? (
+            <>
+              <Text font={{ variation: FontVariation.H5 }} width={300} padding={{ top: 'large' }}>
+                {getString('cd.getStartedWithCD.setupDelegate')}
+              </Text>
 
-                    <DelegateSelector
-                      mode={mode}
-                      setMode={setMode}
-                      delegateSelectors={delegateSelectors}
-                      setDelegateSelectors={setDelegateSelectors}
-                      setDelegatesFound={setDelegatesFound}
-                      delegateSelectorMandatory={isDelegateSelectorMandatory()}
-                      accountId={accountId}
-                      orgIdentifier={orgIdentifier}
-                      projectIdentifier={projectIdentifier}
-                    />
-                    <TestConnection />
+              <DelegateSelector
+                mode={mode}
+                setMode={setMode}
+                delegateSelectors={delegateSelectors}
+                setDelegateSelectors={setDelegateSelectors}
+                setDelegatesFound={setDelegatesFound}
+                delegateSelectorMandatory={isDelegateSelectorMandatory()}
+                accountId={accountId}
+                orgIdentifier={orgIdentifier}
+                projectIdentifier={projectIdentifier}
+              />
+              <TestConnection />
 
-                    {testConnectionStatus === TestStatus.SUCCESS || testConnectionStatus === TestStatus.FAILED ? (
-                      <VerifyOutOfClusterDelegate
-                        name={getString('connectors.stepThreeName')}
-                        connectorInfo={connectorResponse?.data?.connector}
-                        type={Connectors.KUBERNETES_CLUSTER}
-                        setIsEditMode={() => false}
-                      />
-                    ) : null}
-                  </>
-                ) : null}
-              </Layout.Vertical>
-            </Form>
-          )
-        }}
-      </Formik>
+              {testConnectionStatus === TestStatus.SUCCESS || testConnectionStatus === TestStatus.FAILED ? (
+                <VerifyOutOfClusterDelegate
+                  name={getString('connectors.stepThreeName')}
+                  connectorInfo={connectorResponse?.data?.connector}
+                  type={Connectors.KUBERNETES_CLUSTER}
+                  setIsEditMode={() => false}
+                />
+              ) : null}
+            </>
+          ) : null}
+        </Layout.Vertical>
+      </Form>
+      {/* ) */}
+      {/* }} */}
+      {/* </Formik> */}
     </Layout.Vertical>
   )
 }

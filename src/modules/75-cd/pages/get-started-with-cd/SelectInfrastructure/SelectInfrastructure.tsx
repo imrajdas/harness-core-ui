@@ -38,6 +38,7 @@ import {
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import useRBACError from '@rbac/utils/useRBACError/useRBACError'
 import { yamlStringify } from '@common/utils/YamlHelperMethods'
+import { AuthTypes } from '@connectors/pages/connectors/utils/ConnectorHelper'
 import { InfrastructureTypes, InfrastructureType } from '../DeployProvisioningWizard/Constants'
 import {
   SelectAuthenticationMethod,
@@ -60,7 +61,7 @@ export interface SelectInfrastructureRef {
   authValues?: SelectAuthenticationMethodInterface
   submitForm?: FormikProps<SelectInfrastructureInterface>['submitForm']
 }
-export interface SelectInfrastructureInterface {
+export interface SelectInfrastructureInterface extends SelectAuthenticationMethodInterface {
   infraType: string
   envId: string
   infraId: string
@@ -70,7 +71,7 @@ export interface SelectInfrastructureInterface {
 interface SelectInfrastructureProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
-  onSuccess?: () => void
+  onSuccess?: (data: any) => void
 }
 
 export type SelectInfrastructureForwardRef =
@@ -82,11 +83,33 @@ const SelectInfrastructureRef = (
   props: SelectInfrastructureProps,
   forwardRef: SelectInfrastructureForwardRef
 ): React.ReactElement => {
+  const defaultInitialFormData: SelectAuthenticationMethodInterface = {
+    authType: AuthTypes.USER_PASSWORD,
+    delegateType: '',
+    masterUrl: '',
+    username: undefined,
+    password: undefined,
+    serviceAccountToken: undefined,
+    oidcIssuerUrl: '',
+    oidcUsername: undefined,
+    oidcPassword: undefined,
+    oidcCleintId: undefined,
+    oidcCleintSecret: undefined,
+    oidcScopes: '',
+    clientKey: undefined,
+    clientKeyCertificate: undefined,
+    clientKeyPassphrase: undefined,
+    clientKeyAlgo: '',
+    clientKeyCACertificate: undefined,
+    connectorName: '',
+    connectorIdentifier: ''
+  }
+
   const { getString } = useStrings()
   const {
     saveEnvironmentData,
     saveInfrastructureData,
-    state: { environment: environmentData, infrastructure: infrastructureData }
+    state: { environment: environmentData, infrastructure: infrastructureData, service: serviceData }
   } = useCDOnboardingContext()
   const [disableBtn, setDisableBtn] = useState<boolean>(false)
   const [infrastructureType, setInfrastructureType] = useState<InfrastructureType | undefined>(
@@ -147,7 +170,7 @@ const SelectInfrastructureRef = (
 
   const { showSuccess, showError, clear } = useToaster()
   const handleSubmit = async (values: SelectInfrastructureInterface): Promise<SelectInfrastructureInterface> => {
-    const { envId, infraId, infraType, namespace } = values || {}
+    const { envId, infraId, infraType, namespace, connectorIdentifier } = values || {}
     if (!infraType) {
       showError(getString('common.validation.fieldIsRequired', { name: 'Infrastructure Type' }))
     } else if (!envId) {
@@ -169,72 +192,78 @@ const SelectInfrastructureRef = (
       )
     })
     try {
-      selectAuthenticationMethodRef?.current?.submitForm?.()?.then(async (authValues: any) => {
-        const cleanEnvironmentData = cleanEnvironmentDataUtil(updatedContextEnvironment as ServiceRequestDTO)
+      // selectAuthenticationMethodRef?.current?.submitForm?.()?.then(async (authValues: any) => {
+      const cleanEnvironmentData = cleanEnvironmentDataUtil(updatedContextEnvironment as ServiceRequestDTO)
 
-        const response = await createEnvironment({ ...cleanEnvironmentData, orgIdentifier, projectIdentifier })
-        if (response.status === 'SUCCESS') {
-          clear()
-          showSuccess(getString('cd.environmentCreated'))
-          envId &&
-            saveEnvironmentData({
-              environment: updatedContextEnvironment,
-              environmentResponse: response
-            })
-          const infraIdentifier = getUniqueEntityIdentifier(envId as string)
-          const updatedContextInfra = produce(newEnvironmentState.infrastructure, draft => {
-            set(draft, 'name', infraId)
-            set(draft, 'identifier', getUniqueEntityIdentifier(infraId))
-            set(draft, 'type', infraType)
-            set(draft, 'environmentRef', envId)
-            set(draft, 'infrastructureDefinition.spec.namespace', namespace)
-            set(draft, 'infrastructureDefinition.spec.connectorRef', authValues?.identifier)
+      const response = await createEnvironment({ ...cleanEnvironmentData, orgIdentifier, projectIdentifier })
+      if (response.status === 'SUCCESS') {
+        clear()
+        showSuccess(getString('cd.environmentCreated'))
+        envId &&
+          saveEnvironmentData({
+            environment: updatedContextEnvironment,
+            environmentResponse: response
           })
-          saveInfrastructureData({
-            infrastructure: { ...updatedContextInfra }
-          })
-          const body: InfrastructureRequestDTORequestBody = {
-            name: infraId,
-            identifier: infraIdentifier,
-            description: '',
-            tags: {},
-            orgIdentifier,
-            projectIdentifier,
-            type: infraType as InfrastructureRequestDTO['type'],
-            environmentRef: environmentIdentifier
-          }
-
-          createInfrastructure({
-            ...body,
-            yaml: yamlStringify({
-              infrastructureDefinition: {
-                ...body,
-                spec: get(infrastructureData, 'infrastructureDefinition.spec'),
-                allowSimultaneousDeployments: false
-              }
-            })
-          })
-            .then(infraResponse => {
-              if (infraResponse.status === 'SUCCESS') {
-                showSuccess(
-                  getString('cd.infrastructure.created', {
-                    identifier: infraResponse.data?.infrastructure?.identifier
-                  })
-                )
-              } else {
-                throw infraResponse
-              }
-              props?.onSuccess?.()
-            })
-            .catch(e => {
-              showError(getErrorInfoFromErrorObject(e))
-            })
-
-          return Promise.resolve(values)
-        } else {
-          throw response
+        const infraIdentifier = getUniqueEntityIdentifier(envId as string)
+        const updatedContextInfra = produce(newEnvironmentState.infrastructure, draft => {
+          set(draft, 'name', infraId)
+          set(draft, 'identifier', getUniqueEntityIdentifier(infraId))
+          set(draft, 'type', infraType)
+          set(draft, 'environmentRef', envId)
+          set(draft, 'infrastructureDefinition.spec.namespace', namespace)
+          set(draft, 'infrastructureDefinition.spec.connectorRef', connectorIdentifier)
+        })
+        saveInfrastructureData({
+          infrastructure: { ...updatedContextInfra }
+        })
+        const body: InfrastructureRequestDTORequestBody = {
+          name: infraId,
+          identifier: infraIdentifier,
+          description: '',
+          tags: {},
+          orgIdentifier,
+          projectIdentifier,
+          type: infraType as InfrastructureRequestDTO['type'],
+          environmentRef: environmentIdentifier
         }
-      })
+
+        createInfrastructure({
+          ...body,
+          yaml: yamlStringify({
+            infrastructureDefinition: {
+              ...body,
+              spec: get(updatedContextInfra, 'infrastructureDefinition.spec'),
+              allowSimultaneousDeployments: false
+            }
+          })
+        })
+          .then(infraResponse => {
+            const refsData = {
+              serviceRef: serviceData?.identifier,
+              environmentRef: environmentIdentifier,
+              infraStructureRef: infraIdentifier
+            }
+            if (infraResponse.status === 'SUCCESS') {
+              props?.onSuccess?.(refsData)
+              showSuccess(
+                getString('cd.infrastructure.created', {
+                  identifier: infraResponse.data?.infrastructure?.identifier
+                })
+              )
+            } else {
+              throw infraResponse
+            }
+            props?.onSuccess?.(refsData)
+          })
+          .catch(e => {
+            showError(getErrorInfoFromErrorObject(e))
+          })
+
+        return Promise.resolve(values)
+      } else {
+        throw response
+      }
+      // })
     } catch (error: any) {
       showError(getRBACErrorMessage(error))
       return Promise.resolve({} as SelectInfrastructureInterface)
@@ -253,6 +282,7 @@ const SelectInfrastructureRef = (
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
       <Formik<SelectInfrastructureInterface>
         initialValues={{
+          ...defaultInitialFormData,
           infraType: get(infrastructureData, 'type') || '',
           envId: get(environmentData, 'name') || '',
           infraId: get(infrastructureData, 'name') || '',
@@ -339,6 +369,7 @@ const SelectInfrastructureRef = (
                     }
                     details={
                       <SelectAuthenticationMethod
+                        formikProps={formikProps}
                         ref={selectAuthenticationMethodRef}
                         onSuccess={data => {
                           return data

@@ -36,6 +36,7 @@ interface ProvideManifestProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
   onSuccess?: (value: ManifestConfigWrapper) => void
+  formikProps: FormikProps<any>
 }
 
 export type ProvideManifestForwardRef =
@@ -48,7 +49,8 @@ const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideMani
   const {
     // disableNextBtn, enableNextBtn,
     initialValues,
-    onSuccess
+    onSuccess,
+    formikProps
   } = props
   const formikRef = useRef<FormikContextType<ProvideManifestInterface>>()
 
@@ -148,88 +150,88 @@ const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideMani
     return Promise.resolve(data as any)
   }
 
+  // return (
+  //   <Layout.Vertical width="70%">
+  //     <Formik<ProvideManifestInterface>
+  //       initialValues={getInitialValues()}
+  //       formName="onboardingManifestForm"
+  //       onSubmit={handleSubmit}
+  //     >
+  //       {formikProps => {
+  //         formikRef.current = formikProps
   return (
-    <Layout.Vertical width="70%">
-      <Formik<ProvideManifestInterface>
-        initialValues={getInitialValues()}
-        formName="onboardingManifestForm"
-        onSubmit={handleSubmit}
-      >
-        {formikProps => {
-          formikRef.current = formikProps
-          return (
-            <Form>
-              <Layout.Vertical width={320}>
-                <div>
-                  <FormInput.Text
-                    name="identifier"
-                    label={getString('pipeline.manifestType.manifestIdentifier')}
-                    placeholder={getString('pipeline.manifestType.manifestPlaceholder')}
-                  />
-                  {formikProps.touched.identifier && !formikProps.values.identifier ? (
-                    <FormError
-                      name={'identifier'}
-                      errorMessage={getString('validation.nameRequired')}
-                      // className={css.formError}
-                    />
-                  ) : null}
-                </div>
+    <Form>
+      <Layout.Vertical width={320}>
+        <div>
+          <FormInput.Text
+            name="identifier"
+            label={getString('pipeline.manifestType.manifestIdentifier')}
+            placeholder={getString('pipeline.manifestType.manifestPlaceholder')}
+          />
+          {formikProps.touched.identifier && !formikProps.values.identifier ? (
+            <FormError
+              name={'identifier'}
+              errorMessage={getString('validation.nameRequired')}
+              // className={css.formError}
+            />
+          ) : null}
+        </div>
 
-                <div>
-                  <FormInput.Select
-                    name="gitFetchType"
-                    label={getString('pipeline.manifestType.gitFetchTypeLabel')}
-                    items={gitFetchTypeList}
-                  />
-                </div>
-                {formikProps.values?.gitFetchType === GitFetchTypes.Branch ? (
-                  <FormInput.Text
-                    label={getString('pipelineSteps.deploy.inputSet.branch')}
-                    placeholder={getString('pipeline.manifestType.branchPlaceholder')}
-                    name="branch"
-                  />
-                ) : (
-                  <FormInput.Text
-                    label={getString('pipeline.manifestType.commitId')}
-                    placeholder={getString('pipeline.manifestType.commitPlaceholder')}
-                    name="commitId"
-                  />
-                )}
-                {formikProps.values?.gitFetchType === GitFetchTypes.Branch &&
-                !formikProps.values.branch &&
-                formikProps.touched.branch ? (
-                  <FormError name={'branch'} errorMessage={getString('validation.branchName')} />
-                ) : formikProps.values?.gitFetchType === GitFetchTypes.Commit &&
-                  !formikProps.values.commitId &&
-                  formikProps.touched.commitId ? (
-                  <FormError name={'commitId'} errorMessage={getString('validation.commitId')} />
-                ) : null}
-                <div>
-                  <DragnDropPaths
-                    formik={formikProps}
-                    expressions={[]}
-                    allowableTypes={[MultiTypeInputType.FIXED]}
-                    fieldPath="paths"
-                    pathLabel={getString('fileFolderPathText')}
-                    placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
-                  />
-                </div>
-                <div>
-                  <DragnDropPaths
-                    formik={formikProps}
-                    fieldPath="valuesPaths"
-                    pathLabel={getString('pipeline.manifestType.valuesYamlPath')}
-                    placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
-                    expressions={[]}
-                    allowableTypes={[MultiTypeInputType.FIXED]}
-                  />
-                </div>
-              </Layout.Vertical>
-            </Form>
-          )
-        }}
-      </Formik>
-    </Layout.Vertical>
+        <div>
+          <FormInput.Select
+            name="gitFetchType"
+            label={getString('pipeline.manifestType.gitFetchTypeLabel')}
+            items={gitFetchTypeList}
+          />
+        </div>
+        {formikProps.values?.gitFetchType === GitFetchTypes.Branch ? (
+          <FormInput.Text
+            label={getString('pipelineSteps.deploy.inputSet.branch')}
+            placeholder={getString('pipeline.manifestType.branchPlaceholder')}
+            name="branch"
+          />
+        ) : (
+          <FormInput.Text
+            label={getString('pipeline.manifestType.commitId')}
+            placeholder={getString('pipeline.manifestType.commitPlaceholder')}
+            name="commitId"
+          />
+        )}
+        {formikProps.values?.gitFetchType === GitFetchTypes.Branch &&
+        !formikProps.values.branch &&
+        formikProps.touched.branch ? (
+          <FormError name={'branch'} errorMessage={getString('validation.branchName')} />
+        ) : formikProps.values?.gitFetchType === GitFetchTypes.Commit &&
+          !formikProps.values.commitId &&
+          formikProps.touched.commitId ? (
+          <FormError name={'commitId'} errorMessage={getString('validation.commitId')} />
+        ) : null}
+        <div>
+          <DragnDropPaths
+            formik={formikProps}
+            expressions={[]}
+            allowableTypes={[MultiTypeInputType.FIXED]}
+            fieldPath="paths"
+            pathLabel={getString('fileFolderPathText')}
+            placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+          />
+        </div>
+        <div>
+          <DragnDropPaths
+            formik={formikProps}
+            fieldPath="valuesPaths"
+            pathLabel={getString('pipeline.manifestType.valuesYamlPath')}
+            placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+            expressions={[]}
+            allowableTypes={[MultiTypeInputType.FIXED]}
+          />
+        </div>
+      </Layout.Vertical>
+    </Form>
+    //         )
+    //       }}
+    //     </Formik>
+    //   </Layout.Vertical>
   )
 }
 
