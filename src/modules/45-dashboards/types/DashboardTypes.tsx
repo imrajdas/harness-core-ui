@@ -21,7 +21,8 @@ export enum DashboardTags {
   CE = 'CE',
   CF = 'CF',
   CI = 'CI',
-  CG_CD = 'CG_CD'
+  CG_CD = 'CG_CD',
+  STO = 'STO'
 }
 
 export type MappedDashboardTagOptions = Record<DashboardTags, boolean>

@@ -33,9 +33,9 @@
   border: 1px solid var(--teal-900);
 }
 .ciTag {
-  color: var(--primary-7);
+  color: var(--primary-6);
   background: var(--primary-2);
-  border: 1px solid var(--primary-7);
+  border: 1px solid var(--primary-6);
 }
 .cdTag {
   color: var(--green-700);
@@ -51,6 +51,11 @@
   color: var(--orange-700);
   background: var(--orange-100);
   border: 1px solid var(--orange-700);
+}
+.stoTag {
+  color: var(--primary-9);
+  background: var(--primary-3);
+  border: 1px solid var(--primary-9);
 }
 
 .predefinedTags {
