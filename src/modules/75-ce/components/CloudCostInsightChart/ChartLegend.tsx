@@ -8,6 +8,7 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Layout, Text } from '@wings-software/uicore'
 import type Highcharts from 'highcharts'
+import cx from 'classnames'
 
 import css from './ChartLegend.module.scss'
 
@@ -66,7 +67,7 @@ const ChartLegend: React.FC<ChartLegendProps> = ({ chartRefObj }) => {
 
   return (
     <Container
-      className={css.legendContainer}
+      className={cx(css.legendContainer, { [css.preferences]: chartRefObj.series.length > 12 })}
       padding={{
         left: 'medium',
         top: 'small',

@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import type { OptionsStackingValue } from 'highcharts'
 import moment from 'moment'
 import { Icon } from '@wings-software/uicore'
@@ -224,11 +224,26 @@ const GetChart: React.FC<GetChartProps> = ({
     return labels || []
   }
 
+  const chartData = useMemo(
+    () =>
+      chart.map(chartItem => {
+        switch (chartItem.name) {
+          case 'Others':
+            return { ...chartItem, color: 'var(--primary-2)' }
+          case 'Unallocated':
+            return { ...chartItem, color: 'var(--blue-100)' }
+          default:
+            return chartItem
+        }
+      }),
+    [chart]
+  )
+
   return (
     <article key={idx} onClick={redirection}>
       <CEChart
         options={{
-          series: chart as any,
+          series: chartData as any,
           chart: {
             zoomType: 'x',
             height: 300,

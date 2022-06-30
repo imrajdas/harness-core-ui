@@ -9,11 +9,17 @@
   height: calc(100vh - 124px);
   display: flex;
 
-  .prefLabel {
-    font-weight: 500;
-    font-size: 12px;
-    color: var(--grey-1000) !important;
-    letter-spacing: 0.2px;
-    padding-top: var(--spacing-small);
+  .labelContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-medium);
+
+    .prefLabel {
+      font-weight: 500;
+      font-size: 12px;
+      color: var(--grey-1000) !important;
+      letter-spacing: 0.2px;
+      width: fit-content;
+    }
   }
 }

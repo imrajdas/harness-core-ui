@@ -11,5 +11,6 @@ declare const styles: {
   readonly colorBoxContainer: string
   readonly legendContainer: string
   readonly legendText: string
+  readonly preferences: string
 }
 export default styles

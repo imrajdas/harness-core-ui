@@ -91,20 +91,33 @@ const PerspectivePreferences: React.FC<PerspectivePreferencesProps> = ({
           <Switch
             large
             checked={preferences?.includeOthers}
-            label={getString('ce.perspectives.createPerspective.preferences.includeOthers')}
-            className={css.prefLabel}
+            labelElement={
+              <Text className={css.prefLabel} tooltipProps={{ dataTooltipId: 'includeOthers' }}>
+                {getString('ce.perspectives.createPerspective.preferences.includeOthers')}
+              </Text>
+            }
+            className={css.labelContainer}
             onChange={() => setPreferences(prevPref => ({ ...prevPref, includeOthers: !prevPref?.includeOthers }))}
           />
           {isClusterDatasource ? (
-            <Switch
-              large
-              checked={preferences?.includeUnallocatedCost}
-              label={getString('ce.perspectives.createPerspective.preferences.includeUnallocated')}
-              className={css.prefLabel}
-              onChange={() =>
-                setPreferences(prevPref => ({ ...prevPref, includeUnallocatedCost: !prevPref?.includeUnallocatedCost }))
-              }
-            />
+            <>
+              <Switch
+                large
+                checked={preferences?.includeUnallocatedCost}
+                labelElement={
+                  <Text className={css.prefLabel} tooltipProps={{ dataTooltipId: 'includeUnallocated' }}>
+                    {getString('ce.perspectives.createPerspective.preferences.includeUnallocated')}
+                  </Text>
+                }
+                className={css.labelContainer}
+                onChange={() =>
+                  setPreferences(prevPref => ({
+                    ...prevPref,
+                    includeUnallocatedCost: !prevPref?.includeUnallocatedCost
+                  }))
+                }
+              />
+            </>
           ) : null}
         </Container>
         <Layout.Horizontal padding={{ top: 'medium' }} spacing="large">

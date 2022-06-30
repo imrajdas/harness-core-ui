@@ -11,6 +11,10 @@
   grid-column-gap: var(--spacing-large);
   grid-row-gap: var(--spacing-small);
 
+  &.preferences {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
   .legendText {
     cursor: pointer;
   }
