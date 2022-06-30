@@ -26,7 +26,13 @@
 
   &.indicatorBarWithPattern {
     opacity: 0.8;
-    background: repeating-linear-gradient(-60deg, #e43326, #e43326 2px, #e5e5f7 2px, #e5e5f7 3px);
+    background: repeating-linear-gradient(
+      -60deg,
+      var(--red-500),
+      var(--red-500) 2px,
+      var(--grey-200) 2px,
+      var(--grey-200) 3px
+    );
   }
 }
 
@@ -43,7 +49,12 @@
     font-size: 12px !important;
   }
   .addBudgetText {
-    cursor: pointer;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    letter-spacing: normal !important;
+    line-height: normal !important;
   }
 
   .thisMonthText {

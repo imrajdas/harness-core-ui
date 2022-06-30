@@ -33,6 +33,10 @@ import { PAGE_NAME } from '@common/pages/pageContext/PageName'
 import { useFeatureFlags } from '@common/hooks/useFeatureFlag'
 import AuditTrailFactory, { ResourceScope } from '@audit-trail/factories/AuditTrailFactory'
 import type { ResourceDTO } from 'services/audit'
+import RbacFactory from '@rbac/factories/RbacFactory'
+import { ResourceCategory, ResourceType } from '@rbac/interfaces/ResourceType'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { String as LocaleString } from 'framework/strings'
 import CEHomePage from './pages/home/CEHomePage'
 import CECODashboardPage from './pages/co-dashboard/CECODashboardPage'
 import CECOCreateGatewayPage from './pages/co-create-gateway/CECOCreateGatewayPage'
@@ -55,6 +59,64 @@ import AnomaliesOverviewPage from './pages/anomalies-overview/AnomaliesOverviewP
 import formatCost from './utils/formatCost'
 import BusinessMapping from './pages/business-mapping/BusinessMapping'
 import ECSRecommendationDetailsPage from './pages/ecs-recommendation-details/ECSRecommendationDetailsPage'
+
+RbacFactory.registerResourceCategory(ResourceCategory.CLOUD_COSTS, {
+  icon: 'ci-dev-exp', // Need to change
+  label: 'common.chaosText'
+})
+
+RbacFactory.registerResourceTypeHandler(ResourceType.CCM_OVERVIEW, {
+  icon: 'ci-dev-exp', // Need to change
+  label: 'overview',
+  category: ResourceCategory.CLOUD_COSTS,
+  permissionLabels: {
+    [PermissionIdentifier.VIEW_CCM_OVERVIEW]: <LocaleString stringID="rbac.permissionLabels.view" />
+  }
+})
+
+RbacFactory.registerResourceTypeHandler(ResourceType.CCM_PERSPECTIVE, {
+  icon: 'ci-dev-exp', // Need to change
+  label: 'ce.perspectives.sideNavText',
+  category: ResourceCategory.CLOUD_COSTS,
+  permissionLabels: {
+    [PermissionIdentifier.VIEW_CCM_PERSPECTIVE]: <LocaleString stringID="rbac.permissionLabels.view" />,
+    [PermissionIdentifier.EDIT_CCM_PERSPECTIVE]: <LocaleString stringID="rbac.permissionLabels.createEdit" />,
+    [PermissionIdentifier.DELETE_CCM_PERSPECTIVE]: <LocaleString stringID="delete" />
+  }
+})
+
+RbacFactory.registerResourceTypeHandler(ResourceType.CCM_PERSPECTIVE_FOLDERS, {
+  icon: 'ci-dev-exp', // Need to change
+  label: 'ce.perspectives.folders.customFolders',
+  category: ResourceCategory.CLOUD_COSTS,
+  permissionLabels: {
+    [PermissionIdentifier.VIEW_CCM_PERSPECTIVE_FOLDERS]: <LocaleString stringID="rbac.permissionLabels.view" />,
+    [PermissionIdentifier.EDIT_CCM_PERSPECTIVE_FOLDERS]: <LocaleString stringID="rbac.permissionLabels.createEdit" />,
+    [PermissionIdentifier.DELETE_CCM_PERSPECTIVE_FOLDERS]: <LocaleString stringID="delete" />
+  }
+})
+
+RbacFactory.registerResourceTypeHandler(ResourceType.CCM_BUDGETS, {
+  icon: 'ci-dev-exp', // Need to change
+  label: 'ce.budgets.sideNavText',
+  category: ResourceCategory.CLOUD_COSTS,
+  permissionLabels: {
+    [PermissionIdentifier.VIEW_CCM_BUDGET]: <LocaleString stringID="rbac.permissionLabels.view" />,
+    [PermissionIdentifier.EDIT_CCM_BUDGET]: <LocaleString stringID="rbac.permissionLabels.createEdit" />,
+    [PermissionIdentifier.DELETE_CCM_BUDGET]: <LocaleString stringID="delete" />
+  }
+})
+
+RbacFactory.registerResourceTypeHandler(ResourceType.CCM_COST_CATEGORY, {
+  icon: 'ci-dev-exp', // Need to change
+  label: 'ce.businessMapping.sideNavText',
+  category: ResourceCategory.CLOUD_COSTS,
+  permissionLabels: {
+    [PermissionIdentifier.VIEW_CCM_COST_CATEGORY]: <LocaleString stringID="rbac.permissionLabels.view" />,
+    [PermissionIdentifier.EDIT_CCM_COST_CATEGORY]: <LocaleString stringID="rbac.permissionLabels.createEdit" />,
+    [PermissionIdentifier.DELETE_CCM_COST_CATEGORY]: <LocaleString stringID="delete" />
+  }
+})
 
 featureFactory.registerFeaturesByModule('ce', {
   features: [FeatureIdentifier.PERSPECTIVES],

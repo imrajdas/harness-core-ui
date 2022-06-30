@@ -18,7 +18,7 @@ import {
   useConfirmationDialog,
   useToaster
 } from '@wings-software/uicore'
-import { Classes, Menu, MenuItem, Position, Intent } from '@blueprintjs/core'
+import { Classes, Menu, Position, Intent } from '@blueprintjs/core'
 import type { CellProps, Renderer, Column } from 'react-table'
 import { FontVariation, Color } from '@harness/design-system'
 import { useParams, useHistory } from 'react-router-dom'
@@ -36,6 +36,10 @@ import { NGBreadcrumbs } from '@common/components/NGBreadcrumbs/NGBreadcrumbs'
 import { useTelemetry } from '@common/hooks/useTelemetry'
 import { useDocumentTitle } from '@common/hooks/useDocumentTitle'
 import { PAGE_NAMES, USER_JOURNEY_EVENTS } from '@ce/TrackingEventsConstants'
+import RbacButton from '@rbac/components/Button/Button'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import RbacMenuItem from '@rbac/components/MenuItem/MenuItem'
 import css from './Budgets.module.scss'
 
 interface BudgetMenuProps {
@@ -93,21 +97,32 @@ const BudgetMenu: (props: BudgetMenuProps) => JSX.Element = ({ onEdit, handleDel
         }}
       />
       <Menu>
-        <MenuItem
-          text="Edit"
+        <RbacMenuItem
+          text={getString('edit')}
           onClick={(e: any) => {
             e.stopPropagation()
             setIsOpen(false)
             onEdit()
           }}
+          permission={{
+            permission: PermissionIdentifier.EDIT_CCM_BUDGET,
+            resource: {
+              resourceType: ResourceType.CCM_BUDGETS
+            }
+          }}
         />
-        <MenuItem
-          text="Delete"
+        <RbacMenuItem
+          text={getString('delete')}
           onClick={(e: any) => {
             e.stopPropagation()
             setIsOpen(false)
             openDialog()
-            // onDelete()
+          }}
+          permission={{
+            permission: PermissionIdentifier.DELETE_CCM_BUDGET,
+            resource: {
+              resourceType: ResourceType.CCM_BUDGETS
+            }
           }}
         />
       </Menu>
@@ -343,14 +358,19 @@ const Budgets: () => JSX.Element = () => {
       }}
       background="white"
     >
-      <Button
+      <RbacButton
         intent="primary"
         text={getString('ce.budgets.listPage.newBudget')}
-        iconProps={{
-          size: 10
+        icon="plus"
+        iconProps={{ size: 10 }}
+        margin={{ top: 'large' }}
+        permission={{
+          permission: PermissionIdentifier.EDIT_CCM_BUDGET,
+          resource: {
+            resourceType: ResourceType.CCM_BUDGETS
+          }
         }}
         onClick={openNewBudgetModal}
-        icon="plus"
       />
       <FlexExpander />
       <ExpandingSearchInput
@@ -386,17 +406,19 @@ const Budgets: () => JSX.Element = () => {
               {getString('ce.pageErrorMsg.noBudgetMsg')}
             </Text>
             <Text font="small">{getString('ce.pageErrorMsg.noBudgetInfo')}</Text>
-            <Button
-              margin={{
-                top: 'large'
-              }}
+            <RbacButton
               intent="primary"
               text={getString('ce.budgets.listPage.newBudget')}
-              iconProps={{
-                size: 10
+              icon="plus"
+              iconProps={{ size: 10 }}
+              margin={{ top: 'large' }}
+              permission={{
+                permission: PermissionIdentifier.EDIT_CCM_BUDGET,
+                resource: {
+                  resourceType: ResourceType.CCM_BUDGETS
+                }
               }}
               onClick={openNewBudgetModal}
-              icon="plus"
             />
           </Container>
         </Page.Body>

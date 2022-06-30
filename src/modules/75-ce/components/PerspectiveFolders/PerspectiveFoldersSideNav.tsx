@@ -7,7 +7,6 @@
 
 import React, { useEffect, useState } from 'react'
 import {
-  Button,
   ButtonVariation,
   Container,
   ExpandingSearchInput,
@@ -24,6 +23,9 @@ import { useStrings } from 'framework/strings'
 import type { CEViewFolder } from 'services/ce'
 import { folderViewType } from '@ce/constants'
 import { searchList } from '@ce/utils/perspectiveUtils'
+import RbacButton from '@rbac/components/Button/Button'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
 import useCreateFolderModal from './CreateFolderModal'
 import css from './PerspectiveFoldersSideNav.module.scss'
 
@@ -120,29 +122,50 @@ export const SideNavItem: React.FC<SidebarLinkProps> = ({
         )}
         {showIcons && isActiveFolder && (
           <Layout.Horizontal spacing="small" flex={{ alignItems: 'center' }}>
-            <Icon
-              name="Edit"
-              size={14}
-              color={Color.PRIMARY_6}
-              onClick={onEditClick}
-              className={css.icon}
+            <RbacButton
+              minimal
+              intent="primary"
+              icon="Edit"
+              iconProps={{ size: 14 }}
+              permission={{
+                permission: PermissionIdentifier.EDIT_CCM_PERSPECTIVE_FOLDERS,
+                resource: {
+                  resourceType: ResourceType.CCM_PERSPECTIVE_FOLDERS
+                }
+              }}
+              style={{ marginRight: '-18px' }}
+              onClick={onEditClick as any}
               data-testid={'editFolder'}
             />
-            <Icon
-              name="main-trash"
-              size={16}
-              color={Color.PRIMARY_6}
-              onClick={() => onDelete(folderId)}
-              className={css.icon}
+            <RbacButton
+              minimal
+              icon="main-trash"
+              intent="primary"
+              iconProps={{ size: 16 }}
+              style={{ marginRight: '-18px' }}
+              permission={{
+                permission: PermissionIdentifier.DELETE_CCM_PERSPECTIVE_FOLDERS,
+                resource: {
+                  resourceType: ResourceType.CCM_PERSPECTIVE_FOLDERS
+                }
+              }}
               data-testid={'deleteFolder'}
+              onClick={() => onDelete(folderId)}
             />
-            <Icon
-              name={pinned ? /* istanbul ignore next */ 'main-unpin' : 'main-pin'}
-              size={16}
-              color={Color.PRIMARY_6}
-              onClick={onPinClick}
-              className={css.icon}
+            <RbacButton
+              minimal
+              intent="primary"
+              icon={pinned ? /* istanbul ignore next */ 'main-unpin' : 'main-pin'}
+              iconProps={{ size: 16 }}
+              style={{ marginRight: '-18px' }}
               data-testid={'pinFolder'}
+              onClick={onPinClick as any}
+              permission={{
+                permission: PermissionIdentifier.EDIT_CCM_PERSPECTIVE_FOLDERS,
+                resource: {
+                  resourceType: ResourceType.CCM_PERSPECTIVE_FOLDERS
+                }
+              }}
             />
           </Layout.Horizontal>
         )}
@@ -245,12 +268,18 @@ const PerspectiveFoldersSideNav: React.FC<SideNavProps> = props => {
               flip
               className={css.searchInput}
             />
-            <Button
+            <RbacButton
               icon="plus"
               onClick={openCreateFoldersModal}
               text={getString('ce.perspectives.folders.newFolder')}
               variation={ButtonVariation.LINK}
               style={{ justifyContent: 'flex-start', paddingLeft: 0, paddingTop: 'var(--spacing-small)' }}
+              permission={{
+                permission: PermissionIdentifier.EDIT_CCM_PERSPECTIVE_FOLDERS,
+                resource: {
+                  resourceType: ResourceType.CCM_PERSPECTIVE_FOLDERS
+                }
+              }}
             />
           </Container>
           <ul className={css.foldersList}>

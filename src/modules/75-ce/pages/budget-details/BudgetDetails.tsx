@@ -14,7 +14,6 @@ import {
   Icon,
   PageBody,
   PageHeader,
-  Button,
   Layout,
   ButtonVariation,
   Container,
@@ -36,6 +35,9 @@ import useBudgetModal from '@ce/components/PerspectiveReportsAndBudget/Perspecti
 import { NGBreadcrumbs } from '@common/components/NGBreadcrumbs/NGBreadcrumbs'
 import { useDocumentTitle } from '@common/hooks/useDocumentTitle'
 import { PAGE_NAMES } from '@ce/TrackingEventsConstants'
+import RbacButton from '@rbac/components/Button/Button'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
 import css from './BudgetDetails.module.scss'
 
 const BudgetDetails: () => JSX.Element | null = () => {
@@ -207,31 +209,41 @@ const BudgetDetails: () => JSX.Element | null = () => {
         }
         toolbar={
           <Layout.Horizontal spacing="medium">
-            <Button
+            <RbacButton
               intent="primary"
               icon="edit"
+              text={getString('edit')}
               iconProps={{
                 margin: {
                   right: 'small'
+                }
+              }}
+              permission={{
+                permission: PermissionIdentifier.EDIT_CCM_BUDGET,
+                resource: {
+                  resourceType: ResourceType.CCM_BUDGETS
                 }
               }}
               onClick={handleEditBudget}
-            >
-              {getString('edit')}
-            </Button>
-            <Button
+            />
+            <RbacButton
+              icon="trash"
+              text={getString('delete')}
+              variation={ButtonVariation.TERTIARY}
+              loading={loading}
               iconProps={{
                 margin: {
                   right: 'small'
                 }
               }}
-              loading={loading}
-              variation={ButtonVariation.TERTIARY}
-              icon="trash"
+              permission={{
+                permission: PermissionIdentifier.DELETE_CCM_BUDGET,
+                resource: {
+                  resourceType: ResourceType.CCM_BUDGETS
+                }
+              }}
               onClick={openDialog}
-            >
-              {getString('delete')}
-            </Button>
+            />
           </Layout.Horizontal>
         }
         breadcrumbs={

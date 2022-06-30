@@ -7,7 +7,6 @@
 
 import React from 'react'
 import {
-  Button,
   Container,
   FlexExpander,
   Formik,
@@ -34,6 +33,9 @@ import {
 import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import { useStrings } from 'framework/strings'
 import { NameSchema } from '@common/utils/Validation'
+import RbacButton from '@rbac/components/Button/Button'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
 import CostBucketStep from './CostBucketStep/CostBucketStep'
 import Step from './Step/Step'
 import ManageUnallocatedCost from './ManageUnallocatedCost/ManageUnallocatedCost'
@@ -183,12 +185,18 @@ const BusinessMappingBuilder: (props: BusinessMappingBuilderProps) => React.Reac
                 className={css.nameContainer}
               />
               <FlexExpander />
-              <Button
+              <RbacButton
                 loading={createLoading || updateLoading}
                 icon="upload-box"
                 intent="primary"
                 text={getString('ce.businessMapping.form.saveText')}
                 type="submit"
+                permission={{
+                  permission: PermissionIdentifier.EDIT_CCM_COST_CATEGORY,
+                  resource: {
+                    resourceType: ResourceType.CCM_COST_CATEGORY
+                  }
+                }}
               />
             </Layout.Horizontal>
             <Container

@@ -7,7 +7,6 @@
 
 import React, { useState } from 'react'
 import {
-  Button,
   Layout,
   PageBody,
   PageHeader,
@@ -27,6 +26,9 @@ import BusinessMappingBuilder from '@ce/components/BusinessMappingBuilder/Busine
 import BusinessMappingList from '@ce/components/BusinessMappingList/BusinessMappingList'
 import EmptyPage from '@ce/common/EmptyPage/EmptyPage'
 import { useDocumentTitle } from '@common/hooks/useDocumentTitle'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import RbacButton from '@rbac/components/Button/Button'
 
 const BusinessMappingPage: () => React.ReactElement = () => {
   const { accountId } = useParams<AccountPathProps>()
@@ -56,10 +58,16 @@ const BusinessMappingPage: () => React.ReactElement = () => {
         bottom: true
       }}
     >
-      <Button
+      <RbacButton
         icon="plus"
-        text={getString('ce.businessMapping.newButton')}
         intent="primary"
+        text={getString('ce.businessMapping.newButton')}
+        permission={{
+          permission: PermissionIdentifier.EDIT_CCM_COST_CATEGORY,
+          resource: {
+            resourceType: ResourceType.CCM_COST_CATEGORY
+          }
+        }}
         onClick={() => {
           setDrawerOpen(true)
         }}

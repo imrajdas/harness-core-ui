@@ -60,6 +60,8 @@ import PerspectiveFoldersSideNav from '@ce/components/PerspectiveFolders/Perspec
 import { useQueryParamsState } from '@common/hooks/useQueryParamsState'
 import EmptyPage from '@ce/common/EmptyPage/EmptyPage'
 import { folderViewType } from '@ce/constants'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
 import bgImage from './images/perspectiveBg.png'
 import css from './PerspectiveListPage.module.scss'
 
@@ -646,6 +648,12 @@ const PerspectiveListPage: React.FC = () => {
                   featuresProps={{
                     featuresRequest: {
                       featureNames: [FeatureIdentifier.PERSPECTIVES]
+                    }
+                  }}
+                  permission={{
+                    permission: PermissionIdentifier.EDIT_CCM_PERSPECTIVE,
+                    resource: {
+                      resourceType: ResourceType.CCM_PERSPECTIVE
                     }
                   }}
                   onClick={() => {

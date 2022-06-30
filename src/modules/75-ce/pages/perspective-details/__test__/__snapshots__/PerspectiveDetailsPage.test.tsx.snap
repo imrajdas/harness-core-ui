@@ -337,11 +337,16 @@ exports[`test cases for Perspective details Page should be able to render no dat
           >
             $---
           </p>
-          <p
-            class="StyledProps--font StyledProps--main addBudgetText StyledProps--color StyledProps--color-primary7 StyledProps--font-small"
+          <button
+            class="bp3-button Button--button StyledProps--font StyledProps--main addBudgetText Button--with-current-color Button--variation Button--variation-link"
+            type="button"
           >
-            ce.perspectives.budgets.addBudget
-          </p>
+            <span
+              class="bp3-button-text"
+            >
+              ce.perspectives.budgets.addBudget
+            </span>
+          </button>
         </div>
       </div>
       <div
@@ -1163,11 +1168,16 @@ exports[`test cases for Perspective details Page should be able to render the de
           >
             $---
           </p>
-          <p
-            class="StyledProps--font StyledProps--main addBudgetText StyledProps--color StyledProps--color-primary7 StyledProps--font-small"
+          <button
+            class="bp3-button Button--button StyledProps--font StyledProps--main addBudgetText Button--with-current-color Button--variation Button--variation-link"
+            type="button"
           >
-            ce.perspectives.budgets.addBudget
-          </p>
+            <span
+              class="bp3-button-text"
+            >
+              ce.perspectives.budgets.addBudget
+            </span>
+          </button>
         </div>
       </div>
       <div

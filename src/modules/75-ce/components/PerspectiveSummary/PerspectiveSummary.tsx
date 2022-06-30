@@ -38,6 +38,10 @@ import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import routes from '@common/RouteDefinitions'
 import { getViewFilterForId } from '@ce/utils/perspectiveUtils'
 import { PAGE_NAMES } from '@ce/TrackingEventsConstants'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { usePermission } from '@rbac/hooks/usePermission'
+import RbacButton from '@rbac/components/Button/Button'
 import RecommendationSummaryCard from './RecommendationSummaryCard'
 import css from './PerspectiveSummary.module.scss'
 
@@ -135,9 +139,10 @@ const CostCard: (val: CostCardProps) => JSX.Element = ({
 const BAR_WIDTH = 298
 interface BudgetCardProps {
   budgetData: BudgetSummary
+  canEdit: boolean
 }
 
-const BudgetCard: (props: BudgetCardProps) => JSX.Element | null = ({ budgetData }) => {
+const BudgetCard: (props: BudgetCardProps) => JSX.Element | null = ({ budgetData, canEdit }) => {
   const { accountId } = useParams<AccountPathProps>()
   const { getString } = useStrings()
   const { actualCost, budgetAmount } = budgetData
@@ -183,6 +188,7 @@ const BudgetCard: (props: BudgetCardProps) => JSX.Element | null = ({ budgetData
           margin="none"
           font={FontVariation.SMALL}
           variation={ButtonVariation.LINK}
+          disabled={!canEdit}
         >
           {getString('ce.perspectives.budgets.viewText')}
         </Link>
@@ -237,10 +243,18 @@ const BudgetCardsCarousel: () => JSX.Element | null = () => {
     accountId: string
     perspectiveName: string
   }>()
-
   const [activeSlide, setActiveSlide] = useState<number>(1)
-
   const { getString } = useStrings()
+
+  const [canEdit] = usePermission(
+    {
+      resource: {
+        resourceType: ResourceType.CCM_BUDGETS
+      },
+      permissions: [PermissionIdentifier.EDIT_CCM_BUDGET]
+    },
+    []
+  )
 
   const [{ data, fetching: budgetFetching }, refetchBudget] = useFetchPerspectiveBudgetQuery({
     variables: {
@@ -294,7 +308,24 @@ const BudgetCardsCarousel: () => JSX.Element | null = () => {
           >
             {'$---'}
           </Text>
-          <Text
+          <RbacButton
+            text={getString('ce.perspectives.budgets.addBudget')}
+            variation={ButtonVariation.LINK}
+            className={css.addBudgetText}
+            onClick={() => {
+              openModal({
+                isEdit: false,
+                perspectiveName: perspectiveName,
+                perspective: perspectiveId,
+                selectedBudget: {
+                  lastMonthCost: lmc?.data,
+                  forecastCost: fc?.data
+                },
+                source: PAGE_NAMES.PERSPECTIVE_DETAILS_PAGE
+              })
+            }}
+          />
+          {/* <Text
             className={css.addBudgetText}
             color="primary7"
             font="small"
@@ -312,7 +343,7 @@ const BudgetCardsCarousel: () => JSX.Element | null = () => {
             }}
           >
             {getString('ce.perspectives.budgets.addBudget')}
-          </Text>
+          </Text> */}
         </Container>
       </Card>
     )
@@ -358,7 +389,7 @@ const BudgetCardsCarousel: () => JSX.Element | null = () => {
         }
       >
         {budgetData.map(bData => (
-          <BudgetCard key={bData?.id} budgetData={bData as BudgetSummary} />
+          <BudgetCard key={bData?.id} budgetData={bData as BudgetSummary} canEdit={canEdit} />
         ))}
       </Carousel>
     </Card>

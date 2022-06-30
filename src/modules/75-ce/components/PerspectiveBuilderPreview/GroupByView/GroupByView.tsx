@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Container, Text, Layout, FlexExpander, Icon, Button } from '@wings-software/uicore'
+import { Container, Text, Layout, FlexExpander, Icon } from '@wings-software/uicore'
 import { Color, FontVariation } from '@harness/design-system'
 import cx from 'classnames'
 import { Menu, MenuItem, Popover, Position, Drawer } from '@blueprintjs/core'
@@ -25,6 +25,9 @@ import { getGMTEndDateTime, getGMTStartDateTime } from '@ce/utils/momentUtils'
 import type { TimeRangeFilterType } from '@ce/types'
 
 import BusinessMappingBuilder from '@ce/components/BusinessMappingBuilder/BusinessMappingBuilder'
+import RbacButton from '@rbac/components/Button/Button'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
 import GroupByViewSubMenu from './GroupByViewSubMenu'
 import css from '../PerspectiveBuilderPreview.module.scss'
 
@@ -136,12 +139,18 @@ const GroupByView: React.FC<GroupByViewProps> = ({
         </Container>
       </Popover>
       {showBusinessMappingButton ? (
-        <Button
+        <RbacButton
+          minimal
           icon="plus"
           intent="primary"
-          minimal
-          text={getString('ce.businessMapping.newButton')}
+          permission={{
+            permission: PermissionIdentifier.EDIT_CCM_COST_CATEGORY,
+            resource: {
+              resourceType: ResourceType.CCM_COST_CATEGORY
+            }
+          }}
           onClick={() => setDrawerOpen(true)}
+          text={getString('ce.businessMapping.newButton')}
         />
       ) : null}
       <FlexExpander />

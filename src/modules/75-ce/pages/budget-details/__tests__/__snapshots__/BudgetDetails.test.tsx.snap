@@ -127,7 +127,7 @@ exports[`test cases for Budgets List Page should be able to render the budget li
         type="button"
       >
         <span
-          class="bp3-icon bp3-icon-edit StyledProps--main StyledProps--margin-right-small"
+          class="bp3-icon bp3-icon-edit StyledProps--main StyledProps--padding-right-xsmall StyledProps--margin-right-small"
           icon="edit"
         >
           <svg
@@ -152,11 +152,11 @@ exports[`test cases for Budgets List Page should be able to render the budget li
         </span>
       </button>
       <button
-        class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--withLeftIcon Button--variation Button--variation-tertiary"
+        class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--withLeftIcon Button--variation Button--variation-tertiary"
         type="button"
       >
         <span
-          class="bp3-icon bp3-icon-trash StyledProps--main StyledProps--margin-right-small"
+          class="bp3-icon bp3-icon-trash StyledProps--main StyledProps--padding-right-xsmall StyledProps--margin-right-small"
           icon="trash"
         >
           <svg

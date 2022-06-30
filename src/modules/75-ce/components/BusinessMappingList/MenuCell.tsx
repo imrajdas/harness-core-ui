@@ -7,8 +7,11 @@
 
 import React, { useState } from 'react'
 import { Button, Text, Popover, useConfirmationDialog } from '@wings-software/uicore'
-import { Classes, Menu, MenuItem, Position, Intent } from '@blueprintjs/core'
+import { Classes, Menu, Position, Intent } from '@blueprintjs/core'
 import { useStrings } from 'framework/strings'
+import RbacMenuItem from '@rbac/components/MenuItem/MenuItem'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
 
 interface MenuCellProps {
   handleEdit: () => void
@@ -65,20 +68,32 @@ const MenuCell: (props: MenuCellProps) => JSX.Element = ({ handleEdit, handleDel
         }}
       />
       <Menu>
-        <MenuItem
+        <RbacMenuItem
           text={getString('edit')}
           onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
             e.stopPropagation()
             setIsOpen(false)
             handleEdit()
           }}
+          permission={{
+            permission: PermissionIdentifier.EDIT_CCM_COST_CATEGORY,
+            resource: {
+              resourceType: ResourceType.CCM_COST_CATEGORY
+            }
+          }}
         />
-        <MenuItem
+        <RbacMenuItem
           text={getString('delete')}
           onClick={(e: React.MouseEvent<HTMLElement, MouseEvent>) => {
             e.stopPropagation()
             setIsOpen(false)
             openDialog()
+          }}
+          permission={{
+            permission: PermissionIdentifier.DELETE_CCM_COST_CATEGORY,
+            resource: {
+              resourceType: ResourceType.CCM_COST_CATEGORY
+            }
           }}
         />
       </Menu>

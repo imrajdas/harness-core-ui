@@ -28,6 +28,9 @@ import { QlceView, ViewState, ViewType } from 'services/ce/services'
 import { perspectiveDateLabelToDisplayText, SOURCE_ICON_MAPPING } from '@ce/utils/perspectiveUtils'
 import formatCost from '@ce/utils/formatCost'
 import { useStrings } from 'framework/strings'
+import { usePermission } from '@rbac/hooks/usePermission'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import useMoveFolderModal from '../PerspectiveFolders/MoveFolderModal'
 import css from './PerspectiveListView.module.scss'
 
@@ -68,6 +71,16 @@ const PerspectiveListView: React.FC<PerspectiveListViewProps> = ({
       <Text>{dateLabelToDisplayText[cell.value] || getString('common.repo_provider.customLabel')}</Text>
     ) : null
   }
+
+  const [canEdit, canDelete] = usePermission(
+    {
+      resource: {
+        resourceType: ResourceType.CCM_PERSPECTIVE
+      },
+      permissions: [PermissionIdentifier.EDIT_CCM_PERSPECTIVE, PermissionIdentifier.DELETE_CCM_PERSPECTIVE]
+    },
+    []
+  )
 
   const DataSourcesCell: Renderer<CellProps<QlceView>> = cell => {
     const dataSources = (cell.value || []) as string[]
@@ -222,16 +235,17 @@ const PerspectiveListView: React.FC<PerspectiveListViewProps> = ({
           />
           <Container>
             <Menu>
-              <Menu.Item disabled={disableActions} onClick={editClick} icon="edit" text="Edit" />
+              <Menu.Item disabled={disableActions || !canEdit} onClick={editClick} icon="edit" text="Edit" />
               <Menu.Item
+                disabled={!canEdit}
                 onClick={onCloneClick}
                 icon="duplicate"
                 text="Clone"
                 data-testid={`clone-perspective-${row.original.id}`}
               />
-              <Menu.Item disabled={disableActions} onClick={onDeleteClick} icon="trash" text="Delete" />
+              <Menu.Item disabled={disableActions || !canDelete} onClick={onDeleteClick} icon="trash" text="Delete" />
               <Menu.Item
-                disabled={disableActions}
+                disabled={disableActions || !canEdit}
                 onClick={onMoveClick}
                 icon="add-to-folder"
                 text={getString('ce.perspectives.folders.moveToLabel')}
