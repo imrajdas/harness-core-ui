@@ -13,6 +13,7 @@ import { Page } from '@common/exports'
 import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import { useStrings } from 'framework/strings'
 import { useDashboardsContext } from '@dashboards/pages/DashboardsContext'
+import { SHARED_FOLDER_ID } from '@dashboards/constants'
 import {
   ErrorResponse,
   useCreateSignedUrl,
@@ -63,7 +64,16 @@ const DashboardViewPage: React.FC = () => {
     })
   }, [])
 
-  const { data: folderDetail } = useGetFolderDetail({ queryParams: { accountId, folderId } })
+  const { data: folderDetail, refetch: fetchFolderDetail } = useGetFolderDetail({
+    lazy: true,
+    queryParams: { accountId, folderId }
+  })
+
+  React.useEffect(() => {
+    if (folderId !== SHARED_FOLDER_ID) {
+      fetchFolderDetail()
+    }
+  }, [accountId, folderId])
 
   const { data: dashboardDetail } = useGetDashboardDetail({ dashboard_id: viewId, queryParams: { accountId } })
 

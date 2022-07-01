@@ -32,12 +32,14 @@ import { Page } from '@common/exports'
 import RbacButton from '@rbac/components/Button/Button'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
+import type { PermissionRequest } from '@rbac/hooks/usePermission'
 import ModuleTagsFilter from '@dashboards/components/ModuleTagsFilter/ModuleTagsFilter'
 
 import { ErrorResponse, useDeleteDashboard, useGetFolderDetail, useSearch } from 'services/custom-dashboards'
 import routes from '@common/RouteDefinitions'
 
 import { DashboardLayoutViews, MappedDashboardTagOptions } from '@dashboards/types/DashboardTypes'
+import { SHARED_FOLDER_ID } from '@dashboards/constants'
 import { useStrings } from 'framework/strings'
 import Dashboards from './Dashboards'
 import { useDashboardsContext } from '../DashboardsContext'
@@ -47,14 +49,6 @@ import css from './HomePage.module.scss'
 import moduleTagCss from '@dashboards/common/ModuleTags.module.scss'
 
 export const PAGE_SIZE = 20
-
-interface Permission {
-  resource: {
-    resourceType: ResourceType
-    resourceIdentifier?: string
-  }
-  permission: PermissionIdentifier
-}
 
 const CustomSelect = Select.ofType<SelectOption>()
 
@@ -83,6 +77,7 @@ const HomePage: React.FC = () => {
   const { getString } = useStrings()
   const { accountId, folderId } = useParams<{ accountId: string; folderId: string }>()
   const { showSuccess, showError } = useToaster()
+  const isNotShared = folderId !== SHARED_FOLDER_ID
 
   const defaultSortBy: SelectOption = {
     label: 'Select Option',
@@ -131,7 +126,7 @@ const HomePage: React.FC = () => {
   }
 
   const folderIdOrBlank = (): string => {
-    return folderId.replace('shared', '')
+    return isNotShared ? folderId : ''
   }
 
   React.useEffect(() => {
@@ -176,10 +171,10 @@ const HomePage: React.FC = () => {
     queryParams: { accountId, folderId }
   })
 
-  const { mutate: deleteDashboard, loading: deleting } = useDeleteDashboard({ queryParams: { accountId } })
+  const { mutate: deleteDashboard, loading: deleting } = useDeleteDashboard({ queryParams: { accountId, folderId } })
 
   React.useEffect(() => {
-    if (folderId !== 'shared') {
+    if (isNotShared) {
       fetchFolderDetail()
     }
   }, [accountId, folderId])
@@ -200,14 +195,14 @@ const HomePage: React.FC = () => {
     []
   )
 
-  const permissionObj: Permission = {
+  const permissionObj: PermissionRequest = {
     permission: PermissionIdentifier.EDIT_DASHBOARD,
     resource: {
       resourceType: ResourceType.DASHBOARDS
     }
   }
 
-  if (folderId !== 'shared') {
+  if (isNotShared) {
     permissionObj['resource']['resourceIdentifier'] = folderId
   }
 

@@ -6,15 +6,18 @@
  */
 
 import React from 'react'
-import { render, RenderResult, screen } from '@testing-library/react'
+import { render, RenderResult, screen, waitFor } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { TestWrapper } from '@common/utils/testUtils'
-import { useGetFolder } from 'services/custom-dashboards'
+import { useGetFolder, useGetOotbFolderId } from 'services/custom-dashboards'
 import DashboardResourceModalBody, { DashboardResourceModalBodyProps } from '../DashboardResourceModalBody'
 
 jest.mock('services/custom-dashboards', () => ({
-  useGetFolder: jest.fn()
+  useGetFolder: jest.fn(),
+  useGetOotbFolderId: jest.fn()
 }))
 const useGetFolderMock = useGetFolder as jest.Mock
+const useGetOotbFolderIdMock = useGetOotbFolderId as jest.Mock
 
 const renderComponent = (props: Partial<DashboardResourceModalBodyProps> = {}): RenderResult =>
   render(
@@ -32,6 +35,7 @@ describe('DashboardResourceModalBody', () => {
   beforeEach(() => {
     jest.clearAllMocks()
     useGetFolderMock.mockReturnValue({ data: { resource: [] } })
+    useGetOotbFolderIdMock.mockReturnValue({ data: { resource: '53' } })
   })
 
   test('it should display the no data message when no folders are returned', async () => {
@@ -46,6 +50,29 @@ describe('DashboardResourceModalBody', () => {
     renderComponent()
 
     expect(screen.getByText('you_got_it (0)')).toBeInTheDocument()
+  })
+
+  test('it add the OOTB folder ID to the selected folders', async () => {
+    useGetFolderMock.mockReturnValue({ data: { resource: [{ id: '12', name: 'you_got_it', Children: [] }] } })
+    const onSelectChangeMock = jest.fn()
+
+    renderComponent({ onSelectChange: onSelectChangeMock })
+    const folderCheckbox = screen.getByRole('checkbox')
+    userEvent.click(folderCheckbox)
+
+    await waitFor(() => expect(onSelectChangeMock).toHaveBeenLastCalledWith(['12', '53']))
+  })
+
+  test('it removes the OOTB folder ID when no folders are selected', async () => {
+    useGetFolderMock.mockReturnValue({ data: { resource: [{ id: '12', name: 'you_got_it', Children: [] }] } })
+    const onSelectChangeMock = jest.fn()
+
+    renderComponent({ onSelectChange: onSelectChangeMock })
+    const folderCheckbox = screen.getByRole('checkbox')
+    userEvent.click(folderCheckbox)
+    userEvent.click(folderCheckbox)
+
+    await waitFor(() => expect(onSelectChangeMock).toHaveBeenLastCalledWith([]))
   })
 
   test('it should display the child dashboard names', async () => {

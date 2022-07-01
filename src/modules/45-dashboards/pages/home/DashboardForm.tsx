@@ -23,8 +23,9 @@ import { FontVariation } from '@harness/design-system'
 import * as Yup from 'yup'
 import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
-import { useGetFolder, ErrorResponse, FolderModel } from 'services/custom-dashboards'
-import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
+import { useGetFolders, ErrorResponse, FolderModel } from 'services/custom-dashboards'
+import type { DashboardPathProps } from '@common/interfaces/RouteInterfaces'
+import { SHARED_FOLDER_ID } from '@dashboards/constants'
 import css from './HomePage.module.scss'
 
 const TAGS_SEPARATOR = ','
@@ -58,26 +59,22 @@ const DashboardForm: React.FC<DashboardFormProps> = ({
   modalErrorHandler,
   setModalErrorHandler
 }) => {
-  const sharedFolderId = 'shared'
-
   const { getString } = useStrings()
-  const { accountId } = useParams<AccountPathProps>()
-
-  const sharedFolder = {
-    value: sharedFolderId,
-    label: getString('dashboards.sharedFolderTitle')
-  }
+  const { accountId, folderId } = useParams<DashboardPathProps>()
 
   const {
     data: foldersList,
     error,
     loading: isFoldersLoading
-  } = useGetFolder({
-    queryParams: { accountId }
+  } = useGetFolders({
+    queryParams: { accountId, page: 1, pageSize: 100 }
   })
 
   function isMissingFolderId(folders: SelectOption[]): boolean {
-    return !folders.some((item: SelectOption) => item.value === formData?.folderId)
+    if (formData?.folderId) {
+      return !folders.some((item: SelectOption) => item.value === formData.folderId)
+    }
+    return false
   }
 
   React.useEffect(() => {
@@ -88,22 +85,21 @@ const DashboardForm: React.FC<DashboardFormProps> = ({
   }, [error, modalErrorHandler])
 
   const folderListItems = React.useMemo(() => {
-    let mappedFolders: SelectOption[] = []
     if (foldersList?.resource) {
-      mappedFolders = foldersList.resource?.map((folder: FolderModel): SelectOption => {
-        return { value: folder?.id, label: folder?.name }
-      })
+      return foldersList.resource?.map(
+        (folder: FolderModel): SelectOption => ({ value: folder?.id, label: folder?.name })
+      )
     }
-    return [sharedFolder, ...mappedFolders]
+    return []
   }, [foldersList])
 
   const initialValues: DashboardFormikValues = React.useMemo(() => {
-    let folderId = formData?.folderId || ''
+    let initialFolderId = formData?.folderId || folderId || ''
     if (isMissingFolderId(folderListItems)) {
-      folderId = 'shared'
+      initialFolderId = SHARED_FOLDER_ID
     }
     return {
-      folderId,
+      folderId: initialFolderId,
       name: formData?.name || '',
       description: formData?.description?.split(TAGS_SEPARATOR) || []
     }

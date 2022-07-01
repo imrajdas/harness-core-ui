@@ -35,17 +35,20 @@ const renderComponent = (props: DashboardFormProps): RenderResult => {
 }
 
 const mockEmptyGetFolderResponse: customDashboardServices.GetFolderResponse = {
-  resource: []
+  resource: [
+    { id: 'shared', name: 'Shared Folder' },
+    { id: '1', name: 'folder_one' }
+  ] as any
 }
 
 describe('DashboardForm', () => {
   beforeEach(() => {
     jest
-      .spyOn(customDashboardServices, 'useGetFolder')
+      .spyOn(customDashboardServices, 'useGetFolders')
       .mockImplementation(() => ({ data: mockEmptyGetFolderResponse, loading: false } as any))
   })
   afterEach(() => {
-    jest.spyOn(customDashboardServices, 'useGetFolder').mockReset()
+    jest.spyOn(customDashboardServices, 'useGetFolders').mockReset()
   })
 
   test('it should display a Dashboard Form with continue button', () => {
@@ -53,5 +56,32 @@ describe('DashboardForm', () => {
 
     const saveButton = screen.getByText(result.current.getString('continue'))
     waitFor(() => expect(saveButton).toBeInTheDocument())
+  })
+
+  test('it should display the formData as the initial form values', () => {
+    const formData = {
+      description: 'tag_one,tag_two',
+      folderId: '1',
+      name: 'dashboard name'
+    }
+
+    renderComponent({ formData: formData, ...defaultProps })
+
+    expect(screen.getByDisplayValue('dashboard name')).toBeInTheDocument()
+    expect(screen.getByText('tag_one')).toBeInTheDocument()
+    expect(screen.getByText('tag_two')).toBeInTheDocument()
+    expect(screen.getByDisplayValue('folder_one')).toBeInTheDocument()
+  })
+
+  test('it should select shared as the initial folder when the initial folder ID is not returned', () => {
+    const formData = {
+      description: 'tags',
+      folderId: '1234',
+      name: 'dashboard name'
+    }
+
+    renderComponent({ formData: formData, ...defaultProps })
+
+    expect(screen.getByDisplayValue('Shared Folder')).toBeInTheDocument()
   })
 })

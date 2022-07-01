@@ -15,7 +15,7 @@ import ResourceHandlerTable from '@rbac/components/ResourceHandlerTable/Resource
 import { PageSpinner } from '@common/components'
 
 import routes from '@common/RouteDefinitions'
-import { useGetFolder } from 'services/custom-dashboards'
+import { useGetFolder, useGetOotbFolderId } from 'services/custom-dashboards'
 
 import { useStrings } from 'framework/strings'
 
@@ -93,13 +93,27 @@ const DashboardResourceModalBody: React.FC<DashboardResourceModalBodyProps> = ({
     queryParams: { accountId: accountIdentifier, page: page + 1, pageSize: PAGE_SIZE, isAdmin: true }
   })
 
+  const { data: ootbFolder, loading: fetchingOotbFolder } = useGetOotbFolderId({
+    queryParams: { accountId: accountIdentifier }
+  })
+
+  const includeOotbBeforeOnChange = (items: string[]) => {
+    if (ootbFolder?.resource) {
+      items = items.filter((val: string) => val !== ootbFolder.resource)
+      if (items.length > 0) {
+        items.push(ootbFolder.resource)
+      }
+    }
+    onSelectChange(items)
+  }
+
   const parsedFolders =
     folders?.resource?.map((folder: { id: string; name: string }) => ({
       identifier: folder.id,
       ...folder
     })) || []
 
-  if (fetchingFolders) return <PageSpinner />
+  if (fetchingFolders || fetchingOotbFolder) return <PageSpinner />
   return parsedFolders?.length > 0 ? (
     <Container className={css.container}>
       <ResourceHandlerTable
@@ -121,7 +135,7 @@ const DashboardResourceModalBody: React.FC<DashboardResourceModalBodyProps> = ({
           pageIndex: page || 0,
           gotoPage: pageNumber => setPage(pageNumber)
         }}
-        onSelectChange={onSelectChange}
+        onSelectChange={includeOotbBeforeOnChange}
       />
     </Container>
   ) : (

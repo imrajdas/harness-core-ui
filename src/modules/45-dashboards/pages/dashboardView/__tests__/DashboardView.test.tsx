@@ -40,10 +40,11 @@ describe('DashboardView', () => {
   const useGetFolderDetailMock = jest.spyOn(sharedService, 'useGetFolderDetail')
 
   const includeBreadcrumbs = jest.fn()
+  const fetchFolderDetailMock = jest.fn()
 
   beforeEach(() => {
     jest.clearAllMocks()
-    useGetFolderDetailMock.mockReturnValue({ data: { resource: 'folder name' } } as any)
+    useGetFolderDetailMock.mockReturnValue({ data: { resource: 'folder name' }, refetch: fetchFolderDetailMock } as any)
     useGetDashboardDetailMock.mockReturnValue({ resource: true, title: 'dashboard name' } as any)
     useDashboardsContextMock.mockReturnValue({ includeBreadcrumbs: includeBreadcrumbs, breadcrumbs: [] })
     useCreateSignedUrlMock.mockReturnValue({
@@ -94,7 +95,7 @@ describe('DashboardView', () => {
   })
 
   test('it should include a dashboard in breadcrumbs when a dashboard details has been retrieved', async () => {
-    useGetFolderDetailMock.mockReturnValue({ data: null } as any)
+    useGetFolderDetailMock.mockReturnValue({ data: null, refetch: jest.fn() } as any)
 
     const mockDashboardTitle = 'Test Dashboard'
     const mockDashboardDetail: sharedService.GetDashboardDetailResponse = {
@@ -115,5 +116,11 @@ describe('DashboardView', () => {
     renderComponent('shared')
 
     expect(includeBreadcrumbs).toBeCalledWith([])
+  })
+
+  test('it should not call the folder detail endpoint when using the shared folder', async () => {
+    renderComponent('shared')
+
+    expect(fetchFolderDetailMock).not.toHaveBeenCalled()
   })
 })

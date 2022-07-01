@@ -141,6 +141,10 @@ export interface GetFoldersResponse {
   responseMessages?: string
 }
 
+export interface GetOotbFolderIdResponse {
+  resource?: string
+}
+
 export interface PatchFolderRequestBody {
   folderId: string
   name: string
@@ -302,7 +306,7 @@ export interface GetFolderQueryParams {
 export type GetFolderProps = Omit<GetProps<GetFolderResponse, ErrorResponse, GetFolderQueryParams, void>, 'path'>
 
 /**
- * Get a folders details.
+ * Get all sub-folders in account.
  */
 export const GetFolder = (props: GetFolderProps) => (
   <Get<GetFolderResponse, ErrorResponse, GetFolderQueryParams, void>
@@ -315,7 +319,7 @@ export const GetFolder = (props: GetFolderProps) => (
 export type UseGetFolderProps = Omit<UseGetProps<GetFolderResponse, ErrorResponse, GetFolderQueryParams, void>, 'path'>
 
 /**
- * Get a folders details.
+ * Get all sub-folders in account.
  */
 export const useGetFolder = (props: UseGetFolderProps) =>
   useGet<GetFolderResponse, ErrorResponse, GetFolderQueryParams, void>(`/folder`, {
@@ -324,7 +328,7 @@ export const useGetFolder = (props: UseGetFolderProps) =>
   })
 
 /**
- * Get a folders details.
+ * Get all sub-folders in account.
  */
 export const getFolderPromise = (
   props: GetUsingFetchProps<GetFolderResponse, ErrorResponse, GetFolderQueryParams, void>,
@@ -451,6 +455,54 @@ export const createFolderPromise = (
     signal
   )
 
+export interface GetOotbFolderIdQueryParams {
+  accountId: string
+}
+
+export type GetOotbFolderIdProps = Omit<
+  GetProps<GetOotbFolderIdResponse, ErrorResponse, GetOotbFolderIdQueryParams, void>,
+  'path'
+>
+
+/**
+ * Get out of the box folder ID.
+ */
+export const GetOotbFolderId = (props: GetOotbFolderIdProps) => (
+  <Get<GetOotbFolderIdResponse, ErrorResponse, GetOotbFolderIdQueryParams, void>
+    path={`/folder/ootb`}
+    base={getConfig('dashboard/')}
+    {...props}
+  />
+)
+
+export type UseGetOotbFolderIdProps = Omit<
+  UseGetProps<GetOotbFolderIdResponse, ErrorResponse, GetOotbFolderIdQueryParams, void>,
+  'path'
+>
+
+/**
+ * Get out of the box folder ID.
+ */
+export const useGetOotbFolderId = (props: UseGetOotbFolderIdProps) =>
+  useGet<GetOotbFolderIdResponse, ErrorResponse, GetOotbFolderIdQueryParams, void>(`/folder/ootb`, {
+    base: getConfig('dashboard/'),
+    ...props
+  })
+
+/**
+ * Get out of the box folder ID.
+ */
+export const getOotbFolderIdPromise = (
+  props: GetUsingFetchProps<GetOotbFolderIdResponse, ErrorResponse, GetOotbFolderIdQueryParams, void>,
+  signal?: RequestInit['signal']
+) =>
+  getUsingFetch<GetOotbFolderIdResponse, ErrorResponse, GetOotbFolderIdQueryParams, void>(
+    getConfig('dashboard/'),
+    `/folder/ootb`,
+    props,
+    signal
+  )
+
 export interface GetFolderDetailQueryParams {
   accountId: string
   folderId: string
@@ -501,6 +553,7 @@ export const getFolderDetailPromise = (
   )
 
 export interface DeleteDashboardQueryParams {
+  folderId: string
   accountId: string
 }
 
