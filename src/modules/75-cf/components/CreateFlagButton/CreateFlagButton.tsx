@@ -6,7 +6,7 @@
  */
 
 import React, { ReactElement } from 'react'
-import { ButtonVariation } from '@wings-software/uicore'
+import { ButtonVariation } from '@harness/uicore'
 import RbacButton from '@rbac/components/Button/Button'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
@@ -43,6 +43,7 @@ const CreateFlagButton = (props: CreateFlagButtonProps): ReactElement => {
       data-testid="create-flag-button"
       disabled={disabled}
       text={getString('cf.featureFlags.newFlag')}
+      icon="plus"
       intent="primary"
       variation={ButtonVariation.PRIMARY}
       onClick={() => {

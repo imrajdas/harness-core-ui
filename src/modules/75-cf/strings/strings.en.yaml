@@ -132,7 +132,7 @@ clause:
     equalSensitive: 'equals (sensitive)'
     matchSegment: 'Match Target Group'
 featureFlags:
-  newFlag: + New Flag
+  newFlag: New Flag
   true: 'True'
   false: 'False'
   typeOfFlag: Select the Type of Flag You Want to Create
