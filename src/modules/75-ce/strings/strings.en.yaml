@@ -1,6 +1,7 @@
 gridColumnSelector: 'Columns'
 continuous: '{{$.common.purpose.ce.continuous}}'
 trialCta: 'Start 14 day CCM trial'
+permissionError: Please contact your Account Admin
 common:
   newBudget: 'New Budget'
   budget: 'Budget'

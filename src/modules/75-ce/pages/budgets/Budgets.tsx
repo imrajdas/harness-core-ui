@@ -40,6 +40,9 @@ import RbacButton from '@rbac/components/Button/Button'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
 import RbacMenuItem from '@rbac/components/MenuItem/MenuItem'
+import HandleError from '@ce/components/PermissionError/PermissionError'
+import useRBACError from '@rbac/utils/useRBACError/useRBACError'
+import PermissionError from '@ce/images/permission-error.svg'
 import css from './Budgets.module.scss'
 
 interface BudgetMenuProps {
@@ -270,6 +273,7 @@ const Budgets: () => JSX.Element = () => {
     }
   })
   const { showSuccess, showError } = useToaster()
+  const { getRBACErrorMessage } = useRBACError()
 
   const { mutate: deleteBudget, loading } = useDeleteBudget({ queryParams: { accountIdentifier: accountId } })
 
@@ -431,23 +435,30 @@ const Budgets: () => JSX.Element = () => {
       {HeaderComponent}
       <Page.Body>
         {loading || fetching ? <PageSpinner /> : null}
-        {ToolBarComponent}
-
-        <Layout.Horizontal padding="large">
-          <Text font={{ variation: FontVariation.H5 }}>
-            {getString('ce.budgets.listPage.budgetCount', {
-              count: filteredBudgetData?.length
-            })}
-          </Text>
-        </Layout.Horizontal>
-        <Container padding="large">
-          <BudgetsList
-            navigateToBudgetDetailsPage={navigateToBudgetDetailsPage}
-            handleDeleteBudget={handleDeleteBudget}
-            handleEditBudget={handleEditBudget}
-            budgetData={filteredBudgetData}
-          />
-        </Container>
+        {error ? (
+          <Container style={{ height: 'calc(100vh - 73px)' }}>
+            <HandleError errorMsg={getRBACErrorMessage(error as any)} imgSrc={PermissionError} />
+          </Container>
+        ) : (
+          <>
+            {ToolBarComponent}
+            <Layout.Horizontal padding="large">
+              <Text font={{ variation: FontVariation.H5 }}>
+                {getString('ce.budgets.listPage.budgetCount', {
+                  count: filteredBudgetData?.length
+                })}
+              </Text>
+            </Layout.Horizontal>
+            <Container padding="large">
+              <BudgetsList
+                navigateToBudgetDetailsPage={navigateToBudgetDetailsPage}
+                handleDeleteBudget={handleDeleteBudget}
+                handleEditBudget={handleEditBudget}
+                budgetData={filteredBudgetData}
+              />
+            </Container>
+          </>
+        )}
       </Page.Body>
     </>
   )

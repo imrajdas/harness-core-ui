@@ -61,12 +61,12 @@ import BusinessMapping from './pages/business-mapping/BusinessMapping'
 import ECSRecommendationDetailsPage from './pages/ecs-recommendation-details/ECSRecommendationDetailsPage'
 
 RbacFactory.registerResourceCategory(ResourceCategory.CLOUD_COSTS, {
-  icon: 'ci-dev-exp', // Need to change
-  label: 'common.chaosText'
+  icon: 'ccm-solid', // Need to change
+  label: 'common.purpose.ce.continuous'
 })
 
 RbacFactory.registerResourceTypeHandler(ResourceType.CCM_OVERVIEW, {
-  icon: 'ci-dev-exp', // Need to change
+  icon: 'ccm-solid', // Need to change
   label: 'overview',
   category: ResourceCategory.CLOUD_COSTS,
   permissionLabels: {
@@ -75,7 +75,7 @@ RbacFactory.registerResourceTypeHandler(ResourceType.CCM_OVERVIEW, {
 })
 
 RbacFactory.registerResourceTypeHandler(ResourceType.CCM_PERSPECTIVE, {
-  icon: 'ci-dev-exp', // Need to change
+  icon: 'ccm-solid', // Need to change
   label: 'ce.perspectives.sideNavText',
   category: ResourceCategory.CLOUD_COSTS,
   permissionLabels: {
@@ -86,7 +86,7 @@ RbacFactory.registerResourceTypeHandler(ResourceType.CCM_PERSPECTIVE, {
 })
 
 RbacFactory.registerResourceTypeHandler(ResourceType.CCM_PERSPECTIVE_FOLDERS, {
-  icon: 'ci-dev-exp', // Need to change
+  icon: 'ccm-solid', // Need to change
   label: 'ce.perspectives.folders.customFolders',
   category: ResourceCategory.CLOUD_COSTS,
   permissionLabels: {
@@ -97,7 +97,7 @@ RbacFactory.registerResourceTypeHandler(ResourceType.CCM_PERSPECTIVE_FOLDERS, {
 })
 
 RbacFactory.registerResourceTypeHandler(ResourceType.CCM_BUDGETS, {
-  icon: 'ci-dev-exp', // Need to change
+  icon: 'ccm-solid', // Need to change
   label: 'ce.budgets.sideNavText',
   category: ResourceCategory.CLOUD_COSTS,
   permissionLabels: {
@@ -108,7 +108,7 @@ RbacFactory.registerResourceTypeHandler(ResourceType.CCM_BUDGETS, {
 })
 
 RbacFactory.registerResourceTypeHandler(ResourceType.CCM_COST_CATEGORY, {
-  icon: 'ci-dev-exp', // Need to change
+  icon: 'ccm-solid', // Need to change
   label: 'ce.businessMapping.sideNavText',
   category: ResourceCategory.CLOUD_COSTS,
   permissionLabels: {

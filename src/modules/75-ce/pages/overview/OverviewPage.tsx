@@ -42,6 +42,9 @@ import { FeatureFlag } from '@common/featureFlags'
 import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
 import { useDocumentTitle } from '@common/hooks/useDocumentTitle'
 import { useStrings } from 'framework/strings'
+import useRBACError from '@rbac/utils/useRBACError/useRBACError'
+import HandleError from '@ce/components/PermissionError/PermissionError'
+import PermissionError from '@ce/images/permission-error.svg'
 import bgImage from './images/CD/overviewBg.png'
 import css from './Overview.module.scss'
 
@@ -92,6 +95,7 @@ const OverviewPage: React.FC = () => {
     to: DATE_RANGE_SHORTCUTS.LAST_30_DAYS[1].format(CE_DATE_FORMAT_INTERNAL),
     from: DATE_RANGE_SHORTCUTS.LAST_30_DAYS[0].format(CE_DATE_FORMAT_INTERNAL)
   })
+  const { getRBACErrorMessage } = useRBACError()
 
   useDocumentTitle([getString('cloudCostsText'), getString('overview')], true)
 
@@ -102,8 +106,7 @@ const OverviewPage: React.FC = () => {
       filters: [...getTimeFilters(getGMTStartDateTime(timeRange.from), getGMTEndDateTime(timeRange.to))]
     }
   })
-
-  const { data: summaryData, fetching: summaryFetching } = summaryResult
+  const { data: summaryData, fetching: summaryFetching, error: summaryError } = summaryResult
   const cloudCost = (summaryData?.perspectiveTrendStats?.cost || {}) as StatsInfo
   const forecastedCost = (summaryData?.perspectiveForecastCost?.cost || {}) as StatsInfo
 
@@ -137,72 +140,79 @@ const OverviewPage: React.FC = () => {
         content={<TimeRangePicker timeRange={timeRange} setTimeRange={setTimeRange} />}
       />
       <Page.Body>
-        <Container padding={{ top: 'medium', right: 'xlarge', bottom: 'medium', left: 'xlarge' }}>
-          <div className={css.mainContainer}>
-            <div className={css.columnOne}>
-              <div className={cx(css.summary, css.noColor)}>
-                <OverviewSummary cost={cloudCost} fetching={summaryFetching} name="TotalCost" />
-                <OverviewSummary cost={forecastedCost} fetching={summaryFetching} name="ForecastedCost" />
+        {summaryError && (
+          <Container style={{ height: 'calc(100vh - 73px)' }}>
+            <HandleError errorMsg={getRBACErrorMessage(summaryError as any)} imgSrc={PermissionError} />
+          </Container>
+        )}
+        {!summaryFetching && !summaryError && (
+          <Container padding={{ top: 'medium', right: 'xlarge', bottom: 'medium', left: 'xlarge' }}>
+            <div className={css.mainContainer}>
+              <div className={css.columnOne}>
+                <div className={cx(css.summary, css.noColor)}>
+                  <OverviewSummary cost={cloudCost} fetching={summaryFetching} name="TotalCost" />
+                  <OverviewSummary cost={forecastedCost} fetching={summaryFetching} name="ForecastedCost" />
+                </div>
+                {clusterDataPresent && (
+                  <OverviewClusterCostBreakdown
+                    timeRange={timeRange}
+                    defaultClusterPerspectiveId={defaultClusterPerspectiveId}
+                  />
+                )}
+                {!clusterDataPresent && cloudDataPresent && (
+                  <OverviewCloudCost
+                    layout={OverviewLayout.VERTICAL}
+                    timeRange={timeRange}
+                    providers={{
+                      defaultAwsPerspectiveId,
+                      defaultAzurePerspectiveId,
+                      defaultGcpPerspectiveId
+                    }}
+                  />
+                )}
+                {clusterDataPresent && cloudDataPresent && (
+                  <OverviewCloudCost
+                    layout={OverviewLayout.HORIZONTAL}
+                    timeRange={timeRange}
+                    providers={{
+                      defaultAwsPerspectiveId,
+                      defaultAzurePerspectiveId,
+                      defaultGcpPerspectiveId
+                    }}
+                  />
+                )}
+                {!cloudDataPresent && clusterDataPresent && <OverviewTopCluster timeRange={timeRange} />}
               </div>
-              {clusterDataPresent && (
-                <OverviewClusterCostBreakdown
-                  timeRange={timeRange}
-                  defaultClusterPerspectiveId={defaultClusterPerspectiveId}
-                />
-              )}
-              {!clusterDataPresent && cloudDataPresent && (
-                <OverviewCloudCost
-                  layout={OverviewLayout.VERTICAL}
-                  timeRange={timeRange}
-                  providers={{
-                    defaultAwsPerspectiveId,
-                    defaultAzurePerspectiveId,
-                    defaultGcpPerspectiveId
-                  }}
-                />
-              )}
-              {clusterDataPresent && cloudDataPresent && (
-                <OverviewCloudCost
-                  layout={OverviewLayout.HORIZONTAL}
-                  timeRange={timeRange}
-                  providers={{
-                    defaultAwsPerspectiveId,
-                    defaultAzurePerspectiveId,
-                    defaultGcpPerspectiveId
-                  }}
-                />
-              )}
-              {!cloudDataPresent && clusterDataPresent && <OverviewTopCluster timeRange={timeRange} />}
+              <div className={css.columnTwo}>
+                {sustainabilityEnabled && (
+                  <SustainabilityCard
+                    className={css.cloudEmissionCard}
+                    title={getString('ce.overview.sustainability.fromClousUsageTitle')}
+                    firstColValue={getEmissionsValue(
+                      defaultTo(Number(cloudCost?.statsValue?.substring(1).replace(/,/g, '')), 0)
+                    )}
+                    firstColText={getString('ce.overview.sustainability.tillDate')}
+                    secondColText={getString('ce.recommendation.listPage.byEOM')}
+                    secondColValue={getEmissionsValue(
+                      defaultTo(Number(forecastedCost?.statsValue?.substring(1).replace(',', '')), 0)
+                    )}
+                    fetching={summaryFetching}
+                  />
+                )}
+                <OverviewCostByProviders timeRange={timeRange} clusterDataPresent={clusterDataPresent} />
+                {clusterDataPresent && <OverviewTopRecommendations />}
+                {/* <div>PUT AUTOSTOPPING COMPONENT HERE</div> */}
+              </div>
             </div>
-            <div className={css.columnTwo}>
-              {sustainabilityEnabled && (
-                <SustainabilityCard
-                  className={css.cloudEmissionCard}
-                  title={getString('ce.overview.sustainability.fromClousUsageTitle')}
-                  firstColValue={getEmissionsValue(
-                    defaultTo(Number(cloudCost?.statsValue?.substring(1).replace(/,/g, '')), 0)
-                  )}
-                  firstColText={getString('ce.overview.sustainability.tillDate')}
-                  secondColText={getString('ce.recommendation.listPage.byEOM')}
-                  secondColValue={getEmissionsValue(
-                    defaultTo(Number(forecastedCost?.statsValue?.substring(1).replace(',', '')), 0)
-                  )}
-                  fetching={summaryFetching}
-                />
-              )}
-              <OverviewCostByProviders timeRange={timeRange} clusterDataPresent={clusterDataPresent} />
-              {clusterDataPresent && <OverviewTopRecommendations />}
-              {/* <div>PUT AUTOSTOPPING COMPONENT HERE</div> */}
-            </div>
-          </div>
-          {!clusterDataPresent && (
-            <OverviewAddCluster
-              onAddClusterSuccess={() => {
-                refetchCCMMetaData({ requestPolicy: 'network-only' })
-              }}
-            />
-          )}
-        </Container>
+            {!clusterDataPresent && (
+              <OverviewAddCluster
+                onAddClusterSuccess={() => {
+                  refetchCCMMetaData({ requestPolicy: 'network-only' })
+                }}
+              />
+            )}
+          </Container>
+        )}
       </Page.Body>
     </Container>
   )

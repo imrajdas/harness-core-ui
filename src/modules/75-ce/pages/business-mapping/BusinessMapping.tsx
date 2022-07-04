@@ -29,17 +29,21 @@ import { useDocumentTitle } from '@common/hooks/useDocumentTitle'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
 import RbacButton from '@rbac/components/Button/Button'
+import HandleError from '@ce/components/PermissionError/PermissionError'
+import useRBACError from '@rbac/utils/useRBACError/useRBACError'
+import PermissionError from '@ce/images/permission-error.svg'
 
 const BusinessMappingPage: () => React.ReactElement = () => {
   const { accountId } = useParams<AccountPathProps>()
   const { getString } = useStrings()
   const [selectedBM, setSelectedBM] = useState<BusinessMapping>({})
-  const { data, loading, refetch } = useGetBusinessMappingList({ queryParams: { accountIdentifier: accountId } })
+  const { data, loading, error, refetch } = useGetBusinessMappingList({ queryParams: { accountIdentifier: accountId } })
   const { mutate: deleteBusinessMapping, loading: deleteLoading } = useDeleteBusinessMapping({
     queryParams: { accountIdentifier: accountId }
   })
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const { showError, showSuccess } = useToaster()
+  const { getRBACErrorMessage } = useRBACError()
 
   useDocumentTitle(getString('ce.businessMapping.sideNavText'), true)
 
@@ -144,16 +148,24 @@ const BusinessMappingPage: () => React.ReactElement = () => {
     <>
       <PageHeader breadcrumbs={<NGBreadcrumbs />} title={getString('ce.businessMapping.sideNavText')} />
       <PageBody loading={loading || deleteLoading}>
-        {ToolBar}
-        <Container padding="medium">
-          {businessMappingData.length ? (
-            <Text font={{ variation: FontVariation.H5 }}>
-              {getString('ce.common.totalCount', { count: businessMappingData.length })}
-            </Text>
-          ) : null}
-          <BusinessMappingList onEdit={onEdit} handleDelete={handleDelete} data={businessMappingData} />
-        </Container>
-        {NewCostCategoryDrawer}
+        {error ? (
+          <Container style={{ height: 'calc(100vh - 73px)' }}>
+            <HandleError errorMsg={getRBACErrorMessage(error as any)} imgSrc={PermissionError} />
+          </Container>
+        ) : (
+          <>
+            {ToolBar}
+            <Container padding="medium">
+              {businessMappingData.length ? (
+                <Text font={{ variation: FontVariation.H5 }}>
+                  {getString('ce.common.totalCount', { count: businessMappingData.length })}
+                </Text>
+              ) : null}
+              <BusinessMappingList onEdit={onEdit} handleDelete={handleDelete} data={businessMappingData} />
+            </Container>
+            {NewCostCategoryDrawer}
+          </>
+        )}
       </PageBody>
     </>
   )
