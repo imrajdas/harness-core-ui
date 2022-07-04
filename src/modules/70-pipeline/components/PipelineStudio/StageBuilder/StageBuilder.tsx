@@ -9,10 +9,11 @@ import React, { useMemo } from 'react'
 import { Layout, useToaster, useConfirmationDialog } from '@wings-software/uicore'
 import { Intent } from '@harness/design-system'
 import cx from 'classnames'
-import { cloneDeep, debounce, isNil } from 'lodash-es'
+import { cloneDeep, debounce, isNil, isEmpty } from 'lodash-es'
 import type { NodeModelListener, LinkModelListener } from '@projectstorm/react-diagrams-core'
 import SplitPane from 'react-split-pane'
 import produce from 'immer'
+import { HelpPanel, HelpPanelType } from '@harness/help-panel'
 import { DynamicPopover, DynamicPopoverHandlerBinding } from '@common/components/DynamicPopover/DynamicPopover'
 import { useTelemetry } from '@common/hooks/useTelemetry'
 import { StageActions } from '@common/constants/TrackingConstants'
@@ -226,6 +227,7 @@ function StageBuilder(): JSX.Element {
     getStageFromPipeline,
     setSelection
   } = usePipelineContext()
+  const { sectionId, storeType } = useQueryParams<PipelineSelectionState>()
 
   // NOTE: we are using ref as setSelection is getting cached somewhere
   const setSelectionRef = React.useRef(setSelection)
@@ -754,6 +756,20 @@ function StageBuilder(): JSX.Element {
     })
   }, [pipeline, errorMap, templateTypes])
 
+  const referenceId = (sectionIdPassed: string | null | undefined): string => {
+    switch (sectionIdPassed) {
+      case 'SERVICE':
+        return 'ServicePipelineStudio'
+      case 'INFRASTRUCTURE':
+        return 'InfrastructurePipelineStudio'
+      case 'EXECUTION':
+        return 'ExecutionPipelineStudio'
+      case 'ADVANCED':
+        return 'AdvancedStagePipelineStudio'
+      default:
+        return 'PipelineStudio'
+    }
+  }
   return (
     <Layout.Horizontal className={cx(css.canvasContainer)} padding="medium">
       <div className={css.canvasWrapper}>
@@ -819,6 +835,9 @@ function StageBuilder(): JSX.Element {
           </div>
         </SplitPane>
       </div>
+      {!isEmpty(sectionId) || (storeType === 'INLINE' && isEmpty(sectionId)) ? (
+        <HelpPanel referenceId={referenceId(sectionId)} type={HelpPanelType.FLOATING_CONTAINER} />
+      ) : null}
     </Layout.Horizontal>
   )
 }

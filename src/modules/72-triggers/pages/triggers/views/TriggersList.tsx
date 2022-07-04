@@ -10,6 +10,7 @@ import { Button, ButtonVariation, TextInput } from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
 import { useModalHook } from '@harness/use-modal'
 import { useParams, useHistory } from 'react-router-dom'
+import { HelpPanel, HelpPanelType } from '@harness/help-panel'
 import { useStrings } from 'framework/strings'
 import { Page } from '@common/exports'
 import routes from '@common/RouteDefinitions'
@@ -28,7 +29,6 @@ import { TriggersListSection, GoToEditWizardInterface } from './TriggersListSect
 
 import { TriggerTypes } from '../utils/TriggersWizardPageUtils'
 import { getCategoryItems, ItemInterface, TriggerDataInterface } from '../utils/TriggersListUtils'
-
 import css from './TriggersList.module.scss'
 
 interface TriggersListPropsInterface {
@@ -214,6 +214,7 @@ export default function TriggersList(props: TriggersListPropsInterface & GitQuer
 
   return (
     <>
+      <HelpPanel referenceId="triggers" type={HelpPanelType.FLOATING_CONTAINER} />
       <Page.SubHeader>
         <Button
           disabled={!isEditable || incompatibleGitSyncBranch || isPipelineInvalid}

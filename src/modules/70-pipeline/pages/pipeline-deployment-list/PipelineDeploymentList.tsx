@@ -18,6 +18,7 @@ import {
   PageSpinner
 } from '@wings-software/uicore'
 import { Color, FontVariation } from '@harness/design-system'
+import { HelpPanel, HelpPanelType } from '@harness/help-panel'
 import routes from '@common/RouteDefinitions'
 import {
   useGetListOfExecutions,
@@ -57,6 +58,7 @@ import type { QueryParams, StringQueryParams, QuickStatusParam } from './types'
 import deploymentIllustrations from './images/deployments-illustrations.svg'
 import buildIllustrations from './images/builds-illustrations.svg'
 import securityTestsIllustration from './images/security-tests-illustration.svg'
+
 import css from './PipelineDeploymentList.module.scss'
 
 const pollingIntervalInMilliseconds = 5_000
@@ -511,62 +513,68 @@ export default function PipelineDeploymentList(props: PipelineDeploymentListProp
     )
   }
   return (
-    <GitSyncStoreProvider spinner={DeploymentPageSpinner}>
-      <FilterContextProvider
-        savedFilters={filters}
-        isFetchingFilters={isFetchingFilters}
-        refetchFilters={refetchFilters}
-        queryParams={queryParams}
-      >
-        <ExecutionCompareProvider>
-          {renderDeploymentListHeader({
-            pipelineExecutionSummary,
-            hasFilters,
-            onRunPipeline: props.onRunPipeline,
-            isPipelineInvalid: props.isPipelineInvalid
-          })}
-          <Page.Body
-            className={css.main}
-            key={pipelineIdentifier}
-            error={(error?.data as Error)?.message || error?.message}
-            retryOnError={() => fetchExecutions()}
-          >
-            {props.showHealthAndExecution && !isCommunityAndCDModule && (
-              <Container className={css.healthAndExecutions}>
-                <PipelineSummaryCards />
-                <PipelineBuildExecutionsChart />
-              </Container>
-            )}
-            {isInitialLoading ? (
-              <DeploymentPageSpinner />
-            ) : !pipelineExecutionSummary?.content?.length ? (
-              <NoDeployments
-                onRunPipeline={props.onRunPipeline}
-                hasFilters={hasFilters}
-                module={module}
-                getString={getString}
-                clearFilters={clearFilters}
-                runPipeline={runPipeline}
-                createPipeline={createPipeline}
-                goToPipeline={goToPipeline}
-                pipelineIdentifier={pipelineIdentifier}
-                queryParams={queryParams}
-                isPipelineInvalid={props.isPipelineInvalid}
-              />
-            ) : (
-              <React.Fragment>
-                <ExecutionsList
-                  pipelineExecutionSummary={pipelineExecutionSummary?.content}
+    <>
+      <GitSyncStoreProvider spinner={DeploymentPageSpinner}>
+        <FilterContextProvider
+          savedFilters={filters}
+          isFetchingFilters={isFetchingFilters}
+          refetchFilters={refetchFilters}
+          queryParams={queryParams}
+        >
+          <ExecutionCompareProvider>
+            {renderDeploymentListHeader({
+              pipelineExecutionSummary,
+              hasFilters,
+              onRunPipeline: props.onRunPipeline,
+              isPipelineInvalid: props.isPipelineInvalid
+            })}
+            <Page.Body
+              className={css.main}
+              key={pipelineIdentifier}
+              error={(error?.data as Error)?.message || error?.message}
+              retryOnError={() => fetchExecutions()}
+            >
+              {props.showHealthAndExecution && !isCommunityAndCDModule && (
+                <Container className={css.healthAndExecutions}>
+                  <PipelineSummaryCards />
+                  <PipelineBuildExecutionsChart />
+                </Container>
+              )}
+              {isInitialLoading ? (
+                <DeploymentPageSpinner />
+              ) : !pipelineExecutionSummary?.content?.length ? (
+                <NoDeployments
+                  onRunPipeline={props.onRunPipeline}
+                  hasFilters={hasFilters}
+                  module={module}
+                  getString={getString}
+                  clearFilters={clearFilters}
+                  runPipeline={runPipeline}
+                  createPipeline={createPipeline}
+                  goToPipeline={goToPipeline}
+                  pipelineIdentifier={pipelineIdentifier}
+                  queryParams={queryParams}
                   isPipelineInvalid={props.isPipelineInvalid}
-                  onViewCompiledYaml={executionSummary => setViewCompiledYaml(executionSummary)}
                 />
-                <ExecutionsPagination pipelineExecutionSummary={pipelineExecutionSummary} />
-              </React.Fragment>
-            )}
-            <ExecutionCompiledYaml onClose={() => setViewCompiledYaml(undefined)} executionSummary={viewCompiledYaml} />
-          </Page.Body>
-        </ExecutionCompareProvider>
-      </FilterContextProvider>
-    </GitSyncStoreProvider>
+              ) : (
+                <React.Fragment>
+                  <ExecutionsList
+                    pipelineExecutionSummary={pipelineExecutionSummary?.content}
+                    isPipelineInvalid={props.isPipelineInvalid}
+                    onViewCompiledYaml={executionSummary => setViewCompiledYaml(executionSummary)}
+                  />
+                  <ExecutionsPagination pipelineExecutionSummary={pipelineExecutionSummary} />
+                </React.Fragment>
+              )}
+              <ExecutionCompiledYaml
+                onClose={() => setViewCompiledYaml(undefined)}
+                executionSummary={viewCompiledYaml}
+              />
+            </Page.Body>
+          </ExecutionCompareProvider>
+        </FilterContextProvider>
+      </GitSyncStoreProvider>
+      <HelpPanel referenceId="ExecutionHistory" type={HelpPanelType.FLOATING_CONTAINER} />
+    </>
   )
 }
