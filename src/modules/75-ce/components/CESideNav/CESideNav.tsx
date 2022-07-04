@@ -172,6 +172,10 @@ const SideNavItems = () => {
         <NavExpandable title={getString('common.setup')} route={routes.toCECOAccessPoints({ accountId })}>
           <Layout.Vertical spacing="small">
             <SidebarLink
+              label={getString('ce.cloudIntegration.sideNavText')}
+              to={routes.toCECloudIntegration({ accountId })}
+            />
+            <SidebarLink
               label={getString('ce.co.accessPoint.loadbalancers')}
               to={routes.toCECOAccessPoints({ accountId })}
             />

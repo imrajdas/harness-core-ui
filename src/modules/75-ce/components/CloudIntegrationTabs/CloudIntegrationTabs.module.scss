@@ -1,0 +1,95 @@
+/*
+ * Copyright 2022 Harness Inc. All rights reserved.
+ * Use of this source code is governed by the PolyForm Shield 1.0.0 license
+ * that can be found in the licenses directory at the root of this repository, also available at
+ * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
+ */
+
+.main {
+  padding: var(--spacing-xlarge) var(--spacing-xxxlarge) !important;
+
+  .banner {
+    align-items: center;
+    padding: var(--spacing-large) var(--spacing-xlarge);
+    background: var(--primary-1);
+    border: 0.5px solid var(--primary-4);
+    border-radius: 4px;
+
+    .enableBtn {
+      min-width: 270px;
+    }
+  }
+
+  .table {
+    .nameCell {
+      flex: 1;
+      color: var(--primary-7);
+      cursor: pointer;
+      padding-right: var(--spacing-medium);
+    }
+
+    .statusCell {
+      display: grid;
+      grid-template-columns: 120px 60px;
+
+      .testBtn {
+        align-self: center;
+        border-radius: 50px;
+      }
+    }
+
+    .permissionTag {
+      padding: 6px var(--spacing-small);
+      margin-right: var(--spacing-small);
+      background: var(--purple-50);
+      color: var(--purple-700);
+      font-size: 13px;
+      font-weight: 400;
+      border-radius: 4px;
+    }
+
+    .enableCloudCostsBtn,
+    .addAutoStoppingBtn {
+      padding: 6px var(--spacing-small);
+      border: 1px solid var(--primary-7);
+      background-color: var(--primary-1);
+      color: var(--primary-7);
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .enableCloudCostsBtn {
+      padding: 6px var(--spacing-medium);
+      font-weight: 600;
+
+      span[class*='bp3-icon'] {
+        path {
+          fill: var(--primary-7);
+        }
+      }
+    }
+  }
+}
+
+.enableCloudCostsDialog {
+  width: 720px;
+
+  .dialogContainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .dialogImg {
+    height: 150px;
+    margin: var(--spacing-medium);
+  }
+}
+
+.spinner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

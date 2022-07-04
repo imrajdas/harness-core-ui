@@ -1126,3 +1126,32 @@ businessMapping:
     lastEdit: Last Edit
     unallocated: Unallocated
   costCategory: Cost Category
+cloudIntegration:
+  sideNavText: Cloud Integration
+  k8sClusters: Kubernetes Clusters
+  cloudAccounts: Cloud Accounts
+  connectorStatus: Connector Status
+  featuresEnabled: Features Enabled
+  clusterPermissions: Cluster Permissions
+  reporting: Reporting
+  enableCloudCosts: Enable Cloud Costs
+  banner: You have created 4 cluster connectors for different modules at Harness. In order to use them for Cloud Cost Management, you will have to Enable Cost Data Collection on them. Henceforth you will be prompted to Enable Cost Data Collection for every connector you create.
+  enableCostDataCollection: Enable Cost Data Collection
+  enableCloudCostDialog:
+    title: Enable Cloud Costs on this Cluster?
+    desc: This will start collecting Cloud Cost data for Cloud Cost Management. You can also do it later in the Cloud Integration section there. Enabling now will start showing cost data for this cluster in about an hour.
+    content:
+      header: This gives you,
+      feat1: Costs by pods, nodes, namespaces, workloads
+      feat2: Idle and unallocated cluster costs
+      feat3: '{{ $.connectors.ceAzure.chooseRequirements.visibility.feat3 }}'
+      feat4: Workload recommendations
+      feat5: Node recommendations
+      feat6: Budgets and alerts
+  costVisibilityDialog:
+    step1:
+      title: Enable Cost Visibility
+      desc: By enabling Cost Visibility, you are allowing the connector $connector-name to collect cost data.
+      enableAutoStopping: Enable AutoStopping
+    step2:
+      title: Enable AutoStopping (optional)

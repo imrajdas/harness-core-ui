@@ -55,6 +55,7 @@ import AnomaliesOverviewPage from './pages/anomalies-overview/AnomaliesOverviewP
 import formatCost from './utils/formatCost'
 import BusinessMapping from './pages/business-mapping/BusinessMapping'
 import ECSRecommendationDetailsPage from './pages/ecs-recommendation-details/ECSRecommendationDetailsPage'
+import CloudIntegrationPage from './pages/cloud-integration/CloudIntegrationPage'
 
 featureFactory.registerFeaturesByModule('ce', {
   features: [FeatureIdentifier.PERSPECTIVES],
@@ -552,7 +553,14 @@ const CERoutes: React.FC = () => {
         >
           <BusinessMapping />
         </RouteWithLayout>
-
+        <RouteWithLayout
+          licenseRedirectData={licenseRedirectData}
+          sidebarProps={CESideNavProps}
+          path={routes.toCECloudIntegration({ ...accountPathProps })}
+          exact
+        >
+          <CloudIntegrationPage />
+        </RouteWithLayout>
         <RouteWithLayout
           licenseRedirectData={licenseRedirectData}
           sidebarProps={CESideNavProps}
