@@ -2,6 +2,7 @@
 
 exports[`Input Set List tests render Input Set List view 1`] = `
 <div>
+  Help Panel
   <div
     class="Layout--horizontal StyledProps--main PageSubHeader--container StyledProps--flex"
   >

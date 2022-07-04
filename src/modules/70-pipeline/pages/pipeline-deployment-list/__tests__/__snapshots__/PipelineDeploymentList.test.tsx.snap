@@ -1475,5 +1475,6 @@ exports[`Test Pipeline Deployment list should render deployment list 1`] = `
       </div>
     </div>
   </div>
+  Help Panel
 </div>
 `;

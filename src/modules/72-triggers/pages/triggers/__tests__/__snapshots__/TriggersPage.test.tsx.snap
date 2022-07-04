@@ -4,6 +4,7 @@ exports[`TriggersPage Triggers tests Renders/snapshots Initial Render - Shows Tr
 <body>
   <div />
   <div>
+    Help Panel
     <div
       class="Layout--horizontal StyledProps--main PageSubHeader--container StyledProps--flex"
     >

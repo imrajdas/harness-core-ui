@@ -671,5 +671,6 @@ exports[`<CDPipelineDeploymentList /> tests snapshot test 1`] = `
       </div>
     </div>
   </div>
+  Help Panel
 </div>
 `;
