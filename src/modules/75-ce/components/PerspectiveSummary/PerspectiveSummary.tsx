@@ -324,26 +324,13 @@ const BudgetCardsCarousel: () => JSX.Element | null = () => {
                 source: PAGE_NAMES.PERSPECTIVE_DETAILS_PAGE
               })
             }}
-          />
-          {/* <Text
-            className={css.addBudgetText}
-            color="primary7"
-            font="small"
-            onClick={() => {
-              openModal({
-                isEdit: false,
-                perspectiveName: perspectiveName,
-                perspective: perspectiveId,
-                selectedBudget: {
-                  lastMonthCost: lmc?.data,
-                  forecastCost: fc?.data
-                },
-                source: PAGE_NAMES.PERSPECTIVE_DETAILS_PAGE
-              })
+            permission={{
+              permission: PermissionIdentifier.EDIT_CCM_BUDGET,
+              resource: {
+                resourceType: ResourceType.CCM_BUDGETS
+              }
             }}
-          >
-            {getString('ce.perspectives.budgets.addBudget')}
-          </Text> */}
+          />
         </Container>
       </Card>
     )
