@@ -53,14 +53,20 @@ const DashboardViewPage: React.FC = () => {
   }, [viewId])
 
   React.useEffect(() => {
-    window.addEventListener('message', function (event) {
+    const lookerEventHandler = (event: MessageEvent<string>): void => {
       if (event.origin === DASHBOARDS_ORIGIN) {
         const onChangeData = JSON.parse(event.data)
         if (onChangeData && onChangeData.type === 'page:changed' && onChangeData.page?.url?.includes('embed/explore')) {
           history.go(0)
         }
       }
-    })
+    }
+
+    window.addEventListener('message', lookerEventHandler)
+
+    return () => {
+      window.removeEventListener('message', lookerEventHandler)
+    }
   }, [])
 
   const { data: folderDetail } = useGetFolderDetail({ queryParams: { accountId, folderId } })
