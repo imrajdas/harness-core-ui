@@ -6,26 +6,25 @@
  */
 
 import React, { useState } from 'react'
-import { Button, ButtonSize, ButtonVariation, Layout, Text } from '@harness/uicore'
+import { Button, ButtonSize, ButtonVariation, Icon, Layout, Text } from '@harness/uicore'
 import { Color, FontVariation } from '@harness/design-system'
 import { useStrings } from 'framework/strings'
 
 import { useEnableCloudCostsDialog } from './EnableCloudCostsDialog'
 
-import enableCloudCostImg from './images/enabe-cloud-cost-data.svg'
-
 import css from './CloudIntegrationTabs.module.scss'
 
 interface Props {
   isEnabled: boolean
+  noOfClusters: number
 }
 
-const CostDataCollectionBanner: React.FC<Props> = ({ isEnabled }) => {
+const CostDataCollectionBanner: React.FC<Props> = ({ isEnabled, noOfClusters }) => {
   const { getString } = useStrings()
 
   const [isBannerDismissed, setIsBannerDismissed] = useState(false)
 
-  const [openDialog] = useEnableCloudCostsDialog()
+  const [openDialog] = useEnableCloudCostsDialog({ noOfClusters })
 
   if (!isEnabled || isBannerDismissed) {
     return <></>
@@ -33,9 +32,9 @@ const CostDataCollectionBanner: React.FC<Props> = ({ isEnabled }) => {
 
   return (
     <Layout.Horizontal spacing={'large'} className={css.banner}>
-      <img src={enableCloudCostImg} />
+      <Icon name={'cost-data-collection'} size={60} />
       <Text font={{ variation: FontVariation.BODY }} color={Color.GREY_1000}>
-        {getString('ce.cloudIntegration.banner')}
+        {getString('ce.cloudIntegration.banner', { noOfClusters })}
       </Text>
       <Button
         icon="ccm-solid"

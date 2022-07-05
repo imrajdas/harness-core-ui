@@ -6,11 +6,22 @@
  */
 
 .tabs {
+  height: 100%;
+
   :global {
+    .bp3-tabs {
+      height: 100%;
+    }
+
     .bp3-tab-list {
       background-color: var(--white);
-      padding: var(--spacing-small) var(--spacing-medium) 0 var(--spacing-medium);
+      padding: var(--spacing-xsmall) var(--spacing-medium) 0 var(--spacing-medium);
       border-bottom: 1px solid var(--grey-200);
+    }
+
+    .bp3-tab-panel {
+      margin-top: 0px;
+      height: calc(100% - 43px);
     }
   }
 }

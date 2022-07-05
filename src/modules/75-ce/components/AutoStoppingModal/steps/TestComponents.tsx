@@ -7,8 +7,12 @@
 
 import React from 'react'
 
-const Overview = () => {
-  return <div>Overview</div>
+interface TestComponentsProps {
+  name: string
 }
 
-export default Overview
+const TestComponents: React.FC<TestComponentsProps> = () => {
+  return <div>TestComponents</div>
+}
+
+export default TestComponents

@@ -1,7 +1,7 @@
 /*
  * Copyright 2022 Harness Inc. All rights reserved.
  * Use of this source code is governed by the PolyForm Shield 1.0.0 license
- * that can be found in the licenses directory at the root of this repository, also available at
+ * that can be found in the licenses directory at the royot of this repository, also available at
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
@@ -14,7 +14,6 @@ import { NGBreadcrumbs } from '@common/components/NGBreadcrumbs/NGBreadcrumbs'
 import K8sClustersTab from '@ce/components/CloudIntegrationTabs/K8sClustersTab'
 import CloudAccountsTab from '@ce/components/CloudIntegrationTabs/CloudAccountsTab'
 
-import cloudAccountsIcon from './images/cloudAccounts.svg'
 import css from './CloudIntegrationPage.module.scss'
 
 const CloudIntegrationPage: React.FC = () => {
@@ -44,12 +43,13 @@ const CloudIntegrationPage: React.FC = () => {
               id={'cloudAccountsTab'}
               panel={<CloudAccountsTab />}
               title={
-                <>
-                  <img src={cloudAccountsIcon} />
-                  <Text padding={{ left: 'small' }} font={{ variation: FontVariation.H6 }}>
-                    {getString('ce.cloudIntegration.cloudAccounts')}
-                  </Text>
-                </>
+                <Text
+                  icon="cloud-accounts"
+                  iconProps={{ padding: { right: 'small' } }}
+                  font={{ variation: FontVariation.H6 }}
+                >
+                  {getString('ce.cloudIntegration.cloudAccounts')}
+                </Text>
               }
             />
           </Tabs>

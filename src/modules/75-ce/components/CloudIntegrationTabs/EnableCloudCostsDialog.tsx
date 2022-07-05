@@ -6,18 +6,16 @@
  */
 
 import React, { useMemo } from 'react'
-import { Button, ButtonVariation, Container, Dialog, Layout, Text } from '@harness/uicore'
+import { Button, ButtonVariation, Dialog, Icon, Layout, Text } from '@harness/uicore'
 import { Color, FontVariation } from '@harness/design-system'
 import { useModalHook } from '@harness/use-modal'
 
 import { useStrings } from 'framework/strings'
 import type { StringsMap } from 'stringTypes'
 
-import enableCloudCostImg from './images/enabe-cloud-cost-data.svg'
-
 import css from './CloudIntegrationTabs.module.scss'
 
-export const useEnableCloudCostsDialog = () => {
+export const useEnableCloudCostsDialog = ({ noOfClusters }: { noOfClusters: number }) => {
   const { getString } = useStrings()
 
   const features: (keyof StringsMap)[] = useMemo(
@@ -32,34 +30,37 @@ export const useEnableCloudCostsDialog = () => {
     []
   )
 
-  const [openDialog, closeDialog] = useModalHook(() => (
-    <Dialog
-      isOpen
-      enforceFocus={false}
-      onClose={closeDialog}
-      title={getString('ce.cloudIntegration.enableCloudCostDialog.title')}
-      className={css.enableCloudCostsDialog}
-    >
-      <Container className={css.dialogContainer}>
-        <Layout.Vertical spacing={'xlarge'} width={500}>
+  const [openDialog, closeDialog] = useModalHook(
+    () => (
+      <Dialog
+        isOpen
+        enforceFocus={false}
+        onClose={closeDialog}
+        title={getString('ce.cloudIntegration.enableCloudCostDialog.title', { noOfClusters })}
+        className={css.enableCloudCostsDialog}
+      >
+        <Layout.Vertical spacing={'xlarge'}>
           <Text color={Color.GREY_800} font={{ variation: FontVariation.BODY }}>
             {getString('ce.cloudIntegration.enableCloudCostDialog.desc')}
           </Text>
-          <div>
-            <Text color={Color.GREY_800} font={{ variation: FontVariation.BODY2 }} margin={{ bottom: 'small' }}>
-              {getString('ce.cloudIntegration.enableCloudCostDialog.content.header')}
-            </Text>
-            {features.map(feature => (
-              <Text
-                key={feature}
-                color={Color.GREY_800}
-                font={{ variation: FontVariation.BODY }}
-                icon="tick"
-                iconProps={{ size: 12, color: Color.GREEN_700, margin: { right: 'small' } }}
-              >
-                {getString(feature)}
+          <div className={css.content}>
+            <div>
+              <Text color={Color.GREY_800} font={{ variation: FontVariation.BODY2 }} margin={{ bottom: 'small' }}>
+                {getString('ce.cloudIntegration.enableCloudCostDialog.content.header')}
               </Text>
-            ))}
+              {features.map(feature => (
+                <Text
+                  key={feature}
+                  color={Color.GREY_800}
+                  font={{ variation: FontVariation.BODY }}
+                  icon="tick"
+                  iconProps={{ size: 12, color: Color.GREEN_700, margin: { right: 'small' } }}
+                >
+                  {getString(feature)}
+                </Text>
+              ))}
+            </div>
+            <Icon name="cost-data-collection" size={150} margin={{ right: 'medium' }} />
           </div>
           <div>
             <Button
@@ -71,10 +72,10 @@ export const useEnableCloudCostsDialog = () => {
             <Button text={getString('cancel')} width={90} variation={ButtonVariation.TERTIARY} onClick={closeDialog} />
           </div>
         </Layout.Vertical>
-        <img src={enableCloudCostImg} className={css.dialogImg} />
-      </Container>
-    </Dialog>
-  ))
+      </Dialog>
+    ),
+    [noOfClusters]
+  )
 
   return [openDialog, closeDialog]
 }

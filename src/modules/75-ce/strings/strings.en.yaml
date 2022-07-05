@@ -1135,10 +1135,11 @@ cloudIntegration:
   clusterPermissions: Cluster Permissions
   reporting: Reporting
   enableCloudCosts: Enable Cloud Costs
-  banner: You have created 4 cluster connectors for different modules at Harness. In order to use them for Cloud Cost Management, you will have to Enable Cost Data Collection on them. Henceforth you will be prompted to Enable Cost Data Collection for every connector you create.
+  banner: You have created {{ noOfClusters }} cluster connectors for different modules at Harness. In order to use them for Cloud Cost Management, you will have to Enable Cost Data Collection on them. Henceforth you will be prompted to Enable Cost Data Collection for every connector you create.
   enableCostDataCollection: Enable Cost Data Collection
+  enableAutoStopping: Enable AutoStopping
   enableCloudCostDialog:
-    title: Enable Cloud Costs on this Cluster?
+    title: Enable Cloud Costs on the {{ noOfClusters }} Clusters for Cloud Cost Management?
     desc: This will start collecting Cloud Cost data for Cloud Cost Management. You can also do it later in the Cloud Integration section there. Enabling now will start showing cost data for this cluster in about an hour.
     content:
       header: This gives you,
@@ -1150,8 +1151,18 @@ cloudIntegration:
       feat6: Budgets and alerts
   costVisibilityDialog:
     step1:
-      title: Enable Cost Visibility
-      desc: By enabling Cost Visibility, you are allowing the connector $connector-name to collect cost data.
-      enableAutoStopping: Enable AutoStopping
+      title: Enable Cost Reporting
+      desc: By enabling Cost Reporting, you are allowing the connector {{ connectorName }} to collect cost data.
+      step1: Checking for Delegate heartbeat
+      step2: Checking for metrics server
+      step3: Checking for <a target="_blank" href="https://ngdocs.harness.io/article/ltt65r6k39-set-up-cost-visibility-for-kubernetes#prerequisites">required permissions<a/>
     step2:
       title: Enable AutoStopping (optional)
+  viewCosts: View costs
+  autoStoppingModal:
+    createSecret:
+      title: '{{ $.secrets.createSecret }}'
+    installComponents:
+      title: Install Components
+    testComponents:
+      title: Test Components

@@ -8,9 +8,7 @@
 // this is an auto-generated file, do not update this manually
 declare const styles: {
   readonly crossIcon: string
-  readonly errorContainer: string
   readonly modal: string
   readonly stepWizard: string
-  readonly steps: string
 }
 export default styles

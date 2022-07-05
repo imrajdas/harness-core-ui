@@ -4241,14 +4241,20 @@ export interface StringsMap {
   'ce.ceTrialHomePage.modal.welcome': string
   'ce.ceTrialHomePage.startTrial.description': string
   'ce.ceTrialHomePage.startTrial.startBtn.description': string
+  'ce.cloudIntegration.autoStoppingModal.createSecret.title': string
+  'ce.cloudIntegration.autoStoppingModal.installComponents.title': string
+  'ce.cloudIntegration.autoStoppingModal.testComponents.title': string
   'ce.cloudIntegration.banner': string
   'ce.cloudIntegration.cloudAccounts': string
   'ce.cloudIntegration.clusterPermissions': string
   'ce.cloudIntegration.connectorStatus': string
   'ce.cloudIntegration.costVisibilityDialog.step1.desc': string
-  'ce.cloudIntegration.costVisibilityDialog.step1.enableAutoStopping': string
+  'ce.cloudIntegration.costVisibilityDialog.step1.step1': string
+  'ce.cloudIntegration.costVisibilityDialog.step1.step2': string
+  'ce.cloudIntegration.costVisibilityDialog.step1.step3': string
   'ce.cloudIntegration.costVisibilityDialog.step1.title': string
   'ce.cloudIntegration.costVisibilityDialog.step2.title': string
+  'ce.cloudIntegration.enableAutoStopping': string
   'ce.cloudIntegration.enableCloudCostDialog.content.feat1': string
   'ce.cloudIntegration.enableCloudCostDialog.content.feat2': string
   'ce.cloudIntegration.enableCloudCostDialog.content.feat3': string
@@ -4264,6 +4270,7 @@ export interface StringsMap {
   'ce.cloudIntegration.k8sClusters': string
   'ce.cloudIntegration.reporting': string
   'ce.cloudIntegration.sideNavText': string
+  'ce.cloudIntegration.viewCosts': string
   'ce.co.accessPoint.ap': string
   'ce.co.accessPoint.aps': string
   'ce.co.accessPoint.asssociatedRules': string

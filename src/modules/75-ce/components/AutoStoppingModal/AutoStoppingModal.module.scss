@@ -24,18 +24,3 @@
     top: var(--spacing-small);
   }
 }
-
-.steps {
-  height: 100%;
-
-  [data-icon='steps-spinner'] {
-    margin-top: var(--spacing-1);
-    margin-bottom: var(--spacing-1);
-    color: var(--primary-7) !important;
-  }
-
-  .errorContainer {
-    margin-top: var(--spacing-medium);
-    width: 645px;
-  }
-}

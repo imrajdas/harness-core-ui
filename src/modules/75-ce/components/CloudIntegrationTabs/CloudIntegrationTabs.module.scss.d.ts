@@ -9,14 +9,14 @@
 declare const styles: {
   readonly addAutoStoppingBtn: string
   readonly banner: string
-  readonly dialogContainer: string
-  readonly dialogImg: string
+  readonly content: string
   readonly enableBtn: string
   readonly enableCloudCostsBtn: string
   readonly enableCloudCostsDialog: string
   readonly main: string
   readonly nameCell: string
   readonly permissionTag: string
+  readonly search: string
   readonly spinner: string
   readonly statusCell: string
   readonly table: string

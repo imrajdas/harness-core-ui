@@ -5,19 +5,41 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useEffect, useMemo, useState } from 'react'
-import { Button, ButtonSize, ButtonVariation, Container, IconName, Layout, TableV2, Text } from '@harness/uicore'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import {
+  Button,
+  ButtonSize,
+  ButtonVariation,
+  Container,
+  ExpandingSearchInput,
+  FlexExpander,
+  IconName,
+  Layout,
+  TableV2,
+  Text
+} from '@harness/uicore'
 import { Color, FontVariation } from '@harness/design-system'
-import { Spinner } from '@blueprintjs/core'
+import { Classes, Menu, Popover, Spinner } from '@blueprintjs/core'
 import { useHistory, useParams } from 'react-router-dom'
+import qs from 'qs'
 import type { CellProps, Column, Renderer } from 'react-table'
+import { debounce } from 'lodash-es'
 import ReactTimeago from 'react-timeago'
 
 import routes from '@common/RouteDefinitions'
+import RbacButton from '@rbac/components/Button/Button'
+import useCreateConnectorModal from '@connectors/modals/ConnectorModal/useCreateConnectorModal'
 import { useStrings } from 'framework/strings'
-import { ConnectorResponse, PageConnectorResponse, useGetConnectorListV2 } from 'services/cd-ng'
+import { ConnectorInfoDTO, ConnectorResponse, PageConnectorResponse, useGetConnectorListV2 } from 'services/cd-ng'
+import { useFetchCcmMetaDataQuery } from 'services/ce/services'
+import { generateFilters } from '@ce/utils/anomaliesUtils'
+import { GROUP_BY_CLUSTER_NAME } from '@ce/utils/perspectiveUtils'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import type { CloudProvider } from '@ce/types'
 
 import { useCloudVisibilityModal } from '../CloudVisibilityModal/CloudVisibilityModal'
+import { useAutoStoppingModal } from '../AutoStoppingModal/AutoStoppingModal'
 import CostDataCollectionBanner from './CostDataCollectionBanner'
 
 import css from './CloudIntegrationTabs.module.scss'
@@ -78,9 +100,10 @@ const ConnectorStatusCell: CustomCell = cell => {
 
 const FeaturesEnabledCell: CustomCell = cell => {
   const { getString } = useStrings()
+  const connector = (cell.row.original?.connector || {}) as ConnectorInfoDTO
   const permissions = (cell.row.original?.connector?.spec?.featuresEnabled || []) as string[]
 
-  const isVisibilityEnabled = permissions.includes('VISIBILITY')
+  const isReportingEnabled = permissions.includes('VISIBILITY')
   const isAutoStoppingEnabled = permissions.includes('OPTIMIZATION')
 
   const iconProps: { icon: IconName; iconProps: { size: number; color: Color } } = {
@@ -88,52 +111,85 @@ const FeaturesEnabledCell: CustomCell = cell => {
     iconProps: { size: 12, color: Color.PURPLE_700 }
   }
 
-  const [openModal] = useCloudVisibilityModal()
+  const [openCloudVisibilityModal] = useCloudVisibilityModal({ connector })
+  const [openAutoStoppingModal] = useAutoStoppingModal()
 
   return (
     <Layout.Horizontal>
-      {!isVisibilityEnabled && !isAutoStoppingEnabled ? (
+      {!isReportingEnabled && !isAutoStoppingEnabled ? (
         <Text
           icon="ccm-solid"
           iconProps={{ size: 18 }}
           className={css.enableCloudCostsBtn}
           onClick={e => {
             e.stopPropagation()
-            openModal()
+            openCloudVisibilityModal()
           }}
         >
           {getString('ce.cloudIntegration.enableCloudCosts')}
         </Text>
       ) : (
         <>
-          {isVisibilityEnabled ? (
+          {isReportingEnabled ? (
             <Text {...iconProps} className={css.permissionTag}>
               {getString('ce.cloudIntegration.reporting')}
             </Text>
           ) : null}
+          {/* TODO - Reporting Popover */}
           {isAutoStoppingEnabled ? (
             <Text {...iconProps} className={css.permissionTag}>
               {getString('common.ce.autostopping')}
             </Text>
           ) : (
-            <Text icon="plus" iconProps={{ size: 12, color: Color.PRIMARY_7 }} className={css.addAutoStoppingBtn}>
+            <Text
+              icon="plus"
+              iconProps={{ size: 12, color: Color.PRIMARY_7 }}
+              className={css.addAutoStoppingBtn}
+              onClick={e => {
+                e.stopPropagation()
+                openAutoStoppingModal()
+              }}
+            >
               {getString('common.ce.autostopping')}
             </Text>
           )}
+          {/* TODO - AutoStopping Popover */}
         </>
       )}
     </Layout.Horizontal>
   )
 }
 
-const LastUpdatedCell: CustomCell = cell => {
-  const data = cell.row.original
+const MenuCell: CustomCell = () => {
+  const { getString } = useStrings()
 
-  return data.lastModifiedAt ? (
-    <Text font={{ variation: FontVariation.BODY }} color={Color.GREY_800}>
-      <ReactTimeago date={data.lastModifiedAt} />
-    </Text>
-  ) : null
+  // const data = cell.row.original.status
+
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  return (
+    <Popover
+      isOpen={menuOpen}
+      className={Classes.DARK}
+      interactionKind={'click'}
+      onInteraction={nextOpenState => {
+        setMenuOpen(nextOpenState)
+      }}
+    >
+      <Button
+        minimal
+        icon="Options"
+        onClick={e => {
+          e.stopPropagation()
+          setMenuOpen(true)
+        }}
+      />
+      <Menu style={{ minWidth: 'unset' }}>
+        <Menu.Item icon="edit" text={getString('edit')} />
+        <Menu.Item icon="trash" text={getString('delete')} />
+      </Menu>
+    </Popover>
+  )
 }
 
 const K8sClustersTab: React.FC = () => {
@@ -143,9 +199,14 @@ const K8sClustersTab: React.FC = () => {
 
   const [k8sClusters, setK8sClusters] = useState<PageConnectorResponse>()
   const [page, setPage] = useState(0)
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const [ccmMetaResult] = useFetchCcmMetaDataQuery()
+  const { data: ccmMetaDataRes, fetching: fetchingCCMMetaData } = ccmMetaResult
 
   const { loading, mutate: fetchConnectors } = useGetConnectorListV2({
     queryParams: {
+      searchTerm,
       pageIndex: page,
       pageSize: 10,
       accountIdentifier: accountId
@@ -155,7 +216,10 @@ const K8sClustersTab: React.FC = () => {
   const getK8sConnectors = async () => {
     const { data: connectorResponse } = await fetchConnectors({
       filterType: 'Connector',
-      types: ['K8sCluster']
+      /**
+       * CEK8sCluster For Testing
+       */
+      types: ['K8sCluster', 'CEK8sCluster']
     })
 
     setK8sClusters(connectorResponse)
@@ -163,7 +227,44 @@ const K8sClustersTab: React.FC = () => {
 
   useEffect(() => {
     getK8sConnectors()
-  }, [page])
+  }, [page, searchTerm])
+
+  const cloudProvider = 'CLUSTER' as CloudProvider
+  const defaultClusterPerspectiveId = ccmMetaDataRes?.ccmMetaData?.defaultClusterPerspectiveId as string
+
+  const ViewCostsCell: CustomCell = cell => {
+    const connector = cell.row.original.connector
+    const connectorName = connector?.name || ''
+    const isReportingEnabled = connector?.spec?.featuresEnabled?.includes('VISIBILITY')
+
+    const perspectiveLink = useMemo(
+      () => ({
+        pathname: routes.toPerspectiveDetails({
+          accountId: accountId,
+          perspectiveId: defaultClusterPerspectiveId,
+          perspectiveName: defaultClusterPerspectiveId
+        }),
+        search: `?${qs.stringify({
+          filters: JSON.stringify(generateFilters({ clusterName: connectorName }, cloudProvider)),
+          groupBy: JSON.stringify(GROUP_BY_CLUSTER_NAME)
+        })}`
+      }),
+      []
+    )
+
+    return isReportingEnabled ? (
+      <Button
+        variation={ButtonVariation.LINK}
+        rightIcon="launch"
+        iconProps={{ size: 12, color: Color.PRIMARY_7 }}
+        text={getString('ce.cloudIntegration.viewCosts')}
+        onClick={e => {
+          e.stopPropagation()
+          history.push(perspectiveLink)
+        }}
+      />
+    ) : null
+  }
 
   const columns = useMemo(
     () => [
@@ -186,43 +287,85 @@ const K8sClustersTab: React.FC = () => {
         width: '40%'
       },
       {
-        accessor: 'lastModifiedAt',
-        Header: getString('lastUpdated'),
-        Cell: LastUpdatedCell,
+        accessor: 'viewCosts',
+        Header: '',
+        Cell: ViewCostsCell,
         width: '15%'
+      },
+      {
+        accessor: 'menu',
+        Header: '',
+        Cell: MenuCell,
+        width: '5%'
       }
     ],
+    [defaultClusterPerspectiveId]
+  )
+
+  const showCostCollectionBanner = !k8sClusters?.content?.some(
+    item => item.connector?.spec?.featuresEnabled?.length > 0
+  )
+
+  const debouncedSearch = useCallback(
+    debounce((text: string) => setSearchTerm(text), 500),
     []
   )
 
-  const showCostCollectionBanner = k8sClusters?.content?.some(item => item.connector?.spec?.featuresEnabled?.length > 0)
+  const { openConnectorModal } = useCreateConnectorModal({
+    onSuccess: getK8sConnectors
+  })
 
-  if (loading) {
-    return (
-      <Container className={css.spinner}>
-        <Spinner />
-      </Container>
-    )
-  }
+  const isLoading = loading || fetchingCCMMetaData
 
   return (
     <Container className={css.main}>
-      {showCostCollectionBanner ? <CostDataCollectionBanner isEnabled={true} /> : null}
-      <TableV2<ConnectorResponse>
-        data={k8sClusters?.content || []}
-        columns={columns as CustomColumn}
-        className={css.table}
-        onRowClick={({ connector }) =>
-          history.push(routes.toConnectorDetails({ accountId, connectorId: connector?.identifier }))
-        }
-        pagination={{
-          itemCount: k8sClusters?.totalItems || 0,
-          pageSize: k8sClusters?.pageSize || 10,
-          pageCount: k8sClusters?.totalPages || -1,
-          pageIndex: k8sClusters?.pageIndex || 0,
-          gotoPage: pageNo => setPage(pageNo)
-        }}
-      />
+      {showCostCollectionBanner ? (
+        <CostDataCollectionBanner isEnabled={true} noOfClusters={k8sClusters?.totalItems || 0} />
+      ) : null}
+      <Layout.Horizontal margin={{ bottom: 'small' }}>
+        <RbacButton
+          variation={ButtonVariation.PRIMARY}
+          text={getString('newConnector')}
+          icon="plus"
+          permission={{
+            permission: PermissionIdentifier.UPDATE_CONNECTOR,
+            resource: {
+              resourceType: ResourceType.CONNECTOR
+            }
+          }}
+          onClick={() => openConnectorModal(false, 'K8sCluster', undefined)}
+          id="newConnectorBtn"
+          data-test="newConnectorButton"
+        />
+        <FlexExpander />
+        <ExpandingSearchInput
+          placeholder={getString('search')}
+          onChange={text => debouncedSearch(text)}
+          className={css.search}
+        />
+        {/* TODO - Quick Filters / Filter Panel */}
+      </Layout.Horizontal>
+      {!isLoading ? (
+        <TableV2<ConnectorResponse>
+          data={k8sClusters?.content || []}
+          columns={columns as CustomColumn}
+          className={css.table}
+          onRowClick={({ connector }) =>
+            history.push(routes.toConnectorDetails({ accountId, connectorId: connector?.identifier }))
+          }
+          pagination={{
+            itemCount: k8sClusters?.totalItems || 0,
+            pageSize: k8sClusters?.pageSize || 10,
+            pageCount: k8sClusters?.totalPages || -1,
+            pageIndex: k8sClusters?.pageIndex || 0,
+            gotoPage: pageNo => setPage(pageNo)
+          }}
+        />
+      ) : (
+        <Container className={css.spinner}>
+          <Spinner />
+        </Container>
+      )}
     </Container>
   )
 }
