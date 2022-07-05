@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { render, RenderResult, screen } from '@testing-library/react'
+import { render, RenderResult, screen, waitFor } from '@testing-library/react'
 import { TestWrapper } from '@common/utils/testUtils'
 import routes from '@common/RouteDefinitions'
 import { accountPathProps } from '@common/utils/routeUtils'
@@ -34,6 +34,12 @@ jest.mock('@dashboards/pages/DashboardsContext', () => ({
 
 const useDashboardsContextMock = useDashboardsContext as jest.Mock
 
+const generateMockSignedUrl = (mockUrl = ''): Promise<sharedService.SignedUrlResponse> => {
+  return new Promise(resolve => {
+    resolve({ resource: mockUrl })
+  })
+}
+
 describe('DashboardView', () => {
   const useCreateSignedUrlMock = jest.spyOn(sharedService, 'useCreateSignedUrl')
   const useGetDashboardDetailMock = jest.spyOn(sharedService, 'useGetDashboardDetail')
@@ -47,7 +53,7 @@ describe('DashboardView', () => {
     useGetDashboardDetailMock.mockReturnValue({ resource: true, title: 'dashboard name' } as any)
     useDashboardsContextMock.mockReturnValue({ includeBreadcrumbs: includeBreadcrumbs, breadcrumbs: [] })
     useCreateSignedUrlMock.mockReturnValue({
-      mutate: () => new Promise(() => void 0),
+      mutate: generateMockSignedUrl,
       loading: true,
       error: null
     } as any)
@@ -59,9 +65,21 @@ describe('DashboardView', () => {
     expect(screen.getByText('Loading, please wait...')).toBeInTheDocument()
   })
 
+  test('it should display Dashboard iframe when dashboard URL returned', async () => {
+    useCreateSignedUrlMock.mockReturnValue({
+      mutate: () => generateMockSignedUrl('mockUrl'),
+      loading: false,
+      error: null
+    } as any)
+
+    renderComponent()
+
+    await waitFor(() => expect(screen.getByTestId('dashboard-iframe')).toBeInTheDocument())
+  })
+
   test('it should display Dashboard not available when dashboard request returns no URL', async () => {
     useCreateSignedUrlMock.mockReturnValue({
-      mutate: () => new Promise(() => void 0),
+      mutate: generateMockSignedUrl,
       loading: false,
       error: null
     } as any)
@@ -74,7 +92,7 @@ describe('DashboardView', () => {
   test('it should display an error message when dashboard request fails', async () => {
     const testErrorMessage = 'this the actual error message'
     useCreateSignedUrlMock.mockReturnValue({
-      mutate: () => new Promise(() => void 0),
+      mutate: generateMockSignedUrl,
       loading: false,
       error: { data: { responseMessages: testErrorMessage } }
     } as any)

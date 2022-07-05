@@ -44,7 +44,7 @@ const DashboardViewPage: React.FC = () => {
   } = useCreateSignedUrl({ queryParams: { accountId, dashboardId: viewId, src: signedQueryUrl } })
 
   const generateSignedUrl = async (): Promise<void> => {
-    const { resource } = await createSignedUrl()
+    const { resource = '' } = (await createSignedUrl()) || {}
     setEmbedUrl(resource)
   }
 
@@ -99,7 +99,15 @@ const DashboardViewPage: React.FC = () => {
       }}
     >
       <Layout.Vertical className={css.frame}>
-        <iframe src={embedUrl} key={iframeState} height="100%" width="100%" frameBorder="0" id="dashboard-render" />
+        <iframe
+          src={embedUrl}
+          key={iframeState}
+          height="100%"
+          width="100%"
+          frameBorder="0"
+          id="dashboard-render"
+          data-testid="dashboard-iframe"
+        />
       </Layout.Vertical>
     </Page.Body>
   )
