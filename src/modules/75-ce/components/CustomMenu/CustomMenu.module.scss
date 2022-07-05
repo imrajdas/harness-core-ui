@@ -21,3 +21,7 @@
     background-color: var(--primary-1) !important;
   }
 }
+
+.disabledPopover {
+  cursor: not-allowed;
+}

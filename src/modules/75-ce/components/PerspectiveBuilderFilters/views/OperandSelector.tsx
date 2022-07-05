@@ -22,6 +22,9 @@ import { useStrings } from 'framework/strings'
 import type { TimeRangeFilterType } from '@ce/types'
 import { getTimeFilters } from '@ce/utils/perspectiveUtils'
 import { getGMTEndDateTime, getGMTStartDateTime } from '@ce/utils/momentUtils'
+import { usePermission } from '@rbac/hooks/usePermission'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import type { ProviderType } from '../PerspectiveBuilderFilter'
 import css from '../PerspectiveBuilderFilter.module.scss'
 
@@ -117,10 +120,20 @@ export const OperandSelectorPopOverContent: React.FC<PopoverContentProps> = ({
   labelData
 }) => {
   const nonCustomFields = fieldValuesList.filter(field => field.identifier !== ViewFieldIdentifier.Custom)
+  const [canViewCostCategory] = usePermission(
+    {
+      resource: {
+        resourceType: ResourceType.CCM_COST_CATEGORY
+      },
+      permissions: [PermissionIdentifier.VIEW_CCM_COST_CATEGORY]
+    },
+    []
+  )
 
   const defaultPanelFields = (
     <Layout.Vertical>
       {nonCustomFields.map(field => {
+        const isBusinessMapping = field.identifier === ViewFieldIdentifier.BusinessMapping
         return (
           <Popover
             key={field.identifier}
@@ -135,6 +148,7 @@ export const OperandSelectorPopOverContent: React.FC<PopoverContentProps> = ({
             minimal={true}
             fill={true}
             usePortal={false}
+            disabled={isBusinessMapping && !canViewCostCategory}
             content={
               <Container>
                 {field.values.map(service => {
@@ -173,6 +187,7 @@ export const OperandSelectorPopOverContent: React.FC<PopoverContentProps> = ({
               iconName={FIELD_TO_ICON_MAPPING[field.identifier]}
               fontSize={'normal'}
               rightIcon={'chevron-right'}
+              disabledMenuItem={isBusinessMapping && !canViewCostCategory}
             ></CustomMenuItem>
           </Popover>
         )

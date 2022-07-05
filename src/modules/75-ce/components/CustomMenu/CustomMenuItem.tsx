@@ -19,6 +19,7 @@ interface CustomMenuItemProps {
   fontSize?: FontSize
   hidePopoverOnClick?: boolean
   rightIcon?: IconName
+  disabledMenuItem?: boolean
 }
 
 const CustomMenuItem: React.FC<CustomMenuItemProps> = ({
@@ -27,7 +28,8 @@ const CustomMenuItem: React.FC<CustomMenuItemProps> = ({
   onClick,
   fontSize,
   hidePopoverOnClick,
-  rightIcon
+  rightIcon,
+  disabledMenuItem
 }) => {
   return (
     <Layout.Horizontal
@@ -39,7 +41,11 @@ const CustomMenuItem: React.FC<CustomMenuItemProps> = ({
       }}
       spacing="medium"
       onClick={onClick}
-      className={cx(css.customMenuContainer, { [Classes.POPOVER_DISMISS]: hidePopoverOnClick }, 'custom-menu-item')}
+      className={cx(
+        css.customMenuContainer,
+        { [Classes.POPOVER_DISMISS]: hidePopoverOnClick, [css.disabledPopover]: disabledMenuItem },
+        'custom-menu-item'
+      )}
     >
       {iconName ? <Icon name={iconName as IconName} size={20} /> : null}
       <Text font={fontSize ? fontSize : 'small'}>{text}</Text>

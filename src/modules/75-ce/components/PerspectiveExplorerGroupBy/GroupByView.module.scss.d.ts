@@ -10,6 +10,7 @@ declare const styles: {
   readonly active: string
   readonly activeItem: string
   readonly container: string
+  readonly disabledPopover: string
   readonly filterContainer: string
   readonly groupByContainer: string
   readonly groupByItems: string

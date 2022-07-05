@@ -18,6 +18,9 @@ import {
   QlceViewField
 } from 'services/ce/services'
 import type { setGroupByFn } from '@ce/types'
+import { usePermission } from '@rbac/hooks/usePermission'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import css from './GroupByView.module.scss'
 
 interface BaseGroupByProps {
@@ -30,13 +33,15 @@ interface GroupByDropDownProps {
   setGroupBy: setGroupByFn
   isBusinessMapping: boolean
   openBusinessMappingDrawer: () => void
+  canAddCostCategory: boolean
 }
 
 export const GroupByDropDown: React.FC<GroupByDropDownProps> = ({
   data,
   setGroupBy,
   isBusinessMapping,
-  openBusinessMappingDrawer
+  openBusinessMappingDrawer,
+  canAddCostCategory
 }) => {
   const { getString } = useStrings()
 
@@ -64,6 +69,7 @@ export const GroupByDropDown: React.FC<GroupByDropDownProps> = ({
       {isBusinessMapping ? (
         <Button
           icon="plus"
+          disabled={!canAddCostCategory}
           text={getString('ce.businessMapping.newButton')}
           onClick={openBusinessMappingDrawer}
           minimal
@@ -81,6 +87,15 @@ interface GroupByViewProps extends BaseGroupByProps {
 
 export const GroupByView: React.FC<GroupByViewProps> = ({ field, setGroupBy, groupBy, openBusinessMappingDrawer }) => {
   const isBusinessMapping = field.identifier === ViewFieldIdentifier.BusinessMapping
+  const [canViewCostCategory, canAddCostCategory] = usePermission(
+    {
+      resource: {
+        resourceType: ResourceType.CCM_COST_CATEGORY
+      },
+      permissions: [PermissionIdentifier.VIEW_CCM_COST_CATEGORY, PermissionIdentifier.EDIT_CCM_COST_CATEGORY]
+    },
+    []
+  )
   return (
     <Popover
       key={`identifierName-${field.identifierName}`}
@@ -93,10 +108,12 @@ export const GroupByView: React.FC<GroupByViewProps> = ({ field, setGroupBy, gro
         preventOverflow: { enabled: true }
       }}
       usePortal={false}
+      disabled={isBusinessMapping && !canViewCostCategory}
       content={
         <GroupByDropDown
           openBusinessMappingDrawer={openBusinessMappingDrawer}
           isBusinessMapping={isBusinessMapping}
+          canAddCostCategory={canAddCostCategory}
           setGroupBy={setGroupBy}
           data={field}
         />
@@ -105,7 +122,9 @@ export const GroupByView: React.FC<GroupByViewProps> = ({ field, setGroupBy, gro
       {groupBy.identifier === field.identifier ? (
         <div className={cx(css.groupByItems, css.activeItem)}>{`${field.identifierName}: ${groupBy.fieldName}`}</div>
       ) : (
-        <div className={css.groupByItems}>{field.identifierName}</div>
+        <div className={cx(css.groupByItems, { [css.disabledPopover]: isBusinessMapping && !canViewCostCategory })}>
+          {field.identifierName}
+        </div>
       )}
     </Popover>
   )

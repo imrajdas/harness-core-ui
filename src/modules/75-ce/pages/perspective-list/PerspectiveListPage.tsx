@@ -64,6 +64,7 @@ import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
 import HandleError from '@ce/components/PermissionError/PermissionError'
 import PermissionError from '@ce/images/permission-error.svg'
+import { usePermission } from '@rbac/hooks/usePermission'
 import bgImage from './images/perspectiveBg.png'
 import css from './PerspectiveListPage.module.scss'
 
@@ -424,6 +425,16 @@ const PerspectiveListPage: React.FC = () => {
 
   const { cloudDataPresent, clusterDataPresent } = (ccmData?.ccmMetaData || {}) as CcmMetaData
 
+  const [canEdit] = usePermission(
+    {
+      resource: {
+        resourceType: ResourceType.CCM_PERSPECTIVE
+      },
+      permissions: [PermissionIdentifier.EDIT_CCM_PERSPECTIVE]
+    },
+    []
+  )
+
   const createNewPerspective: (values: QlceView | Record<string, string>) => void = async (values = {}) => {
     const valuesToBeSent = pick(values, ['name', 'viewTimeRange', 'viewVisualization'])
     let formData: Record<string, any> = {
@@ -711,6 +722,7 @@ const PerspectiveListPage: React.FC = () => {
                     trackEvent(USER_JOURNEY_EVENTS.CREATE_NEW_PERSPECTIVE, {})
                     createNewPerspective({})
                   }}
+                  isBtnDisabled={!canEdit}
                 />
               ) : null}
               <Container

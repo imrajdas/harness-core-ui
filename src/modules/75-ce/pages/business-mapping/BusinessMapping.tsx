@@ -32,6 +32,7 @@ import RbacButton from '@rbac/components/Button/Button'
 import HandleError from '@ce/components/PermissionError/PermissionError'
 import useRBACError from '@rbac/utils/useRBACError/useRBACError'
 import PermissionError from '@ce/images/permission-error.svg'
+import { usePermission } from '@rbac/hooks/usePermission'
 
 const BusinessMappingPage: () => React.ReactElement = () => {
   const { accountId } = useParams<AccountPathProps>()
@@ -44,6 +45,16 @@ const BusinessMappingPage: () => React.ReactElement = () => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false)
   const { showError, showSuccess } = useToaster()
   const { getRBACErrorMessage } = useRBACError()
+
+  const [canEdit] = usePermission(
+    {
+      resource: {
+        resourceType: ResourceType.CCM_COST_CATEGORY
+      },
+      permissions: [PermissionIdentifier.EDIT_CCM_COST_CATEGORY]
+    },
+    []
+  )
 
   useDocumentTitle(getString('ce.businessMapping.sideNavText'), true)
 
@@ -116,6 +127,7 @@ const BusinessMappingPage: () => React.ReactElement = () => {
             subtitle={getString('ce.businessMapping.emptySubtitles')}
             buttonText={getString('ce.businessMapping.newButton')}
             buttonAction={() => setDrawerOpen(true)}
+            isBtnDisabled={!canEdit}
           />
           {NewCostCategoryDrawer}
         </PageBody>

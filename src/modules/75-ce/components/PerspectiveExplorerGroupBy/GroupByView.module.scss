@@ -99,3 +99,7 @@
     cursor: pointer;
   }
 }
+
+.disabledPopover {
+  cursor: not-allowed !important;
+}
