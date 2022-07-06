@@ -27,7 +27,7 @@ const DashboardViewPage: React.FC = () => {
   const { includeBreadcrumbs } = useDashboardsContext()
 
   const { accountId, viewId, folderId } = useParams<AccountPathProps & { viewId: string; folderId: string }>()
-  const [embedUrl, setEmbedUrl] = React.useState('')
+  const [embedUrl, setEmbedUrl] = React.useState<string>()
   const [iframeState] = React.useState(0)
   const history = useHistory()
   const query = location.href.split('?')[1]
@@ -43,8 +43,10 @@ const DashboardViewPage: React.FC = () => {
     error
   } = useCreateSignedUrl({ queryParams: { accountId, dashboardId: viewId, src: signedQueryUrl } })
 
+  const responseMessages = useMemo(() => (error?.data as ErrorResponse)?.responseMessages, [error])
+
   const generateSignedUrl = async (): Promise<void> => {
-    const { resource = '' } = (await createSignedUrl()) || {}
+    const { resource } = (await createSignedUrl()) || {}
     setEmbedUrl(resource)
   }
 
@@ -85,21 +87,22 @@ const DashboardViewPage: React.FC = () => {
         label: folderDetail.resource
       })
     }
-    dashboardDetail &&
+    embedUrl &&
+      dashboardDetail &&
       links.push({
         url: routes.toViewCustomDashboard({ viewId, folderId, accountId }),
         label: dashboardDetail.title
       })
     includeBreadcrumbs(links)
-  }, [folderDetail, dashboardDetail, accountId, viewId])
+  }, [folderDetail, dashboardDetail, accountId, viewId, embedUrl])
 
   return (
     <Page.Body
       className={css.pageContainer}
       loading={loading}
-      error={(error?.data as ErrorResponse)?.responseMessages}
+      error={responseMessages}
       noData={{
-        when: () => embedUrl === '',
+        when: () => embedUrl === undefined,
         icon: 'dashboard',
         message: 'Dashboard not available'
       }}

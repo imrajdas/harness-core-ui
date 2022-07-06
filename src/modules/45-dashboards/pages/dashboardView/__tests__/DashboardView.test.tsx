@@ -114,6 +114,12 @@ describe('DashboardView', () => {
   test('it should include a dashboard in breadcrumbs when a dashboard details has been retrieved', async () => {
     useGetFolderDetailMock.mockReturnValue({ data: null } as any)
 
+    useCreateSignedUrlMock.mockReturnValue({
+      mutate: () => generateMockSignedUrl('mockUrl'),
+      loading: false,
+      error: null
+    } as any)
+
     const mockDashboardTitle = 'Test Dashboard'
     const mockDashboardDetail: sharedService.GetDashboardDetailResponse = {
       resource: true,
@@ -121,6 +127,8 @@ describe('DashboardView', () => {
     }
     useGetDashboardDetailMock.mockReturnValue({ data: mockDashboardDetail } as any)
     renderComponent()
+
+    await waitFor(() => expect(screen.getByTestId('dashboard-iframe')).toBeInTheDocument())
 
     expect(includeBreadcrumbs).toBeCalledWith([
       { label: mockDashboardTitle, url: `/account/${accountId}/dashboards/folder/${folderId}/view/${viewId}` }
