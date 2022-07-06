@@ -7,6 +7,7 @@
 
 import React from 'react'
 import { Redirect, useParams } from 'react-router-dom'
+import { OverviewChartsWithToggle } from '@common/components/OverviewChartsWithToggle/OverviewChartsWithToggle'
 import type { ModulePathParams, ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import type { SidebarContext } from '@common/navigation/SidebarProvider'
 import routes from '@common/RouteDefinitions'
@@ -436,7 +437,8 @@ export default (
       <ChildAppMounter<ChaosCustomMicroFrontendProps>
         ChildApp={ChaosMicroFrontend}
         customComponents={{
-          ConnectorReferenceField
+          ConnectorReferenceField,
+          OverviewChartsWithToggle
         }}
       />
     </RouteWithLayout>
