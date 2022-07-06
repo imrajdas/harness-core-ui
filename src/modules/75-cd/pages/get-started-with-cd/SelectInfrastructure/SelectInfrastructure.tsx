@@ -22,11 +22,7 @@ import {
   FormError
 } from '@harness/uicore'
 import type { FormikContextType } from 'formik'
-import cx from 'classnames'
-import { Dialog, IDialogProps, Classes } from '@blueprintjs/core'
-import { useModalHook } from '@harness/use-modal'
 import { useStrings } from 'framework/strings'
-import { CreateDelegateWizard } from '@delegates/components/CreateDelegate/CreateDelegateWizard'
 import { InfrastructureTypes, InfrastructureType } from '../DeployProvisioningWizard/Constants'
 import { SelectAuthenticationMethod, SelectAuthenticationMethodRef } from './SelectAuthenticationMethod'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
@@ -45,6 +41,7 @@ export interface SelectInfrastructureInterface {
   infraType: string
   envId: string
   infraId: string
+  namespace: string
 }
 
 interface SelectInfrastructureProps {
@@ -100,27 +97,6 @@ const SelectInfrastructureRef = (
     }
   }, [formikRef?.current?.values, formikRef?.current?.setFieldTouched])
 
-  const [showDelegateModal, hideDelegateModal] = useModalHook(() => {
-    const onClose = (): void => {
-      hideDelegateModal()
-    }
-    return (
-      <Dialog onClose={onClose} {...DIALOG_PROPS} className={cx(css.modal, Classes.DIALOG)}>
-        <CreateDelegateWizard onClose={onClose}></CreateDelegateWizard>
-        <Button minimal icon="cross" onClick={onClose} className={css.crossIcon} />
-      </Dialog>
-    )
-  }, [])
-  const DIALOG_PROPS: IDialogProps = {
-    isOpen: true,
-    usePortal: true,
-    autoFocus: true,
-    canEscapeKeyClose: false,
-    canOutsideClickClose: false,
-    enforceFocus: false,
-    style: { width: 1175, minHeight: 640, borderLeft: 0, paddingBottom: 0, position: 'relative', overflow: 'hidden' }
-  }
-
   const borderBottom = <div className={css.repoborderBottom} />
   return (
     <Layout.Vertical width="80%">
@@ -129,7 +105,8 @@ const SelectInfrastructureRef = (
         initialValues={{
           infraType: '',
           infraId: '',
-          envId: ''
+          envId: '',
+          namespace: ''
         }}
         formName="cdInfrastructure"
         onSubmit={(values: SelectInfrastructureInterface) => Promise.resolve(values)}
@@ -180,19 +157,29 @@ const SelectInfrastructureRef = (
                 />
                 <FormInput.Text
                   // tooltipProps={{ dataTooltipId: 'specifyYourEnvironment' }}
-                  label={getString('cd.getStartedWithCD.infraName')}
+                  label={getString('infrastructureText')}
                   name="infraId"
+                  className={css.formInput}
+                />
+                <FormInput.Text
+                  tooltipProps={{ dataTooltipId: 'gcpInfraNamespace' }}
+                  label={getString('common.namespace')}
+                  placeholder={getString('pipeline.infraSpecifications.namespacePlaceholder')}
+                  name="namespace"
                   className={css.formInput}
                 />
               </Layout.Vertical>
               {borderBottom}
-              {infrastructureType && formikRef?.current?.values?.envId && formikRef?.current?.values?.infraId ? (
+              {infrastructureType &&
+              formikRef?.current?.values?.envId &&
+              formikRef?.current?.values?.infraId &&
+              formikRef?.current?.values?.namespace ? (
                 <Accordion className={css.accordion} activeId={infrastructureType ? 'authMethod' : 'setUpDelegate'}>
                   <Accordion.Panel
                     id="authMethod"
                     summary={
-                      <Layout.Horizontal width={300}>
-                        <Text font={{ variation: FontVariation.H5 }}>{getString('common.authMethod')}</Text>
+                      <Layout.Horizontal width={500}>
+                        <Text font={{ variation: FontVariation.H5 }}>{'Connect to your Kubernetes cluster'}</Text>
                         {openSetUpDelegateAccordion() ? (
                           <Icon name="success-tick" size={20} className={css.accordionStatus} />
                         ) : (
@@ -225,16 +212,15 @@ const SelectInfrastructureRef = (
                     id="setUpDelegate"
                     summary={
                       <Text font={{ variation: FontVariation.H5 }} width={300}>
-                        {getString('cd.getStartedWithCD.setupDelegate')}
+                        {'Test your connection to the cluster'}
                       </Text>
                     }
                     details={
                       <>
-                        <Text padding={{ bottom: 'medium' }}>{getString('cd.getStartedWithCD.delegateInfo')}</Text>
                         <Button
-                          text={getString('cd.getStartedWithCD.setupaNewDelegate')}
-                          variation={ButtonVariation.SECONDARY}
-                          onClick={showDelegateModal}
+                          text={'Test Connection'}
+                          variation={ButtonVariation.PRIMARY}
+                          // onClick={showDelegateModal}
                         />
                       </>
                     }

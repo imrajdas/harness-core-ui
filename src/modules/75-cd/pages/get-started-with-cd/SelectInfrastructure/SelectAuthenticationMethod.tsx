@@ -5,19 +5,33 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import { Button, Container, FontVariation, FormError, Formik, FormInput, Layout, Text } from '@harness/uicore'
+import {
+  Button,
+  ButtonVariation,
+  Container,
+  Dialog,
+  FontVariation,
+  FormError,
+  Formik,
+  FormInput,
+  Layout,
+  Text
+} from '@harness/uicore'
 import React, { useCallback, useEffect, useRef } from 'react'
 import { Form, FormikContextType, FormikProps } from 'formik'
+import cx from 'classnames'
+import { useModalHook } from '@harness/use-modal'
+import { Classes, IDialogProps } from '@blueprintjs/core'
 import { useStrings } from 'framework/strings'
 import TextReference, { TextReferenceInterface, ValueType } from '@secrets/components/TextReference/TextReference'
 import type { SecretReferenceInterface } from '@secrets/utils/SecretField'
 import { DelegateTypes } from '@connectors/pages/connectors/utils/ConnectorUtils'
 import { AuthTypes } from '@connectors/pages/connectors/utils/ConnectorHelper'
 import SecretInput from '@secrets/components/SecretInput/SecretInput'
+import { CreateDelegateWizard } from '@delegates/components/CreateDelegate/CreateDelegateWizard'
 import { CLIENT_KEY_ALGO_OPTIONS } from '../DeployProvisioningWizard/Constants'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 import commonStyles from '@connectors/components/CreateConnector/commonSteps/ConnectorCommonStyles.module.scss'
-
 export interface SelectAuthenticationMethodRef {
   values: SelectAuthenticationMethodInterface
   // setFieldTouched(
@@ -131,6 +145,27 @@ const SelectAuthenticationMethodRef = (
       }
     }
     return true
+  }
+
+  const [showDelegateModal, hideDelegateModal] = useModalHook(() => {
+    const onClose = (): void => {
+      hideDelegateModal()
+    }
+    return (
+      <Dialog onClose={onClose} {...DIALOG_PROPS} className={cx(css.modal, Classes.DIALOG)}>
+        <CreateDelegateWizard onClose={onClose}></CreateDelegateWizard>
+        <Button minimal icon="cross" onClick={onClose} className={css.crossIcon} />
+      </Dialog>
+    )
+  }, [])
+  const DIALOG_PROPS: IDialogProps = {
+    isOpen: true,
+    usePortal: true,
+    autoFocus: true,
+    canEscapeKeyClose: false,
+    canOutsideClickClose: false,
+    enforceFocus: false,
+    style: { width: 1175, minHeight: 640, borderLeft: 0, paddingBottom: 0, position: 'relative', overflow: 'hidden' }
   }
 
   const setForwardRef = ({
@@ -327,7 +362,7 @@ const SelectAuthenticationMethodRef = (
                   </Container>
                 ) : null}
                 {DelegateTypes.DELEGATE_OUT_CLUSTER === formikProps.values.delegateType ? (
-                  <Layout.Vertical>
+                  <Layout.Vertical margin={{ bottom: 'small' }}>
                     <FormInput.Text
                       label={getString('connectors.k8.masterUrlLabel')}
                       placeholder={getString('UrlLabel')}
@@ -354,6 +389,16 @@ const SelectAuthenticationMethodRef = (
                 ) : (
                   <></>
                 )}
+                <Text font={{ variation: FontVariation.H5 }} width={300} padding={{ top: 'large' }}>
+                  {getString('cd.getStartedWithCD.setupDelegate')}
+                </Text>
+                <Text padding={{ bottom: 'medium' }}>{getString('cd.getStartedWithCD.delegateInfo')}</Text>
+                <Button
+                  text={getString('cd.getStartedWithCD.setupaNewDelegate')}
+                  variation={ButtonVariation.SECONDARY}
+                  onClick={showDelegateModal}
+                  width={300}
+                />
               </Layout.Vertical>
             </Form>
           )

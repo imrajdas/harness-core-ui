@@ -205,12 +205,10 @@
 }
 
 .authHeaderRow {
+  margin-top: var(--spacing-medium);
   width: 42%;
   display: flex;
   justify-content: space-between;
-  & > [data-tooltip-id='K8sAuthenticationTooltip'] {
-    margin: 0 0 15px;
-  }
 }
 .authTitle {
   font-size: var(font-size-normal);
