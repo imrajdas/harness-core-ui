@@ -1739,6 +1739,7 @@ exports[`CD Pipeline Page List render card view 1`] = `
         </span>
       </div>
     </div>
+    Help Panel
   </div>
 </div>
 `;
@@ -3463,6 +3464,7 @@ exports[`CD Pipeline Page List render list view 1`] = `
         </span>
       </div>
     </div>
+    Help Panel
   </div>
 </div>
 `;

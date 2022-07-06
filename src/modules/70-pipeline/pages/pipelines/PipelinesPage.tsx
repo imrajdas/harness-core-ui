@@ -43,6 +43,7 @@ import {
   useSoftDeletePipeline,
   useUpdateFilter
 } from 'services/pipeline-ng'
+import { HelpPanel, HelpPanelType } from '@harness/help-panel'
 import {
   useGetServiceListForProject,
   useGetEnvironmentListForProject,
@@ -889,6 +890,7 @@ function PipelinesPage({ mockData }: CDPipelinesPageProps): React.ReactElement {
             )}
           </GitSyncStoreProvider>
         )}
+        <HelpPanel referenceId="Pipelines" type={HelpPanelType.FLOATING_CONTAINER} />
       </Page.Body>
     </>
   )
