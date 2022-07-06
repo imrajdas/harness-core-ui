@@ -73,14 +73,6 @@
   }
 }
 
-/* this is required to fix the height of the PageBody component
-   coming from UICore, with height coming from NGUI */
-:global {
-  .PageBody--pageBody {
-    min-height: calc(var(--page-min-height) - var(--page-header-height));
-  }
-}
-
 .info {
   background-color: var(--primary-1) !important;
 }
