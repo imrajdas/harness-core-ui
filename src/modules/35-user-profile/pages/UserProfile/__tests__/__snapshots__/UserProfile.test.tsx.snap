@@ -3,7 +3,7 @@
 exports[`User Profile Page User Profile 1`] = `
 <div>
   <div
-    class="StyledProps--font StyledProps--main PageBody--pageBody PageBody--filled userProfilePage"
+    class="StyledProps--font StyledProps--main PageBody--pageBody userProfilePage"
     data-name="page-body"
   >
     <div
