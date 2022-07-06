@@ -39,7 +39,6 @@ const CloudIntegrationPage: React.FC = () => {
               }
             />
             <Tab
-              disabled={true}
               id={'cloudAccountsTab'}
               panel={<CloudAccountsTab />}
               title={

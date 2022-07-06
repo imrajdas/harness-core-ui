@@ -7,8 +7,14 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
+  readonly container: string
   readonly crossIcon: string
+  readonly downloadYaml: string
   readonly modal: string
+  readonly step1: string
+  readonly stepContainer: string
+  readonly stepLabel: string
   readonly stepWizard: string
+  readonly steps: string
 }
 export default styles

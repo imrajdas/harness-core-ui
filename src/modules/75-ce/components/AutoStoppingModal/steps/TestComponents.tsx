@@ -9,6 +9,7 @@ import React from 'react'
 
 interface TestComponentsProps {
   name: string
+  isCloudReportingModal?: boolean
 }
 
 const TestComponents: React.FC<TestComponentsProps> = () => {

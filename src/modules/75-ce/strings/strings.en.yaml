@@ -1162,7 +1162,14 @@ cloudIntegration:
   autoStoppingModal:
     createSecret:
       title: '{{ $.secrets.createSecret }}'
+      desc: Follow these steps to create a secret
+      step1: Create a api key
+      createKey: Create api key
     installComponents:
       title: Install Components
+      desc: 'In order to get AutoStopping working, you will have to install a few components on the cluster. This is done by applying a YAML file. The YAML file contains:'
+      previewYaml: Preview YAML
+      step1: Download the YAML file
+      step2: 'Apply the YAML using the command:'
     testComponents:
       title: Test Components

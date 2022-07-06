@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useState } from 'react'
+import React from 'react'
 import { Button, StepWizard } from '@harness/uicore'
 import { Dialog, Classes, IDialogProps } from '@blueprintjs/core'
 import { useModalHook } from '@harness/use-modal'
@@ -39,8 +39,6 @@ export const useCloudVisibilityModal = ({ connector }: { connector: ConnectorInf
     }
   }
 
-  const [currentStep, setCurentStep] = useState(1) // 1 - Enable Visibility & 2 - Enable AutoStopping
-
   const [openModal, closeModal] = useModalHook(
     () => (
       <Dialog {...modalProps} onClose={closeModal} className={cx(css.modal, Classes.DIALOG)}>
@@ -55,22 +53,26 @@ export const useCloudVisibilityModal = ({ connector }: { connector: ConnectorInf
             name={getString('ce.cloudIntegration.costVisibilityDialog.step1.title')}
             closeModal={closeModal}
           />
-          <EnableAutoStoppingStep
-            name={getString('ce.cloudIntegration.costVisibilityDialog.step2.title')}
-            setCurrentStep={setCurentStep}
-          />
-          {currentStep === 2 ? (
-            <StepWizard>
-              <CreateSecret name={getString('ce.cloudIntegration.autoStoppingModal.createSecret.title')} />
-              <InstallComponents name={getString('ce.cloudIntegration.autoStoppingModal.installComponents.title')} />
-              <TestComponents name={getString('ce.cloudIntegration.autoStoppingModal.testComponents.title')} />
-            </StepWizard>
-          ) : null}
+          <EnableAutoStoppingStep name={getString('ce.cloudIntegration.costVisibilityDialog.step2.title')} />
+          <StepWizard>
+            <CreateSecret
+              isCloudReportingModal={true}
+              name={getString('ce.cloudIntegration.autoStoppingModal.createSecret.title')}
+            />
+            <InstallComponents
+              isCloudReportingModal={true}
+              name={getString('ce.cloudIntegration.autoStoppingModal.installComponents.title')}
+            />
+            <TestComponents
+              isCloudReportingModal={true}
+              name={getString('ce.cloudIntegration.autoStoppingModal.testComponents.title')}
+            />
+          </StepWizard>
         </StepWizard>
         <Button minimal icon="cross" iconProps={{ size: 18 }} onClick={closeModal} className={css.crossIcon} />
       </Dialog>
     ),
-    [currentStep, connector]
+    [connector]
   )
 
   return [openModal, closeModal]

@@ -37,10 +37,11 @@ import { GROUP_BY_CLUSTER_NAME } from '@ce/utils/perspectiveUtils'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
 import type { CloudProvider } from '@ce/types'
+import { useFeature } from '@common/hooks/useFeatures'
+import { FeatureIdentifier } from 'framework/featureStore/FeatureIdentifier'
 
 import { useCloudVisibilityModal } from '../CloudVisibilityModal/CloudVisibilityModal'
 import { useAutoStoppingModal } from '../AutoStoppingModal/AutoStoppingModal'
-import CostDataCollectionBanner from './CostDataCollectionBanner'
 
 import css from './CloudIntegrationTabs.module.scss'
 
@@ -111,23 +112,28 @@ const FeaturesEnabledCell: CustomCell = cell => {
     iconProps: { size: 12, color: Color.PURPLE_700 }
   }
 
+  const featureInfo = useFeature({
+    featureRequest: {
+      featureName: FeatureIdentifier.CCM_K8S_CLUSTERS
+    }
+  })
+
   const [openCloudVisibilityModal] = useCloudVisibilityModal({ connector })
-  const [openAutoStoppingModal] = useAutoStoppingModal()
+  const [openAutoStoppingModal] = useAutoStoppingModal({ connector })
 
   return (
-    <Layout.Horizontal>
+    <Layout.Horizontal className={css.features}>
       {!isReportingEnabled && !isAutoStoppingEnabled ? (
-        <Text
+        <Button
           icon="ccm-solid"
-          iconProps={{ size: 18 }}
-          className={css.enableCloudCostsBtn}
+          variation={ButtonVariation.SECONDARY}
+          text={getString('ce.cloudIntegration.enableCloudCosts')}
           onClick={e => {
             e.stopPropagation()
             openCloudVisibilityModal()
           }}
-        >
-          {getString('ce.cloudIntegration.enableCloudCosts')}
-        </Text>
+          disabled={!featureInfo.enabled}
+        />
       ) : (
         <>
           {isReportingEnabled ? (
@@ -141,17 +147,16 @@ const FeaturesEnabledCell: CustomCell = cell => {
               {getString('common.ce.autostopping')}
             </Text>
           ) : (
-            <Text
+            <Button
               icon="plus"
-              iconProps={{ size: 12, color: Color.PRIMARY_7 }}
+              variation={ButtonVariation.SECONDARY}
               className={css.addAutoStoppingBtn}
+              text={getString('common.ce.autostopping')}
               onClick={e => {
                 e.stopPropagation()
                 openAutoStoppingModal()
               }}
-            >
-              {getString('common.ce.autostopping')}
-            </Text>
+            />
           )}
           {/* TODO - AutoStopping Popover */}
         </>
@@ -216,9 +221,6 @@ const K8sClustersTab: React.FC = () => {
   const getK8sConnectors = async () => {
     const { data: connectorResponse } = await fetchConnectors({
       filterType: 'Connector',
-      /**
-       * CEK8sCluster For Testing
-       */
       types: ['K8sCluster', 'CEK8sCluster']
     })
 
@@ -302,10 +304,6 @@ const K8sClustersTab: React.FC = () => {
     [defaultClusterPerspectiveId]
   )
 
-  const showCostCollectionBanner = !k8sClusters?.content?.some(
-    item => item.connector?.spec?.featuresEnabled?.length > 0
-  )
-
   const debouncedSearch = useCallback(
     debounce((text: string) => setSearchTerm(text), 500),
     []
@@ -319,9 +317,6 @@ const K8sClustersTab: React.FC = () => {
 
   return (
     <Container className={css.main}>
-      {showCostCollectionBanner ? (
-        <CostDataCollectionBanner isEnabled={true} noOfClusters={k8sClusters?.totalItems || 0} />
-      ) : null}
       <Layout.Horizontal margin={{ bottom: 'small' }}>
         <RbacButton
           variation={ButtonVariation.PRIMARY}
@@ -343,7 +338,6 @@ const K8sClustersTab: React.FC = () => {
           onChange={text => debouncedSearch(text)}
           className={css.search}
         />
-        {/* TODO - Quick Filters / Filter Panel */}
       </Layout.Horizontal>
       {!isLoading ? (
         <TableV2<ConnectorResponse>
@@ -371,3 +365,7 @@ const K8sClustersTab: React.FC = () => {
 }
 
 export default K8sClustersTab
+
+// const ReportingEnabledButton: React.FC = () => <Text></Text>
+
+// const AutoStoppingEnabledButton: React.FC = () => <Text></Text>

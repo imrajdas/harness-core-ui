@@ -5,22 +5,19 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useEffect } from 'react'
-import { Layout, Text } from '@harness/uicore'
+import React from 'react'
+import { Layout, StepProps, Text } from '@harness/uicore'
 import { FontVariation, Color } from '@harness/design-system'
+
 import { useStrings } from 'framework/strings'
+import type { ConnectorInfoDTO } from 'services/cd-ng'
 
 interface Props {
   name: string
-  setCurrentStep: React.Dispatch<React.SetStateAction<number>>
 }
 
-const EnableAutoStoppingStep: React.FC<Props> = ({ setCurrentStep }) => {
+const EnableAutoStoppingStep: React.FC<Props & StepProps<ConnectorInfoDTO>> = () => {
   const { getString } = useStrings()
-
-  useEffect(() => {
-    setCurrentStep(2)
-  }, [])
 
   return (
     <Layout.Vertical spacing={'xlarge'}>

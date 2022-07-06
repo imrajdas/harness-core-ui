@@ -24,3 +24,46 @@
     top: var(--spacing-small);
   }
 }
+
+.steps {
+  height: 100%;
+
+  div[class*='copyCommand'] {
+    color: var(--grey-1000);
+    line-height: 24px !important;
+    width: calc(100% - var(--spacing-10));
+    margin-left: 60px;
+
+    svg {
+      fill: var(--primary-7);
+    }
+  }
+
+  .stepContainer {
+    display: grid;
+    grid-template-columns: 60px 600px;
+    margin-bottom: var(--spacing-medium);
+
+    .stepLabel {
+      color: var(--primary-7);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      align-self: center;
+    }
+
+    .step1 {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.container {
+  height: 100%;
+
+  .downloadYaml {
+    display: flex;
+    align-items: center;
+  }
+}

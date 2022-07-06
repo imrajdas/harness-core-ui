@@ -56,29 +56,22 @@
       border-radius: 4px;
     }
 
-    .enableCloudCostsBtn,
-    .addAutoStoppingBtn {
-      padding: 6px var(--spacing-small);
-      border: 1px solid var(--primary-7);
-      background-color: var(--primary-1);
-      color: var(--primary-7);
-      font-size: 13px;
-      font-weight: 500;
-      border-radius: 4px;
-      cursor: pointer;
+    .features {
+      :global {
+        .bp3-button {
+          background-color: var(--primary-1) !important;
+        }
 
-      &:hover {
-        box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04), 0px 2px 4px rgba(96, 97, 112, 0.16);
+        .bp3-button-text {
+          font-size: 13px;
+        }
       }
-    }
 
-    .enableCloudCostsBtn {
-      padding: 6px var(--spacing-medium);
-      font-weight: 600;
-
-      span[class*='bp3-icon'] {
-        path {
-          fill: var(--primary-7);
+      .addAutoStoppingBtn {
+        :global {
+          .bp3-button-text {
+            font-weight: 500;
+          }
         }
       }
     }

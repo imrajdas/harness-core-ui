@@ -4241,7 +4241,14 @@ export interface StringsMap {
   'ce.ceTrialHomePage.modal.welcome': string
   'ce.ceTrialHomePage.startTrial.description': string
   'ce.ceTrialHomePage.startTrial.startBtn.description': string
+  'ce.cloudIntegration.autoStoppingModal.createSecret.createKey': string
+  'ce.cloudIntegration.autoStoppingModal.createSecret.desc': string
+  'ce.cloudIntegration.autoStoppingModal.createSecret.step1': string
   'ce.cloudIntegration.autoStoppingModal.createSecret.title': string
+  'ce.cloudIntegration.autoStoppingModal.installComponents.desc': string
+  'ce.cloudIntegration.autoStoppingModal.installComponents.previewYaml': string
+  'ce.cloudIntegration.autoStoppingModal.installComponents.step1': string
+  'ce.cloudIntegration.autoStoppingModal.installComponents.step2': string
   'ce.cloudIntegration.autoStoppingModal.installComponents.title': string
   'ce.cloudIntegration.autoStoppingModal.testComponents.title': string
   'ce.cloudIntegration.banner': string

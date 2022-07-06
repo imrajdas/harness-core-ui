@@ -12,6 +12,7 @@ import { useModalHook } from '@harness/use-modal'
 import cx from 'classnames'
 
 import { useStrings } from 'framework/strings'
+import type { ConnectorInfoDTO } from 'services/cd-ng'
 
 import CreateSecret from './steps/CreateSecret'
 import InstallComponents from './steps/InstallComponents'
@@ -19,7 +20,7 @@ import TestComponents from './steps/TestComponents'
 
 import css from './AutoStoppingModal.module.scss'
 
-export const useAutoStoppingModal = () => {
+export const useAutoStoppingModal = ({ connector }: { connector: ConnectorInfoDTO }) => {
   const { getString } = useStrings()
 
   const modalProps: IDialogProps = {
@@ -45,7 +46,10 @@ export const useAutoStoppingModal = () => {
           className={css.stepWizard}
         >
           <CreateSecret name={getString('ce.cloudIntegration.autoStoppingModal.createSecret.title')} />
-          <InstallComponents name={getString('ce.cloudIntegration.autoStoppingModal.installComponents.title')} />
+          <InstallComponents
+            connector={connector}
+            name={getString('ce.cloudIntegration.autoStoppingModal.installComponents.title')}
+          />
           <TestComponents name={getString('ce.cloudIntegration.autoStoppingModal.testComponents.title')} />
         </StepWizard>
         <Button minimal icon="cross" iconProps={{ size: 18 }} onClick={closeModal} className={css.crossIcon} />

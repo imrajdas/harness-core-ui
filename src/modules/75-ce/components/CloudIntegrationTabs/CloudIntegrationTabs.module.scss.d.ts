@@ -11,8 +11,8 @@ declare const styles: {
   readonly banner: string
   readonly content: string
   readonly enableBtn: string
-  readonly enableCloudCostsBtn: string
   readonly enableCloudCostsDialog: string
+  readonly features: string
   readonly main: string
   readonly nameCell: string
   readonly permissionTag: string
