@@ -53,20 +53,6 @@
   align-items: center;
 }
 
-/*
-.featuresBanner + .children {
-  height: calc(100vh - 58px);
-}
-
-.trialLicenseBanner + .children {
-  height: calc(100vh - 37px);
-}
-
-.trialLicenseBanner + .featuresBanner + .children {
-  height: calc(100vh - 95px);
-}
-*/
-
 .rhs {
   .children {
     min-height: var(--page-min-height);
@@ -76,10 +62,10 @@
 
 .main {
   display: grid;
-  grid-template-columns: 88px 184px calc(100% - 272px);
+  grid-template-columns: 88px 184px 1fr;
 
   &[data-layout='minimal'] {
-    grid-template-columns: 88px calc(100% - 88px);
+    grid-template-columns: 88px 1fr;
   }
 
   &[data-layout='empty'] {
@@ -92,10 +78,6 @@
 :global {
   .PageBody--pageBody {
     min-height: calc(var(--page-min-height) - var(--page-header-height)) !important;
-    // height: unset !important;
-    // overflow: unset !important;
-    // display: flex;
-    // flex-direction: column;
   }
 }
 
