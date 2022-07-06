@@ -928,7 +928,7 @@ export function PipelineCanvas({
               }}
             />
           )}
-          <Container style={{ flex: 1 }}>
+          <Container className={css.builderContainer}>
             {isYaml ? <PipelineYamlView /> : pipeline.template ? <TemplatePipelineBuilder /> : <StageBuilder />}
           </Container>
         </Layout.Vertical>

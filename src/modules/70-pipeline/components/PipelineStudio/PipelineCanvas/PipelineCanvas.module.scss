@@ -9,6 +9,11 @@
   height: 100%;
   position: relative;
   overflow: hidden;
+  --page-header-height: calc(49px + 49px); /* 2 headers */
+
+  .builderContainer {
+    height: calc(var(--page-min-height) - var(--page-header-height));
+  }
 }
 
 .dialog {

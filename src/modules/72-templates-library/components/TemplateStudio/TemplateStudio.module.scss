@@ -10,7 +10,8 @@
 }
 
 .canvas-container {
-  height: 100%;
+  --page-header-height: 98px;
+  height: calc(var(--page-min-height) - var(--page-header-height));
   padding: 0 !important;
   position: relative;
 

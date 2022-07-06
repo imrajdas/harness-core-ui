@@ -74,7 +74,11 @@ const LandingDashboardPage: React.FC = () => {
   if (View.Welcome === view) {
     return <LandingDashboardWelcomeView setView={setView} />
   } else if (loading) {
-    return <PageSpinner />
+    return (
+      <PageBody>
+        <PageSpinner />
+      </PageBody>
+    )
   } else {
     const projetCount = data?.data?.response?.projectsCountDetail?.count
     return data && projetCount ? (
@@ -122,7 +126,9 @@ const LandingDashboardPage: React.FC = () => {
         </PageBody>
       </LandingDashboardContextProvider>
     ) : (error || data?.data?.executionStatus) !== 'SUCCESS' ? (
-      <PageError message={data?.data?.executionMessage} onClick={retry} />
+      <PageBody>
+        <PageError message={data?.data?.executionMessage} onClick={retry} />
+      </PageBody>
     ) : (
       <LandingDashboardWelcomeView setView={setView} />
     )

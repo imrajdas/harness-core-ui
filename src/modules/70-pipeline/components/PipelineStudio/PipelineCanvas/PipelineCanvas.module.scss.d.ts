@@ -12,6 +12,7 @@ declare const styles: {
   readonly branchName: string
   readonly branchSelector: string
   readonly breadcrumbsMenu: string
+  readonly builderContainer: string
   readonly content: string
   readonly crossIcon: string
   readonly dialog: string

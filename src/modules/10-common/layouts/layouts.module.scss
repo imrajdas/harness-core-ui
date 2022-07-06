@@ -92,8 +92,10 @@
 :global {
   .PageBody--pageBody {
     min-height: calc(var(--page-min-height) - var(--page-header-height)) !important;
-    height: unset !important;
-    overflow: unset !important;
+    // height: unset !important;
+    // overflow: unset !important;
+    // display: flex;
+    // flex-direction: column;
   }
 }
 
