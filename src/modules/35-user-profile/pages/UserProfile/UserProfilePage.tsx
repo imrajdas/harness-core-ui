@@ -48,7 +48,7 @@ const UserProfilePage: React.FC = () => {
 
   return (
     <>
-      <Page.Body filled className={css.userProfilePage}>
+      <Page.Body className={css.userProfilePage}>
         <Layout.Vertical className={css.details}>
           <Layout.Vertical margin={{ top: 'large' }}>
             <Avatar

@@ -11,7 +11,7 @@ import { Page } from '@common/exports'
 
 const CFWorkflowsPage: React.FC = () => {
   return (
-    <Page.Body filled>
+    <Page.Body>
       <Text>To be implemened</Text>
     </Page.Body>
   )
