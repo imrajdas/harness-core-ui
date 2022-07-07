@@ -41,12 +41,12 @@ exports[`Chaos Sidenav Render render the chaos sidenav 1`] = `
     </a>
     <a
       class="link"
-      href="/account/dummyAccID/chaos/orgs/dummyOrgID/projects/dummyProjID/agents"
+      href="/account/dummyAccID/chaos/orgs/dummyOrgID/projects/dummyProjID/chaos-delegates"
     >
       <p
         class="StyledProps--font StyledProps--main text"
       >
-        ChaosAgents
+        ChaosDelegates
       </p>
     </a>
     <div>
