@@ -89,7 +89,8 @@ function DeployEnvironment({
     },
     body: {
       filterType: 'Environment'
-    }
+    },
+    lazy: !orgIdentifier
   })
 
   const {

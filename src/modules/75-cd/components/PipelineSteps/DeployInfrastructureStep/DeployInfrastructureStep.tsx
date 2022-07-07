@@ -111,7 +111,7 @@ export class DeployInfrastructureStep extends Step<DeployStageConfig> {
         readonly={readonly}
         onUpdate={data => onUpdate?.(this.processFormData(data, (customStepProps as any).getString))}
         stepViewType={stepViewType}
-        allowableTypes={[MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME]}
+        allowableTypes={allowableTypes}
         serviceRef={(customStepProps as any).serviceRef}
       />
     )

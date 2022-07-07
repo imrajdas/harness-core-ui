@@ -10,11 +10,12 @@ import { debounce, get, isEmpty, set } from 'lodash-es'
 import produce from 'immer'
 import cx from 'classnames'
 
-import { Card, Container, Text } from '@harness/uicore'
+import { Card, Container, MultiTypeInputType, RUNTIME_INPUT_VALUE, Text } from '@harness/uicore'
 
 import { useStrings } from 'framework/strings'
 import type { StageElementConfig } from 'services/cd-ng'
 
+import { Scope } from '@common/interfaces/SecretsInterface'
 import { StageErrorContext } from '@pipeline/context/StageErrorContext'
 import { StepViewType } from '@pipeline/components/AbstractSteps/Step'
 import { StepWidget } from '@pipeline/components/AbstractSteps/StepWidget'
@@ -43,6 +44,7 @@ export default function DeployEnvSpecifications(props: PropsWithChildren<unknown
     state: {
       selectionState: { selectedStageId }
     },
+    scope,
     isReadonly,
     allowableTypes,
     getStageFromPipeline,
@@ -107,12 +109,21 @@ export default function DeployEnvSpecifications(props: PropsWithChildren<unknown
             readonly={isReadonly}
             initialValues={{
               gitOpsEnabled: get(stage, 'stage.spec.gitOpsEnabled', false),
-              ...(get(stage, 'stage.spec.environment', false) && { environment: get(stage, 'stage.spec.environment') }),
+              ...(get(stage, 'stage.spec.environment', false) && {
+                environment:
+                  scope === Scope.ACCOUNT
+                    ? { environmentRef: RUNTIME_INPUT_VALUE }
+                    : get(stage, 'stage.spec.environment')
+              }),
               ...(get(stage, 'stage.spec.environmentGroup', false) && {
                 environmentGroup: get(stage, 'stage.spec.environmentGroup')
               })
             }}
-            allowableTypes={allowableTypes}
+            allowableTypes={
+              scope === Scope.PROJECT
+                ? allowableTypes.filter(item => item !== MultiTypeInputType.EXPRESSION)
+                : allowableTypes.filter(item => item !== MultiTypeInputType.FIXED)
+            }
             onUpdate={val => updateEnvStep(val)}
             factory={factory}
             stepViewType={StepViewType.Edit}

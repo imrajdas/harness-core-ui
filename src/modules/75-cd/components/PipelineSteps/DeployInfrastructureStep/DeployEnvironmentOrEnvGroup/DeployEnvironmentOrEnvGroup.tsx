@@ -83,7 +83,8 @@ function DeployEnvironmentOrEnvGroup({
     },
     body: {
       filterType: 'Environment'
-    }
+    },
+    lazy: !orgIdentifier
   })
 
   const [environments, setEnvironments] = useState<EnvironmentResponseDTO[]>()
@@ -205,7 +206,8 @@ function DeployEnvironmentOrEnvGroup({
     },
     body: {
       filterType: 'EnvironmentGroup'
-    }
+    },
+    lazy: !orgIdentifier
   })
 
   const [environmentGroups, setEnvironmentGroups] = useState<EnvironmentGroupResponseDTO[]>()
