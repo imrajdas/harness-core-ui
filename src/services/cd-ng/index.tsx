@@ -11658,6 +11658,7 @@ export type VaultConnectorDTO = ConnectorConfigDTO & {
   basePath?: string
   default?: boolean
   delegateSelectors?: string[]
+  k8sAuthEndpoint?: string
   namespace?: string
   readOnly?: boolean
   renewalIntervalMinutes: number
@@ -11681,6 +11682,7 @@ export interface VaultCredentialDTO {
 }
 
 export type VaultK8sCredentialDTO = VaultCredentialDTO & {
+  k8sAuthEndpoint?: string
   serviceAccountTokenPath?: string
   vaultK8sAuthRole?: string
 }

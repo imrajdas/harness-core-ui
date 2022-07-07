@@ -1000,6 +1000,8 @@ export const buildVaultPayload = (formData: FormData): BuildVaultPayloadReturnTy
         formData.engineType === 'manual' ? formData.secretEngineName : formData.secretEngine?.split('@@@')[0],
       secretEngineVersion:
         formData.engineType === 'manual' ? formData.secretEngineVersion : formData.secretEngine?.split('@@@')[1],
+      k8sAuthEndpoint:
+        formData.k8sAuthEndpoint === HashiCorpVaultAccessTypes.K8s_AUTH ? formData?.k8sAuthEndpoint : undefined,
       vaultK8sAuthRole:
         formData.accessType === HashiCorpVaultAccessTypes.K8s_AUTH ? formData?.vaultK8sAuthRole : undefined,
       serviceAccountTokenPath:
@@ -1879,6 +1881,7 @@ export const setupVaultFormData = async (connectorInfo: ConnectorInfoDTO, accoun
     useAwsIam: connectorInfoSpec.useAwsIam,
     awsRegion: connectorInfoSpec.awsRegion,
     useK8sAuth: connectorInfoSpec.useK8sAuth,
+    k8sAuthEndpoint: connectorInfoSpec?.k8sAuthEndpoint || '',
     vaultK8sAuthRole: connectorInfoSpec?.vaultK8sAuthRole || '',
     serviceAccountTokenPath: connectorInfoSpec?.serviceAccountTokenPath || ''
   }

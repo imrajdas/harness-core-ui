@@ -117,6 +117,7 @@ export interface VaultConfigFormData {
   renewalIntervalMinutes: number
   vaultK8sAuthRole?: string
   serviceAccountTokenPath?: string
+  k8sAuthEndpoint?: string
 }
 
 export interface SetupEngineFormData {

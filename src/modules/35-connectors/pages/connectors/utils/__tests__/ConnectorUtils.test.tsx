@@ -877,6 +877,7 @@ describe('Connector Utils', () => {
         awsRegion: undefined,
         namespace: undefined,
         secretId: undefined,
+        k8sAuthEndpoint: '',
         serviceAccountTokenPath: '',
         useAwsIam: undefined,
         useK8sAuth: undefined,
@@ -941,6 +942,7 @@ describe('Connector Utils', () => {
             secretEngineName: 'harness',
             secretEngineVersion: '2',
             vaultK8sAuthRole: undefined,
+            k8sAuthEndpoint: undefined,
             serviceAccountTokenPath: undefined,
             useK8sAuth: false
           }

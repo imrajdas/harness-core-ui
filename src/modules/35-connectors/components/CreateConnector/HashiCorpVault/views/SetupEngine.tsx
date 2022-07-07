@@ -143,6 +143,7 @@ const SetupEngine: React.FC<StepProps<StepDetailsProps> & ConnectorDetailsProps>
                 } as VaultAuthTokenCredentialDTO)
               : formData.accessType === HashiCorpVaultAccessTypes.K8s_AUTH
               ? ({
+                  k8sAuthEndpoint: formData.k8sAuthEndpoint,
                   vaultK8sAuthRole: formData.vaultK8sAuthRole,
                   serviceAccountTokenPath: formData.serviceAccountTokenPath
                 } as VaultK8sCredentialDTO)
