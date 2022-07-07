@@ -309,7 +309,8 @@ export default function EnvironmentDetails() {
                                 tags: defaultTo(tags, {}),
                                 orgIdentifier: defaultTo(orgIdentifier, ''),
                                 projectIdentifier: defaultTo(projectIdentifier, ''),
-                                type: defaultTo(type, 'Production')
+                                type: defaultTo(type, 'Production'),
+                                variables: defaultTo(variables, [])
                               })
                               setIsModified(false)
                             }
