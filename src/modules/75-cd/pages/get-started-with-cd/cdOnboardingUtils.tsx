@@ -9,6 +9,9 @@ export const DefaultNewStageName = 'Stage Name'
 export const DefaultNewStageId = 'stage_id'
 export const DefaultNewServiceId = '-1'
 
+const DEFAULT_STAGE_ID = 'Stage'
+const DEFAULT_STAGE_TYPE = 'Deployment'
+
 export const newServiceState = {
   service: {
     name: 'new_service',
@@ -46,6 +49,65 @@ export const newEnvironmentState = {
       }
     },
     data: {}
+  }
+}
+
+export const DEFAULT_PIPELINE_PAYLOAD = {
+  pipeline: {
+    name: '',
+    identifier: '',
+    projectIdentifier: '',
+    orgIdentifier: '',
+    tags: {},
+    stages: [
+      {
+        stage: {
+          name: DEFAULT_STAGE_ID,
+          identifier: DEFAULT_STAGE_ID,
+          description: '',
+          type: DEFAULT_STAGE_TYPE,
+          spec: {
+            deploymentType: 'Kubernetes',
+            service: { serviceRef: 'servicePipeline_123' },
+            environment: {
+              environmentRef: 'servicePipe_123',
+              deployToAll: false,
+              infrastructureDefinitions: [{ identifier: 'envPipeline_123' }]
+            },
+            execution: {
+              steps: [
+                {
+                  step: {
+                    type: 'ShellScript',
+                    name: 'Echo Welcome Message',
+                    identifier: 'shell_ID',
+                    spec: {
+                      shell: 'Bash',
+                      onDelegate: true,
+                      source: { type: 'Inline', spec: { script: 'echo "Welcome to Harness CD" ' } },
+                      environmentVariables: [],
+                      outputVariables: [],
+                      executionTarget: {}
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          tags: {},
+          failureStrategies: [
+            {
+              onFailure: {
+                errors: ['AllErrors'],
+                action: {
+                  type: 'StageRollback'
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }
 

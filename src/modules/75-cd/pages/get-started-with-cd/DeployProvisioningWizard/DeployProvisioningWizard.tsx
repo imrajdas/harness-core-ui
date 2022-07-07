@@ -19,7 +19,7 @@ import {
 } from '@harness/uicore'
 import produce from 'immer'
 import { cloneDeep, defaultTo, get, isEmpty, omit, set } from 'lodash-es'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 
 import {
@@ -28,6 +28,7 @@ import {
   ServiceRequestDTO,
   useCreateEnvironmentV2,
   useCreateServiceV2,
+  UserRepoResponse,
   useUpdateServiceV2
 } from 'services/cd-ng'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
@@ -35,6 +36,9 @@ import useRBACError from '@rbac/utils/useRBACError/useRBACError'
 import { GitRepoName, ManifestDataType } from '@pipeline/components/ManifestSelection/Manifesthelper'
 import type { ManifestTypes } from '@pipeline/components/ManifestSelection/ManifestInterface'
 import { yamlStringify } from '@common/utils/YamlHelperMethods'
+import { createPipelineV2Promise, ResponsePipelineSaveResponse } from 'services/pipeline-ng'
+import { Status } from '@common/utils/Constants'
+import routes from '@common/RouteDefinitions'
 import {
   WizardStep,
   StepStatus,
@@ -51,7 +55,8 @@ import {
   cleanServiceDataUtil,
   cleanEnvironmentDataUtil,
   newEnvironmentState,
-  newServiceState
+  newServiceState,
+  DEFAULT_PIPELINE_PAYLOAD
 } from '../cdOnboardingUtils'
 import css from './DeployProvisioningWizard.module.scss'
 
@@ -79,13 +84,80 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       [DeployProvisiongWizardStepId.SelectInfrastructure, StepStatus.ToDo]
     ])
   )
-
+  const history = useHistory()
   const {
     saveServiceData,
     saveEnvironmentData,
     saveInfrastructureData,
     state: { service: serviceData, environment: environmentData, infrastructure: infrastructureData }
   } = useCDOnboardingContext()
+
+  const constructPipelinePayload = React.useCallback(
+    (repository: UserRepoResponse): string | undefined => {
+      const UNIQUE_PIPELINE_ID = new Date().getTime().toString()
+      const { name: repoName, namespace } = repository
+      if (
+        !repoName ||
+        !namespace
+        // || !selectGitProviderRef.current?.validatedConnector?.identifier
+      ) {
+        return
+      }
+
+      const payload = DEFAULT_PIPELINE_PAYLOAD
+      payload.pipeline.name = `${getString('buildText')} ${repoName}`
+      payload.pipeline.identifier = `${getString('pipelineSteps.deploy.create.deployStageName')}_${(
+        repoName || ''
+      ).replace(/-/g, '_')}_${UNIQUE_PIPELINE_ID}` // pipeline identifier cannot have spaces
+      payload.pipeline.projectIdentifier = projectIdentifier
+      payload.pipeline.orgIdentifier = orgIdentifier
+      // payload.pipeline.stages[0].stage.type = orgIdentifier
+      // payload.pipeline.stages[0].stage.spec.deploymentType = get(serviceData, 'serviceDefinition.type')
+      // payload.pipeline.stages[0].stage.spec.service.serviceRef = orgIdentifier
+      // payload.pipeline.stages[0].stage.spec.environment.environmentRef = orgIdentifier
+      // payload.pipeline.stages[0].stage.spec.environment.infrastructureDefinitions[0].identifier = orgIdentifier
+
+      try {
+        return yamlStringify(payload)
+      } catch (e) {
+        // Ignore error
+      }
+    },
+    [projectIdentifier, orgIdentifier]
+  )
+
+  const setupPipeline = () => {
+    try {
+      createPipelineV2Promise({
+        body: constructPipelinePayload(get(serviceData, 'data.repoValues')) || '',
+        queryParams: {
+          accountIdentifier: accountId,
+          orgIdentifier,
+          projectIdentifier
+        },
+        requestOptions: { headers: { 'Content-Type': 'application/yaml' } }
+      }).then((createPipelineResponse: ResponsePipelineSaveResponse) => {
+        const { status } = createPipelineResponse
+        if (status === Status.SUCCESS && createPipelineResponse?.data?.identifier) {
+          if (createPipelineResponse?.data?.identifier) {
+            history.push(
+              routes.toPipelineStudio({
+                accountId: accountId,
+                module: 'cd',
+                orgIdentifier,
+                projectIdentifier,
+                pipelineIdentifier: createPipelineResponse?.data?.identifier,
+                stageId: getString('buildText')
+              })
+            )
+          }
+        }
+      })
+    } catch (e) {
+      setDisableBtn(false)
+      // setShowPageLoader(false)
+    }
+  }
 
   const updateStepStatus = React.useCallback((stepIds: DeployProvisiongWizardStepId[], status: StepStatus) => {
     if (Array.isArray(stepIds)) {
@@ -354,6 +426,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
               saveInfrastructureData({
                 infrastructure: { ...updatedContextInfra }
               })
+              setupPipeline()
               clear()
               showSuccess(getString('cd.environmentCreated'))
             } else {
