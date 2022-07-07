@@ -109,6 +109,7 @@ export const DashboardList = <T extends Record<string, any>>(props: DashboardLis
     return (
       <TableV2<T>
         columns={columns}
+        sortable
         data={filteredData.slice(PAGE_SIZE * pageIndex, PAGE_SIZE * (pageIndex + 1))}
         pagination={{
           itemCount: filteredData.length,

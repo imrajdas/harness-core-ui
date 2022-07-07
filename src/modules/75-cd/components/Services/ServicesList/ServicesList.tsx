@@ -541,6 +541,7 @@ export const ServicesList: React.FC<ServicesListProps> = props => {
         {
           Header: getString('service').toLocaleUpperCase(),
           id: 'service',
+          accessor: 'name',
           width: '20%',
           Cell: RenderServiceName
         },
