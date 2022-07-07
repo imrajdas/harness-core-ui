@@ -45,7 +45,7 @@ export default function VerifyStepMonitoredServiceInputTemplates(
         <div className={cx(stepCss.formGroup)}>
           <FormInput.MultiTypeInput
             name="spec.monitoredService.spec.templateInputs.serviceRef"
-            label={getString('cv.healthSource.serviceLabel')}
+            label={getString('service')}
             selectItems={serviceOptions}
             multiTypeInputProps={{
               expressions,
@@ -58,7 +58,7 @@ export default function VerifyStepMonitoredServiceInputTemplates(
         <div className={cx(stepCss.formGroup)}>
           <FormInput.MultiTypeInput
             name="spec.monitoredService.spec.templateInputs.environmentRef"
-            label={getString('cv.healthSource.environmentLabel')}
+            label={getString('environment')}
             selectItems={environmentOptions}
             multiTypeInputProps={{
               expressions,

@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaymentMethod render 1`] = `
+<div>
+  <div
+    class="bp3-card bp3-elevation-0 Card--card"
+  >
+    <div
+      class="Layout--vertical StyledProps--main"
+    >
+      <div
+        class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-start StyledProps--flex-justifyContent-space-between"
+      >
+        <div
+          class="Layout--vertical StyledProps--main"
+          style="width: 40%;"
+        >
+          <p
+            class="StyledProps--font StyledProps--main StyledProps--padding-bottom-large StyledProps--font-variation-h5"
+          >
+            authSettings.billingInfo.paymentMethod
+          </p>
+          <div
+            class="Layout--vertical StyledProps--main"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--padding-bottom-small"
+            >
+              common.nameOnCard
+            </p>
+            <div
+              class="TextInput--main"
+            >
+              <div
+                class="bp3-input-group"
+              >
+                <input
+                  class="bp3-input"
+                  data-testid="nameOnCard"
+                  type="text"
+                  value="Jane Doe"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          alt=""
+          aria-hidden="true"
+          class="powerByStripe"
+          src="test-file-stub"
+        />
+      </div>
+      <div
+        class="Layout--vertical StyledProps--main"
+        style="width: 60%;"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--padding-bottom-small"
+        >
+          common.cardNumber
+        </p>
+        <div
+          class="creditCard"
+        >
+          <div />
+        </div>
+      </div>
+      <p
+        class="StyledProps--font StyledProps--main warning StyledProps--padding-small"
+        style="display: flex; align-items: center;"
+      >
+        <span
+          class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-primary7"
+          data-icon="info"
+        >
+          <svg
+            height="16"
+            viewBox="0 0 12 12"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M0 6a6 6 0 1012 0A6 6 0 000 6zm.75 0a5.25 5.25 0 1010.5 0A5.25 5.25 0 00.75 6zm4.206 3.104v.646h2.682v-.646l-.836-.144V4.203H4.956v.65l.836.144V8.96l-.836.144zm1.846-7.352v1.03h-1.01v-1.03h1.01z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        authSettings.billingInfo.saveCardWarning
+      </p>
+    </div>
+  </div>
+</div>
+`;

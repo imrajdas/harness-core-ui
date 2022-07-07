@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import css from './LaunchButton.module.scss'
 
 export interface LaunchButtonProps {
@@ -18,7 +18,7 @@ export const LaunchButton: React.FC<LaunchButtonProps> = props => {
     window.location.href = props.redirectUrl
   }
 
-  if (isCommunityPlan()) {
+  if (useGetCommunity()) {
     return null
   }
 

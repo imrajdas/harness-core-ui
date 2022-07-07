@@ -11,7 +11,7 @@ import { Text, Layout, Icon } from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
 import type { StringsMap } from 'stringTypes'
 import { useStrings } from 'framework/strings'
-import { Editions, ModuleLicenseType, CD_LICENSE_TYPE } from '@common/constants/SubscriptionTypes'
+import { Editions, ModuleLicenseType, CDLicenseType } from '@common/constants/SubscriptionTypes'
 import { ModuleName } from 'framework/types/ModuleName'
 import type {
   CDModuleLicenseDTO,
@@ -199,7 +199,7 @@ function getLicenseCountByModule({
       const serviceInstances = cdModuleLicenseDTO?.serviceInstances?.toLocaleString()
       const cdLicenseType = cdModuleLicenseDTO?.cdLicenseType
       const serviceStr =
-        cdLicenseType === CD_LICENSE_TYPE.SERVICES
+        cdLicenseType === CDLicenseType.SERVICES
           ? getString('common.subscriptions.cd.services', { workloads: workloads })
           : getString('common.subscriptions.cd.serviceInstances', { workloads: serviceInstances })
 

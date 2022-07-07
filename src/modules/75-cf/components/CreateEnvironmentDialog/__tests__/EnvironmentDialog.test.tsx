@@ -48,7 +48,7 @@ describe('EnvironmentDialog', () => {
 
     renderComponent()
 
-    const createEnvironmentButton = screen.getByRole('button', { name: '+ newEnvironment' })
+    const createEnvironmentButton = screen.getByRole('button', { name: 'plus newEnvironment' })
     fireEvent.mouseOver(createEnvironmentButton)
 
     await waitFor(() => {
@@ -65,7 +65,7 @@ describe('EnvironmentDialog', () => {
 
     renderComponent()
 
-    const createEnvironmentButton = screen.getByRole('button', { name: '+ newEnvironment' })
+    const createEnvironmentButton = screen.getByRole('button', { name: 'plus newEnvironment' })
     fireEvent.mouseOver(createEnvironmentButton)
 
     await waitFor(() => {
@@ -86,7 +86,7 @@ describe('EnvironmentDialog', () => {
       renderComponent()
 
       // open the modal
-      userEvent.click(screen.getByRole('button', { name: '+ newEnvironment' }))
+      userEvent.click(screen.getByRole('button', { name: 'plus newEnvironment' }))
 
       // leave environment name blank and submit form
       userEvent.click(screen.getByRole('button', { name: 'createSecretYAML.create' }))
@@ -98,7 +98,7 @@ describe('EnvironmentDialog', () => {
       renderComponent()
 
       // open the modal
-      userEvent.click(screen.getByRole('button', { name: '+ newEnvironment' }))
+      userEvent.click(screen.getByRole('button', { name: 'plus newEnvironment' }))
 
       // enter invalid text and submit form
       const environmentNameInputField = screen.getByRole('textbox', { name: '' })
@@ -113,7 +113,7 @@ describe('EnvironmentDialog', () => {
       renderComponent()
 
       // open the modal
-      userEvent.click(screen.getByRole('button', { name: '+ newEnvironment' }))
+      userEvent.click(screen.getByRole('button', { name: 'plus newEnvironment' }))
 
       // enter valid environment name and submit form
       const environmentNameInputField = screen.getByRole('textbox', { name: '' })
@@ -147,7 +147,7 @@ describe('EnvironmentDialog', () => {
       })
 
       // open the modal
-      userEvent.click(screen.getByRole('button', { name: '+ newEnvironment' }))
+      userEvent.click(screen.getByRole('button', { name: 'plus newEnvironment' }))
 
       const environmentNameInputField = screen.getByRole('textbox', { name: '' })
 

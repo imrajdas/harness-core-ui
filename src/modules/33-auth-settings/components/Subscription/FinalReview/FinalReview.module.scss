@@ -17,5 +17,21 @@
 }
 
 .lineItem {
-  width: 33%;
+  width: 45%;
+}
+
+.body {
+  overflow-y: auto;
+}
+
+.ul {
+  list-style: none;
+  padding-left: var(--spacing-medium) !important;
+}
+
+.li {
+  &::marker {
+    content: '\2022  ';
+  }
+  padding-bottom: var(--spacing-small) !important;
 }

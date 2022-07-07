@@ -38,7 +38,7 @@ import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
 import RbacButton from '@rbac/components/Button/Button'
 import { PrincipalType } from '@rbac/utils/utils'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import css from './ServiceAccountsListView.module.scss'
 
 interface ServiceAccountsListViewProps {
@@ -232,7 +232,7 @@ const ServiceAccountsListView: React.FC<ServiceAccountsListViewProps> = ({
 }) => {
   const { accountId, orgIdentifier, projectIdentifier, module } = useParams<PipelineType<ProjectPathProps>>()
   const { getString } = useStrings()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
   const history = useHistory()
   const columns: Column<ServiceAccountAggregateDTO>[] = useMemo(
     () => [

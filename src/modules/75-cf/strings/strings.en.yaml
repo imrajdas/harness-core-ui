@@ -282,7 +282,7 @@ targets:
   targetSegment: Target Group
   lastActivity: '{{ $.lastActivity }}'
   createdDate: Created Date
-  create: + New Target
+  create: New Target
   list: Add a target
   upload: Upload a list of targets (CSV files only)
   enterName: 'Enter target name'
@@ -346,7 +346,7 @@ selectSegmentModal:
   flagsUsingThisSegment: FLAGS USING THIS TARGET GROUP
   empty: No Target Group found
 segments:
-  create: + New Target Group
+  create: New Target Group
   targetDefinition: Target Definition
   usingSegment: Flags using this target group
   usingSegmentWithCount: Flags using this target group ({{ count }})
@@ -382,7 +382,7 @@ environments:
     message: 'Secrets are only visible right after creation and redacted once you leave the page. Please make sure to copy and store your secret somewhere safe'
     title: 'SDK Keys'
     emptyName: 'SDK Key name is required'
-    addKey: '+ New SDK Key'
+    addKey: 'New SDK Key'
     duplicateKey: 'A SDK key with this name already exists. Try another name'
     clientType: '{{ $.cf.testTheFlag.sdkClient }}'
     clientDescription: 'A client id will be generated as your client-side SDK key.'

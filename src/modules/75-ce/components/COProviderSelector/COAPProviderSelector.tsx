@@ -13,7 +13,6 @@ import { useStrings } from 'framework/strings'
 import type { ConnectorInfoDTO } from 'services/cd-ng'
 import { Utils } from '@ce/common/Utils'
 import { useFeatureFlags } from '@common/hooks/useFeatureFlag'
-import { FeatureFlag } from '@common/featureFlags'
 import type { Provider, ProviderWithDependencies } from '../COCreateGateway/models'
 import css from './COAPProviderSelector.module.scss'
 
@@ -36,8 +35,7 @@ const data: ProviderWithDependencies[] = [
   {
     name: 'GCP',
     value: 'gcp',
-    icon: 'gcp',
-    ffDependencies: [FeatureFlag.CE_AS_GCP_VM_SUPPORT]
+    icon: 'gcp'
   }
 ]
 

@@ -17,7 +17,6 @@ import ListingPageTemplate from '@cf/components/ListingPageTemplate/ListingPageT
 import {
   CF_DEFAULT_PAGE_SIZE,
   getErrorMessage,
-  rewriteCurrentLocationWithActiveEnvironment,
   SEGMENT_PRIMARY_COLOR,
   showToaster,
   TARGET_PRIMARY_COLOR
@@ -52,10 +51,7 @@ export const TargetsPage: React.FC = () => {
     refetch: refetchEnvs,
     environments
   } = useEnvironmentSelectV2({
-    selectedEnvironmentIdentifier: environmentIdentifier,
-    onChange: (_value, _environment, _userEvent) => {
-      rewriteCurrentLocationWithActiveEnvironment(_environment)
-    }
+    selectedEnvironmentIdentifier: environmentIdentifier
   })
   const { projectIdentifier, orgIdentifier, accountId: accountIdentifier } = useParams<Record<string, string>>()
   const { getString } = useStrings()

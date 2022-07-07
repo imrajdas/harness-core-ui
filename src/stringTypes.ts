@@ -104,10 +104,12 @@ export interface StringsMap {
   'common.banners.trial.success': string
   'common.bash': string
   'common.billed': string
+  'common.billingAddress': string
   'common.blank': string
   'common.branchName': string
   'common.by': string
   'common.capsAll': string
+  'common.cardNumber': string
   'common.ce.autostopping': string
   'common.ce.cost': string
   'common.ce.optimization': string
@@ -122,6 +124,7 @@ export interface StringsMap {
   'common.changesUnsaved': string
   'common.channel': string
   'common.chaosText': string
+  'common.city': string
   'common.clearSelection': string
   'common.clientId': string
   'common.clientSecret': string
@@ -164,6 +167,7 @@ export interface StringsMap {
   'common.copy': string
   'common.copyFqn': string
   'common.copyVariableName': string
+  'common.countryOrRegion': string
   'common.createPipeline': string
   'common.creating': string
   'common.current': string
@@ -438,6 +442,7 @@ export interface StringsMap {
   'common.mostActiveServices': string
   'common.move': string
   'common.myProfile': string
+  'common.nameOnCard': string
   'common.namePlaceholder': string
   'common.namespace': string
   'common.new': string
@@ -477,6 +482,7 @@ export interface StringsMap {
   'common.path': string
   'common.payload': string
   'common.pendingInvitation': string
+  'common.perDeveloper': string
   'common.perMonth': string
   'common.perYear': string
   'common.performAction': string
@@ -690,6 +696,7 @@ export interface StringsMap {
   'common.startFree': string
   'common.startFreePlan': string
   'common.startTrial': string
+  'common.state': string
   'common.submittingRequest': string
   'common.submittingRequestToGitViaDelegate': string
   'common.subscribed': string
@@ -831,6 +838,7 @@ export interface StringsMap {
   'common.with': string
   'common.without': string
   'common.yearly': string
+  'common.zipCode': string
   'notifications.buttonSend': string
   'notifications.emailOrAlias': string
   'notifications.emailRecipients': string
@@ -1405,12 +1413,12 @@ export interface StringsMap {
   'authSettings.authorizationNotEnabled': string
   'authSettings.autoRenewal': string
   'authSettings.azure': string
-  'authSettings.billedAnnually': string
-  'authSettings.billedMonthly': string
   'authSettings.billing.next': string
-  'authSettings.billing.step': string
-  'authSettings.billing.subscribeNPay': string
   'authSettings.billing.totalDuetoday': string
+  'authSettings.billingInfo.billingContact': string
+  'authSettings.billingInfo.emailWarning': string
+  'authSettings.billingInfo.paymentMethod': string
+  'authSettings.billingInfo.saveCardWarning': string
   'authSettings.cdCommunityPlan.communityLinkText': string
   'authSettings.cdCommunityPlan.communityPlanStrings.item1': string
   'authSettings.cdCommunityPlan.communityPlanStrings.item2': string
@@ -1435,45 +1443,32 @@ export interface StringsMap {
   'authSettings.changeLoginToHarnessAccountOrOauth': string
   'authSettings.changeLoginToHarnessAccountOrOauthDescription': string
   'authSettings.chooseFile': string
+  'authSettings.choosePlan': string
   'authSettings.confirmDisableLockoutPolicy': string
   'authSettings.confirmDisableOAuthLogin': string
   'authSettings.confirmDisablePasswordExpiration': string
   'authSettings.confirmDisablePasswordStrength': string
   'authSettings.confirmDisableUserPasswordLogin': string
   'authSettings.confirmDisableWhitelistedDomains': string
-  'authSettings.costCalculator.autoRenew': string
   'authSettings.costCalculator.comparePlans': string
-  'authSettings.costCalculator.currentSubscription': string
-  'authSettings.costCalculator.currentUsage': string
-  'authSettings.costCalculator.developerLicenses': string
-  'authSettings.costCalculator.enterprise': string
-  'authSettings.costCalculator.ff.developer': string
-  'authSettings.costCalculator.ff.mau': string
-  'authSettings.costCalculator.includedFree': string
-  'authSettings.costCalculator.increments': string
+  'authSettings.costCalculator.currentSubscribed': string
+  'authSettings.costCalculator.developer.developer': string
+  'authSettings.costCalculator.developer.title': string
+  'authSettings.costCalculator.mau.kMauFree': string
+  'authSettings.costCalculator.mau.mMauFree': string
+  'authSettings.costCalculator.mau.mau': string
+  'authSettings.costCalculator.mau.perkMau': string
+  'authSettings.costCalculator.mau.permMau': string
+  'authSettings.costCalculator.mau.title': string
   'authSettings.costCalculator.maus': string
-  'authSettings.costCalculator.month': string
-  'authSettings.costCalculator.newSubscription': string
   'authSettings.costCalculator.next': string
-  'authSettings.costCalculator.nextPayment': string
-  'authSettings.costCalculator.payingToday': string
-  'authSettings.costCalculator.plannedUsage': string
   'authSettings.costCalculator.premSupport.includedByDefault': string
-  'authSettings.costCalculator.premSupport.line1': string
-  'authSettings.costCalculator.premSupport.line2': string
-  'authSettings.costCalculator.premSupport.line3': string
+  'authSettings.costCalculator.premSupport.onCallSupport': string
   'authSettings.costCalculator.premSupport.title': string
-  'authSettings.costCalculator.recommended': string
-  'authSettings.costCalculator.step': string
-  'authSettings.costCalculator.support': string
-  'authSettings.costCalculator.switchToYearly': string
+  'authSettings.costCalculator.premiumSupport': string
   'authSettings.costCalculator.switchTooltip': string
   'authSettings.costCalculator.tax': string
-  'authSettings.costCalculator.team': string
-  'authSettings.costCalculator.unitPrice': string
   'authSettings.costCalculator.using': string
-  'authSettings.costCalculator.year': string
-  'authSettings.costCalculator.yearlySave': string
   'authSettings.daysBeforePasswordExpires': string
   'authSettings.daysBeforeUserNotified': string
   'authSettings.deleteSamlProvider': string
@@ -1507,8 +1502,8 @@ export interface StringsMap {
   'authSettings.failedLoginsBeforeLockedAccount': string
   'authSettings.finalReview.ofTotalSpend': string
   'authSettings.finalReview.premiumSupport': string
-  'authSettings.finalReview.step': string
-  'authSettings.firstIncludedFree': string
+  'authSettings.finalReview.subscribeNPay': string
+  'authSettings.finalReview.upgradeToPlan': string
   'authSettings.friendlyReminder': string
   'authSettings.friendlyReminderDescription': string
   'authSettings.goToSettings': string
@@ -1528,7 +1523,6 @@ export interface StringsMap {
   'authSettings.loginViaSAML': string
   'authSettings.logoutUrl': string
   'authSettings.minLength': string
-  'authSettings.monthlySubscriptionTotal': string
   'authSettings.multipleOrganizations': string
   'authSettings.multipleProjects': string
   'authSettings.newMembersWillNeedToSetUpTwoFADuringSignup': string
@@ -1552,9 +1546,12 @@ export interface StringsMap {
   'authSettings.periodicallyExpirePasswordNote': string
   'authSettings.pleaseRemoveSAMLOrLDAPToEnableOauth': string
   'authSettings.plusSAMLProvider': string
-  'authSettings.plusTax': string
+  'authSettings.pricePreview.calculatedNextStep': string
+  'authSettings.pricePreview.discount': string
+  'authSettings.pricePreview.title': string
   'authSettings.publicOAuthLoginDisabled': string
   'authSettings.publicOAuthLoginEnabled': string
+  'authSettings.recomendation': string
   'authSettings.restrictUsersToEmailDomains': string
   'authSettings.saas': string
   'authSettings.samlLoginEnabled': string
@@ -1567,6 +1564,7 @@ export interface StringsMap {
   'authSettings.selectSAMLProvider': string
   'authSettings.success.msg': string
   'authSettings.success.title': string
+  'authSettings.success.woohoo': string
   'authSettings.sureToDisableTwoFAEnforcement': string
   'authSettings.testingSSO': string
   'authSettings.testingSSODescription': string
@@ -1580,7 +1578,6 @@ export interface StringsMap {
   'authSettings.useHarnessUsernameAndPassword': string
   'authSettings.usePublicOAuth': string
   'authSettings.whitelistedDomainsDisabled': string
-  'authSettings.yearlySubscriptionTotal': string
   'authSettings.yourAccountWillBeLockedOut': string
   'connectors.ECR.fullName': string
   'connectors.ECR.name': string
@@ -6155,7 +6152,9 @@ export interface StringsMap {
   'cv.monitoringSources.appD.appdMetricDetail': string
   'cv.monitoringSources.appD.appdPathDetail': string
   'cv.monitoringSources.appD.appdPathTitle': string
+  'cv.monitoringSources.appD.applicationName': string
   'cv.monitoringSources.appD.basePathPlaceholder': string
+  'cv.monitoringSources.appD.completeMetricPath': string
   'cv.monitoringSources.appD.connectToMonitoringSource': string
   'cv.monitoringSources.appD.createConnectorText': string
   'cv.monitoringSources.appD.defaultAppDMetricName': string
@@ -6188,6 +6187,9 @@ export interface StringsMap {
   'cv.monitoringSources.appD.searchPlaceholderApplications': string
   'cv.monitoringSources.appD.searchTiersPlaceHolder': string
   'cv.monitoringSources.appD.selectProduct': string
+  'cv.monitoringSources.appD.serviceInstanceFieldName': string
+  'cv.monitoringSources.appD.serviceInstanceMetricPath': string
+  'cv.monitoringSources.appD.tierName': string
   'cv.monitoringSources.appD.tiersMappedToServices': string
   'cv.monitoringSources.appD.validation': string
   'cv.monitoringSources.appD.validationMsg': string

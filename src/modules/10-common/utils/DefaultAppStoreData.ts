@@ -7,6 +7,7 @@
 
 import type { AppStoreContextProps } from 'framework/AppStore/AppStoreContext'
 import type { Project } from 'services/cd-ng'
+import { Editions } from '@common/constants/SubscriptionTypes'
 
 export const project: Project = {
   orgIdentifier: 'testOrg',
@@ -48,5 +49,13 @@ export const defaultAppStoreValues: Omit<AppStoreContextProps, 'updateAppStore'>
     admin: false,
     twoFactorAuthenticationEnabled: false,
     emailVerified: false
+  }
+}
+
+export const communityLicenseStoreValues = {
+  licenseInformation: {
+    CD: {
+      edition: Editions.COMMUNITY
+    }
   }
 }

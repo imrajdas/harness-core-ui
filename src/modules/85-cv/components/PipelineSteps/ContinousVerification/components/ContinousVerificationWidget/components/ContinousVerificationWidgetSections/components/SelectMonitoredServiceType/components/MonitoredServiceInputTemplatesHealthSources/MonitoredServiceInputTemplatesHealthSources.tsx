@@ -10,7 +10,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 import {
-  getLabelByName,
+  getFieldLabelForVerifyTemplate,
   getNestedFields
 } from '@cv/pages/monitored-service/CVMonitoredService/MonitoredServiceInputSetsTemplate.utils'
 import NoResultsView from '@templates-library/pages/TemplatesPage/views/NoResultsView/NoResultsView'
@@ -76,7 +76,7 @@ export default function MonitoredServiceInputTemplatesHealthSources(
                     <FormInput.MultiTextInput
                       key={input.name}
                       name={`spec.monitoredService.spec.templateInputs.${input.path}`}
-                      label={getLabelByName(input.name, getString)}
+                      label={getFieldLabelForVerifyTemplate(input.name, getString)}
                       multiTextInputProps={{
                         expressions,
                         allowableTypes
@@ -102,7 +102,7 @@ export default function MonitoredServiceInputTemplatesHealthSources(
                           <FormInput.MultiTextInput
                             key={input.name}
                             name={`spec.monitoredService.spec.templateInputs.${input.path}`}
-                            label={getLabelByName(input.name, getString)}
+                            label={getFieldLabelForVerifyTemplate(input.name, getString)}
                             multiTextInputProps={{
                               expressions,
                               allowableTypes

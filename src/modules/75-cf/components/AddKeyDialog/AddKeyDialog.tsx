@@ -236,6 +236,7 @@ const AddKeyDialog: React.FC<AddKeyDialogProps> = ({
 
   return (
     <RbacButton
+      icon="plus"
       disabled={disabled}
       variation={ButtonVariation.PRIMARY}
       onClick={() => {

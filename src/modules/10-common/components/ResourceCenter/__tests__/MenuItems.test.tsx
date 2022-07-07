@@ -9,6 +9,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react'
 import React from 'react'
 import moment from 'moment'
 import { TestWrapper } from '@common/utils/testUtils'
+import { communityLicenseStoreValues } from '@common/utils/DefaultAppStoreData'
 import MenuItems from '../MenuItems'
 
 beforeEach(() => {
@@ -16,9 +17,8 @@ beforeEach(() => {
 })
 describe('MenuItems', () => {
   test('Community Plan', () => {
-    window.deploymentType = 'COMMUNITY'
     const { container } = render(
-      <TestWrapper>
+      <TestWrapper defaultLicenseStoreValues={communityLicenseStoreValues}>
         <MenuItems closeResourceCenter={jest.fn} />
       </TestWrapper>
     )
@@ -26,9 +26,8 @@ describe('MenuItems', () => {
   })
 
   test('Community submit a ticket tooltip', async () => {
-    window.deploymentType = 'COMMUNITY'
     const { getByText } = render(
-      <TestWrapper>
+      <TestWrapper defaultLicenseStoreValues={communityLicenseStoreValues}>
         <MenuItems closeResourceCenter={jest.fn} />
       </TestWrapper>
     )

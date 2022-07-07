@@ -8,6 +8,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { TestWrapper } from '@common/utils/testUtils'
+import { communityLicenseStoreValues } from '@common/utils/DefaultAppStoreData'
 import HomeSideNav from '../HomeSideNav'
 
 beforeEach(() => {
@@ -24,9 +25,8 @@ describe('HomeSidenav', () => {
   })
 
   test('Disable launch button for community edition', () => {
-    window.deploymentType = 'COMMUNITY'
     const { container } = render(
-      <TestWrapper>
+      <TestWrapper defaultLicenseStoreValues={communityLicenseStoreValues}>
         <HomeSideNav />
       </TestWrapper>
     )

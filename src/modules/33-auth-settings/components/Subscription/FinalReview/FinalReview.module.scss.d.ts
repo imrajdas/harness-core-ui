@@ -7,8 +7,11 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
+  readonly body: string
+  readonly li: string
   readonly line: string
   readonly lineItem: string
   readonly payingToday: string
+  readonly ul: string
 }
 export default styles

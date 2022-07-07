@@ -7,7 +7,7 @@
 
 import React from 'react'
 
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import RolesList from '@rbac/pages/Roles/views/RolesList'
 import FeatureWarningBanner from '@common/components/FeatureWarning/FeatureWarningBanner'
 import { FeatureIdentifier } from 'framework/featureStore/FeatureIdentifier'
@@ -15,7 +15,7 @@ import { useStrings } from 'framework/strings'
 
 const Roles: React.FC = () => {
   const { getString } = useStrings()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
 
   if (isCommunity) {
     return (

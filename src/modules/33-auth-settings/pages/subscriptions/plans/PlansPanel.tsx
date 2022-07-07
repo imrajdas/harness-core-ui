@@ -12,7 +12,7 @@ import cx from 'classnames'
 import { useStrings } from 'framework/strings'
 import type { FetchPlansQuery } from 'services/common/services'
 import type { ModuleName } from 'framework/types/ModuleName'
-import { TIME_TYPE } from './planUtils'
+import { TimeType } from '@common/constants/SubscriptionTypes'
 import PlanContainer from './PlanContainer'
 import css from './Plans.module.scss'
 
@@ -23,9 +23,9 @@ interface PlansPanelProps {
 
 const PlansPanel: React.FC<PlansPanelProps> = ({ plans, module }) => {
   const { getString } = useStrings()
-  const [timeType, setTimeType] = useState<TIME_TYPE>(TIME_TYPE.YEARLY)
-  const yearlySelected = timeType === TIME_TYPE.YEARLY ? css.selected : ''
-  const monthlySelected = timeType === TIME_TYPE.MONTHLY ? css.selected : ''
+  const [timeType, setTimeType] = useState<TimeType>(TimeType.YEARLY)
+  const yearlySelected = timeType === TimeType.YEARLY ? css.selected : ''
+  const monthlySelected = timeType === TimeType.MONTHLY ? css.selected : ''
   if (plans) {
     return (
       <Layout.Vertical>
@@ -35,7 +35,7 @@ const PlansPanel: React.FC<PlansPanelProps> = ({ plans, module }) => {
             color={Color.PRIMARY_6}
             padding={{ left: 'medium', right: 'medium', top: 'small', bottom: 'small' }}
             className={cx(css.yearly, yearlySelected)}
-            onClick={() => setTimeType(TIME_TYPE.YEARLY)}
+            onClick={() => setTimeType(TimeType.YEARLY)}
           >
             {getString('common.yearly')}
           </Text>
@@ -43,15 +43,15 @@ const PlansPanel: React.FC<PlansPanelProps> = ({ plans, module }) => {
             color={Color.PRIMARY_6}
             padding={{ left: 'medium', right: 'medium', top: 'small', bottom: 'small' }}
             className={cx(css.monthly, monthlySelected)}
-            onClick={() => setTimeType(TIME_TYPE.MONTHLY)}
+            onClick={() => setTimeType(TimeType.MONTHLY)}
           >
             {getString('common.monthly')}
           </Text>
         </Layout.Horizontal>
-        {timeType === TIME_TYPE.YEARLY ? (
-          <PlanContainer plans={plans} timeType={TIME_TYPE.YEARLY} moduleName={module} />
+        {timeType === TimeType.YEARLY ? (
+          <PlanContainer plans={plans} timeType={TimeType.YEARLY} moduleName={module} />
         ) : (
-          <PlanContainer plans={plans} timeType={TIME_TYPE.MONTHLY} moduleName={module} />
+          <PlanContainer plans={plans} timeType={TimeType.MONTHLY} moduleName={module} />
         )}
       </Layout.Vertical>
     )

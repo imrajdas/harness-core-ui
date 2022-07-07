@@ -6,18 +6,29 @@
  */
 
 .dialog {
-  width: 850px;
-  min-height: 700px;
+  width: auto;
+  height: auto;
+  display: flex;
   padding: var(--spacing-xlarge) var(--spacing-xxxlarge);
-  position: relative;
+  :global(.bp3-dialog-header) {
+    margin-bottom: reset !important;
+  }
 }
 
-.footer {
-  position: absolute;
-  bottom: var(--spacing-large);
-  padding: var(--spacing-large) 0 !important;
-  border-top: 1px solid var(--grey-100);
-  justify-content: space-between;
-  width: 93% !important;
-  background-color: var(--white) !important;
+.view {
+  min-width: 1200px;
+}
+
+.leftView {
+  width: 55% !important;
+  display: inline !important;
+  padding-right: var(--spacing-large) !important;
+  padding-top: var(--spacing-xsmall) !important;
+  padding-left: var(--spacing-xsmall) !important;
+}
+
+.success {
+  width: 700px;
+  height: 500px;
+  overflow: hidden;
 }

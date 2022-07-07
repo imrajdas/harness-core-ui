@@ -103,7 +103,7 @@ describe('EnvironmentDetailsBody', () => {
     }
     renderComponent({ data: hasNoKeys })
 
-    expect(screen.getByRole('button', { name: 'cf.environments.apiKeys.addKey' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'plus cf.environments.apiKeys.addKey' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'cf.environments.apiKeys.noKeysFoundTitle' })).toBeInTheDocument()
   })
 

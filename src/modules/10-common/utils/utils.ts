@@ -8,6 +8,8 @@
 import type { IconName } from '@harness/uicore'
 import { Scope } from '@common/interfaces/SecretsInterface'
 import { ModuleName } from 'framework/types/ModuleName'
+import { useLicenseStore } from 'framework/LicenseStore/LicenseStoreContext'
+import { Editions } from '@common/constants/SubscriptionTypes'
 
 interface SetPageNumberProps {
   setPage: (value: React.SetStateAction<number>) => void
@@ -64,7 +66,10 @@ export const formatCount = (num: number): string => {
   return num.toLocaleString()
 }
 
-export const isCommunityPlan = (): boolean => window.deploymentType === 'COMMUNITY'
+export function useGetCommunity(): boolean {
+  const { licenseInformation } = useLicenseStore()
+  return licenseInformation?.['CD']?.edition === Editions.COMMUNITY
+}
 
 export const isOnPrem = (): boolean => window.deploymentType === 'ON_PREM'
 

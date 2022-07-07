@@ -18,7 +18,7 @@ import {
 } from '@testing-library/react'
 import UserProfilePage from '@user-profile/pages/UserProfile/UserProfilePage'
 import { TestWrapper, findDialogContainer } from '@common/utils/testUtils'
-import { defaultAppStoreValues } from '@common/utils/DefaultAppStoreData'
+import { defaultAppStoreValues, communityLicenseStoreValues } from '@common/utils/DefaultAppStoreData'
 import { InputTypes, setFieldValue, clickSubmit } from '@common/utils/JestFormHelper'
 import * as cdngServices from 'services/cd-ng'
 import type { ResponseBoolean } from 'services/cd-ng'
@@ -136,12 +136,13 @@ describe('User Profile Page', () => {
   let getByText: RenderResult['getByText']
   let getByTestId: RenderResult['getByTestId']
 
-  const testSetup = (): void => {
+  const testSetup = (isCommunity?: boolean): void => {
     const renderObj = render(
       <TestWrapper
         path="/account/:accountId/projects"
         pathParams={{ accountId: 'testAcc' }}
         defaultAppStoreValues={enabledAuth ? enabledTwoFactorAuth : defaultAppStoreValues}
+        defaultLicenseStoreValues={isCommunity ? communityLicenseStoreValues : {}}
       >
         <UserProfilePage />
       </TestWrapper>
@@ -362,8 +363,7 @@ describe('User Profile Page', () => {
       expect(queryByText(document.body, 'noProjects')).toBeTruthy()
     })
   test('Hide SwitchAccount button for community edition', async () => {
-    window.deploymentType = 'COMMUNITY'
-    testSetup()
+    testSetup(true)
     expect(queryByText(document.body, 'common.switchAccount')).toBeNull()
   })
 })

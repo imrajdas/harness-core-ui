@@ -24,7 +24,7 @@ import type {
 } from 'framework/featureStore/featureStoreUtil'
 import type { FeatureIdentifier } from 'framework/featureStore/FeatureIdentifier'
 import { useLicenseStore } from 'framework/LicenseStore/LicenseStoreContext'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import { useFeatureFlag } from './useFeatureFlag'
 
 interface FeatureProps {
@@ -37,14 +37,14 @@ interface FeaturesProps {
   options?: FeatureRequestOptions
 }
 
-const isCommunity = isCommunityPlan()
-
 function useGetFeatureEnforced(): boolean {
+  const isCommunity = useGetCommunity()
   const featureEnforced = useFeatureFlag(FeatureFlag.FEATURE_ENFORCEMENT_ENABLED)
   return featureEnforced || isCommunity
 }
 
 export function useFeature(props: FeatureProps): CheckFeatureReturn {
+  const isCommunity = useGetCommunity()
   const { requestFeatures, checkFeature, requestLimitFeature, checkLimitFeature, getRestrictionType } =
     useFeaturesContext()
   const { licenseInformation, CI_LICENSE_STATE, CD_LICENSE_STATE, FF_LICENSE_STATE, CCM_LICENSE_STATE } =
@@ -94,6 +94,7 @@ export function useFeatures(props: FeaturesProps): CheckFeaturesReturn {
   const features = new Map<FeatureIdentifier, CheckFeatureReturn>()
 
   const { featuresRequest, options } = props
+  const isCommunity = useGetCommunity()
 
   function groupFeatures(): { limitFeatures: FeatureIdentifier[]; availFeatures: FeatureIdentifier[] } {
     const accLimitFeatures: FeatureIdentifier[] = []
@@ -191,6 +192,7 @@ export function useFeatureRequiredPlans(featureName?: FeatureIdentifier): string
   const { featureMap, getEdition } = useFeaturesContext()
   const { licenseInformation, CI_LICENSE_STATE, CD_LICENSE_STATE, FF_LICENSE_STATE, CCM_LICENSE_STATE } =
     useLicenseStore()
+  const isCommunity = useGetCommunity()
 
   // for community, do not return plans
   if (isCommunity) {

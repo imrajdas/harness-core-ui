@@ -29,7 +29,7 @@ import RbacButton from '@rbac/components/Button/Button'
 import { GetServiceListQueryParams, ServiceResponseDTO, useGetServiceList } from 'services/cd-ng'
 import type { ModulePathParams, ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import routes from '@common/RouteDefinitions'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
 import { NewEditServiceModal } from '@cd/components/PipelineSteps/DeployServiceStep/NewEditServiceModal'
 import { FeatureFlag } from '@common/featureFlags'
@@ -40,7 +40,7 @@ import css from './ServicesListPage.module.scss'
 
 export const ServicesListPage: React.FC = () => {
   const { accountId, orgIdentifier, projectIdentifier, module } = useParams<ProjectPathProps & ModulePathParams>()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
   const isSvcEnvEntityEnabled = useFeatureFlag(FeatureFlag.NG_SVC_ENV_REDESIGN)
   const { getString } = useStrings()
   const { showError } = useToaster()

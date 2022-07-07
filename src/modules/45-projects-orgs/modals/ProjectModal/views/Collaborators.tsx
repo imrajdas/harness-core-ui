@@ -40,7 +40,7 @@ import { CopyText } from '@common/components/CopyText/CopyText'
 import routes from '@common/RouteDefinitions'
 import { InvitationStatus, handleInvitationResponse, isAccountBasicRole } from '@rbac/utils/utils'
 import { getDefaultRole, getDetailsUrl } from '@projects-orgs/utils/utils'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import { useMutateAsGet } from '@common/hooks'
 import UserItemRenderer from '@audit-trail/components/UserItemRenderer/UserItemRenderer'
 import UserTagRenderer from '@audit-trail/components/UserTagRenderer/UserTagRenderer'
@@ -67,7 +67,7 @@ const Collaborators: React.FC<CollaboratorModalData> = props => {
   const { projectIdentifier, orgIdentifier, showManage = true } = props
   const { accountId } = useParams<AccountPathProps>()
   const { getString } = useStrings()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
   const { showSuccess } = useToaster()
   const history = useHistory()
   const [search, setSearch] = useState<string>()

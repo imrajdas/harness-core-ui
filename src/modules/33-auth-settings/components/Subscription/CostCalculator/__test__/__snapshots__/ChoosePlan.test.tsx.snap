@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChoosePlan render 1`] = `
+<div>
+  <div
+    class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start"
+  >
+    <p
+      class="StyledProps--font StyledProps--main StyledProps--font-variation-h4"
+    >
+      authSettings.choosePlan
+    </p>
+    <div
+      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start"
+    >
+      <div
+        class="PillToggle--optionBtns plan"
+      >
+        <div
+          class="PillToggle--item"
+          data-name="toggle-option-one"
+          role="button"
+          tabindex="0"
+        >
+          Team
+        </div>
+        <div
+          class="PillToggle--item PillToggle--selected"
+          data-name="toggle-option-two"
+          role="button"
+          tabindex="0"
+        >
+          Enterprise
+        </div>
+      </div>
+      <a
+        href="/account/undefined/settings/subscriptions?moduleCard=cf&&tab=PLANS"
+        target="_blank"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-primary7 StyledProps--font-size-xsmall"
+        >
+          authSettings.costCalculator.comparePlans
+        </p>
+      </a>
+    </div>
+  </div>
+</div>
+`;

@@ -913,3 +913,12 @@ serviceOverrides: Service Overrides
 
 # Chaos Module
 chaosText: Chaos
+
+zipCode: Postal / Zip Code
+countryOrRegion: Country or Region
+billingAddress: Billing Address
+city: City
+state: State
+nameOnCard: Name on card
+cardNumber: Card number
+perDeveloper: per developer

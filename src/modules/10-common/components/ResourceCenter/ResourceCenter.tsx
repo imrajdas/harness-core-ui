@@ -11,6 +11,7 @@ import { Color, FontVariation } from '@harness/design-system'
 
 import { Drawer, Position } from '@blueprintjs/core'
 import cx from 'classnames'
+import { useGetCommunity } from '@common/utils/utils'
 import { useStrings } from 'framework/strings'
 import { getButton } from './ResourceCenterUtil'
 import MenuItems from './MenuItems'
@@ -33,8 +34,12 @@ export const ResourceCenter = (): React.ReactElement => {
   const { getString } = useStrings()
 
   const [show, setShow] = useState<boolean>(false)
+  const isCommunity = useGetCommunity()
 
   function getReleaseNodeLink(): string {
+    if (isCommunity) {
+      return ON_PREM_RELEASE_NODE_LINK
+    }
     switch (window.deploymentType) {
       case 'COMMUNITY':
       case 'ON_PREM': {

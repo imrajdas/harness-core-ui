@@ -39,7 +39,7 @@ import { getIdentifierFromValue, getScopeFromDTO } from '@common/components/Enti
 import { useMutateAsGet } from '@common/hooks/useMutateAsGet'
 import { Scope } from '@common/interfaces/SecretsInterface'
 import UserGroupsInput from '@common/components/UserGroupsInput/UserGroupsInput'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import UserItemRenderer from '@audit-trail/components/UserItemRenderer/UserItemRenderer'
 import UserTagRenderer from '@audit-trail/components/UserTagRenderer/UserTagRenderer'
 import { useFeatureFlags } from '@common/hooks/useFeatureFlag'
@@ -91,7 +91,7 @@ const UserRoleAssignment: React.FC<UserRoleAssignmentData> = props => {
   const scope = getScopeFromDTO({ accountIdentifier: accountId, orgIdentifier, projectIdentifier })
   const { getString } = useStrings()
   const { ACCOUNT_BASIC_ROLE, ACCOUNT_BASIC_ROLE_ONLY } = useFeatureFlags()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
   const [query, setQuery] = useState<string>()
   const { showSuccess } = useToaster()
   const [modalErrorHandler, setModalErrorHandler] = useState<ModalErrorHandlerBinding>()

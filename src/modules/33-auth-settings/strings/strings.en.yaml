@@ -141,59 +141,52 @@ cdCommunityPlan:
     item3: 'External Approvals & Secrets Management'
     item4: Multiple Projects & Organizations
     item5: Template Library & Custom Dashboards
-yearlySubscriptionTotal: Yearly Subscription Total
-monthlySubscriptionTotal: Monthly Subscription Total
-billedAnnually: Billed Annually
-billedMonthly: Billed Monthly
-plusTax: plus tax
+
 autoRenewal: Auto renewal on {{date}}
-unitPrice: 'x Unit Price: '
-firstIncludedFree: (first {{amount}} included free)
+unitPrice: Unit Price
+recomendation: Recomendation
 costCalculator:
-  step: 'Step one: Subscription'
-  month: 'Month '
-  year: 'Year'
-  team: 'Team'
-  enterprise: 'Enterprise '
-  tax: 'Tax'
-  support: 'Support'
-  unitPrice: 'Unit Price'
-  currentUsage: 'Current Usage'
-  plannedUsage: 'Planned Usage'
-  recommended: 'Recommended Usage'
-  nextPayment: 'Next Payment'
-  ff:
-    developer: 'Developer'
-    mau: 'MAU'
-  currentSubscription: Current subscription
-  developerLicenses: Developer Licenses
+  tax: Tax
   using: Using
+  currentSubscribed: Currently Subscribed
   maus: MAUs
-  increments: increments
-  newSubscription: New subscription
   comparePlans: Compare plans
-  payingToday: 'Paying Today: '
   next: 'Next: Billing information'
-  autoRenew: Auto renews {{time}} on {{date}}
-  yearlySave: Save {{money}} with a yearly subscription
-  switchToYearly: Switch to Yearly
   switchTooltip: Switch to Yearly subscription to enable premium support
-  includedFree: Included Free
+  premiumSupport: Premium Support
   premSupport:
-    title: Add Premium Support for ${{amount}} (20% of total spend)
-    line1: 24/7 on call support
-    line2: Another great selling point
-    line3: Why this support level is spectacular
+    title: Add Premium Support
+    onCallSupport: 24/7 on call support
     includedByDefault: Standard included by default
+  developer:
+    title: How many developers will use Feature Flags?
+    developer: Who is a developer?
+  mau:
+    title: How many Monthly Active Users will view Feature Flags?
+    mau: Who is a Monthly Active User?
+    perkMau: per 100k / month
+    kMauFree: (first 100k included free)
+    permMau: per 1M / month
+    mMauFree: (first 1M included free)
 billing:
-  subscribeNPay: Subscribe and Pay
   totalDuetoday: 'Total due today: '
   next: 'Next: Final review'
-  step: 'Step two: Billing Information'
 finalReview:
-  step: 'Step three: Final Review'
   premiumSupport: Premium 24x7
   ofTotalSpend: (20% of total spend)
+  subscribeNPay: Subscribe and Pay
+  upgradeToPlan: Upgrading to
 success:
-  title: Congratulation! You’re all set.
+  woohoo: Woo-Hoo!
+  title: Bravo. You’re all set.
   msg: Your {{time}} {{module}} subscription is successfully set up.
+choosePlan: Choose a plan
+pricePreview:
+  title: Price preview
+  calculatedNextStep: Calculated in final review
+  discount: (20% discount)
+billingInfo:
+  billingContact: Billing Contact
+  paymentMethod: Payment Method
+  saveCardWarning: By providing your card information, you allow Harness Inc. charge your card for future payment in accordance with their terms.
+  emailWarning: This email address will receive billing notifications

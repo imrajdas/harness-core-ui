@@ -11,7 +11,6 @@ import { get } from 'lodash-es'
 import { Utils } from '@wings-software/uicore'
 import { useStrings } from 'framework/strings'
 import type { Feature, Variation } from 'services/cf'
-import type { EnvironmentResponseDTO } from 'services/cd-ng'
 
 const LOCALE = 'en'
 
@@ -272,78 +271,22 @@ export function useValidateVariationValues(): UseValidateVariationValuesResult {
   return validateVariationValues
 }
 
-// Colors used for CF banners
-export const ColorPickerColors = [
-  '#e63535',
-  '#ff3b3b',
-  '#ff5c5c',
-  '#ff8080',
-  '#ffe6e6', // red
-  '#05a660',
-  '#06c270',
-  '#39d98a',
-  '#57eba1',
-  '#e3fff1', // green
-  '#004fc4',
-  '#0063f7',
-  '#5b8def',
-  '#9dbff9',
-  '#e5f0ff', // blue
-  '#e6b800',
-  '#ffcc00',
-  '#fddd48',
-  '#fded72',
-  '#fffee6', // yellow
-  '#e67a00',
-  '#ff8800',
-  '#fdac42',
-  '#fccc75',
-  '#fff8e6', // orange
-  '#00b7c4',
-  '#00cfde',
-  '#73dfe7',
-  '#a9eff2',
-  '#e6ffff', // teal
-  '#4d0099',
-  '#6600cc',
-  '#ac5dd9',
-  '#dda5e9',
-  '#ffe6ff', // purple
-  '#e4e4eb',
-  '#ebebf0',
-  '#f2f2f5',
-  '#fafafc',
-  '#ffffff', // grey
-  '#1c1c28',
-  '#28293d',
-  '#555770',
-  '#8f90a6',
-  '#c7c9d9' // black
-]
+export const rewriteCurrentLocationWithActiveEnvironment = (env?: string): void => {
+  const [url, queryParams] = location.href.split('?')
+  const activeQueryParams = new URLSearchParams(queryParams || '')
 
-export const rewriteCurrentLocationWithActiveEnvironment = (activeEnvironment: EnvironmentResponseDTO): void => {
-  if (!activeEnvironment) {
-    return
+  if (env) {
+    activeQueryParams.set('activeEnvironment', env)
+  } else {
+    activeQueryParams.delete('activeEnvironment')
   }
 
-  const hrefParts = location.href.split('?')
-  const activeQueryParams: Record<string, string> = (hrefParts[1] || '')
-    .split('&')
-    .filter(entry => !!entry?.length)
-    .map(item => item.split('='))
-    .reduce((params, item) => {
-      params[item[0]] = item[1]
-      return params
-    }, {} as Record<string, string>)
+  const queryString = activeQueryParams.toString()
+  const newLocation = queryString ? `${url}?${queryString}` : url
 
-  activeQueryParams.activeEnvironment = activeEnvironment.identifier || ''
-  location.replace(
-    hrefParts[0] +
-      '?' +
-      Object.entries(activeQueryParams)
-        .map(pair => pair.join('='))
-        .join('&')
-  )
+  if (newLocation !== location.href) {
+    location.replace(newLocation)
+  }
 }
 
 export const getDefaultVariation = (flag: Feature): Variation => {

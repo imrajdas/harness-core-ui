@@ -32,7 +32,7 @@ import ProjectSetupMenu from '@common/navigation/ProjectSetupMenu/ProjectSetupMe
 import { returnLaunchUrl } from '@common/utils/routeUtils'
 import { LaunchButton } from '@common/components/LaunchButton/LaunchButton'
 import type { ModuleLicenseType } from '@common/constants/SubscriptionTypes'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 
 export default function CDSideNav(): React.ReactElement {
   const params = useParams<
@@ -65,7 +65,7 @@ export default function CDSideNav(): React.ReactElement {
   const { ARGO_PHASE1, ARGO_PHASE2_MANAGED } = useFeatureFlags()
   const { getString } = useStrings()
   const { experience } = useQueryParams<{ experience?: ModuleLicenseType }>()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
   return (
     <Layout.Vertical spacing="small">
       <ProjectSelector

@@ -152,6 +152,7 @@ export const NewSegmentButton: React.FC<NewSegmentButtonProps> = ({
 
   return (
     <RbacButton
+      icon="plus"
       intent="primary"
       variation={ButtonVariation.PRIMARY}
       text={getString('cf.segments.create')}

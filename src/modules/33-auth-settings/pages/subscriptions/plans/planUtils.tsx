@@ -15,13 +15,9 @@ import type { Editions } from '@common/constants/SubscriptionTypes'
 import type { EditionActionDTO } from 'services/cd-ng'
 import type { StringsMap } from 'stringTypes'
 import type { PlansFragment, Maybe } from 'services/common/services'
+import { TimeType } from '@common/constants/SubscriptionTypes'
 import type { PlanCalculatedProps, BtnProps } from './PlanContainer'
 import css from './Plan.module.scss'
-
-export enum TIME_TYPE {
-  YEARLY = 'yearly',
-  MONTHLY = 'monthly'
-}
 
 export type PlanProp = Maybe<{ __typename?: 'ComponentPricingPagePlansZone' } & PlansFragment>
 
@@ -47,6 +43,7 @@ interface GetBtnPropsProps {
   actions?: {
     [key: string]: EditionActionDTO[]
   }
+  isSelfServiceEnabled: boolean
 }
 
 export function getBtnProps({
@@ -58,65 +55,68 @@ export function getBtnProps({
   handleManageSubscription,
   handleUpgrade,
   btnLoading,
-  actions
+  actions,
+  isSelfServiceEnabled
 }: GetBtnPropsProps): PlanCalculatedProps['btnProps'] {
   const btnProps: BtnProps[] = []
   const planEdition = plan?.title && (plan?.title?.toUpperCase() as Editions)
-  const planActions = (planEdition && actions?.[planEdition]) || []
+  let planActions = (planEdition && actions?.[planEdition]) || []
   // for March's launch, we hide manage subscription, upgrade, subscribe until the functions are fullfilled
-  planActions
-    ?.filter(action => action.action && !['MANAGE', 'SUBSCRIBE', 'UPGRADE'].includes(action.action))
-    .forEach(action => {
-      let onClick,
-        order,
-        planDisabledStr: string | undefined,
-        isContactSales: boolean | undefined,
-        isContactSupport: boolean | undefined
-      const buttonText =
-        action.action &&
-        PLAN_BTN_ACTIONS[action.action] &&
-        getString(PLAN_BTN_ACTIONS[action.action] as keyof StringsMap)
-      switch (action.action) {
-        case 'START_FREE':
-        case 'START_TRIAL':
-          order = 0
-          onClick = () => planEdition && handleStartPlan(planEdition)
-          break
-        case 'EXTEND_TRIAL':
-          order = 0
-          onClick = () => planEdition && handleExtendTrial(planEdition)
-          break
-        case 'MANAGE':
-          order = 0
-          onClick = handleManageSubscription
-          break
-        case 'SUBSCRIBE':
-        case 'UPGRADE':
-          order = 1
-          onClick = handleUpgrade
-          break
-        case 'CONTACT_SALES':
-          order = 2
-          onClick = handleContactSales
-          isContactSales = true
-          break
-        case 'CONTACT_SUPPORT':
-          order = 2
-          isContactSupport = true
-          break
-        case 'DISABLED_BY_ENTERPRISE':
-        case 'DISABLED_BY_TEAM':
-          order = 0
-          onClick = undefined
-          planDisabledStr = action.reason
-          break
-        default:
-          order = 0
-          onClick = undefined
-      }
+  if (!isSelfServiceEnabled) {
+    planActions = planActions.filter(
+      action => action.action && !['MANAGE', 'SUBSCRIBE', 'UPGRADE'].includes(action.action)
+    )
+  }
 
-      btnProps.push({ buttonText, onClick, btnLoading, order, planDisabledStr, isContactSales, isContactSupport })
-    })
+  planActions.forEach(action => {
+    let onClick,
+      order,
+      planDisabledStr: string | undefined,
+      isContactSales: boolean | undefined,
+      isContactSupport: boolean | undefined
+    const buttonText =
+      action.action && PLAN_BTN_ACTIONS[action.action] && getString(PLAN_BTN_ACTIONS[action.action] as keyof StringsMap)
+    switch (action.action) {
+      case 'START_FREE':
+      case 'START_TRIAL':
+        order = 0
+        onClick = () => planEdition && handleStartPlan(planEdition)
+        break
+      case 'EXTEND_TRIAL':
+        order = 0
+        onClick = () => planEdition && handleExtendTrial(planEdition)
+        break
+      case 'MANAGE':
+        order = 0
+        onClick = handleManageSubscription
+        break
+      case 'SUBSCRIBE':
+      case 'UPGRADE':
+        order = 1
+        onClick = handleUpgrade
+        break
+      case 'CONTACT_SALES':
+        order = 2
+        onClick = handleContactSales
+        isContactSales = true
+        break
+      case 'CONTACT_SUPPORT':
+        order = 2
+        isContactSupport = true
+        break
+      case 'DISABLED_BY_ENTERPRISE':
+      case 'DISABLED_BY_TEAM':
+        order = 0
+        onClick = undefined
+        planDisabledStr = action.reason
+        break
+      default:
+        order = 0
+        onClick = undefined
+    }
+
+    btnProps.push({ buttonText, onClick, btnLoading, order, planDisabledStr, isContactSales, isContactSupport })
+  })
 
   // sort btns for display order
   btnProps.sort((btn1, btn2) => btn1.order - btn2.order)
@@ -182,16 +182,16 @@ export function getBtns({ isPlanDisabled, btnProps, getString }: GetBtnsProps): 
 }
 
 interface GetPriceTipsProps {
-  timeType: TIME_TYPE
+  timeType: TimeType
   plan: PlanData
   textColorClassName: string
 }
 
 export function getPriceTips({ timeType, plan, textColorClassName }: GetPriceTipsProps): React.ReactElement {
-  const priceTips = timeType === TIME_TYPE.MONTHLY ? plan.planProps?.priceTips : plan.planProps?.yearlyPriceTips
-  const priceTerm = timeType === TIME_TYPE.MONTHLY ? plan.planProps?.priceTerm : plan.planProps?.yearlyPriceTerm
+  const priceTips = timeType === TimeType.MONTHLY ? plan.planProps?.priceTips : plan.planProps?.yearlyPriceTips
+  const priceTerm = timeType === TimeType.MONTHLY ? plan.planProps?.priceTerm : plan.planProps?.yearlyPriceTerm
   const priceTermTips =
-    timeType === TIME_TYPE.MONTHLY ? plan.planProps?.priceTermTips : plan.planProps?.yearlyPriceTermTips
+    timeType === TimeType.MONTHLY ? plan.planProps?.priceTermTips : plan.planProps?.yearlyPriceTermTips
 
   if (!isEmpty(priceTerm) && !isEmpty(priceTermTips)) {
     const tips = priceTips?.split(priceTerm || '')
@@ -245,14 +245,14 @@ export function getPriceTips({ timeType, plan, textColorClassName }: GetPriceTip
 
 interface GetPriceProps {
   plan: PlanData
-  timeType: TIME_TYPE
+  timeType: TimeType
   openMarketoContactSales: () => void
   getString: (key: keyof StringsMap, vars?: Record<string, any> | undefined) => string
 }
 
 export function getPrice({ timeType, plan, openMarketoContactSales, getString }: GetPriceProps): React.ReactElement {
   const CUSTOM_PRICING = 'custom pricing'
-  const price = timeType === TIME_TYPE.MONTHLY ? plan.planProps?.price : plan?.planProps?.yearlyPrice
+  const price = timeType === TimeType.MONTHLY ? plan.planProps?.price : plan?.planProps?.yearlyPrice
   if (price?.toLowerCase() === CUSTOM_PRICING) {
     return (
       <Layout.Horizontal spacing="xsmall" flex={{ alignItems: 'baseline' }}>

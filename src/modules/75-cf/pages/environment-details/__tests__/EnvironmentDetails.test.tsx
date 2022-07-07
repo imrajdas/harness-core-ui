@@ -109,7 +109,7 @@ describe('EnvironmentDetails', () => {
     renderComponent()
 
     await waitFor(() => {
-      expect(screen.getByRole('button', { name: 'cf.environments.apiKeys.addKey' })).toBeInTheDocument()
+      expect(screen.getByRole('button', { name: 'plus cf.environments.apiKeys.addKey' })).toBeInTheDocument()
       expect(document.querySelector('.PageSubHeader--container')).toBeInTheDocument()
     })
   })

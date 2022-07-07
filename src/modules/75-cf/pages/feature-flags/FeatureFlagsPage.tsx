@@ -55,7 +55,6 @@ import {
   getDefaultVariation,
   getErrorMessage,
   isFeatureFlagOn,
-  rewriteCurrentLocationWithActiveEnvironment,
   useFeatureFlagTypeToStringMapping
 } from '@cf/utils/CFUtils'
 import { FlagTypeVariations } from '@cf/components/CreateFlagDialog/FlagDialogUtils'
@@ -456,14 +455,7 @@ const FeatureFlagsPage: React.FC = () => {
     refetch: refetchEnvironments,
     environments
   } = useEnvironmentSelectV2({
-    selectedEnvironmentIdentifier: environmentIdentifier,
-    onChange: (_value, _environment, _userEvent) => {
-      rewriteCurrentLocationWithActiveEnvironment(_environment)
-      refetch({ queryParams: { ...queryParams, environmentIdentifier: _environment.identifier as string } })
-    },
-    onEmpty: () => {
-      refetch({ queryParams: { ...queryParams, environmentIdentifier: undefined as unknown as string } })
-    }
+    selectedEnvironmentIdentifier: environmentIdentifier
   })
 
   const toggleFeatureFlag = useToggleFeatureFlag({

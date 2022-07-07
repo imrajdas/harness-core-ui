@@ -3,18 +3,88 @@
 exports[`FinalReview render 1`] = `
 <div>
   <div
-    class="Layout--vertical Layout--layout-spacing-large StyledProps--main StyledProps--padding-bottom-large"
+    class="Layout--vertical Layout--layout-spacing-large StyledProps--main StyledProps--padding-bottom-large StyledProps--flex StyledProps--flex-align-center-center"
   >
-    <p
-      class="StyledProps--font StyledProps--main StyledProps--font-variation-h3"
+    <img
+      src="test-file-stub"
+    />
+    <div
+      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
     >
-      authSettings.success.title
-    </p>
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-variation-h3 StyledProps--font-weight-bold StyledProps--color StyledProps--color-orange500"
+      >
+        authSettings.success.woohoo
+      </p>
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-variation-h3 StyledProps--font-weight-bold"
+      >
+        authSettings.success.title
+      </p>
+    </div>
     <p
       class="StyledProps--font StyledProps--main StyledProps--font-variation-h5"
     >
       authSettings.success.msg
     </p>
+    <div
+      class="Layout--vertical StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-start StyledProps--flex-alignItems-start"
+    >
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black100"
+        style="display: flex; align-items: center;"
+      >
+        <span
+          class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-green700"
+          data-icon="main-tick"
+        >
+          <svg
+            height="16"
+            viewBox="0 0 11 8"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.219.894c.356-.38.982-.413 1.398-.072.391.32.457.857.167 1.236l-.06.07-5.138 5.486c-.362.386-.993.41-1.403.068l-.07-.064-3.2-3.214A.88.88 0 01.95 3.098a1.045 1.045 0 011.328-.003l.074.067 2.443 2.454L9.22.894z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        Team common.plans.subscription
+      </p>
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black100"
+        style="display: flex; align-items: center;"
+      >
+        <span
+          class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-green700"
+          data-icon="main-tick"
+        >
+          <svg
+            height="16"
+            viewBox="0 0 11 8"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.219.894c.356-.38.982-.413 1.398-.072.391.32.457.857.167 1.236l-.06.07-5.138 5.486c-.362.386-.993.41-1.403.068l-.07-.064-3.2-3.214A.88.88 0 01.95 3.098a1.045 1.045 0 011.328-.003l.074.067 2.443 2.454L9.22.894z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        Item 1
+      </p>
+    </div>
+    <button
+      class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--variation Button--variation-primary"
+      type="button"
+    >
+      <span
+        class="bp3-button-text"
+      >
+        finish
+      </span>
+    </button>
   </div>
 </div>
 `;

@@ -10,7 +10,7 @@ import { Layout, PageError, PageSpinner } from '@wings-software/uicore'
 import { useStrings } from 'framework/strings'
 import { ModuleName } from 'framework/types/ModuleName'
 import { FetchPlansQuery, useFetchPlansQuery } from 'services/common/services'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import { Editions } from '@common/constants/SubscriptionTypes'
 import Plans from './Plans'
 import CommunityPlans from './CommunityPlans'
@@ -76,7 +76,7 @@ const SubscriptionPlans: React.FC<SubscriptionPlansProps> = ({ module }) => {
   const [result, executeQuery] = useFetchPlansQuery()
   const { data, fetching, error } = result
   const { getString } = useStrings()
-  if (isCommunityPlan()) {
+  if (useGetCommunity()) {
     return <CommunityPlans />
   }
 

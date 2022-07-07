@@ -17,7 +17,7 @@ import { getModuleLink } from '@projects-orgs/components/ModuleListCard/ModuleLi
 import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import { useFeatureFlags } from '@common/hooks/useFeatureFlag'
 import { getModuleDescriptionsForModuleSelectionDialog, getModuleFullLengthTitle } from '@projects-orgs/utils/utils'
-import { getModuleIcon, isCommunityPlan, isOnPrem } from '@common/utils/utils'
+import { getModuleIcon, useGetCommunity, isOnPrem } from '@common/utils/utils'
 import {
   Project,
   StartFreeLicenseQueryParams,
@@ -350,10 +350,11 @@ export const useModuleSelectModal = ({
       )
     }
   }
+  const isCommunity = useGetCommunity()
 
   return {
     openModuleSelectModal: (projectDataLocal: Project) => {
-      if (isCommunityPlan()) {
+      if (isCommunity) {
         communityEditionCDHomeRedirect(projectDataLocal)
       } else {
         open(projectDataLocal)

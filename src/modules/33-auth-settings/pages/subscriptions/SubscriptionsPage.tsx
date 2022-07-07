@@ -28,7 +28,7 @@ import {
 
 import { useLicenseStore, handleUpdateLicenseStore } from 'framework/LicenseStore/LicenseStoreContext'
 import { useFeatureFlags } from '@common/hooks/useFeatureFlag'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import SubscriptionTab from './SubscriptionTab'
 
 import css from './SubscriptionsPage.module.scss'
@@ -76,7 +76,7 @@ const SubscriptionsPage: React.FC = () => {
     useFeatureFlags()
   const { licenseInformation, updateLicenseStore } = useLicenseStore()
   const history = useHistory()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
 
   const ACTIVE_MODULE_SELECT_CARDS = MODULE_SELECT_CARDS.reduce(
     (accumulator: ModuleSelectCard[], card: ModuleSelectCard) => {

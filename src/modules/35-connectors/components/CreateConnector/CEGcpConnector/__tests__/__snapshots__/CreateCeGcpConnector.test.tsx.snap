@@ -2960,7 +2960,7 @@ exports[`Create Secret Manager Wizard should throw an error when connectors alre
               class="StyledProps--font Text--lineclamp StyledProps--main StepWizard--stepName"
               style="--text-line-clamp: 2; width: 200px;"
             >
-              connectors.ceGcp.grantPermission.heading
+              connectors.ceGcp.chooseRequirements.name
             </p>
           </div>
           <div
@@ -2970,6 +2970,21 @@ exports[`Create Secret Manager Wizard should throw an error when connectors alre
               class="StepWizard--number"
             >
               4
+            </span>
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main StepWizard--stepName"
+              style="--text-line-clamp: 2; width: 200px;"
+            >
+              connectors.ceGcp.grantPermission.heading
+            </p>
+          </div>
+          <div
+            class="StepWizard--navStep"
+          >
+            <span
+              class="StepWizard--number"
+            >
+              5
             </span>
             <p
               class="StyledProps--font Text--lineclamp StyledProps--main StepWizard--stepName"

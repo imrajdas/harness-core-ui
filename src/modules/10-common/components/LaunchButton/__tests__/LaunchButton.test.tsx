@@ -8,6 +8,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { TestWrapper } from '@common/utils/testUtils'
+import { communityLicenseStoreValues } from '@common/utils/DefaultAppStoreData'
 import { LaunchButton } from '../LaunchButton'
 
 beforeEach(() => {
@@ -24,9 +25,12 @@ describe('Launch Button test', () => {
   })
 
   test('Launch button render for community ', async () => {
-    window.deploymentType = 'COMMUNITY'
     const { container } = render(
-      <TestWrapper path="/account/:accountId" pathParams={{ accountId: '123' }}>
+      <TestWrapper
+        path="/account/:accountId"
+        pathParams={{ accountId: '123' }}
+        defaultLicenseStoreValues={communityLicenseStoreValues}
+      >
         <LaunchButton launchButtonText="Launch Next Generation" redirectUrl="#/account/abc123/dashboard" />
       </TestWrapper>
     )

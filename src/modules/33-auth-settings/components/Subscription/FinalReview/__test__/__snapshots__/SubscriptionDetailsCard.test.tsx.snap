@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubscriptionDetailsCard render 1`] = `
+<div>
+  <div
+    class="bp3-card bp3-elevation-0 Card--card"
+  >
+    <div
+      class="Layout--vertical StyledProps--main"
+    >
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-variation-h5 StyledProps--padding-bottom-large"
+      >
+        common.subscriptions.overview.details
+      </p>
+      <div
+        class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-start StyledProps--flex-alignItems-baseline StyledProps--padding-bottom-small"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--padding-right-small"
+        >
+          authSettings.finalReview.upgradeToPlan
+        </p>
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900 StyledProps--font-weight-semi-bold"
+        >
+           Enterprise common.subscriptions.overview.plan
+        </p>
+        <button
+          class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--variation Button--variation-link"
+          type="button"
+        >
+          <span
+            class="bp3-button-text"
+          >
+            edit
+          </span>
+        </button>
+      </div>
+      <ul
+        class="ul"
+      >
+        <li
+          class="li"
+        >
+          <p
+            class="StyledProps--font StyledProps--main"
+          >
+            item 1
+          </p>
+        </li>
+        <li
+          class="li"
+        >
+          <p
+            class="StyledProps--font StyledProps--main"
+          >
+            item 2
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

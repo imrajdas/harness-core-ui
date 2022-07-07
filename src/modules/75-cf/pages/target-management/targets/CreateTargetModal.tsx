@@ -348,6 +348,7 @@ const CreateTargetModal: React.FC<CreateTargetModalProps> = ({ loading, onSubmit
 
   return (
     <RbacButton
+      icon="plus"
       intent="primary"
       variation={ButtonVariation.PRIMARY}
       text={getString('cf.targets.create')}

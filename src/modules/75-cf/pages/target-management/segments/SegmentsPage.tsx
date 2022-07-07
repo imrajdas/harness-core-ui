@@ -14,13 +14,7 @@ import { Container, ExpandingSearchInput, Layout, Pagination, TableV2, Text } fr
 import type { Cell, Column } from 'react-table'
 import { Color } from '@harness/design-system'
 import ListingPageTemplate from '@cf/components/ListingPageTemplate/ListingPageTemplate'
-import {
-  CF_DEFAULT_PAGE_SIZE,
-  getErrorMessage,
-  rewriteCurrentLocationWithActiveEnvironment,
-  SEGMENT_PRIMARY_COLOR,
-  showToaster
-} from '@cf/utils/CFUtils'
+import { CF_DEFAULT_PAGE_SIZE, getErrorMessage, SEGMENT_PRIMARY_COLOR, showToaster } from '@cf/utils/CFUtils'
 import { useConfirmAction } from '@common/hooks'
 import { useStrings } from 'framework/strings'
 import routes from '@common/RouteDefinitions'
@@ -49,10 +43,7 @@ export const SegmentsPage: React.FC = () => {
     refetch: refetchEnvs,
     environments
   } = useEnvironmentSelectV2({
-    selectedEnvironmentIdentifier: environmentIdentifier,
-    onChange: (_value, _environment, _userEvent) => {
-      rewriteCurrentLocationWithActiveEnvironment(_environment)
-    }
+    selectedEnvironmentIdentifier: environmentIdentifier
   })
   const { projectIdentifier, orgIdentifier, accountId: accountIdentifier } = useParams<Record<string, string>>()
   const { getString } = useStrings()

@@ -637,6 +637,21 @@ exports[`Welcome Page Select Module Page Rendering 1`] = `
 </div>
 `;
 
+exports[`Welcome Page Should go to module home page when select cd module and continue 1`] = `
+<div>
+  <div>
+    <h1>
+      Not Found
+    </h1>
+    <div
+      data-testid="location"
+    >
+      /account/undefined/cd/home?source=purpose
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Welcome Page Should go to module home page when select non cd module and continue 1`] = `
 <div>
   <div>
@@ -646,7 +661,7 @@ exports[`Welcome Page Should go to module home page when select non cd module an
     <div
       data-testid="location"
     >
-      /account/undefined/ci/home?source=purpose
+      /account/undefined/ci/home/trial
     </div>
   </div>
 </div>

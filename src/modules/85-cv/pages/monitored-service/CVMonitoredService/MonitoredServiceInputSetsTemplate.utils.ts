@@ -78,7 +78,35 @@ export const getLabelByName = (name: string, getString: UseStringsReturn['getStr
   }
 }
 
-export const getLabelByNameForTemplateInputs = (name: string, getString: UseStringsReturn['getString']): string => {
+export const getFieldLabelForVerifyTemplate = (name: string, getString: UseStringsReturn['getString']): string => {
+  switch (name) {
+    case 'applicationName':
+      return getString('cv.monitoringSources.appD.applicationName')
+    case 'tierName':
+      return getString('cv.monitoringSources.appD.tierName')
+    case 'completeMetricPath':
+      return getString('cv.monitoringSources.appD.completeMetricPath')
+    case 'serviceInstanceMetricPath':
+      return getString('cv.monitoringSources.appD.serviceInstanceMetricPath')
+    case 'serviceInstanceFieldName':
+      return getString('cv.monitoringSources.appD.serviceInstanceFieldName')
+    case 'connectorRef':
+      return getString('connector')
+    case 'query':
+      return getString('cv.query')
+    case 'category':
+      return `Category for ${getString('cv.monitoringSources.riskCategoryLabel')}`
+    case 'metricType':
+      return `Metric type for ${getString('cv.monitoringSources.riskCategoryLabel')}`
+    default:
+      return name
+  }
+}
+
+export const getValidationLabelByNameForTemplateInputs = (
+  name: string,
+  getString: UseStringsReturn['getString']
+): string => {
   switch (name) {
     case 'applicationName':
       return getString('connectors.cdng.validations.applicationNameValidation')

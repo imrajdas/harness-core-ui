@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { Button, Container, Heading, Text } from '@wings-software/uicore'
+import { Button, ButtonVariation, Container, Heading, Text } from '@wings-software/uicore'
 import { useHistory, useParams } from 'react-router-dom'
 import { Intent, Color } from '@harness/design-system'
 import routes from '@common/RouteDefinitions'
@@ -76,6 +76,7 @@ export const OnboardingPage = () => {
       <Container style={{ display: 'grid', justifyContent: 'center' }}>
         <Button
           intent={Intent.PRIMARY}
+          variation={ButtonVariation.PRIMARY}
           text={getString('cf.onboarding.tryItOut')}
           large
           style={{ fontWeight: 700 }}

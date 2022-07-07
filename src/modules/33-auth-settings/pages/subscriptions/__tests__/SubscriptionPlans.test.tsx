@@ -22,6 +22,7 @@ import {
   useGetEditionActions,
   useExtendTrialLicense
 } from 'services/cd-ng'
+import { communityLicenseStoreValues } from '@common/utils/DefaultAppStoreData'
 import SubscriptionPlans from '../plans/SubscriptionPlans'
 import { plansData } from './plansData'
 
@@ -180,9 +181,8 @@ describe('Subscription Plans', () => {
         return fromValue({})
       }
     }
-    window.deploymentType = 'COMMUNITY'
     const { container, getByText } = render(
-      <TestWrapper>
+      <TestWrapper defaultLicenseStoreValues={communityLicenseStoreValues}>
         <Provider value={responseState as any}>
           <SubscriptionPlans module={ModuleName.CD} />
         </Provider>

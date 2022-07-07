@@ -7,24 +7,79 @@
 
 import React from 'react'
 import { Layout } from '@harness/uicore'
-import type { Module } from 'framework/types/ModuleName'
-import type { SubscribeViews } from '@common/constants/SubscriptionTypes'
-import { useStrings } from 'framework/strings'
-import type { TIME_TYPE } from '@auth-settings/pages/subscriptions/plans/planUtils'
+import type {
+  SubscribeViews,
+  SubscriptionProps,
+  BillingContactProps,
+  PaymentMethodProps
+} from '@common/constants/SubscriptionTypes'
+import type { InvoiceDetailDTO } from 'services/cd-ng/index'
 import { Footer } from './Footer'
+import BillingContact from './BillingContact'
+import PaymentMethod from './PaymentMethod'
 import { Header } from '../Header'
+import css from './BillingInfo.module.scss'
 
-interface BillingInfoProps {
-  module: Module
+interface BillingInfoProp {
+  subscriptionProps: SubscriptionProps
   setView: (view: SubscribeViews) => void
-  time: TIME_TYPE
+  setInvoiceData: (value: InvoiceDetailDTO) => void
+  setSubscriptionProps: (props: SubscriptionProps) => void
+  className: string
 }
-export const BillingInfo = ({ module, setView, time }: BillingInfoProps): React.ReactElement => {
-  const { getString } = useStrings()
+
+export const BillingInfo: React.FC<BillingInfoProp> = ({
+  subscriptionProps,
+  setView,
+  setInvoiceData,
+  setSubscriptionProps,
+  className
+}) => {
   return (
-    <Layout.Vertical>
-      <Header module={module} stepDescription={getString('authSettings.billing.step')} step={2} />
-      <Footer setView={setView} time={time} />
+    <Layout.Vertical className={className}>
+      <Header step={2} />
+      <Layout.Vertical padding={{ top: 'large', bottom: 'large' }} spacing={'large'} className={css.body}>
+        <BillingContact
+          billingInfo={subscriptionProps.billingContactInfo}
+          setBillingInfo={(value: BillingContactProps) => {
+            setSubscriptionProps({
+              ...subscriptionProps,
+              billingContactInfo: value
+            })
+          }}
+        />
+        <PaymentMethod
+          nameOnCard={subscriptionProps.paymentMethodInfo?.nameOnCard}
+          setNameOnCard={(value: string) => {
+            setSubscriptionProps({
+              ...subscriptionProps,
+              paymentMethodInfo: {
+                ...subscriptionProps.paymentMethodInfo,
+                nameOnCard: value
+              }
+            })
+          }}
+        />
+      </Layout.Vertical>
+      <Footer
+        setView={setView}
+        setInvoiceData={setInvoiceData}
+        nameOnCard={subscriptionProps.paymentMethodInfo?.nameOnCard}
+        billingInfo={subscriptionProps.billingContactInfo}
+        subscriptionId={subscriptionProps.subscriptionId}
+        setBillingContactInfo={(value: BillingContactProps) => {
+          setSubscriptionProps({
+            ...subscriptionProps,
+            billingContactInfo: value
+          })
+        }}
+        setPaymentMethodInfo={(value: PaymentMethodProps) => {
+          setSubscriptionProps({
+            ...subscriptionProps,
+            paymentMethodInfo: value
+          })
+        }}
+      />
     </Layout.Vertical>
   )
 }

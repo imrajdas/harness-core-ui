@@ -27,6 +27,7 @@ sed -i "s|<\!-- saberToken -->|<script>window.saberToken = '$SABER_TOKEN'</scrip
 sed -i "s|<\!-- helpPanelAccessToken -->|<script>window.helpPanelAccessToken = '$HELP_PANEL_ACCESS_TOKEN'</script>|" index.html
 sed -i "s|<\!-- helpPanelSpace -->|<script>window.helpPanelSpace = '$HELP_PANEL_SPACE'</script>|" index.html
 sed -i "s|<\!-- helpPanelEnvironment -->|<script>window.helpPanelEnvironment = '$HELP_PANEL_ENVIRONMENT'</script>|" index.html
+sed -i "s|<\!-- stripeApiKey -->|<script>window.stripeApiKey = '$STRIPE_API_KEY'</script>|" index.html
 if [ "$HARNESS_ENABLE_CDN_PLACEHOLDER" = "true" ]
 then
   sed -i "s|\"static\/main\.\(.*\)\.js\"|\"//static.harness.io/ng-static/main.\1.js\"|" index.html

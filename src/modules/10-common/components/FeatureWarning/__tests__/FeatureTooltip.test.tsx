@@ -9,7 +9,7 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { TestWrapper } from '@common/utils/testUtils'
 import routes from '@common/RouteDefinitions'
-import { Editions, SUBSCRIPTION_TAB_NAMES } from '@common/constants/SubscriptionTypes'
+import { Editions, SubscriptionTabNames } from '@common/constants/SubscriptionTypes'
 import { FeatureIdentifier } from 'framework/featureStore/FeatureIdentifier'
 import { useFeatureModule, useFeatureRequiredPlans } from '@common/hooks/useFeatures'
 import type { CheckFeatureReturn } from 'framework/featureStore/featureStoreUtil'
@@ -154,7 +154,7 @@ describe('FeatureTooltip', () => {
     expect(getByText('common.explorePlans')).toBeInTheDocument()
     fireEvent.click(getByText('common.explorePlans'))
     getByTestId('location').innerHTML.endsWith(
-      routes.toSubscriptions({ accountId: 'testAcc', moduleCard: 'cd', tab: SUBSCRIPTION_TAB_NAMES.PLANS })
+      routes.toSubscriptions({ accountId: 'testAcc', moduleCard: 'cd', tab: SubscriptionTabNames.PLANS })
     )
   })
 
@@ -181,7 +181,7 @@ describe('FeatureTooltip', () => {
     expect(getByText('common.manageSubscription')).toBeInTheDocument()
     fireEvent.click(getByText('common.manageSubscription'))
     getByTestId('location').innerHTML.endsWith(
-      routes.toSubscriptions({ accountId: 'testAcc', moduleCard: 'ci', tab: SUBSCRIPTION_TAB_NAMES.OVERVIEW })
+      routes.toSubscriptions({ accountId: 'testAcc', moduleCard: 'ci', tab: SubscriptionTabNames.OVERVIEW })
     )
   })
 })

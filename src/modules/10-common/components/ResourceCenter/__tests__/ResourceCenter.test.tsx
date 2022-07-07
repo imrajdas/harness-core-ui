@@ -8,6 +8,7 @@
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import React from 'react'
 import { TestWrapper } from '@common/utils/testUtils'
+import { communityLicenseStoreValues } from '@common/utils/DefaultAppStoreData'
 import { ResourceCenter } from '../ResourceCenter'
 
 jest.mock('refiner-js', () => {
@@ -67,9 +68,8 @@ describe('ResourceCenter', () => {
   })
 
   test('should render community', async () => {
-    window.deploymentType = 'COMMUNITY'
     const { getByTestId, getByText, queryByText } = render(
-      <TestWrapper>
+      <TestWrapper defaultLicenseStoreValues={communityLicenseStoreValues}>
         <ResourceCenter />
       </TestWrapper>
     )
@@ -98,9 +98,8 @@ describe('ResourceCenter', () => {
     })
 
     test('release note for community', async () => {
-      window.deploymentType = 'COMMUNITY'
       const { getByTestId, getByText } = render(
-        <TestWrapper>
+        <TestWrapper defaultLicenseStoreValues={communityLicenseStoreValues}>
           <ResourceCenter />
         </TestWrapper>
       )

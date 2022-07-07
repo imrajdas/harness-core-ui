@@ -212,6 +212,11 @@ monitoringSources:
   totalMappedQueries: '{{total}} {{query}} mapped'
   appD:
     appdPathTitle: AppDynamics Path
+    applicationName: Application Name
+    tierName: Tier Name
+    completeMetricPath: Complete Metric Path
+    serviceInstanceMetricPath: Service Instance Metric Path
+    serviceInstanceFieldName: Service Instance Field Name
     appdChartTitle: Chart & Record
     appdPathDetail: Select base path for AppD Metric
     appdMetricDetail: Select metric path for AppD Metric

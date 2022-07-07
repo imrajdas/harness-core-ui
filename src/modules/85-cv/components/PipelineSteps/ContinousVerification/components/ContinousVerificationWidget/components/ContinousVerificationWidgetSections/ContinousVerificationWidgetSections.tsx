@@ -10,11 +10,10 @@ import { useFeatureFlags } from '@common/hooks/useFeatureFlag'
 import BaseContinousVerification from './components/BaseContinousVerification/BaseContinousVerification'
 import type { ContinousVerificationWidgetSectionsProps } from './types'
 import SelectVerificationType from './components/SelectVerificationType/SelectVerificationType'
-import ConfigureFields from './components/ConfigureFields/ConfigureFields'
-import MonitoredService from './components/MonitoredService/MonitoredService'
 import SelectMonitoredServiceType from './components/SelectMonitoredServiceType/SelectMonitoredServiceType'
 import { MONITORED_SERVICE_TYPE } from './components/SelectMonitoredServiceType/SelectMonitoredServiceType.constants'
 import ConfiguredMonitoredService from './components/ConfiguredMonitoredService/ConfiguredMonitoredService'
+import MonitoredService from './components/MonitoredService/MonitoredService'
 
 export function ContinousVerificationWidgetSections({
   formik,
@@ -45,8 +44,7 @@ export function ContinousVerificationWidgetSections({
         stepViewType={stepViewType}
         allowableTypes={allowableTypes}
       />
-      <SelectVerificationType />
-      {formik?.values?.spec?.type ? <ConfigureFields formik={formik} allowableTypes={allowableTypes} /> : null}
+      <SelectVerificationType formik={formik} allowableTypes={allowableTypes} />
       {CVNG_TEMPLATE_VERIFY_STEP && <SelectMonitoredServiceType formik={formik} allowableTypes={allowableTypes} />}
       {CVNG_TEMPLATE_VERIFY_STEP ? renderMonitoredService() : <MonitoredService formik={formik} />}
     </>

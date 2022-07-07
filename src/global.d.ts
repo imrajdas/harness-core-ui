@@ -70,6 +70,7 @@ declare interface Window {
   helpPanelAccessToken: string
   helpPanelSpace: string
   helpPanelEnvironment: 'QA' | 'master'
+  stripeApiKey: string
 }
 
 declare interface WindowEventMap {

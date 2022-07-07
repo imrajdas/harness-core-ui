@@ -7,25 +7,36 @@
 
 import React from 'react'
 import { Layout } from '@harness/uicore'
-import type { Module } from 'framework/types/ModuleName'
-import type { Editions, SubscribeViews } from '@common/constants/SubscriptionTypes'
-import { useStrings } from 'framework/strings'
+import type { SubscribeViews, SubscriptionProps } from '@common/constants/SubscriptionTypes'
+import type { InvoiceDetailDTO } from 'services/cd-ng/index'
+import BillingContactCard from './BillingContactCard'
+import SubscriptionDetailsCard from './SubscriptionDetailsCard'
+import PaymentMethodCard from './PaymentMethodCard'
 import { Footer } from './Footer'
 import { Header } from '../Header'
-import { SubscriptionDetails } from './SubscriptionDetails'
+import css from './FinalReview.module.scss'
 
 interface FinalReviewProps {
-  module: Module
   setView: (view: SubscribeViews) => void
-  plan: Editions
+  invoiceData?: InvoiceDetailDTO
+  subscriptionProps: SubscriptionProps
+  className: string
 }
-export const FinalReview = ({ module, setView, plan }: FinalReviewProps): React.ReactElement => {
-  const { getString } = useStrings()
+export const FinalReview: React.FC<FinalReviewProps> = ({ setView, invoiceData, subscriptionProps, className }) => {
+  const items =
+    invoiceData?.items?.reduce((acc: string[], curr) => {
+      acc.push(`${curr.quantity} ${curr.description}`)
+      return acc
+    }, []) || []
   return (
-    <Layout.Vertical>
-      <Header module={module} stepDescription={getString('authSettings.finalReview.step')} step={3} />
-      <SubscriptionDetails plan={plan} />
-      <Footer setView={setView} />
+    <Layout.Vertical className={className}>
+      <Header step={3} />
+      <Layout.Vertical padding={{ top: 'large', bottom: 'large' }} spacing={'large'} className={css.body}>
+        <SubscriptionDetailsCard items={items} newPlan={subscriptionProps.edition} setView={setView} />
+        <BillingContactCard billingContactInfo={subscriptionProps.billingContactInfo} setView={setView} />
+        <PaymentMethodCard paymentMethodInfo={subscriptionProps.paymentMethodInfo} setView={setView} />
+      </Layout.Vertical>
+      <Footer setView={setView} invoiceId={invoiceData?.invoiceId} />
     </Layout.Vertical>
   )
 }
