@@ -171,20 +171,24 @@ const ConfigureAlerts: React.FC<StepProps<BudgetStepData> & Props> = props => {
             alertThresholds: Yup.array(
               Yup.object({
                 emailAddresses: Yup.lazy(() =>
-                  Yup.string().when('slackWebhooks', {
-                    is: slackWebhooks => !slackWebhooks || slackWebhooks.length === 0,
-                    then: Yup.string()
-                      .required(getString('common.validation.email.required'))
-                      .email(getString('common.validation.email.format'))
-                  })
+                  Yup.array(
+                    Yup.string().when('slackWebhooks', {
+                      is: slackWebhooks => !slackWebhooks || slackWebhooks.length === 0,
+                      then: Yup.string()
+                        .required(getString('common.validation.email.required'))
+                        .email(getString('common.validation.email.format'))
+                    })
+                  )
                 ),
                 slackWebhooks: Yup.lazy(() =>
-                  Yup.string().when('emailAddresses', {
-                    is: emailAddresses => !emailAddresses || emailAddresses.length === 0,
-                    then: Yup.string()
-                      .required(getString('common.validation.urlIsRequired'))
-                      .url(getString('validation.urlIsNotValid'))
-                  })
+                  Yup.array(
+                    Yup.string().when('emailAddresses', {
+                      is: emailAddresses => !emailAddresses || emailAddresses.length === 0,
+                      then: Yup.string()
+                        .required(getString('common.validation.urlIsRequired'))
+                        .url(getString('validation.urlIsNotValid'))
+                    })
+                  )
                 )
               })
             )
