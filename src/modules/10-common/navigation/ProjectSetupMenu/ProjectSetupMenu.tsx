@@ -65,9 +65,9 @@ const ProjectSetupMenu: React.FC<ProjectSetupMenuProps> = ({ module }) => {
         {isCIorCD && NG_FILE_STORE && (
           <SidebarLink label={getString('resourcePage.fileStore')} to={routes.toFileStore(params)} />
         )}
-        {enabledHostedBuildsForFreeUsers && !showGetStartedTabInMainMenu && isCIorCD && (
-          <SidebarLink label={getString('getStarted')} to={routes.toGetStartedWithCI({ ...params, module })} />
-        )}
+        {/* {enabledHostedBuildsForFreeUsers && !showGetStartedTabInMainMenu && isCIorCD && ( */}
+        <SidebarLink label={getString('getStarted')} to={routes.toGetStartedWithCI({ ...params, module: 'cd' })} />
+        {/* )} */}
       </Layout.Vertical>
     </NavExpandable>
   )

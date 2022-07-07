@@ -22,9 +22,11 @@ import {
   FormError
 } from '@harness/uicore'
 import type { FormikContextType } from 'formik'
+import { get } from 'lodash-es'
 import { useStrings } from 'framework/strings'
 import { InfrastructureTypes, InfrastructureType } from '../DeployProvisioningWizard/Constants'
 import { SelectAuthenticationMethod, SelectAuthenticationMethodRef } from './SelectAuthenticationMethod'
+import { useCDOnboardingContext } from '../CDOnboardingStore'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectInfrastructureRef {
@@ -59,8 +61,13 @@ const SelectInfrastructureRef = (
   forwardRef: SelectInfrastructureForwardRef
 ): React.ReactElement => {
   const { getString } = useStrings()
+  const {
+    state: { environment: environmentData, infrastructure: infrastructureData }
+  } = useCDOnboardingContext()
   const [disableBtn, setDisableBtn] = useState<boolean>(false)
-  const [infrastructureType, setInfrastructureType] = useState<InfrastructureType | undefined>()
+  const [infrastructureType, setInfrastructureType] = useState<InfrastructureType | undefined>(
+    InfrastructureTypes.find((item: InfrastructureType) => item.value === infrastructureData?.type)
+  )
   const formikRef = useRef<FormikContextType<SelectInfrastructureInterface>>()
   const selectAuthenticationMethodRef = React.useRef<SelectAuthenticationMethodRef | null>(null)
   // useEffect(() => {
@@ -88,6 +95,8 @@ const SelectInfrastructureRef = (
       }
     }
   }
+
+  console.log('FDD---', formikRef?.current?.values)
   useEffect(() => {
     if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
       setForwardRef({
@@ -95,7 +104,7 @@ const SelectInfrastructureRef = (
         setFieldTouched: formikRef.current.setFieldTouched
       })
     }
-  }, [formikRef?.current?.values, formikRef?.current?.setFieldTouched])
+  }, [formikRef?.current, formikRef?.current?.values, formikRef?.current?.setFieldTouched])
 
   const borderBottom = <div className={css.repoborderBottom} />
   return (
@@ -103,10 +112,10 @@ const SelectInfrastructureRef = (
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
       <Formik<SelectInfrastructureInterface>
         initialValues={{
-          infraType: '',
-          infraId: '',
-          envId: '',
-          namespace: ''
+          infraType: get(infrastructureData, 'type') || '',
+          envId: get(environmentData, 'name') || '',
+          infraId: get(infrastructureData, 'name') || '',
+          namespace: get(infrastructureData, 'infrastructureDefinition.spec.namespace') || ''
         }}
         formName="cdInfrastructure"
         onSubmit={(values: SelectInfrastructureInterface) => Promise.resolve(values)}
@@ -134,7 +143,7 @@ const SelectInfrastructureRef = (
                   )}
                   selected={infrastructureType}
                   onChange={(item: InfrastructureType) => {
-                    formikProps.setFieldValue('infraType', item)
+                    formikProps.setFieldValue('infraType', item.value)
                     setInfrastructureType(item)
                   }}
                 />

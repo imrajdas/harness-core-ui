@@ -26,6 +26,7 @@ import {
   ManifestConfigWrapper,
   NGServiceConfig,
   ServiceRequestDTO,
+  useCreateEnvironmentV2,
   useCreateServiceV2,
   useUpdateServiceV2
 } from 'services/cd-ng'
@@ -46,7 +47,12 @@ import { SelectWorkload, SelectWorkloadRef } from '../SelectWorkload/SelectWorkl
 import { SelectInfrastructure, SelectInfrastructureRef } from '../SelectInfrastructure/SelectInfrastructure'
 import { SelectArtifact, SelectArtifactRef } from '../SelectArtifact/SelectArtifact'
 import { useCDOnboardingContext } from '../CDOnboardingStore'
-import { cleanData, newServiceState } from '../cdOnboardingUtils'
+import {
+  cleanServiceDataUtil,
+  cleanEnvironmentDataUtil,
+  newEnvironmentState,
+  newServiceState
+} from '../cdOnboardingUtils'
 import css from './DeployProvisioningWizard.module.scss'
 
 export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> = props => {
@@ -76,7 +82,9 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
 
   const {
     saveServiceData,
-    state: { service: serviceData }
+    saveEnvironmentData,
+    saveInfrastructureData,
+    state: { service: serviceData, environment: environmentData, infrastructure: infrastructureData }
   } = useCDOnboardingContext()
 
   const updateStepStatus = React.useCallback((stepIds: DeployProvisiongWizardStepId[], status: StepStatus) => {
@@ -101,6 +109,12 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       headers: {
         'content-type': 'application/yaml'
       }
+    }
+  })
+
+  const { loading: createEnvLoading, mutate: createEnvironment } = useCreateEnvironmentV2({
+    queryParams: {
+      accountIdentifier: accountId
     }
   })
 
@@ -150,7 +164,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
             set(draft, 'service.serviceDefinition.type', serviceDeploymentType)
           })
 
-          const cleanServiceData = cleanData(updatedContextService.service as ServiceRequestDTO)
+          const cleanServiceData = cleanServiceDataUtil(updatedContextService.service as ServiceRequestDTO)
 
           if (isServiceNameUpdated) {
             try {
@@ -300,15 +314,57 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
           setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectArtifact)
           updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
         },
-        onClickNext: () => {
+        onClickNext: async () => {
           const { values, setFieldTouched } = selectInfrastructureRef.current || {}
-          const { infraType } = values || {}
+          const { infraType, envId, infraId, namespace } = values || {}
           if (!infraType) {
             setFieldTouched?.('infraType', true)
             return
           }
+          // const isEnvironmentNameUpdated =
+          // isEmpty(get(environmentData, 'type')) || get(environmentData, 'name') !== envId
 
-          setCurrentWizardStepId(DeployProvisiongWizardStepId.CreatePipeline)
+          const updatedContextEnvironment = produce(newEnvironmentState.environment, draft => {
+            set(draft, 'name', envId)
+            set(
+              draft,
+              'identifier',
+              // isEnvironmentNameUpdated ?
+              getUniqueServiceRef(envId as string)
+              // : get(environmentData, 'identifier')
+            )
+          })
+
+          const cleanEnvironmentData = cleanEnvironmentDataUtil(updatedContextEnvironment as ServiceRequestDTO)
+          // if (isEnvironmentNameUpdated) {
+          try {
+            const response = await createEnvironment({ ...cleanEnvironmentData, orgIdentifier, projectIdentifier })
+            if (response.status === 'SUCCESS') {
+              envId &&
+                saveEnvironmentData({
+                  environment: updatedContextEnvironment,
+                  environmentResponse: response
+                })
+              const updatedContextInfra = produce(newEnvironmentState.infrastructure, draft => {
+                set(draft, 'type', infraType)
+                set(draft, 'name', infraId)
+                set(draft, 'environmentRef', envId)
+                set(draft, 'infrastructureDefinition.spec.namespace', namespace)
+              })
+              saveInfrastructureData({
+                infrastructure: { ...updatedContextInfra }
+              })
+              clear()
+              showSuccess(getString('cd.environmentCreated'))
+            } else {
+              throw response
+            }
+          } catch (error: any) {
+            showError(getRBACErrorMessage(error))
+          }
+          // }
+
+          // setCurrentWizardStepId(DeployProvisiongWizardStepId.CreatePipeline)
           updateStepStatus(
             [
               DeployProvisiongWizardStepId.SelectWorkload,
@@ -337,7 +393,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
     buttonLabel = getString('next')
   }
 
-  if (createLoading) {
+  if (createLoading || createEnvLoading) {
     return <PageSpinner />
   }
 

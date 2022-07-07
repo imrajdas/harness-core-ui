@@ -2,7 +2,10 @@ import { clone } from 'lodash-es'
 import { DefaultNewPipelineId } from '@templates-library/components/TemplateStudio/PipelineTemplateCanvas/PipelineTemplateCanvasWrapper'
 import type { PipelineInfoConfig } from 'services/pipeline-ng'
 import type { ServiceResponseDTO } from 'services/cd-ng'
-import { newServiceState as initialServiceState } from './cdOnboardingUtils'
+import {
+  newServiceState as initialServiceState,
+  newEnvironmentState as initialEnvironmentState
+} from './cdOnboardingUtils'
 
 export const DefaultPipeline: PipelineInfoConfig = {
   name: '',
@@ -14,6 +17,7 @@ export interface CDOnboardingReducerState {
   service?: any
   serviceResponse: ServiceResponseDTO
   environment?: any
+  infrastructure?: any
   environmentResponse: ServiceResponseDTO
   pipelineIdentifier: string
   error?: string
@@ -29,6 +33,7 @@ export enum CDOnboardingActions {
   UpdatePipeline = 'UpdatePipeline',
   UpdateService = 'UpdateService',
   UpdateEnvironment = 'UpdateEnvironment',
+  UpdateInfrastructure = 'UpdateInfrastructure',
   Success = 'Success',
   Error = 'Error'
 }
@@ -41,8 +46,9 @@ export interface ActionResponse {
   pipelineIdentifier?: string
   service?: any
   environment?: any
+  infrastructure?: any
   serviceResponse?: ServiceResponseDTO
-  environmentResponse?: ServiceResponseDTO
+  environmentResponse?: any
 }
 
 export interface ActionReturnType {
@@ -60,6 +66,10 @@ const updateEnvironment = (response: ActionResponse): ActionReturnType => ({
   type: CDOnboardingActions.UpdateEnvironment,
   response
 })
+const updateInfrastructure = (response: ActionResponse): ActionReturnType => ({
+  type: CDOnboardingActions.UpdateInfrastructure,
+  response
+})
 const fetching = (): ActionReturnType => ({ type: CDOnboardingActions.Fetching })
 const success = (response: ActionResponse): ActionReturnType => ({ type: CDOnboardingActions.Success, response })
 const error = (response: ActionResponse): ActionReturnType => ({ type: CDOnboardingActions.Error, response })
@@ -70,6 +80,7 @@ export const CDOnboardingContextActions = {
   updatePipeline,
   updateService,
   updateEnvironment,
+  updateInfrastructure,
   fetching,
   success,
   error
@@ -80,8 +91,9 @@ export const initialState: CDOnboardingReducerState = {
   pipelineIdentifier: DefaultNewPipelineId,
   service: initialServiceState.service,
   serviceResponse: {},
+  environment: initialEnvironmentState.environment,
+  infrastructure: initialEnvironmentState.infrastructure,
   environmentResponse: {},
-  environment: {},
   schemaErrors: false,
   isLoading: false,
   isUpdated: false,
@@ -112,8 +124,15 @@ export const CDOnboardingReducer = (state = initialState, data: ActionReturnType
     case CDOnboardingActions.UpdateEnvironment:
       return {
         ...state,
-        isUpdated: response?.isUpdated ?? true,
-        environment: response?.environment ? clone(response?.environment) : state.environment
+        environment: response?.environment ? clone(response?.environment) : state.environment,
+        environmentResponse: response?.environmentResponse
+          ? clone(response?.environmentResponse)
+          : state.environmentResponse
+      }
+    case CDOnboardingActions.UpdateInfrastructure:
+      return {
+        ...state,
+        infrastructure: response?.infrastructure ? clone(response?.infrastructure) : state.infrastructure
       }
     case CDOnboardingActions.Fetching:
       return {

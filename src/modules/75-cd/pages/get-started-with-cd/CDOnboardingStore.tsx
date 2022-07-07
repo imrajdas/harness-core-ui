@@ -1,6 +1,11 @@
 import { defaultTo, merge } from 'lodash-es'
 import React from 'react'
-import { getServiceV2Promise, GetServiceV2QueryParams, ServiceResponseDTO } from 'services/cd-ng'
+import {
+  EnvironmentResponseDTO,
+  getServiceV2Promise,
+  GetServiceV2QueryParams,
+  ServiceResponseDTO
+} from 'services/cd-ng'
 import type { GetPipelineQueryParams } from 'services/pipeline-ng'
 import type { GitQueryParams } from '@common/interfaces/RouteInterfaces'
 import { useQueryParams } from '@common/hooks'
@@ -30,12 +35,16 @@ export interface CDOnboardingContextInterface {
   state: CDOnboardingReducerState
   fetchService: (args: FetchServiceUnboundProps) => Promise<void>
   saveServiceData: any //(args: FetchServiceUnboundProps) => Promise<void>
+  saveEnvironmentData: any //(args: FetchServiceUnboundProps) => Promise<void>
+  saveInfrastructureData: any //(args: FetchServiceUnboundProps) => Promise<void>
 }
 
 export const CDOnboardingContext = React.createContext<CDOnboardingContextInterface>({
   state: initialState,
   fetchService: () => new Promise<void>(() => undefined),
-  saveServiceData: () => new Promise<void>(() => undefined)
+  saveServiceData: () => new Promise<void>(() => undefined),
+  saveEnvironmentData: () => new Promise<void>(() => undefined),
+  saveInfrastructureData: () => new Promise<void>(() => undefined)
 })
 
 export interface CDOnboardingProviderProps {
@@ -148,6 +157,23 @@ export function CDOnboardingProvider({
     )
   }
 
+  const saveEnvironmentData = (envObj: { environment: any; environmentResponse: EnvironmentResponseDTO }): any => {
+    dispatch(
+      CDOnboardingContextActions.updateEnvironment({
+        environment: envObj.environment,
+        environmentResponse: envObj.environmentResponse
+      })
+    )
+  }
+
+  const saveInfrastructureData = (infraObj: { infrastructure: any }): any => {
+    dispatch(
+      CDOnboardingContextActions.updateInfrastructure({
+        infrastructure: infraObj.infrastructure
+      })
+    )
+  }
+
   const fetchService = _fetchService.bind(null, {
     dispatch,
     queryParams,
@@ -159,7 +185,9 @@ export function CDOnboardingProvider({
       value={{
         state,
         fetchService,
-        saveServiceData
+        saveServiceData,
+        saveEnvironmentData,
+        saveInfrastructureData
       }}
     >
       {children}
