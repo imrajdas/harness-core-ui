@@ -22,7 +22,7 @@ import { Color, FontVariation } from '@harness/design-system'
 import { defaultTo } from 'lodash-es'
 import { useStrings } from 'framework/strings'
 import { getConnectorNameFromValue, getStatus } from '@pipeline/components/PipelineStudio/StageBuilder/StageBuilderUtil'
-import type { PrimaryArtifact, SidecarArtifactWrapper } from 'services/cd-ng'
+import type { PrimaryArtifact, SidecarArtifact, SidecarArtifactWrapper } from 'services/cd-ng'
 import {
   ArtifactIconByType,
   ArtifactTitleIdByType,
@@ -33,12 +33,15 @@ import type { ArtifactListViewProps, ArtifactType } from '../ArtifactInterface'
 import { showConnectorStep } from '../ArtifactUtils'
 import css from '../ArtifactsSelection.module.scss'
 
-const getPrimaryArtifactLocation = (primaryArtifact: PrimaryArtifact): string => {
+const getArtifactLocation = (artifact: PrimaryArtifact | SidecarArtifact): string => {
+  if (artifact.type === 'AmazonS3') {
+    return artifact.spec.filePath ?? artifact.spec.filePathRegex
+  }
   return (
-    primaryArtifact.spec.imagePath ??
-    primaryArtifact.spec.artifactPath ??
-    primaryArtifact.spec.artifactPathFilter ??
-    primaryArtifact.spec.repository
+    artifact.spec.imagePath ??
+    artifact.spec.artifactPath ??
+    artifact.spec.artifactPathFilter ??
+    artifact.spec.repository
   )
 }
 
@@ -78,7 +81,7 @@ function ArtifactListView({
   removePrimary,
   removeSidecar,
   addNewArtifact,
-  allowSidecar = true
+  isAdditionAllowed
 }: ArtifactListViewProps): React.ReactElement {
   const { getString } = useStrings()
   const { color: primaryConnectorColor } = getStatus(
@@ -147,8 +150,8 @@ function ArtifactListView({
                   )}
                 </div>
                 <div>
-                  <Text width={340} lineClamp={1} color={Color.GREY_500}>
-                    <span className={css.noWrap}>{getPrimaryArtifactLocation(primaryArtifact)}</span>
+                  <Text lineClamp={1} color={Color.GREY_500}>
+                    {getArtifactLocation(primaryArtifact)}
                   </Text>
                 </div>
                 {!isReadonly && (
@@ -222,11 +225,9 @@ function ArtifactListView({
                         <Icon name="full-circle" size={8} color={sideCarConnectionColor} />
                       )}
                     </div>
-                    <div className={css.locationField}>
-                      <Text width={340} lineClamp={1} style={{ color: Color.GREY_500 }}>
-                        <span className={css.noWrap}>
-                          {sidecar?.spec.imagePath ?? sidecar?.spec.artifactPath ?? sidecar?.spec.repository}
-                        </span>
+                    <div>
+                      <Text lineClamp={1} style={{ color: Color.GREY_500 }}>
+                        {getArtifactLocation(sidecar as SidecarArtifact)}
                       </Text>
                     </div>
                     {!isReadonly && (
@@ -258,7 +259,7 @@ function ArtifactListView({
       </Layout.Vertical>
 
       <Layout.Vertical spacing={'medium'} flex={{ alignItems: 'flex-start' }}>
-        {!primaryArtifact && !isReadonly && (
+        {!primaryArtifact && isAdditionAllowed && (
           <Button
             className={css.addArtifact}
             id="add-artifact"
@@ -268,7 +269,7 @@ function ArtifactListView({
             text={getString('pipelineSteps.serviceTab.artifactList.addPrimary')}
           />
         )}
-        {!isReadonly && allowSidecar && (
+        {isAdditionAllowed && (
           <Button
             className={css.addArtifact}
             id="add-artifact"

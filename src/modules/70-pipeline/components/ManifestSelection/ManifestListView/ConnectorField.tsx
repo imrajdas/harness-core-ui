@@ -25,7 +25,7 @@ function ConnectorField({
 }: ConnectorFieldPropType): React.ReactElement {
   return (
     <div className={css.connectorNameField}>
-      {!!connectorRef && (
+      {connectorRef ? (
         <>
           <Icon padding={{ right: 'small' }} name={ManifestIconByType[manifestStore]} size={18} />
           <Text
@@ -52,6 +52,8 @@ function ConnectorField({
             <Icon name="full-circle" size={8} color={connectorColor} />
           )}
         </>
+      ) : (
+        <Text>{manifestStore}</Text>
       )}
     </div>
   )

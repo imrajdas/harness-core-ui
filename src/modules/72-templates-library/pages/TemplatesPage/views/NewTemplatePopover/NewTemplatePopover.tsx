@@ -26,12 +26,15 @@ import RBACTooltip from '@rbac/components/RBACTooltip/RBACTooltip'
 import { FeatureIdentifier } from 'framework/featureStore/FeatureIdentifier'
 import { useFeature } from '@common/hooks/useFeatures'
 import { FeatureWarningTooltip } from '@common/components/FeatureWarning/FeatureWarningWithTooltip'
+import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
+import { FeatureFlag } from '@common/featureFlags'
 
 function NewTemplatePopoverWrapper(): React.ReactElement {
   const { getString } = useStrings()
   const history = useHistory()
   const { projectIdentifier, orgIdentifier, accountId, module } = useParams<ProjectPathProps & ModulePathParams>()
-  const allowedTemplateTypes = getAllowedTemplateTypes(getString, module)
+  const scriptTemplateEnabled = useFeatureFlag(FeatureFlag.CUSTOM_SECRET_MANAGER_NG)
+  const allowedTemplateTypes = getAllowedTemplateTypes(getString, module, scriptTemplateEnabled)
   const [menuOpen, setMenuOpen] = React.useState(false)
   const { enabled: templatesEnabled } = useFeature({
     featureRequest: {

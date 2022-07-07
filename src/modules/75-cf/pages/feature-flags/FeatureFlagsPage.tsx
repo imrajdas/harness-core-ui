@@ -594,7 +594,7 @@ const FeatureFlagsPage: React.FC = () => {
   const emptyFeatureFlags = !features?.features?.length
   const hasFeatureFlags =
     // use emptyFeatureFlags as temp fallback to ensure FilterCards still display in case featureCounts is unavailable or flag STALE_FLAGS_FFM_1510 is toggled off on backend only
-    !loading && features?.featureCounts ? features?.featureCounts.totalFeatures > 0 : !emptyFeatureFlags
+    features?.featureCounts ? features?.featureCounts.totalFeatures > 0 : !emptyFeatureFlags
 
   const title = getString('featureFlagsText')
   const FILTER_FEATURE_FLAGS = useFeatureFlag(FeatureFlag.STALE_FLAGS_FFM_1510)
@@ -648,7 +648,14 @@ const FeatureFlagsPage: React.FC = () => {
     >
       <Container padding={{ top: 'medium', right: 'xlarge', left: 'xlarge' }}>
         {FILTER_FEATURE_FLAGS && hasFeatureFlags && (
-          <FlagTableFilters features={features} currentFilter={flagFilter} updateTableFilter={setFlagFilter} />
+          <FlagTableFilters
+            features={features}
+            currentFilter={flagFilter}
+            updateTableFilter={currentFilter => {
+              setPageNumber(0)
+              setFlagFilter(currentFilter)
+            }}
+          />
         )}
         {!emptyFeatureFlags ? (
           <TableV2<Feature>

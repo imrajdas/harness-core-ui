@@ -33,7 +33,7 @@ import { FeatureIdentifier } from 'framework/featureStore/FeatureIdentifier'
 import CDSideNav from '@cd/components/CDSideNav/CDSideNav'
 import CDHomePage from '@cd/pages/home/CDHomePage'
 import CDDashboardPage from '@cd/pages/dashboard/CDDashboardPage'
-import CDPipelineStudioWrapper from '@cd/pages/pipeline-studio/CDPipelineStudioWrapper'
+import CDPipelineStudio from '@cd/pages/pipeline-studio/CDPipelineStudio'
 import { ConnectorRouteDestinations } from '@connectors/RouteDestinations'
 import { DelegateRouteDestinations } from '@delegates/RouteDestinations'
 import { GitSyncRouteDestinations } from '@gitsync/RouteDestinations'
@@ -354,7 +354,7 @@ export default (
 
     {
       PipelineRouteDestinations({
-        pipelineStudioComponent: CDPipelineStudioWrapper,
+        pipelineStudioComponent: CDPipelineStudio,
         pipelineStudioPageName: PAGE_NAME.CDPipelineStudio,
         pipelineDeploymentListComponent: CDPipelineDeploymentList,
         pipelineDeploymentListPageName: PAGE_NAME.CDPipelineDeploymentList,

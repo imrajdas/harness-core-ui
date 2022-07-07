@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import { ManifestDataType } from '@pipeline/components/ManifestSelection/Manifesthelper'
+import { isServerlessManifestType, ManifestDataType } from '@pipeline/components/ManifestSelection/Manifesthelper'
 import { StepType } from '@pipeline/components/PipelineSteps/PipelineStepInterface'
 import type { DeploymentStageElementConfig } from '../pipelineTypes'
 import {
@@ -15,7 +15,6 @@ import {
   isCDStage,
   isInfraDefinitionPresent,
   isServerlessDeploymentType,
-  isServerlessManifestType,
   ServiceDeploymentType,
   getCustomStepProps,
   getStepTypeByDeploymentType,

@@ -39,7 +39,7 @@ export function DiamondNodeWidget(props: any): JSX.Element {
   const showMarkers = defaultTo(props?.showMarkers, true)
   return (
     <div
-      className={cssDefault.defaultNode}
+      className={cx(cssDefault.defaultNode, 'diamond-node')}
       onClick={event => {
         event.stopPropagation()
         if (props?.onClick) {
@@ -61,7 +61,6 @@ export function DiamondNodeWidget(props: any): JSX.Element {
     >
       <div
         className={cx(
-          'diamond-node',
           cssDefault.defaultCard,
           css.diamond,
 
@@ -183,6 +182,23 @@ export function DiamondNodeWidget(props: any): JSX.Element {
               }}
             >
               <Icon size={26} name={'conditional-skip-new'} color="white" />
+            </Text>
+          </div>
+        )}
+        {props.data?.loopingStrategyEnabled && (
+          <div className={css.loopingStrategy}>
+            <Text
+              tooltip={getString('pipeline.loopingStrategy.title')}
+              tooltipProps={{
+                isDark: true
+              }}
+            >
+              <Icon
+                size={18}
+                name={'looping'}
+                inverse={isSelected}
+                color={isSelected ? Color.WHITE : Color.PRIMARY_7}
+              />
             </Text>
           </div>
         )}

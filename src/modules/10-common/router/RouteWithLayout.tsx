@@ -17,6 +17,8 @@ import { LICENSE_STATE_VALUES } from 'framework/LicenseStore/licenseStoreUtil'
 import type { LicenseRedirectProps } from 'framework/LicenseStore/LicenseStoreContext'
 import type { PAGE_NAME } from '@common/pages/pageContext/PageName'
 import PageProvider from '@common/pages/pageContext/PageProvider'
+import { TemplateSelectorContextProvider } from 'framework/Templates/TemplateSelectorContext/TemplateSelectorContext'
+import { TemplateSelectorDrawer } from 'framework/Templates/TemplateSelectorDrawer/TemplateSelectorDrawer'
 
 export interface RouteWithLayoutProps extends RouterRouteprops {
   layout: React.ComponentType
@@ -32,15 +34,18 @@ export function RouteWithLayout(props: React.PropsWithChildren<RouteWithLayoutPr
   const childComponent = (
     <RouterRoute {...rest}>
       <ModalProvider>
-        <PageProvider pageName={pageName}>
-          {sidebarProps ? (
-            <SidebarProvider {...sidebarProps}>
+        <TemplateSelectorContextProvider>
+          <PageProvider pageName={pageName}>
+            {sidebarProps ? (
+              <SidebarProvider {...sidebarProps}>
+                <Layout>{children}</Layout>
+              </SidebarProvider>
+            ) : (
               <Layout>{children}</Layout>
-            </SidebarProvider>
-          ) : (
-            <Layout>{children}</Layout>
-          )}
-        </PageProvider>
+            )}
+          </PageProvider>
+          <TemplateSelectorDrawer />
+        </TemplateSelectorContextProvider>
       </ModalProvider>
     </RouterRoute>
   )

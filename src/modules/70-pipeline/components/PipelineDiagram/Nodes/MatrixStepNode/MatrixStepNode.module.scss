@@ -169,7 +169,7 @@
   }
 
   .stepGroupHeader {
-    padding: var(--spacing-small) var(--spacing-small) 0 var(--spacing-small);
+    padding: 16px 24px 0 24px;
 
     .collapseIcon {
       color: var(--primary-7) !important;
@@ -180,10 +180,15 @@
   .stepGroupBody {
     padding: 0 var(--spacing-xlarge) 0 var(--spacing-xxlarge);
     padding-bottom: 0 !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     // margin-right: -60px !important; // negative margin to compensate the gap 80px on last node in grid
+
+    // reset margin-bottom inside matrix as node-gap accounted with height calculation
+    :global(.default-node) {
+      margin-bottom: 55px !important;
+    }
+    :global(.diamond-node) {
+      margin-bottom: 55px !important;
+    }
   }
 
   .conditional {
@@ -275,12 +280,11 @@
 }
 
 .matrixFooter {
-  flex-wrap: wrap;
   position: absolute;
   bottom: 0;
   width: 100% !important;
   justify-content: space-between;
-  padding: 0 20px 20px 20px !important;
+  padding: 0 24px 16px 24px !important;
   p {
     font-weight: bold !important;
   }
@@ -296,6 +300,19 @@
     }
   }
 }
+.matrixBorderWrapper {
+  padding-top: 20px !important;
+  border-top: 1px solid var(--grey-200);
+  width: 100% !important;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .concurrencyLabel {
+    margin: 0;
+    line-height: 14px;
+    letter-spacing: 1px;
+  }
+}
+
 .graph-node {
   width: fit-content;
   opacity: 1;

@@ -74,7 +74,7 @@ function Artifactory({
   isReadonly = false,
   selectedArtifact,
   selectedDeploymentType
-}: StepProps<ConnectorConfigDTO> & ImagePathProps): React.ReactElement {
+}: StepProps<ConnectorConfigDTO> & ImagePathProps<ImagePathTypes>): React.ReactElement {
   const { getString } = useStrings()
   const [lastQueryData, setLastQueryData] = useState({ artifactPath: '', repository: '' })
 
@@ -119,6 +119,15 @@ function Artifactory({
 
   const sidecarSchema = Yup.object().shape({
     ...schemaObject,
+    ...ArtifactIdentifierValidation(
+      artifactIdentifiers,
+      initialValues?.identifier,
+      getString('pipeline.uniqueIdentifier')
+    )
+  })
+
+  const serverlessSidecarSchema = Yup.object().shape({
+    ...serverlessArtifactorySchema,
     ...ArtifactIdentifierValidation(
       artifactIdentifiers,
       initialValues?.identifier,
@@ -214,11 +223,14 @@ function Artifactory({
   }
 
   const getValidationSchema = useCallback(() => {
+    if (isServerlessDeploymentTypeSelected) {
+      if (context === ModalViewFor.SIDECAR) {
+        return serverlessSidecarSchema
+      }
+      return serverlessPrimarySchema
+    }
     if (context === ModalViewFor.SIDECAR) {
       return sidecarSchema
-    }
-    if (isServerlessDeploymentTypeSelected) {
-      return serverlessPrimarySchema
     }
     return primarySchema
   }, [context, isServerlessDeploymentTypeSelected, primarySchema, serverlessPrimarySchema, sidecarSchema])

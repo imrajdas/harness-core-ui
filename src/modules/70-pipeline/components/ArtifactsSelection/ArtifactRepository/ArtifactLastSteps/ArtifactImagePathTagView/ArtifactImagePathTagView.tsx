@@ -145,7 +145,7 @@ function ArtifactImagePathTagView({
           <FormInput.MultiTextInput
             label={getString('pipeline.artifactPathLabel')}
             name="artifactPath"
-            placeholder={getString('pipeline.artifactsSelection.artifactNamePlaceholder')}
+            placeholder={getString('pipeline.artifactsSelection.artifactPathPlaceholder')}
             multiTextInputProps={{ expressions, allowableTypes }}
             onChange={onChangeImageArtifactPath}
           />

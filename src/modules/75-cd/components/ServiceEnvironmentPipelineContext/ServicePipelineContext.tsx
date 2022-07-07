@@ -11,7 +11,6 @@ import { MultiTypeInputType, VisualYamlSelectedView as SelectedView } from '@har
 import produce from 'immer'
 import {
   PipelineContext,
-  PipelineContextInterface,
   PipelineContextType
 } from '@pipeline/components/PipelineStudio/PipelineContext/PipelineContext'
 import { yamlParse } from '@common/utils/YamlHelperMethods'
@@ -68,7 +67,6 @@ export interface ServicePipelineProviderProps {
   contextType: PipelineContextType
   isReadOnly: boolean
   serviceIdentifier: string
-  getTemplate: PipelineContextInterface['getTemplate']
 }
 const getServiceByIdentifier = (
   queryParams: GetServiceV2QueryParams,
@@ -100,7 +98,6 @@ export function ServicePipelineProvider({
   onUpdatePipeline,
   isReadOnly,
   contextType,
-  getTemplate,
   children
 }: React.PropsWithChildren<ServicePipelineProviderProps>): React.ReactElement {
   const allowableTypes = [MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
@@ -294,8 +291,7 @@ export function ServicePipelineProvider({
         setSelectedSectionId: noop,
         setSelection,
         getStagePathFromPipeline,
-        setTemplateTypes: noop,
-        getTemplate
+        setTemplateTypes: noop
       }}
     >
       {children}

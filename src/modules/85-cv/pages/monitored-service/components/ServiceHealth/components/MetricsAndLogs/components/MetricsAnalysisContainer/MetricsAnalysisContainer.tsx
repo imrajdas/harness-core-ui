@@ -146,16 +146,16 @@ const MetricsAnalysisContainer: React.FC<MetricsAnalysisProps> = ({
   return (
     <div className={css.container}>
       <Layout.Horizontal spacing="medium" margin={{ bottom: 'medium' }}>
+        <HealthSourceDropDown
+          verificationType={VerificationType.TIME_SERIES}
+          onChange={setHealthSource}
+          monitoredServiceIdentifier={monitoredServiceIdentifier}
+        />
         <Select
           items={metricTypeOptions(getString)}
           className={css.maxDropDownWidth}
           defaultSelectedItem={metricTypeOptions(getString)[1]}
           /* istanbul ignore next */ onChange={item => setIsAnomalous(item.value === MetricTypes.ANOMALOUS)}
-        />
-        <HealthSourceDropDown
-          verificationType={VerificationType.TIME_SERIES}
-          onChange={setHealthSource}
-          monitoredServiceIdentifier={monitoredServiceIdentifier}
         />
         <ExpandingSearchInput
           width={250}

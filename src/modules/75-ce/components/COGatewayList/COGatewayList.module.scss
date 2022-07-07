@@ -13,8 +13,11 @@
   }
 }
 .pageContainer {
-  background: var(--grey-100) !important;
   height: calc(100vh - 144px) !important;
+  background-color: var(--primary-bg) !important;
+}
+.pageSubHeader {
+  border-bottom: 1px solid var(--grey-200) !important;
 }
 .layout {
   justify-content: flex-end;
@@ -139,20 +142,63 @@
 }
 
 .resourceCell {
-  max-width: 80%;
+  max-width: 82%;
   .link {
-    flex: 1;
-    white-space: nowrap !important;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color: var(--primary-7) !important;
-    text-decoration: underline;
     cursor: pointer;
     &.disabled {
       color: var(--grey-500) !important;
     }
     &.notAllowed {
       cursor: not-allowed;
+    }
+  }
+  .copyIcon {
+    padding: 0 !important;
+    min-height: unset !important;
+    min-width: unset !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+  .copyTooltip {
+    padding: var(--spacing-small);
+    line-height: 2;
+    font-size: var(--font-size-small);
+  }
+  .stateLabel {
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-weight: 600 !important;
+    max-height: 21px;
+    &.runningLabel {
+      color: var(--primary-7);
+      background: var(--primary-1);
+      :global {
+        svg path {
+          fill: var(--primary-7) !important;
+        }
+      }
+    }
+    &.stoppedLabel {
+      color: var(--red-800);
+      background: var(--red-50);
+      :global {
+        svg path {
+          fill: var(--red-800) !important;
+        }
+      }
+    }
+    &.disabledLabel {
+      color: var(--grey-700);
+      background: var(--grey-200);
+    }
+    &.loadingLabel {
+      color: var(--blue-700);
+      :global {
+        svg path {
+          fill: var(--blue-700) !important;
+        }
+      }
     }
   }
 }
@@ -170,5 +216,28 @@
     opacity: 0.4;
     pointer-events: none !important;
     user-select: none !important;
+  }
+}
+
+.ruleListRow {
+  margin-bottom: var(--spacing-medium) !important;
+  border-radius: 8px !important;
+  box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.08), 0px 0.5px 2px rgba(96, 97, 112, 0.16) !important;
+  :global {
+    .bp3-icon[data-icon='Options'] {
+      > svg path {
+        fill: var(--primary-5) !important;
+      }
+    }
+  }
+  &.disableRule {
+    background: var(--grey-100);
+    border: 1px solid var(--grey-400);
+    cursor: default;
+    filter: grayscale(100%);
+    &:hover {
+      border-color: unset !important;
+      background-color: var(--grey-100) !important;
+    }
   }
 }

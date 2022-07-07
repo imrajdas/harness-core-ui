@@ -78,7 +78,7 @@ export const PipelineExecutions: React.FC = () => {
         {filteredDeployments.map(d => (
           <ExecutionCard
             variant={CardVariant.Minimal}
-            key={d.pipelineIdentifier}
+            key={d.planExecutionId}
             pipelineExecution={executionStatusInfoToExecutionSummary(d)}
           />
         ))}

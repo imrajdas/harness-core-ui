@@ -22,6 +22,7 @@ jest.mock('@common/components/YAMLBuilder/YamlBuilder')
 jest.mock('services/cd-ng', () => ({
   useGetConnector: jest.fn(() => ConnectorResponse),
   useGetClusterNamesForGcp: jest.fn(() => ClusterNamesResponse),
+  useGetClusterNamesForGcpInfra: jest.fn(() => ClusterNamesResponse),
   getConnectorListV2Promise: jest.fn(() => Promise.resolve(ConnectorsResponse.data)),
   getClusterNamesForGcpPromise: jest.fn(() => Promise.resolve(ClusterNamesResponse.data))
 }))
@@ -160,6 +161,39 @@ describe('Test GcpInfrastructureSpec behavior', () => {
       fireEvent.click(getByText(container, 'Submit'))
     })
     expect(onUpdateHandler).toHaveBeenCalledWith(getInitialValues())
+  })
+
+  test('should call onUpdate if valid values entered when connector ref is not present- inputset', async () => {
+    const onUpdateHandler = jest.fn()
+    const { container } = render(
+      <TestStepWidget
+        initialValues={{
+          cluster: 'cluster',
+          environmentRef: 'environmentRef',
+          infrastructureRef: 'infrastructureRef'
+        }}
+        template={{
+          cluster: RUNTIME_INPUT_VALUE
+        }}
+        allValues={{
+          cluster: 'cluster',
+          environmentRef: 'environmentRef',
+          infrastructureRef: 'infrastructureRef'
+        }}
+        type={StepType.KubernetesGcp}
+        stepViewType={StepViewType.InputSet}
+        onUpdate={onUpdateHandler}
+      />
+    )
+
+    await act(async () => {
+      fireEvent.click(getByText(container, 'Submit'))
+    })
+    expect(onUpdateHandler).toHaveBeenCalledWith({
+      cluster: 'cluster',
+      environmentRef: 'environmentRef',
+      infrastructureRef: 'infrastructureRef'
+    })
   })
 
   test('should not call onUpdate if invalid values entered - inputset', async () => {

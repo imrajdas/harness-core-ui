@@ -326,6 +326,23 @@ exports[`CREATE MODE if form changesupdate the preview card: changed value shoul
             </p>
           </div>
           <div
+            class="StyledProps--font StyledProps--main"
+          >
+            <span
+              class="Tag--main"
+            >
+              <span
+                class="bp3-tag scopeLabel account"
+              >
+                <span
+                  class="bp3-text-overflow-ellipsis bp3-fill"
+                >
+                  SCOPE: ACCOUNT
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
             class="StyledProps--font StyledProps--main StyledProps--background-grey100"
             style="height: 1px;"
           />

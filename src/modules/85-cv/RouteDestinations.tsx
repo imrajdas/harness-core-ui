@@ -8,7 +8,6 @@
 import React from 'react'
 import { Route, useParams, Redirect } from 'react-router-dom'
 
-import { parse } from 'yaml'
 import CVHomePage from '@cv/pages/home/CVHomePage'
 import { RouteWithLayout } from '@common/router'
 import routes from '@common/RouteDefinitions'
@@ -30,14 +29,8 @@ import { AccessControlRouteDestinations } from '@rbac/RouteDestinations'
 import { VariableRouteDestinations } from '@variables/RouteDestinations'
 import { ModuleName } from 'framework/types/ModuleName'
 import { useAppStore } from 'framework/AppStore/AppStoreContext'
-import { PubSubPipelineActions } from '@pipeline/factories/PubSubPipelineAction'
-import { PipelineActions } from '@pipeline/factories/PubSubPipelineAction/types'
 import TemplatesPage from '@templates-library/pages/TemplatesPage/TemplatesPage'
 import { TemplateStudioWrapper } from '@templates-library/components/TemplateStudio/TemplateStudioWrapper'
-import { TemplateSelectorDrawer } from '@templates-library/components/TemplateSelectorDrawer/TemplateSelectorDrawer'
-import { TemplateSelectorContextProvider } from '@templates-library/components/TemplateSelectorContext/TemplateSelectorContext'
-import { inputSetTemplatePromise } from 'services/cv'
-import { yamlStringify } from '@common/utils/YamlHelperMethods'
 import { CVChanges } from '@cv/pages/changes/CVChanges'
 import ConnectorsPage from '@connectors/pages/connectors/ConnectorsPage'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
@@ -47,32 +40,32 @@ import AuditTrailFactory from '@audit-trail/factories/AuditTrailFactory'
 import { ErrorTracking } from '@et/ErrorTrackingApp'
 import ChildAppMounter from '../../microfrontends/ChildAppMounter'
 import CVTrialHomePage from './pages/home/CVTrialHomePage'
-import { editParams, isVerifyStepPresent } from './utils/routeUtils'
+import { editParams } from './utils/routeUtils'
 import CVSLOsListingPage from './pages/slos/CVSLOsListingPage'
 import CVSLODetailsPage from './pages/slos/CVSLODetailsPage/CVSLODetailsPage'
 import CVCreateSLO from './pages/slos/components/CVCreateSLO/CVCreateSLO'
 import { MonitoredServiceProvider } from './pages/monitored-service/MonitoredServiceContext'
-import MonitoredServiceInputSetsTemplate from './pages/monitored-service/MonitoredServiceInputSetsTemplate'
+import MonitoredServiceInputSetsTemplate from './pages/monitored-service/MonitoredServiceInputSetsTemplate/MonitoredServiceInputSetsTemplate'
 
-PubSubPipelineActions.subscribe(
-  PipelineActions.RunPipeline,
-  async ({ template, accountPathProps: accountPathParams, pipeline }) => {
-    let response = { ...template }
-    const payload = { pipelineYaml: yamlStringify({ pipeline }), templateYaml: yamlStringify(template) }
+// PubSubPipelineActions.subscribe(
+//   PipelineActions.RunPipeline,
+//   async ({ template, accountPathProps: accountPathParams, pipeline }) => {
+//     let response = { ...template }
+//     const payload = { pipelineYaml: yamlStringify({ pipeline }), templateYaml: yamlStringify(template) }
 
-    // Making the BE call to get the updated template, only if the stage contains verify step then
-    if (isVerifyStepPresent(pipeline)) {
-      const updatedResponse = await inputSetTemplatePromise({
-        queryParams: { accountId: accountPathParams?.accountId },
-        body: payload
-      })
-      if (updatedResponse?.data?.inputSetTemplateYaml) {
-        response = { ...parse(updatedResponse.data.inputSetTemplateYaml)?.pipeline }
-      }
-    }
-    return Promise.resolve(response)
-  }
-)
+//     // Making the BE call to get the updated template, only if the stage contains verify step then
+//     if (isVerifyStepPresent(pipeline)) {
+//       const updatedResponse = await inputSetTemplatePromise({
+//         queryParams: { accountId: accountPathParams?.accountId },
+//         body: payload
+//       })
+//       if (updatedResponse?.data?.inputSetTemplateYaml) {
+//         response = { ...parse(updatedResponse.data.inputSetTemplateYaml)?.pipeline }
+//       }
+//     }
+//     return Promise.resolve(response)
+//   }
+// )
 
 const RedirectToCVProject = (): React.ReactElement => {
   const params = useParams<ProjectPathProps>()
@@ -173,10 +166,7 @@ export default (
       path={routes.toCVMonitoringServices({ ...accountPathProps, ...projectPathProps, ...cvModuleParams })}
     >
       <MonitoredServiceProvider isTemplate={false}>
-        <TemplateSelectorContextProvider>
-          <CVMonitoredService />
-          <TemplateSelectorDrawer />
-        </TemplateSelectorContextProvider>
+        <CVMonitoredService />
       </MonitoredServiceProvider>
     </RouteWithLayout>
 

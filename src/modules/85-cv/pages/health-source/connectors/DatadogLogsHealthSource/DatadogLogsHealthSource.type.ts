@@ -13,12 +13,14 @@ import type { UpdatedHealthSource } from '@cv/pages/health-source/HealthSourceDr
 export interface DatadogLogsHealthSourceProps {
   data: any
   onSubmit: (formdata: DatadogLogsSetupSource, updatedHealthSource: UpdatedHealthSource) => Promise<void>
+  isTemplate?: boolean
+  expressions?: string[]
 }
 
 export type DatadogLogsInfo = {
   metricName: string
   serviceInstanceIdentifierTag?: string
-  indexes?: SelectOption[]
+  indexes?: SelectOption[] | string
   query: string
 }
 
@@ -28,7 +30,7 @@ export interface DatadogLogsSetupSource {
   healthSourceIdentifier: string
   healthSourceName: string
   product: SelectOption
-  connectorRef?: string
+  connectorRef?: string | { value: string }
 }
 
 export type SelectedAndMappedMetrics = {
@@ -47,7 +49,7 @@ export interface DatadogLogsQueryDefinition {
   name: string
   query: string
   serviceInstanceIdentifier?: string
-  indexes: string[]
+  indexes: string[] | string
 }
 
 export type DatadogLogsHealthSpec = HealthSourceSpec & {

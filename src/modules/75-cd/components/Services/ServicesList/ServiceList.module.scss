@@ -13,7 +13,6 @@
 }
 
 .lastDeploymentText {
-  white-space: nowrap !important;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -35,4 +34,9 @@
 .openNewTabStyle {
   display: flex;
   align-items: center;
+}
+
+.lastDeployment {
+  display: grid !important;
+  grid-template-columns: 75% 25%;
 }

@@ -16,7 +16,6 @@ import YAML from 'yaml'
 import produce from 'immer'
 import { Scope } from '@common/interfaces/SecretsInterface'
 import {
-  DeploymentStageConfig,
   GetExecutionStrategyYamlQueryParams,
   StageElementConfig,
   useGetExecutionStrategyYaml,
@@ -50,7 +49,6 @@ import {
 import { getCDStageValidationSchema } from '@cd/components/PipelineSteps/PipelineStepsUtil'
 import type { DeploymentStageElementConfig } from '@pipeline/utils/pipelineTypes'
 import { isContextTypeNotStageTemplate } from '@pipeline/components/PipelineStudio/PipelineUtils'
-import type { DeployStageConfig } from '@pipeline/utils/DeployStageInterface'
 import DeployInfraSpecifications from '../DeployInfraSpecifications/DeployInfraSpecifications'
 import DeployServiceSpecifications from '../DeployServiceSpecifications/DeployServiceSpecifications'
 import DeployStageSpecifications from '../DeployStageSpecifications/DeployStageSpecifications'
@@ -187,7 +185,7 @@ export default function DeployStageSetupShell(): JSX.Element {
     NG_SVC_ENV_REDESIGN,
     selectedStage as DeploymentStageElementConfig
   )
-    ? (selectedStage?.stage?.spec as DeployStageConfig)?.deploymentType
+    ? selectedStage?.stage?.spec?.deploymentType
     : getSelectedDeploymentType(
         selectedStage,
         getStageFromPipeline,
@@ -218,8 +216,7 @@ export default function DeployStageSetupShell(): JSX.Element {
 
   React.useEffect(() => {
     if (
-      (isServerlessDeploymentType(selectedDeploymentType || '') ||
-        (selectedStage?.stage?.spec as DeployStageConfig)?.gitOpsEnabled) &&
+      (isServerlessDeploymentType(selectedDeploymentType || '') || selectedStage?.stage?.spec?.gitOpsEnabled) &&
       yamlSnippet?.data &&
       selectedStage &&
       isEmpty(selectedStage.stage?.spec?.execution)
@@ -231,7 +228,7 @@ export default function DeployStageSetupShell(): JSX.Element {
           }
           const jsonFromYaml = YAML.parse(defaultTo(yamlSnippet?.data, '{}')) as StageElementConfig
           set(draft, 'stage.failureStrategies', jsonFromYaml.failureStrategies)
-          set(draft, 'stage.spec.execution', defaultTo((jsonFromYaml.spec as DeploymentStageConfig)?.execution, {}))
+          set(draft, 'stage.spec.execution', defaultTo(jsonFromYaml.spec?.execution, {}))
         }).stage as StageElementConfig
       )
     }
@@ -313,7 +310,7 @@ export default function DeployStageSetupShell(): JSX.Element {
           const stageType = selectedStage?.stage?.type
           const openExecutionStrategy = stageType ? stagesMap[stageType].openExecutionStrategy : true
           const isServerlessDeploymentTypeSelected = isServerlessDeploymentType(selectedDeploymentType || '')
-          const gitOpsEnabled = (selectedStage?.stage?.spec as DeployStageConfig)?.gitOpsEnabled
+          const gitOpsEnabled = selectedStage?.stage?.spec?.gitOpsEnabled
           // Show executiomn strategies when openExecutionStrategy is true and deployment type is not serverless and
           // when gitOpsEnabled to true
           if (

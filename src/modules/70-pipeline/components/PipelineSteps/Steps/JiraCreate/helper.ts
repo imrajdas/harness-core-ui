@@ -182,3 +182,7 @@ export const updateMap = (alreadySelectedFields: JiraFieldNG[]): Record<string, 
   }
   return map
 }
+
+export const isRuntimeOrExpressionType = (fieldType: MultiTypeInputType): boolean => {
+  return fieldType === MultiTypeInputType.EXPRESSION || fieldType === MultiTypeInputType.RUNTIME
+}

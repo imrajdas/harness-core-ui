@@ -54,7 +54,7 @@ export function NexusArtifact({
   artifactIdentifiers,
   isReadonly = false,
   selectedArtifact
-}: StepProps<ConnectorConfigDTO> & ImagePathProps): React.ReactElement {
+}: StepProps<ConnectorConfigDTO> & ImagePathProps<ImagePathTypes>): React.ReactElement {
   const { getString } = useStrings()
   const [lastQueryData, setLastQueryData] = useState({ artifactPath: '', repository: '' })
   const [tagList, setTagList] = useState<DockerBuildDetailsDTO[] | undefined>([])

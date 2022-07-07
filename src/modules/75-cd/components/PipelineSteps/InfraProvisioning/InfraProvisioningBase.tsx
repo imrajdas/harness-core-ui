@@ -34,6 +34,7 @@ import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { getFlattenedStages } from '@pipeline/components/PipelineStudio/StageBuilder/StageBuilderUtil'
 import { FeatureFlag } from '@common/featureFlags'
 import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
+import { useTemplateSelector } from 'framework/Templates/TemplateSelectorContext/useTemplateSelector'
 import useChooseProvisioner from './ChooseProvisioner'
 import type { InfraProvisioningData, InfraProvisioningDataUI, InfraProvisioningProps } from './InfraProvisioning'
 import { transformValuesFieldsConfig } from './InfraProvisioningFunctionConfigs'
@@ -55,10 +56,9 @@ export const InfraProvisioningBase = (
     updatePipelineView,
     isReadonly,
     getStageFromPipeline,
-    getStagePathFromPipeline,
-    getTemplate
+    getStagePathFromPipeline
   } = usePipelineContext()
-
+  const { getTemplate } = useTemplateSelector()
   const { getString } = useStrings()
   const { stage: selectedStage } = getStageFromPipeline(defaultTo(selectedStageId, ''))
   const stagePath = getStagePathFromPipeline(selectedStageId || '', 'pipeline.stages')

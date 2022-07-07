@@ -125,6 +125,7 @@ exports[`Create Bitbucketconnector Wizard Creating Bitbucket connector step one 
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-h3"
+          data-cy="connector-overview-heading"
         >
           overview
         </p>

@@ -35,7 +35,7 @@ import { ModuleName } from 'framework/types/ModuleName'
 import useActiveEnvironment from '@cf/hooks/useActiveEnvironment'
 import { CFSideNavProps } from '@cf/constants'
 import CFPipelineDeploymentList from '@cf/pages/pipeline-deployment-list/CFPipelineDeploymentList'
-import CFPipelineStudioWrapper from '@cf/pages/pipeline-studio/CFPipelineStudioWrapper'
+import CFPipelineStudio from '@cf/pages/pipeline-studio/CFPipelineStudio'
 import RbacFactory from '@rbac/factories/RbacFactory'
 import { ResourceCategory, ResourceType } from '@rbac/interfaces/ResourceType'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
@@ -358,7 +358,7 @@ const CFRoutes: FC = () => {
         {FF_PIPELINE && (
           <>
             <PipelineRouteDestinations
-              pipelineStudioComponent={CFPipelineStudioWrapper}
+              pipelineStudioComponent={CFPipelineStudio}
               pipelineDeploymentListComponent={CFPipelineDeploymentList}
               moduleParams={moduleParams}
               licenseRedirectData={licenseRedirectData}

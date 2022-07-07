@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Azure Traffic Shift Variable view  Initial render 1`] = `
+<div>
+  <div
+    class="variablesListTable variablePaddingL3"
+  />
+</div>
+`;
+
+exports[`Azure Traffic Shift Variable view  Initial render inline with no values 1`] = `
+<div>
+  <div
+    class="variablesListTable variablePaddingL3"
+  />
+</div>
+`;
+
+exports[`Azure Traffic Shift Variable view  Should render with inline config 1`] = `
+<div>
+  <div
+    class="variablesListTable variablePaddingL3"
+  />
+</div>
+`;
+
+exports[`Azure Traffic Shift Variable view  should render with no config 1`] = `
+<div>
+  <div
+    class="variablesListTable variablePaddingL3"
+  />
+</div>
+`;

@@ -6,10 +6,6 @@
 export BRANCH=develop
 git checkout $BRANCH
 
-# Upgrade ng-tooltip to pick the latest
-yarn upgrade @harness/ng-tooltip
-git add yarn.lock
-
 # bump minor version (0.1.0 -> 0.2.0)
 yarn version --minor --no-git-tag-version --no-commit-hooks
 git add package.json

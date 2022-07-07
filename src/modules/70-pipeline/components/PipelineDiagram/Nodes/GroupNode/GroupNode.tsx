@@ -38,6 +38,7 @@ interface Node {
 function GroupNode(props: GroupNodeProps): React.ReactElement {
   const [selected, setSelected] = React.useState<boolean>(false)
   const [hasFailedNode, setFailedNode] = React.useState<boolean>(false)
+  const [hasRunningNode, setRunningNode] = React.useState<boolean>(false)
   const allowAdd = defaultTo(props.allowAdd, false)
   const [showAdd, setVisibilityOfAdd] = React.useState(false)
   const CreateNode: React.FC<BaseReactComponentProps> | undefined = props?.getNode?.(NodeType.CreateNode)?.component
@@ -65,6 +66,8 @@ function GroupNode(props: GroupNodeProps): React.ReactElement {
 
     const nodesFinal: Node[] = []
     let isNodeSelected = false
+    const runningNodeFound = nodesArr.find((node: Node) => node.status === ExecutionStatusEnum.Running)
+    setRunningNode(runningNodeFound)
     nodesArr.forEach((node: Node) => {
       if (node.status === ExecutionStatusEnum.Failed) {
         setFailedNode(true)
@@ -107,37 +110,56 @@ function GroupNode(props: GroupNodeProps): React.ReactElement {
     nodesInfo: Node[]
     isExecutionView: boolean
   }): JSX.Element => {
+    const { restStageList, runningStageList } = stageList.reduce(
+      (acc, node) => {
+        if (node.status === ExecutionStatusEnum.Running) {
+          acc?.runningStageList?.push(node)
+        } else {
+          acc?.restStageList?.push(node)
+        }
+        return acc
+      },
+      {
+        runningStageList: [] as Node[],
+        restStageList: [] as Node[]
+      }
+    )
+
+    const renderView = (node: Node): JSX.Element => {
+      return (
+        <Layout.Horizontal
+          style={{ cursor: 'pointer' }}
+          spacing="small"
+          padding="small"
+          key={node.identifier}
+          onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+            event.stopPropagation()
+            props?.fireEvent?.({
+              type: Event.ClickNode,
+              target: event.target,
+              data: {
+                entityType: DiagramType.GroupNode,
+                node,
+                ...props,
+                identifier: node?.identifier,
+                id: node.id
+              }
+            })
+            dynamicPopoverHandler?.hide()
+          }}
+        >
+          <Icon name={node.icon} />
+          <Text lineClamp={1} width={200}>
+            {node.name}
+          </Text>
+          {isExecutionView && <ExecutionStatusLabel status={node?.status as ExecutionStatus} />}
+        </Layout.Horizontal>
+      )
+    }
     return (
       <div className={groupnodecss.nodelistpopover}>
-        {stageList.map((node: any) => (
-          <Layout.Horizontal
-            style={{ cursor: 'pointer' }}
-            spacing="small"
-            padding="small"
-            key={node.identifier}
-            onClick={(event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-              event.stopPropagation()
-              props?.fireEvent?.({
-                type: Event.ClickNode,
-                target: event.target,
-                data: {
-                  entityType: DiagramType.GroupNode,
-                  node,
-                  ...props,
-                  identifier: node?.identifier,
-                  id: node.id
-                }
-              })
-              dynamicPopoverHandler?.hide()
-            }}
-          >
-            <Icon name={node.icon} />
-            <Text lineClamp={1} width={200}>
-              {node.name}
-            </Text>
-            {isExecutionView && <ExecutionStatusLabel status={node.status} />}
-          </Layout.Horizontal>
-        ))}
+        {runningStageList.length > 0 && runningStageList.map((node: Node) => renderView(node))}
+        {restStageList.map((node: Node) => renderView(node))}
       </div>
     )
   }
@@ -157,6 +179,12 @@ function GroupNode(props: GroupNodeProps): React.ReactElement {
     ExecutionStatusEnum.Failed as ExecutionStatus,
     ExecutionPipelineNodeType.NORMAL
   )
+  // running status style
+  const {
+    secondaryIconProps: runningIconProps,
+    secondaryIcon: runningIcon,
+    secondaryIconStyle: runningIconStyle
+  } = getStatusProps(ExecutionStatusEnum.Running as ExecutionStatus, ExecutionPipelineNodeType.NORMAL)
 
   return (
     <div style={{ position: 'relative' }}>
@@ -240,13 +268,22 @@ function GroupNode(props: GroupNodeProps): React.ReactElement {
             {nodesInfo?.[1]?.icon && nodesInfo[1].icon && <Icon size={28} name={nodesInfo[1].icon} />}
           </div>
         </div>
-        {secondaryIcon && hasFailedNode && (
+        {secondaryIcon && hasFailedNode && !hasRunningNode && (
           <Icon
             name={secondaryIcon}
             style={secondaryIconStyle}
             size={13}
             className={css.secondaryIcon}
             {...secondaryIconProps}
+          />
+        )}
+        {runningIcon && hasRunningNode && (
+          <Icon
+            name={runningIcon}
+            style={runningIconStyle}
+            size={13}
+            className={css.secondaryIcon}
+            {...runningIconProps}
           />
         )}
         <div className={cx(css.nodeNameText, css.stageName)}>
@@ -300,6 +337,7 @@ function GroupNode(props: GroupNodeProps): React.ReactElement {
         className={css.renderPopover}
         render={renderPopover}
         bind={setDynamicPopoverHandler}
+        closeOnMouseOut
         usePortal
       />
       {!props.readonly && (

@@ -9,7 +9,7 @@ import React, { SetStateAction, Dispatch } from 'react'
 import cx from 'classnames'
 import { FormInput, SelectOption, Text, Container } from '@wings-software/uicore'
 import { FontVariation, Color } from '@harness/design-system'
-import { isEmpty, isUndefined } from 'lodash-es'
+import { isEmpty, isUndefined, sortBy } from 'lodash-es'
 import type { StringKeys, UseStringsReturn } from 'framework/strings'
 import { GitSourceProviders } from './TriggersListUtils'
 import { ConnectorSection } from '../views/ConnectorSection'
@@ -20,7 +20,9 @@ export const autoAbortPreviousExecutionsTypes = [
   eventTypes.PUSH,
   eventTypes.PULL_REQUEST,
   eventTypes.ISSUE_COMMENT,
-  eventTypes.MERGE_REQUEST
+  eventTypes.MERGE_REQUEST,
+  eventTypes.MR_COMMENT,
+  eventTypes.PR_COMMENT
 ]
 
 export const getAutoAbortDescription = ({
@@ -34,7 +36,7 @@ export const getAutoAbortDescription = ({
     return getString('triggers.triggerConfigurationPanel.autoAbortPush')
   } else if (event === eventTypes.PULL_REQUEST || event === eventTypes.MERGE_REQUEST) {
     return getString('triggers.triggerConfigurationPanel.autoAbortPR')
-  } else if (event === eventTypes.ISSUE_COMMENT) {
+  } else if (event === eventTypes.ISSUE_COMMENT || event === eventTypes.MR_COMMENT || event === eventTypes.PR_COMMENT) {
     return getString('triggers.triggerConfigurationPanel.autoAbortIssueComment')
   }
   return ''
@@ -188,6 +190,10 @@ export const getEventLabelMap = (event: string): string => {
     return 'Merge Request'
   } else if (event === eventTypes.ISSUE_COMMENT) {
     return 'Issue Comment'
+  } else if (event == eventTypes.PR_COMMENT) {
+    return 'Pull Request Comment'
+  } else if (event == eventTypes.MR_COMMENT) {
+    return 'Merge Request Comment'
   }
   return event
 }
@@ -204,10 +210,15 @@ export const getEventAndActions = ({
   sourceRepo: string
 }): { eventOptions: SelectOption[]; actionsOptionsMap: ActionsOptionsMapInterface } => {
   const filteredData = data?.[sourceRepo] || {}
-  const eventOptions = Object.keys(filteredData).map(event => ({
+  const shouldSortByAlphabetically =
+    sourceRepo === GitSourceProviders.GITLAB.value || sourceRepo === GitSourceProviders.BITBUCKET.value
+  let eventOptions = Object.keys(filteredData).map(event => ({
     label: getEventLabelMap(event),
     value: event
   }))
+  if (shouldSortByAlphabetically) {
+    eventOptions = sortBy(eventOptions, ['label'])
+  }
   return { eventOptions, actionsOptionsMap: filteredData }
 }
 

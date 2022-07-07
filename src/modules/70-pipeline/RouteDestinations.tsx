@@ -37,6 +37,7 @@ import FullPageLogView from '@pipeline/pages/full-page-log-view/FullPageLogView'
 import InputSetList from '@pipeline/pages/inputSet-list/InputSetList'
 import PipelineDetails from '@pipeline/pages/pipeline-details/PipelineDetails'
 import PipelinesPage from '@pipeline/pages/pipelines/PipelinesPage'
+import { PipelineListPage } from '@pipeline/pages/pipeline-list/PipelineListPage'
 import DeploymentsList from '@pipeline/pages/deployments-list/DeploymentsList'
 import type { LicenseRedirectProps } from 'framework/LicenseStore/LicenseStoreContext'
 import '@pipeline/components/CommonPipelineStages/ApprovalStage'
@@ -289,6 +290,15 @@ export function PipelineRouteDestinations({
         pageName={PAGE_NAME.FullPageLogView}
       >
         <FullPageLogView />
+      </RouteWithLayout>
+      <RouteWithLayout
+        exact
+        licenseRedirectData={licenseRedirectData}
+        sidebarProps={sidebarProps}
+        path={routes.toPipelineList({ ...accountPathProps, ...projectPathProps, ...moduleParams })}
+        pageName={PAGE_NAME.PipelineListPage}
+      >
+        <PipelineListPage />
       </RouteWithLayout>
       <RouteWithLayout
         exact

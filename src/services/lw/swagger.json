@@ -3778,6 +3778,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "status_msg": {
+          "type": "string"
         }
       }
     },

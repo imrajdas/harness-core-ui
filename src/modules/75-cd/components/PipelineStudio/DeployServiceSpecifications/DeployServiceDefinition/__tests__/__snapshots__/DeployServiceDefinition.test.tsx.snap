@@ -686,7 +686,7 @@ exports[`DeployServiceDefinition Changing the deployment type when the stage con
                     <input
                       disabled=""
                       type="checkbox"
-                      value="winrm"
+                      value="WinRm"
                     />
                   </label>
                 </div>
@@ -1503,7 +1503,7 @@ exports[`DeployServiceDefinition checking on the gitops with other stage data sh
                     <input
                       disabled=""
                       type="checkbox"
-                      value="winrm"
+                      value="WinRm"
                     />
                   </label>
                 </div>
@@ -2320,7 +2320,7 @@ exports[`DeployServiceDefinition should render DeployServiceDefinition and switc
                     <input
                       disabled=""
                       type="checkbox"
-                      value="winrm"
+                      value="WinRm"
                     />
                   </label>
                 </div>

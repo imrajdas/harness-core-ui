@@ -436,11 +436,10 @@ export default function DeployServiceSpecifications({
   }, [stage])
 
   const getDeployServiceWidgetInitValues = React.useCallback((): DeployServiceData => {
-    const initValues: DeployServiceData = {
+    return {
       service: getService(),
       serviceRef: scope === Scope.PROJECT ? getBasedServiceRef() : getBasedServiceRef() || RUNTIME_INPUT_VALUE
     }
-    return initValues
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

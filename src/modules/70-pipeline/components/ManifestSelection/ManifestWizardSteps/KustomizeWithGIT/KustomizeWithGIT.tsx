@@ -82,7 +82,7 @@ function KustomizeWithGIT({
         : prevStepData?.url
       : null
 
-  const getInitialValues = React.useCallback((): KustomizeWithGITDataType => {
+  const getInitialValues = (): KustomizeWithGITDataType => {
     const specValues = get(initialValues, 'spec.store.spec', null)
 
     if (specValues) {
@@ -109,7 +109,7 @@ function KustomizeWithGIT({
       repoName: getRepositoryName(prevStepData, initialValues),
       pluginPath: ''
     }
-  }, [])
+  }
 
   const submitFormData = (formData: KustomizeWithGITDataType & { store?: string; connectorRef?: string }): void => {
     const manifestObj: ManifestConfigWrapper = {
@@ -362,6 +362,7 @@ function KustomizeWithGIT({
                   fieldPath="patchesPaths"
                   pathLabel={getString('pipeline.manifestTypeLabels.KustomizePatches')}
                   placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+                  defaultValue={{ path: '', uuid: uuid('', nameSpace()) }}
                 />
               </div>
               <Accordion

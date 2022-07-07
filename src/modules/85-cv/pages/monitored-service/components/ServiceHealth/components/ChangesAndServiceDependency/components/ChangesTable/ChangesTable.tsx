@@ -48,7 +48,7 @@ export default function ChangesTable({
   >()
 
   const drawerOptions = {
-    size: '830px',
+    size: '800px',
     onClose: noop
   } as IDrawerProps
   const { showDrawer } = useDrawer({

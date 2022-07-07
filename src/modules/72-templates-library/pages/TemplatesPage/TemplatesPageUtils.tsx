@@ -54,6 +54,11 @@ export const templateColorStyleMap: { [keyof in TemplateType]: React.CSSProperti
     color: '#06B7C3',
     stroke: '#D4E7D1',
     fill: '#E4F7E1'
+  },
+  [TemplateType.Script]: {
+    color: '#CDF4FE',
+    stroke: '#A3E9FF',
+    fill: '#CDF4FE'
   }
 }
 
@@ -97,6 +102,11 @@ export const templateStudioColorStyleMap: { [keyof in TemplateType]: React.CSSPr
     color: '#06B7C3',
     stroke: '#D4E7D1',
     fill: '#E4F7E1'
+  },
+  [TemplateType.Script]: {
+    color: '#CDF4FE',
+    stroke: '#A3E9FF',
+    fill: '#CDF4FE'
   }
 }
 
@@ -143,7 +153,9 @@ export const getIconForTemplate = (
 ): IconName | undefined => {
   const templateTye =
     (template as TemplateSummaryResponse)?.templateEntityType || (template as NGTemplateInfoConfigWithGitDetails)?.type
-  if (templateTye === TemplateType.Pipeline) {
+  if (templateTye === TemplateType.Script) {
+    return 'script'
+  } else if (templateTye === TemplateType.Pipeline) {
     return 'pipeline'
   } else {
     const childType =

@@ -10,7 +10,7 @@ import has from 'lodash-es/has'
 import { get } from 'lodash-es'
 import { StepViewType } from '@pipeline/components/AbstractSteps/Step'
 import type { PipelineInfoConfig } from 'services/pipeline-ng'
-import { validateCICodebase, getErrorsList, validatePipeline } from '../StepUtil'
+import { validateCICodebase, validatePipeline } from '../StepUtil'
 import {
   pipelineTemplateWithRuntimeInput,
   pipelineWithNoBuildInfo,
@@ -99,25 +99,6 @@ describe('Test StepUtils', () => {
     expect(isMatch(errors, { timeout: 'Invalid syntax provided' })).toBeTruthy()
   })
 
-  test('Test getErrorsList method', () => {
-    const errors = {
-      properties: { ci: { codebase: 'CI Codebase is a required field' } },
-      stages: [
-        {
-          stage: {
-            spec: {
-              execution: {
-                steps: [{ step: { spec: { image: 'Image is a required field', type: 'Type is a required field' } } }]
-              }
-            }
-          }
-        }
-      ]
-    }
-    const { errorStrings, errorCount } = getErrorsList(errors)
-    expect(errorStrings.length).toBe(3)
-    expect(errorCount).toBe(3)
-  })
   test('Test requires Connector and RepoName only when all CI Codebase fields are runtime inputs', () => {
     const errors = validatePipeline({
       pipeline: {

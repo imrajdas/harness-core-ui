@@ -21,6 +21,7 @@ import { TagsPopover } from '@common/components'
 import { Badge } from '@pipeline/pages/utils/Badge/Badge'
 import GitDetailsColumn from '@common/components/Table/GitDetailsColumn/GitDetailsColumn'
 import { TemplateType } from '@templates-library/utils/templatesUtils'
+import { ScopeBadge } from '@common/components/ScopeBadge/ScopeBadge'
 import css from './TemplatesListView.module.scss'
 
 type CustomColumn<T extends Record<string, any>> = Column<T> & {
@@ -58,6 +59,7 @@ const RenderColumnType: Renderer<CellProps<TemplateSummaryResponse>> = ({ row })
       className={css.templateColor}
       spacing="large"
       flex={{ alignItems: 'center', justifyContent: 'flex-start' }}
+      padding={{ right: 'medium' }}
     >
       <svg width="8" height="64" viewBox="0 0 8 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -79,36 +81,43 @@ const RenderColumnTemplate: Renderer<CellProps<TemplateSummaryResponse>> = ({ ro
   const data = row.original
   const { getString } = useStrings()
   return (
-    <Layout.Horizontal flex={{ alignItems: 'center', justifyContent: 'start' }}>
-      <Layout.Vertical spacing="xsmall" data-testid={data.identifier} padding={{ right: 'medium' }}>
-        <Layout.Horizontal spacing="medium">
+    <Layout.Horizontal flex={{ alignItems: 'center', justifyContent: 'start' }} padding={{ right: 'medium' }}>
+      <Container>
+        <Layout.Vertical spacing="xsmall">
+          <Layout.Horizontal spacing="medium">
+            <Text
+              color={Color.GREY_800}
+              tooltipProps={{ position: Position.BOTTOM }}
+              lineClamp={1}
+              tooltip={
+                <Layout.Vertical
+                  color={Color.GREY_800}
+                  spacing="small"
+                  padding="medium"
+                  style={{ maxWidth: 400, overflowWrap: 'anywhere' }}
+                >
+                  <Text color={Color.GREY_800}>{getString('nameLabel', { name: data.name })}</Text>
+                  <br />
+                  <Text lineClamp={1}>
+                    {getString('descriptionLabel', { description: defaultTo(data.description, '-') })}
+                  </Text>
+                </Layout.Vertical>
+              }
+            >
+              {data.name}
+            </Text>
+            {data.tags && !isEmpty(data.tags) && <TagsPopover tags={data.tags} />}
+          </Layout.Horizontal>
           <Text
-            color={Color.GREY_800}
-            tooltipProps={{ position: Position.BOTTOM }}
             lineClamp={1}
-            tooltip={
-              <Layout.Vertical
-                color={Color.GREY_800}
-                spacing="small"
-                padding="medium"
-                style={{ maxWidth: 400, overflowWrap: 'anywhere' }}
-              >
-                <Text color={Color.GREY_800}>{getString('nameLabel', { name: data.name })}</Text>
-                <br />
-                <Text lineClamp={1}>
-                  {getString('descriptionLabel', { description: defaultTo(data.description, '-') })}
-                </Text>
-              </Layout.Vertical>
-            }
+            tooltipProps={{ position: Position.BOTTOM }}
+            color={Color.GREY_400}
+            font={{ size: 'small' }}
           >
-            {data.name}
+            {getString('idLabel', { id: data.identifier })}
           </Text>
-          {data.tags && !isEmpty(data.tags) && <TagsPopover tags={data.tags} />}
-        </Layout.Horizontal>
-        <Text tooltipProps={{ position: Position.BOTTOM }} color={Color.GREY_400} font={{ size: 'small' }}>
-          {getString('idLabel', { id: data.identifier })}
-        </Text>
-      </Layout.Vertical>
+        </Layout.Vertical>
+      </Container>
       {data.entityValidityDetails?.valid === false && (
         <Container>
           <Badge
@@ -135,6 +144,15 @@ const RenderColumnLabel: Renderer<CellProps<TemplateSummaryResponse>> = ({ row }
   )
 }
 
+const RenderColumnScope: Renderer<CellProps<TemplateSummaryResponse>> = ({ row }) => {
+  const data = row.original
+  return (
+    <Layout.Horizontal padding={{ right: 'medium' }}>
+      <ScopeBadge data={data} minimal={true} />
+    </Layout.Horizontal>
+  )
+}
+
 export const TemplatesListView: React.FC<TemplatesViewProps> = (props): JSX.Element => {
   const { getString } = useStrings()
   const { data, selectedTemplate, gotoPage, onPreview, onOpenEdit, onOpenSettings, onDelete, onSelect } = props
@@ -144,14 +162,14 @@ export const TemplatesListView: React.FC<TemplatesViewProps> = (props): JSX.Elem
   const getTemplateNameWidth = (): string => {
     if (isGitSyncEnabled) {
       if (hideMenu) {
-        return '40%'
+        return '35%'
       }
-      return '35%'
+      return '30%'
     } else {
       if (hideMenu) {
-        return '50%'
+        return '45%'
       }
-      return '45%'
+      return '40%'
     }
   }
 
@@ -160,7 +178,7 @@ export const TemplatesListView: React.FC<TemplatesViewProps> = (props): JSX.Elem
       {
         Header: getString('typeLabel').toUpperCase(),
         accessor: 'templateEntityType',
-        width: isGitSyncEnabled ? '15%' : '25%',
+        width: isGitSyncEnabled ? '15%' : '20%',
         Cell: RenderColumnType
       },
       {
@@ -172,15 +190,22 @@ export const TemplatesListView: React.FC<TemplatesViewProps> = (props): JSX.Elem
       {
         Header: getString('version').toUpperCase(),
         accessor: 'versionLabel',
-        width: isGitSyncEnabled ? '10%' : '25%',
+        width: isGitSyncEnabled ? '10%' : '20%',
         Cell: RenderColumnLabel,
         disableSortBy: true
       },
       {
         Header: getString('common.gitSync.repoDetails').toUpperCase(),
         accessor: 'gitDetails',
-        width: '35%',
+        width: '30%',
         Cell: GitDetailsColumn,
+        disableSortBy: true
+      },
+      {
+        Header: 'Scope',
+        accessor: 'accountId',
+        width: isGitSyncEnabled ? '10%' : '15%',
+        Cell: RenderColumnScope,
         disableSortBy: true
       },
       {

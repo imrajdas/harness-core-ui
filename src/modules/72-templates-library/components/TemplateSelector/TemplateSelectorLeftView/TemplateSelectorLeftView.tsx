@@ -19,7 +19,7 @@ import {
   Views
 } from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
-import { defaultTo, isEmpty } from 'lodash-es'
+import { defaultTo } from 'lodash-es'
 import { useParams } from 'react-router-dom'
 import { Breadcrumbs } from '@common/components/Breadcrumbs/Breadcrumbs'
 import type { GitQueryParams, ModulePathParams, ProjectPathProps } from '@common/interfaces/RouteInterfaces'
@@ -39,7 +39,7 @@ import { stagesCollection } from '@pipeline/components/PipelineStudio/Stages/Sta
 import { getScopeFromDTO } from '@common/components/EntityReference/EntityReference'
 import { getScopeOptions } from '@templates-library/components/TemplateSelector/TemplateSelectorLeftView/TemplateSelectorLeftViewUtils'
 import { areTemplatesSame } from '@pipeline/utils/templateUtils'
-import { useTemplateSelectorContext } from '@templates-library/components/TemplateSelectorContext/TemplateSelectorContext'
+import { useTemplateSelectorContext } from 'framework/Templates/TemplateSelectorContext/TemplateSelectorContext'
 import css from './TemplateSelectorLeftView.module.scss'
 
 export interface TemplateSelectorLeftViewProps {
@@ -50,7 +50,7 @@ export const TemplateSelectorLeftView: React.FC<TemplateSelectorLeftViewProps> =
   const {
     state: { selectorData }
   } = useTemplateSelectorContext()
-  const { templateType, selectedChildType, allChildTypes = [], selectedTemplate: defaultTemplate } = selectorData || {}
+  const { templateType, allChildTypes = [], selectedTemplate: defaultTemplate } = selectorData || {}
   const [selectedTemplate, setSelectedTemplate] = useState<TemplateSummaryResponse | undefined>()
   const { getString } = useStrings()
   const [page, setPage] = useState(0)
@@ -60,7 +60,9 @@ export const TemplateSelectorLeftView: React.FC<TemplateSelectorLeftViewProps> =
   const { projectIdentifier, orgIdentifier, accountId } = params
   const { repoIdentifier, branch } = useQueryParams<GitQueryParams>()
   const { isGitSyncEnabled } = useAppStore()
-  const [childType, setChildType] = React.useState<string | undefined>(selectedChildType)
+  const [selectedChildType, setSelectedChildType] = React.useState<string | undefined>(
+    allChildTypes.length === 1 ? allChildTypes[0] : undefined
+  )
   const scopeOptions: SelectOption[] = React.useMemo(
     () => getScopeOptions(getScopeFromDTO(params), getString),
     [params]
@@ -83,9 +85,9 @@ export const TemplateSelectorLeftView: React.FC<TemplateSelectorLeftViewProps> =
     return {
       filterType: 'Template',
       templateEntityTypes: [templateType],
-      childTypes: childType ? [childType] : allChildTypes
+      childTypes: selectedChildType ? [selectedChildType] : allChildTypes
     }
-  }, [templateType, childType, allChildTypes])
+  }, [templateType, selectedChildType, allChildTypes])
 
   const queryParams = React.useMemo(() => {
     return {
@@ -110,8 +112,8 @@ export const TemplateSelectorLeftView: React.FC<TemplateSelectorLeftViewProps> =
     if (searchParam) {
       searchRef.current.clear()
     }
-    setChildType(selectedChildType)
-  }, [searchParam, searchRef.current, selectedChildType])
+    setSelectedChildType(allChildTypes.length === 1 ? allChildTypes[0] : undefined)
+  }, [searchParam, searchRef.current, allChildTypes])
 
   const getName = React.useCallback(
     (item: string): string => {
@@ -222,16 +224,16 @@ export const TemplateSelectorLeftView: React.FC<TemplateSelectorLeftViewProps> =
                 </Text>
                 <Container>
                   <Layout.Horizontal flex={{ alignItems: 'center' }} spacing={'medium'}>
-                    {!isEmpty(dropdownItems) && (
+                    {dropdownItems.length > 1 && (
                       <DropDown
                         onChange={item => {
-                          setChildType(item.value.toString())
+                          setSelectedChildType(item.value.toString())
                         }}
                         items={dropdownItems}
                         addClearBtn={true}
                         filterable={false}
                         placeholder={`${getString('typeLabel')}: ${getString('all')}`}
-                        value={childType}
+                        value={selectedChildType}
                       />
                     )}
                     <Container>
@@ -247,7 +249,7 @@ export const TemplateSelectorLeftView: React.FC<TemplateSelectorLeftViewProps> =
             )}
             {!loading && !error && !templateData?.data?.content?.length && (
               <NoResultsView
-                hasSearchParam={!!searchParam || !!childType}
+                hasSearchParam={!!searchParam || !!selectedChildType}
                 onReset={reset}
                 text={
                   selectedScope.value === 'all'

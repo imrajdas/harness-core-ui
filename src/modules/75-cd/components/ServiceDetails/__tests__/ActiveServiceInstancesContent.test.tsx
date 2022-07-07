@@ -6,10 +6,10 @@
  */
 
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
-import { TestWrapper } from '@common/utils/testUtils'
-import { ActiveServiceInstancesContent } from '@cd/components/ServiceDetails/ActiveServiceInstances/ActiveServiceInstancesContent'
+import { act, render, fireEvent } from '@testing-library/react'
+import { findDialogContainer, TestWrapper } from '@common/utils/testUtils'
 import * as cdngServices from 'services/cd-ng'
+import * as useFeatureFlagMock from '@common/hooks/useFeatureFlag'
 import dataMock from '../DeploymentView/dataMock.json'
 import { ActiveServiceInstances } from '../ActiveServiceInstances/ActiveServiceInstances'
 
@@ -28,71 +28,11 @@ const mockData = {
     ]
   }
 }
-jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
-  return { loading: false, error: false, data: mockData, refetch: jest.fn() } as any
-})
 const noData = {
   status: 'SUCCESS',
   data: {}
 }
-describe('ActiveServiceInstancesContent', () => {
-  test('should render ActiveServiceInstancesContent', () => {
-    const { container, getByText } = render(
-      <TestWrapper
-        path="account/:accountId/cd/orgs/:orgIdentifier/projects/:projectIdentifier/services"
-        pathParams={{ accountId: 'dummy', orgIdentifier: 'dummy', projectIdentifier: 'dummy' }}
-      >
-        <ActiveServiceInstancesContent />
-      </TestWrapper>
-    )
-    fireEvent.click(getByText('cd.serviceDashboard.seeMore'))
-    expect(container).toMatchSnapshot()
-  })
-  test('should render error', () => {
-    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
-      return { loading: false, error: true, data: noData, refetch: jest.fn() } as any
-    })
-    const { container, getByText } = render(
-      <TestWrapper>
-        <ActiveServiceInstancesContent />
-      </TestWrapper>
-    )
-    fireEvent.click(getByText('Retry'))
-    expect(container).toMatchSnapshot()
-  })
-
-  test('should render loading', () => {
-    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
-      return { loading: true, error: false, data: noData, refetch: jest.fn() } as any
-    })
-    const { container } = render(
-      <TestWrapper>
-        <ActiveServiceInstancesContent />
-      </TestWrapper>
-    )
-    expect(container).toMatchSnapshot()
-  })
-
-  test('should render no data', () => {
-    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
-      return {
-        loading: false,
-        error: false,
-        data: noData,
-        refetch: jest.fn()
-      } as any
-    })
-    const { container } = render(
-      <TestWrapper>
-        <ActiveServiceInstancesContent />
-      </TestWrapper>
-    )
-    expect(container).toMatchSnapshot()
-  })
-})
-
-//tests differents default states of tab according to the returned api response
-
+jest.spyOn(useFeatureFlagMock, 'useFeatureFlag').mockReturnValue(true) // FeatureFlag.SERVICE_DASHBOARD_V2
 jest.spyOn(cdngServices, 'useGetActiveServiceInstanceSummary').mockImplementation(() => {
   return {
     loading: false,
@@ -109,9 +49,122 @@ jest.spyOn(cdngServices, 'useGetInstanceGrowthTrend').mockImplementation(() => {
     refetch: jest.fn()
   } as any
 })
-describe('ActiveInstance Tab states ', () => {
+describe('ActiveServiceInstancesContent', () => {
+  jest.spyOn(cdngServices, 'useGetEnvArtifactDetailsByServiceId').mockImplementation(() => {
+    return {
+      mutate: () => Promise.resolve({ loading: false, data: [] })
+    } as any
+  })
+  test('should render ActiveServiceInstancesContent', () => {
+    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
+      return { loading: false, error: false, data: mockData, refetch: jest.fn() } as any
+    })
+    const { container, getByText } = render(
+      <TestWrapper>
+        <ActiveServiceInstances />
+      </TestWrapper>
+    )
+    expect(getByText('cd.serviceDashboard.seeMore')).toBeTruthy()
+    expect(container).toMatchSnapshot()
+  })
+  test('should render error', () => {
+    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
+      return { loading: false, error: true, data: noData, refetch: jest.fn() } as any
+    })
+    const { container, getByText } = render(
+      <TestWrapper>
+        <ActiveServiceInstances />
+      </TestWrapper>
+    )
+    expect(getByText('Retry')).toBeTruthy()
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should render loading', () => {
+    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
+      return { loading: true, error: false, data: noData, refetch: jest.fn() } as any
+    })
+    const { container } = render(
+      <TestWrapper>
+        <ActiveServiceInstances />
+      </TestWrapper>
+    )
+    expect(container).toMatchSnapshot()
+  })
+
+  test('should render no data', () => {
+    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
+      return {
+        loading: false,
+        error: false,
+        data: noData,
+        refetch: jest.fn()
+      } as any
+    })
+    const { container } = render(
+      <TestWrapper>
+        <ActiveServiceInstances />
+      </TestWrapper>
+    )
+    expect(container).toMatchSnapshot()
+  })
+})
+
+describe('ActiveInstance Details Dialog', () => {
+  test('Open details dialog', async () => {
+    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
+      return { loading: false, error: false, data: mockData, refetch: jest.fn() } as any
+    })
+    const { getByText } = render(
+      <TestWrapper>
+        <ActiveServiceInstances />
+      </TestWrapper>
+    )
+
+    const moreDetailsButton = getByText('cd.serviceDashboard.moreDetails')
+    await act(async () => {
+      fireEvent.click(moreDetailsButton!)
+    })
+
+    const popup = findDialogContainer()
+    expect(popup).toBeTruthy()
+    expect(popup).toMatchSnapshot()
+  })
+
+  test('Expand all sections in dialog', async () => {
+    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
+      return { loading: false, error: false, data: mockData, refetch: jest.fn() } as any
+    })
+    const { getByText } = render(
+      <TestWrapper>
+        <ActiveServiceInstances />
+      </TestWrapper>
+    )
+
+    const moreDetailsButton = getByText('cd.serviceDashboard.moreDetails')
+    await act(async () => {
+      fireEvent.click(moreDetailsButton!)
+    })
+
+    const popup = findDialogContainer()
+    expect(popup).toBeTruthy()
+
+    const expandButtons = document.querySelectorAll('.bp3-icon')
+    await act(async () => {
+      expandButtons.forEach(expandButton => {
+        fireEvent.click(expandButton)
+      })
+    })
+
+    expect(popup).toMatchSnapshot()
+  })
+})
+
+//tests differents default states of tab according to the returned api response
+
+describe('ActiveInstance Tab states', () => {
   //tab should be defaulted to activeInstances
-  test('when both are not empty - (activeInstance and deployments) ', () => {
+  test('when both are not empty - (activeInstance and deployments)', () => {
     jest.spyOn(cdngServices, 'useGetEnvArtifactDetailsByServiceId').mockImplementation(() => {
       return {
         data: dataMock
@@ -131,7 +184,7 @@ describe('ActiveInstance Tab states ', () => {
   })
 
   //tab should be defaulted to deployments
-  test('when activeInstance is empty and deployments is not ', () => {
+  test('when activeInstance is empty and deployments is not', () => {
     jest.spyOn(cdngServices, 'useGetEnvArtifactDetailsByServiceId').mockImplementation(() => {
       return {
         data: dataMock
@@ -164,10 +217,18 @@ describe('ActiveInstance Tab states ', () => {
   })
 
   //when both are empty then defaulted to activeInstance
-  test('when both are empty ', () => {
+  test('when both are empty', () => {
     jest.spyOn(cdngServices, 'useGetEnvArtifactDetailsByServiceId').mockImplementation(() => {
       return {
         mutate: () => Promise.resolve({ loading: false, data: [] })
+      } as any
+    })
+    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
+      return {
+        loading: false,
+        error: false,
+        data: noData,
+        refetch: jest.fn()
       } as any
     })
     const { getByText } = render(

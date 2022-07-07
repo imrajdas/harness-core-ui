@@ -45,7 +45,7 @@ export function DockerRegistryArtifact({
   artifactIdentifiers,
   isReadonly = false,
   selectedArtifact
-}: StepProps<ConnectorConfigDTO> & ImagePathProps): React.ReactElement {
+}: StepProps<ConnectorConfigDTO> & ImagePathProps<ImagePathTypes>): React.ReactElement {
   const { getString } = useStrings()
   const [lastImagePath, setLastImagePath] = useState('')
   const [tagList, setTagList] = useState<DockerBuildDetailsDTO[] | undefined>([])

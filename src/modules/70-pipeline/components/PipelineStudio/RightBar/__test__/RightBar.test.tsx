@@ -151,8 +151,7 @@ export const pipelineContext: PipelineContextInterface = {
   setSelectedSectionId: jest.fn(),
   setSelection: jest.fn(),
   getStagePathFromPipeline: jest.fn(),
-  setTemplateTypes: jest.fn(),
-  getTemplate: jest.fn()
+  setTemplateTypes: jest.fn()
 }
 
 describe('RightBar', () => {

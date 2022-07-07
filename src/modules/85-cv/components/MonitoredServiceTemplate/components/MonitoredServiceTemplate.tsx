@@ -11,7 +11,7 @@ import { Template, TemplateProps } from '@templates-library/components/AbstractT
 import { TemplateType } from '@templates-library/utils/templatesUtils'
 import type { NGTemplateInfoConfig } from 'services/template-ng'
 import type { TemplateInputsProps } from '@templates-library/components/TemplateInputs/TemplateInputs'
-import MonitoredServiceInputSetsTemplate from '@cv/pages/monitored-service/MonitoredServiceInputSetsTemplate'
+import MonitoredServiceInputSetsTemplate from '@cv/pages/monitored-service/MonitoredServiceInputSetsTemplate/MonitoredServiceInputSetsTemplate'
 import { MonitoredTemplateCanvasWithRef } from './MonitoredServiceTemplateCanvas'
 
 export class MonitoredServiceTemplate extends Template<NGTemplateInfoConfig> {

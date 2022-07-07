@@ -87,6 +87,17 @@ exports[`ServerlessAwsLambdaServiceSpec tests When stepViewType is Edit render p
               pipelineSteps.serviceTab.artifactList.addPrimary
             </span>
           </button>
+          <button
+            class="bp3-button Button--button StyledProps--font StyledProps--main addArtifact Button--with-current-color Button--variation Button--variation-link Button--size Button--small"
+            id="add-artifact"
+            type="button"
+          >
+            <span
+              class="bp3-button-text"
+            >
+              pipelineSteps.serviceTab.artifactList.addSidecar
+            </span>
+          </button>
         </div>
       </div>
     </div>

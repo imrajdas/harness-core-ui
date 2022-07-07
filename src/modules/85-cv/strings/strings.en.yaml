@@ -53,7 +53,7 @@ jobNamePlaceholder: Enter a Job Name
 identifierPlaceholder: Enter an Identifier
 throughput: Throughput
 responseTime: Response Time
-serviceHealthTrend: Service Health Trend
+serviceHealthTrend: Service Health Score and SLO Performance Trend
 query: Query
 selectQuery: Select Query (Optional)
 addNew: + Add New
@@ -476,6 +476,7 @@ monitoredServices:
   changeMonitoredServiceType: Change Monitored Service Type
   changeMonitoredServiceTypeMessage: Changing monitored service type will reset change sources
   sloErrorBudget: SLO / Error Budget
+  executedBy: Executed By
   serviceHealth:
     last4Hrs: Last 4 hours
     last24Hrs: Last 24 hours
@@ -658,6 +659,7 @@ healthSource:
     queryTextareaPlaceholder: 'Please write a splunk query that outputs table for time, value. Use span of 1m. Example: source="access_log" status < 400 | bucket _time span=1m | stats p99(response_time) as value by _time | rename _time as time | fields time value'
 templates:
   healthSourceDetails: Health Source Details
+sensitivityValidation: Sensitivity should be high, medium or low
 slos:
   title: SLOs
   deleteSLO: Delete SLO

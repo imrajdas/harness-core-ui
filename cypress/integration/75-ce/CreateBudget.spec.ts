@@ -33,6 +33,7 @@ describe('CCM Budget Creation flow', () => {
       }
     })
 
+    cy.visitPageAssertion('[class^=MainNav-module_main]')
     cy.contains('p', 'Cloud Costs').click()
     cy.wait('@gqlFetchCcmMetaDataQuery')
     cy.contains('p', 'Budgets').click()
@@ -94,6 +95,7 @@ describe('CCM Budget Creation flow', () => {
       })
     }).as('budgetSave')
 
+    cy.visitPageAssertion('[class^=MainNav-module_main]')
     cy.contains('p', 'Cloud Costs').click()
     cy.wait('@gqlFetchCcmMetaDataQuery')
     cy.contains('p', 'Budgets').click()

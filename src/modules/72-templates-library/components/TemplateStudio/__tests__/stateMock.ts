@@ -494,7 +494,11 @@ export const getTemplateContextMock = (type: TemplateType): TemplateContextInter
       isInitialized: true,
       gitDetails: {},
       entityValidityDetails: {},
-      templateYaml: ''
+      templateYaml: '',
+      yamlHandler: {
+        getLatestYaml: () => 'testyaml',
+        getYAMLValidationErrorMap: () => new Map()
+      }
     },
     view: 'VISUAL',
     isReadonly: false,

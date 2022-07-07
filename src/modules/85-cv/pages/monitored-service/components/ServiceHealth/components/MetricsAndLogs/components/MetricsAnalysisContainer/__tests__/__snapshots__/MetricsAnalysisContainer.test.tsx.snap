@@ -20,10 +20,11 @@ exports[`Unit tests for MetricsAnalysisContainer Verify if MetricsAnalysisContai
             <input
               autocomplete="off"
               class="bp3-input"
-              placeholder="- Select -"
+              name="healthsources-select"
+              placeholder="pipeline.verification.healthSourcePlaceholder"
               style="padding-right: 0px;"
               type="text"
-              value="pipeline.verification.anomalousMetrics"
+              value=""
             />
             <span
               class="bp3-input-action"
@@ -63,11 +64,10 @@ exports[`Unit tests for MetricsAnalysisContainer Verify if MetricsAnalysisContai
             <input
               autocomplete="off"
               class="bp3-input"
-              name="healthsources-select"
-              placeholder="pipeline.verification.healthSourcePlaceholder"
+              placeholder="- Select -"
               style="padding-right: 0px;"
               type="text"
-              value=""
+              value="pipeline.verification.anomalousMetrics"
             />
             <span
               class="bp3-input-action"

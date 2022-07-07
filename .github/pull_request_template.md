@@ -1,16 +1,23 @@
-##### Summary:
+### Summary
 
-<!--- Add summary of your changes here -->
+<!-- ✍️ A clear and concise description...-->
 
-##### Jira Links:
+#### Screenshots
 
-<!--- Add jira links for your changes here -->
+NA
+<!-- ✍️ Add screenshots of before and after changes where applicable-->
 
-##### Screenshots:
+#### PR Checklist
 
-<!--- Add screenshots for your changes here -->
+<details>
+<summary>Please check if your PR fulfils the following requirements</summary>
 
-You can use the following comments to re-trigger PR Checks
+- [ ] Tests for the changes have been added. Ideally, include a test that fails without this PR but passes with it.
+- [ ] Docs have been [added/updated](https://harness.atlassian.net/jira/software/c/projects/DOC/boards/40).
+</details>
+
+<details>
+<summary>Use the following comments to re-trigger PR Checks</summary>
 
 - Jest: `retrigger jest`
 - Prettier: `retrigger prettier`
@@ -22,4 +29,5 @@ You can use the following comments to re-trigger PR Checks
 - Coverage: `retrigger coverage`
 - Rebase: `trigger rebase`
 - Cypress: `trigger cypress`
-- Fix Prettier - `fix prettier`
+- Fix Prettier: `fix prettier`
+</details>

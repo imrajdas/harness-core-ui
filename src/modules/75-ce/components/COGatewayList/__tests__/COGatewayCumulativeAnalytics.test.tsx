@@ -11,7 +11,7 @@ import { TestWrapper } from '@common/utils/testUtils'
 import { RulesMode } from '@ce/constants'
 import { CE_DATE_FORMAT_INTERNAL, DATE_RANGE_SHORTCUTS } from '@ce/utils/momentUtils'
 import COGatewayCumulativeAnalytics from '../COGatewayCumulativeAnalytics'
-import SpendVsSavingsChart from '../SpendVsSavingsChart'
+import SpendVsSavingsChart from '../charts/SpendVsSavingsChart'
 
 const testParams = { accountId: 'accountId', orgIdentifier: 'orgIdentifier', projectIdentifier: 'projectIdentifier' }
 

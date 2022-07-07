@@ -19,7 +19,7 @@ import {
   FormInput
 } from '@wings-software/uicore'
 import { FontVariation } from '@harness/design-system'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { isEmpty, pick, get, omit } from 'lodash-es'
 import cx from 'classnames'
 import * as Yup from 'yup'
@@ -34,6 +34,7 @@ import {
   CEAzureConnector
 } from 'services/cd-ng'
 import { String, useStrings } from 'framework/strings'
+import routes from '@common/RouteDefinitions'
 import { Description, Tags } from '@common/components/NameIdDescriptionTags/NameIdDescriptionTags'
 import { useAppStore } from 'framework/AppStore/AppStoreContext'
 import { GitSyncStoreProvider } from 'framework/GitRepoStore/GitSyncStoreContext'
@@ -215,6 +216,7 @@ const Overview: React.FC<StepProps<CEAzureDTO> & OverviewProps> = props => {
         font={{ variation: FontVariation.H3 }}
         tooltipProps={{ dataTooltipId: 'azureConnectorOverview' }}
         margin={{ bottom: 'large' }}
+        data-cy="azure-overview"
       >
         {getString('connectors.ceAzure.overview.heading')}
       </Text>
@@ -295,6 +297,8 @@ const Overview: React.FC<StepProps<CEAzureDTO> & OverviewProps> = props => {
 
 const ExistingConnectorMessage = (props: ConnectorResponse) => {
   const { getString } = useStrings()
+  const { accountId: accountIdentifier } = useParams<Params>()
+
   const accountId = props.connector?.spec?.tenantId
   const featuresEnabled = [...(props.connector?.spec?.featuresEnabled || [])]
   const name = props.connector?.name
@@ -315,7 +319,15 @@ const ExistingConnectorMessage = (props: ConnectorResponse) => {
       })}
       suggestion={
         <>
-          {getString('connectors.ceAzure.overview.editConnector')} <a href="#">{name}</a>{' '}
+          {getString('connectors.ceAzure.overview.editConnector')}{' '}
+          <Link
+            to={routes.toConnectorDetails({
+              accountId: accountIdentifier,
+              connectorId: props.connector?.identifier
+            })}
+          >
+            {name}
+          </Link>{' '}
           {getString('connectors.ceAzure.overview.required')}
         </>
       }

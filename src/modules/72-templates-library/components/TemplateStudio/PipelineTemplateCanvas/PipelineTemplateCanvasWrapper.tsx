@@ -18,7 +18,6 @@ import { PipelineContextType } from '@pipeline/components/PipelineStudio/Pipelin
 import { DrawerTypes as PipelineDrawerTypes } from '@pipeline/components/PipelineStudio/PipelineContext/PipelineActions'
 import { DrawerTypes as TemplateDrawerTypes } from '@templates-library/components/TemplateStudio/TemplateContext/TemplateActions'
 import { PipelineTemplateCanvasWithRef } from '@templates-library/components/TemplateStudio/PipelineTemplateCanvas/PipelineTemplateCanvas'
-import { useTemplateSelector } from '@templates-library/hooks/useTemplateSelector'
 
 export const DefaultNewPipelineName = 'Pipeline Name'
 export const DefaultNewPipelineId = 'pipeline_name'
@@ -39,7 +38,6 @@ const PipelineTemplateCanvasWrapper = (): JSX.Element => {
   } = React.useContext(TemplateContext)
   const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
   const { branch, repoIdentifier } = useQueryParams<GitQueryParams>()
-  const { getTemplate } = useTemplateSelector()
 
   const createPipelineFromTemplate = (): PipelineInfoConfig =>
     merge({}, template.spec, {
@@ -80,7 +78,6 @@ const PipelineTemplateCanvasWrapper = (): JSX.Element => {
       onUpdatePipeline={onUpdatePipeline}
       contextType={PipelineContextType.PipelineTemplate}
       isReadOnly={isReadonly}
-      getTemplate={getTemplate}
     >
       <PipelineTemplateCanvasWithRef />
     </TemplatePipelineProvider>

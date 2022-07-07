@@ -186,12 +186,17 @@ exports[`Create Secret Manager Wizard should render form 1`] = `
           <div
             class="Layout--vertical StyledProps--main stepContainer"
           >
-            <h2
-              class="StyledProps--font StyledProps--font-h2 StyledProps--main header"
-              level="2"
+            <div
+              class="Text--withDocsTooltip"
+              data-tooltip-id="gcpConnectorOverview"
             >
-              connectors.ceGcp.overview.heading
-            </h2>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-h4 StyledProps--margin-bottom-xxlarge"
+                data-cy="gcp-overview"
+              >
+                connectors.ceGcp.overview.heading
+              </p>
+            </div>
             <div
               style="flex: 1;"
             >
@@ -2981,12 +2986,17 @@ exports[`Create Secret Manager Wizard should throw an error when connectors alre
           <div
             class="Layout--vertical StyledProps--main stepContainer"
           >
-            <h2
-              class="StyledProps--font StyledProps--font-h2 StyledProps--main header"
-              level="2"
+            <div
+              class="Text--withDocsTooltip"
+              data-tooltip-id="gcpConnectorOverview"
             >
-              connectors.ceGcp.overview.heading
-            </h2>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-h4 StyledProps--margin-bottom-xxlarge"
+                data-cy="gcp-overview"
+              >
+                connectors.ceGcp.overview.heading
+              </p>
+            </div>
             <div
               style="flex: 1;"
             >
@@ -3276,6 +3286,38 @@ exports[`Create Secret Manager Wizard should throw an error when connectors alre
                               </svg>
                             </span>
                             connectors.ceGcp.overview.alreadyExistInfo
+                          </div>
+                          <div>
+                            <span
+                              class="bp3-icon bp3-icon-lightbulb StyledProps--main"
+                              icon="lightbulb"
+                              style="padding-right: 5px;"
+                            >
+                              <svg
+                                data-icon="lightbulb"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                width="16"
+                              >
+                                <desc>
+                                  lightbulb
+                                </desc>
+                                <path
+                                  d="M9.01 14h-2c-.55 0-1 .45-1 1s.45 1 1 1h2c.55 0 1-.45 1-1s-.44-1-1-1zm1-3h-4c-.55 0-1 .45-1 1s.45 1 1 1h4c.55 0 1-.45 1-1s-.44-1-1-1zm-2-11C5.26 0 3.03 1.95 3.03 4.35c0 2.37 1.63 2.64 1.94 5.22 0 .24.22.44.5.44h5.09c.28 0 .5-.19.5-.44C11.37 6.99 13 6.72 13 4.35 13 1.95 10.77 0 8.01 0z"
+                                  fill-rule="evenodd"
+                                />
+                              </svg>
+                            </span>
+                            connectors.ceAws.overview.trySuggestion
+                            <div>
+                              connectors.ceAws.overview.editConnector
+                               
+                              <a
+                                href="/account/dummy/settings/resources/connectors/"
+                              />
+                               
+                              connectors.ceAws.overview.ifReq
+                            </div>
                           </div>
                         </div>
                       </div>

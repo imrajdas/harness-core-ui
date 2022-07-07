@@ -70,6 +70,7 @@ export enum StepType {
   Policy = 'Policy',
   ZeroNorth = 'Security',
   KubernetesAzure = 'KubernetesAzure',
+  SshWinRmAzure = 'SshWinRmAzure',
   ServerlessAwsLambdaDeploy = 'ServerlessAwsLambdaDeploy',
   ServerlessAwsLambdaRollback = 'ServerlessAwsLambdaRollback',
   ServerlessAwsInfra = 'ServerlessAwsInfra',
@@ -80,7 +81,9 @@ export enum StepType {
   MergePR = 'MergePR',
   AzureWebAppsRollback = 'AzureWebAppRollback',
   AzureSlotDeployment = 'AzureSlotDeployment',
-  JenkinsBuild = 'JenkinsBuild'
+  JenkinsBuild = 'JenkinsBuild',
+  AzureTrafficShift = 'AzureTrafficShift',
+  AzureSwapSlot = 'AzureSwapSlot'
 }
 
 export interface PipelineInfrastructureV2 extends PipelineInfrastructure {

@@ -6,7 +6,7 @@
  */
 
 import { FormikErrors, yupToFormErrors } from 'formik'
-import { defaultTo, get, isEmpty } from 'lodash-es'
+import { defaultTo, get, isEmpty, isNil } from 'lodash-es'
 import * as Yup from 'yup'
 
 import {
@@ -102,7 +102,7 @@ export function processNonGitOpsInitialValues(initialValues: DeployStageConfig) 
       environmentRef: defaultTo(initialValues.environment?.environmentRef, ''),
       deployToAll: defaultTo(initialValues.environment?.deployToAll, false)
     },
-    infrastructureRef: (initialValues.environment?.infrastructureDefinitions?.[0].identifier ||
+    infrastructureRef: (initialValues.environment?.infrastructureDefinitions?.[0]?.identifier ||
       initialValues.environment?.infrastructureDefinitions ||
       '') as string
   }
@@ -112,24 +112,35 @@ export function processNonGitOpsFormValues(data: DeployStageConfig) {
   return {
     environment: {
       environmentRef: data.environment?.environmentRef,
-      deployToAll: data.environment?.environmentRef === RUNTIME_INPUT_VALUE ? true : false,
-      ...(data.environment?.environmentInputs && { environmentInputs: data.environment?.environmentInputs }),
-      ...(data.environment?.serviceOverrideInputs && {
-        serviceOverrideInputs: data.environment?.serviceOverrideInputs
-      }),
-      ...data?.infrastructureInputs,
+      deployToAll: false,
+      ...(data.environment?.environmentRef && data.environment?.environmentRef === RUNTIME_INPUT_VALUE
+        ? {
+            environmentInputs: RUNTIME_INPUT_VALUE,
+            serviceOverrideInputs: RUNTIME_INPUT_VALUE,
+            infrastructureDefinitions: RUNTIME_INPUT_VALUE
+          }
+        : {
+            ...(data.environment?.environmentInputs && { environmentInputs: data.environment?.environmentInputs }),
+            ...(data.environment?.serviceOverrideInputs && {
+              serviceOverrideInputs: data.environment?.serviceOverrideInputs
+            })
+          }),
       ...(data.environment?.environmentRef &&
         data.environment?.environmentRef !== RUNTIME_INPUT_VALUE &&
-        data.infrastructureRef &&
-        !data?.infrastructureInputs && {
-          infrastructureDefinitions:
-            data.infrastructureRef === RUNTIME_INPUT_VALUE
-              ? RUNTIME_INPUT_VALUE
-              : [
-                  {
-                    identifier: data.infrastructureRef
-                  }
-                ]
+        data.infrastructureRef && {
+          ...(data.infrastructureRef === RUNTIME_INPUT_VALUE
+            ? { infrastructureDefinitions: RUNTIME_INPUT_VALUE }
+            : {
+                ...(isEmpty(data.infrastructureInputs) && isNil(data.infrastructureInputs)
+                  ? {
+                      infrastructureDefinitions: [
+                        {
+                          identifier: data.infrastructureRef
+                        }
+                      ]
+                    }
+                  : data.infrastructureRef && { ...data?.infrastructureInputs })
+              })
         })
     }
   }
@@ -164,7 +175,7 @@ export function processGitOpsEnvironmentInitialValues(
 }
 
 export function processGitOpsEnvironmentFormValues(data: DeployStageConfig, getString: UseStringsReturn['getString']) {
-  const allClustersSelected = (data.clusterRef as SelectOption[])?.[0].value === getString('all')
+  const allClustersSelected = (data.clusterRef as SelectOption[])?.[0]?.value === getString('all')
 
   return {
     environment: {
@@ -173,6 +184,17 @@ export function processGitOpsEnvironmentFormValues(data: DeployStageConfig, getS
           ? RUNTIME_INPUT_VALUE
           : defaultTo((data.environmentOrEnvGroupRef as SelectOption)?.value, ''),
       deployToAll: data.environmentOrEnvGroupRef === RUNTIME_INPUT_VALUE ? true : allClustersSelected,
+      ...(data.environmentOrEnvGroupRef && data.environmentOrEnvGroupRef === RUNTIME_INPUT_VALUE
+        ? {
+            environmentInputs: RUNTIME_INPUT_VALUE,
+            serviceOverrideInputs: RUNTIME_INPUT_VALUE
+          }
+        : {
+            ...(data.environment?.environmentInputs && { environmentInputs: data.environment?.environmentInputs }),
+            ...(data.environment?.serviceOverrideInputs && {
+              serviceOverrideInputs: data.environment?.serviceOverrideInputs
+            })
+          }),
       ...(data.environmentOrEnvGroupRef &&
         data.environmentOrEnvGroupRef !== RUNTIME_INPUT_VALUE &&
         !allClustersSelected && {
@@ -250,7 +272,7 @@ export function processGitOpsEnvGroupFormValues(data: DeployStageConfig, getStri
     }
   })
 
-  const allEnvironmentsSelected = (data.environmentInEnvGroupRef as SelectOption[])?.[0].value === getString('all')
+  const allEnvironmentsSelected = (data.environmentInEnvGroupRef as SelectOption[])?.[0]?.value === getString('all')
 
   return {
     environmentGroup: {

@@ -22,7 +22,7 @@ import { useHistory, useParams, Link } from 'react-router-dom'
 import type { CellProps, Renderer } from 'react-table'
 import qs from 'qs'
 import { Color, FontVariation } from '@harness/design-system'
-import { defaultTo, get, omit } from 'lodash-es'
+import { defaultTo, get, isEmpty } from 'lodash-es'
 import { String, useStrings } from 'framework/strings'
 import { ResourceType, useFetchCcmMetaDataQuery, CcmMetaData, Maybe } from 'services/ce/services'
 import routes from '@common/RouteDefinitions'
@@ -53,7 +53,6 @@ import greenLeafImg from '@ce/common/images/green-leaf.svg'
 import grayLeafImg from '@ce/common/images/gray-leaf.svg'
 import { FeatureFlag } from '@common/featureFlags'
 import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
-import { removeNullAndEmpty } from '@common/components/Filter/utils/FilterUtils'
 import { useDocumentTitle } from '@common/hooks/useDocumentTitle'
 import type { StringsMap } from 'stringTypes'
 import RecommendationSavingsCard from '../../components/RecommendationSavingsCard/RecommendationSavingsCard'
@@ -113,8 +112,6 @@ const RecommendationsList: React.FC<RecommendationListProps> = ({
     }),
     []
   )
-
-  const areFiltersApplied = removeNullAndEmpty(omit(filters, 'filterType'))
 
   if (fetching) {
     return (
@@ -356,7 +353,7 @@ const RecommendationsList: React.FC<RecommendationListProps> = ({
             <img src={EmptyView} />
             <Text className={css.errorText}>
               {getString(
-                areFiltersApplied ? 'ce.pageErrorMsg.noFilteredRecommendations' : 'ce.pageErrorMsg.noRecommendations'
+                isEmpty(filters) ? 'ce.pageErrorMsg.noRecommendations' : 'ce.pageErrorMsg.noFilteredRecommendations'
               )}
             </Text>
           </Container>
@@ -471,11 +468,13 @@ const RecommendationListPage: React.FC = () => {
     try {
       const [stats, count] = await Promise.all([
         fetchRecommendationStats({
+          minSaving: 1,
           ...selectedFilterProperties,
           filterType: 'CCMRecommendation',
           perspectiveFilters
         }),
         fetchRecommendationCount({
+          minSaving: 1,
           ...selectedFilterProperties,
           filterType: 'CCMRecommendation',
           perspectiveFilters
@@ -491,6 +490,7 @@ const RecommendationListPage: React.FC = () => {
 
   const getRecommendationList = async () => {
     const response = await fetchRecommendationList({
+      minSaving: 1,
       ...selectedFilterProperties,
       filterType: 'CCMRecommendation',
       perspectiveFilters,

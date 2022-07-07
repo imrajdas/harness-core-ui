@@ -61,7 +61,7 @@ export function GCRImagePath({
   artifactIdentifiers,
   isReadonly = false,
   selectedArtifact
-}: StepProps<ConnectorConfigDTO> & ImagePathProps): React.ReactElement {
+}: StepProps<ConnectorConfigDTO> & ImagePathProps<ImagePathTypes>): React.ReactElement {
   const { getString } = useStrings()
 
   const schemaObject = {

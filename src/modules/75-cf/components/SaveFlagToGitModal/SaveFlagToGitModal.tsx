@@ -14,8 +14,8 @@ import type { GitSyncFormValues } from '@cf/hooks/useGitSync'
 import SaveFlagToGitSubFormModal from '../SaveFlagToGitSubFormModal/SaveFlagToGitSubFormModal'
 
 export interface SaveFlagToGitModalProps {
-  flagName: string
-  flagIdentifier: string
+  flagName?: string
+  flagIdentifier?: string
   gitSyncInitialValues: GitSyncFormValues
   gitSyncValidationSchema: ObjectSchema<Record<string, unknown> | undefined>
   onSubmit: (formValues: GitSyncFormValues) => void
@@ -58,6 +58,7 @@ const SaveFlagToGitModal = ({
               title={getString('cf.gitSync.saveFlagToGit', {
                 flagName: flagName
               })}
+              hideNameField={!(flagName && flagIdentifier)}
             />
           </FormikForm>
         )

@@ -3,7 +3,7 @@
 exports[`WorkloadCard initial render 1`] = `
 <div>
   <div
-    class="bp3-card bp3-elevation-0 Card--card repositoryCard hoverService"
+    class="bp3-card bp3-elevation-0 Card--card cardStyle lastExecutionStatus hoverService"
   >
     <div
       class="content"

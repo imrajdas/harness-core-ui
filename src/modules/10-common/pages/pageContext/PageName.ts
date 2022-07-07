@@ -41,6 +41,7 @@ export enum PAGE_NAME {
   CIPipelineStudio = 'CIPipelineStudio',
   FullPageLogView = 'FullPageLogView',
   PipelinesPage = 'PipelinesPage',
+  PipelineListPage = 'PipelineListPage',
   InputSetList = 'InputSetList',
   DeploymentsList = 'DeploymentsList',
   EnhancedInputSetForm = 'EnhancedInputSetForm',
@@ -109,5 +110,6 @@ export enum PAGE_NAME {
   CENodeDetailsPage = 'CENodeDetailsPage',
   CEAnomaliesOverviewPage = 'CEAnomaliesOverviewPage',
   CEBusinessMapping = 'CEBusinessMapping',
-  ErrorTrackingListPage = 'ErrorTrackingListPage'
+  ErrorTrackingListPage = 'ErrorTrackingListPage',
+  OPAPolicyDashboard = 'OPAPolicyDashboard'
 }

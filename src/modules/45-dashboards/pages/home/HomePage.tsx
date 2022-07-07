@@ -229,7 +229,7 @@ const HomePage: React.FC = () => {
           padding="large"
           background={Color.GREY_0}
           spacing="medium"
-          flex={{ justifyContent: 'space-between', alignItems: 'center' }}
+          flex={{ justifyContent: 'space-between', alignItems: 'start' }}
           border={{ bottom: true, color: 'grey100' }}
           width="100%"
         >

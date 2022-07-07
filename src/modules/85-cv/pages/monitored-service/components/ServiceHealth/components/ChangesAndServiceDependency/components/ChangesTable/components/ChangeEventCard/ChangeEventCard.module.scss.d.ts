@@ -9,8 +9,11 @@
 declare const styles: {
   readonly divider: string
   readonly flexColumn: string
+  readonly flexRow: string
+  readonly horizontal: string
   readonly main: string
   readonly summarylabel: string
   readonly verificationContainer: string
+  readonly verticalDivider: string
 }
 export default styles

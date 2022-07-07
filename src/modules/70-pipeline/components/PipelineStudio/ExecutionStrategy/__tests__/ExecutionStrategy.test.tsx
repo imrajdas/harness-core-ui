@@ -382,7 +382,7 @@ describe('ExecutionStrategy test', () => {
       </TestWrapper>
     )
     const checkBox = container.querySelector('[data-testid="enable-verification-options-switch"]')
-    expect(checkBox).not.toBeChecked()
+    expect(checkBox).toBeChecked()
     fireEvent.click(checkBox!)
     setTimeout(() => {
       expect(checkBox).toBeChecked()

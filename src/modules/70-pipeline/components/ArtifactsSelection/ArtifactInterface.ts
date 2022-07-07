@@ -34,7 +34,7 @@ export interface ArtifactListViewProps {
   accountId: string
   refetchConnectors: () => void
   isReadonly: boolean
-  allowSidecar?: boolean
+  isAdditionAllowed: boolean
 }
 export interface ArtifactsSelectionProps {
   isPropagating?: boolean
@@ -52,6 +52,7 @@ export type ArtifactType =
   | 'CustomArtifact'
   | 'Acr'
   | 'Jenkins'
+  | 'AmazonS3'
 export interface OrganizationCreationType {
   type: ArtifactType
 }
@@ -87,18 +88,39 @@ export interface CustomArtifactSource extends ImagePathTypes {
   version: string
 }
 
-export interface ImagePathProps {
+export interface AmazonS3InitialValuesType {
+  identifier: string
+  bucketName: string
+  tagType: TagTypes
+  filePath?: string
+  filePathRegex?: string
+}
+
+export interface ImagePathProps<T> {
   key: string
   name: string
   expressions: string[]
   context: number
-  initialValues: ImagePathTypes
+  initialValues: T
   handleSubmit: (data: ArtifactConfig) => void
   artifactIdentifiers: string[]
   isReadonly?: boolean
   selectedArtifact: ArtifactType | null
   allowableTypes: MultiTypeInputType[]
   selectedDeploymentType: string
+}
+
+export interface AmazonS3ArtifactProps {
+  key: string
+  name: string
+  expressions: string[]
+  context: number
+  initialValues: AmazonS3InitialValuesType
+  handleSubmit: (data: ArtifactConfig) => void
+  artifactIdentifiers: string[]
+  isReadonly?: boolean
+  selectedArtifact: ArtifactType | null
+  allowableTypes: MultiTypeInputType[]
 }
 
 export interface ACRArtifactProps {

@@ -52,7 +52,7 @@ export interface YamlBuilderProps {
   snippetFetchResponse?: SnippetFetchResponse
   onChange?: (isEditorDirty: boolean) => void
   onErrorCallback?: (error: Record<string, any>) => void
-  renderCustomHeader?: () => React.ReactElement
+  renderCustomHeader?: () => React.ReactElement | null
 }
 
 export interface CompletionItemInterface {

@@ -8,10 +8,12 @@
 import React, { useEffect, useState } from 'react'
 import { FieldArray } from 'formik'
 import { get, isEmpty } from 'lodash-es'
+import { Color } from '@harness/design-system'
 import {
   Button,
   FormInput,
   HarnessDocTooltip,
+  Icon,
   Layout,
   MultiTypeInputType,
   Radio,
@@ -103,9 +105,11 @@ export function Conditions({
   const { getString } = useStrings()
   const { expressions } = useVariablesExpression()
   const name = `spec.${mode}.spec.conditions`
+  const approvalRejectionCriteriaError = get(formik?.errors, name)
   if (isFetchingFields) {
     return <div className={css.fetching}>{getString('pipeline.approvalCriteria.fetchingFields')}</div>
   }
+
   return (
     <div className={css.conditionalContent}>
       <Layout.Horizontal className={css.alignConditions} spacing="xxxlarge">
@@ -204,7 +208,7 @@ export function Conditions({
                   data-testid="add-conditions"
                   disabled={isApprovalStepFieldDisabled(readonly)}
                   onClick={() =>
-                    push({ key: stepType === StepType.JiraApproval ? 'Status' : '', operator: 'equals', value: [] })
+                    push({ key: stepType === StepType.JiraApproval ? 'Status' : '', operator: 'equals', value: '' })
                   }
                 >
                   {getString('add')}
@@ -214,10 +218,13 @@ export function Conditions({
           }}
         />
       </div>
-      {errorCheck(name, formik) ? (
-        <Text className={css.formikError} intent="danger">
-          {get(formik?.errors, name)}
-        </Text>
+      {errorCheck(name, formik) && typeof approvalRejectionCriteriaError === 'string' ? (
+        <Layout.Horizontal spacing="xsmall" margin={{ top: 'small' }}>
+          <Icon name="circle-cross" color={Color.RED_600} size={12} style={{ marginTop: 'var(--spacing-tiny)' }} />
+          <Text className={css.formikError} intent="danger">
+            {approvalRejectionCriteriaError}
+          </Text>
+        </Layout.Horizontal>
       ) : null}
     </div>
   )

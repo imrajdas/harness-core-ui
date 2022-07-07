@@ -1,0 +1,667 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoopingStrategy /> tests can select for 1`] = `
+<div>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <div
+      class="StyledProps--font StyledProps--main mainContainer"
+    >
+      <div
+        class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey700 StyledProps--font-size-small"
+        >
+          pipeline.loopingStrategy.subTitle
+           
+          <a
+            class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--color StyledProps--color-blue400 StyledProps--font StyledProps--font-size-small Button--with-current-color Button--link"
+            href="https://ngdocs.harness.io/article/i36ibenkq2-step-skip-condition-settings"
+            rel="noreferrer noopener"
+            role="button"
+            tabindex="0"
+            target="_blank"
+          >
+            <span
+              class="bp3-button-text"
+            >
+              pipeline.loopingStrategy.learnMore
+            </span>
+          </a>
+        </p>
+        <div
+          class="StyledProps--font StyledProps--main"
+        >
+          <div
+            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--padding-top-large StyledProps--border StyledProps--border-top StyledProps--border-color-grey200"
+          >
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor Card--interactive"
+              data-testid="matrix"
+              tabindex="0"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                Matrix
+              </p>
+            </div>
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor selected Card--selected Card--interactive"
+              data-testid="for"
+              tabindex="0"
+            >
+              <span
+                class="Card--corner"
+              >
+                <span
+                  class="Card--badge"
+                />
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-white"
+                  data-icon="main-tick"
+                >
+                  <svg
+                    height="10"
+                    viewBox="0 0 11 8"
+                    width="10"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.219.894c.356-.38.982-.413 1.398-.072.391.32.457.857.167 1.236l-.06.07-5.138 5.486c-.362.386-.993.41-1.403.068l-.07-.064-3.2-3.214A.88.88 0 01.95 3.098a1.045 1.045 0 011.328-.003l.074.067 2.443 2.454L9.22.894z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                For Loop
+              </p>
+            </div>
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor Card--interactive"
+              data-testid="parallelism"
+              tabindex="0"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                Parallelism
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="StyledProps--font StyledProps--main StyledProps--border StyledProps--padding-medium"
+        >
+          <div
+            class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
+          >
+            <div
+              class="StyledProps--font StyledProps--main"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
+              >
+                <div
+                  class="StyledProps--font StyledProps--main"
+                  style="flex-grow: 1;"
+                >
+                  <div
+                    class="Layout--vertical StyledProps--main"
+                  >
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--font-weight-semi-bold"
+                    >
+                      For Loop
+                    </p>
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey700 StyledProps--font-size-small"
+                    >
+                      pipeline.loopingStrategy.helperText.for
+                       
+                      <a
+                        class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--color StyledProps--color-blue400 StyledProps--font StyledProps--font-size-small Button--with-current-color Button--link"
+                        href="https://www.google.com"
+                        rel="noreferrer noopener"
+                        role="button"
+                        tabindex="0"
+                        target="_blank"
+                      >
+                        <span
+                          class="bp3-button-text"
+                        >
+                          learnMore
+                        </span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="StyledProps--font StyledProps--main"
+                >
+                  <button
+                    class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--withLeftIcon Button--variation Button--variation-icon"
+                    data-testid="delete"
+                    type="button"
+                  >
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="main-trash"
+                    >
+                      <svg
+                        height="16"
+                        viewBox="0 0 16 20"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          clip-rule="evenodd"
+                          d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          opacity="0.3"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="StyledProps--font StyledProps--main"
+            >
+              <textarea
+                data-testid="editor"
+              >
+                for: {}
+
+              </textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<LoopingStrategy /> tests can select matrix 1`] = `
+<div>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <div
+      class="StyledProps--font StyledProps--main mainContainer"
+    >
+      <div
+        class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey700 StyledProps--font-size-small"
+        >
+          pipeline.loopingStrategy.subTitle
+           
+          <a
+            class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--color StyledProps--color-blue400 StyledProps--font StyledProps--font-size-small Button--with-current-color Button--link"
+            href="https://ngdocs.harness.io/article/i36ibenkq2-step-skip-condition-settings"
+            rel="noreferrer noopener"
+            role="button"
+            tabindex="0"
+            target="_blank"
+          >
+            <span
+              class="bp3-button-text"
+            >
+              pipeline.loopingStrategy.learnMore
+            </span>
+          </a>
+        </p>
+        <div
+          class="StyledProps--font StyledProps--main"
+        >
+          <div
+            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--padding-top-large StyledProps--border StyledProps--border-top StyledProps--border-color-grey200"
+          >
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor selected Card--selected Card--interactive"
+              data-testid="matrix"
+              tabindex="0"
+            >
+              <span
+                class="Card--corner"
+              >
+                <span
+                  class="Card--badge"
+                />
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-white"
+                  data-icon="main-tick"
+                >
+                  <svg
+                    height="10"
+                    viewBox="0 0 11 8"
+                    width="10"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.219.894c.356-.38.982-.413 1.398-.072.391.32.457.857.167 1.236l-.06.07-5.138 5.486c-.362.386-.993.41-1.403.068l-.07-.064-3.2-3.214A.88.88 0 01.95 3.098a1.045 1.045 0 011.328-.003l.074.067 2.443 2.454L9.22.894z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                Matrix
+              </p>
+            </div>
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor Card--interactive"
+              data-testid="for"
+              tabindex="0"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                For Loop
+              </p>
+            </div>
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor Card--interactive"
+              data-testid="parallelism"
+              tabindex="0"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                Parallelism
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="StyledProps--font StyledProps--main StyledProps--border StyledProps--padding-medium"
+        >
+          <div
+            class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
+          >
+            <div
+              class="StyledProps--font StyledProps--main"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
+              >
+                <div
+                  class="StyledProps--font StyledProps--main"
+                  style="flex-grow: 1;"
+                >
+                  <div
+                    class="Layout--vertical StyledProps--main"
+                  >
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--font-weight-semi-bold"
+                    >
+                      Matrix
+                    </p>
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey700 StyledProps--font-size-small"
+                    >
+                      pipeline.loopingStrategy.helperText.matrix
+                       
+                      <a
+                        class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--color StyledProps--color-blue400 StyledProps--font StyledProps--font-size-small Button--with-current-color Button--link"
+                        href="https://www.google.com"
+                        rel="noreferrer noopener"
+                        role="button"
+                        tabindex="0"
+                        target="_blank"
+                      >
+                        <span
+                          class="bp3-button-text"
+                        >
+                          learnMore
+                        </span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="StyledProps--font StyledProps--main"
+                >
+                  <button
+                    class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--withLeftIcon Button--variation Button--variation-icon"
+                    data-testid="delete"
+                    type="button"
+                  >
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="main-trash"
+                    >
+                      <svg
+                        height="16"
+                        viewBox="0 0 16 20"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          clip-rule="evenodd"
+                          d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          opacity="0.3"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="StyledProps--font StyledProps--main"
+            >
+              <textarea
+                data-testid="editor"
+              >
+                matrix: {}
+
+              </textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<LoopingStrategy /> tests can select parallelism 1`] = `
+<div>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <div
+      class="StyledProps--font StyledProps--main mainContainer"
+    >
+      <div
+        class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey700 StyledProps--font-size-small"
+        >
+          pipeline.loopingStrategy.subTitle
+           
+          <a
+            class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--color StyledProps--color-blue400 StyledProps--font StyledProps--font-size-small Button--with-current-color Button--link"
+            href="https://ngdocs.harness.io/article/i36ibenkq2-step-skip-condition-settings"
+            rel="noreferrer noopener"
+            role="button"
+            tabindex="0"
+            target="_blank"
+          >
+            <span
+              class="bp3-button-text"
+            >
+              pipeline.loopingStrategy.learnMore
+            </span>
+          </a>
+        </p>
+        <div
+          class="StyledProps--font StyledProps--main"
+        >
+          <div
+            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--padding-top-large StyledProps--border StyledProps--border-top StyledProps--border-color-grey200"
+          >
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor Card--interactive"
+              data-testid="matrix"
+              tabindex="0"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                Matrix
+              </p>
+            </div>
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor Card--interactive"
+              data-testid="for"
+              tabindex="0"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                For Loop
+              </p>
+            </div>
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor selected Card--selected Card--interactive"
+              data-testid="parallelism"
+              tabindex="0"
+            >
+              <span
+                class="Card--corner"
+              >
+                <span
+                  class="Card--badge"
+                />
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-white"
+                  data-icon="main-tick"
+                >
+                  <svg
+                    height="10"
+                    viewBox="0 0 11 8"
+                    width="10"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.219.894c.356-.38.982-.413 1.398-.072.391.32.457.857.167 1.236l-.06.07-5.138 5.486c-.362.386-.993.41-1.403.068l-.07-.064-3.2-3.214A.88.88 0 01.95 3.098a1.045 1.045 0 011.328-.003l.074.067 2.443 2.454L9.22.894z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                Parallelism
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="StyledProps--font StyledProps--main StyledProps--border StyledProps--padding-medium"
+        >
+          <div
+            class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
+          >
+            <div
+              class="StyledProps--font StyledProps--main"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
+              >
+                <div
+                  class="StyledProps--font StyledProps--main"
+                  style="flex-grow: 1;"
+                >
+                  <div
+                    class="Layout--vertical StyledProps--main"
+                  >
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--font-weight-semi-bold"
+                    >
+                      Parallelism
+                    </p>
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey700 StyledProps--font-size-small"
+                    >
+                      pipeline.loopingStrategy.helperText.parallelism
+                       
+                      <a
+                        class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--color StyledProps--color-blue400 StyledProps--font StyledProps--font-size-small Button--with-current-color Button--link"
+                        href="https://www.google.com"
+                        rel="noreferrer noopener"
+                        role="button"
+                        tabindex="0"
+                        target="_blank"
+                      >
+                        <span
+                          class="bp3-button-text"
+                        >
+                          learnMore
+                        </span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="StyledProps--font StyledProps--main"
+                >
+                  <button
+                    class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--withLeftIcon Button--variation Button--variation-icon"
+                    data-testid="delete"
+                    type="button"
+                  >
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="main-trash"
+                    >
+                      <svg
+                        height="16"
+                        viewBox="0 0 16 20"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          clip-rule="evenodd"
+                          d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                          opacity="0.3"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="StyledProps--font StyledProps--main"
+            >
+              <textarea
+                data-testid="editor"
+              >
+                parallelism: 1
+
+              </textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<LoopingStrategy /> tests snapshot test 1`] = `
+<div>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <div
+      class="StyledProps--font StyledProps--main mainContainer"
+    >
+      <div
+        class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey700 StyledProps--font-size-small"
+        >
+          pipeline.loopingStrategy.subTitle
+           
+          <a
+            class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--color StyledProps--color-blue400 StyledProps--font StyledProps--font-size-small Button--with-current-color Button--link"
+            href="https://ngdocs.harness.io/article/i36ibenkq2-step-skip-condition-settings"
+            rel="noreferrer noopener"
+            role="button"
+            tabindex="0"
+            target="_blank"
+          >
+            <span
+              class="bp3-button-text"
+            >
+              pipeline.loopingStrategy.learnMore
+            </span>
+          </a>
+        </p>
+        <div
+          class="StyledProps--font StyledProps--main"
+        >
+          <div
+            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--padding-top-large StyledProps--border StyledProps--border-top StyledProps--border-color-grey200"
+          >
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor Card--interactive"
+              data-testid="matrix"
+              tabindex="0"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                Matrix
+              </p>
+            </div>
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor Card--interactive"
+              data-testid="for"
+              tabindex="0"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                For Loop
+              </p>
+            </div>
+            <div
+              class="bp3-card bp3-interactive bp3-elevation-0 Card--card strategyAnchor Card--interactive"
+              data-testid="parallelism"
+              tabindex="0"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-primary7"
+              >
+                Parallelism
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

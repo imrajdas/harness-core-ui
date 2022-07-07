@@ -31,6 +31,8 @@ import { BannerType } from '@common/layouts/Constants'
 import { FEATURE_USAGE_WARNING_LIMIT } from '@common/layouts/FeatureBanner'
 import { PAGE_NAME } from '@common/pages/pageContext/PageName'
 import { useFeatureFlags } from '@common/hooks/useFeatureFlag'
+import AuditTrailFactory, { ResourceScope } from '@audit-trail/factories/AuditTrailFactory'
+import type { ResourceDTO } from 'services/audit'
 import CEHomePage from './pages/home/CEHomePage'
 import CECODashboardPage from './pages/co-dashboard/CECODashboardPage'
 import CECOCreateGatewayPage from './pages/co-create-gateway/CECOCreateGatewayPage'
@@ -104,6 +106,46 @@ featureFactory.registerFeaturesByModule('ce', {
 
 // eslint-disable-next-line import/no-unresolved
 const CcmMicroFrontendPath = React.lazy(() => import('ccmui/MicroFrontendApp'))
+
+AuditTrailFactory.registerResourceHandler('PERSPECTIVE', {
+  moduleIcon: { name: 'ccm-solid' },
+  moduleLabel: 'common.purpose.ce.continuous',
+  resourceLabel: 'ce.sideNav.perspective',
+  resourceUrl: (resource: ResourceDTO, resourceScope: ResourceScope) => {
+    const { accountIdentifier } = resourceScope
+    return routes.toPerspectiveDetails({
+      accountId: accountIdentifier,
+      perspectiveId: resource.identifier,
+      perspectiveName: resource.labels?.resourceName || resource.identifier
+    })
+  }
+})
+
+AuditTrailFactory.registerResourceHandler('PERSPECTIVE_BUDGET', {
+  moduleIcon: { name: 'ccm-solid' },
+  moduleLabel: 'common.purpose.ce.continuous',
+  resourceLabel: 'ce.perspectives.budgets.perspectiveBudgets',
+  resourceUrl: (resource: ResourceDTO, resourceScope: ResourceScope) => {
+    const { accountIdentifier } = resourceScope
+    return routes.toCEBudgetDetails({
+      accountId: accountIdentifier,
+      budgetId: resource.identifier,
+      budgetName: resource.labels?.resourceName || resource.identifier
+    })
+  }
+})
+
+AuditTrailFactory.registerResourceHandler('PERSPECTIVE_REPORT', {
+  moduleIcon: { name: 'ccm-solid' },
+  moduleLabel: 'common.purpose.ce.continuous',
+  resourceLabel: 'ce.perspectives.reports.perspectiveReport'
+})
+
+AuditTrailFactory.registerResourceHandler('COST_CATEGORY', {
+  moduleIcon: { name: 'ccm-solid' },
+  moduleLabel: 'common.purpose.ce.continuous',
+  resourceLabel: 'ce.businessMapping.costCategory'
+})
 
 const CESideNavProps: SidebarContext = {
   navComponent: CESideNav,

@@ -17,34 +17,58 @@ exports[`<ExecutionLogView /> tests snapshot test 1`] = `
           <div
             class="statusHeatMap"
           >
-            <div
-              class="statusHeatMapCell"
-              data-id="google_1"
-              data-status="running"
+            <span
+              class="bp3-popover-wrapper"
             >
-               
-            </div>
-            <div
-              class="statusHeatMapCell"
-              data-id="google_2"
-              data-status="running"
+              <span
+                class="bp3-popover-target"
+              >
+                <div
+                  class="statusHeatMapCell"
+                  data-id="google_1"
+                  data-status="running"
+                />
+              </span>
+            </span>
+            <span
+              class="bp3-popover-wrapper"
             >
-               
-            </div>
-            <div
-              class="statusHeatMapCell"
-              data-id="qa stage"
-              data-status="notstarted"
+              <span
+                class="bp3-popover-target"
+              >
+                <div
+                  class="statusHeatMapCell"
+                  data-id="google_2"
+                  data-status="running"
+                />
+              </span>
+            </span>
+            <span
+              class="bp3-popover-wrapper"
             >
-               
-            </div>
-            <div
-              class="statusHeatMapCell"
-              data-id="Random"
-              data-status="notstarted"
+              <span
+                class="bp3-popover-target"
+              >
+                <div
+                  class="statusHeatMapCell"
+                  data-id="qa stage"
+                  data-status="notstarted"
+                />
+              </span>
+            </span>
+            <span
+              class="bp3-popover-wrapper"
             >
-               
-            </div>
+              <span
+                class="bp3-popover-target"
+              >
+                <div
+                  class="statusHeatMapCell"
+                  data-id="Random"
+                  data-status="notstarted"
+                />
+              </span>
+            </span>
           </div>
         </div>
         <span>

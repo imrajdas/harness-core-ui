@@ -15,14 +15,14 @@ import { FieldArray, FormikProps } from 'formik'
 import {
   Accordion,
   Button,
+  FormError,
   Formik,
   FormikForm,
   FormInput,
   getMultiTypeFromValue,
   MultiTypeInputType,
-  Text,
   PageSpinner,
-  FormError
+  Text
 } from '@wings-software/uicore'
 import { useModalHook } from '@harness/use-modal'
 import { setFormikRef, StepFormikFowardRef, StepViewType } from '@pipeline/components/AbstractSteps/Step'
@@ -64,6 +64,7 @@ import {
   getInitialValueForSelectedField,
   getKVFieldsToBeAddedInForm,
   getSelectedFieldsToBeAddedInForm,
+  isRuntimeOrExpressionType,
   processFormData,
   resetForm
 } from './helper'
@@ -97,6 +98,8 @@ function FormContent({
   const [projectMetadata, setProjectMetadata] = useState<JiraProjectNG>()
   const [count, setCount] = React.useState(0)
   const [connectorValueType, setConnectorValueType] = useState<MultiTypeInputType>(MultiTypeInputType.FIXED)
+  const [projectValueType, setProjectValueType] = useState<MultiTypeInputType>(MultiTypeInputType.FIXED)
+  const [issueValueType, setIssueValueType] = useState<MultiTypeInputType>(MultiTypeInputType.FIXED)
   const jiraType = 'createMode'
   const commonParams = {
     accountIdentifier: accountId,
@@ -126,7 +129,7 @@ function FormContent({
           connectorRef: connectorRefFixedValue.toString()
         }
       })
-    } else if (connectorRefFixedValue !== undefined) {
+    } else if (connectorRefFixedValue !== undefined || isRuntimeOrExpressionType(connectorValueType)) {
       // Undefined check is needed so that form is not set to dirty as soon as we open
       // This means we've cleared the value or marked runtime/expression
       // Flush the selected optional fields, and move everything to key value fields
@@ -146,7 +149,10 @@ function FormContent({
           projectKey: projectKeyFixedValue.toString()
         }
       })
-    } else if (connectorRefFixedValue !== undefined && projectKeyFixedValue !== undefined) {
+    } else if (
+      (connectorRefFixedValue !== undefined && projectKeyFixedValue !== undefined) ||
+      isRuntimeOrExpressionType(projectValueType)
+    ) {
       // Undefined check is needed so that form is not set to dirty as soon as we open
       // This means we've cleared the value or marked runtime/expression
       // Flush the selected optional and required fields, and move everything to key value fields
@@ -189,7 +195,7 @@ function FormContent({
         formikRequiredFields
       )
       formik.setFieldValue('spec.fields', toBeUpdatedKVFields)
-    } else if (issueTypeFixedValue !== undefined) {
+    } else if (issueTypeFixedValue !== undefined || isRuntimeOrExpressionType(issueValueType)) {
       // Undefined check is needed so that form is not set to dirty as soon as we open
       // This means we've cleared the value or marked runtime/expression
       // Flush the selected additional fields, and move everything to key value fields
@@ -384,8 +390,9 @@ function FormContent({
             multiTypeInputProps={{
               expressions,
               allowableTypes,
-              onChange: (value: unknown) => {
+              onChange: (value: unknown, _unused, multiType) => {
                 // Clear dependent fields
+                setProjectValueType(multiType)
                 if ((value as JiraProjectSelectOption)?.key !== projectKeyFixedValue) {
                   resetForm(formik, 'projectKey')
                   setCount(count + 1)
@@ -445,7 +452,8 @@ function FormContent({
             multiTypeInputProps={{
               expressions,
               allowableTypes,
-              onChange: (value: unknown) => {
+              onChange: (value: unknown, _unused, multiType) => {
+                setIssueValueType(multiType)
                 // Clear dependent fields
                 if ((value as JiraProjectSelectOption)?.key !== issueTypeFixedValue) {
                   resetForm(formik, 'issueType')

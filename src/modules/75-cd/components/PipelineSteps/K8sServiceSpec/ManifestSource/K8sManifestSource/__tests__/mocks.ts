@@ -23,6 +23,23 @@ export const manifests = [
         skipResourceVersioning: false
       }
     }
+  },
+  {
+    manifest: {
+      identifier: 'manifestIdentifier',
+      type: 'K8sManifest',
+      spec: {
+        store: {
+          type: 'CustomeRemote',
+          spec: {
+            filePath: 'file-path',
+            extractionScript: 'script',
+            delegateSelectors: ['delegate-selector']
+          }
+        },
+        skipResourceVersioning: false
+      }
+    }
   }
 ]
 
@@ -39,6 +56,22 @@ export const template = {
               connectorRef: '<+input>',
               repoName: '<+input>',
               branch: '<+input>'
+            }
+          }
+        }
+      }
+    },
+    {
+      manifest: {
+        identifier: 'ident',
+        type: 'K8sManifest',
+        spec: {
+          store: {
+            type: 'CustomeRemote',
+            spec: {
+              filePath: '<+input>',
+              extractionScript: 'script',
+              delegateSelectors: ['delegate-selector']
             }
           }
         }

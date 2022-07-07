@@ -22,25 +22,34 @@ const renderComponent = ({ children }: React.PropsWithChildren<unknown> = {}): R
 
 describe('DashboardsPage', () => {
   const useLicenseStoreMock = jest.spyOn(useLicenseStore, 'useLicenseStore')
-  const licenseObj = {
-    versionMap: {},
-    CI_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
-    FF_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
-    CCM_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
-    CD_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
-    updateLicenseStore: jest.fn(),
-    licenseInformation: {
-      CD: {
-        edition: Editions.FREE
-      }
-    }
-  }
 
   beforeEach(() => {
     jest.clearAllMocks()
   })
 
   test('it should display the banner when license edition is not enterprise', async () => {
+    const licenseObj: useLicenseStore.LicenseStoreContextProps = {
+      versionMap: {},
+      CI_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
+      FF_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
+      CCM_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
+      CD_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
+      updateLicenseStore: jest.fn(),
+      licenseInformation: {
+        CD: {
+          status: LICENSE_STATE_VALUES.ACTIVE,
+          edition: Editions.FREE
+        },
+        CE: {
+          status: LICENSE_STATE_VALUES.DELETED,
+          edition: Editions.ENTERPRISE
+        },
+        CF: {
+          status: LICENSE_STATE_VALUES.EXPIRED,
+          edition: Editions.ENTERPRISE
+        }
+      }
+    }
     useLicenseStoreMock.mockReturnValue(licenseObj)
 
     renderComponent()
@@ -49,7 +58,28 @@ describe('DashboardsPage', () => {
   })
 
   test('it should not show the banner when license is enterprise', async () => {
-    licenseObj.licenseInformation.CD.edition = Editions.ENTERPRISE
+    const licenseObj: useLicenseStore.LicenseStoreContextProps = {
+      versionMap: {},
+      CI_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
+      FF_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
+      CCM_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
+      CD_LICENSE_STATE: LICENSE_STATE_VALUES.EXPIRED,
+      updateLicenseStore: jest.fn(),
+      licenseInformation: {
+        CD: {
+          status: LICENSE_STATE_VALUES.ACTIVE,
+          edition: Editions.ENTERPRISE
+        },
+        CE: {
+          status: LICENSE_STATE_VALUES.DELETED,
+          edition: Editions.ENTERPRISE
+        },
+        CF: {
+          status: LICENSE_STATE_VALUES.EXPIRED,
+          edition: Editions.ENTERPRISE
+        }
+      }
+    }
     useLicenseStoreMock.mockReturnValue(licenseObj)
 
     renderComponent()

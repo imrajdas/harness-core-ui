@@ -900,8 +900,7 @@ export const processLayoutNodeMapV1 = (executionSummary?: PipelineExecutionSumma
               children: getChildNodeDataForMatrix(firstParallelNode, layoutNodeMap),
               graphType: PipelineGraphType.STAGE_GRAPH,
               id: firstParallelNode?.nodeUuid,
-              maxParallelism:
-                firstParallelNode?.moduleInfo?.stepParameters?.maxConcurrency?.__encodedValue?.valueDoc?.value
+              maxParallelism: firstParallelNode?.moduleInfo?.maxConcurrency?.value
             })
           },
 
@@ -920,8 +919,7 @@ export const processLayoutNodeMapV1 = (executionSummary?: PipelineExecutionSumma
                   children: getChildNodeDataForMatrix(nodeDataItem, layoutNodeMap),
                   graphType: PipelineGraphType.STAGE_GRAPH,
                   id: nodeDataItem?.nodeUuid,
-                  maxParallelism:
-                    nodeDataItem?.moduleInfo?.stepParameters?.maxConcurrency?.__encodedValue?.valueDoc?.value
+                  maxParallelism: nodeDataItem?.moduleInfo?.maxConcurrency?.value
                 })
               },
               children: []
@@ -968,7 +966,7 @@ export const processLayoutNodeMapV1 = (executionSummary?: PipelineExecutionSumma
             children: childData,
             graphType: PipelineGraphType.STAGE_GRAPH,
             id: nodeDetails?.nodeUuid,
-            maxParallelism: nodeDetails?.moduleInfo?.stepParameters?.maxConcurrency?.__encodedValue?.valueDoc?.value
+            maxParallelism: nodeDetails?.moduleInfo?.maxConcurrency?.value
           }
         })
 

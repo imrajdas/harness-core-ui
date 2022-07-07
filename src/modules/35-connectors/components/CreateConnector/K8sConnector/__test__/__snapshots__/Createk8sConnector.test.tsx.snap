@@ -119,6 +119,7 @@ exports[`Create k8 connector Wizard should form for authtype username 1`] = `
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-h3"
+          data-cy="connector-overview-heading"
         >
           overview
         </p>
@@ -2275,6 +2276,7 @@ exports[`Create k8 connector Wizard should form for edit authtype username 1`] =
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-h3"
+          data-cy="connector-overview-heading"
         >
           overview
         </p>

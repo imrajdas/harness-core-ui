@@ -8,23 +8,47 @@
 import type { Schema } from 'yup'
 import type { IconName } from '@wings-software/uicore'
 import { Connectors } from '@connectors/constants'
-import type { ConnectorInfoDTO } from 'services/cd-ng'
+import type { ConnectorInfoDTO, ServiceDefinition } from 'services/cd-ng'
 import type { PipelineInfoConfig } from 'services/pipeline-ng'
 import type { StringKeys } from 'framework/strings'
 import { NameSchema } from '@common/utils/Validation'
-import type { HelmVersionOptions, ManifestStores, ManifestTypes, PrimaryManifestType } from './ManifestInterface'
+import { ServiceDeploymentType } from '@pipeline/utils/stageHelpers'
+import type {
+  HelmVersionOptions,
+  ManifestStores,
+  ManifestStoreTypeWithoutConnector,
+  ManifestStoreWithoutConnector,
+  ManifestTypes,
+  PrimaryManifestType
+} from './ManifestInterface'
 
 export type ReleaseRepoPipeline = PipelineInfoConfig & { gitOpsEnabled: boolean }
+
+export const isAllowedManifestDeploymentTypes = (deploymentType: ServiceDefinition['type']): boolean => {
+  return (
+    deploymentType === ServiceDeploymentType.Kubernetes ||
+    deploymentType === ServiceDeploymentType.NativeHelm ||
+    deploymentType === ServiceDeploymentType.ServerlessAwsLambda
+  )
+}
 
 export const showAddManifestBtn = (
   isReadonly: boolean,
   allowOnlyOne: boolean,
-  listOfManifests: Array<any>
+  listOfManifests: Array<any>,
+  deploymentType?: ServiceDefinition['type']
 ): boolean => {
   if (allowOnlyOne && listOfManifests.length === 1) {
     return false
   }
+  if (deploymentType) {
+    return !isReadonly && isAllowedManifestDeploymentTypes(deploymentType)
+  }
   return !isReadonly
+}
+
+export const isServerlessManifestType = (selectedManifest: ManifestTypes | null): boolean => {
+  return selectedManifest === ManifestDataType.ServerlessAwsLambda
 }
 
 export const ManifestDataType: Record<ManifestTypes, ManifestTypes> = {
@@ -67,7 +91,9 @@ export const ManifestStoreMap: { [key: string]: ManifestStores } = {
   S3: 'S3',
   Gcs: 'Gcs',
   InheritFromManifest: 'InheritFromManifest',
-  Inline: 'Inline'
+  Inline: 'Inline',
+  Harness: 'Harness',
+  CustomRemote: 'CustomRemote'
 }
 
 export const allowedManifestTypes: Record<string, Array<ManifestTypes>> = {
@@ -81,7 +107,10 @@ export const allowedManifestTypes: Record<string, Array<ManifestTypes>> = {
     ManifestDataType.KustomizePatches
   ],
   NativeHelm: [ManifestDataType.Values, ManifestDataType.HelmChart],
-  ServerlessAwsLambda: [ManifestDataType.ServerlessAwsLambda]
+  ServerlessAwsLambda: [ManifestDataType.ServerlessAwsLambda],
+  Ssh: [],
+  WinRm: [],
+  AzureWebApps: []
 }
 
 export const manifestStoreTypes: Array<ManifestStores> = [
@@ -89,9 +118,10 @@ export const manifestStoreTypes: Array<ManifestStores> = [
   ManifestStoreMap.Github,
   ManifestStoreMap.GitLab,
   ManifestStoreMap.Bitbucket
+  // ManifestStoreMap.Harness
 ]
 export const ManifestTypetoStoreMap: Record<ManifestTypes, ManifestStores[]> = {
-  K8sManifest: manifestStoreTypes,
+  K8sManifest: [...manifestStoreTypes],
   Values: [...manifestStoreTypes, ManifestStoreMap.InheritFromManifest],
   HelmChart: [
     ...manifestStoreTypes,
@@ -101,7 +131,7 @@ export const ManifestTypetoStoreMap: Record<ManifestTypes, ManifestStores[]> = {
     ManifestStoreMap.Gcs
   ],
   Kustomize: manifestStoreTypes,
-  OpenshiftTemplate: manifestStoreTypes,
+  OpenshiftTemplate: [...manifestStoreTypes],
   OpenshiftParam: [...manifestStoreTypes, ManifestStoreMap.InheritFromManifest],
   KustomizePatches: [...manifestStoreTypes, ManifestStoreMap.InheritFromManifest],
   ServerlessAwsLambda: manifestStoreTypes
@@ -144,7 +174,9 @@ export const ManifestIconByType: Record<ManifestStores, IconName> = {
   S3: 'service-service-s3',
   Gcs: 'gcs-step',
   InheritFromManifest: 'custom-artifact',
-  Inline: 'custom-artifact'
+  Inline: 'custom-artifact',
+  Harness: 'harness',
+  CustomRemote: 'custom-remote-manifest'
 }
 
 export const ManifestStoreTitle: Record<ManifestStores, StringKeys> = {
@@ -157,7 +189,9 @@ export const ManifestStoreTitle: Record<ManifestStores, StringKeys> = {
   S3: 'connectors.S3',
   Gcs: 'connectors.GCS.fullName',
   InheritFromManifest: 'pipeline.manifestType.InheritFromManifest',
-  Inline: 'inline'
+  Inline: 'inline',
+  Harness: 'harness',
+  CustomRemote: 'pipeline.manifestType.customRemote'
 }
 
 export const ManifestToConnectorMap: Record<ManifestStores | string, ConnectorInfoDTO['type']> = {
@@ -172,7 +206,7 @@ export const ManifestToConnectorMap: Record<ManifestStores | string, ConnectorIn
 }
 
 export const ManifestToConnectorLabelMap: Record<
-  Exclude<ManifestStores, 'Inline' | 'InheritFromManifest'>,
+  Exclude<ManifestStores, ManifestStoreTypeWithoutConnector>,
   StringKeys
 > = {
   Git: 'pipeline.manifestType.gitConnectorLabel',
@@ -212,5 +246,44 @@ export const ManifestIdentifierValidation = (
   }
   return {
     identifier: NameSchema()
+  }
+}
+
+export const doesStorehasConnector = (selectedStore: ManifestStoreWithoutConnector): boolean => {
+  return [
+    ManifestStoreMap.InheritFromManifest,
+    ManifestStoreMap.Harness,
+    ManifestStoreMap.Inline,
+    ManifestStoreMap.CustomRemote
+  ].includes(selectedStore)
+}
+
+export function isConnectorStoreType(): boolean {
+  return !(ManifestStoreMap.InheritFromManifest || ManifestStoreMap.Harness || ManifestStoreMap.Inline,
+  ManifestStoreMap.CustomRemote)
+}
+export function getManifestLocation(manifestType: ManifestTypes, manifestStore: ManifestStores): string {
+  switch (true) {
+    case manifestStore === ManifestStoreMap.Harness:
+      return 'store.spec.files'
+    case manifestStore === ManifestStoreMap.CustomRemote:
+      return 'store.spec.filePath'
+    case [
+      ManifestDataType.K8sManifest,
+      ManifestDataType.Values,
+      ManifestDataType.KustomizePatches,
+      ManifestDataType.OpenshiftParam,
+      ManifestDataType.OpenshiftTemplate,
+      ManifestDataType.ServerlessAwsLambda
+    ].includes(manifestType):
+      return 'store.spec.paths'
+    case manifestType === ManifestDataType.Kustomize:
+    case manifestType === ManifestDataType.HelmChart &&
+      [ManifestStoreMap.S3, ManifestStoreMap.Gcs].includes(manifestStore):
+      return 'store.spec.folderPath'
+    case manifestType === ManifestDataType.HelmChart && manifestStore === ManifestStoreMap.Http:
+      return 'chartName'
+    default:
+      return 'paths'
   }
 }

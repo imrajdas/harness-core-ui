@@ -5,12 +5,11 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-.repositoryCard {
+.cardStyle {
   padding: 0 !important;
   display: block !important;
   width: 100%;
   box-shadow: var(--card-shadow);
-  border: var(--spacing-1) !important;
   overflow: hidden;
   &:hover {
     box-shadow: var(--card-hover-shadow) !important;
@@ -100,24 +99,42 @@
     align-items: center;
     background: var(--grey-50);
     height: var(--spacing-9);
-    padding: 0 var(--spacing-6) 0 var(--spacing-8);
+    padding: 0 var(--spacing-6) 0 var(--spacing-6);
     border-top: 1px solid var(--grey-100);
     column-gap: var(--spacing-3);
     justify-content: space-between;
     .avatarWrapper {
       display: flex;
       align-items: center;
-      flex: 4;
+      color: var(--grey-600);
+      flex: 1 1 auto;
+      overflow: hidden;
+
+      :nth-child(2) {
+        margin-left: 0 !important;
+      }
     }
   }
 }
 
 .userLabel {
-  padding-top: 5px;
-  flex: 1;
+  display: flex;
 }
 
 .message {
-  flex: 2;
-  word-break: break-word !important;
+  display: flex;
+  align-items: center;
+  margin-left: 0 !important;
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 1px;
+    background: var(--grey-300);
+    height: calc(var(--font-size-small) + 2px);
+    margin: 0 var(--spacing-3);
+  }
+}
+
+.lastExecutionStatus {
+  border-left-width: 4px !important;
 }

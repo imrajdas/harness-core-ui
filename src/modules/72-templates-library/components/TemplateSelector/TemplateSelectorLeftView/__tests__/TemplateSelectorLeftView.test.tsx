@@ -19,8 +19,7 @@ import {
   mockApiErrorResponse,
   mockApiFetchingResponse
 } from '@templates-library/components/TemplateActivityLog/__tests__/TemplateActivityLogTestHelper'
-import { TemplateSelectorContext } from '@templates-library/components/TemplateSelectorContext/TemplateSelectorContext'
-import { templateSelectorContextMock } from '@templates-library/components/TemplateSelectorContext/stateMocks'
+import { templateSelectorContextMock } from 'framework/Templates/TemplateSelectorContext/stateMocks'
 import { TemplateSelectorLeftView, TemplateSelectorLeftViewProps } from '../TemplateSelectorLeftView'
 
 const TEST_PATH = routes.toPipelineStudio({ ...accountPathProps, ...pipelinePathProps, ...pipelineModuleParams })
@@ -79,10 +78,8 @@ describe('<TemplateSelectorLeftView> tests', () => {
 
   test('should match snapshot', () => {
     const { container } = render(
-      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS}>
-        <TemplateSelectorContext.Provider value={contextMock}>
-          <TemplateSelectorLeftView {...baseProps} />
-        </TemplateSelectorContext.Provider>
+      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS} defaultTemplateSelectorValues={contextMock}>
+        <TemplateSelectorLeftView {...baseProps} />
       </TestWrapper>
     )
     expect(container).toMatchSnapshot()
@@ -96,10 +93,8 @@ describe('<TemplateSelectorLeftView> tests', () => {
 
   test('should make list call when scope filter is changed', async () => {
     const { getAllByTestId } = render(
-      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS}>
-        <TemplateSelectorContext.Provider value={contextMock}>
-          <TemplateSelectorLeftView {...baseProps} />
-        </TemplateSelectorContext.Provider>
+      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS} defaultTemplateSelectorValues={contextMock}>
+        <TemplateSelectorLeftView {...baseProps} />
       </TestWrapper>
     )
 
@@ -134,10 +129,8 @@ describe('<TemplateSelectorLeftView> tests', () => {
 
   test('should make list call when type filter is changed', async () => {
     const { getAllByTestId } = render(
-      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS}>
-        <TemplateSelectorContext.Provider value={contextMock}>
-          <TemplateSelectorLeftView {...baseProps} />
-        </TemplateSelectorContext.Provider>
+      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS} defaultTemplateSelectorValues={contextMock}>
+        <TemplateSelectorLeftView {...baseProps} />
       </TestWrapper>
     )
 
@@ -175,10 +168,8 @@ describe('<TemplateSelectorLeftView> tests', () => {
     templateListCallMock.mockImplementation(() => ({ ...mockApiErrorResponse, refetch } as any))
 
     const { container } = render(
-      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS}>
-        <TemplateSelectorContext.Provider value={contextMock}>
-          <TemplateSelectorLeftView {...baseProps} />
-        </TemplateSelectorContext.Provider>
+      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS} defaultTemplateSelectorValues={contextMock}>
+        <TemplateSelectorLeftView {...baseProps} />
       </TestWrapper>
     )
 
@@ -197,10 +188,8 @@ describe('<TemplateSelectorLeftView> tests', () => {
     templateListCallMock.mockReturnValue(mockEmptySuccessResponse as any)
 
     const { container } = render(
-      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS}>
-        <TemplateSelectorContext.Provider value={contextMock}>
-          <TemplateSelectorLeftView {...baseProps} />
-        </TemplateSelectorContext.Provider>
+      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS} defaultTemplateSelectorValues={contextMock}>
+        <TemplateSelectorLeftView {...baseProps} />
       </TestWrapper>
     )
 
@@ -211,10 +200,8 @@ describe('<TemplateSelectorLeftView> tests', () => {
     templateListCallMock.mockReturnValue(mockEmptySuccessResponse as any)
 
     const { container, getAllByTestId } = render(
-      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS}>
-        <TemplateSelectorContext.Provider value={contextMock}>
-          <TemplateSelectorLeftView {...baseProps} />
-        </TemplateSelectorContext.Provider>
+      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS} defaultTemplateSelectorValues={contextMock}>
+        <TemplateSelectorLeftView {...baseProps} />
       </TestWrapper>
     )
 
@@ -256,10 +243,8 @@ describe('<TemplateSelectorLeftView> tests', () => {
     templateListCallMock.mockImplementation(() => mockApiFetchingResponse as any)
 
     const { container } = render(
-      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS}>
-        <TemplateSelectorContext.Provider value={contextMock}>
-          <TemplateSelectorLeftView {...baseProps} />
-        </TemplateSelectorContext.Provider>
+      <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS} defaultTemplateSelectorValues={contextMock}>
+        <TemplateSelectorLeftView {...baseProps} />
       </TestWrapper>
     )
 

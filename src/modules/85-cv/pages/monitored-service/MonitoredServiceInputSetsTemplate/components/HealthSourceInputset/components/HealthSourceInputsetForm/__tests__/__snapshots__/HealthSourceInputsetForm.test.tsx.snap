@@ -1,0 +1,537 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Validate HealthSourceInputsetForm should render HealthSourceInputsetForm 1`] = `
+<div>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <div
+      class="bp3-card bp3-elevation-0 Card--card healthSourceInputSet"
+    >
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-normal StyledProps--color StyledProps--color-black"
+      >
+        cv.healthSource.nameLabel
+        : 
+        AppD default metrics runtime connector
+      </p>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="selectHealthSourceConnector"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-small StyledProps--margin-bottom-small"
+            >
+              connectors.selectConnector
+            </p>
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <button
+            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main container Button--iconOnly Button--without-shadow Button--withRightIcon"
+            data-testid="cr-field-sources.healthSources.0.spec.connectorRef"
+            style="width: 400px;"
+            type="button"
+          >
+            <span
+              class="bp3-button-text"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main selectWrapper StyledProps--flex StyledProps--flex-distribution-space-between"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main label StyledProps--color StyledProps--color-grey800"
+                />
+                <div
+                  class="rightStatus"
+                >
+                  <span
+                    class="bp3-icon bp3-icon-full-circle StyledProps--main status redStatus"
+                    data-testid="crf-status"
+                    icon="full-circle"
+                  >
+                    <svg
+                      data-icon="full-circle"
+                      height="6"
+                      viewBox="0 0 16 16"
+                      width="6"
+                    >
+                      <desc>
+                        full-circle
+                      </desc>
+                      <path
+                        d="M8 0a8 8 0 100 16A8 8 0 108 0z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="Tag--main"
+                  >
+                    <span
+                      class="bp3-tag bp3-minimal"
+                      id="tag"
+                    >
+                      <span
+                        class="bp3-text-overflow-ellipsis bp3-fill"
+                      >
+                        project
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </span>
+            <span
+              class="bp3-icon bp3-icon-chevron-down StyledProps--main"
+              icon="chevron-down"
+            >
+              <svg
+                data-icon="chevron-down"
+                height="14"
+                viewBox="0 0 16 16"
+                width="14"
+              >
+                <desc>
+                  chevron-down
+                </desc>
+                <path
+                  d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+          for="sources.healthSources.0.spec.tierName"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.tierName"
+          >
+            cv.healthSource.connectors.AppDynamics.trierLabel
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+          >
+            <div
+              class="TextInput--main MultiTypeInput--input"
+            >
+              <div
+                class="bp3-input-group bp3-disabled"
+              >
+                <input
+                  class="bp3-input"
+                  disabled=""
+                  name="sources.healthSources.0.spec.tierName"
+                  placeholder="<+input>"
+                  type="text"
+                  value="<+input>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+          for="sources.healthSources.0.spec.applicationName"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.applicationName"
+          >
+            cv.healthSource.connectors.AppDynamics.applicationLabel
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+          >
+            <div
+              class="TextInput--main MultiTypeInput--input"
+            >
+              <div
+                class="bp3-input-group bp3-disabled"
+              >
+                <input
+                  class="bp3-input"
+                  disabled=""
+                  name="sources.healthSources.0.spec.applicationName"
+                  placeholder="<+input>"
+                  type="text"
+                  value="<+input>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="bp3-card bp3-elevation-0 Card--card healthSourceInputSet"
+    >
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-normal StyledProps--color StyledProps--color-black"
+      >
+        cv.healthSource.nameLabel
+        : 
+        Appd with custom and runtime connector
+      </p>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="selectHealthSourceConnector"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-small StyledProps--margin-bottom-small"
+            >
+              connectors.selectConnector
+            </p>
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <button
+            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main container Button--iconOnly Button--without-shadow Button--withRightIcon"
+            data-testid="cr-field-sources.healthSources.1.spec.connectorRef"
+            style="width: 400px;"
+            type="button"
+          >
+            <span
+              class="bp3-button-text"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main selectWrapper StyledProps--flex StyledProps--flex-distribution-space-between"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main label StyledProps--color StyledProps--color-grey800"
+                />
+                <div
+                  class="rightStatus"
+                >
+                  <span
+                    class="bp3-icon bp3-icon-full-circle StyledProps--main status redStatus"
+                    data-testid="crf-status"
+                    icon="full-circle"
+                  >
+                    <svg
+                      data-icon="full-circle"
+                      height="6"
+                      viewBox="0 0 16 16"
+                      width="6"
+                    >
+                      <desc>
+                        full-circle
+                      </desc>
+                      <path
+                        d="M8 0a8 8 0 100 16A8 8 0 108 0z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="Tag--main"
+                  >
+                    <span
+                      class="bp3-tag bp3-minimal"
+                      id="tag"
+                    >
+                      <span
+                        class="bp3-text-overflow-ellipsis bp3-fill"
+                      >
+                        project
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </span>
+            <span
+              class="bp3-icon bp3-icon-chevron-down StyledProps--main"
+              icon="chevron-down"
+            >
+              <svg
+                data-icon="chevron-down"
+                height="14"
+                viewBox="0 0 16 16"
+                width="14"
+              >
+                <desc>
+                  chevron-down
+                </desc>
+                <path
+                  d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+          for="sources.healthSources.1.spec.tierName"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="wrapperComponent_sources.healthSources.1.spec.tierName"
+          >
+            cv.healthSource.connectors.AppDynamics.trierLabel
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+          >
+            <div
+              class="TextInput--main MultiTypeInput--input"
+            >
+              <div
+                class="bp3-input-group bp3-disabled"
+              >
+                <input
+                  class="bp3-input"
+                  disabled=""
+                  name="sources.healthSources.1.spec.tierName"
+                  placeholder="<+input>"
+                  type="text"
+                  value="<+input>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+          for="sources.healthSources.1.spec.applicationName"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="wrapperComponent_sources.healthSources.1.spec.applicationName"
+          >
+            cv.healthSource.connectors.AppDynamics.applicationLabel
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+          >
+            <div
+              class="TextInput--main MultiTypeInput--input"
+            >
+              <div
+                class="bp3-input-group bp3-disabled"
+              >
+                <input
+                  class="bp3-input"
+                  disabled=""
+                  name="sources.healthSources.1.spec.applicationName"
+                  placeholder="<+input>"
+                  type="text"
+                  value="<+input>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--font-normal StyledProps--color StyledProps--color-black"
+        >
+          cv.monitoringSources.metricLabel
+          : 
+          appdMetric 101
+        </p>
+        <div
+          class="bp3-form-group"
+        >
+          <label
+            class="bp3-label"
+            for="sources.healthSources.1.spec.metricDefinitions.0.completeMetricPath"
+          >
+            <span
+              class="Tooltip--acenter"
+              data-tooltip-id="wrapperComponent_sources.healthSources.1.spec.metricDefinitions.0.completeMetricPath"
+            >
+              cv.healthSource.connectors.AppDynamics.metricPathType.text
+            </span>
+             
+            <span
+              class="bp3-text-muted"
+            />
+          </label>
+          <div
+            class="bp3-form-content"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+            >
+              <div
+                class="TextInput--main MultiTypeInput--input"
+              >
+                <div
+                  class="bp3-input-group bp3-disabled"
+                >
+                  <input
+                    class="bp3-input"
+                    disabled=""
+                    name="sources.healthSources.1.spec.metricDefinitions.0.completeMetricPath"
+                    placeholder="<+input>"
+                    type="text"
+                    value="<+input>"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bp3-form-group"
+        >
+          <label
+            class="bp3-label"
+            for="sources.healthSources.1.spec.metricDefinitions.0.analysis.deploymentVerification.serviceInstanceMetricPath"
+          >
+            <span
+              class="Tooltip--acenter"
+              data-tooltip-id="wrapperComponent_sources.healthSources.1.spec.metricDefinitions.0.analysis.deploymentVerification.serviceInstanceMetricPath"
+            >
+              cv.healthSource.connectors.AppDynamics.serviceInstance
+            </span>
+             
+            <span
+              class="bp3-text-muted"
+            />
+          </label>
+          <div
+            class="bp3-form-content"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+            >
+              <div
+                class="TextInput--main MultiTypeInput--input"
+              >
+                <div
+                  class="bp3-input-group bp3-disabled"
+                >
+                  <input
+                    class="bp3-input"
+                    disabled=""
+                    name="sources.healthSources.1.spec.metricDefinitions.0.analysis.deploymentVerification.serviceInstanceMetricPath"
+                    placeholder="<+input>"
+                    type="text"
+                    value="<+input>"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Validate HealthSourceInputsetForm should render HealthSourceInputsetForm with no data 1`] = `
+<div>
+  <div
+    class="bp3-card bp3-elevation-0 Card--card healthSourceInputSet"
+  >
+    <p
+      class="StyledProps--font StyledProps--main StyledProps--font-normal StyledProps--color StyledProps--color-black"
+    >
+      cv.healthSource.nameLabel
+      : 
+    </p>
+    <div
+      class="StyledProps--font StyledProps--main"
+      style="height: 100%;"
+    >
+      <div
+        class="Layout--vertical Layout--layout-spacing-large StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+        style="height: 100%;"
+      >
+        <img
+          src="test-file-stub"
+          width="117px"
+        />
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey700"
+        >
+          templatesLibrary.noInputsRequired
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Validate HealthSourceInputsetForm should render HealthSourceInputsetForm with no data 2`] = `<div />`;

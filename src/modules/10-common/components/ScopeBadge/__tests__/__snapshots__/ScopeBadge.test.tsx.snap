@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ScopeBadge /> tests should match minimal snapshot 1`] = `
+<div>
+  <span
+    class="Tag--main"
+  >
+    <span
+      class="bp3-tag scopeLabel project"
+    >
+      <span
+        class="bp3-text-overflow-ellipsis bp3-fill"
+      >
+        SCOPE: PROJECT
+      </span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<ScopeBadge /> tests should match snapshot for account scope 1`] = `
+<div>
+  <span
+    class="Tag--main"
+  >
+    <span
+      class="bp3-tag scopeLabel account"
+    >
+      <span
+        class="bp3-text-overflow-ellipsis bp3-fill"
+      >
+        SCOPE: ACCOUNT
+      </span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<ScopeBadge /> tests should match snapshot for org scope 1`] = `
+<div>
+  <span
+    class="Tag--main"
+  >
+    <span
+      class="bp3-tag scopeLabel org"
+    >
+      <span
+        class="bp3-text-overflow-ellipsis bp3-fill"
+      >
+        SCOPE: ORG
+      </span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`<ScopeBadge /> tests should match snapshot for project scope 1`] = `
+<div>
+  <span
+    class="Tag--main"
+  >
+    <span
+      class="bp3-tag scopeLabel project"
+    >
+      <span
+        class="bp3-text-overflow-ellipsis bp3-fill"
+      >
+        SCOPE: PROJECT
+      </span>
+    </span>
+  </span>
+</div>
+`;

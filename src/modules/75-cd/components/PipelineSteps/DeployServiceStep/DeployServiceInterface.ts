@@ -8,9 +8,15 @@
 import type { MultiTypeInputType } from '@harness/uicore'
 import type { FormikProps } from 'formik'
 import type { StepViewType } from '@pipeline/components/AbstractSteps/Step'
-import type { ServiceConfig, ServiceRequestDTO, ServiceResponseDTO } from 'services/cd-ng'
+import type { ServiceConfig, ServiceDefinition, ServiceRequestDTO, ServiceResponseDTO } from 'services/cd-ng'
 import type { ServiceDeploymentType } from '@pipeline/utils/stageHelpers'
 
+export interface DeployServiceCustomStepPropType {
+  stageIdentifier: string
+  isNewServiceEntity: boolean
+  deploymentType: ServiceDefinition['type']
+  gitOpsEnabled?: boolean
+}
 export interface DeployServiceProps {
   initialValues: DeployServiceData
   onUpdate?: (data: DeployServiceData) => void
@@ -23,7 +29,7 @@ export interface DeployServiceProps {
   }
   allowableTypes: MultiTypeInputType[]
   serviceLabel?: string
-  customStepProps?: { stageIdentifier: string; isNewServiceEntity: boolean }
+  customStepProps?: DeployServiceCustomStepPropType
 }
 
 export interface DeployServiceState {
@@ -37,6 +43,7 @@ export interface DeployServiceData extends Omit<ServiceConfig, 'serviceRef'> {
   serviceRef?: string
   isNewServiceEntity?: boolean
   deploymentType?: ServiceDeploymentType
+  gitOpsEnabled?: boolean
 }
 
 export interface NewEditServiceModalProps {

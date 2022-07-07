@@ -525,8 +525,8 @@ describe('ServerlessAwsLambda as deployment type', () => {
     // Got to Execution tab, 4 diff Execution Strategies should appear
     // Use Rolling strategy and check if respective step is added
     cy.contains('span', 'Execution').click()
-    cy.wait('@executionStratergies')
     cy.wait('@kubernetesYamlSnippet')
+    cy.wait(1000)
     cy.contains('section', 'Rolling').should('be.visible')
     cy.contains('section', 'Blue Green').should('be.visible')
     cy.contains('section', 'Canary').should('be.visible')

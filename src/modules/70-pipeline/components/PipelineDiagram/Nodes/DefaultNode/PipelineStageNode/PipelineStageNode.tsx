@@ -275,6 +275,22 @@ function PipelineStageNode(props: PipelineStageNodeProps): JSX.Element {
           </Text>
         </div>
       )}
+      {props.data?.loopingStrategyEnabled && (
+        <div className={defaultCss.loopingStrategy}>
+          <Text
+            tooltip={getString('pipeline.loopingStrategy.title')}
+            tooltipProps={{
+              isDark: true
+            }}
+          >
+            <Icon
+              size={18}
+              name={'looping'}
+              {...(isSelectedNode() ? { color: Color.WHITE, className: defaultCss.primaryIcon, inverse: true } : {})}
+            />
+          </Text>
+        </div>
+      )}
       {allowAdd && CreateNode && !props.readonly && showAddNode && (
         <CreateNode
           onMouseOver={() => setAddVisibility(true)}

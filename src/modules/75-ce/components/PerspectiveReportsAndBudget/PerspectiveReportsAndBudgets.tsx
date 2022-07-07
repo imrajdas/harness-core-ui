@@ -341,8 +341,8 @@ export const Budgets = ({ perspectiveName }: { perspectiveName: string }): JSX.E
         Header: getString('ce.perspectives.reports.recipientLabel'),
         accessor: 'emailAddresses',
         Cell: ({ row }: CellProps<AlertThreshold>) => {
-          const emailAddresses = [...(row.original.emailAddresses || [])] as string[]
-          return <RenderEmailAddresses emailAddresses={emailAddresses} />
+          const recipients = [...(row.original.emailAddresses || []), ...(row.original.slackWebhooks || [])] as string[]
+          return <RenderEmailAddresses emailAddresses={recipients} />
         }
       }
     ],

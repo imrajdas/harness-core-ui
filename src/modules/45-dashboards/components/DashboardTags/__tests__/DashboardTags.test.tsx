@@ -73,7 +73,7 @@ describe('DashboardTags', () => {
     expect(screen.getByText(expectedText)).toBeInTheDocument()
   })
 
-  test('it should display a Cloud Cost tag when Dashboard Tag is CI', async () => {
+  test('it should display a Builds tag when Dashboard Tag is CI', async () => {
     const mockDashboard: DashboardModel = {
       ...defaultTestDashboard,
       data_source: ['CI']
@@ -84,7 +84,7 @@ describe('DashboardTags', () => {
     expect(screen.getByText(expectedText)).toBeInTheDocument()
   })
 
-  test('it should display a Cloud Cost tag when Dashboard Tag is CD', async () => {
+  test('it should display a Deployments tag when Dashboard Tag is CD', async () => {
     const mockDashboard: DashboardModel = {
       ...defaultTestDashboard,
       data_source: ['CD']
@@ -95,7 +95,7 @@ describe('DashboardTags', () => {
     expect(screen.getByText(expectedText)).toBeInTheDocument()
   })
 
-  test('it should display a Cloud Cost tag when Dashboard Tag is CF', async () => {
+  test('it should display a Feature Flags tag when Dashboard Tag is CF', async () => {
     const mockDashboard: DashboardModel = {
       ...defaultTestDashboard,
       data_source: ['CF']
@@ -105,7 +105,8 @@ describe('DashboardTags', () => {
     const expectedText: StringKeys = 'common.purpose.cf.continuous'
     expect(screen.getByText(expectedText)).toBeInTheDocument()
   })
-  test('it should display a Cloud Cost tag when Dashboard Tag is CG', async () => {
+
+  test('it should display a Current Gen tag when Dashboard Tag is CG', async () => {
     const mockDashboard: DashboardModel = {
       ...defaultTestDashboard,
       data_source: ['CG_CD']

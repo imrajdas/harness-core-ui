@@ -25,6 +25,7 @@ import {
   getSpecYamlData,
   validateField,
   validateMonitoredService,
+  validateMonitoredServiceTemplateInputs,
   validateTimeout
 } from './utils'
 import { cvDefaultValues } from './constants'
@@ -106,6 +107,7 @@ export class ContinousVerificationStep extends PipelineStep<ContinousVerificatio
       validateField(deploymentTag as string, 'deploymentTag', data, errors, getString, isRequired)
       validateTimeout(getString, data, errors, template, isRequired)
       validateMonitoredService(data, errors, getString, isRequired, monitoredService)
+      validateMonitoredServiceTemplateInputs(data, errors, getString, monitoredService)
     }
     return errors
   }
@@ -124,7 +126,7 @@ export class ContinousVerificationStep extends PipelineStep<ContinousVerificatio
     const output = {
       ...data,
       spec: {
-        ...omit(data?.spec, ['monitoredServiceRef', 'healthSources']),
+        ...omit(data?.spec, ['monitoredServiceRef', 'healthSources', 'initialMonitoredService']),
         ...(data?.spec?.monitoredService?.type && { monitoredService: getMonitoredServiceYamlData(data?.spec) }),
         spec: getSpecYamlData(data?.spec?.spec, data?.spec?.type)
       }

@@ -142,6 +142,7 @@ export const FetchBudgetSummaryDocument = gql`
         basedOn
         percentage
         emailAddresses
+        slackWebhooks
         userGroupIds
       }
     }
@@ -1325,6 +1326,7 @@ export type FetchBudgetSummaryQuery = {
       basedOn: AlertThresholdBase | null
       percentage: number
       emailAddresses: Array<string | null> | null
+      slackWebhooks: Array<string | null> | null
       userGroupIds: Array<string | null> | null
     } | null> | null
   } | null

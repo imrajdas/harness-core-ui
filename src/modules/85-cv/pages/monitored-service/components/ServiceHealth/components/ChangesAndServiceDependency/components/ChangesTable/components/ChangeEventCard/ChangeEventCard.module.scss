@@ -13,8 +13,13 @@
 
 .divider {
   width: 100%;
-  margin-top: var(--spacing-large);
-  margin-bottom: var(--spacing-large);
+  margin-top: var(--spacing-large) !important;
+  margin-bottom: var(--spacing-large) !important;
+}
+
+.verticalDivider {
+  width: 1.2rem;
+  transform: rotate(90deg);
 }
 
 .verificationContainer {
@@ -29,6 +34,18 @@
   flex-direction: column !important;
   align-items: flex-start !important;
   margin-right: var(--spacing-large) !important;
+}
+
+.flexRow {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  margin-right: var(--spacing-large) !important;
+}
+
+.horizontal {
+  flex-grow: 2;
+  align-self: flex-end;
 }
 
 .summarylabel {

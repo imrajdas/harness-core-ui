@@ -94,8 +94,9 @@ export function StrategyFormInternal(
   props: StrategyFormInternalProps & { formik: FormikContextType<any> }
 ): React.ReactElement {
   const { readonly, path, formik } = props
+  const { getString } = useStrings()
 
-  const value = yamlStringify(get(formik.values, path, ''))
+  const value = yamlStringify(get(formik.values, path, '')).replace(': null\n', ': \n')
 
   function handleChange(newValue: string): void {
     try {
@@ -110,15 +111,31 @@ export function StrategyFormInternal(
     }
   }
 
+  function preventSubmit(e: React.KeyboardEvent): void {
+    if (e.key === 'Enter') {
+      e.stopPropagation()
+    }
+  }
+
   return (
-    <div className={css.strategyContainer}>
-      <MonacoEditor
-        height={300}
-        options={getDefaultMonacoConfig(!!readonly)}
-        language="yaml"
-        defaultValue={value}
-        onChange={handleChange}
-      />
+    <div className={css.strategyContainer} onKeyDown={preventSubmit}>
+      <Text
+        color={Color.GREY_600}
+        margin={{ bottom: 'small' }}
+        className={css.conditionalExecutionTitle}
+        font={{ weight: 'semi-bold' }}
+      >
+        {getString('pipeline.loopingStrategy.title')}
+      </Text>
+      <div className={css.editor}>
+        <MonacoEditor
+          height={300}
+          options={getDefaultMonacoConfig(!!readonly)}
+          language="yaml"
+          value={value}
+          onChange={handleChange}
+        />
+      </div>
     </div>
   )
 }

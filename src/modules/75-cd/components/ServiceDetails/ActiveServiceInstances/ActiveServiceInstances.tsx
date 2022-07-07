@@ -7,7 +7,8 @@
 
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Card, Layout, Tab, Tabs } from '@wings-software/uicore'
+import { Card, Layout, Tab, Tabs, Text } from '@wings-software/uicore'
+import { Color } from '@harness/design-system'
 import { useStrings } from 'framework/strings'
 import { ActiveServiceInstancesHeader } from '@cd/components/ServiceDetails/ActiveServiceInstances/ActiveServiceInstancesHeader'
 import {
@@ -18,7 +19,10 @@ import {
 } from 'services/cd-ng'
 import type { ProjectPathProps, ServicePathProps } from '@common/interfaces/RouteInterfaces'
 import { ActiveServiceInstancesContent } from '@cd/components/ServiceDetails/ActiveServiceInstances/ActiveServiceInstancesContent'
+import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
+import { FeatureFlag } from '@common/featureFlags'
 import { Deployments } from '../DeploymentView/DeploymentView'
+import InstancesDetailsDialog from './InstancesDetails/InstancesDetailsDialog'
 import css from '@cd/components/ServiceDetails/ActiveServiceInstances/ActiveServiceInstances.module.scss'
 
 export enum ServiceDetailTabs {
@@ -28,6 +32,9 @@ export enum ServiceDetailTabs {
 
 export const ActiveServiceInstances: React.FC = () => {
   const { getString } = useStrings()
+  const [isDetailsDialogOpen, setIsDetailsDialogOpen] = useState<boolean>(false)
+  const isServiceDashboardV2Enabled = useFeatureFlag(FeatureFlag.SERVICE_DASHBOARD_V2)
+
   const { accountId, orgIdentifier, projectIdentifier, serviceId } = useParams<ProjectPathProps & ServicePathProps>()
   const queryParams: GetEnvBuildInstanceCountQueryParams = {
     accountIdentifier: accountId,
@@ -36,7 +43,12 @@ export const ActiveServiceInstances: React.FC = () => {
     serviceId
   }
 
-  const { data: activeInstancedata } = useGetEnvBuildInstanceCount({ queryParams })
+  const {
+    loading: activeInstanceLoading,
+    data: activeInstanceData,
+    error: activeInstanceError,
+    refetch: activeInstanceRefetch
+  } = useGetEnvBuildInstanceCount({ queryParams })
 
   const queryParamsDeployments: GetEnvArtifactDetailsByServiceIdQueryParams = {
     accountIdentifier: accountId,
@@ -51,9 +63,9 @@ export const ActiveServiceInstances: React.FC = () => {
 
   const isDeploymentTab = (): boolean => {
     return Boolean(
-      activeInstancedata &&
+      activeInstanceData &&
         deploymentData &&
-        !(activeInstancedata?.data?.envBuildIdAndInstanceCountInfoList || []).length &&
+        !(activeInstanceData?.data?.envBuildIdAndInstanceCountInfoList || []).length &&
         (deploymentData?.data?.environmentInfoByServiceId || []).length
     )
   }
@@ -66,11 +78,29 @@ export const ActiveServiceInstances: React.FC = () => {
     } else {
       setDefaultTab(ServiceDetailTabs.ACTIVE)
     }
-  }, [deploymentData, activeInstancedata])
+  }, [deploymentData, activeInstanceData])
 
   const handleTabChange = (data: string): void => {
     setDefaultTab(data as ServiceDetailTabs)
   }
+
+  const moreDetails = (
+    <>
+      <Text
+        className={css.moreDetails}
+        font={{ size: 'small', weight: 'semi-bold' }}
+        color={Color.PRIMARY_7}
+        onClick={() => setIsDetailsDialogOpen(true)}
+      >
+        {getString('cd.serviceDashboard.moreDetails')}
+      </Text>
+      <InstancesDetailsDialog
+        data={activeInstanceData?.data?.envBuildIdAndInstanceCountInfoList}
+        isOpen={isDetailsDialogOpen}
+        setIsOpen={setIsDetailsDialogOpen}
+      />
+    </>
+  )
 
   return (
     <Card className={css.activeServiceInstances}>
@@ -82,7 +112,13 @@ export const ActiveServiceInstances: React.FC = () => {
             panel={
               <>
                 <ActiveServiceInstancesHeader />
-                <ActiveServiceInstancesContent />
+                {isServiceDashboardV2Enabled && moreDetails}
+                <ActiveServiceInstancesContent
+                  loading={activeInstanceLoading}
+                  data={activeInstanceData?.data?.envBuildIdAndInstanceCountInfoList}
+                  error={activeInstanceError}
+                  refetch={activeInstanceRefetch}
+                />
               </>
             }
           />

@@ -13,8 +13,7 @@ import { findDialogContainer, TestWrapper } from '@common/utils/testUtils'
 import type { TemplateSelectorLeftViewProps } from '@templates-library/components/TemplateSelector/TemplateSelectorLeftView/TemplateSelectorLeftView'
 import { mockTemplates } from '@templates-library/TemplatesTestHelper'
 import type { TemplateDetailsProps } from '@templates-library/components/TemplateDetails/TemplateDetails'
-import { TemplateSelectorContext } from '@templates-library/components/TemplateSelectorContext/TemplateSelectorContext'
-import { templateSelectorContextMock } from '@templates-library/components/TemplateSelectorContext/stateMocks'
+import { templateSelectorContextMock } from 'framework/Templates/TemplateSelectorContext/stateMocks'
 import { TemplateSelector } from '../TemplateSelector'
 
 jest.mock('@common/components/YAMLBuilder/YamlBuilder')
@@ -54,11 +53,9 @@ describe('<TemplateSelector /> tests', () => {
 
   test('should match snapshot when selected template is not set', async () => {
     const { container, getByRole } = render(
-      <TemplateSelectorContext.Provider value={templateSelectorContextMock}>
-        <TestWrapper>
-          <TemplateSelector />
-        </TestWrapper>
-      </TemplateSelectorContext.Provider>
+      <TestWrapper defaultTemplateSelectorValues={templateSelectorContextMock}>
+        <TemplateSelector />
+      </TestWrapper>
     )
 
     expect(container).toMatchSnapshot()
@@ -87,11 +84,9 @@ describe('<TemplateSelector /> tests', () => {
       set(draft, 'state.selectorData.selectedTemplate', mockTemplates.data?.content?.[0])
     })
     const { getByRole } = render(
-      <TemplateSelectorContext.Provider value={context}>
-        <TestWrapper>
-          <TemplateSelector />
-        </TestWrapper>
-      </TemplateSelectorContext.Provider>
+      <TestWrapper defaultTemplateSelectorValues={context}>
+        <TemplateSelector />
+      </TestWrapper>
     )
 
     const useTemplateBtn = getByRole('button', { name: 'templatesLibrary.useTemplateLabel' })
@@ -106,11 +101,9 @@ describe('<TemplateSelector /> tests', () => {
       })
     })
     const { getByRole } = render(
-      <TemplateSelectorContext.Provider value={context}>
-        <TestWrapper>
-          <TemplateSelector />
-        </TestWrapper>
-      </TemplateSelectorContext.Provider>
+      <TestWrapper defaultTemplateSelectorValues={context}>
+        <TemplateSelector />
+      </TestWrapper>
     )
 
     const copyTemplateBtn = getByRole('button', { name: 'templatesLibrary.copyTemplateLabel' })

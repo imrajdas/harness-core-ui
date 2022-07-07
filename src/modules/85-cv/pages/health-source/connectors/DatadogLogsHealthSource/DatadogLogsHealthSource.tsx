@@ -28,7 +28,7 @@ import type {
 import css from '@cv/pages/health-source/connectors/DatadogLogsHealthSource/DatadogLogsHealthSource.module.scss'
 
 export function DatadogLogsHealthSource(props: DatadogLogsHealthSourceProps): JSX.Element {
-  const { data: sourceData } = props
+  const { data: sourceData, isTemplate, expressions } = props
   const { onPrevious } = useContext(SetupSourceTabsContext)
   const { getString } = useStrings()
   const [rerenderKey, setRerenderKey] = useState('')
@@ -131,7 +131,14 @@ export function DatadogLogsHealthSource(props: DatadogLogsHealthSourceProps): JS
                 isValidInput={formikProps.isValid}
               />
             }
-            content={<DatadogLogsMapToService sourceData={sourceData} formikProps={formikProps} />}
+            content={
+              <DatadogLogsMapToService
+                sourceData={sourceData}
+                formikProps={formikProps}
+                isTemplate={isTemplate}
+                expressions={expressions}
+              />
+            }
           />
           <DrawerFooter isSubmit onPrevious={onPrevious} onNext={formikProps.submitForm} />
         </FormikForm>

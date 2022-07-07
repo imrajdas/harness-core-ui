@@ -221,7 +221,7 @@ const COGatewayAnalytics: React.FC<COGatewayAnalyticsProps> = props => {
 
   const domainProtocol = useMemo(() => {
     const hasHttpsConfig = !_isEmpty(
-      props.service?.data.routing?.ports?.find(portConfig => portConfig.protocol === 'https')
+      props.service?.data.routing?.ports?.find(portConfig => portConfig.protocol?.toLowerCase() === 'https')
     )
     return Utils.getConditionalResult(hasHttpsConfig, 'https', 'http')
   }, [props.service?.data.routing?.ports])

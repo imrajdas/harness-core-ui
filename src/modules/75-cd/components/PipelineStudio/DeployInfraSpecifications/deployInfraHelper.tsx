@@ -132,6 +132,19 @@ export const getInfrastructureDefaultValue = (
         attributeFilters
       }
     }
+    case InfraDeploymentType.SshWinRmAzure: {
+      const { credentialsRef, connectorRef, subscriptionId, resourceGroup, cluster, tags, usePublicDns } =
+        infrastructure?.spec || {}
+      return {
+        credentialsRef,
+        connectorRef,
+        subscriptionId,
+        resourceGroup,
+        cluster,
+        tags,
+        usePublicDns
+      }
+    }
     default: {
       return {}
     }
@@ -189,6 +202,11 @@ export const getInfraGroups = (
               label: getString('connectors.title.pdcConnector'),
               icon: 'pdc',
               value: InfraDeploymentType.PDC
+            },
+            {
+              label: getString('common.azure'),
+              icon: 'service-azure',
+              value: InfraDeploymentType.SshWinRmAzure
             }
           ]
         }

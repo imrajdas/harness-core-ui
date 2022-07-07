@@ -14,7 +14,8 @@ export const deploymentTypeLabel: Record<ServiceDefinition['type'], StringKeys> 
   NativeHelm: 'pipeline.nativeHelm',
   Ssh: 'SSH',
   ServerlessAwsLambda: 'pipeline.serviceDeploymentTypes.serverlessAwsLambda',
-  WinRm: 'pipeline.serviceDeploymentTypes.winrm'
+  WinRm: 'pipeline.serviceDeploymentTypes.winrm',
+  AzureWebApps: 'pipeline.serviceDeploymentTypes.azureWebApps'
 }
 
 export const deploymentTypeIcon: Record<string, IconName> = {

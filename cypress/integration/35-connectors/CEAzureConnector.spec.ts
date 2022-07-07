@@ -33,12 +33,11 @@ describe('CE Azure Connector', () => {
     cy.contains('span', 'Create a Connector').should('be.visible')
     cy.contains('span', 'Create a Connector').click()
 
-    cy.contains('span', 'Cloud Costs').should('be.visible')
     cy.get('[data-cy="Cloud Costs_Azure"]').click()
     cy.contains('span', 'Azure Connector').should('be.visible')
 
     // Overview step
-    cy.contains('p', 'Overview').should('be.visible')
+    cy.get('[data-cy="azure-overview"]').should('be.visible')
     cy.fillName('testConnector')
     cy.fillField('tenantId', '902ce9bd-e39e-4972-8a0c-5a4e39b96bd8')
     cy.fillField('subscriptionId', '2b7651d4-7034-4af5-ab7d-c53f98d69afa')

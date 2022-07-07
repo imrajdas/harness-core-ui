@@ -23,6 +23,7 @@ import { getStepPaletteModuleInfosFromStage } from '@pipeline/utils/stepUtils'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { FeatureFlag } from '@common/featureFlags'
 import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
+import { useTemplateSelector } from 'framework/Templates/TemplateSelectorContext/useTemplateSelector'
 
 interface AddStepTemplateReturnType {
   addTemplate: (event: ExecutionGraphAddStepEvent) => Promise<void>
@@ -44,9 +45,9 @@ export function useAddStepTemplate(props: AddStepTemplate): AddStepTemplateRetur
     },
     updateStage,
     getStageFromPipeline,
-    updatePipelineView,
-    getTemplate
+    updatePipelineView
   } = pipelineContext
+  const { getTemplate } = useTemplateSelector()
   const { stage: selectedStage } = getStageFromPipeline(selectedStageId)
   const [allChildTypes, setAllChildTypes] = React.useState<string[]>([])
 

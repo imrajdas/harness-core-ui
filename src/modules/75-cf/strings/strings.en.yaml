@@ -374,6 +374,7 @@ environments:
     title: 'SDK Keys'
     emptyName: 'SDK Key name is required'
     addKey: '+ New SDK Key'
+    duplicateKey: 'A SDK key with this name already exists. Try another name'
     clientType: '{{ $.cf.testTheFlag.sdkClient }}'
     clientDescription: 'A client id will be generated as your client-side SDK key.'
     serverType: '{{ $.cf.testTheFlag.sdkServer }}'

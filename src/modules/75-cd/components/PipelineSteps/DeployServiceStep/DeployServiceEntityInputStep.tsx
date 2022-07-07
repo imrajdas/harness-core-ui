@@ -18,11 +18,13 @@ import {
 } from '@harness/uicore'
 import { defaultTo, get, isEmpty } from 'lodash-es'
 import type { FormikContextType, FormikValues } from 'formik'
+import { connect } from 'formik'
 import { useModalHook } from '@harness/use-modal'
 import type { IDialogProps } from '@blueprintjs/core'
 import { useStrings } from 'framework/strings'
 import { useVariablesExpression } from '@pipeline/components/PipelineStudio/PiplineHooks/useVariablesExpression'
 import {
+  ServiceDefinition,
   ServiceResponseDTO,
   ServiceYaml,
   useGetRuntimeInputsServiceEntity,
@@ -48,7 +50,8 @@ function DeployServiceEntityInputStep({
   initialValues,
   inputSetData,
   formik,
-  allowableTypes
+  allowableTypes,
+  customStepProps
 }: DeployServiceProps & { formik?: FormikContextType<unknown> }): React.ReactElement | null {
   const { getString } = useStrings()
   const { expressions } = useVariablesExpression()
@@ -78,7 +81,11 @@ function DeployServiceEntityInputStep({
     loading: serviceListLoading,
     refetch: refetchServiceList
   } = useGetServiceAccessList({
-    queryParams
+    queryParams: {
+      ...queryParams,
+      type: customStepProps?.deploymentType as ServiceDefinition['type'],
+      gitOpsEnabled: defaultTo(customStepProps?.gitOpsEnabled, false)
+    }
   })
 
   const { data: serviceInputsResponse, refetch: refetchServiceInputs } = useGetRuntimeInputsServiceEntity({
@@ -106,7 +113,10 @@ function DeployServiceEntityInputStep({
     if (initialValues.serviceRef) {
       const serviceInputsTemplate = get(template, `${inputSetData?.path}.serviceInputs`)
       const serviceInputsFormikValue = get(formik?.values, `${inputSetData?.path}.serviceInputs`)
-      if (isEmpty(serviceInputsTemplate) && !isEmpty(serviceInputsFormikValue)) {
+      if (
+        getMultiTypeFromValue(serviceInputsTemplate) === MultiTypeInputType.RUNTIME &&
+        !isEmpty(serviceInputsFormikValue)
+      ) {
         refetchServiceInputs({
           pathParams: {
             serviceIdentifier: initialValues.serviceRef
@@ -120,15 +130,18 @@ function DeployServiceEntityInputStep({
 
   useEffect(() => {
     const serviceInputsData = serviceInputsResponse?.data?.inputSetTemplateYaml
-
     if (serviceInputsData) {
       const serviceInputSetResponse = yamlParse<ServiceInputsConfig>(defaultTo(serviceInputsData, ''))
       if (serviceInputSetResponse) {
-        formik?.setFieldValue(
-          `${isEmpty(inputSetData?.path) ? '' : `${inputSetData?.path}.`}serviceInputs`,
-          clearRuntimeInput(serviceInputSetResponse?.serviceInputs)
-        )
         updateTemplate(serviceInputSetResponse?.serviceInputs, `${inputSetData?.path}.serviceInputs`)
+
+        const serviceInputsFormikValue = get(formik?.values, `${inputSetData?.path}.serviceInputs`)
+        if (isEmpty(serviceInputsFormikValue)) {
+          formik?.setFieldValue(
+            `${inputSetData?.path}.serviceInputs`,
+            clearRuntimeInput(serviceInputSetResponse?.serviceInputs)
+          )
+        }
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -176,7 +189,7 @@ function DeployServiceEntityInputStep({
         />
       </Dialog>
     ),
-    [selectedServiceResponse]
+    [selectedServiceResponse, serviceDataLoading]
   )
   const onClose = useCallback(() => {
     hideModal()
@@ -209,7 +222,7 @@ function DeployServiceEntityInputStep({
                 items: services
               },
               onChange: (value: any) => {
-                if (isEmpty(value.value)) {
+                if (isEmpty(value?.value)) {
                   formik?.setFieldValue(
                     `${isEmpty(inputSetData?.path) ? '' : `${inputSetData?.path}.`}serviceInputs`,
                     {}
@@ -259,4 +272,4 @@ function DeployServiceEntityInputStep({
   )
 }
 
-export default DeployServiceEntityInputStep
+export const DeployServiceEntityInputStepFormik = connect(DeployServiceEntityInputStep)

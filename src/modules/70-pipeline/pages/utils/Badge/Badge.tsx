@@ -12,8 +12,8 @@ import { Color } from '@harness/design-system'
 import type { InputSetErrorResponse } from 'services/pipeline-ng'
 import { useStrings } from 'framework/strings'
 import type { StringsMap } from 'stringTypes'
-import { getErrorsList } from '@pipeline/components/PipelineStudio/StepUtil'
 import { getFormattedErrors } from '@pipeline/utils/runPipelineUtils'
+import { getErrorsList } from '@pipeline/utils/errorUtils'
 import css from './Badge.module.scss'
 
 export interface BadgeProps {

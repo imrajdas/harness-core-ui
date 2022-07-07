@@ -21,6 +21,7 @@ import { ResourceCategory, ResourceType } from '@rbac/interfaces/ResourceType'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import AuditTrailFactory, { ResourceScope } from '@audit-trail/factories/AuditTrailFactory'
 import type { AuditEventData, ResourceDTO } from 'services/audit'
+import { PAGE_NAME } from '@common/pages/pageContext/PageName'
 import { GovernanceRemoteComponentMounter } from './GovernanceApp'
 
 export const AccountSideNavProps: SidebarContext = {
@@ -123,7 +124,11 @@ export const GovernanceRouteDestinations: React.FC<{
       <Route path={routes.toGovernance(pathProps)} exact>
         <RedirectToDefaultGovernanceRoute />
       </Route>
-      <RouteWithLayout path={routes.toGovernance(pathProps)} sidebarProps={sidebarProps}>
+      <RouteWithLayout
+        path={routes.toGovernance(pathProps)}
+        sidebarProps={sidebarProps}
+        pageName={PAGE_NAME.OPAPolicyDashboard}
+      >
         <GovernanceRemoteComponentMounter
           spinner={
             <Container height="100%" flex={{ align: 'center-center' }}>

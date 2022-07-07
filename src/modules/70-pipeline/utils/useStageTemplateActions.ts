@@ -13,6 +13,7 @@ import type { StageElementConfig } from 'services/cd-ng'
 import { usePipelineContext } from '@pipeline/components/PipelineStudio/PipelineContext/PipelineContext'
 import { createTemplate, getStageType } from '@pipeline/utils/templateUtils'
 import type { TemplateSummaryResponse } from 'services/template-ng'
+import { useTemplateSelector } from 'framework/Templates/TemplateSelectorContext/useTemplateSelector'
 
 interface TemplateActionsReturnType {
   addOrUpdateTemplate: (selectedTemplate?: TemplateSummaryResponse) => Promise<void>
@@ -26,17 +27,17 @@ export function useStageTemplateActions(): TemplateActionsReturnType {
       templateTypes
     },
     updateStage,
-    getStageFromPipeline,
-    getTemplate
+    getStageFromPipeline
   } = usePipelineContext()
   const { stage } = getStageFromPipeline(selectedStageId)
+  const { getTemplate } = useTemplateSelector()
 
   const addOrUpdateTemplate = useCallback(
     async (selectedTemplate?: TemplateSummaryResponse) => {
       try {
         const { template, isCopied } = await getTemplate({
           templateType: 'Stage',
-          selectedChildType: getStageType(stage?.stage, templateTypes),
+          allChildTypes: [getStageType(stage?.stage, templateTypes)],
           selectedTemplate
         })
         const node = stage?.stage

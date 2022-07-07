@@ -38,6 +38,7 @@ const BranchSettingsButton = ({ isSettingsOpen, setIsSettingsOpen, isLoading }: 
         onInteraction: nextOpenState => setIsSettingsOpen(nextOpenState)
       }}
       tooltip={<SettingsMenu />}
+      onClick={e => e.preventDefault()}
     >
       <Container className={css.branchActionButtonWrapper}>
         <Icon name="git-new-branch" size={15} />

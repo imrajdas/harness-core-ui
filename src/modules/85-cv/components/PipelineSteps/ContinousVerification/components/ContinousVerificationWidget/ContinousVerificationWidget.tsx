@@ -21,13 +21,7 @@ import { useFeatureFlags } from '@common/hooks/useFeatureFlag'
 import type { ContinousVerificationData } from '../../types'
 import type { ContinousVerificationWidgetProps } from './types'
 import { ContinousVerificationWidgetSections } from './components/ContinousVerificationWidgetSections/ContinousVerificationWidgetSections'
-import { MONITORED_SERVICE_TYPE } from './components/ContinousVerificationWidgetSections/components/SelectMonitoredServiceType/SelectMonitoredServiceType.constants'
-import {
-  configuredMonitoredServiceRefValidation,
-  getMonitoredServiceRefFromType,
-  healthSourcesValidation,
-  monitoredServiceRefValidation
-} from './ContinousVerificationWidget.utils'
+import { getMonitoredServiceRefFromType, validateMonitoredService } from './ContinousVerificationWidget.utils'
 
 /**
  * Spec
@@ -38,27 +32,40 @@ export function ContinousVerificationWidget(
   { initialValues, onUpdate, isNewStep, stepViewType, onChange, allowableTypes }: ContinousVerificationWidgetProps,
   formikRef: StepFormikFowardRef
 ): JSX.Element {
-  const values = { ...initialValues, spec: { ...initialValues.spec } }
+  const values = {
+    ...initialValues,
+    spec: {
+      ...initialValues.spec,
+      ...(initialValues?.spec?.monitoredService && { initialMonitoredService: initialValues?.spec?.monitoredService })
+    }
+  }
   const { getString } = useStrings()
   const { CVNG_TEMPLATE_VERIFY_STEP } = useFeatureFlags()
 
   const validateForm = (formData: ContinousVerificationData): FormikErrors<ContinousVerificationData> => {
-    const errors: FormikErrors<ContinousVerificationData> = {}
+    let errors: FormikErrors<ContinousVerificationData> = {}
     const {
       healthSources = [],
       monitoredService: { type },
-      monitoredService
+      monitoredService,
+      initialMonitoredService
     } = formData?.spec || {}
-    let spec = {}
+
     const monitoredServiceRef = getMonitoredServiceRefFromType(monitoredService, type, formData)
-    // no validation for default monitored service when stepViewType is Template
-    if (type === MONITORED_SERVICE_TYPE.DEFAULT && stepViewType !== 'Template') {
-      spec = monitoredServiceRefValidation(monitoredServiceRef, spec, errors)
-      spec = healthSourcesValidation(monitoredServiceRef, healthSources, spec, getString, errors)
-    } else if (type === MONITORED_SERVICE_TYPE.CONFIGURED) {
-      spec = configuredMonitoredServiceRefValidation(monitoredServiceRef, spec, errors)
-      healthSourcesValidation(monitoredServiceRef, healthSources, spec, getString, errors)
-    }
+    const { monitoredServiceTemplateRef = '', templateInputs = {} as unknown } = monitoredService?.spec || {}
+    const { templateInputs: initialTemplateInputs = {} } = initialMonitoredService?.spec || {}
+    const templateInputsToValidate = (!isEmpty(initialTemplateInputs) ? initialTemplateInputs : templateInputs) as any
+    errors = validateMonitoredService(
+      type,
+      stepViewType,
+      monitoredServiceRef,
+      errors,
+      healthSources,
+      getString,
+      monitoredServiceTemplateRef,
+      templateInputsToValidate,
+      templateInputs
+    )
     return errors
   }
 

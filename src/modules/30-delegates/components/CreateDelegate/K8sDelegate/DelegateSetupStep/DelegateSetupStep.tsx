@@ -42,11 +42,13 @@ import {
   FormikForAddDescriptionandKVTags
 } from '@common/components/AddDescriptionAndTags/AddDescriptionAndTags'
 
-import { DelegateSize } from '@delegates/constants'
+import { DelegateSize, isHelmDelegateEnabled } from '@delegates/constants'
 import { useCreateTokenModal } from '@delegates/components/DelegateTokens/modals/useCreateTokenModal'
 import { useTelemetry } from '@common/hooks/useTelemetry'
 import { Category, DelegateActions } from '@common/constants/TrackingConstants'
+import SelectDelegateType, { FormikForSelectDelegateType } from './components/SelectDelegateType'
 import DelegateSizes from '../../components/DelegateSizes/DelegateSizes'
+import { DelegateType } from './DelegateSetupStep.types'
 
 import css from './DelegateSetupStep.module.scss'
 
@@ -116,6 +118,7 @@ const DelegateSetup: React.FC<StepProps<K8sDelegateWizardData> & DelegateSetupSt
       name: '',
       identifier: '',
       description: '',
+      delegateType: '',
       size: DelegateSize.LAPTOP,
       sesssionIdentifier: '',
       tokenName: '',
@@ -128,6 +131,7 @@ const DelegateSetup: React.FC<StepProps<K8sDelegateWizardData> & DelegateSetupSt
 
   const { accountId, orgIdentifier, projectIdentifier } = useParams<ProjectPathProps>()
   const { getString } = useStrings()
+  const IS_HELM_DELEGATE_ENABLED: boolean = isHelmDelegateEnabled()
 
   const { mutate: createKubernetesYaml } = useValidateKubernetesYaml({
     queryParams: { accountId, projectId: projectIdentifier, orgId: orgIdentifier }
@@ -191,7 +195,12 @@ const DelegateSetup: React.FC<StepProps<K8sDelegateWizardData> & DelegateSetupSt
     if (orgIdentifier) {
       set(createParams, 'orgIdentifier', orgIdentifier)
     }
-    set(createParams, 'delegateType', 'KUBERNETES')
+
+    if (createParams.delegateType) {
+      set(createParams, 'delegateType', values.delegateType)
+    } else {
+      set(createParams, 'delegateType', DelegateType.KUBERNETES)
+    }
 
     trackEvent(DelegateActions.SetupDelegate, {
       category: Category.DELEGATE,
@@ -256,7 +265,10 @@ const DelegateSetup: React.FC<StepProps<K8sDelegateWizardData> & DelegateSetupSt
                   ? Yup.string().trim().required(getString('delegates.delegateNamespaceRequired'))
                   : Yup.string().trim()
             }),
-            tokenName: Yup.string().trim().required()
+            tokenName: Yup.string().trim().required(),
+            delegateType: IS_HELM_DELEGATE_ENABLED
+              ? Yup.string().required(getString('delegates.delegateCreation.installerSelectionRequired'))
+              : Yup.string().trim()
           })}
         >
           {(formikProps: FormikProps<DelegateSetupDetails>) => {
@@ -282,6 +294,11 @@ const DelegateSetup: React.FC<StepProps<K8sDelegateWizardData> & DelegateSetupSt
                           onSizeSelect={(size: string) => {
                             formikProps.setFieldValue('size', size)
                           }}
+                        />
+                      )}
+                      {IS_HELM_DELEGATE_ENABLED && (
+                        <SelectDelegateType
+                          formikProps={formikProps as unknown as FormikProps<FormikForSelectDelegateType>}
                         />
                       )}
                       {profileOptions?.length > 0 && (

@@ -45,7 +45,7 @@ export function Environments() {
   const { accountId, orgIdentifier, projectIdentifier, module } = useParams<ProjectPathProps & ModulePathParams>()
 
   const [showCreateModal, hideCreateModal] = useModalHook(
-    () => (
+    /* istanbul ignore next */ () => (
       <Dialog
         isOpen={true}
         enforceFocus={false}
@@ -91,7 +91,7 @@ export function Environments() {
     [orgIdentifier, projectIdentifier]
   )
 
-  const handleCustomSortChange = (value: string) => {
+  const handleCustomSortChange = /* istanbul ignore next */ (value: string) => {
     return value === SortFields.AZ09
       ? [SortFields.Name, Sort.ASC]
       : value === SortFields.ZA90

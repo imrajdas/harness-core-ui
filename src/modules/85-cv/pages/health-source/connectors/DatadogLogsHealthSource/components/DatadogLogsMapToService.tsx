@@ -6,7 +6,15 @@
  */
 
 import React, { useCallback, useMemo, useState } from 'react'
-import { Accordion, Container, FormInput, Layout, Utils } from '@wings-software/uicore'
+import {
+  Accordion,
+  Container,
+  FormInput,
+  getMultiTypeFromValue,
+  Layout,
+  MultiTypeInputType,
+  Utils
+} from '@wings-software/uicore'
 import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 import { SetupSourceCardHeader } from '@cv/components/CVSetupSourcesView/SetupSourceCardHeader/SetupSourceCardHeader'
@@ -20,7 +28,7 @@ import type { DatadogLogsMapToServiceProps } from '@cv/pages/health-source/conne
 import css from '@cv/pages/health-source/connectors/DatadogLogsHealthSource/components/DatadogLogsMapToService.module.scss'
 
 export default function DatadogLogsMapToService(props: DatadogLogsMapToServiceProps): JSX.Element {
-  const { sourceData, formikProps } = props
+  const { sourceData, formikProps, isTemplate, expressions } = props
   const { projectIdentifier, orgIdentifier, accountId } = useParams<ProjectPathProps & { identifier: string }>()
   const { getString } = useStrings()
   const [records, setRecords] = useState<Record<string, any>[]>([])
@@ -29,12 +37,21 @@ export default function DatadogLogsMapToService(props: DatadogLogsMapToServicePr
   const values = formikProps?.values
   const query = useMemo(() => (values?.query?.length ? values.query : ''), [values])
 
+  const connectorIdentifier = sourceData?.connectorRef?.value || (sourceData.connectorRef as string)
+  const isConnectorRuntimeOrExpression = getMultiTypeFromValue(connectorIdentifier) !== MultiTypeInputType.FIXED
+
+  React.useEffect(() => {
+    if (isConnectorRuntimeOrExpression) {
+      formikProps.setFieldValue('query', '<+input>')
+    }
+  }, [isConnectorRuntimeOrExpression])
+
   const { data: indexes } = useGetDatadogLogIndexes({
     queryParams: {
       projectIdentifier,
       orgIdentifier,
       accountId,
-      connectorIdentifier: sourceData.connectorRef as string,
+      connectorIdentifier,
       tracingId: logIndexesTracingId
     }
   })
@@ -44,7 +61,7 @@ export default function DatadogLogsMapToService(props: DatadogLogsMapToServicePr
       projectIdentifier,
       orgIdentifier,
       tracingId: Utils.randomId(),
-      connectorIdentifier: sourceData.connectorRef as string
+      connectorIdentifier
     }),
     [accountId, projectIdentifier, orgIdentifier, sourceData.connectorRef]
   )
@@ -111,22 +128,44 @@ export default function DatadogLogsMapToService(props: DatadogLogsMapToServicePr
                     label={getString('cv.monitoringSources.queryNameLabel')}
                     name={MapDatadogLogsFieldNames.METRIC_NAME}
                   />
-                  <FormInput.MultiSelect
-                    label={getString('cv.monitoringSources.datadogLogs.logIndexesLabel')}
-                    name={MapDatadogLogsFieldNames.INDEXES}
-                    items={logIndexesOptions}
-                    onChange={selectedOptions => {
-                      formikProps.setFieldValue(MapDatadogLogsFieldNames.INDEXES, selectedOptions)
-                    }}
-                  />
-                  <FormInput.Select
-                    label={getString('cv.monitoringSources.serviceInstanceIdentifier')}
-                    name={MapDatadogLogsFieldNames.SERVICE_INSTANCE_IDENTIFIER_TAG}
-                    items={hostIdentifierKeysOptions}
-                    onChange={event => {
-                      formikProps.setFieldValue(MapDatadogLogsFieldNames.SERVICE_INSTANCE_IDENTIFIER_TAG, event.value)
-                    }}
-                  />
+                  {isTemplate ? (
+                    <FormInput.MultiSelectTypeInput
+                      label={getString('cv.monitoringSources.datadogLogs.logIndexesLabel')}
+                      name={MapDatadogLogsFieldNames.INDEXES}
+                      selectItems={logIndexesOptions}
+                      multiSelectTypeInputProps={{
+                        expressions
+                      }}
+                    />
+                  ) : (
+                    <FormInput.MultiSelect
+                      label={getString('cv.monitoringSources.datadogLogs.logIndexesLabel')}
+                      name={MapDatadogLogsFieldNames.INDEXES}
+                      items={logIndexesOptions}
+                      onChange={selectedOptions => {
+                        formikProps.setFieldValue(MapDatadogLogsFieldNames.INDEXES, selectedOptions)
+                      }}
+                    />
+                  )}
+                  {isTemplate ? (
+                    <FormInput.MultiTypeInput
+                      label={getString('cv.monitoringSources.serviceInstanceIdentifier')}
+                      name={MapDatadogLogsFieldNames.SERVICE_INSTANCE_IDENTIFIER_TAG}
+                      selectItems={hostIdentifierKeysOptions}
+                      multiTypeInputProps={{
+                        expressions
+                      }}
+                    />
+                  ) : (
+                    <FormInput.Select
+                      label={getString('cv.monitoringSources.serviceInstanceIdentifier')}
+                      name={MapDatadogLogsFieldNames.SERVICE_INSTANCE_IDENTIFIER_TAG}
+                      items={hostIdentifierKeysOptions}
+                      onChange={event => {
+                        formikProps.setFieldValue(MapDatadogLogsFieldNames.SERVICE_INSTANCE_IDENTIFIER_TAG, event.value)
+                      }}
+                    />
+                  )}
                 </Container>
               }
             />
@@ -141,6 +180,9 @@ export default function DatadogLogsMapToService(props: DatadogLogsMapToServicePr
             error={error}
             query={formikProps?.values?.query || ''}
             dataTooltipId={'datadogQuery'}
+            isTemplate={isTemplate}
+            expressions={expressions}
+            isConnectorRuntimeOrExpression={isConnectorRuntimeOrExpression}
           />
         </Layout.Horizontal>
       </Card>

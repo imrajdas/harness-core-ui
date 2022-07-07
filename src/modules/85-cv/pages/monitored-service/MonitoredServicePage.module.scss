@@ -27,19 +27,3 @@
 .pageBody {
   max-height: calc(100vh - 140px);
 }
-
-.serviceAndEnv {
-  width: 500px;
-  margin: var(--spacing-large);
-}
-
-.healthSourceTableItem {
-  white-space: nowrap;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-}
-
-.inputsetContainer {
-  display: flex !important;
-  justify-content: center;
-}

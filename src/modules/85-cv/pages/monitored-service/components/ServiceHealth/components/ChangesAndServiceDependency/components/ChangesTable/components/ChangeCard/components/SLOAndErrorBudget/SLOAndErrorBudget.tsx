@@ -85,7 +85,7 @@ const SLOAndErrorBudget: React.FC<SLOAndErrorBudgetProps> = ({
 
   if (data?.resource?.length === 0) {
     return (
-      <Container margin={{ top: 'large' }} padding="small" className={css.noSlo}>
+      <Container margin={{ top: 'small' }} padding="small" className={css.noSlo}>
         <Text font={{ variation: FontVariation.SMALL }} color={Color.GREY_600}>
           {getString('cv.noSLOHasBeenCreated')}
         </Text>
@@ -94,7 +94,7 @@ const SLOAndErrorBudget: React.FC<SLOAndErrorBudgetProps> = ({
   }
 
   return (
-    <Container margin={{ top: 'large' }}>
+    <Container margin={{ top: 'small' }}>
       <Container flex={{ justifyContent: 'center' }} padding={{ top: 'medium', bottom: 'medium' }}>
         <PillToggle {...toggleProps} />
       </Container>

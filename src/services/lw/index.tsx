@@ -57,6 +57,7 @@ export interface AccessPoint {
   region?: string
   security_groups?: string[]
   status?: 'created' | 'submitted' | 'errored'
+  status_msg?: string
   subnets?: string[]
   type?: string
   vpc?: string

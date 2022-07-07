@@ -89,7 +89,25 @@ describe('Environment Group Tests', () => {
   })
 
   test('opens create environment group modal', async () => {
-    jest.spyOn(cdNgServices, 'getEnvironmentListPromise').mockImplementation(() => Promise.resolve({}))
+    jest.spyOn(cdNgServices, 'getEnvironmentListPromise').mockImplementation(() =>
+      Promise.resolve({
+        data: {
+          content: [
+            {
+              lastModifiedAt: 123456789,
+              createdAt: 123456789,
+              environment: {
+                name: 'Env 1',
+                identifier: 'Env_1',
+                tags: {
+                  tag1: ''
+                }
+              }
+            }
+          ]
+        }
+      })
+    )
     jest.spyOn(cdNgServices, 'useGetYamlSchema').mockImplementation(() => getResolutionHelper(null, false))
 
     await act(async () => {

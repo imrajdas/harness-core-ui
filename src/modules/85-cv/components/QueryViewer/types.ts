@@ -44,6 +44,9 @@ export interface QueryViewerProps {
   recordsClassName?: string
   fetchEntityName?: string
   dataTooltipId?: string
+  isTemplate?: boolean
+  expressions?: string[]
+  isConnectorRuntimeOrExpression?: boolean
 }
 
 export interface QueryViewDialogProps extends RecordsProps {

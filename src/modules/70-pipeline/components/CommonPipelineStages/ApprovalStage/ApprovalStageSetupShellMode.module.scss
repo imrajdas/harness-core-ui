@@ -16,6 +16,16 @@
     padding-right: var(--spacing-medium);
   }
 
+  :global(.bp3-icon) {
+    &[data-icon='custom-approval'] {
+      > svg {
+        path:nth-child(2) {
+          fill: var(--grey-900) !important;
+        }
+      }
+    }
+  }
+
   .fullHeight {
     height: 100%;
     &.stepGroup {

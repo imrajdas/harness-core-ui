@@ -187,3 +187,23 @@
     padding: 0 var(--spacing-huge) var(--spacing-huge) var(--spacing-huge) !important;
   }
 }
+
+.cvEnableSwitch {
+  display: flex;
+  align-items: center;
+  margin-top: var(--spacing-4);
+
+  :global {
+    .bp3-control-indicator {
+      margin-top: 1px;
+    }
+  }
+}
+
+.enableVerificationDetail {
+  max-width: 60%;
+}
+
+.enableVerificationImage {
+  max-width: 100%;
+}

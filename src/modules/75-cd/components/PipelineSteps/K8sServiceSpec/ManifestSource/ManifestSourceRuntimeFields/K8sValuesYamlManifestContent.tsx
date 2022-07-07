@@ -16,6 +16,7 @@ import type { ManifestSourceRenderProps } from '@cd/factory/ManifestSourceFactor
 import { isFieldRuntime } from '../../K8sServiceSpecHelper'
 import { isFieldfromTriggerTabDisabled } from '../ManifestSourceUtils'
 import ManifestGitStoreRuntimeFields from './ManifestGitStoreRuntimeFields'
+import CustomRemoteManifestRuntimeFields from './CustomRemoteManifestRuntimeFields'
 import css from '../../KubernetesManifests/KubernetesManifests.module.scss'
 
 interface K8sValuesYamlManifestRenderProps extends ManifestSourceRenderProps {
@@ -58,7 +59,7 @@ const K8sValuesYamlManifestContent = (props: K8sValuesYamlManifestRenderProps): 
       className={cx(css.inputWidth, css.layoutVerticalSpacing)}
     >
       <ManifestGitStoreRuntimeFields {...props} />
-
+      <CustomRemoteManifestRuntimeFields {...props} />
       {isFieldRuntime(`${manifestPath}.spec.store.spec.paths`, template) && (
         <div className={css.verticalSpacingInput}>
           <List

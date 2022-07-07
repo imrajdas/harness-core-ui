@@ -1,0 +1,22 @@
+{
+  "status": "SUCCESS",
+  "data": {
+    "environment": {
+      "accountId": "accountId",
+      "orgIdentifier": "default",
+      "projectIdentifier": "project1",
+      "identifier": "testEnvConfig",
+      "name": "testEnvConfig",
+      "description": null,
+      "color": "#0063F7",
+      "type": "PreProduction",
+      "deleted": false,
+      "tags": {},
+      "yaml": "environment:\n  orgIdentifier: \"default\"\n  projectIdentifier: \"project1\"\n  identifier: \"testEnvConfig\"\n  tags: {}\n  name: \"testEnvConfig\"\n  type: \"PreProduction\"\n"
+    },
+    "createdAt": 1654151654434,
+    "lastModifiedAt": 1654151654434
+  },
+  "metaData": null,
+  "correlationId": "1467944e-0e73-457f-bb6b-5cbbf5a5e73f"
+}

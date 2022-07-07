@@ -12,11 +12,8 @@ import { Card, Container, Layout, Text } from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
 import { useParams } from 'react-router-dom'
 import moment from 'moment'
-import type { ChangeEventDTO, HarnessCDEventMetadata, VerifyStepSummary } from 'services/cv'
+import type { ChangeEventDTO, HarnessCDEventMetadata } from 'services/cv'
 import { useStrings } from 'framework/strings'
-import { verificationResultToIcon } from '@cv/components/ActivitiesTimelineView/TimelineTooltip'
-import VerificationStatusCard from '@cv/components/ExecutionVerification/components/DeploymentProgressAndNodes/components/VerificationStatusCard/VerificationStatusCard'
-import type { EventData } from '@cv/components/ActivitiesTimelineView/ActivitiesTimelineView'
 import ChangeEventServiceHealth from '@cv/pages/monitored-service/components/ServiceHealth/components/ChangesAndServiceDependency/components/ChangesTable/components/ChangeCard/components/ChangeEventServiceHealth/ChangeEventServiceHealth'
 import SLOAndErrorBudget from '@cv/pages/monitored-service/components/ServiceHealth/components/ChangesAndServiceDependency/components/ChangesTable/components/ChangeCard/components/SLOAndErrorBudget/SLOAndErrorBudget'
 import { useGetExecutionDetailV2 } from 'services/pipeline-ng'
@@ -71,7 +68,7 @@ export default function HarnessNextGenEventCard({ data }: { data: ChangeEventDTO
   return (
     <Card className={css.main}>
       <ChangeTitleForHarness changeTitleData={changeTitleData} />
-      <Divider className={css.divider} />
+      <Container margin={{ top: 'medium', bottom: 'medium' }} height={1} background={Color.GREY_200} />
 
       <ChangeDetails
         ChangeDetailsData={{
@@ -82,17 +79,32 @@ export default function HarnessNextGenEventCard({ data }: { data: ChangeEventDTO
             component: (
               <>
                 <Layout.Vertical width="max-content">
-                  <Layout.Horizontal flex margin={{ bottom: 'medium' }}>
-                    <UserLabel name={identifier || extraInfo?.emai} email={extraInfo?.email} iconProps={{ size: 16 }} />
+                  <Layout.Horizontal
+                    flex={{ justifyContent: 'flex-start', alignItems: 'center' }}
+                    spacing="small"
+                    margin={{ bottom: 'medium' }}
+                  >
+                    <UserLabel
+                      name={identifier || extraInfo?.emai}
+                      email={extraInfo?.email}
+                      iconProps={{ size: 16 }}
+                      textProps={{ font: { size: 'small', weight: 'semi-bold' }, color: Color.BLACK_100 }}
+                    />
+                    <Divider className={css.verticalDivider} />
                     <Text
-                      font={{ size: 'small' }}
+                      font={{ size: 'small', weight: 'semi-bold' }}
                       margin={{ left: 'small', right: 'small' }}
-                      flex={{ align: 'center-center' }}
+                      color={Color.BLACK_100}
                     >
                       {triggerType}
                     </Text>
 
-                    <Text icon={'calendar'} iconProps={{ size: 12 }} font={{ size: 'small' }}>
+                    <Text
+                      icon={'calendar'}
+                      iconProps={{ size: 12 }}
+                      font={{ size: 'small', weight: 'semi-bold' }}
+                      color={Color.BLACK_100}
+                    >
                       {timePassed}
                       {getString('cv.changeSource.changeSourceCard.ago')}
                     </Text>
@@ -109,27 +121,7 @@ export default function HarnessNextGenEventCard({ data }: { data: ChangeEventDTO
         }}
       />
 
-      <Divider className={css.divider} />
-      {!!verifyStepSummaries?.length && (
-        <Container margin={{ bottom: 'var(--spacing-small)' }}>
-          <Text font={{ size: 'medium', weight: 'bold' }} color={Color.GREY_800}>
-            {getString('cv.changeSource.changeSourceCard.deploymentHealth')}
-          </Text>
-          <Container className={css.verificationContainer}>
-            {verifyStepSummaries.map(item => {
-              const icon = verificationResultToIcon(item.verificationStatus as EventData['verificationResult'])
-              return (
-                <Container className={css.flexColumn} key={item.name}>
-                  <Text icon={icon} className={css.summarylabel} font={{ size: 'xsmall' }} color={Color.GREY_400}>
-                    {item.name}
-                  </Text>
-                  <VerificationStatusCard status={item.verificationStatus as VerifyStepSummary['verificationStatus']} />
-                </Container>
-              )
-            })}
-          </Container>
-        </Container>
-      )}
+      <Container margin={{ top: 'medium', bottom: 'medium' }} height={1} background={Color.GREY_200} />
       {data.eventTime && data.monitoredServiceIdentifier && (
         <>
           <ChangeEventServiceHealth
@@ -138,6 +130,8 @@ export default function HarnessNextGenEventCard({ data }: { data: ChangeEventDTO
             eventType={data.type}
             timeStamps={timeStamps}
             setTimestamps={setTimestamps}
+            title={getString('cv.changeSource.changeSourceCard.deploymentHealth')}
+            verifyStepSummaries={verifyStepSummaries}
           />
           <SLOAndErrorBudget
             monitoredServiceIdentifier={data.monitoredServiceIdentifier}

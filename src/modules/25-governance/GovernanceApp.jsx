@@ -15,9 +15,8 @@ import { returnUrlParams } from '@common/utils/routeUtils'
 import { NGBreadcrumbs } from '@common/components/NGBreadcrumbs/NGBreadcrumbs'
 import AppErrorBoundary from 'framework/utils/AppErrorBoundary/AppErrorBoundary'
 import { useStrings } from 'framework/strings'
-import { getLoginPageURL } from 'framework/utils/SessionUtils'
-import { GitSyncStoreProvider, GitSyncStoreContext, useGitSyncStore } from 'framework/GitRepoStore/GitSyncStoreContext'
-import { AppStoreContext, useAppStore } from 'framework/AppStore/AppStoreContext'
+import { GitSyncStoreProvider, useGitSyncStore } from 'framework/GitRepoStore/GitSyncStoreContext'
+import { useAppStore } from 'framework/AppStore/AppStoreContext'
 import RbacButton from '@rbac/components/Button/Button'
 import RbacOptionsMenuButton from '@rbac/components/RbacOptionsMenuButton/RbacOptionsMenuButton'
 import { usePermission } from '@rbac/hooks/usePermission'
@@ -28,6 +27,7 @@ import SessionToken from 'framework/utils/SessionToken'
 import { global401HandlerUtils } from '@common/utils/global401HandlerUtils'
 import { useAnyEnterpriseLicense, useCurrentEnterpriseLicense } from '@common/hooks/useModuleLicenses'
 import { useLicenseStore } from 'framework/LicenseStore/LicenseStoreContext'
+import { OverviewChartsWithToggle } from '@common/components/OverviewChartsWithToggle/OverviewChartsWithToggle'
 
 // Due to some typing complexity, governance/App is lazily imported
 // from a .js file for now
@@ -72,7 +72,8 @@ export const GovernanceRemoteComponentMounter = props => {
             RbacButton,
             RbacOptionsMenuButton,
             GitFilters,
-            GitSyncStoreProvider
+            GitSyncStoreProvider,
+            OverviewChartsWithToggle
           }}
         >
           {component}

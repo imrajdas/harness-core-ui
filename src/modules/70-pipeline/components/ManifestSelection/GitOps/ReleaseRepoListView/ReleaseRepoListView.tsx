@@ -345,14 +345,11 @@ function ReleaseRepoListView({
             newConnectorView={connectorView}
             expressions={expressions}
             allowableTypes={allowableTypes}
-            // changeManifestType={changeManifestType}
             handleConnectorViewChange={handleConnectorViewChange}
             handleStoreChange={handleStoreChange}
             initialValues={getInitialValues()}
             manifest={manifest}
             newConnectorSteps={getNewConnectorSteps()}
-            // lastSteps={getLastSteps()}
-            // iconsProps={getIconProps()}
             handleSubmit={handleSubmit}
             isReadonly={isReadonly}
             onClose={onClose}
@@ -363,13 +360,13 @@ function ReleaseRepoListView({
     )
   }, [
     selectedManifest,
-    // connectorView,
+    connectorView,
     manifestIndex,
     manifestStore,
     expressions.length,
     expressions,
-    allowableTypes
-    // isEditMode
+    allowableTypes,
+    isEditMode
   ])
 
   const removeManifestConfig = (index: number): void => {

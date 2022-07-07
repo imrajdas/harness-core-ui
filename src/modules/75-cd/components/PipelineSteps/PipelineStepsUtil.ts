@@ -31,7 +31,9 @@ export enum InfraDeploymentType {
   ServerlessGoogleFunctions = 'ServerlessGoogleFunctions',
   ServerlessAzureFunctions = 'ServerlessAzureFunctions',
   AmazonSAM = 'AwsSAM',
-  AzureFunctions = 'AzureFunctions'
+  AzureFunctions = 'AzureFunctions',
+  SshWinRmAzure = 'SshWinRmAzure',
+  AzureWebApps = 'AzureWebApps'
 }
 
 export const deploymentTypeToInfraTypeMap = {
@@ -159,7 +161,7 @@ export function getEnvironmentTabSchema(getString: UseStringsReturn['getString']
             })
           }
 
-          if (valueObj.clusterRef?.length === 0) {
+          if (valueObj.clusterRef?.length === 0 && valueObj.environmentOrEnvGroupRef !== RUNTIME_INPUT_VALUE) {
             return this.createError({
               path: 'clusterRef',
               message: getString('cd.pipelineSteps.environmentTab.clusterIsRequired')
@@ -191,9 +193,11 @@ export const getInfrastructureDefinitionValidationSchema = (
       return Yup.object().shape({
         credentialsRef: getSshKeyRefSchema(getString)
       })
-    } else {
-      return getValidationSchema(getString)
     }
+    if (deploymentType === ServiceDeploymentType.winrm) {
+      return Yup.object().shape({})
+    }
+    return getValidationSchema(getString)
   } else {
     return Yup.object().shape({
       connectorRef: getConnectorSchema(getString),

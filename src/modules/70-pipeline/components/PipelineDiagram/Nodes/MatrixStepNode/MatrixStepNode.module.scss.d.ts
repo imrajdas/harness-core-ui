@@ -10,6 +10,7 @@ declare const styles: {
   readonly closeNode: string
   readonly collapseIcon: string
   readonly collapsedMatrixWrapper: string
+  readonly concurrencyLabel: string
   readonly conditional: string
   readonly createnodeci: string
   readonly createnodecimain: string
@@ -23,6 +24,7 @@ declare const styles: {
   readonly marginTop: string
   readonly markerEnd: string
   readonly markerStart: string
+  readonly matrixBorderWrapper: string
   readonly matrixFooter: string
   readonly matrixLabel: string
   readonly nestedGroup: string

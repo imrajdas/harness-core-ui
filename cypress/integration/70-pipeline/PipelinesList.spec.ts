@@ -1,15 +1,12 @@
-import { pipelinesListCallResponse } from '../../support/70-pipeline/constants'
+import {
+  pipelineListAPI,
+  pipelinesListCallResponse,
+  gitSyncBranchCall,
+  gitSyncEnabledCall,
+  gitSyncMetaCall
+} from '../../support/70-pipeline/constants'
 
 describe('Pipelines list view', () => {
-  const gitSyncEnabledCall =
-    '/ng/api/git-sync/git-sync-enabled?accountIdentifier=accountId&orgIdentifier=default&projectIdentifier=project1'
-  const pipelinesListCall =
-    '/pipeline/api/pipelines/list?routingId=accountId&accountIdentifier=accountId&projectIdentifier=project1&module=cd&orgIdentifier=default&page=0&sort=lastUpdatedAt%2CDESC&size=20'
-  const gitSyncMetaCall =
-    '/ng/api/git-sync?routingId=accountId&accountIdentifier=accountId&orgIdentifier=default&projectIdentifier=project1'
-  const gitSyncBranchCall =
-    '/ng/api/git-sync-branch/listBranchesWithStatus?routingId=accountId&accountIdentifier=accountId&orgIdentifier=default&projectIdentifier=project1&yamlGitConfigIdentifier=&page=0&size=20&searchTerm='
-
   describe('GIT SYNC DISABLED', () => {
     beforeEach(() => {
       cy.on('uncaught:exception', () => {
@@ -18,7 +15,7 @@ describe('Pipelines list view', () => {
         return false
       })
       cy.intercept('GET', gitSyncEnabledCall, { connectivityMode: null, gitSyncEnabled: false })
-      cy.intercept('POST', pipelinesListCall, pipelinesListCallResponse)
+      cy.intercept('POST', pipelineListAPI, pipelinesListCallResponse)
       cy.login('test', 'test')
       cy.visitPipelinesList()
     })
@@ -75,7 +72,7 @@ describe('Pipelines list view', () => {
         return false
       })
       cy.intercept('GET', gitSyncEnabledCall, { connectivityMode: null, gitSyncEnabled: true })
-      cy.intercept('POST', pipelinesListCall, pipelinesListCallResponse)
+      cy.intercept('POST', pipelineListAPI, pipelinesListCallResponse)
 
       cy.intercept('GET', gitSyncMetaCall, { fixture: 'ng/api/git-sync' })
       cy.intercept('GET', gitSyncBranchCall, { fixture: 'ng/api/git-sync-branches' })

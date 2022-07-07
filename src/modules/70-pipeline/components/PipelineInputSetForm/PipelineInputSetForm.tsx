@@ -413,7 +413,7 @@ export function PipelineInputSetForm(props: Omit<PipelineInputSetFormProps, 'all
 
   function updateTemplate<T>(updatedData: T, path: string): void {
     setTemplate(
-      produce(props.template, draft => {
+      produce(template, draft => {
         set(draft, path, updatedData)
       })
     )

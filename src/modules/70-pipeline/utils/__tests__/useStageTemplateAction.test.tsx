@@ -7,13 +7,12 @@
 
 import React from 'react'
 import { act, fireEvent, render } from '@testing-library/react'
-import produce from 'immer'
-import { set } from 'lodash-es'
 import { TestWrapper } from '@common/utils/testUtils'
 import { useStageTemplateActions } from '@pipeline/utils/useStageTemplateActions'
 import pipelineContextMock from '@pipeline/components/PipelineStudio/RightDrawer/__tests__/stateMock'
 import { PipelineContext } from '@pipeline/components/PipelineStudio/PipelineContext/PipelineContext'
 import type { TemplateSummaryResponse } from 'services/template-ng'
+import { useTemplateSelector } from 'framework/Templates/TemplateSelectorContext/useTemplateSelector'
 
 const stageTemplate: TemplateSummaryResponse = {
   accountId: 'px7xd_BFRCi-pfWPYXVjvw',
@@ -84,6 +83,12 @@ const stageTemplate: TemplateSummaryResponse = {
     '\n'
 }
 
+jest.mock('framework/Templates/TemplateSelectorContext/useTemplateSelector', () => ({
+  useTemplateSelector: jest.fn().mockReturnValue({
+    getTemplate: jest.fn().mockImplementation(() => ({ template: stageTemplate, isCopied: false }))
+  })
+}))
+
 function Wrapped(): React.ReactElement {
   const { addOrUpdateTemplate, removeTemplate } = useStageTemplateActions()
   return (
@@ -94,33 +99,25 @@ function Wrapped(): React.ReactElement {
   )
 }
 
-const contextMock = produce(pipelineContextMock, draft => {
-  set(
-    draft,
-    'getTemplate',
-    jest.fn().mockImplementation(() => ({ template: stageTemplate, isCopied: false }))
-  )
-})
-
 describe('useStageTemplateAction Test', () => {
   test('should work as expected', async () => {
     const { getByText } = render(
-      <PipelineContext.Provider value={contextMock}>
-        <TestWrapper>
+      <TestWrapper>
+        <PipelineContext.Provider value={pipelineContextMock}>
           <Wrapped />
-        </TestWrapper>
-      </PipelineContext.Provider>
+        </PipelineContext.Provider>
+      </TestWrapper>
     )
 
     const addOrUpdateTemplateBtn = getByText('Add Or Update Template')
     await act(async () => {
       fireEvent.click(addOrUpdateTemplateBtn)
     })
-    expect(contextMock.getTemplate).toBeCalledWith({
-      selectedChildType: 'CI',
-      templateType: 'Stage'
+    expect(useTemplateSelector().getTemplate).toBeCalledWith({
+      templateType: 'Stage',
+      allChildTypes: ['CI']
     })
-    expect(contextMock.updateStage).toBeCalledWith({
+    expect(pipelineContextMock.updateStage).toBeCalledWith({
       identifier: 's1',
       name: 's1',
       template: { templateRef: 'Test_Stage_Template', versionLabel: 'Version1' }
@@ -130,6 +127,6 @@ describe('useStageTemplateAction Test', () => {
     await act(async () => {
       fireEvent.click(removeTemplateBtn)
     })
-    expect(contextMock.updateStage).toBeCalledWith({ identifier: 's1', name: 's1', type: 'CI' })
+    expect(pipelineContextMock.updateStage).toBeCalledWith({ identifier: 's1', name: 's1', type: 'CI' })
   })
 })

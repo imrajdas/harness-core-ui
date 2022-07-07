@@ -5,8 +5,11 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
+import type { SelectOption } from '@wings-software/uicore'
 import { useStrings } from 'framework/strings'
+import type { UseStringsReturn } from 'framework/strings'
 import { DelegateTypes } from '@delegates/constants'
+import { statusLabels, statusTypes } from '../Delegate.constants'
 
 export const GetDelegateTitleTextByType = (type: string): string => {
   const { getString } = useStrings()
@@ -18,4 +21,11 @@ export const GetDelegateTitleTextByType = (type: string): string => {
       /* istanbul ignore next */
       return ''
   }
+}
+
+export const getDelegateStatusSelectOptions = (getString: UseStringsReturn['getString']): SelectOption[] => {
+  return statusTypes.map((item: string) => ({
+    label: getString(statusLabels[item]),
+    value: item
+  }))
 }

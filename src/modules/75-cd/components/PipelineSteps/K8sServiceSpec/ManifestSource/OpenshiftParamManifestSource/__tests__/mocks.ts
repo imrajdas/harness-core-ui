@@ -23,6 +23,20 @@ export const manifests = [
         }
       }
     }
+  },
+  {
+    manifest: {
+      identifier: 'manifestidentifier',
+      type: 'OpenShiftParams',
+      spec: {
+        store: {
+          type: 'InheritFromManifest',
+          spec: {
+            paths: ['./filepath']
+          }
+        }
+      }
+    }
   }
 ]
 
@@ -41,6 +55,20 @@ export const template = {
               paths: '<+input>',
               repoName: '<+input>',
               branch: '<+input>'
+            }
+          }
+        }
+      }
+    },
+    {
+      manifest: {
+        identifier: 'manifestidentifier',
+        type: 'OpenShiftParams',
+        spec: {
+          store: {
+            type: 'InheritFromManifest',
+            spec: {
+              paths: ['./filepath']
             }
           }
         }

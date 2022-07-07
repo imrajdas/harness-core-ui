@@ -15,6 +15,7 @@ import {
   Intent
 } from '@harness/uicore'
 import { get, isEqual, set } from 'lodash-es'
+import produce from 'immer'
 
 import { PageSpinner } from '@common/components'
 import { useStrings } from 'framework/strings'
@@ -155,7 +156,7 @@ export function PipelineVariablesWithRef(
                   <PipelineCardPanel
                     variablePipeline={variablesPipeline}
                     originalPipeline={originalPipeline}
-                    pipeline={pipeline}
+                    pipeline={pipelineAsState}
                     stepsFactory={stepsFactory}
                     updatePipeline={updatePipeline}
                     metadataMap={metadataMap}
@@ -215,12 +216,14 @@ export function PipelineCardPanel(props: PipelineCardPanelProps): React.ReactEle
 
   const updateStage = React.useCallback(
     async (values: StageElementConfig) => {
-      if (pipeline.stages) {
-        set(pipeline, 'stages', updateStages(values, pipeline.stages))
-        updatePipeline(pipeline)
-      }
+      const newPipeline = produce<PipelineInfoConfig>(pipeline, draft => {
+        if (draft.stages) {
+          set(draft, 'stages', updateStages(values, draft.stages))
+        }
+      })
+      updatePipeline(newPipeline)
     },
-    [pipeline, updatePipeline]
+    [pipeline, updatePipeline, updateStages]
   )
 
   const stagesCards: JSX.Element[] = []

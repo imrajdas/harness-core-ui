@@ -9,7 +9,7 @@ import React from 'react'
 import { defaultTo } from 'lodash-es'
 import type { PipelineInfoConfig } from 'services/pipeline-ng'
 import type { TemplateSummaryResponse } from 'services/template-ng'
-import type { PipelineContextInterface } from '@pipeline/components/PipelineStudio/PipelineContext/PipelineContext'
+import { useTemplateSelector } from 'framework/Templates/TemplateSelectorContext/useTemplateSelector'
 import { AddStageView } from './views/AddStageView'
 import type { PipelineStageProps } from './PipelineStage'
 
@@ -24,7 +24,6 @@ export interface PipelineStagesProps<T = Record<string, unknown>> {
   onSelectStage?: (stageType: string, stage?: T, pipeline?: PipelineInfoConfig) => void
   showSelectMenu?: boolean
   contextType?: string
-  getTemplate?: PipelineContextInterface['getTemplate']
 }
 
 interface PipelineStageMap extends Omit<PipelineStageProps, 'minimal'> {
@@ -41,11 +40,11 @@ export function PipelineStages<T = Record<string, unknown>>({
   getNewStageFromTemplate,
   stageType,
   stageProps,
-  minimal = false,
-  getTemplate
+  minimal = false
 }: PipelineStagesProps<T>): JSX.Element {
   const [stages, setStages] = React.useState<Map<string, PipelineStageMap>>(new Map())
   const [template, setTemplate] = React.useState<TemplateSummaryResponse>()
+  const { getTemplate } = useTemplateSelector()
 
   React.useLayoutEffect(() => {
     const stagesLocal: Map<string, PipelineStageMap> = new Map()
@@ -81,27 +80,25 @@ export function PipelineStages<T = Record<string, unknown>>({
   }, [stages])
 
   const onUseTemplate = async () => {
-    if (getTemplate) {
-      try {
-        const { template: newTemplate, isCopied } = await getTemplate({
-          templateType: 'Stage',
-          allChildTypes: childTypes
-        })
-        if (getNewStageFromType) {
-          setShowMenu(false)
-          setType(newTemplate.childType)
-          if (isCopied) {
-            setStageData(getNewStageFromTemplate?.(newTemplate, true))
-          } else {
-            setStageData(getNewStageFromType?.(newTemplate.childType || '', true))
-            setTemplate(newTemplate)
-          }
+    try {
+      const { template: newTemplate, isCopied } = await getTemplate({
+        templateType: 'Stage',
+        allChildTypes: childTypes
+      })
+      if (getNewStageFromType) {
+        setShowMenu(false)
+        setType(newTemplate.childType)
+        if (isCopied) {
+          setStageData(getNewStageFromTemplate?.(newTemplate, true))
         } else {
-          onSelectStage?.(defaultTo(newTemplate.childType, ''))
+          setStageData(getNewStageFromType?.(newTemplate.childType || '', true))
+          setTemplate(newTemplate)
         }
-      } catch (_) {
-        // Do nothing.. user cancelled template selection
+      } else {
+        onSelectStage?.(defaultTo(newTemplate.childType, ''))
       }
+    } catch (_) {
+      // Do nothing.. user cancelled template selection
     }
   }
 

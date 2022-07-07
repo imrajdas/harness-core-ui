@@ -15,10 +15,10 @@ import type { ChangeEventDTO } from 'services/cv'
 import { useStrings } from 'framework/strings'
 import ChangeEventServiceHealth from '@cv/pages/monitored-service/components/ServiceHealth/components/ChangesAndServiceDependency/components/ChangesTable/components/ChangeCard/components/ChangeEventServiceHealth/ChangeEventServiceHealth'
 import SLOAndErrorBudget from '@cv/pages/monitored-service/components/ServiceHealth/components/ChangesAndServiceDependency/components/ChangesTable/components/ChangeCard/components/SLOAndErrorBudget/SLOAndErrorBudget'
+import VerificationStatusCard from '@cv/components/ExecutionVerification/components/DeploymentProgressAndNodes/components/VerificationStatusCard/VerificationStatusCard'
 import ChangeDetails from '../../ChangeDetails/ChangeDetails'
 import type { ChangeTitleData, ChangeDetailsDataInterface, ChangeInfoData } from '../../../ChangeEventCard.types'
 import { createChangeTitleData, createChangeDetailsDataForKubernetes } from '../../../ChangeEventCard.utils'
-import ChangeInformation from '../../ChangeInformation/ChangeInformation'
 import K8sChangeEventYAML from './components/K8sChangeEventYAML/K8sChangeEventYAML'
 import { K8sChangeEventDrawerProps } from './K8sChangeEventCard.constants'
 import { createK8ChangeInfoData } from './K8sChangeEventCard.utils'
@@ -56,19 +56,15 @@ export default function K8sChangeEventCard({ data }: { data: ChangeEventDTO }): 
     <Card className={changeEventCardCss.main}>
       <Container>
         <Layout.Horizontal spacing="small" flex>
-          <Text lineClamp={1} font={{ size: 'medium', weight: 'bold' }} color={Color.BLACK}>
+          <Text lineClamp={1} font={{ size: 'medium', weight: 'semi-bold' }} color={Color.BLACK_100}>
             Workload: {data.metadata.workload} - Namespace: {data.metadata.namespace}
           </Text>
-          <Text font={{ size: 'xsmall' }} color={Color.GREY_800}>
-            {getString('cd.serviceDashboard.executionId')}
-            <span>{changeTitleData.executionId}</span>
-          </Text>
         </Layout.Horizontal>
-        <Layout.Horizontal>
-          <IconWithText icon={'cd-solid'} />
-          <IconWithText icon={'main-setup'} text={changeTitleData.serviceIdentifier} />
+        <Layout.Horizontal spacing={'xlarge'}>
+          <IconWithText icon={'infrastructure'} />
+          <IconWithText icon={'services'} text={changeTitleData.serviceIdentifier} />
           <IconWithText icon={'environments'} text={changeTitleData.envIdentifier} />
-          <IconWithText text={status} />
+          <VerificationStatusCard status={status as any} />
         </Layout.Horizontal>
       </Container>
 
@@ -79,7 +75,7 @@ export default function K8sChangeEventCard({ data }: { data: ChangeEventDTO }): 
           executedBy: {
             shouldVisible: false,
             component: changeInfoData?.triggerAt ? (
-              <Text icon={'time'} iconProps={{ size: 13 }} font={{ size: 'small' }}>
+              <Text icon={'time'} iconProps={{ size: 13 }} font={{ size: 'small' }} color={Color.BLACK_100}>
                 {`${getString('cv.changeSource.changeSourceCard.triggred')} ${changeInfoData.triggerAt}`}
               </Text>
             ) : (
@@ -96,7 +92,9 @@ export default function K8sChangeEventCard({ data }: { data: ChangeEventDTO }): 
           onClick={() => showModal()}
           className={css.displayDiffButton}
         />
-        <ChangeInformation infoData={changeInfoData} />
+        <Text font={{ size: 'normal', weight: 'bold' }} color={Color.GREY_800}>
+          Kubernetes Manifest Changes
+        </Text>
         {data.metadata?.newYaml && <K8sChangeEventYAML yaml={data.metadata.newYaml} />}
       </Container>
       <Divider className={changeEventCardCss.divider} />

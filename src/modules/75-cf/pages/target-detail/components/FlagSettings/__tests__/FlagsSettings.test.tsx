@@ -12,6 +12,7 @@ import userEvent from '@testing-library/user-event'
 import type { Feature, Features } from 'services/cf'
 import * as cfServices from 'services/cf'
 import { TestWrapper } from '@common/utils/testUtils'
+import { FFGitSyncProvider } from '@cf/contexts/ff-git-sync-context/FFGitSyncContext'
 import mockTarget from '@cf/utils/testData/data/mockTarget'
 import { CF_DEFAULT_PAGE_SIZE } from '@cf/utils/CFUtils'
 import FlagSettings, { FlagSettingsProps } from '../FlagSettings'
@@ -78,10 +79,14 @@ jest.mock('@common/components/ContainerSpinner/ContainerSpinner', () => ({
   ContainerSpinner: () => <span data-testid="container-spinner">Container Spinner</span>
 }))
 
+jest.mock('uuid')
+
 const renderComponent = (props: Partial<FlagSettingsProps> = {}): RenderResult =>
   render(
     <TestWrapper>
-      <FlagSettings target={mockTarget} {...props} />
+      <FFGitSyncProvider>
+        <FlagSettings target={mockTarget} {...props} />
+      </FFGitSyncProvider>
     </TestWrapper>
   )
 
@@ -102,6 +107,17 @@ describe('FlagSettings', () => {
 
     usePatchTargetMock.mockReturnValue({
       mutate: patchTargetMock
+    } as any)
+
+    jest.spyOn(cfServices, 'useGetGitRepo').mockReturnValue({
+      loading: false,
+      refetch: jest.fn(),
+      data: {
+        repoDetails: {
+          enabled: false
+        },
+        repoSet: false
+      }
     } as any)
   })
 
@@ -187,7 +203,7 @@ describe('FlagSettings', () => {
     userEvent.click(screen.getAllByRole('button', { name: 'cf.targetManagementFlagConfiguration.removeFlag' })[0])
     await waitFor(() => screen.getByRole('button', { name: 'saveChanges' }))
 
-    expect(refetchMock).not.toHaveBeenCalled()
+    await waitFor(() => expect(refetchMock).not.toHaveBeenCalled())
 
     userEvent.click(screen.getByRole('button', { name: 'saveChanges' }))
 
@@ -237,7 +253,6 @@ describe('FlagSettings', () => {
       userEvent.click(screen.getByText(newFlag.variations[0].name as string))
 
       const submitBtn = screen.getByRole('button', { name: 'cf.targetManagementFlagConfiguration.addFlags' })
-      expect(submitBtn).toBeInTheDocument()
 
       await waitFor(() => {
         expect(submitBtn).toBeEnabled()
@@ -265,8 +280,7 @@ describe('FlagSettings', () => {
       const message = 'ERROR MESSAGE'
       const refetchMock = jest.fn()
 
-      patchTargetMock.mockRejectedValue({ message })
-
+      patchTargetMock.mockRejectedValueOnce({ message })
       await openAndSubmitDialog(refetchMock)
 
       await waitFor(() => {

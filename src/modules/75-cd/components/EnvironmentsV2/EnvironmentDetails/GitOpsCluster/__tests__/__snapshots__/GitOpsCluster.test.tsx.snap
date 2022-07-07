@@ -121,7 +121,7 @@ exports[`GitOps Cluster tests click on select cluster 1`] = `
                     <path
                       clip-rule="evenodd"
                       d="M27.71 1.357a4 4 0 00-3.402 0L7.27 9.364a4 4 0 00-2.194 2.71L.887 29.985a4 4 0 00.798 3.442L13.447 47.82a4 4 0 003.097 1.47h18.93a4 4 0 003.097-1.47l11.762-14.393a4 4 0 00.797-3.442l-4.19-17.913a4 4 0 00-2.193-2.709L27.71 1.357zM8.972 12.984l17.037-8.006 17.037 8.006 4.19 17.913L35.474 45.29h-18.93L4.782 30.897l4.19-17.913zm9.056-.85a3.931 3.931 0 00-3.93 3.93v5.139a3.93 3.93 0 003.93 3.93h5.138a3.931 3.931 0 003.931-3.93v-5.138a3.931 3.931 0 00-3.93-3.931h-5.139zm0 3.93h5.138v5.139h-5.138v-5.138zm-3.93 15.8a3.93 3.93 0 013.93-3.931h5.138a3.931 3.931 0 013.931 3.93v5.139a3.931 3.931 0 01-3.93 3.931h-5.139a3.931 3.931 0 01-3.93-3.931v-5.138zm9.068 0h-5.138v5.138h5.138v-5.138zm9.702-11.894a3.931 3.931 0 00-3.931 3.93v5.139a3.93 3.93 0 003.931 3.93h5.138a3.93 3.93 0 003.931-3.93V23.9a3.93 3.93 0 00-3.93-3.93h-5.139zm0 3.93h5.138v5.139h-5.138V23.9z"
-                      fill="#4F5162"
+                      fill="currentColor"
                       fill-rule="evenodd"
                     />
                   </svg>
@@ -168,7 +168,7 @@ exports[`GitOps Cluster tests click on select cluster 1`] = `
                     <path
                       clip-rule="evenodd"
                       d="M27.71 1.357a4 4 0 00-3.402 0L7.27 9.364a4 4 0 00-2.194 2.71L.887 29.985a4 4 0 00.798 3.442L13.447 47.82a4 4 0 003.097 1.47h18.93a4 4 0 003.097-1.47l11.762-14.393a4 4 0 00.797-3.442l-4.19-17.913a4 4 0 00-2.193-2.709L27.71 1.357zM8.972 12.984l17.037-8.006 17.037 8.006 4.19 17.913L35.474 45.29h-18.93L4.782 30.897l4.19-17.913zm9.056-.85a3.931 3.931 0 00-3.93 3.93v5.139a3.93 3.93 0 003.93 3.93h5.138a3.931 3.931 0 003.931-3.93v-5.138a3.931 3.931 0 00-3.93-3.931h-5.139zm0 3.93h5.138v5.139h-5.138v-5.138zm-3.93 15.8a3.93 3.93 0 013.93-3.931h5.138a3.931 3.931 0 013.931 3.93v5.139a3.931 3.931 0 01-3.93 3.931h-5.139a3.931 3.931 0 01-3.93-3.931v-5.138zm9.068 0h-5.138v5.138h5.138v-5.138zm9.702-11.894a3.931 3.931 0 00-3.931 3.93v5.139a3.93 3.93 0 003.931 3.93h5.138a3.93 3.93 0 003.931-3.93V23.9a3.93 3.93 0 00-3.93-3.93h-5.139zm0 3.93h5.138v5.139h-5.138V23.9z"
-                      fill="#4F5162"
+                      fill="currentColor"
                       fill-rule="evenodd"
                     />
                   </svg>
@@ -401,7 +401,27 @@ exports[`GitOps Cluster tests initial render 1`] = `
               role="cell"
               style="width: 75%;"
             >
-              test-cluster-a
+              <div
+                class="Layout--vertical StyledProps--main"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-start StyledProps--margin-bottom-small"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                  >
+                    test-cluster-a
+                  </p>
+                </div>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--font-size-small"
+                  style="--text-line-clamp: 1;"
+                >
+                  common.ID
+                  : 
+                  test-cluster-a
+                </p>
+              </div>
             </div>
             <div
               class="TableV2--cell"
@@ -456,7 +476,27 @@ exports[`GitOps Cluster tests initial render 1`] = `
               role="cell"
               style="width: 75%;"
             >
-              test-cluster-b
+              <div
+                class="Layout--vertical StyledProps--main"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-start StyledProps--margin-bottom-small"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                  >
+                    test-cluster-b
+                  </p>
+                </div>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--font-size-small"
+                  style="--text-line-clamp: 1;"
+                >
+                  common.ID
+                  : 
+                  test-cluster-b
+                </p>
+              </div>
             </div>
             <div
               class="TableV2--cell"

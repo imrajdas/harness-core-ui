@@ -93,8 +93,7 @@ const getPipelineContext = (): PipelineContextInterface => ({
   setSelectedStepId: jest.fn(),
   setSelection: jest.fn(),
   getStagePathFromPipeline: jest.fn(),
-  setTemplateTypes: jest.fn(),
-  getTemplate: jest.fn()
+  setTemplateTypes: jest.fn()
 })
 
 jest.mock('../../DeployStage/EditStageView/EditStageView', () => ({

@@ -232,7 +232,9 @@ const AddCluster = (props: AddClusterProps): React.ReactElement => {
     // istanbul ignore else
     if (error) {
       /* istanbul ignore next */
-      showError((error as any)?.message)
+      setSearching(false)
+
+      showError(error)
     }
   }, [error])
 
@@ -264,7 +266,7 @@ const AddCluster = (props: AddClusterProps): React.ReactElement => {
         ///* istanbul ignore next */
         .catch(err => {
           /* istanbul ignore next */
-          showError(err?.message)
+          showError(err?.data?.message)
           /* istanbul ignore next */
           setSubmitting(false)
         })
@@ -302,7 +304,7 @@ const AddCluster = (props: AddClusterProps): React.ReactElement => {
         <Layout.Vertical>
           <Layout.Horizontal className={css.contentContainer} height={'339px'}>
             <div className={css.clusterList}>
-              {(fetching || submitting) && !searchTerm ? <PageSpinner /> : null}
+              {(fetching || submitting) && !searchTerm && !error ? <PageSpinner /> : null}
               {searching ? <Spinner /> : null}
               {!searching ? (
                 <>

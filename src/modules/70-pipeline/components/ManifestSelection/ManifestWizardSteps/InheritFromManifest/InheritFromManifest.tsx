@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useCallback } from 'react'
+import React from 'react'
 
 import {
   Button,
@@ -54,7 +54,7 @@ function InheritFromManifest({
 }: StepProps<ConnectorConfigDTO> & InheritFromManifestPropType): React.ReactElement {
   const { getString } = useStrings()
 
-  const getInitialValues = useCallback((): InheritFromManifestDataType => {
+  const getInitialValues = (): InheritFromManifestDataType => {
     const specValues = get(initialValues, 'spec.store.spec', null)
 
     if (specValues) {
@@ -71,7 +71,7 @@ function InheritFromManifest({
       identifier: '',
       paths: [{ path: '', uuid: uuid('', nameSpace()) }]
     }
-  }, [])
+  }
 
   const submitFormData = (formData: InheritFromManifestDataType & { store?: string; connectorRef?: string }): void => {
     const manifestObj: ManifestConfigWrapper = {
@@ -147,6 +147,7 @@ function InheritFromManifest({
                     fieldPath="paths"
                     pathLabel={getString('fileFolderPathText')}
                     placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+                    defaultValue={{ path: '', uuid: uuid('', nameSpace()) }}
                   />
                 </div>
 

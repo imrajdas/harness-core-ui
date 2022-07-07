@@ -6,34 +6,59 @@
  */
 
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, RenderResult, waitFor, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import * as cfServices from 'services/cf'
 import { TestWrapper } from '@common/utils/testUtils'
-import AddKeyDialog from '../AddKeyDialog'
+import { CF_DEFAULT_PAGE_SIZE, EnvironmentSDKKeyType } from '@cf/utils/CFUtils'
+import AddKeyDialog, { AddKeyDialogProps } from '../AddKeyDialog'
 
-jest.mock('services/cd-ng', () => ({
-  useGetEnvironmentListForProject: jest.fn().mockImplementation(() => ({
-    data: {
-      data: {
-        content: [
-          {
-            identifier: 'abc',
-            name: 'abc'
-          }
-        ]
-      }
-    },
-    loading: false,
-    error: undefined,
-    refetch: jest.fn()
-  }))
-}))
+const apiKeysMock = [
+  {
+    apiKey: 'mock',
+    identifier: 'mock identifier',
+    key: 'dummy ',
+    name: 'dummy api key name',
+    type: EnvironmentSDKKeyType.SERVER
+  }
+]
 
 describe('Test AddKeyDialog', () => {
-  test('AddKeyDialog should be rendered properly', async () => {
-    const onCreate = jest.fn()
-    const Component = (
+  const useAddAPIKeyMock = jest.spyOn(cfServices, 'useAddAPIKey')
+  const useGetAllAPIKeysMock = jest.spyOn(cfServices, 'useGetAllAPIKeys')
+
+  beforeEach(() => {
+    jest.clearAllMocks()
+
+    useAddAPIKeyMock.mockReturnValue({
+      cancel: jest.fn(),
+      error: null,
+      loading: false,
+      mutate: jest.fn().mockResolvedValue(null)
+    })
+
+    useGetAllAPIKeysMock.mockReturnValue({
+      loading: false,
+      error: null,
+      refetch: jest.fn(),
+      absolutePath: '',
+      response: {} as Response,
+      cancel: jest.fn(),
+      data: {
+        itemCount: apiKeysMock.length,
+        pageCount: 1,
+        pageIndex: 0,
+        pageSize: CF_DEFAULT_PAGE_SIZE,
+        apiKeys: apiKeysMock
+      }
+    })
+  })
+
+  const onCreate = jest.fn()
+  const renderComponent = (props: Partial<AddKeyDialogProps> = {}): RenderResult => {
+    return render(
       <TestWrapper
-        path="/account/:accountId/cf/orgs/:orgIdentifier/projects/:projectIdentifier/onboarding/detail"
+        path="/account/:accountId/cf/orgs/:orgIdentifier/projects/:projectIdentifier/feature-flags"
         pathParams={{ accountId: 'dummy', orgIdentifier: 'dummy', projectIdentifier: 'dummy' }}
       >
         <AddKeyDialog
@@ -44,13 +69,85 @@ describe('Test AddKeyDialog', () => {
             projectIdentifier: 'dummy'
           }}
           onCreate={onCreate}
+          {...props}
         />
       </TestWrapper>
     )
-    const { container, rerender } = render(Component)
+  }
 
-    fireEvent.click(container.querySelector('button') as HTMLButtonElement)
-    rerender(Component)
-    expect(container).toMatchSnapshot()
+  const openDialog = async (): Promise<void> => {
+    const addKeyBtn = screen.getByRole('button', { name: 'cf.environments.apiKeys.addKey' })
+    expect(addKeyBtn).toBeInTheDocument()
+    userEvent.click(addKeyBtn)
+    await waitFor(() => expect(screen.getByText('cf.environments.apiKeys.addKeyTitle')).toBeInTheDocument())
+  }
+
+  test('it should render duplicate SDK key name error message when user enters an existing SDK key name', async () => {
+    renderComponent({ apiKeys: apiKeysMock })
+
+    await openDialog()
+
+    userEvent.type(document.querySelector('input[name=name]') as HTMLInputElement, 'dummy api key name', {
+      allAtOnce: true
+    })
+    userEvent.click(screen.getByRole('button', { name: 'createSecretYAML.create' }))
+
+    await waitFor(() => {
+      expect(screen.getByText('cf.environments.apiKeys.duplicateKey')).toBeInTheDocument()
+    })
+  })
+
+  test('it should render missing SDK key name error message when user attempts to submit form without entering a name', async () => {
+    renderComponent()
+
+    await openDialog()
+
+    userEvent.click(screen.getByText('createSecretYAML.create'))
+
+    await waitFor(() => {
+      expect(screen.getByText('cf.environments.apiKeys.emptyName')).toBeInTheDocument()
+    })
+  })
+
+  test('it should send correct values to useAddAPIKey and display success message', async () => {
+    const mutateMock = jest.fn().mockResolvedValue({})
+    useAddAPIKeyMock.mockReturnValue({ mutate: mutateMock } as any)
+
+    renderComponent()
+
+    await openDialog()
+
+    userEvent.type(document.querySelector('input[name=name]') as HTMLInputElement, 'new api key name', {
+      allAtOnce: true
+    })
+    userEvent.click(screen.getByRole('button', { name: 'createSecretYAML.create' }))
+
+    await waitFor(() => {
+      expect(mutateMock).toBeCalledWith({
+        identifier: 'new_api_key_name',
+        name: 'new api key name',
+        type: 'Server'
+      })
+
+      expect(screen.getByText('cf.environments.apiKeys.create')).toBeInTheDocument()
+    })
+  })
+
+  test('it should display error message when useAddApiKey fails', async () => {
+    const message = 'FAILED TO CREATE NEW SDK KEY'
+    useAddAPIKeyMock.mockReturnValue({ mutate: jest.fn().mockRejectedValue({ message }) } as any)
+
+    renderComponent()
+
+    await openDialog()
+
+    userEvent.type(document.querySelector('input[name=name]') as HTMLInputElement, 'dummy api key name', {
+      allAtOnce: true
+    })
+    userEvent.click(screen.getByRole('button', { name: 'createSecretYAML.create' }))
+
+    await waitFor(() => {
+      expect(screen.getByText(message)).toBeInTheDocument()
+    })
   })
 })

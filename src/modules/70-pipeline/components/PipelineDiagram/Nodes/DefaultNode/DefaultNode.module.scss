@@ -58,7 +58,7 @@
   height: fit-content;
   cursor: default;
   position: relative;
-  margin-bottom: 55px;
+  margin-bottom: 80px;
 
   &.marginBottom {
     margin-bottom: 20px;
@@ -66,6 +66,16 @@
 
   &.draggable {
     cursor: move;
+  }
+
+  :global(.bp3-icon) {
+    &[data-icon='custom-approval'] {
+      > svg {
+        path:nth-child(2) {
+          fill: var(--grey-900) !important;
+        }
+      }
+    }
   }
 
   .defaultCard {
@@ -145,6 +155,12 @@
     position: absolute;
     top: 5px;
     left: 5px;
+  }
+
+  .loopingStrategy {
+    position: absolute;
+    top: 0;
+    right: 5px;
   }
 
   .conditional {

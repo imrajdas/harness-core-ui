@@ -6,19 +6,14 @@
  */
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import type { CellProps, Renderer } from 'react-table'
 import cx from 'classnames'
 import { Color } from '@harness/design-system'
 import { Container, Layout, Popover, Text, PageError } from '@wings-software/uicore'
 import { PopoverInteractionKind } from '@blueprintjs/core'
+import type { GetDataError } from 'restful-react'
 import { PageSpinner, Table } from '@common/components'
-import type { ProjectPathProps, ServicePathProps } from '@common/interfaces/RouteInterfaces'
-import {
-  EnvBuildIdAndInstanceCountInfo,
-  GetEnvBuildInstanceCountQueryParams,
-  useGetEnvBuildInstanceCount
-} from 'services/cd-ng'
+import type { EnvBuildIdAndInstanceCountInfo } from 'services/cd-ng'
 import { useStrings } from 'framework/strings'
 import { ActiveServiceInstancePopover } from '@cd/components/ServiceDetails/ActiveServiceInstances/ActiveServiceInstancePopover'
 import MostActiveServicesEmptyState from '@cd/icons/MostActiveServicesEmptyState.svg'
@@ -36,6 +31,7 @@ interface TableRowData {
   buildId?: string
   instanceCount?: number
   remainingCount?: number
+  totalBuilds?: number
   showEnvName: boolean
 }
 
@@ -85,6 +81,33 @@ const getTableData = (
   return tableData
 }
 
+const getShortTableData = (envBuildIdAndInstanceCountInfo?: EnvBuildIdAndInstanceCountInfo[]): TableRowData[] => {
+  const tableData: TableRowData[] = []
+  if (!envBuildIdAndInstanceCountInfo) {
+    return tableData
+  }
+  envBuildIdAndInstanceCountInfo.forEach(item => {
+    const envId = item.envId
+    if (envId) {
+      let totalBuilds = 0
+      let totalInstances = 0
+      item.buildIdAndInstanceCountList?.forEach(row => {
+        totalBuilds++
+        totalInstances += row.count || 0
+      })
+      tableData.push({
+        showEnvName: true,
+        envId,
+        envName: item.envName,
+        buildId: item.buildIdAndInstanceCountList?.[0].buildId,
+        instanceCount: totalInstances,
+        totalBuilds: totalBuilds
+      })
+    }
+  })
+  return tableData
+}
+
 const RenderEnvironment: Renderer<CellProps<TableRowData>> = ({
   row: {
     original: { envName, showEnvName }
@@ -103,15 +126,22 @@ const RenderEnvironment: Renderer<CellProps<TableRowData>> = ({
 
 const RenderBuildName: Renderer<CellProps<TableRowData>> = ({
   row: {
-    original: { envId, buildId, remainingCount }
+    original: { envId, buildId, remainingCount, totalBuilds }
   },
   column
 }) => {
   const { getString } = useStrings()
   const component = buildId ? (
-    <Text font={{ size: 'small', weight: 'semi-bold' }} lineClamp={1} color={Color.GREY_800}>
-      {buildId}
-    </Text>
+    <Container flex>
+      <Text font={{ size: 'small', weight: 'semi-bold' }} lineClamp={1} color={Color.GREY_800}>
+        {buildId}
+      </Text>
+      {totalBuilds && totalBuilds > 1 && (
+        <Text font={{ size: 'xsmall' }} style={{ lineHeight: 'small', marginLeft: '10px' }} color={Color.GREY_500}>
+          + {totalBuilds - 1}
+        </Text>
+      )}
+    </Container>
   ) : (
     <Text
       font={{ size: 'xsmall', weight: 'semi-bold' }}
@@ -135,8 +165,8 @@ const RenderInstanceCount: Renderer<CellProps<TableRowData>> = ({
     <Container className={css.paddedContainer}>
       <Text
         font={{ size: 'xsmall', weight: 'bold' }}
-        background={Color.GREY_100}
-        className={cx(css.instanceCount, css.overflow)}
+        background={Color.PRIMARY_1}
+        className={cx(css.countBadge, css.overflow)}
       >
         {numberFormatter(instanceCount)}
       </Text>
@@ -186,23 +216,25 @@ const RenderInstances: Renderer<CellProps<TableRowData>> = ({
   )
 }
 
-export const ActiveServiceInstancesContent: React.FC = () => {
+export const ActiveServiceInstancesContent = (
+  props: React.PropsWithChildren<{
+    hideHeaders?: boolean
+    columnsWidth?: string[]
+    shortTable?: boolean
+    loading?: boolean
+    data?: EnvBuildIdAndInstanceCountInfo[]
+    error?: GetDataError<unknown> | null
+    refetch?: () => Promise<void>
+  }>
+): React.ReactElement => {
+  const { hideHeaders = false, columnsWidth = [], shortTable = false, loading = false, data, error, refetch } = props
   const { getString } = useStrings()
-  const { accountId, orgIdentifier, projectIdentifier, serviceId } = useParams<ProjectPathProps & ServicePathProps>()
 
   // this state holds how many builds are visible for each environment, it updates as we click on show more button
   const [visibleBuildCount, setVisibleBuildCount] = useState<VisibleBuildCount>({})
 
-  const queryParams: GetEnvBuildInstanceCountQueryParams = {
-    accountIdentifier: accountId,
-    orgIdentifier,
-    projectIdentifier,
-    serviceId
-  }
-  const { loading, data, error, refetch } = useGetEnvBuildInstanceCount({ queryParams })
-
   useEffect(() => {
-    setVisibleBuildCount(initVisibleBuildCount(data?.data?.envBuildIdAndInstanceCountInfoList))
+    setVisibleBuildCount(initVisibleBuildCount(data))
   }, [data, setVisibleBuildCount])
 
   const expandBuilds = useCallback((envId?: string): void => {
@@ -215,43 +247,48 @@ export const ActiveServiceInstancesContent: React.FC = () => {
     }))
   }, [])
 
+  const tableData: TableRowData[] = useMemo(() => {
+    if (shortTable) {
+      return getShortTableData(data)
+    } else {
+      return getTableData(data, visibleBuildCount)
+    }
+  }, [data, shortTable, visibleBuildCount])
+
   const columns = useMemo(() => {
-    return [
+    const columnsArray = [
       {
         Header: getString('environment'),
         id: 'service',
-        width: '20%',
+        width: columnsWidth[0] || '20%',
         Cell: RenderEnvironment
       },
       {
         Header: getString('cd.artifactVersion'),
         id: 'type',
-        width: '23%',
+        width: columnsWidth[1] || '25%',
         Cell: RenderBuildName,
         expandBuilds
       },
       {
-        Header: '',
+        Header: getString('common.instanceLabel'),
         id: 'serviceInstances',
-        width: '10%',
+        width: columnsWidth[2] || '10%',
         Cell: RenderInstanceCount
       },
       {
-        Header: getString('common.instanceLabel'),
+        Header: '',
         id: 'deployments',
-        width: '47%',
+        width: columnsWidth[3] || '45%',
         Cell: RenderInstances
       }
     ]
+
+    return columnsArray
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const tableData: TableRowData[] = useMemo(
-    () => getTableData(data?.data?.envBuildIdAndInstanceCountInfoList, visibleBuildCount),
-    [data, visibleBuildCount]
-  )
-
-  if (loading || error || !(data?.data?.envBuildIdAndInstanceCountInfoList || []).length) {
+  if (loading || error || !(data || []).length) {
     const component = (() => {
       if (loading) {
         return (
@@ -263,7 +300,7 @@ export const ActiveServiceInstancesContent: React.FC = () => {
       if (error) {
         return (
           <Container data-test="ActiveServiceInstancesError" height="360px">
-            <PageError onClick={() => refetch()} />
+            <PageError onClick={() => refetch?.()} />
           </Container>
         )
       }
@@ -286,7 +323,7 @@ export const ActiveServiceInstancesContent: React.FC = () => {
 
   return (
     <Layout.Horizontal padding={{ top: 'medium' }}>
-      <Table<TableRowData> columns={columns} data={tableData} className={css.instanceTable} />
+      <Table<TableRowData> columns={columns} data={tableData} className={css.instanceTable} hideHeaders={hideHeaders} />
     </Layout.Horizontal>
   )
 }

@@ -12,6 +12,7 @@ declare const styles: {
   readonly activeServiceInstances: string
   readonly activeServiceInstancesEmpty: string
   readonly activeServiceInstancesHeader: string
+  readonly countBadge: string
   readonly envContainer: string
   readonly environmentRow: string
   readonly hex: string
@@ -21,6 +22,7 @@ declare const styles: {
   readonly instanceTable: string
   readonly labelStyles: string
   readonly listStyles: string
+  readonly moreDetails: string
   readonly overflow: string
   readonly paddedContainer: string
   readonly pieChartLabelContainerStyles: string

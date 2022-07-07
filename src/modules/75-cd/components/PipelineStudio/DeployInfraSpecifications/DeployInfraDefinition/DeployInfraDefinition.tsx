@@ -30,6 +30,7 @@ import type {
 } from '@cd/components/PipelineSteps/InfraProvisioning/InfraProvisioning'
 import type { GcpInfrastructureSpec } from '@cd/components/PipelineSteps/GcpInfrastructureSpec/GcpInfrastructureSpec'
 import type { PDCInfrastructureSpec } from '@cd/components/PipelineSteps/PDCInfrastructureSpec/PDCInfrastructureSpec'
+import type { SshWinRmAzureInfrastructureSpec } from '@cd/components/PipelineSteps/SshWinRmAzureInfrastructureSpec/SshWinRmAzureInfrastructureSpec'
 import { useStrings } from 'framework/strings'
 import {
   PipelineContextType,
@@ -70,7 +71,8 @@ export const deploymentTypeInfraTypeMap = {
   ServerlessAzureFunctions: InfraDeploymentType.ServerlessAzureFunctions,
   ServerlessGoogleFunctions: InfraDeploymentType.ServerlessGoogleFunctions,
   AmazonSAM: InfraDeploymentType.AmazonSAM,
-  AzureFunctions: InfraDeploymentType.AzureFunctions
+  AzureFunctions: InfraDeploymentType.AzureFunctions,
+  AzureWebApps: InfraDeploymentType.AzureWebApps
 }
 
 type InfraTypes =
@@ -461,6 +463,33 @@ export default function DeployInfraDefinition(props: React.PropsWithChildren<unk
                   delegateSelectors: value.delegateSelectors
                 },
                 InfraDeploymentType.PDC
+              )
+            }}
+          />
+        )
+      }
+      case InfraDeploymentType.SshWinRmAzure: {
+        return (
+          <StepWidget<SshWinRmAzureInfrastructureSpec>
+            factory={factory}
+            key={stage?.stage?.identifier}
+            readonly={isReadonly}
+            initialValues={initialInfrastructureDefinitionValues as SshWinRmAzureInfrastructureSpec}
+            type={StepType.SshWinRmAzure}
+            stepViewType={StepViewType.Edit}
+            allowableTypes={allowableTypes}
+            onUpdate={value => {
+              onUpdateInfrastructureDefinition(
+                {
+                  credentialsRef: value.credentialsRef,
+                  connectorRef: value.connectorRef,
+                  subscriptionId: value.subscriptionId,
+                  resourceGroup: value.resourceGroup,
+                  cluster: value.cluster,
+                  tags: value.tags,
+                  usePublicDns: value.usePublicDns
+                },
+                InfraDeploymentType.SshWinRmAzure
               )
             }}
           />

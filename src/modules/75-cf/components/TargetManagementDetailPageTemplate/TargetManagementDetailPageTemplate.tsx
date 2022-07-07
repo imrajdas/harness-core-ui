@@ -7,7 +7,6 @@
 
 import React, { FC, ReactNode, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
-import cx from 'classnames'
 import type { Breadcrumb } from '@harness/uicore'
 import { useStrings } from 'framework/strings'
 import type { Segment, Target } from 'services/cf'
@@ -17,9 +16,7 @@ import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { formatDate, formatTime } from '@cf/utils/CFUtils'
 import useActiveEnvironment from '@cf/hooks/useActiveEnvironment'
 import { useDocumentTitle } from '@common/hooks/useDocumentTitle'
-import { useFFGitSyncContext } from '@cf/contexts/ff-git-sync-context/FFGitSyncContext'
 import { DetailPageTemplate, DetailPageTemplateProps } from '../DetailPageTemplate/DetailPageTemplate'
-import TargetManagementToolbar from '../TargetManagementToolbar/TargetManagementToolbar'
 
 import css from './TargetManagementDetailPageTemplate.module.scss'
 
@@ -38,7 +35,6 @@ const TargetManagementDetailPageTemplate: FC<TargetManagementDetailPageTemplateP
   ...detailPageTemplateProps
 }) => {
   const { getString } = useStrings()
-  const { isGitSyncActionsEnabled } = useFFGitSyncContext()
 
   const { withActiveEnvironment, activeEnvironment: environmentIdentifier } = useActiveEnvironment()
   const { accountId: accountIdentifier, orgIdentifier, projectIdentifier } = useParams<Record<string, string>>()
@@ -88,11 +84,6 @@ const TargetManagementDetailPageTemplate: FC<TargetManagementDetailPageTemplateP
     ]
   }, [accountIdentifier, isTarget, orgIdentifier, projectIdentifier])
 
-  const modifiers = []
-  if (isGitSyncActionsEnabled) {
-    modifiers.push(css.gitSyncEnabled)
-  }
-
   return (
     <DetailPageTemplate
       title={item.name}
@@ -112,13 +103,9 @@ const TargetManagementDetailPageTemplate: FC<TargetManagementDetailPageTemplateP
       ]}
       {...detailPageTemplateProps}
     >
-      <div className={cx(css.layout, ...modifiers)}>
-        {isGitSyncActionsEnabled ? <TargetManagementToolbar /> : <div />}
-
-        <div className={css.contentLayout}>
-          <div className={css.leftBar}>{leftBar}</div>
-          <div className={css.mainContent}>{children}</div>
-        </div>
+      <div className={css.contentLayout}>
+        <div className={css.leftBar}>{leftBar}</div>
+        <div className={css.mainContent}>{children}</div>
       </div>
     </DetailPageTemplate>
   )

@@ -6,6 +6,7 @@
  */
 
 import type { ChangeEventDTO } from 'services/cv'
+import type { PipelineExecutionSummary } from 'services/pipeline-ng'
 
 export interface ChangeInfoData {
   triggerAt: string
@@ -30,7 +31,7 @@ export interface ChangeTitleData {
   type: ChangeEventDTO['type']
   executionId: string | number
   url?: string
-  status?: string
+  status: PipelineExecutionSummary['status']
   serviceIdentifier?: string
   envIdentifier?: string
 }

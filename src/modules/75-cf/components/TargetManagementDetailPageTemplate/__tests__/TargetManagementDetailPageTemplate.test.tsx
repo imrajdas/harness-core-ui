@@ -12,9 +12,7 @@ import userEvent from '@testing-library/user-event'
 import { merge } from 'lodash-es'
 import { TestWrapper } from '@common/utils/testUtils'
 import type { Segment, Target } from 'services/cf'
-import * as gitSync from '@cf/hooks/useGitSync'
 import * as useDocumentTitle from '@common/hooks/useDocumentTitle'
-import { FFGitSyncProvider } from '@cf/contexts/ff-git-sync-context/FFGitSyncContext'
 import TargetManagementDetailPageTemplate, {
   TargetManagementDetailPageTemplateProps
 } from '../TargetManagementDetailPageTemplate'
@@ -47,24 +45,15 @@ const renderComponent = (
 ): RenderResult =>
   render(
     <TestWrapper>
-      <FFGitSyncProvider>
-        <TargetManagementDetailPageTemplate
-          item={mockTarget}
-          openDeleteDialog={jest.fn()}
-          leftBar={<div />}
-          {...props}
-        />
-      </FFGitSyncProvider>
+      <TargetManagementDetailPageTemplate item={mockTarget} openDeleteDialog={jest.fn()} leftBar={<div />} {...props} />
     </TestWrapper>
   )
 
 describe('TargetManagementDetailPageTemplate', () => {
-  const useGitSyncMock = jest.spyOn(gitSync, 'useGitSync')
   const useDocumentTitleMock = jest.spyOn(useDocumentTitle, 'useDocumentTitle')
 
   beforeEach(() => {
     jest.clearAllMocks()
-    useGitSyncMock.mockReturnValue({ isGitSyncActionsEnabled: false } as any)
   })
 
   test('it should display the item name, identifier and created date', async () => {
@@ -112,22 +101,6 @@ describe('TargetManagementDetailPageTemplate', () => {
     renderComponent({ children: <div data-testid={testId}>Main content</div> })
 
     expect(screen.getByTestId(testId)).toBeInTheDocument()
-  })
-
-  describe('gitSync', () => {
-    test('it should not display the Target Management Toolbar when gitSync is disabled', async () => {
-      renderComponent()
-
-      expect(screen.queryByTestId('target-management-toolbar')).not.toBeInTheDocument()
-    })
-
-    test('it should display the Target Management Toolbar when gitSync is enabled', async () => {
-      useGitSyncMock.mockReturnValue({ isGitSyncActionsEnabled: true } as any)
-
-      renderComponent()
-
-      expect(screen.getByTestId('target-management-toolbar')).toBeInTheDocument()
-    })
   })
 
   describe('Target', () => {

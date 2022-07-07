@@ -23,13 +23,13 @@
 .content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 1;
   overflow-y: auto;
 
   .timeline {
     padding-left: 25% !important;
     padding-top: var(--spacing-medium) !important;
+    margin-top: auto;
   }
 }
 .maxPaginationWidth {

@@ -7,6 +7,7 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
+  readonly flagGitSync: string
   readonly footer: string
   readonly layout: string
   readonly listing: string

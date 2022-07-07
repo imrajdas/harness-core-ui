@@ -11,7 +11,6 @@ import { FormikErrors, yupToFormErrors } from 'formik'
 import * as Yup from 'yup'
 import type { UseStringsReturn } from 'framework/strings'
 import { getDurationValidationSchema } from '@common/components/MultiTypeDuration/MultiTypeDuration'
-import type { StringsMap } from 'stringTypes'
 import type { ContinousVerificationData, spec, VerifyStepMonitoredService } from './types'
 import {
   VerificationSensitivityOptions,
@@ -23,6 +22,7 @@ import {
   monitoredServiceRefPath
 } from './constants'
 import { MONITORED_SERVICE_TYPE } from './components/ContinousVerificationWidget/components/ContinousVerificationWidgetSections/components/SelectMonitoredServiceType/SelectMonitoredServiceType.constants'
+import { validateTemplateInputs } from './components/ContinousVerificationWidget/ContinousVerificationWidget.utils'
 
 /**
  * checks if a field is a runtime input.
@@ -46,7 +46,7 @@ export function validateField(
   fieldValue: string,
   fieldKey: string,
   data: ContinousVerificationData,
-  errors: any,
+  errors: FormikErrors<ContinousVerificationData>,
   getString: UseStringsReturn['getString'],
   isRequired = true
 ): void {
@@ -58,7 +58,7 @@ export function validateField(
 export function validateMonitoredService(
   data: ContinousVerificationData,
   errors: FormikErrors<ContinousVerificationData>,
-  getString: (key: keyof StringsMap, vars?: Record<string, any> | undefined) => string,
+  getString: UseStringsReturn['getString'],
   isRequired: boolean,
   monitoredService?: VerifyStepMonitoredService
 ): void {
@@ -68,6 +68,22 @@ export function validateMonitoredService(
     isEmpty(data?.spec?.monitoredService?.spec?.monitoredServiceRef)
   ) {
     set(errors, monitoredServiceRefPath, getString('fieldRequired', { field: 'Monitored service' }))
+  }
+}
+
+export function validateMonitoredServiceTemplateInputs(
+  data: ContinousVerificationData,
+  errors: FormikErrors<ContinousVerificationData>,
+  getString: UseStringsReturn['getString'],
+  monitoredService?: VerifyStepMonitoredService
+): void {
+  if (monitoredService?.type === MONITORED_SERVICE_TYPE.TEMPLATE) {
+    validateTemplateInputs(
+      monitoredService?.spec?.templateInputs,
+      data?.spec?.monitoredService?.spec?.templateInputs,
+      errors,
+      getString
+    )
   }
 }
 
@@ -143,7 +159,6 @@ export function getSpecYamlData(specInfo?: spec, type?: string): spec {
 
 export function getMonitoredServiceYamlData(spec: ContinousVerificationData['spec']): VerifyStepMonitoredService {
   let monitoredService: VerifyStepMonitoredService = defaultMonitoredServiceSpec
-
   switch (spec?.monitoredService?.type) {
     case MONITORED_SERVICE_TYPE.DEFAULT:
       monitoredService = defaultMonitoredServiceSpec
@@ -154,6 +169,12 @@ export function getMonitoredServiceYamlData(spec: ContinousVerificationData['spe
         spec: {
           monitoredServiceRef: getMonitoredServiceRef(spec)
         }
+      }
+      break
+    case MONITORED_SERVICE_TYPE.TEMPLATE:
+      monitoredService = {
+        type: MONITORED_SERVICE_TYPE.TEMPLATE,
+        spec: { ...spec?.monitoredService?.spec }
       }
       break
     default:
@@ -214,4 +235,26 @@ export function setFieldData(validspec: spec | undefined, field: string, fieldOp
       validspec[field] = fieldOptions.find((el: SelectOption) => el.value === (validspec && validspec[field]))
     }
   }
+}
+
+export function isDefaultMonitoredServiceAndServiceOrEnvRunTime(
+  type: string,
+  serviceIdentifierFromStage: string,
+  envIdentifierDataFromStage: string
+): boolean {
+  return (
+    (serviceIdentifierFromStage === RUNTIME_INPUT_VALUE || envIdentifierDataFromStage === RUNTIME_INPUT_VALUE) &&
+    type === MONITORED_SERVICE_TYPE.DEFAULT
+  )
+}
+
+export function isConfiguredMonitoredServiceRunTime(
+  type: string,
+  monitoredService?: VerifyStepMonitoredService
+): boolean {
+  return type === MONITORED_SERVICE_TYPE.CONFIGURED && checkIfRunTimeInput(monitoredService?.spec?.monitoredServiceRef)
+}
+
+export function isTemplatisedMonitoredService(type: string): boolean {
+  return type === MONITORED_SERVICE_TYPE.TEMPLATE
 }

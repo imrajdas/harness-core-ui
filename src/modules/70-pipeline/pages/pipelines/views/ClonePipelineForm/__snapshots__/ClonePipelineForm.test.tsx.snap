@@ -1,5 +1,565 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<ClonePipelineForm /> tests isGitSimplificationEnabled = false org and proj loading 1`] = `
+<div
+  data-testid="clone-pipeline-form"
+>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <form
+      action="#"
+      class="FormikForm--main form"
+    >
+      <div>
+        <div
+          class="container"
+        >
+          <div
+            class="StyledProps--font StyledProps--main main"
+          >
+            <div
+              class="InputWithIdentifier--txtNameContainer TextInput--main"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main InputWithIdentifier--txtIdContainer"
+              >
+                <div
+                  class="Text--withDocsTooltip"
+                  data-tooltip-id="universalInputNameWithId"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                  >
+                    Id
+                  </p>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main"
+                >
+                  :
+                </p>
+                <span
+                  class="bp3-popover-wrapper"
+                >
+                  <span
+                    class="bp3-popover-target"
+                  >
+                    <div
+                      class="bp3-editable-text InputWithIdentifier--idValue"
+                      tabindex="0"
+                    >
+                      <span
+                        class="bp3-editable-text-content"
+                        style="height: 1px; line-height: 1px; min-width: 0;"
+                      >
+                        My_Pipeline_Clone
+                      </span>
+                    </div>
+                  </span>
+                </span>
+                <span
+                  class="bp3-icon StyledProps--main"
+                  data-icon="Edit"
+                  style="vertical-align: middle; cursor: pointer;"
+                >
+                  <svg
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      opacity="0.3"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <div
+                class="bp3-form-group"
+                data-id="name-0"
+              >
+                <label
+                  class="bp3-label"
+                  for="name"
+                >
+                  <span
+                    class="Tooltip--acenter"
+                    data-tooltip-id="clone-pipeline_name"
+                  >
+                    name
+                  </span>
+                   
+                  <span
+                    class="bp3-text-muted"
+                  />
+                </label>
+                <div
+                  class="bp3-form-content"
+                >
+                  <div
+                    class="bp3-input-group"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="bp3-input"
+                      name="name"
+                      placeholder="common.namePlaceholder"
+                      type="text"
+                      value="My Pipeline - Clone"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="StyledProps--font StyledProps--main"
+              style="margin-bottom: 0px;"
+            >
+              <label
+                class="Label--main bp3-label descriptionLabel"
+              >
+                optionalField
+              </label>
+              <div
+                class="bp3-form-group"
+                data-id="description-1"
+              >
+                <div
+                  class="bp3-form-content"
+                >
+                  <textarea
+                    autocomplete="off"
+                    class="bp3-input bp3-fill"
+                    maxlength="1024"
+                    name="description"
+                    placeholder="common.descriptionPlaceholder"
+                  >
+                    My Pipeline Description
+                  </textarea>
+                </div>
+              </div>
+            </div>
+            <div
+              class="StyledProps--font StyledProps--main"
+            >
+              <label
+                class="Label--main bp3-label descriptionLabel"
+              >
+                optionalField
+              </label>
+              <div
+                class="bp3-form-group"
+                data-id="undefined-2"
+              >
+                <div
+                  class="bp3-form-content"
+                >
+                  <div
+                    class="bp3-input bp3-tag-input"
+                  >
+                    <div
+                      class="bp3-tag-input-values"
+                    >
+                      <span
+                        class="bp3-tag"
+                        data-tag-index="0"
+                      >
+                        <span
+                          class="bp3-text-overflow-ellipsis bp3-fill"
+                        >
+                          MyTag1
+                        </span>
+                        <button
+                          class="bp3-tag-remove"
+                          type="button"
+                        >
+                          <span
+                            class="bp3-icon bp3-icon-small-cross"
+                            icon="small-cross"
+                          >
+                            <svg
+                              data-icon="small-cross"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              width="16"
+                            >
+                              <desc>
+                                small-cross
+                              </desc>
+                              <path
+                                d="M9.41 8l2.29-2.29c.19-.18.3-.43.3-.71a1.003 1.003 0 00-1.71-.71L8 6.59l-2.29-2.3a1.003 1.003 0 00-1.42 1.42L6.59 8 4.3 10.29c-.19.18-.3.43-.3.71a1.003 1.003 0 001.71.71L8 9.41l2.29 2.29c.18.19.43.3.71.3a1.003 1.003 0 00.71-1.71L9.41 8z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </span>
+                      <span
+                        class="bp3-tag"
+                        data-tag-index="1"
+                      >
+                        <span
+                          class="bp3-text-overflow-ellipsis bp3-fill"
+                        >
+                          MyTag2
+                        </span>
+                        <button
+                          class="bp3-tag-remove"
+                          type="button"
+                        >
+                          <span
+                            class="bp3-icon bp3-icon-small-cross"
+                            icon="small-cross"
+                          >
+                            <svg
+                              data-icon="small-cross"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              width="16"
+                            >
+                              <desc>
+                                small-cross
+                              </desc>
+                              <path
+                                d="M9.41 8l2.29-2.29c.19-.18.3-.43.3-.71a1.003 1.003 0 00-1.71-.71L8 6.59l-2.29-2.3a1.003 1.003 0 00-1.42 1.42L6.59 8 4.3 10.29c-.19.18-.3.43-.3.71a1.003 1.003 0 001.71.71L8 9.41l2.29 2.29c.18.19.43.3.71.3a1.003 1.003 0 00.71-1.71L9.41 8z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </span>
+                      <input
+                        class="bp3-input-ghost"
+                        data-mentions="kv-tag-input-tags"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bp3-divider"
+        />
+        <p
+          class="StyledProps--font StyledProps--main choosePipelineSetupHeader StyledProps--font-variation-h6"
+        >
+          pipeline.createPipeline.choosePipelineSetupHeader
+        </p>
+        <div
+          class="container"
+        >
+          <div
+            class="inputWithSpinner"
+          >
+            <div
+              class="bp3-form-group"
+              data-id="destinationConfig.orgIdentifier-3"
+            >
+              <label
+                class="bp3-label"
+                for="destinationConfig.orgIdentifier"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="clone-pipeline_destinationConfig.orgIdentifier"
+                >
+                  orgLabel
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
+              <div
+                class="bp3-form-content"
+              >
+                <div
+                  class="bp3-popover-wrapper Select--main bp3-fill"
+                >
+                  <div
+                    class="bp3-popover-target"
+                  >
+                    <div
+                      class="bp3-input-group"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="bp3-input"
+                        name="destinationConfig.orgIdentifier"
+                        placeholder="- Select -"
+                        style="padding-right: 0px;"
+                        type="text"
+                        value=""
+                      />
+                      <span
+                        class="bp3-input-action"
+                      >
+                        <span
+                          class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
+                          icon="chevron-down"
+                        >
+                          <svg
+                            data-icon="chevron-down"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            width="14"
+                          >
+                            <desc>
+                              chevron-down
+                            </desc>
+                            <path
+                              d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-primary7"
+              data-icon="steps-spinner"
+            >
+              <svg
+                height="18"
+                viewBox="0 0 128 128"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M122.5 69.25H96.47a33.1 33.1 0 000-10.5h26.05a5.25 5.25 0 010 10.5z"
+                    fill="#ff8e02"
+                  />
+                  <path
+                    d="M112.04 97.83L89.47 84.8a33.1 33.1 0 005.25-9.1l22.57 13.03a5.25 5.25 0 01-5.28 9.1zM88.68 117.35L75.65 94.78a33.1 33.1 0 009.1-5.25l13.02 22.57a5.25 5.25 0 11-9.1 5.25zM58.7 122.57V96.5a33.1 33.1 0 0010.5 0v26.07a5.25 5.25 0 01-10.5 0zM30.1 112.1l13.04-22.57a33.1 33.1 0 009.1 5.25L39.2 117.35a5.25 5.25 0 11-9.1-5.25zM10.6 88.74L33.16 75.7a33.1 33.1 0 005.25 9.1L15.88 97.83a5.25 5.25 0 11-5.25-9.1z"
+                    fill="#ffddb3"
+                    fill-opacity="0.3"
+                  />
+                  <path
+                    d="M5.37 58.75h26.06a33.1 33.1 0 000 10.5H5.37a5.25 5.25 0 010-10.5z"
+                    fill="#ffd29a"
+                    fill-opacity="0.4"
+                  />
+                  <path
+                    d="M15.85 30.17L38.4 43.2a33.1 33.1 0 00-5.24 9.1L10.6 39.25a5.25 5.25 0 115.25-9.1z"
+                    fill="#ffc680"
+                    fill-opacity="0.5"
+                  />
+                  <path
+                    d="M39.2 10.65l13.03 22.57a33.1 33.1 0 00-9.1 5.25l-13-22.57a5.25 5.25 0 119.1-5.25z"
+                    fill="#ffbb67"
+                    fill-opacity="0.6"
+                  />
+                  <path
+                    d="M69.2 5.43V31.5a33.1 33.1 0 00-10.5 0V5.42a5.25 5.25 0 1110.5 0z"
+                    fill="#ffb04d"
+                    fill-opacity="0.7"
+                  />
+                  <path
+                    d="M97.77 15.9L84.75 38.47a33.1 33.1 0 00-9.1-5.25l13.03-22.57a5.25 5.25 0 119.1 5.25z"
+                    fill="#ffa535"
+                    fill-opacity="0.8"
+                  />
+                  <path
+                    d="M117.3 39.26L94.7 52.3a33.1 33.1 0 00-5.25-9.1l22.57-13.03a5.25 5.25 0 015.25 9.1z"
+                    fill="#ff991b"
+                    fill-opacity="0.9"
+                  />
+                  <animatetransform
+                    attributeName="transform"
+                    calcMode="discrete"
+                    dur="1200ms"
+                    repeatCount="indefinite"
+                    type="rotate"
+                    values="0 64 64;30 64 64;60 64 64;90 64 64;120 64 64;150 64 64;180 64 64;210 64 64;240 64 64;270 64 64;300 64 64;330 64 64"
+                  />
+                </g>
+              </svg>
+            </span>
+          </div>
+          <div
+            class="inputWithSpinner"
+          >
+            <div
+              class="bp3-form-group"
+              data-id="destinationConfig.projectIdentifier-4"
+            >
+              <label
+                class="bp3-label"
+                for="destinationConfig.projectIdentifier"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="clone-pipeline_destinationConfig.projectIdentifier"
+                >
+                  projectLabel
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
+              <div
+                class="bp3-form-content"
+              >
+                <div
+                  class="bp3-popover-wrapper Select--main bp3-fill"
+                >
+                  <div
+                    class="bp3-popover-target"
+                  >
+                    <div
+                      class="bp3-input-group"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="bp3-input"
+                        name="destinationConfig.projectIdentifier"
+                        placeholder="- Select -"
+                        style="padding-right: 0px;"
+                        type="text"
+                        value=""
+                      />
+                      <span
+                        class="bp3-input-action"
+                      >
+                        <span
+                          class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
+                          icon="chevron-down"
+                        >
+                          <svg
+                            data-icon="chevron-down"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            width="14"
+                          >
+                            <desc>
+                              chevron-down
+                            </desc>
+                            <path
+                              d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span
+              class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-primary7"
+              data-icon="steps-spinner"
+            >
+              <svg
+                height="18"
+                viewBox="0 0 128 128"
+                width="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M122.5 69.25H96.47a33.1 33.1 0 000-10.5h26.05a5.25 5.25 0 010 10.5z"
+                    fill="#ff8e02"
+                  />
+                  <path
+                    d="M112.04 97.83L89.47 84.8a33.1 33.1 0 005.25-9.1l22.57 13.03a5.25 5.25 0 01-5.28 9.1zM88.68 117.35L75.65 94.78a33.1 33.1 0 009.1-5.25l13.02 22.57a5.25 5.25 0 11-9.1 5.25zM58.7 122.57V96.5a33.1 33.1 0 0010.5 0v26.07a5.25 5.25 0 01-10.5 0zM30.1 112.1l13.04-22.57a33.1 33.1 0 009.1 5.25L39.2 117.35a5.25 5.25 0 11-9.1-5.25zM10.6 88.74L33.16 75.7a33.1 33.1 0 005.25 9.1L15.88 97.83a5.25 5.25 0 11-5.25-9.1z"
+                    fill="#ffddb3"
+                    fill-opacity="0.3"
+                  />
+                  <path
+                    d="M5.37 58.75h26.06a33.1 33.1 0 000 10.5H5.37a5.25 5.25 0 010-10.5z"
+                    fill="#ffd29a"
+                    fill-opacity="0.4"
+                  />
+                  <path
+                    d="M15.85 30.17L38.4 43.2a33.1 33.1 0 00-5.24 9.1L10.6 39.25a5.25 5.25 0 115.25-9.1z"
+                    fill="#ffc680"
+                    fill-opacity="0.5"
+                  />
+                  <path
+                    d="M39.2 10.65l13.03 22.57a33.1 33.1 0 00-9.1 5.25l-13-22.57a5.25 5.25 0 119.1-5.25z"
+                    fill="#ffbb67"
+                    fill-opacity="0.6"
+                  />
+                  <path
+                    d="M69.2 5.43V31.5a33.1 33.1 0 00-10.5 0V5.42a5.25 5.25 0 1110.5 0z"
+                    fill="#ffb04d"
+                    fill-opacity="0.7"
+                  />
+                  <path
+                    d="M97.77 15.9L84.75 38.47a33.1 33.1 0 00-9.1-5.25l13.03-22.57a5.25 5.25 0 119.1 5.25z"
+                    fill="#ffa535"
+                    fill-opacity="0.8"
+                  />
+                  <path
+                    d="M117.3 39.26L94.7 52.3a33.1 33.1 0 00-5.25-9.1l22.57-13.03a5.25 5.25 0 015.25 9.1z"
+                    fill="#ff991b"
+                    fill-opacity="0.9"
+                  />
+                  <animatetransform
+                    attributeName="transform"
+                    calcMode="discrete"
+                    dur="1200ms"
+                    repeatCount="indefinite"
+                    type="rotate"
+                    values="0 64 64;30 64 64;60 64 64;90 64 64;120 64 64;150 64 64;180 64 64;210 64 64;240 64 64;270 64 64;300 64 64;330 64 64"
+                  />
+                </g>
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div
+          class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--padding-top-large"
+        >
+          <button
+            class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color"
+            data-testid="clone"
+            type="submit"
+          >
+            <span
+              class="bp3-button-text"
+            >
+              projectCard.clone
+            </span>
+          </button>
+          <button
+            class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color"
+            type="reset"
+          >
+            <span
+              class="bp3-button-text"
+            >
+              cancel
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
+
 exports[`<ClonePipelineForm /> tests isGitSimplificationEnabled = false snapshot test 1`] = `
 <div
   data-testid="clone-pipeline-form"
@@ -263,136 +823,144 @@ exports[`<ClonePipelineForm /> tests isGitSimplificationEnabled = false snapshot
           class="container"
         >
           <div
-            class="bp3-form-group"
-            data-id="destinationConfig.orgIdentifier-3"
+            class="inputWithSpinner"
           >
-            <label
-              class="bp3-label"
-              for="destinationConfig.orgIdentifier"
-            >
-              <span
-                class="Tooltip--acenter"
-                data-tooltip-id="clone-pipeline_destinationConfig.orgIdentifier"
-              >
-                orgLabel
-              </span>
-               
-              <span
-                class="bp3-text-muted"
-              />
-            </label>
             <div
-              class="bp3-form-content"
+              class="bp3-form-group"
+              data-id="destinationConfig.orgIdentifier-3"
             >
+              <label
+                class="bp3-label"
+                for="destinationConfig.orgIdentifier"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="clone-pipeline_destinationConfig.orgIdentifier"
+                >
+                  orgLabel
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
               <div
-                class="bp3-popover-wrapper Select--main bp3-fill"
+                class="bp3-form-content"
               >
                 <div
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper Select--main bp3-fill"
                 >
                   <div
-                    class="bp3-input-group"
+                    class="bp3-popover-target"
                   >
-                    <input
-                      autocomplete="off"
-                      class="bp3-input"
-                      name="destinationConfig.orgIdentifier"
-                      placeholder="- Select -"
-                      style="padding-right: 0px;"
-                      type="text"
-                      value="Test Org 1"
-                    />
-                    <span
-                      class="bp3-input-action"
+                    <div
+                      class="bp3-input-group"
                     >
+                      <input
+                        autocomplete="off"
+                        class="bp3-input"
+                        name="destinationConfig.orgIdentifier"
+                        placeholder="- Select -"
+                        style="padding-right: 0px;"
+                        type="text"
+                        value="Test Org 1"
+                      />
                       <span
-                        class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
-                        icon="chevron-down"
+                        class="bp3-input-action"
                       >
-                        <svg
-                          data-icon="chevron-down"
-                          height="14"
-                          viewBox="0 0 16 16"
-                          width="14"
+                        <span
+                          class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
+                          icon="chevron-down"
                         >
-                          <desc>
-                            chevron-down
-                          </desc>
-                          <path
-                            d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
+                          <svg
+                            data-icon="chevron-down"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            width="14"
+                          >
+                            <desc>
+                              chevron-down
+                            </desc>
+                            <path
+                              d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="bp3-form-group"
-            data-id="destinationConfig.projectIdentifier-4"
+            class="inputWithSpinner"
           >
-            <label
-              class="bp3-label"
-              for="destinationConfig.projectIdentifier"
-            >
-              <span
-                class="Tooltip--acenter"
-                data-tooltip-id="clone-pipeline_destinationConfig.projectIdentifier"
-              >
-                projectLabel
-              </span>
-               
-              <span
-                class="bp3-text-muted"
-              />
-            </label>
             <div
-              class="bp3-form-content"
+              class="bp3-form-group"
+              data-id="destinationConfig.projectIdentifier-4"
             >
+              <label
+                class="bp3-label"
+                for="destinationConfig.projectIdentifier"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="clone-pipeline_destinationConfig.projectIdentifier"
+                >
+                  projectLabel
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
               <div
-                class="bp3-popover-wrapper Select--main bp3-fill"
+                class="bp3-form-content"
               >
                 <div
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper Select--main bp3-fill"
                 >
                   <div
-                    class="bp3-input-group"
+                    class="bp3-popover-target"
                   >
-                    <input
-                      autocomplete="off"
-                      class="bp3-input"
-                      name="destinationConfig.projectIdentifier"
-                      placeholder="- Select -"
-                      style="padding-right: 0px;"
-                      type="text"
-                      value="Test Project 1"
-                    />
-                    <span
-                      class="bp3-input-action"
+                    <div
+                      class="bp3-input-group"
                     >
+                      <input
+                        autocomplete="off"
+                        class="bp3-input"
+                        name="destinationConfig.projectIdentifier"
+                        placeholder="- Select -"
+                        style="padding-right: 0px;"
+                        type="text"
+                        value="Test Project 1"
+                      />
                       <span
-                        class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
-                        icon="chevron-down"
+                        class="bp3-input-action"
                       >
-                        <svg
-                          data-icon="chevron-down"
-                          height="14"
-                          viewBox="0 0 16 16"
-                          width="14"
+                        <span
+                          class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
+                          icon="chevron-down"
                         >
-                          <desc>
-                            chevron-down
-                          </desc>
-                          <path
-                            d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
+                          <svg
+                            data-icon="chevron-down"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            width="14"
+                          >
+                            <desc>
+                              chevron-down
+                            </desc>
+                            <path
+                              d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -806,136 +1374,144 @@ exports[`<ClonePipelineForm /> tests isGitSimplificationEnabled = true default s
           class="container"
         >
           <div
-            class="bp3-form-group"
-            data-id="destinationConfig.orgIdentifier-3"
+            class="inputWithSpinner"
           >
-            <label
-              class="bp3-label"
-              for="destinationConfig.orgIdentifier"
-            >
-              <span
-                class="Tooltip--acenter"
-                data-tooltip-id="clone-pipeline_destinationConfig.orgIdentifier"
-              >
-                orgLabel
-              </span>
-               
-              <span
-                class="bp3-text-muted"
-              />
-            </label>
             <div
-              class="bp3-form-content"
+              class="bp3-form-group"
+              data-id="destinationConfig.orgIdentifier-3"
             >
+              <label
+                class="bp3-label"
+                for="destinationConfig.orgIdentifier"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="clone-pipeline_destinationConfig.orgIdentifier"
+                >
+                  orgLabel
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
               <div
-                class="bp3-popover-wrapper Select--main bp3-fill"
+                class="bp3-form-content"
               >
                 <div
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper Select--main bp3-fill"
                 >
                   <div
-                    class="bp3-input-group"
+                    class="bp3-popover-target"
                   >
-                    <input
-                      autocomplete="off"
-                      class="bp3-input"
-                      name="destinationConfig.orgIdentifier"
-                      placeholder="- Select -"
-                      style="padding-right: 0px;"
-                      type="text"
-                      value="Test Org 1"
-                    />
-                    <span
-                      class="bp3-input-action"
+                    <div
+                      class="bp3-input-group"
                     >
+                      <input
+                        autocomplete="off"
+                        class="bp3-input"
+                        name="destinationConfig.orgIdentifier"
+                        placeholder="- Select -"
+                        style="padding-right: 0px;"
+                        type="text"
+                        value="Test Org 1"
+                      />
                       <span
-                        class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
-                        icon="chevron-down"
+                        class="bp3-input-action"
                       >
-                        <svg
-                          data-icon="chevron-down"
-                          height="14"
-                          viewBox="0 0 16 16"
-                          width="14"
+                        <span
+                          class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
+                          icon="chevron-down"
                         >
-                          <desc>
-                            chevron-down
-                          </desc>
-                          <path
-                            d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
+                          <svg
+                            data-icon="chevron-down"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            width="14"
+                          >
+                            <desc>
+                              chevron-down
+                            </desc>
+                            <path
+                              d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="bp3-form-group"
-            data-id="destinationConfig.projectIdentifier-4"
+            class="inputWithSpinner"
           >
-            <label
-              class="bp3-label"
-              for="destinationConfig.projectIdentifier"
-            >
-              <span
-                class="Tooltip--acenter"
-                data-tooltip-id="clone-pipeline_destinationConfig.projectIdentifier"
-              >
-                projectLabel
-              </span>
-               
-              <span
-                class="bp3-text-muted"
-              />
-            </label>
             <div
-              class="bp3-form-content"
+              class="bp3-form-group"
+              data-id="destinationConfig.projectIdentifier-4"
             >
+              <label
+                class="bp3-label"
+                for="destinationConfig.projectIdentifier"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="clone-pipeline_destinationConfig.projectIdentifier"
+                >
+                  projectLabel
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
               <div
-                class="bp3-popover-wrapper Select--main bp3-fill"
+                class="bp3-form-content"
               >
                 <div
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper Select--main bp3-fill"
                 >
                   <div
-                    class="bp3-input-group"
+                    class="bp3-popover-target"
                   >
-                    <input
-                      autocomplete="off"
-                      class="bp3-input"
-                      name="destinationConfig.projectIdentifier"
-                      placeholder="- Select -"
-                      style="padding-right: 0px;"
-                      type="text"
-                      value="Test Project 1"
-                    />
-                    <span
-                      class="bp3-input-action"
+                    <div
+                      class="bp3-input-group"
                     >
+                      <input
+                        autocomplete="off"
+                        class="bp3-input"
+                        name="destinationConfig.projectIdentifier"
+                        placeholder="- Select -"
+                        style="padding-right: 0px;"
+                        type="text"
+                        value="Test Project 1"
+                      />
                       <span
-                        class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
-                        icon="chevron-down"
+                        class="bp3-input-action"
                       >
-                        <svg
-                          data-icon="chevron-down"
-                          height="14"
-                          viewBox="0 0 16 16"
-                          width="14"
+                        <span
+                          class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
+                          icon="chevron-down"
                         >
-                          <desc>
-                            chevron-down
-                          </desc>
-                          <path
-                            d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
+                          <svg
+                            data-icon="chevron-down"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            width="14"
+                          >
+                            <desc>
+                              chevron-down
+                            </desc>
+                            <path
+                              d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1349,136 +1925,144 @@ exports[`<ClonePipelineForm /> tests isGitSimplificationEnabled = true store = I
           class="container"
         >
           <div
-            class="bp3-form-group"
-            data-id="destinationConfig.orgIdentifier-3"
+            class="inputWithSpinner"
           >
-            <label
-              class="bp3-label"
-              for="destinationConfig.orgIdentifier"
-            >
-              <span
-                class="Tooltip--acenter"
-                data-tooltip-id="clone-pipeline_destinationConfig.orgIdentifier"
-              >
-                orgLabel
-              </span>
-               
-              <span
-                class="bp3-text-muted"
-              />
-            </label>
             <div
-              class="bp3-form-content"
+              class="bp3-form-group"
+              data-id="destinationConfig.orgIdentifier-3"
             >
+              <label
+                class="bp3-label"
+                for="destinationConfig.orgIdentifier"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="clone-pipeline_destinationConfig.orgIdentifier"
+                >
+                  orgLabel
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
               <div
-                class="bp3-popover-wrapper Select--main bp3-fill"
+                class="bp3-form-content"
               >
                 <div
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper Select--main bp3-fill"
                 >
                   <div
-                    class="bp3-input-group"
+                    class="bp3-popover-target"
                   >
-                    <input
-                      autocomplete="off"
-                      class="bp3-input"
-                      name="destinationConfig.orgIdentifier"
-                      placeholder="- Select -"
-                      style="padding-right: 0px;"
-                      type="text"
-                      value="Test Org 1"
-                    />
-                    <span
-                      class="bp3-input-action"
+                    <div
+                      class="bp3-input-group"
                     >
+                      <input
+                        autocomplete="off"
+                        class="bp3-input"
+                        name="destinationConfig.orgIdentifier"
+                        placeholder="- Select -"
+                        style="padding-right: 0px;"
+                        type="text"
+                        value="Test Org 1"
+                      />
                       <span
-                        class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
-                        icon="chevron-down"
+                        class="bp3-input-action"
                       >
-                        <svg
-                          data-icon="chevron-down"
-                          height="14"
-                          viewBox="0 0 16 16"
-                          width="14"
+                        <span
+                          class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
+                          icon="chevron-down"
                         >
-                          <desc>
-                            chevron-down
-                          </desc>
-                          <path
-                            d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
+                          <svg
+                            data-icon="chevron-down"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            width="14"
+                          >
+                            <desc>
+                              chevron-down
+                            </desc>
+                            <path
+                              d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div
-            class="bp3-form-group"
-            data-id="destinationConfig.projectIdentifier-4"
+            class="inputWithSpinner"
           >
-            <label
-              class="bp3-label"
-              for="destinationConfig.projectIdentifier"
-            >
-              <span
-                class="Tooltip--acenter"
-                data-tooltip-id="clone-pipeline_destinationConfig.projectIdentifier"
-              >
-                projectLabel
-              </span>
-               
-              <span
-                class="bp3-text-muted"
-              />
-            </label>
             <div
-              class="bp3-form-content"
+              class="bp3-form-group"
+              data-id="destinationConfig.projectIdentifier-4"
             >
+              <label
+                class="bp3-label"
+                for="destinationConfig.projectIdentifier"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="clone-pipeline_destinationConfig.projectIdentifier"
+                >
+                  projectLabel
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
               <div
-                class="bp3-popover-wrapper Select--main bp3-fill"
+                class="bp3-form-content"
               >
                 <div
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper Select--main bp3-fill"
                 >
                   <div
-                    class="bp3-input-group"
+                    class="bp3-popover-target"
                   >
-                    <input
-                      autocomplete="off"
-                      class="bp3-input"
-                      name="destinationConfig.projectIdentifier"
-                      placeholder="- Select -"
-                      style="padding-right: 0px;"
-                      type="text"
-                      value="Test Project 1"
-                    />
-                    <span
-                      class="bp3-input-action"
+                    <div
+                      class="bp3-input-group"
                     >
+                      <input
+                        autocomplete="off"
+                        class="bp3-input"
+                        name="destinationConfig.projectIdentifier"
+                        placeholder="- Select -"
+                        style="padding-right: 0px;"
+                        type="text"
+                        value="Test Project 1"
+                      />
                       <span
-                        class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
-                        icon="chevron-down"
+                        class="bp3-input-action"
                       >
-                        <svg
-                          data-icon="chevron-down"
-                          height="14"
-                          viewBox="0 0 16 16"
-                          width="14"
+                        <span
+                          class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
+                          icon="chevron-down"
                         >
-                          <desc>
-                            chevron-down
-                          </desc>
-                          <path
-                            d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
-                            fill-rule="evenodd"
-                          />
-                        </svg>
+                          <svg
+                            data-icon="chevron-down"
+                            height="14"
+                            viewBox="0 0 16 16"
+                            width="14"
+                          >
+                            <desc>
+                              chevron-down
+                            </desc>
+                            <path
+                              d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>

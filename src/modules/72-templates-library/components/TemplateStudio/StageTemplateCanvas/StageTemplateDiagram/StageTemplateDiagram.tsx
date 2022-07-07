@@ -92,8 +92,7 @@ export const StageTemplateDiagram = (): JSX.Element => {
         renderPipelineStage,
         stagesMap: stagesMap,
         contextType,
-        templateTypes,
-        getTemplate: Promise.reject
+        templateTypes
       },
       { useArrows: true, darkMode: false, fixedPosition: false, placement: 'bottom-start' }
     )

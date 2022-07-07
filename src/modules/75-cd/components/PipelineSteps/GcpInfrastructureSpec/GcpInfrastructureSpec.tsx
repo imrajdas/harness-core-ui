@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Menu } from '@blueprintjs/core'
 import {
   IconName,
@@ -35,7 +35,8 @@ import {
   getConnectorListV2Promise,
   K8sGcpInfrastructure,
   useGetClusterNamesForGcp,
-  getClusterNamesForGcpPromise
+  getClusterNamesForGcpPromise,
+  useGetClusterNamesForGcpInfra
 } from 'services/cd-ng'
 import {
   ConnectorReferenceDTO,
@@ -432,6 +433,21 @@ const GcpInfrastructureSpecInputForm: React.FC<GcpInfrastructureSpecEditableProp
   const { getString } = useStrings()
   const { getRBACErrorMessage } = useRBACError()
 
+  const connectorRef = useMemo(
+    () => defaultTo(initialValues.connectorRef, allValues?.connectorRef),
+    [initialValues.connectorRef, allValues?.connectorRef]
+  )
+
+  const environmentRef = useMemo(
+    () => defaultTo(initialValues.environmentRef, allValues?.environmentRef),
+    [initialValues.environmentRef, allValues?.environmentRef]
+  )
+
+  const infrastructureRef = useMemo(
+    () => defaultTo(initialValues.infrastructureRef, allValues?.infrastructureRef),
+    [initialValues.infrastructureRef, allValues?.infrastructureRef]
+  )
+
   const {
     data: clusterNamesData,
     refetch: refetchClusterNames,
@@ -442,13 +458,28 @@ const GcpInfrastructureSpecInputForm: React.FC<GcpInfrastructureSpecEditableProp
     debounce: 300
   })
 
-  useEffect(() => {
-    const options = clusterNamesData?.data?.clusterNames?.map(name => ({ label: name, value: name }))
-    setClusterOptions(defaultTo(options, []))
-  }, [clusterNamesData])
+  const {
+    data: clusterNamesForInfraData,
+    refetch: refetchClusterNamesForInfra,
+    loading: loadingClusterNamesForInfra,
+    error: clustersForInfraError
+  } = useGetClusterNamesForGcpInfra({
+    lazy: true,
+    debounce: 300
+  })
 
   useEffect(() => {
-    const connectorRef = defaultTo(initialValues.connectorRef, allValues?.connectorRef)
+    const options = defaultTo(
+      clusterNamesData,
+      (!connectorRef && clusterNamesForInfraData) || {}
+    )?.data?.clusterNames?.map(name => ({
+      label: name,
+      value: name
+    }))
+    setClusterOptions(defaultTo(options, []))
+  }, [clusterNamesData, clusterNamesForInfraData, connectorRef])
+
+  useEffect(() => {
     if (connectorRef && getMultiTypeFromValue(connectorRef) === MultiTypeInputType.FIXED) {
       refetchClusterNames({
         queryParams: {
@@ -467,15 +498,44 @@ const GcpInfrastructureSpecInputForm: React.FC<GcpInfrastructureSpecEditableProp
         set(initialValues, 'cluster', '')
         onUpdate?.(initialValues)
       }
+    } else if (
+      getMultiTypeFromValue(connectorRef) !== MultiTypeInputType.RUNTIME &&
+      environmentRef &&
+      getMultiTypeFromValue(environmentRef) === MultiTypeInputType.FIXED &&
+      infrastructureRef &&
+      getMultiTypeFromValue(infrastructureRef) === MultiTypeInputType.FIXED
+    ) {
+      refetchClusterNamesForInfra({
+        queryParams: {
+          accountIdentifier: accountId,
+          projectIdentifier,
+          orgIdentifier,
+          envId: environmentRef,
+          infraDefinitionId: infrastructureRef
+        }
+      })
+
+      // reset cluster on connectorRef change
+      if (
+        getMultiTypeFromValue(template?.cluster) === MultiTypeInputType.RUNTIME &&
+        getMultiTypeFromValue(initialValues?.cluster) !== MultiTypeInputType.RUNTIME
+      ) {
+        set(initialValues, 'cluster', '')
+        onUpdate?.(initialValues)
+      }
     } else {
       setClusterOptions([])
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialValues.connectorRef, allValues?.connectorRef])
+  }, [connectorRef, environmentRef, infrastructureRef])
 
   const itemRenderer = memoize((item: { label: string }, { handleClick }) => (
     <div key={item.label.toString()}>
-      <Menu.Item text={item.label} disabled={loadingClusterNames} onClick={handleClick} />
+      <Menu.Item
+        text={item.label}
+        disabled={loadingClusterNames || loadingClusterNamesForInfra}
+        onClick={handleClick}
+      />
     </div>
   ))
 
@@ -527,9 +587,9 @@ const GcpInfrastructureSpecInputForm: React.FC<GcpInfrastructureSpecEditableProp
         <div className={cx(stepCss.formGroup, stepCss.md, css.clusterInputWrapper)}>
           <FormInput.MultiTypeInput
             name={`${path}.cluster`}
-            disabled={loadingClusterNames || readonly}
+            disabled={loadingClusterNames || loadingClusterNamesForInfra || readonly}
             placeholder={
-              loadingClusterNames
+              loadingClusterNames || loadingClusterNamesForInfra
                 ? /* istanbul ignore next */ getString('loading')
                 : getString('cd.steps.common.selectOrEnterClusterPlaceholder')
             }
@@ -541,11 +601,11 @@ const GcpInfrastructureSpecInputForm: React.FC<GcpInfrastructureSpecEditableProp
                 items: clusterOptions,
                 itemRenderer: itemRenderer,
                 allowCreatingNewItems: true,
-                addClearBtn: !(loadingClusterNames || readonly),
+                addClearBtn: !(loadingClusterNames || loadingClusterNamesForInfra || readonly),
                 noResults: (
                   <Text padding={'small'}>
                     {defaultTo(
-                      getRBACErrorMessage(clusterError as RBACError),
+                      getRBACErrorMessage((clusterError || clustersForInfraError) as RBACError),
                       getString('cd.pipelineSteps.infraTab.clusterError')
                     )}
                   </Text>

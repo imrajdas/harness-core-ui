@@ -12,7 +12,9 @@ import type { Feature } from 'services/cf'
 import * as cfServices from 'services/cf'
 import { TestWrapper } from '@common/utils/testUtils'
 import mockTarget from '@cf/utils/testData/data/mockTarget'
+import * as gitSync from '@cf/hooks/useGitSync'
 import { CF_DEFAULT_PAGE_SIZE } from '@cf/utils/CFUtils'
+import { FFGitSyncProvider } from '@cf/contexts/ff-git-sync-context/FFGitSyncContext'
 import type { TargetManagementFlagConfigurationPanelFormValues as FormValues } from '../types'
 import TargetManagementFlagConfigurationPanel, {
   TargetManagementFlagConfigurationPanelProps
@@ -40,29 +42,38 @@ const buildInitialValues = (flags: Feature[]): FormValues => ({
   )
 })
 
+jest.mock('@cf/components/TargetManagementToolbar/TargetManagementToolbar', () => ({
+  __esModule: true,
+  default: () => <span data-testid="target-management-toolbar">Target Management Toolbar</span>
+}))
+
 const renderComponent = (props: Partial<TargetManagementFlagConfigurationPanelProps> = {}): RenderResult => {
   const flags = props.flags ?? buildTestFlags()
   const initialValues = props.initialValues ?? buildInitialValues(flags)
 
   return render(
     <TestWrapper>
-      <TargetManagementFlagConfigurationPanel
-        item={mockTarget}
-        flags={flags}
-        initialValues={initialValues}
-        onChange={jest.fn()}
-        onAdd={jest.fn()}
-        noFlagsMessage="NO FLAGS"
-        addFlagsDialogTitle="ADD FLAGS TITLE"
-        {...props}
-      />
+      <FFGitSyncProvider>
+        <TargetManagementFlagConfigurationPanel
+          item={mockTarget}
+          flags={flags}
+          initialValues={initialValues}
+          onChange={jest.fn()}
+          onAdd={jest.fn()}
+          noFlagsMessage="NO FLAGS"
+          addFlagsDialogTitle="ADD FLAGS TITLE"
+          {...props}
+        />
+      </FFGitSyncProvider>
     </TestWrapper>
   )
 }
 
 describe('TargetManagementFlagConfigurationPanel', () => {
+  const useGitSyncMock = jest.spyOn(gitSync, 'useGitSync')
   beforeEach(() => {
     jest.resetAllMocks()
+    useGitSyncMock.mockReturnValue({ isGitSyncActionsEnabled: false } as any)
   })
 
   test('it should display the No Flags message when flags is empty', async () => {
@@ -316,5 +327,21 @@ describe('TargetManagementFlagConfigurationPanel', () => {
     userEvent.click(screen.getByRole('button', { name: 'cancel' }))
 
     await waitFor(() => expect(screen.queryByText(addFlagsDialogTitle)).not.toBeInTheDocument())
+  })
+
+  describe('gitSync', () => {
+    test('it should not display the Target Management Toolbar when gitSync is disabled', async () => {
+      renderComponent()
+
+      expect(screen.queryByTestId('target-management-toolbar')).not.toBeInTheDocument()
+    })
+
+    test('it should display the Target Management Toolbar when gitSync is enabled', async () => {
+      useGitSyncMock.mockReturnValue({ isGitSyncActionsEnabled: true } as any)
+
+      renderComponent()
+
+      expect(screen.getByTestId('target-management-toolbar')).toBeInTheDocument()
+    })
   })
 })

@@ -13,10 +13,10 @@
     position: sticky;
     top: 0;
     background-color: var(--grey-50);
-    padding: var(--spacing-5);
+    padding: var(--spacing-4);
     z-index: 2;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     column-gap: var(--spacing-4);
     border-bottom: 1px solid var(--grey-200);
@@ -25,7 +25,7 @@
   .heatmap {
     max-width: 150px;
     overflow: auto;
-    padding-bottom: var(--spacing-small);
+    padding: var(--spacing-3);
   }
 }
 

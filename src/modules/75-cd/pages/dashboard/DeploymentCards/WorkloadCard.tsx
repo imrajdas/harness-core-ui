@@ -27,11 +27,9 @@ export interface WorkloadCardProps {
 export default function WorkloadCard({
   serviceName,
   lastExecuted,
-  lastMessage,
   totalDeployments,
   percentSuccess,
   rateSuccess,
-  username,
   workload,
   serviceId = ''
 }: WorkloadCardProps): React.ReactElement {
@@ -54,8 +52,9 @@ export default function WorkloadCard({
   return (
     <ServiceCardWithChart
       title={serviceName}
-      message={lastMessage!}
-      username={username}
+      message={lastExecuted?.triggerType}
+      profileUrl={lastExecuted?.authorInfo?.url}
+      username={lastExecuted?.authorInfo?.name}
       startTime={lastExecuted?.startTime as number}
       endTime={lastExecuted?.endTime as number}
       count={totalDeployments}
@@ -66,6 +65,7 @@ export default function WorkloadCard({
       countList={countList}
       onClick={gotoServices}
       className={css.hoverService}
+      lastExecutionStatus={lastExecuted?.status}
     />
   )
 }

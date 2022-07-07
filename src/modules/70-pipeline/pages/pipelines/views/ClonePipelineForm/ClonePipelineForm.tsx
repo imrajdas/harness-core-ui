@@ -20,7 +20,9 @@ import {
   SelectOption,
   useToaster,
   Text,
-  FontVariation
+  FontVariation,
+  Color,
+  Icon
 } from '@harness/uicore'
 import { Divider } from '@blueprintjs/core'
 
@@ -87,7 +89,9 @@ export function ClonePipelineFormInternal(props: ClonePipelineFormProps): React.
   const { accountId, orgIdentifier, projectIdentifier, module } = useParams<PipelineType<ProjectPathProps>>()
   const { showSuccess, showError } = useToaster()
   const { getRBACErrorMessage } = useRBACError()
-  const { isGitSimplificationEnabled } = useAppStore()
+  const { isGitSimplificationEnabled, selectedProject } = useAppStore()
+  const [projectsQuery, setProjectsQuery] = React.useState('')
+  const [selectedOrg, setSelectedOrg] = React.useState(orgIdentifier)
 
   const { mutate: clonePipeline } = useClonePipeline({})
   const { data: orgData, loading: orgDataLoading } = useGetOrganizationList({
@@ -97,15 +101,13 @@ export function ClonePipelineFormInternal(props: ClonePipelineFormProps): React.
     },
     lazy: !isOpen
   })
-  const {
-    data: projectData,
-    loading: projectDataLoading,
-    refetch: refetchProjectsData
-  } = useGetProjectAggregateDTOList({
+  const { data: projectData, loading: projectDataLoading } = useGetProjectAggregateDTOList({
     queryParams: {
       accountIdentifier: accountId,
-      orgIdentifier
+      orgIdentifier: selectedOrg,
+      searchTerm: projectsQuery || undefined
     },
+    debounce: 400,
     lazy: !isOpen
   })
 
@@ -121,21 +123,35 @@ export function ClonePipelineFormInternal(props: ClonePipelineFormProps): React.
 
   const projects: SelectOption[] = React.useMemo(() => {
     const data: ProjectAggregateDTO[] = get(projectData, 'data.content', [])
-    return data.map(project => {
+    let isSelectedProjectPresent = false
+
+    const options = data.map(project => {
+      isSelectedProjectPresent =
+        isSelectedProjectPresent || project.projectResponse.project.identifier === selectedProject?.identifier
+
       return {
         label: project.projectResponse.project.name,
         value: project.projectResponse.project.identifier
       }
     })
-  }, [projectData])
+
+    if (
+      !isSelectedProjectPresent && // selected project not present in list
+      selectedProject && // selected project is defined
+      selectedProject.orgIdentifier === selectedOrg && // selected project belongs to selected org
+      !projectsQuery // project searchTerm is not set
+    ) {
+      options.unshift({
+        label: selectedProject.name,
+        value: selectedProject.identifier
+      })
+    }
+
+    return options
+  }, [projectData, selectedProject, projectsQuery, selectedOrg])
 
   function handleOrgChange(item: SelectOption): void {
-    refetchProjectsData({
-      queryParams: {
-        accountIdentifier: accountId,
-        orgIdentifier: item.value as string
-      }
-    })
+    setSelectedOrg(item.value as string)
 
     /* istanbul ignore else */
     if (formikRef.current) {
@@ -177,8 +193,6 @@ export function ClonePipelineFormInternal(props: ClonePipelineFormProps): React.
 
     return formData
   }
-
-  const loading = orgDataLoading || projectDataLoading
   const initialvalues: FormState = React.useMemo(
     () => getInitialValues({ originalPipeline, orgIdentifier, projectIdentifier, isGitSimplificationEnabled }),
     [originalPipeline, orgIdentifier, projectIdentifier, isGitSimplificationEnabled]
@@ -190,7 +204,6 @@ export function ClonePipelineFormInternal(props: ClonePipelineFormProps): React.
         formName="clone-pipeline"
         initialValues={initialvalues}
         onSubmit={handleSubmit}
-        formLoading={loading}
         validationSchema={getValidationSchema(getString)}
       >
         {formikProps => {
@@ -216,20 +229,27 @@ export function ClonePipelineFormInternal(props: ClonePipelineFormProps): React.
               ) : null}
               {storeType === StoreType.INLINE ? (
                 <div className={css.container}>
-                  <FormInput.Select
-                    selectProps={{ usePortal: true }}
-                    label={getString('orgLabel')}
-                    name="destinationConfig.orgIdentifier"
-                    items={organizations}
-                    onChange={handleOrgChange}
-                  />
-                  <FormInput.Select
-                    key={get(formikProps.values, 'destinationConfig.orgIdentifier')}
-                    selectProps={{ usePortal: true }}
-                    label={getString('projectLabel')}
-                    name="destinationConfig.projectIdentifier"
-                    items={projects}
-                  />
+                  <div className={css.inputWithSpinner}>
+                    <FormInput.Select
+                      selectProps={{ usePortal: true }}
+                      label={getString('orgLabel')}
+                      name="destinationConfig.orgIdentifier"
+                      items={organizations}
+                      onChange={handleOrgChange}
+                    />
+                    {orgDataLoading ? <Icon name="steps-spinner" size={18} color={Color.PRIMARY_7} /> : null}
+                  </div>
+                  <div className={css.inputWithSpinner}>
+                    <FormInput.Select
+                      key={get(formikProps.values, 'destinationConfig.orgIdentifier')}
+                      selectProps={{ usePortal: true }}
+                      label={getString('projectLabel')}
+                      name="destinationConfig.projectIdentifier"
+                      items={projects}
+                      onQueryChange={setProjectsQuery}
+                    />
+                    {projectDataLoading ? <Icon name="steps-spinner" size={18} color={Color.PRIMARY_7} /> : null}
+                  </div>
                 </div>
               ) : null}
               {storeType === StoreType.REMOTE ? (

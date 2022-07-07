@@ -12,5 +12,6 @@ declare const styles: {
   readonly container: string
   readonly form: string
   readonly inlineRemoteSelect: string
+  readonly inputWithSpinner: string
 }
 export default styles

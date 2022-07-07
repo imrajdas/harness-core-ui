@@ -165,14 +165,14 @@ const usePatchFeatureFlag = ({
     }
 
     // submit request
-    patch.feature.onPatchAvailable(async formData => {
-      saveWithGit(
+    patch.feature.onPatchAvailable(async patchInstructions => {
+      saveWithGit({
         featureFlagName,
         featureFlagIdentifier,
-        AUTO_COMMIT_MESSAGES.UPDATED_FLAG_TARGETING,
-        formData,
-        handleSave
-      )
+        autoCommitMessage: AUTO_COMMIT_MESSAGES.UPDATED_FLAG_TARGETING,
+        patchInstructions,
+        onSave: handleSave
+      })
     })
   }
   return {

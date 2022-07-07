@@ -7,7 +7,7 @@
 
 import React, { FC, useCallback, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
-import { getErrorInfoFromErrorObject, useToaster } from '@harness/uicore'
+import { useToaster } from '@harness/uicore'
 import { useStrings } from 'framework/strings'
 import { Feature, Target, useGetAllFeatures, usePatchTarget } from 'services/cf'
 import { ContainerSpinner } from '@common/components/ContainerSpinner/ContainerSpinner'
@@ -15,6 +15,11 @@ import { Page } from '@common/exports'
 import { getErrorMessage } from '@cf/utils/CFUtils'
 import type { TargetManagementFlagConfigurationPanelFormValues as FormValues } from '@cf/components/TargetManagementFlagConfigurationPanel/types'
 import TargetManagementFlagConfigurationPanel from '@cf/components/TargetManagementFlagConfigurationPanel/TargetManagementFlagConfigurationPanel'
+import { useFFGitSyncContext } from '@cf/contexts/ff-git-sync-context/FFGitSyncContext'
+import { AUTO_COMMIT_MESSAGES } from '@cf/constants/GitSyncConstants'
+import { useGovernance } from '@cf/hooks/useGovernance'
+import useResponseError from '@cf/hooks/useResponseError'
+import type { PatchOperation } from 'services/cf'
 import buildInstructions from './buildInstructions'
 
 export interface FlagSettingsProps {
@@ -23,8 +28,11 @@ export interface FlagSettingsProps {
 
 const FlagSettings: FC<FlagSettingsProps> = ({ target }) => {
   const { getString } = useStrings()
-  const { showError } = useToaster()
+  const { showSuccess } = useToaster()
   const { accountId: accountIdentifier, projectIdentifier, orgIdentifier } = useParams<Record<string, string>>()
+  const { saveWithGit } = useFFGitSyncContext()
+  const { handleError: handleGovernanceError, isGovernanceError } = useGovernance()
+  const { handleResponseError } = useResponseError()
 
   const {
     data: flags,
@@ -69,6 +77,21 @@ const FlagSettings: FC<FlagSettingsProps> = ({ target }) => {
     }
   })
 
+  const handleSave = useCallback(
+    async (data: PatchOperation): Promise<void> => {
+      try {
+        const response = await patchTarget(data)
+        if (isGovernanceError(response)) {
+          handleGovernanceError(response)
+        }
+        refetchFlags()
+      } catch (e: unknown) {
+        handleResponseError(e)
+      }
+    },
+    [handleGovernanceError, handleResponseError, isGovernanceError, patchTarget, refetchFlags]
+  )
+
   const onChange = useCallback(
     async (values: FormValues) => {
       const instructions = buildInstructions(values, initialValues)
@@ -76,14 +99,18 @@ const FlagSettings: FC<FlagSettingsProps> = ({ target }) => {
       /* istanbul ignore else */
       if (instructions.length) {
         try {
-          await patchTarget({ instructions })
-          refetchFlags()
-        } catch (e) {
-          showError(getErrorInfoFromErrorObject(e))
+          saveWithGit({
+            autoCommitMessage: AUTO_COMMIT_MESSAGES.UPDATED_FLAG_VARIATIONS,
+            patchInstructions: { instructions },
+            onSave: handleSave
+          })
+          showSuccess(getString('cf.segmentDetail.updateSuccessful'))
+        } catch (e: unknown) {
+          handleResponseError(e)
         }
       }
     },
-    [initialValues, patchTarget, refetchFlags, showError]
+    [initialValues, saveWithGit, handleSave, handleResponseError, showSuccess, getString]
   )
 
   const onAdd = useCallback(
@@ -93,14 +120,18 @@ const FlagSettings: FC<FlagSettingsProps> = ({ target }) => {
       /* istanbul ignore else */
       if (instructions.length) {
         try {
-          await patchTarget({ instructions })
-          refetchFlags()
-        } catch (e) {
-          showError(getErrorInfoFromErrorObject(e))
+          saveWithGit({
+            autoCommitMessage: AUTO_COMMIT_MESSAGES.ADDED_FLAG_TARGETS,
+            patchInstructions: { instructions },
+            onSave: handleSave
+          })
+          showSuccess(getString('cf.segmentDetail.flagsAddedSuccessfully'))
+        } catch (e: unknown) {
+          handleResponseError(e)
         }
       }
     },
-    [patchTarget, refetchFlags, showError]
+    [saveWithGit, handleSave, handleResponseError, showSuccess, getString]
   )
 
   if (loadingFlags) {

@@ -245,7 +245,6 @@ const RenderLastDeployment: Renderer<CellProps<ServiceListItem>> = ({ row }) => 
   const { getString } = useStrings()
   const { showError } = useToaster()
 
-  const history = useHistory()
   const { orgIdentifier, projectIdentifier, accountId, module, pipelineIdentifier } =
     useParams<PipelineType<PipelinePathProps>>()
   const source: ExecutionPathProps['source'] = pipelineIdentifier ? 'executions' : 'deployments'
@@ -254,67 +253,21 @@ const RenderLastDeployment: Renderer<CellProps<ServiceListItem>> = ({ row }) => 
 
   function handleClick(): void {
     if (!disabled && id && planExecutionId) {
-      history.push(
-        routes.toExecutionPipelineView({
-          orgIdentifier,
-          pipelineIdentifier: executionId,
-          executionIdentifier: planExecutionId,
-          projectIdentifier,
-          accountId,
-          module,
-          source
-        })
-      )
+      const route = routes.toExecutionPipelineView({
+        orgIdentifier,
+        pipelineIdentifier: executionId,
+        executionIdentifier: planExecutionId,
+        projectIdentifier,
+        accountId,
+        module,
+        source
+      })
+
+      const baseUrl = window.location.href.split('#')[0]
+      window.open(`${baseUrl}#${route}`)
     } else {
       showError(getString('cd.serviceDashboard.noLastDeployment'))
     }
-  }
-  if (!id) {
-    return <></>
-  }
-  return (
-    <Layout.Vertical margin={{ right: 'large' }} flex={{ alignItems: 'flex-start' }}>
-      <Layout.Horizontal
-        margin={{ bottom: 'xsmall' }}
-        flex={{ alignItems: 'center', justifyContent: 'flex-start' }}
-        width="100%"
-      >
-        <Text
-          data-testid={id}
-          font={{ variation: FontVariation.BODY2 }}
-          color={Color.PRIMARY_7}
-          margin={{ right: 'xsmall' }}
-          className={css.lastDeploymentText}
-          onClick={e => {
-            e.stopPropagation()
-            handleClick()
-          }}
-        >
-          {name}
-        </Text>
-      </Layout.Horizontal>
-      {timestamp && (
-        <ReactTimeago
-          date={timestamp}
-          component={val => (
-            <Text font={{ size: 'small' }} color={Color.GREY_500}>
-              {' '}
-              {val.children}{' '}
-            </Text>
-          )}
-        />
-      )}
-    </Layout.Vertical>
-  )
-}
-
-const RenderLastDeploymentStatus: Renderer<CellProps<ServiceListItem>> = ({ row }) => {
-  const {
-    lastDeployment: { id, status }
-  } = row.original
-  const { getString } = useStrings()
-  if (!id) {
-    return <></>
   }
   const [statusBackgroundColor, statusText] =
     status?.toLocaleLowerCase() === DeploymentStatus.SUCCESS
@@ -322,16 +275,55 @@ const RenderLastDeploymentStatus: Renderer<CellProps<ServiceListItem>> = ({ row 
       : status?.toLocaleLowerCase() === DeploymentStatus.FAILED
       ? [Color.RED_600, getString('failed')]
       : [Color.YELLOW_600, status]
+
+  if (!id) {
+    return <></>
+  }
   return (
-    <Layout.Horizontal flex={{ justifyContent: 'flex-end' }}>
-      <Text
-        background={statusBackgroundColor}
-        color={Color.WHITE}
-        font={{ weight: 'semi-bold', size: 'xsmall' }}
-        className={css.statusText}
-      >
-        {statusText?.toLocaleUpperCase()}
-      </Text>
+    <Layout.Horizontal className={css.lastDeployment}>
+      <Layout.Vertical margin={{ right: 'large' }} flex={{ alignItems: 'flex-start' }}>
+        <Layout.Horizontal
+          margin={{ bottom: 'xsmall' }}
+          flex={{ alignItems: 'center', justifyContent: 'flex-start' }}
+          width="100%"
+        >
+          <Text
+            data-testid={id}
+            font={{ variation: FontVariation.BODY2 }}
+            color={Color.PRIMARY_7}
+            margin={{ right: 'xsmall' }}
+            className={css.lastDeploymentText}
+            lineClamp={1}
+            onClick={e => {
+              e.stopPropagation()
+              handleClick()
+            }}
+          >
+            {name}
+          </Text>
+        </Layout.Horizontal>
+        {timestamp && (
+          <ReactTimeago
+            date={timestamp}
+            component={val => (
+              <Text font={{ size: 'small' }} color={Color.GREY_500}>
+                {' '}
+                {val.children}{' '}
+              </Text>
+            )}
+          />
+        )}
+      </Layout.Vertical>
+      <Layout.Horizontal flex={{ justifyContent: 'flex-start' }}>
+        <Text
+          background={statusBackgroundColor}
+          color={Color.WHITE}
+          font={{ weight: 'semi-bold', size: 'xsmall' }}
+          className={css.statusText}
+        >
+          {statusText?.toLocaleUpperCase()}
+        </Text>
+      </Layout.Horizontal>
     </Layout.Horizontal>
   )
 }
@@ -585,18 +577,12 @@ export const ServicesList: React.FC<ServicesListProps> = props => {
         {
           Header: getString('cd.serviceDashboard.lastPipelineExecution').toLocaleUpperCase(),
           id: 'lastDeployment',
-          width: '14%',
+          width: '18%',
           Cell: RenderLastDeployment
         },
         {
           Header: '',
-          id: 'status',
-          width: '5%',
-          Cell: RenderLastDeploymentStatus
-        },
-        {
-          Header: '',
-          width: '3%',
+          width: '4%',
           id: 'action',
           Cell: RenderColumnMenu,
           reload: refetch,

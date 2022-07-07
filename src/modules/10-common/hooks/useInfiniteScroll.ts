@@ -72,22 +72,26 @@ export const useInfiniteScroll = (props: InfiniteScrollProps): InfiniteScrollRet
       limit
     })
       .then(response => {
-        setFetching(false)
+        if (response.data) {
+          setFetching(false)
 
-        // If the cuurent fetch count exceeds totalItems, set hasMore as false
-        const canFetchMore =
-          response.data.totalItems > response.data.pageIndex * response.data.pageSize + response.data.pageItemCount
-        hasMore.current = canFetchMore
+          // If the cuurent fetch count exceeds totalItems, set hasMore as false
+          const canFetchMore =
+            response.data.totalItems > response.data.pageIndex * response.data.pageSize + response.data.pageItemCount
+          hasMore.current = canFetchMore
 
-        const responseContent = response.data.content
-        setItems((prevItems: any) => {
-          if (offsetToFetch.current === 0) {
-            return responseContent ? [...responseContent] : []
-          } else {
-            return [...prevItems, ...responseContent]
-          }
-        })
-        setError('')
+          const responseContent = response.data.content
+          setItems((prevItems: any) => {
+            if (offsetToFetch.current === 0) {
+              return responseContent ? [...responseContent] : []
+            } else {
+              return [...prevItems, ...responseContent]
+            }
+          })
+          setError('')
+        } else {
+          setError(response.message)
+        }
       })
       .catch(err => {
         setFetching(false)

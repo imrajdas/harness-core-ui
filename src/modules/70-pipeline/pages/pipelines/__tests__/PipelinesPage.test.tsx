@@ -207,7 +207,6 @@ describe('CD Pipeline Page List', () => {
       },
       queryParams: {
         accountIdentifier: 'testAcc',
-        module: 'cd',
         page: '0',
         orgIdentifier: 'testOrg',
         projectIdentifier: 'test',

@@ -5,6 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
+import { getMultiTypeFromValue, MultiTypeInputType, SelectOption } from '@harness/uicore'
 import type {
   DatadogLogsHealthSpec,
   DatadogLogsInfo,
@@ -65,7 +66,7 @@ export function transformDatadogHealthSourceToDatadogLogsSetupSource(sourceData:
       healthSourceIdentifier: sourceData.healthSourceIdentifier,
       logsDefinitions: new Map<string, DatadogLogsInfo>(),
       healthSourceName: sourceData.healthSourceName,
-      connectorRef: sourceData.connectorRef,
+      connectorRef: sourceData.connectorRef.value || sourceData.connectorRef,
       product: { label: DatadogProduct.CLOUD_LOGS, value: DatadogProduct.CLOUD_LOGS }
     }
   }
@@ -86,9 +87,13 @@ export function transformDatadogHealthSourceToDatadogLogsSetupSource(sourceData:
         query: logQueryDefinition.query || '',
         serviceInstanceIdentifierTag: logQueryDefinition.serviceInstanceIdentifier,
         indexes:
-          logQueryDefinition.indexes?.map(logIndex => {
-            return { value: logIndex, label: logIndex }
-          }) || []
+          getMultiTypeFromValue(logQueryDefinition?.indexes) === MultiTypeInputType.RUNTIME
+            ? (logQueryDefinition?.indexes as unknown as SelectOption[])
+            : Array.isArray(logQueryDefinition.indexes)
+            ? logQueryDefinition.indexes?.map(logIndex => {
+                return { value: logIndex, label: logIndex }
+              }) || []
+            : []
       })
     }
   }
@@ -104,7 +109,8 @@ export function transformDatadogLogsSetupSourceToHealthSource(
     identifier: setupSource.healthSourceIdentifier,
     name: setupSource.healthSourceName,
     spec: {
-      connectorRef: setupSource?.connectorRef,
+      connectorRef:
+        typeof setupSource?.connectorRef === 'string' ? setupSource?.connectorRef : setupSource?.connectorRef?.value,
       feature: DatadogProduct.CLOUD_LOGS,
       queries: []
     }
@@ -122,7 +128,8 @@ export function transformDatadogLogsSetupSourceToHealthSource(
       query,
       name: metricName,
       serviceInstanceIdentifier: serviceInstanceIdentifierTag,
-      indexes: indexes?.map(logIndexOption => logIndexOption.value as string) || []
+      indexes:
+        typeof indexes === 'string' ? indexes : indexes?.map(logIndexOption => logIndexOption.value as string) || []
     })
   }
   return dsConfig

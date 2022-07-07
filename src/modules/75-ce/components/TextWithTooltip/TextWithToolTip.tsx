@@ -7,6 +7,7 @@
 
 import React from 'react'
 import { Text, Layout } from '@wings-software/uicore'
+import type { IconName } from '@blueprintjs/core'
 import { Color } from '@harness/design-system'
 import { useStrings } from 'framework/strings'
 import type { ServiceError } from 'services/lw'
@@ -24,6 +25,7 @@ interface TextWithToolTipProps {
   showDetails?: boolean
   errors: ServiceError[]
   iconSize?: number
+  icon?: IconName
   indicatorColor?: string // TEMP: to set color for circle icon
 }
 
@@ -34,9 +36,9 @@ const TextWithToolTip: React.FC<TextWithToolTipProps> = props => {
   return (
     <Text
       inline
-      icon={isSuccess ? 'full-circle' : 'warning-sign'}
+      icon={props.icon || (isSuccess ? 'full-circle' : 'warning-sign')}
       iconProps={{
-        size: props.iconSize || isSuccess ? 6 : 12,
+        size: props.iconSize || (isSuccess ? 6 : 12),
         color: props.indicatorColor ? props.indicatorColor : isSuccess ? Color.GREEN_500 : Color.RED_500
       }}
       tooltip={

@@ -1,5 +1,96 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Menu render Should allow deleting 1`] = `
+<div
+  class="bp3-dialog ConfirmationDialog--dialog"
+  style="width: 500px; min-height: 218px;"
+>
+  <div
+    class="StyledProps--font StyledProps--main ConfirmationDialog--iconContainer StyledProps--flex"
+  >
+    <span
+      class="bp3-icon StyledProps--main ConfirmationDialog--icon"
+      data-icon="main-close"
+    >
+      <svg
+        height="8"
+        viewBox="0 0 14 14"
+        width="8"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.6 7l5-5c.3-.2.4-.5.4-.8 0-.7-.5-1.2-1.2-1.2-.3 0-.6.1-.8.3l-5 5-5-5C1.8.1 1.5 0 1.2 0 .5 0 0 .5 0 1.2c0 .3.1.6.3.8l5 5-5 5c-.2.2-.3.5-.3.8 0 .7.5 1.2 1.2 1.2.3 0 .6-.1.8-.3l5-5 5 5c.2.2.5.4.8.4.6 0 1.2-.5 1.2-1.2 0-.3-.1-.6-.3-.8z"
+          fill="#4d5969"
+        />
+      </svg>
+    </span>
+  </div>
+  <div
+    class="Layout--horizontal StyledProps--main ConfirmationDialog--header StyledProps--padding-left-xsmall"
+  >
+    <span
+      class="bp3-icon StyledProps--main StyledProps--margin-right-small"
+      data-icon="danger-icon"
+    >
+      <svg
+        fill="none"
+        height="32"
+        viewBox="0 0 32 32"
+        width="32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M16.878 4.506a1 1 0 00-1.737 0L3.153 25.505A1 1 0 004.022 27h23.974a1 1 0 00.869-1.495L16.878 4.506zm.603 17.973c0-.823-.684-1.49-1.527-1.49-.843 0-1.527.667-1.527 1.49 0 .822.684 1.49 1.527 1.49.843 0 1.527-.668 1.527-1.49zm-1.527-3.486a1 1 0 001-1v-6.997a1 1 0 00-2 0v6.997a1 1 0 001 1z"
+          fill="#DA291D"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M4.022 26L16.009 5.002 27.996 26H4.022zm11.832-6.01a2 2 0 01-1.9-1.997v-6.997a2 2 0 114 0v6.997a2 2 0 01-1.9 1.998c1.328.052 2.427 1.124 2.427 2.488 0 1.398-1.155 2.49-2.527 2.49s-2.527-1.092-2.527-2.49c0-1.364 1.099-2.436 2.427-2.488zM15.14 4.507a1 1 0 011.737 0l11.987 20.999A1 1 0 0127.996 27H4.022a1 1 0 01-.869-1.495L15.141 4.506zm.813 16.483c.843 0 1.527.667 1.527 1.49 0 .822-.684 1.49-1.527 1.49-.843 0-1.527-.668-1.527-1.49 0-.823.684-1.49 1.527-1.49zm1-2.996a1 1 0 01-2 0v-6.997a1 1 0 112 0v6.997z"
+          fill="#DA291D"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+    <p
+      class="StyledProps--font StyledProps--main StyledProps--font-variation-h4"
+    >
+      common.deleteService
+    </p>
+  </div>
+  <div
+    class="Layout--vertical StyledProps--main ConfirmationDialog--body StyledProps--font StyledProps--font-variation-body StyledProps--color StyledProps--color-black StyledProps--margin-top-large StyledProps--margin-bottom-xxlarge"
+  >
+    common.deleteServiceConfirmation
+  </div>
+  <div
+    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+  >
+    <button
+      class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color"
+      type="button"
+    >
+      <span
+        class="bp3-button-text"
+      >
+        confirm
+      </span>
+    </button>
+    <button
+      class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--variation Button--variation-tertiary"
+      type="button"
+    >
+      <span
+        class="bp3-button-text"
+      >
+        cancel
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`ServicesList render 1`] = `
 <div>
   <div
@@ -134,7 +225,7 @@ exports[`ServicesList render 1`] = `
           class="TableV2--cell"
           colspan="1"
           role="columnheader"
-          style="width: 14%;"
+          style="width: 18%;"
         >
           <p
             class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -146,19 +237,7 @@ exports[`ServicesList render 1`] = `
           class="TableV2--cell"
           colspan="1"
           role="columnheader"
-          style="width: 5%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
-          >
-            
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          colspan="1"
-          role="columnheader"
-          style="width: 3%;"
+          style="width: 4%;"
         >
           <p
             class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -389,17 +468,12 @@ exports[`ServicesList render 1`] = `
           <div
             class="TableV2--cell"
             role="cell"
-            style="width: 14%;"
+            style="width: 18%;"
           />
           <div
             class="TableV2--cell"
             role="cell"
-            style="width: 5%;"
-          />
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 3%;"
+            style="width: 4%;"
           >
             <div
               class="Layout--horizontal StyledProps--main"
@@ -715,44 +789,43 @@ exports[`ServicesList render 1`] = `
           <div
             class="TableV2--cell"
             role="cell"
-            style="width: 14%;"
+            style="width: 18%;"
           >
             <div
-              class="Layout--vertical StyledProps--main StyledProps--margin-right-large StyledProps--flex StyledProps--flex-alignItems-flex-start"
+              class="Layout--horizontal StyledProps--main lastDeployment"
             >
               <div
-                class="Layout--horizontal StyledProps--main StyledProps--margin-bottom-xsmall StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-                style="width: 100%;"
+                class="Layout--vertical StyledProps--main StyledProps--margin-right-large StyledProps--flex StyledProps--flex-alignItems-flex-start"
+              >
+                <div
+                  class="Layout--horizontal StyledProps--main StyledProps--margin-bottom-xsmall StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                  style="width: 100%;"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main lastDeploymentText StyledProps--font-variation-body2 StyledProps--color StyledProps--color-primary7 StyledProps--margin-right-xsmall"
+                    data-testid="60c99de2a6187a57e841993b"
+                    style="--text-line-clamp: 1;"
+                  >
+                    Test
+                  </p>
+                </div>
+                dummy date
+              </div>
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-start"
               >
                 <p
-                  class="StyledProps--font StyledProps--main lastDeploymentText StyledProps--font-variation-body2 StyledProps--color StyledProps--color-primary7 StyledProps--margin-right-xsmall"
-                  data-testid="60c99de2a6187a57e841993b"
+                  class="StyledProps--font StyledProps--main statusText StyledProps--background-green600 StyledProps--color StyledProps--color-white StyledProps--font-weight-semi-bold StyledProps--font-size-xsmall"
                 >
-                  Test
+                  SUCCESS
                 </p>
               </div>
-              dummy date
             </div>
           </div>
           <div
             class="TableV2--cell"
             role="cell"
-            style="width: 5%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
-            >
-              <p
-                class="StyledProps--font StyledProps--main statusText StyledProps--background-green600 StyledProps--color StyledProps--color-white StyledProps--font-weight-semi-bold StyledProps--font-size-xsmall"
-              >
-                SUCCESS
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 3%;"
+            style="width: 4%;"
           >
             <div
               class="Layout--horizontal StyledProps--main"

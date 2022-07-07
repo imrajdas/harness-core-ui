@@ -23,7 +23,7 @@ $dot-space: 10px;
 
   .canvas-wrapper {
     width: 100%;
-    height: calc(100vh - var(--page-header-height) - 49px);
+    height: 100%;
 
     :global(.Resizer.horizontal) {
       height: 4px;
@@ -57,11 +57,6 @@ $dot-space: 10px;
     .render-popover {
       min-width: 140px;
       z-index: 2;
-    }
-    &.graphActions {
-      :global(.graphActions) {
-        bottom: 70px !important;
-      }
     }
   }
 }

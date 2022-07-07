@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useCallback } from 'react'
+import React from 'react'
 import {
   Accordion,
   Layout,
@@ -82,7 +82,7 @@ function ServerlessAwsLambdaManifest({
         : prevStepData?.url
       : null
 
-  const getInitialValues = useCallback((): ServerlessManifestDataType => {
+  const getInitialValues = (): ServerlessManifestDataType => {
     const specValues = get(initialValues, 'spec.store.spec', null)
 
     if (specValues) {
@@ -106,7 +106,7 @@ function ServerlessAwsLambdaManifest({
       repoName: getRepositoryName(prevStepData, initialValues),
       configOverridePath: undefined
     }
-  }, [])
+  }
 
   const submitFormData = (formData: ServerlessManifestDataType & { store?: string; connectorRef?: string }): void => {
     const manifestObj: ManifestConfigWrapper = {
@@ -297,6 +297,7 @@ function ServerlessAwsLambdaManifest({
                       fieldPath="paths"
                       pathLabel={getString('common.git.folderPath')}
                       placeholder={getString('pipeline.manifestType.folderPathPlaceholder')}
+                      defaultValue={{ path: '', uuid: uuid('', nameSpace()) }}
                     />
                   </div>
                   <Accordion className={css.advancedStepOpen}>

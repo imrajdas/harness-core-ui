@@ -88,6 +88,17 @@ exports[`ValuesYamlManifestSource tests Should match snapshot 1`] = `
         </div>
       </div>
     </div>
+    <div>
+      <p
+        class="StyledProps--font StyledProps--main inputheader StyledProps--margin-top-medium"
+      >
+        ValuesManifest
+      </p>
+      <div
+        class="Layout--vertical StyledProps--main inputWidth layoutVerticalSpacing"
+        data-name="manifest"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -172,6 +183,15 @@ exports[`ValuesYamlManifestSource tests Should match snapshot with fromTrigger 1
           </div>
         </div>
       </div>
+    </div>
+    <div>
+      <p
+        class="StyledProps--font StyledProps--main inputheader StyledProps--margin-top-medium"
+      />
+      <div
+        class="Layout--vertical StyledProps--main inputWidth layoutVerticalSpacing"
+        data-name="manifest"
+      />
     </div>
   </div>
 </div>

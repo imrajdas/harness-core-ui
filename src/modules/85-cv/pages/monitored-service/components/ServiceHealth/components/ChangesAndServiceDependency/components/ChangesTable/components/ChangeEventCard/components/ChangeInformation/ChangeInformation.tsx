@@ -10,19 +10,28 @@ import cx from 'classnames'
 import { Text, Container } from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
 import { useStrings } from 'framework/strings'
+import { ChangeSourceTypes } from '@cv/pages/ChangeSource/ChangeSourceDrawer/ChangeSourceDrawer.constants'
 import { getOnClickOptions } from '../ChangeDetails/ChangeDetails.utils'
 import type { ChangeInfoData } from '../../ChangeEventCard.types'
 import css from './ChangeInformation.module.scss'
 
-export default function ChangeInformation({ infoData }: { infoData: ChangeInfoData }): JSX.Element {
+export default function ChangeInformation({
+  infoData,
+  type
+}: {
+  infoData: ChangeInfoData
+  type?: ChangeSourceTypes
+}): JSX.Element {
   const { getString } = useStrings()
   return (
     <Container>
       <Text font={{ size: 'medium', weight: 'bold' }} color={Color.GREY_800}>
-        {getString('cv.changeSource.changeSourceCard.information')}
+        {type === ChangeSourceTypes.K8sCluster
+          ? 'Kubernetes Manifest Changes'
+          : getString('cv.changeSource.changeSourceCard.information')}
       </Text>
       <Container className={css.infoContainer}>
-        {infoData.triggerAt ? (
+        {type !== ChangeSourceTypes.K8sCluster && infoData.triggerAt ? (
           <Text className={css.timeLabel} icon={'time'} iconProps={{ size: 13 }} font={{ size: 'small' }}>
             {`${getString('cv.changeSource.changeSourceCard.triggred')} ${infoData.triggerAt}`}
           </Text>

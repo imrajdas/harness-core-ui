@@ -7,7 +7,7 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
-  readonly addNewAlertBtn: string
+  readonly alertChannelsInput: string
   readonly costs: string
   readonly crossIcon: string
   readonly dataFields: string
@@ -18,6 +18,7 @@ declare const styles: {
   readonly mainCtn: string
   readonly pushdown7: string
   readonly selectPerspectiveContainer: string
+  readonly sendAlertTo: string
   readonly separator: string
   readonly setBudgetContainer: string
   readonly stepContainer: string

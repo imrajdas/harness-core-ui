@@ -6,7 +6,7 @@
  */
 
 .verificationStatusCard {
-  padding: var(--spacing-xsmall) var(--spacing-large) !important;
+  padding: var(--spacing-xsmall) var(--spacing-small) !important;
   border-radius: 8px;
   height: 20px !important;
   font-weight: bold !important;
@@ -15,4 +15,5 @@
   text-align: center;
   width: fit-content;
   margin: 0 !important;
+  align-self: center;
 }

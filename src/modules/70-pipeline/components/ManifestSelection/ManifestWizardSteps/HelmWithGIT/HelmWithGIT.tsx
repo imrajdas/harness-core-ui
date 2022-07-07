@@ -85,7 +85,7 @@ function HelmWithGIT({
         : prevStepData?.url
       : null
 
-  const getInitialValues = React.useCallback((): HelmWithGITDataType => {
+  const getInitialValues = (): HelmWithGITDataType => {
     const specValues = get(initialValues, 'spec.store.spec', null)
 
     if (specValues) {
@@ -118,7 +118,7 @@ function HelmWithGIT({
       commandFlags: [{ commandType: undefined, flag: undefined, id: uuid('', nameSpace()) }],
       repoName: getRepositoryName(prevStepData, initialValues)
     }
-  }, [])
+  }
 
   const submitFormData = (formData: HelmWithGITDataType & { store?: string; connectorRef?: string }): void => {
     const manifestObj: ManifestConfigWrapper = {
@@ -348,6 +348,7 @@ function HelmWithGIT({
                   fieldPath="valuesPaths"
                   pathLabel={getString('pipeline.manifestType.valuesYamlPath')}
                   placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+                  defaultValue={{ path: '', uuid: uuid('', nameSpace()) }}
                 />
               </div>
               <Accordion

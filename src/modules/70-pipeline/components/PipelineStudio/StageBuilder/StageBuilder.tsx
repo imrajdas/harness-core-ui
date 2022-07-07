@@ -127,7 +127,6 @@ export const renderPopover = ({
   renderPipelineStage,
   isHoverView,
   contextType,
-  getTemplate,
   templateTypes,
   newPipelineStudioEnabled
 }: PopoverData): JSX.Element => {
@@ -150,8 +149,7 @@ export const renderPopover = ({
           }
           onSubmitPrimaryData?.(values, identifier)
         }
-      },
-      getTemplate
+      }
     })
   } else if (isGroupStage) {
     return (
@@ -187,8 +185,7 @@ export const renderPopover = ({
           addStageNew?.(getNewStageFromType(type as any), isParallel, !isParallel, event?.node)
         }
       },
-      contextType: contextType,
-      getTemplate
+      contextType: contextType
     })
   }
   return renderPipelineStage({
@@ -203,8 +200,7 @@ export const renderPopover = ({
         addStage?.(getNewStageFromType(type as any), isParallel, event)
       }
     },
-    contextType: contextType,
-    getTemplate
+    contextType: contextType
   })
 }
 
@@ -229,8 +225,7 @@ function StageBuilder(): JSX.Element {
     updatePipelineView,
     renderPipelineStage,
     getStageFromPipeline,
-    setSelection,
-    getTemplate
+    setSelection
   } = usePipelineContext()
   const { sectionId } = useQueryParams<PipelineSelectionState>()
 
@@ -618,7 +613,6 @@ function StageBuilder(): JSX.Element {
     addStage,
     updateMoveStageDetails,
     confirmMoveStage,
-    getTemplate,
     stageMap,
     engine
   )
@@ -633,7 +627,6 @@ function StageBuilder(): JSX.Element {
     addStageNew,
     updateMoveStageDetails,
     confirmMoveStage,
-    getTemplate,
     stageMap,
     newPipelineStudioEnabled,
     sectionId
@@ -660,7 +653,6 @@ function StageBuilder(): JSX.Element {
     openSplitView,
     updateMoveStageDetails,
     confirmMoveStage,
-    getTemplate,
     stageMap
   )
 
@@ -670,7 +662,6 @@ function StageBuilder(): JSX.Element {
     addStageNew,
     updateMoveStageDetails,
     confirmMoveStage,
-    getTemplate,
     stageMap,
     newPipelineStudioEnabled
   )
@@ -782,7 +773,7 @@ function StageBuilder(): JSX.Element {
         >
           {newPipelineStudioEnabled ? (
             <div
-              className={cx(css.canvas, { [css.graphActions]: !isSplitViewOpen })}
+              className={css.canvas}
               ref={canvasRef}
               onClick={e => {
                 const div = e.target as HTMLDivElement

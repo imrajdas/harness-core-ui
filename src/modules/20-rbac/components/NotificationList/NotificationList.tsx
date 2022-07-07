@@ -24,6 +24,7 @@ import {
 import { Form, FormikProps } from 'formik'
 import produce from 'immer'
 import { useParams } from 'react-router-dom'
+import { defaultTo } from 'lodash-es'
 import { useStrings } from 'framework/strings'
 import { NotificationSettingConfigDTO, usePutUserGroup, UserGroupDTO } from 'services/cd-ng'
 import { TestEmailNotifications } from '@notifications/modals/ConfigureNotificationsModal/views/ConfigureEmailNotifications/ConfigureEmailNotifications'
@@ -298,7 +299,10 @@ const ChannelRow: React.FC<ChannelRow> = ({
                     ) : null}
                     {formikProps.values.type == 'MSTEAMS' ? (
                       <TestMSTeamsNotifications
-                        data={formikProps.values as any}
+                        data={{
+                          userGroups: [],
+                          msTeamKeys: [defaultTo(formikProps.values.microsoftTeamsWebhookUrl, '')]
+                        }}
                         buttonProps={{
                           minimal: true,
                           disabled: selectedInputType === MultiTypeInputType.EXPRESSION

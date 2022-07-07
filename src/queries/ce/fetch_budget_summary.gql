@@ -26,6 +26,7 @@ query FetchBudgetSummary($id: String!) {
       basedOn
       percentage
       emailAddresses
+      slackWebhooks
       userGroupIds
     }
   }

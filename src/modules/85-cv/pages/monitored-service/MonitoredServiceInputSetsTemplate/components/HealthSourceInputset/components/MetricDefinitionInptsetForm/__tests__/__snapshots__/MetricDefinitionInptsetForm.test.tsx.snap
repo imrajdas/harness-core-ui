@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInptsetForm with metricDefinitions 1`] = `
+<div>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <div>
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-normal StyledProps--color StyledProps--color-black"
+      >
+        cv.monitoringSources.metricLabel
+        : 
+        appdMetric 101
+      </p>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+          for="sources.healthSources.0.spec.metricDefinitions.0.completeMetricPath"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.metricDefinitions.0.completeMetricPath"
+          >
+            cv.healthSource.connectors.AppDynamics.metricPathType.text
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+          >
+            <div
+              class="TextInput--main MultiTypeInput--input"
+            >
+              <div
+                class="bp3-input-group bp3-disabled"
+              >
+                <input
+                  class="bp3-input"
+                  disabled=""
+                  name="sources.healthSources.0.spec.metricDefinitions.0.completeMetricPath"
+                  placeholder="<+input>"
+                  type="text"
+                  value="<+input>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+          for="sources.healthSources.0.spec.metricDefinitions.0.analysis.deploymentVerification.serviceInstanceMetricPath"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.metricDefinitions.0.analysis.deploymentVerification.serviceInstanceMetricPath"
+          >
+            cv.healthSource.connectors.AppDynamics.serviceInstance
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+          >
+            <div
+              class="TextInput--main MultiTypeInput--input"
+            >
+              <div
+                class="bp3-input-group bp3-disabled"
+              >
+                <input
+                  class="bp3-input"
+                  disabled=""
+                  name="sources.healthSources.0.spec.metricDefinitions.0.analysis.deploymentVerification.serviceInstanceMetricPath"
+                  placeholder="<+input>"
+                  type="text"
+                  value="<+input>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-normal StyledProps--color StyledProps--color-black"
+      >
+        cv.monitoringSources.metricLabel
+        : 
+        appdMetric 102
+      </p>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+          for="sources.healthSources.0.spec.metricDefinitions.1.completeMetricPath"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.metricDefinitions.1.completeMetricPath"
+          >
+            cv.healthSource.connectors.AppDynamics.metricPathType.text
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+          >
+            <div
+              class="TextInput--main MultiTypeInput--input"
+            >
+              <div
+                class="bp3-input-group bp3-disabled"
+              >
+                <input
+                  class="bp3-input"
+                  disabled=""
+                  name="sources.healthSources.0.spec.metricDefinitions.1.completeMetricPath"
+                  placeholder="<+input>"
+                  type="text"
+                  value="<+input>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+          for="sources.healthSources.0.spec.metricDefinitions.1.analysis.deploymentVerification.serviceInstanceMetricPath"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.metricDefinitions.1.analysis.deploymentVerification.serviceInstanceMetricPath"
+          >
+            cv.healthSource.connectors.AppDynamics.serviceInstance
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+          >
+            <div
+              class="TextInput--main MultiTypeInput--input"
+            >
+              <div
+                class="bp3-input-group bp3-disabled"
+              >
+                <input
+                  class="bp3-input"
+                  disabled=""
+                  name="sources.healthSources.0.spec.metricDefinitions.1.analysis.deploymentVerification.serviceInstanceMetricPath"
+                  placeholder="<+input>"
+                  type="text"
+                  value="<+input>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInptsetForm with metricDefinitions but no runtimeInputs 1`] = `
+<div>
+  <div>
+    <p
+      class="StyledProps--font StyledProps--main StyledProps--font-normal StyledProps--color StyledProps--color-black"
+    >
+      cv.monitoringSources.metricLabel
+      : 
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInptsetForm with no metricDefinitions 1`] = `<div />`;

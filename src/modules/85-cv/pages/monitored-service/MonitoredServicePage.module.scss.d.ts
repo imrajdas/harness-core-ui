@@ -8,10 +8,7 @@
 // this is an auto-generated file, do not update this manually
 declare const styles: {
   readonly header: string
-  readonly healthSourceTableItem: string
-  readonly inputsetContainer: string
   readonly monitoredServiceTabs: string
   readonly pageBody: string
-  readonly serviceAndEnv: string
 }
 export default styles

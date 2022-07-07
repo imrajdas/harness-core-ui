@@ -12,7 +12,7 @@ import { FontVariation, Color } from '@harness/design-system'
 import { useParams } from 'react-router-dom'
 import cx from 'classnames'
 import { Dialog, IDialogProps, Classes } from '@blueprintjs/core'
-import { get, set } from 'lodash-es'
+import { get, isEmpty, set } from 'lodash-es'
 
 import type { IconProps } from '@harness/icons'
 import produce from 'immer'
@@ -65,6 +65,7 @@ import {
   allowedManifestTypes,
   ManifestTypetoStoreMap,
   ManifestToPathKeyMap,
+  getManifestLocation,
   showAddManifestBtn
 } from '../Manifesthelper'
 import type { ConnectorRefLabelType } from '../../ArtifactsSelection/ArtifactInterface'
@@ -86,11 +87,13 @@ import KustomizeWithGIT from '../ManifestWizardSteps/KustomizeWithGIT/KustomizeW
 import OpenShiftParamWithGit from '../ManifestWizardSteps/OpenShiftParam/OSWithGit'
 import KustomizePatchDetails from '../ManifestWizardSteps/KustomizePatchesDetails/KustomizePatchesDetails'
 import ServerlessAwsLambdaManifest from '../ManifestWizardSteps/ServerlessAwsLambdaManifest/ServerlessAwsLambdaManifest'
+import CustomRemoteManifest from '../ManifestWizardSteps/CustomRemoteManifest/CustomRemoteManifest'
 import AttachPathYamlFlow from './AttachPathYamlFlow'
 import InheritFromManifest from '../ManifestWizardSteps/InheritFromManifest/InheritFromManifest'
 import ConnectorField from './ConnectorField'
 import HelmWithOCI from '../ManifestWizardSteps/HelmWithOCI/HelmWithOCI'
 import { getConnectorPath } from '../ManifestWizardSteps/ManifestUtils'
+import HarnessFileStore from '../ManifestWizardSteps/HarnessFileStore/HarnessFileStore'
 import css from '../ManifestSelection.module.scss'
 
 function ManifestListView({
@@ -349,20 +352,28 @@ function ManifestListView({
       case selectedManifest === ManifestDataType.OpenshiftParam:
         manifestDetailStep = <OpenShiftParamWithGit {...lastStepProps()} />
         break
-
       case selectedManifest === ManifestDataType.KustomizePatches:
         manifestDetailStep = <KustomizePatchDetails {...lastStepProps()} />
         break
       case selectedManifest === ManifestDataType.ServerlessAwsLambda:
         manifestDetailStep = <ServerlessAwsLambdaManifest {...lastStepProps()} />
         break
-      case selectedManifest === ManifestDataType.Values && manifestStore === ManifestStoreMap.InheritFromManifest:
-        manifestDetailStep = <InheritFromManifest {...lastStepProps()} />
-        break
       case [ManifestDataType.Values, ManifestDataType.OpenshiftParam, ManifestDataType.KustomizePatches].includes(
         selectedManifest as ManifestTypes
       ) && manifestStore === ManifestStoreMap.InheritFromManifest:
         manifestDetailStep = <InheritFromManifest {...lastStepProps()} />
+        break
+      case manifestStore === ManifestStoreMap.Harness:
+        manifestDetailStep = <HarnessFileStore {...lastStepProps()} />
+        break
+      case [
+        ManifestDataType.K8sManifest,
+        ManifestDataType.Values,
+        ManifestDataType.HelmChart,
+        ManifestDataType.OpenshiftTemplate,
+        ManifestDataType.OpenshiftParam
+      ].includes(selectedManifest as ManifestTypes) && manifestStore === ManifestStoreMap.CustomRemote:
+        manifestDetailStep = <CustomRemoteManifest {...lastStepProps()} />
         break
       case [ManifestDataType.K8sManifest, ManifestDataType.Values].includes(selectedManifest as ManifestTypes) &&
         [ManifestStoreMap.Git, ManifestStoreMap.Github, ManifestStoreMap.GitLab, ManifestStoreMap.Bitbucket].includes(
@@ -684,6 +695,10 @@ function ManifestListView({
                   getConnectorPath(manifest?.spec?.store?.type, manifest),
                   connectors
                 )
+                const manifestLocation = get(
+                  manifest?.spec,
+                  getManifestLocation(manifest?.type as ManifestTypes, manifest?.spec?.store?.type)
+                )
 
                 return (
                   <div className={css.rowItem} key={`${manifest?.identifier}-${index}`}>
@@ -701,44 +716,14 @@ function ManifestListView({
                         connectorName,
                         color
                       )}
-                      {!!manifest?.spec?.store?.spec.paths?.length && (
-                        <span>
-                          <Text lineClamp={1} width={200}>
-                            <span className={css.noWrap}>
-                              {typeof manifest?.spec?.store?.spec.paths === 'string'
-                                ? manifest?.spec?.store?.spec.paths
-                                : manifest?.spec?.store?.spec.paths.join(', ')}
-                            </span>
-                          </Text>
-                        </span>
-                      )}
-                      {!!manifest?.spec?.paths?.length && (
-                        <span>
-                          <Text lineClamp={1} width={200}>
-                            <span className={css.noWrap}>
-                              {typeof manifest?.spec.paths === 'string'
-                                ? manifest?.spec.paths
-                                : manifest?.spec.paths.join(', ')}
-                            </span>
-                          </Text>
-                        </span>
-                      )}
-                      {!!manifest?.spec?.store?.spec.folderPath && (
-                        <span>
-                          <Text lineClamp={1} width={200}>
-                            <span className={css.noWrap}>{manifest.spec.store?.spec?.folderPath}</span>
-                          </Text>
-                        </span>
-                      )}
 
-                      {!!(manifest?.spec?.chartName && !manifest?.spec?.store?.spec.folderPath) && (
+                      {!isEmpty(manifestLocation) && (
                         <span>
                           <Text lineClamp={1} width={200}>
-                            <span className={css.noWrap}>{manifest.spec.chartName}</span>
+                            {typeof manifestLocation === 'string' ? manifestLocation : manifestLocation.join(', ')}
                           </Text>
                         </span>
                       )}
-
                       {!isReadonly && (
                         <span>
                           <Layout.Horizontal>
@@ -773,6 +758,7 @@ function ManifestListView({
                         color
                       )}
                       manifestType={manifest?.type as PrimaryManifestType}
+                      manifestStore={manifest?.spec?.store?.type}
                       valuesPaths={manifest?.spec[ManifestToPathKeyMap[manifest?.type as PrimaryManifestType]]}
                       expressions={expressions}
                       allowableTypes={allowableTypes}
@@ -795,7 +781,7 @@ function ManifestListView({
         </Layout.Vertical>
       </Layout.Vertical>
       <Layout.Vertical spacing={'medium'} flex={{ alignItems: 'flex-start' }}>
-        {showAddManifestBtn(isReadonly, allowOnlyOne, listOfManifests) && (
+        {showAddManifestBtn(isReadonly, allowOnlyOne, listOfManifests, deploymentType) && (
           <Button
             className={css.addManifest}
             id="add-manifest"
@@ -810,5 +796,4 @@ function ManifestListView({
     </Layout.Vertical>
   )
 }
-
 export default ManifestListView

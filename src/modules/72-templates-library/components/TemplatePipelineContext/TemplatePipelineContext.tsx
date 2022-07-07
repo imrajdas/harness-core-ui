@@ -12,7 +12,6 @@ import merge from 'lodash-es/merge'
 import {
   findAllByKey,
   PipelineContext,
-  PipelineContextInterface,
   PipelineContextType
 } from '@pipeline/components/PipelineStudio/PipelineContext/PipelineContext'
 import { getTemplateTypesByRef } from '@pipeline/utils/templateUtils'
@@ -51,7 +50,6 @@ export interface TemplatePipelineProviderProps {
   onUpdatePipeline: (pipeline: PipelineInfoConfig) => void
   contextType: PipelineContextType
   isReadOnly: boolean
-  getTemplate: PipelineContextInterface['getTemplate']
 }
 
 export function TemplatePipelineProvider({
@@ -60,7 +58,6 @@ export function TemplatePipelineProvider({
   onUpdatePipeline,
   isReadOnly,
   contextType,
-  getTemplate,
   children
 }: React.PropsWithChildren<TemplatePipelineProviderProps>): React.ReactElement {
   const allowableTypes = [MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
@@ -250,8 +247,7 @@ export function TemplatePipelineProvider({
         setSelectedSectionId: noop,
         setSelection,
         getStagePathFromPipeline,
-        setTemplateTypes: noop,
-        getTemplate: getTemplate
+        setTemplateTypes: noop
       }}
     >
       {children}

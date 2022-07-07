@@ -99,7 +99,27 @@ exports[`GitOps Cluster tests initial render 1`] = `
           role="cell"
           style="width: 75%;"
         >
-          test-cluster
+          <div
+            class="Layout--vertical StyledProps--main"
+          >
+            <div
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-start StyledProps--margin-bottom-small"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+              >
+                test-cluster
+              </p>
+            </div>
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--font-size-small"
+              style="--text-line-clamp: 1;"
+            >
+              common.ID
+              : 
+              test-cluster
+            </p>
+          </div>
         </div>
         <div
           class="TableV2--cell"

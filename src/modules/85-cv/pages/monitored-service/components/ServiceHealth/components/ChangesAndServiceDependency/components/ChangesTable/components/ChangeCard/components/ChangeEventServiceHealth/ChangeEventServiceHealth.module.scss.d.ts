@@ -7,8 +7,11 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
+  readonly flexRow: string
   readonly healthTrend: string
+  readonly horizontal: string
   readonly main: string
+  readonly serviceHealth: string
   readonly status: string
   readonly timestamps: string
 }

@@ -138,7 +138,10 @@ function StageErrorCard({
       errors={errors.map(err => err?.message).filter(e => e) as string[]}
       icon={stageTypeToIconMap[errors[0].stageInfo?.type || '']}
       onClick={() => {
-        gotoViewWithDetails({ stageId: errors[0].stageInfo?.identifier, sectionId: getSectionId(errors[0].message) })
+        gotoViewWithDetails({
+          stageId: errors[0].stageInfo?.identifier,
+          sectionId: getSectionId(errors[0].messageWithFQN)
+        })
       }}
       buttonText={getString('pipeline.errorFramework.fixStage')}
     />

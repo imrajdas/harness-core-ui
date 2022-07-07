@@ -26,7 +26,8 @@ import { useStrings } from 'framework/strings'
 import type {
   ArtifactType,
   ImagePathProps,
-  CustomArtifactSource
+  CustomArtifactSource,
+  ImagePathTypes
 } from '@pipeline/components/ArtifactsSelection/ArtifactInterface'
 import type { ConnectorConfigDTO } from 'services/cd-ng'
 import { ConfigureOptions } from '@common/components/ConfigureOptions/ConfigureOptions'
@@ -46,7 +47,7 @@ export function CustomArtifact({
   artifactIdentifiers,
   isReadonly = false,
   selectedArtifact
-}: StepProps<ConnectorConfigDTO> & ImagePathProps): React.ReactElement {
+}: StepProps<ConnectorConfigDTO> & ImagePathProps<ImagePathTypes>): React.ReactElement {
   const { getString } = useStrings()
 
   const schemaObject = {

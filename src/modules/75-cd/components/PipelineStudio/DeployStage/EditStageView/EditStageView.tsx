@@ -51,7 +51,6 @@ import { isContextTypeNotStageTemplate } from '@pipeline/components/PipelineStud
 import { hasStageData, ServiceDeploymentType } from '@pipeline/utils/stageHelpers'
 import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
 import { FeatureFlag } from '@common/featureFlags'
-import type { DeployStageConfig } from '@pipeline/utils/DeployStageInterface'
 import SelectDeploymentType from '../../DeployServiceSpecifications/SelectDeploymentType'
 import type { EditStageFormikType, EditStageViewProps } from '../EditStageViewInterface'
 import css from './EditStageView.module.scss'
@@ -212,6 +211,10 @@ export const EditStageView: React.FC<EditStageViewProps> = ({
     return !!isSvcEnvEntityEnabled
   }
 
+  const isStageCreationDisabled = (): boolean => {
+    return !template && shouldRenderDeploymentType() && isEmpty(selectedDeploymentType)
+  }
+
   return (
     <div className={stageCss.deployStage}>
       <DeployServiceErrors domRef={scrollRef as React.MutableRefObject<HTMLElement | undefined>} />
@@ -237,8 +240,7 @@ export const EditStageView: React.FC<EditStageViewProps> = ({
               tags: data?.stage?.tags || {},
               serviceType: newStageData[0].value,
               deploymentType: selectedDeploymentType,
-              //DeployStageConfig type is temporarily added until pipeline DTO for new entity gets merged
-              gitOpsEnabled: (data?.stage?.spec as unknown as DeployStageConfig)?.gitOpsEnabled
+              gitOpsEnabled: data?.stage?.spec?.gitOpsEnabled
             }}
             formName="cdEditStage"
             onSubmit={handleSubmit}
@@ -248,7 +250,7 @@ export const EditStageView: React.FC<EditStageViewProps> = ({
                 errors.name = getString('validation.identifierDuplicate')
               }
               if (context && data) {
-                onChange?.(omit(values as unknown as DeploymentStageElementConfig, 'serviceType', 'deploymentType'))
+                onChange?.(omit(values, 'serviceType', 'deploymentType'))
               }
               return errors
             }}
@@ -314,7 +316,7 @@ export const EditStageView: React.FC<EditStageViewProps> = ({
                     <Card className={stageCss.sectionCard}>{whatToDeploy}</Card>
                   )}
 
-                  {shouldRenderDeploymentType() && (
+                  {shouldRenderDeploymentType() && !template && (
                     <>
                       <div className={cx({ [css.deploymentType]: !isEmpty(context) })}>
                         <SelectDeploymentType
@@ -339,7 +341,7 @@ export const EditStageView: React.FC<EditStageViewProps> = ({
                     <Button
                       margin={{ top: 'medium' }}
                       type="submit"
-                      disabled={shouldRenderDeploymentType() && isEmpty(selectedDeploymentType)}
+                      disabled={isStageCreationDisabled()}
                       variation={ButtonVariation.PRIMARY}
                       text={getString('pipelineSteps.build.create.setupStage')}
                     />

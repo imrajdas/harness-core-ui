@@ -52,6 +52,18 @@ $top-offset: 110px;
       &[data-icon='conditional-skip'] path {
         fill: currentColor !important;
       }
+
+      &[data-icon='custom-approval'] {
+        > svg {
+          path:nth-child(1) {
+            fill: none !important;
+          }
+
+          path:nth-child(2) {
+            fill: currentColor !important;
+          }
+        }
+      }
     }
   }
 

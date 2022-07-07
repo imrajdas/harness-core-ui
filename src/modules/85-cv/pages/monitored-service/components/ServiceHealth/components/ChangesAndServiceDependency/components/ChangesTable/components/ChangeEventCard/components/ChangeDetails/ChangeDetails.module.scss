@@ -7,7 +7,7 @@
 
 .gridContainer {
   display: grid;
-  width: 50%;
+  width: fit-content;
   grid-gap: var(--padding-button) !important;
   margin: var(--spacing-large) 0 !important;
   grid-template-columns: auto auto;

@@ -5,9 +5,10 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { CellProps, Column } from 'react-table'
 import cx from 'classnames'
+import copy from 'copy-to-clipboard'
 import {
   Text,
   Layout,
@@ -26,16 +27,13 @@ import {
   PillToggle
 } from '@harness/uicore'
 import { FontVariation, Color } from '@harness/design-system'
-import { isEmpty as _isEmpty, defaultTo as _defaultTo } from 'lodash-es'
-import HighchartsReact from 'highcharts-react-official'
-import Highcharts from 'highcharts'
+import { isEmpty as _isEmpty, defaultTo as _defaultTo, get, capitalize } from 'lodash-es'
 import { useHistory, useParams } from 'react-router-dom'
-import { Classes, Drawer, Menu, Position } from '@blueprintjs/core'
+import { Classes, Drawer, IconName, Menu, Position } from '@blueprintjs/core'
 import routes from '@common/RouteDefinitions'
 import { StringUtils, useToaster } from '@common/exports'
 import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import {
-  AllResourcesOfAccountResponse,
   Service,
   ServiceSavings,
   useAllServiceResources,
@@ -52,6 +50,7 @@ import {
   FilterDTO
 } from 'services/lw'
 import { String, useStrings } from 'framework/strings'
+import type { StringsMap } from 'stringTypes'
 import useDeleteServiceHook from '@ce/common/useDeleteService'
 import { useTelemetry } from '@common/hooks/useTelemetry'
 import { useAllQueryParamsState } from '@ce/common/hooks/useAllQueryParamsState'
@@ -61,26 +60,28 @@ import RbacButton from '@rbac/components/Button/Button'
 import { FeatureIdentifier } from 'framework/featureStore/FeatureIdentifier'
 import type { FeatureDetail } from 'framework/featureStore/featureStoreUtil'
 import { NGBreadcrumbs } from '@common/components/NGBreadcrumbs/NGBreadcrumbs'
-import { RulesMode } from '@ce/constants'
+import { allProviders, ceConnectorTypes, ruleServiceStatusLabelMap, RulesMode } from '@ce/constants'
 import { Utils } from '@ce/common/Utils'
 import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
 import { FeatureFlag } from '@common/featureFlags'
 import { useDeepCompareEffect, useQueryParams } from '@common/hooks'
 import type { orderType, serverSortProps, sortType } from '@common/components/Table/react-table-config'
 import { UNSAVED_FILTER } from '@common/components/Filter/utils/FilterUtils'
+import { useGetConnector } from 'services/cd-ng'
 import COGatewayAnalytics from './COGatewayAnalytics'
 import COGatewayCumulativeAnalytics from './COGatewayCumulativeAnalytics'
-import ComputeType from './components/ComputeType'
+// import ComputeType from './components/ComputeType'
 import {
-  getInstancesLink,
   getRelativeTime,
-  getStateTag,
-  getRiskGaugeChartOptions,
-  getFilterBodyFromFilterData
+  getFilterBodyFromFilterData,
+  getRuleType,
+  getManagedResourcesStringId,
+  isK8sWorkloadRule
 } from './Utils'
 import useToggleRuleState from './useToggleRuleState'
 import TextWithToolTip, { textWithToolTipStatus } from '../TextWithTooltip/TextWithToolTip'
 import GatewayListFilters from './GatewayListFilters'
+import RuleSavingsPieChart from './charts/RuleSavingsPieChart'
 import landingPageSVG from './images/AutostoppingRuleIllustration.svg'
 import refreshIcon from './images/refresh.svg'
 import NoDataImage from './images/NoData.svg'
@@ -131,26 +132,77 @@ interface SortByObjInterface {
   type?: orderType
 }
 
-function IconCell(tableProps: CellProps<Service>): JSX.Element {
-  return <ComputeType data={tableProps.row.original} />
-}
+// function IconCell(tableProps: CellProps<Service>): JSX.Element {
+//   return <ComputeType data={tableProps.row.original} />
+// }
 function TimeCell(tableProps: CellProps<Service>): JSX.Element {
+  const { getString } = useStrings()
+  const isEcsRule = !_isEmpty(tableProps.row.original.routing?.container_svc)
+  const isRdsRule = !_isEmpty(tableProps.row.original.routing?.database)
+  const fulfilmentString: Record<string, string> = {
+    ondemand: getString('ce.nodeRecommendation.onDemand'),
+    spot: getString('ce.nodeRecommendation.spot')
+  }
+
+  const getDisplayValue = () => {
+    return isRdsRule
+      ? getString('ce.common.database')
+      : isEcsRule
+      ? getString('ce.common.containerService')
+      : _defaultTo(
+          fulfilmentString[tableProps.row.original.fulfilment as string],
+          capitalize(tableProps.row.original.fulfilment)
+        )
+  }
+
   return (
-    <Text lineClamp={3} color={tableProps.row.original.disabled ? textColor.disable : Color.GREY_500}>
-      {tableProps.value} mins
-    </Text>
+    <Layout.Vertical spacing={'small'}>
+      <Text lineClamp={3} color={Color.GREY_1000}>
+        {getString('ce.co.ruleDetailsHeader.idleTime')}
+        {' : '}
+        {`${tableProps.value} ${getString('timeMinutes')}`}
+      </Text>
+      <Text>{getDisplayValue()}</Text>
+    </Layout.Vertical>
   )
 }
 function NameCell(tableProps: CellProps<Service>): JSX.Element {
+  const { getString } = useStrings()
+  const { accountId } = useParams<AccountPathProps>()
+  const isK8sRule = tableProps.row.original.kind === 'k8s'
+
+  const { data: connectorData } = useGetConnector({
+    identifier: tableProps.row.original.cloud_account_id,
+    queryParams: { accountIdentifier: accountId },
+    lazy: isK8sRule
+  })
+
+  const cloudProviderType =
+    connectorData?.data?.connector?.type && ceConnectorTypes[connectorData?.data?.connector?.type]
+  const provider = useMemo(() => allProviders.find(item => item.value === cloudProviderType), [cloudProviderType])
+  const iconName = isK8sRule ? 'app-kubernetes' : _defaultTo(provider?.icon, 'spinner')
+  const ruleTypeStringKey = getRuleType(tableProps.row.original, provider) as keyof StringsMap
+
   return (
-    <Text
-      lineClamp={3}
-      color={Color.BLACK}
-      style={{ fontWeight: 600, color: tableProps.row.original.disabled ? textColor.disable : 'inherit' }}
-    >
-      {/* <Icon name={tableProps.row.original.provider.icon as IconName}></Icon> */}
-      {tableProps.value}
-    </Text>
+    <Layout.Horizontal spacing={'small'} flex={{ alignItems: 'flex-start', justifyContent: 'flex-start' }}>
+      <div>
+        <Icon name={iconName as IconName} size={24} />
+      </div>
+      <Layout.Vertical spacing={'small'}>
+        <Layout.Horizontal spacing={'small'}>
+          <Text
+            lineClamp={1}
+            font={{ variation: FontVariation.FORM_SUB_SECTION }}
+            color={Color.GREY_1000}
+            style={{ maxWidth: 160 }}
+          >
+            {tableProps.value}
+          </Text>
+          <RuleStatus rule={tableProps.row.original} />
+        </Layout.Horizontal>
+        <Text lineClamp={1}>{ruleTypeStringKey ? getString(ruleTypeStringKey) : ''}</Text>
+      </Layout.Vertical>
+    </Layout.Horizontal>
   )
 }
 
@@ -165,16 +217,9 @@ function SavingsCell(tableProps: CellProps<Service>): JSX.Element {
   })
   return (
     <Layout.Horizontal spacing="large">
-      <HighchartsReact
-        highchart={Highcharts}
-        options={
-          !savingsLoading && data?.response != null
-            ? getRiskGaugeChartOptions(
-                (data?.response as ServiceSavings).savings_percentage as number,
-                tableProps.row.original.disabled
-              )
-            : getRiskGaugeChartOptions(0)
-        }
+      <RuleSavingsPieChart
+        savings={get(data, 'response.savings_percentage', 0)}
+        disable={tableProps.row.original.disabled}
       />
       <Text className={css.savingsAmount}>
         {savingsLoading ? (
@@ -215,16 +260,24 @@ function ActivityCell(tableProps: CellProps<Service>): JSX.Element {
     </>
   )
 }
-function ResourcesCell(tableProps: CellProps<Service>): JSX.Element {
+
+const ResourcesManagedCell = (tableProps: CellProps<Service>) => {
   const { accountId } = useParams<AccountPathProps>()
   const { getString } = useStrings()
+  const { showError, showSuccess } = useToaster()
   const isK8sRule = tableProps.row.original.kind === 'k8s'
-  const { data, loading: healthLoading } = useHealthOfService({
-    account_id: accountId,
-    rule_id: tableProps.row.original.id as number,
-    queryParams: {
-      accountIdentifier: accountId
-    }
+  const isEcsRule = !_isEmpty(tableProps.row.original.routing?.container_svc)
+  const isSubmittedRule = tableProps.row.original.status === 'submitted'
+  const hasCustomDomains = (tableProps.row.original.custom_domains?.length as number) > 0
+  const k8sJson = useMemo(() => {
+    return isK8sRule ? JSON.parse(get(tableProps.row.original, 'routing.k8s.RuleJson', '{}')) : null
+  }, [isK8sRule, tableProps.row.original])
+  const intervalId = useRef<number | undefined>()
+
+  const { data: connectorData, loading: loadingConnectorData } = useGetConnector({
+    identifier: tableProps.row.original.cloud_account_id,
+    queryParams: { accountIdentifier: accountId },
+    lazy: isK8sRule
   })
 
   const { data: resources, loading: resourcesLoading } = useAllServiceResources({
@@ -233,134 +286,179 @@ function ResourcesCell(tableProps: CellProps<Service>): JSX.Element {
     lazy: isK8sRule
   })
 
-  const hasCustomDomains = (tableProps.row.original.custom_domains?.length as number) > 0
-  const isSubmittedRule = tableProps.row.original.status === 'submitted'
-  const isEcsRule = !_isEmpty(tableProps.row.original.routing?.container_svc)
-
-  const { data: serviceDescribeData } = useDescribeServiceInContainerServiceCluster({
+  const {
+    data: healthState,
+    loading: healthLoading,
+    refetch: refetchHealthState
+  } = useHealthOfService({
     account_id: accountId,
-    cluster_name: _defaultTo(tableProps.row.original.routing?.container_svc?.cluster, ''),
-    service_name: _defaultTo(tableProps.row.original.routing?.container_svc?.service, ''),
+    rule_id: tableProps.row.original.id as number,
+    queryParams: {
+      accountIdentifier: accountId
+    }
+  })
+
+  const { data: serviceDescribeData, loading: describeServiceLoading } = useDescribeServiceInContainerServiceCluster({
+    account_id: accountId,
+    cluster_name: _defaultTo(get(tableProps.row.original, 'routing.container_svc.cluster', ''), ''),
+    service_name: _defaultTo(get(tableProps.row.original, 'routing.container_svc.service', ''), ''),
     lazy: !isEcsRule,
     queryParams: {
       accountIdentifier: accountId,
       cloud_account_id: tableProps.row.original.cloud_account_id,
-      region: _defaultTo(tableProps.row.original.routing?.container_svc?.region, '')
+      region: _defaultTo(get(tableProps.row.original, 'routing.container_svc.region', ''), '')
     }
   })
 
-  const getClickableLink = () => {
-    return isK8sRule
-      ? tableProps.row.original.routing?.k8s?.CustomDomain
-      : hasCustomDomains
-      ? tableProps.row.original.custom_domains?.[0]
-      : tableProps.row.original.host_name
-  }
+  const getClickableLink = useCallback(
+    (withoutProtocol = false) => {
+      const hasHttpsConfig = !_isEmpty(
+        tableProps.row.original.routing?.ports?.find(portConfig => portConfig.protocol?.toLowerCase() === 'https')
+      )
+      const protocol = Utils.getConditionalResult(hasHttpsConfig, 'https', 'http')
+      const link = isK8sRule
+        ? tableProps.row.original.routing?.k8s?.CustomDomain
+        : hasCustomDomains
+        ? tableProps.row.original.custom_domains?.[0]
+        : tableProps.row.original.host_name
+      return withoutProtocol ? link : `${protocol}://${link}`
+    },
+    [tableProps.row.original]
+  )
 
   const handleDomainClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.stopPropagation()
     if (isSubmittedRule) return
     const link = getClickableLink()
-    const hasHttpsConfig = !_isEmpty(
-      tableProps.row.original.routing?.ports?.find(portConfig => portConfig.protocol === 'https')
-    )
-    const protocol = Utils.getConditionalResult(hasHttpsConfig, 'https', 'http')
-    window.open(`${protocol}://${link}`, '_blank')
+    window.open(link, '_blank')
   }
 
-  const renderLink = (linkStr = '') => {
+  const copyToClipboard = (event: React.MouseEvent<Element>) => {
+    event.stopPropagation()
+    event.preventDefault()
+    if (!tableProps.row.original.disabled) {
+      const linkText = getClickableLink()
+      linkText && copy(linkText)
+        ? showSuccess(getString('clipboardCopySuccess'))
+        : showError(getString('clipboardCopyFail'))
+    }
+  }
+
+  const renderLink = (linkStr = '', accessPointId?: string) => {
+    if (!linkStr) {
+      return null
+    }
     return (
       <Layout.Horizontal spacing="small">
+        <Text>
+          {getString('UrlLabel')}
+          {':'}
+        </Text>
         <Text
+          lineClamp={1}
           className={cx(css.link, {
             [css.disabled]: tableProps.row.original.disabled,
             [css.notAllowed]: isSubmittedRule
           })}
-          onClick={handleDomainClick}
+          onClick={accessPointId && !tableProps.row.original.disabled ? handleDomainClick : undefined}
         >
           {linkStr}
         </Text>
+        <div>
+          <Button
+            minimal
+            className={css.copyIcon}
+            icon="copy-alt"
+            iconProps={{ size: 14 }}
+            intent={'primary'}
+            small
+            onClick={copyToClipboard}
+            tooltip={
+              tableProps.row.original.disabled ? undefined : (
+                <String className={css.copyTooltip} stringID={'clickToCopy'} />
+              )
+            }
+          />
+        </div>
       </Layout.Horizontal>
     )
   }
 
+  const cloudProviderType =
+    connectorData?.data?.connector?.type && ceConnectorTypes[connectorData?.data?.connector?.type]
+  const provider = useMemo(() => allProviders.find(item => item.value === cloudProviderType), [cloudProviderType])
+  const descriptionStringId = useMemo(
+    () => getManagedResourcesStringId(tableProps.row.original, provider),
+    [tableProps.row.original, provider]
+  )
+  const loading = loadingConnectorData || resourcesLoading || healthLoading || describeServiceLoading
+  const serviceState = ruleServiceStatusLabelMap.get(get(healthState, 'response.state', ''))
+
+  useEffect(() => {
+    if (serviceState?.intent === 'load') {
+      if (!intervalId.current) {
+        intervalId.current = window.setInterval(() => refetchHealthState(), 5000)
+      }
+    } else if (intervalId.current) {
+      window.clearInterval(intervalId.current)
+    }
+    return () => window.clearInterval(intervalId.current)
+  }, [serviceState?.intent])
+
+  if (!isK8sRule && loading) {
+    return (
+      <Layout.Horizontal>
+        <Icon name="spinner" color={Color.BLUE_500} />
+      </Layout.Horizontal>
+    )
+  }
+
+  const getK8sWorkloadOrServiceName = () => {
+    return isK8sWorkloadRule(k8sJson) ? get(k8sJson, 'spec.workloadName', '') : get(k8sJson, 'spec.service.name', '')
+  }
+
   return (
-    <Container className={css.resourceCell}>
-      <Layout.Vertical spacing="medium">
-        <Layout.Horizontal spacing="xxxsmall">
-          {!isK8sRule && !isEcsRule && (
-            <>
-              <Text
-                style={{
-                  alignSelf: 'center',
-                  color: tableProps.row.original.disabled ? textColor.disable : 'inherit',
-                  marginRight: 5
-                }}
-              >
-                {getString('ce.co.noOfInstances')}
-              </Text>
-              {!resourcesLoading && resources?.response ? (
-                <Link
-                  href={getInstancesLink(tableProps.row.original, resources as AllResourcesOfAccountResponse)}
-                  target="_blank"
-                  style={{
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap',
-                    color: tableProps.row.original.disabled ? textColor.disable : 'inherit',
-                    marginRight: 5
-                  }}
-                  onClick={e => {
-                    e.stopPropagation()
-                  }}
-                >
-                  {resources?.response?.length}
-                </Link>
-              ) : (
-                <Icon name="spinner" size={12} color="blue500" style={{ marginRight: 5 }} />
-              )}
-            </>
-          )}
-          {!tableProps.row.original.disabled && !isEcsRule && (
-            <>
-              {data?.response?.['state'] != null ? (
-                getStateTag(data?.response?.['state'])
-              ) : !healthLoading ? (
-                getStateTag('down')
-              ) : (
-                <Icon name="spinner" size={12} color="blue500" />
-              )}
-            </>
-          )}
-          {isEcsRule && (
-            <>
-              <Text
-                style={{
-                  alignSelf: 'center',
-                  color: tableProps.row.original.disabled ? textColor.disable : 'inherit',
-                  marginRight: 5
-                }}
-              >
-                {`${getString('ce.co.noOfTasks')} ${_defaultTo(serviceDescribeData?.response?.task_count, 0)}`}
-              </Text>
-              {getStateTag(serviceDescribeData?.response?.task_count ? 'active' : 'down')}
-            </>
-          )}
-        </Layout.Horizontal>
-        {!isK8sRule ? (
-          renderLink(
-            hasCustomDomains ? tableProps.row.original.custom_domains?.join(',') : tableProps.row.original.host_name
-          )
-        ) : !_isEmpty(tableProps.row.original.routing?.k8s?.CustomDomain) ? (
-          renderLink(tableProps.row.original.routing?.k8s?.CustomDomain)
-        ) : (
-          <Layout.Horizontal flex={{ justifyContent: 'center' }}>
-            <Text>{'-'}</Text>
-          </Layout.Horizontal>
+    <Layout.Vertical spacing={'small'} className={css.resourceCell}>
+      <Layout.Horizontal spacing={'small'}>
+        {descriptionStringId ? (
+          <>
+            <Text inline>{getString(descriptionStringId as keyof StringsMap)}</Text>
+            <Text inline>{': '}</Text>
+            <Text inline lineClamp={2}>
+              {isEcsRule
+                ? get(serviceDescribeData, 'response.task_count', 0)
+                : isK8sRule
+                ? getK8sWorkloadOrServiceName()
+                : _defaultTo(get(resources, 'response'), []).length}
+            </Text>
+          </>
+        ) : null}
+        {serviceState && !tableProps.row.original.disabled && (
+          <Text
+            font={{ variation: FontVariation.UPPERCASED }}
+            icon={serviceState.icon}
+            iconProps={{ size: 14 }}
+            className={cx(css.stateLabel, {
+              [css.runningLabel]: serviceState.intent === 'running',
+              [css.stoppedLabel]: serviceState.intent === 'stopped',
+              [css.loadingLabel]: serviceState.intent === 'load'
+            })}
+          >
+            {getString(serviceState.labelStringId)}
+          </Text>
         )}
-      </Layout.Vertical>
-      {/* <Icon name={tableProps.row.original.provider.icon as IconName}></Icon> */}
-      {tableProps.value}
-    </Container>
+        {tableProps.row.original.disabled && (
+          <Text
+            className={cx(css.stateLabel, css.disabledLabel)}
+            font={{ variation: FontVariation.UPPERCASED }}
+            icon="deployment-aborted-legacy"
+          >
+            {getString('ce.common.disabled')}
+          </Text>
+        )}
+      </Layout.Horizontal>
+      {renderLink(getClickableLink(true), tableProps.row.original.access_point_id)}
+    </Layout.Vertical>
   )
 }
 
@@ -408,6 +506,7 @@ function RenderColumnMenu(
         <Button
           minimal
           icon="Options"
+          iconProps={{ color: Color.PRIMARY_5 }}
           onClick={e => {
             e.stopPropagation()
             setMenuOpen(true)
@@ -430,11 +529,11 @@ function RenderColumnMenu(
   )
 }
 
-const StatusCell = ({ row }: CellProps<Service>) => {
+const RuleStatus = ({ rule }: { rule: Service }) => {
   const { accountId } = useParams<AccountPathProps>()
   const { data, loading } = useGetServiceDiagnostics({
     account_id: accountId, // eslint-disable-line
-    rule_id: row.original.id as number, // eslint-disable-line
+    rule_id: rule.id as number, // eslint-disable-line
     queryParams: {
       accountIdentifier: accountId
     }
@@ -442,20 +541,18 @@ const StatusCell = ({ row }: CellProps<Service>) => {
   const diagnosticsErrors = (data?.response || [])
     .filter(item => !item.success)
     .map(item => ({ action: item.name, error: item.message }))
-  const hasError: boolean = !_isEmpty(row.original.metadata?.service_errors) || !_isEmpty(diagnosticsErrors)
-  const combinedErrors: ServiceError[] = (row.original.metadata?.service_errors || []).concat(diagnosticsErrors)
-  return loading ? (
-    <Icon name="spinner" size={12} color="blue500" />
-  ) : (
+  const hasError: boolean = !_isEmpty(rule.metadata?.service_errors) || !_isEmpty(diagnosticsErrors)
+  const combinedErrors: ServiceError[] = (rule.metadata?.service_errors || []).concat(diagnosticsErrors)
+  const showError = rule.status === 'errored' || hasError
+  return !loading ? (
     <TextWithToolTip
-      messageText={row.original.status}
+      icon={rule.status === 'submitted' ? 'time' : showError ? 'warning-sign' : 'tick-circle'}
+      iconSize={14}
       errors={hasError ? combinedErrors : []}
-      status={
-        row.original.status === 'errored' || hasError ? textWithToolTipStatus.ERROR : textWithToolTipStatus.SUCCESS
-      }
-      indicatorColor={row.original.status === 'submitted' ? Color.YELLOW_500 : undefined}
+      status={showError ? textWithToolTipStatus.ERROR : textWithToolTipStatus.SUCCESS}
+      indicatorColor={rule.status === 'submitted' ? Color.ORANGE_900 : showError ? Color.RED_700 : Color.GREEN_700}
     />
-  )
+  ) : null
 }
 
 const EmptyListPage: React.FC<EmptyListPageProps> = () => {
@@ -658,7 +755,7 @@ const RulesTableContainer: React.FC<RulesTableContainerProps> = ({
       {
         accessor: 'name',
         Header: getString('ce.co.rulesTableHeaders.name'),
-        width: '18%',
+        width: '25%',
         Cell: NameCell,
         serverSortProps: getServerSortProps({
           enableServerSort: true,
@@ -669,27 +766,33 @@ const RulesTableContainer: React.FC<RulesTableContainerProps> = ({
       },
       {
         accessor: 'idle_time_mins',
-        Header: getString('ce.co.rulesTableHeaders.idleTime'),
-        width: '8%',
+        Header: getString('details'),
+        width: '15%',
         Cell: TimeCell,
         disableSortBy: true
       },
-      {
-        accessor: 'fulfilment',
-        Header: getString('ce.co.rulesTableHeaders.fulfilment'),
-        width: '12%',
-        Cell: IconCell,
-        disableSortBy: true
-      },
+      // {
+      //   accessor: 'fulfilment',
+      //   Header: getString('ce.co.rulesTableHeaders.fulfilment'),
+      //   width: '12%',
+      //   Cell: IconCell,
+      //   disableSortBy: true
+      // },
       {
         Header: getString('ce.co.rulesTableHeaders.mangedResources'),
-        width: '22%',
-        Cell: ResourcesCell
+        width: '30%',
+        Cell: ResourcesManagedCell
       },
       {
         accessor: 'access_point_id', // random accessor to display sort icon
-        Header: getString('ce.co.rulesTableHeaders.savings').toUpperCase(),
-        width: '15%',
+        Header: (
+          <Text font={{ variation: FontVariation.TABLE_HEADERS }}>
+            {mode === RulesMode.DRY
+              ? getString('ce.co.summarySection.dryRunSavings')
+              : getString('ce.co.rulesTableHeaders.savings')}
+          </Text>
+        ),
+        width: '20%',
         Cell: SavingsCell,
         serverSortProps: getServerSortProps({
           enableServerSort: true,
@@ -701,7 +804,7 @@ const RulesTableContainer: React.FC<RulesTableContainerProps> = ({
       {
         accessor: 'account_identifier', // random accessor to display sort icon
         Header: getString('ce.co.rulesTableHeaders.lastActivity'),
-        width: '10%',
+        width: '15%',
         Cell: ActivityCell,
         serverSortProps: getServerSortProps({
           enableServerSort: true,
@@ -710,12 +813,12 @@ const RulesTableContainer: React.FC<RulesTableContainerProps> = ({
           setSortByObj: handleSort
         })
       },
-      {
-        Header: getString('ce.co.rulesTableHeaders.status'),
-        width: '10%',
-        Cell: StatusCell,
-        disableSortBy: true
-      },
+      // {
+      //   Header: getString('ce.co.rulesTableHeaders.status'),
+      //   width: '10%',
+      //   Cell: StatusCell,
+      //   disableSortBy: true
+      // },
       {
         Header: '',
         id: 'menu',
@@ -730,7 +833,7 @@ const RulesTableContainer: React.FC<RulesTableContainerProps> = ({
         disableSortBy: true
       }
     ],
-    [rules, isSorting]
+    [rules, isSorting, mode]
   )
 
   return (
@@ -775,6 +878,11 @@ const RulesTableContainer: React.FC<RulesTableContainerProps> = ({
                   itemCount: pageProps.totalRecords,
                   gotoPage: onPageClick
                 }}
+                getRowClassName={({ original }) =>
+                  cx(css.ruleListRow, {
+                    [css.disableRule]: original.disabled
+                  })
+                }
                 onRowClick={onRowClick}
                 columns={columns}
                 sortable={true}
@@ -1089,7 +1197,7 @@ const COGatewayList: React.FC = () => {
         />
       </Drawer>
       <>
-        <Layout.Horizontal padding="large" flex={{ justifyContent: 'space-between' }}>
+        <Layout.Horizontal padding="large" flex={{ justifyContent: 'space-between' }} className={css.pageSubHeader}>
           <Layout.Horizontal width="55%">
             <RbacButton
               intent="primary"

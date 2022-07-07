@@ -1,0 +1,31 @@
+.container {
+  min-height: 32px;
+  border: 1px solid var(--grey-200);
+  border-radius: 4px;
+  overflow: hidden;
+  width: 340px;
+
+  &Link {
+    display: flex;
+    align-items: center;
+    padding-left: var(--spacing-small);
+    color: var(--primary-7) !important;
+    background-color: var(--white) !important;
+
+    &Text {
+      flex-wrap: wrap;
+      margin-left: var(--spacing-xsmall);
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &EditBtn {
+    color: var(--primary-7) !important;
+    width: 10%;
+    &:hover {
+      background-color: transparent !important;
+      color: var(--blue-600) !important;
+    }
+  }
+}

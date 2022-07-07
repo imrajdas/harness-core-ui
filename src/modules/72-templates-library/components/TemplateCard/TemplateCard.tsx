@@ -22,6 +22,7 @@ import { useGitSyncStore } from 'framework/GitRepoStore/GitSyncStoreContext'
 import { TemplateListCardContextMenu } from '@templates-library/pages/TemplatesPage/views/TemplateListCardContextMenu/TemplateListCardContextMenu'
 import { Badge } from '@pipeline/pages/utils/Badge/Badge'
 import type { NGTemplateInfoConfigWithGitDetails } from 'framework/Templates/TemplateConfigModal/TemplateConfigModal'
+import { ScopeBadge } from '@common/components/ScopeBadge/ScopeBadge'
 import { TemplateColor } from './TemplateColor/TemplateColor'
 import css from './TemplateCard.module.scss'
 
@@ -98,6 +99,9 @@ export function TemplateCard(props: TemplateCardProps): JSX.Element {
           <Text font="small" lineClamp={1} color={Color.GREY_400} margin={{ top: 'xsmall' }}>
             {getString('idLabel', { id: template.identifier })}
           </Text>
+        </Container>
+        <Container>
+          <ScopeBadge data={template} />
         </Container>
         {!!template.tags && !isEmpty(template.tags) && <TemplateTags tags={template.tags} />}
         <Container height={1} background={Color.GREY_100} />

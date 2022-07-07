@@ -144,6 +144,7 @@ exports[`Create Secret Manager Wizard should render form 1`] = `
             >
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-variation-h3 StyledProps--margin-bottom-large"
+                data-cy="aws-overview"
               >
                 connectors.ceAws.overview.heading
               </p>

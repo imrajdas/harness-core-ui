@@ -59,29 +59,3 @@
   left: -10px;
   z-index: 99;
 }
-
-.stepCount {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 var(--spacing-2) !important;
-  font-size: var(--font-size-small) !important;
-  color: var(--grey-900);
-  font-weight: 500;
-  height: var(--spacing-6);
-  border-radius: var(--spacing-2);
-  border-radius: 4px;
-  white-space: nowrap;
-
-  & > :global(.bp3-icon),
-  & > .running-animation {
-    margin-right: var(--spacing-2);
-  }
-
-  &[data-status='success'] > :global(.bp3-icon) {
-    color: var(--green-500);
-  }
-
-  &[data-status='failed'] > :global(.bp3-icon) {
-    color: var(--red-500);
-  }
-}

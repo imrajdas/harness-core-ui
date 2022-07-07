@@ -248,3 +248,18 @@ export const getTags = (tags?: CVNGLogTag[]) => {
 
   return JSON.stringify(result)
 }
+
+export const getDetailsLabel = (key: string, getString: UseStringsReturn['getString']): string => {
+  switch (key) {
+    case 'artifactType':
+      return getString('pipeline.artifactsSelection.artifactType')
+    case 'artifactTag':
+      return getString('connectors.cdng.artifactTag')
+    case 'executedBy':
+      return getString('cv.monitoredServices.executedBy')
+    case 'eventType':
+      return getString('pipeline.verification.logs.eventType')
+    default:
+      return key
+  }
+}

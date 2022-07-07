@@ -16,7 +16,7 @@ const mockFormikData = {
   pipelineName: 'pipeline3',
   timeRange: {
     startTime: 24431400000,
-    endTime: 24431400000
+    endTime: 24517800000
   }
 }
 

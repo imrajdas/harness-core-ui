@@ -38,8 +38,8 @@ import css from './LoopingStrategy.module.scss'
 
 export interface LoopingStrategyProps {
   strategy?: StrategyConfig
-  isReadonly: boolean
-  onUpdateStrategy: (strategy: StrategyConfig) => void
+  isReadonly?: boolean
+  onUpdateStrategy?: (strategy: StrategyConfig) => void
 }
 
 const DOCUMENT_URL = 'https://ngdocs.harness.io/article/i36ibenkq2-step-skip-condition-settings'
@@ -48,7 +48,7 @@ const strategyEntries = Object.entries(AvailableStrategies) as [LoopingStrategyE
 export function LoopingStrategy({
   strategy = {},
   isReadonly,
-  onUpdateStrategy
+  onUpdateStrategy = noop
 }: LoopingStrategyProps): React.ReactElement {
   const { getString } = useStrings()
   const { loopingStrategySchema } = usePipelineSchema()
@@ -69,7 +69,7 @@ export function LoopingStrategy({
 
   const onTextChange = (_formikProps: FormikProps<StrategyConfig>): void => {
     try {
-      const newValues: StrategyConfig = parse(defaultTo(yamlHandler?.getLatestYaml(), ''))
+      const newValues: StrategyConfig = parse(defaultTo(/* istanbul ignore next */ yamlHandler?.getLatestYaml(), ''))
       // formikProps.setValues(newValues)
       onUpdateStrategy(newValues)
     } catch {
@@ -104,6 +104,7 @@ export function LoopingStrategy({
 
   const handleCloseDeleteConfirmation = (confirm: boolean): void => {
     if (confirm) {
+      /* istanbul ignore next */
       callbackRef.current?.()
     } else {
       callbackRef.current = null
@@ -113,6 +114,7 @@ export function LoopingStrategy({
 
   const handleCloseToggleTypeConfirmation = (confirm: boolean): void => {
     if (confirm) {
+      /* istanbul ignore next */
       callbackRef.current?.()
     } else {
       callbackRef.current = null
@@ -120,7 +122,7 @@ export function LoopingStrategy({
     closeToggleTypeConfirmation()
   }
 
-  const renderCustomHeader = (): JSX.Element => <Container></Container>
+  const renderCustomHeader = (): null => null
 
   return (
     <React.Fragment>
@@ -162,6 +164,7 @@ export function LoopingStrategy({
                         selected={selectedStrategy === key}
                         cornerSelected={selectedStrategy === key}
                         onClick={isReadonly ? noop : () => onChangeStrategy(key, formikProps)}
+                        data-testid={key}
                       >
                         <Text font={{ variation: FontVariation.BODY }} color={Color.PRIMARY_7}>
                           {item.label}
@@ -198,6 +201,7 @@ export function LoopingStrategy({
                             <Button
                               variation={ButtonVariation.ICON}
                               icon={'main-trash'}
+                              data-testid="delete"
                               onClick={() => onDelete(formikProps)}
                             />
                           </Container>
@@ -212,7 +216,7 @@ export function LoopingStrategy({
                           bind={setYamlHandler}
                           height="200px"
                           width="100%"
-                          schema={loopingStrategySchema?.data?.schema}
+                          schema={/* istanbul ignore next */ loopingStrategySchema?.data?.schema}
                           existingJSON={formikProps.values}
                           renderCustomHeader={renderCustomHeader}
                           yamlSanityConfig={{

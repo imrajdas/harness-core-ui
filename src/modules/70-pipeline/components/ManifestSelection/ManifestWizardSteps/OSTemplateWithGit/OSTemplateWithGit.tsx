@@ -80,7 +80,7 @@ function OpenShiftTemplateWithGit({
         : prevStepData?.url
       : null
 
-  const getInitialValues = React.useCallback((): OpenShiftTemplateGITDataType => {
+  const getInitialValues = (): OpenShiftTemplateGITDataType => {
     const specValues = get(initialValues, 'spec.store.spec', null)
 
     if (specValues) {
@@ -109,7 +109,7 @@ function OpenShiftTemplateWithGit({
       skipResourceVersioning: false,
       repoName: getRepositoryName(prevStepData, initialValues)
     }
-  }, [])
+  }
 
   const submitFormData = (formData: OpenShiftTemplateGITDataType & { store?: string; connectorRef?: string }): void => {
     const manifestObj: ManifestConfigWrapper = {
@@ -322,6 +322,7 @@ function OpenShiftTemplateWithGit({
                   fieldPath="paramsPaths"
                   pathLabel={getString('pipeline.manifestType.paramsYamlPath')}
                   placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+                  defaultValue={{ path: '', uuid: uuid('', nameSpace()) }}
                 />
               </div>
               <Accordion

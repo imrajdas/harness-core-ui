@@ -46,7 +46,9 @@ import InfrastructureModal from '@cd/components/EnvironmentsV2/EnvironmentDetail
 
 import { useVariablesExpression } from '@pipeline/components/PipelineStudio/PiplineHooks/useVariablesExpression'
 
+import { useRunPipelineFormContext } from '@pipeline/context/RunPipelineFormContext'
 import type { DeployStageConfig } from '@pipeline/utils/DeployStageInterface'
+import { clearRuntimeInput } from '@pipeline/utils/runPipelineUtils'
 import { isEditInfrastructure } from '../utils'
 
 import css from './DeployInfrastructures.module.scss'
@@ -56,9 +58,18 @@ interface DeployInfrastructuresProps {
   readonly?: boolean
   allowableTypes: MultiTypeInputType[]
   initialValues: DeployStageConfig
+  environmentRef?: string
+  path?: string
 }
 
-function DeployInfrastructures({ initialValues, formik, readonly, allowableTypes }: DeployInfrastructuresProps) {
+function DeployInfrastructures({
+  initialValues,
+  formik,
+  readonly,
+  allowableTypes,
+  environmentRef,
+  path
+}: DeployInfrastructuresProps) {
   const { accountId, projectIdentifier, orgIdentifier } = useParams<PipelinePathProps>()
   const { getString } = useStrings()
   const { showError } = useToaster()
@@ -66,8 +77,10 @@ function DeployInfrastructures({ initialValues, formik, readonly, allowableTypes
   const { expressions } = useVariablesExpression()
 
   const environmentIdentifier = useMemo(() => {
-    return defaultTo(formik?.values?.environment?.environmentRef, '')
+    return defaultTo(environmentRef || formik?.values?.environment?.environmentRef, '')
   }, [formik?.values?.environment?.environmentRef])
+
+  const { updateTemplate } = useRunPipelineFormContext()
 
   const {
     data: infrastructuresResponse,
@@ -102,10 +115,19 @@ function DeployInfrastructures({ initialValues, formik, readonly, allowableTypes
       const parsedInfrastructureDefinitionYaml = parse(
         defaultTo(infrastructureInputsResponse?.data?.inputSetTemplateYaml, '{}')
       )
-      formik?.setValues({
-        ...formik.values,
-        infrastructureInputs: parsedInfrastructureDefinitionYaml
-      } as DeployStageConfig)
+
+      if (path) {
+        formik?.setFieldValue(
+          `${path}.infrastructureDefinitions[0]`,
+          clearRuntimeInput(parsedInfrastructureDefinitionYaml.infrastructureDefinitions[0])
+        )
+        updateTemplate(
+          parsedInfrastructureDefinitionYaml.infrastructureDefinitions[0],
+          `${path}.infrastructureDefinitions[0]`
+        )
+      } else {
+        formik?.setFieldValue('infrastructureInputs', parsedInfrastructureDefinitionYaml)
+      }
     }
   }, [infrastructureInputsLoading])
 
@@ -162,7 +184,7 @@ function DeployInfrastructures({ initialValues, formik, readonly, allowableTypes
         )
         if (!existingInfrastructure) {
           if (!readonly) {
-            formik?.setFieldValue('infrastructureRef', '')
+            formik?.setFieldValue(path ? `${path}.infrastructureDefinitions[0].identifier` : 'infrastructureRef', '')
           } else {
             const options = [...infrastructuresSelectOptions]
             options.push({
@@ -172,7 +194,10 @@ function DeployInfrastructures({ initialValues, formik, readonly, allowableTypes
             setInfrastructuresSelectOptions(options)
           }
         } else {
-          formik?.setFieldValue('infrastructureRef', existingInfrastructure.value)
+          formik?.setFieldValue(
+            path ? `${path}.infrastructureDefinitions[0].identifier` : 'infrastructureRef',
+            existingInfrastructure.value
+          )
           setSelectedInfrastructure(
             infrastructures?.filter(infra => infra.identifier === existingInfrastructure?.value)?.[0]?.yaml
           )
@@ -238,7 +263,7 @@ function DeployInfrastructures({ initialValues, formik, readonly, allowableTypes
       <FormInput.MultiTypeInput
         label={getString('cd.pipelineSteps.environmentTab.specifyYourInfrastructure')}
         tooltipProps={{ dataTooltipId: 'specifyYourInfrastructure' }}
-        name="infrastructureRef"
+        name={path ? `${path}.infrastructureDefinitions[0].identifier` : 'infrastructureRef'}
         useValue
         disabled={readonly || (infrastructureRefType === MultiTypeInputType.FIXED && infrastructuresLoading)}
         placeholder={
@@ -268,7 +293,7 @@ function DeployInfrastructures({ initialValues, formik, readonly, allowableTypes
           <Spinner size={20} />
         </Container>
       )}
-      {infrastructureRefType === MultiTypeInputType.FIXED && (
+      {!path && infrastructureRefType === MultiTypeInputType.FIXED && (
         <RbacButton
           margin={{ top: 'xlarge' }}
           size={ButtonSize.SMALL}

@@ -285,17 +285,6 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
           showError(getString('pipeline.gitExperience.selectRepoBranch'))
           return Promise.reject(getString('pipeline.gitExperience.selectRepoBranch'))
         } else {
-          // @TODO - Uncomment below snippet when schema validation is available at BE.
-          // When git sync enabled, do not irritate user by taking all git info then at the end showing BE errors related to schema
-          // const error = await validateJSONWithSchema({ template: latestTemplate }, templateSchema?.data as any)
-          // if (error.size > 0) {
-          //   clear()
-          //   showError(error)
-          //   return
-          // }
-          // if (isYaml && yamlHandler && !isValidYaml()) {
-          //   return
-          // }
           openSaveToGitDialog({
             isEditing: defaultTo(isEdit, false),
             resource: {

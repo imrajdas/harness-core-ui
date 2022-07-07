@@ -95,6 +95,8 @@ noDelegatesInAccount: 'There are no Delegates in your account'
 GBRam: 'GB RAM'
 selectors: 'Selectors'
 delegateCreation:
+  installerSelectionRequired: 'Please select the installer'
+  installerText: 'What installer do you want to use?'
   downloadScript: 'Download Script'
   dockerPrerequisites:
     title: 'Docker Prerequisites'

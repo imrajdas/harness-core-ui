@@ -7,10 +7,11 @@
 
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { defaultTo, get, isEmpty, isNil } from 'lodash-es'
+import { defaultTo, get, isEmpty, isNil, set } from 'lodash-es'
 import { parse } from 'yaml'
 import { connect, FormikProps } from 'formik'
 import { Spinner } from '@blueprintjs/core'
+import produce from 'immer'
 
 import {
   ButtonSize,
@@ -21,6 +22,7 @@ import {
   getMultiTypeFromValue,
   Layout,
   MultiTypeInputType,
+  RUNTIME_INPUT_VALUE,
   SelectOption,
   useToaster
 } from '@harness/uicore'
@@ -30,6 +32,7 @@ import { useStrings } from 'framework/strings'
 import {
   EnvironmentResponse,
   EnvironmentResponseDTO,
+  EnvironmentYamlV2,
   useGetEnvironmentInputs,
   useGetEnvironmentListV2,
   useGetServiceOverrideInputs
@@ -45,6 +48,8 @@ import { ResourceType } from '@rbac/interfaces/ResourceType'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 
 import type { DeployStageConfig } from '@pipeline/utils/DeployStageInterface'
+import { clearRuntimeInput } from '@pipeline/utils/runPipelineUtils'
+import { useRunPipelineFormContext } from '@pipeline/context/RunPipelineFormContext'
 import AddEditEnvironmentModal from '../AddEditEnvironmentModal'
 import { isEditEnvironment } from '../utils'
 
@@ -56,9 +61,17 @@ interface DeployEnvironmentProps {
   readonly?: boolean
   allowableTypes: MultiTypeInputType[]
   serviceRef?: string
+  path?: string
 }
 
-function DeployEnvironment({ initialValues, readonly, formik, allowableTypes, serviceRef }: DeployEnvironmentProps) {
+function DeployEnvironment({
+  initialValues,
+  readonly,
+  formik,
+  allowableTypes,
+  serviceRef,
+  path
+}: DeployEnvironmentProps) {
   const { accountId, projectIdentifier, orgIdentifier } = useParams<PipelinePathProps>()
   const { getString } = useStrings()
   const { showError } = useToaster()
@@ -101,6 +114,7 @@ function DeployEnvironment({ initialValues, readonly, formik, allowableTypes, se
   const [environmentRefType, setEnvironmentRefType] = useState<MultiTypeInputType>(
     getMultiTypeFromValue(initialValues.environment?.environmentRef)
   )
+  const { template, updateTemplate } = useRunPipelineFormContext()
 
   useEffect(() => {
     if (
@@ -113,14 +127,73 @@ function DeployEnvironment({ initialValues, readonly, formik, allowableTypes, se
       const parsedServiceOverridesYaml = parse(
         defaultTo(serviceOverrideInputsResponse?.data?.inputSetTemplateYaml, '{}')
       )
-      formik?.setValues({
-        ...formik.values,
-        environment: {
-          ...formik.values.environment,
-          ...parsedEnvironmentYaml,
-          ...parsedServiceOverridesYaml
+
+      if (path) {
+        const values = { ...formik?.values }
+        set(
+          values,
+          `${path}.environmentInputs`,
+          parsedEnvironmentYaml.environmentInputs
+            ? {
+                ...clearRuntimeInput(parsedEnvironmentYaml.environmentInputs)
+              }
+            : undefined
+        )
+        set(
+          values,
+          `${path}.serviceOverrideInputs`,
+          parsedServiceOverridesYaml.serviceOverrideInputs
+            ? {
+                ...clearRuntimeInput(parsedServiceOverridesYaml.serviceOverrideInputs)
+              }
+            : undefined
+        )
+        formik?.setValues({ ...values })
+
+        updateTemplate(
+          {
+            environmentRef: RUNTIME_INPUT_VALUE,
+            ...(parsedEnvironmentYaml?.environmentInputs && {
+              environmentInputs: parsedEnvironmentYaml?.environmentInputs
+            }),
+            ...(parsedServiceOverridesYaml?.serviceOverrideInputs && {
+              serviceOverrideInputs: parsedServiceOverridesYaml?.serviceOverrideInputs
+            })
+          },
+          path
+        )
+      } else {
+        formik?.setValues({
+          ...formik.values,
+          environment: {
+            ...formik.values.environment,
+            ...parsedEnvironmentYaml,
+            ...parsedServiceOverridesYaml
+          }
+        } as DeployStageConfig)
+      }
+    } else if (
+      !environmentInputsLoading &&
+      !serviceOverrideInputsLoading &&
+      !environmentInputsResponse?.data?.inputSetTemplateYaml &&
+      !serviceOverrideInputsResponse?.data?.inputSetTemplateYaml &&
+      path
+    ) {
+      const updatedTemplate = produce(get(template, path), (draft: EnvironmentYamlV2) => {
+        if (draft) {
+          delete draft.environmentInputs
+          delete draft.serviceOverrideInputs
         }
-      } as DeployStageConfig)
+      })
+      const environmentValues = get(formik?.values, `${path}`)
+      if (environmentValues) {
+        delete environmentValues.environmentInputs
+        delete environmentValues.serviceOverrideInputs
+        formik?.setFieldValue(path, {
+          ...environmentValues
+        })
+        updateTemplate(updatedTemplate, path)
+      }
     }
   }, [environmentInputsLoading, serviceOverrideInputsLoading])
 
@@ -251,7 +324,7 @@ function DeployEnvironment({ initialValues, readonly, formik, allowableTypes, se
       <FormInput.MultiTypeInput
         label={getString('cd.pipelineSteps.environmentTab.specifyYourEnvironment')}
         tooltipProps={{ dataTooltipId: 'specifyYourEnvironment' }}
-        name="environment.environmentRef"
+        name={path ? `${path}.environmentRef` : 'environment.environmentRef'}
         useValue
         disabled={readonly || (environmentRefType === MultiTypeInputType.FIXED && environmentsLoading)}
         placeholder={
@@ -278,7 +351,7 @@ function DeployEnvironment({ initialValues, readonly, formik, allowableTypes, se
           <Spinner size={20} />
         </Container>
       )}
-      {environmentRefType === MultiTypeInputType.FIXED && (
+      {!path && environmentRefType === MultiTypeInputType.FIXED && (
         <RbacButton
           margin={{ top: 'xlarge' }}
           size={ButtonSize.SMALL}

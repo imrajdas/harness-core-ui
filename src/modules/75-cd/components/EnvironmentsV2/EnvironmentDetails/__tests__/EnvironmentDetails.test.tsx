@@ -9,16 +9,16 @@ import React from 'react'
 import { render } from '@testing-library/react'
 
 import { TestWrapper } from '@common/utils/testUtils'
+import routes from '@common/RouteDefinitions'
+import { environmentPathProps, modulePathProps, projectPathProps } from '@common/utils/routeUtils'
 import EnvironmentDetails from '../EnvironmentDetails'
+
+import mockEnvironmentDetail from './__mocks__/mockEnvironmentDetail.json'
 
 jest.mock('services/cd-ng', () => ({
   useGetEnvironmentV2: jest.fn().mockImplementation(() => {
     return {
-      data: {
-        name: 'testenv',
-        identifier: 'test-env',
-        lastModifiedAt: ''
-      },
+      data: mockEnvironmentDetail,
       refetch: jest.fn()
     }
   }),
@@ -33,14 +33,29 @@ jest.mock('services/cd-ng', () => ({
     }
   })
 }))
+
 describe('EnvironmentDetails tests', () => {
   test('initial render', () => {
     const { container } = render(
-      <TestWrapper>
+      <TestWrapper
+        path={routes.toEnvironmentDetails({
+          ...projectPathProps,
+          ...modulePathProps,
+          ...environmentPathProps
+        })}
+        pathParams={{
+          accountId: 'dummy',
+          projectIdentifier: 'dummy',
+          orgIdentifier: 'dummy',
+          module: 'cd',
+          environmentIdentifier: 'Env_1',
+          sectionId: 'CONFIGURATION'
+        }}
+      >
         <EnvironmentDetails />
       </TestWrapper>
     )
-    const header = container.querySelector('.environmentDetailsHeader')
-    expect(header).toBeDefined()
+
+    expect(container).toMatchSnapshot()
   })
 })

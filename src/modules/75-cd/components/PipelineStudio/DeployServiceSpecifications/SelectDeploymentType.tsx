@@ -183,12 +183,17 @@ export default function SelectDeploymentType({
         icon: 'secret-ssh',
         value: ServiceDeploymentType.ssh
       })
+      baseTypes.push({
+        label: getString('pipeline.serviceDeploymentTypes.winrm'),
+        icon: 'command-winrm',
+        value: ServiceDeploymentType.winrm
+      })
     }
     if (AZURE_WEBAPP_NG) {
       baseTypes.push({
         label: 'Azure Web App',
         icon: 'microsoft-azure',
-        value: ServiceDeploymentType.AzureWebApp
+        value: ServiceDeploymentType.AzureWebApps
       })
     }
     return [...baseTypes, ...getServerlessDeploymentTypes(getString, SERVERLESS_SUPPORT)] as DeploymentTypeItem[]
@@ -213,11 +218,6 @@ export default function SelectDeploymentType({
         value: ServiceDeploymentType.awsCodeDeploy
       },
       {
-        label: getString('pipeline.serviceDeploymentTypes.winrm'),
-        icon: 'command-winrm',
-        value: ServiceDeploymentType.winrm
-      },
-      {
         label: getString('pipeline.serviceDeploymentTypes.awsLambda'),
         icon: 'app-aws-lambda',
         value: ServiceDeploymentType.awsLambda
@@ -234,9 +234,14 @@ export default function SelectDeploymentType({
         icon: 'secret-ssh',
         value: ServiceDeploymentType.ssh
       })
+      types.splice(4, 0, {
+        label: getString('pipeline.serviceDeploymentTypes.winrm'),
+        icon: 'command-winrm',
+        value: ServiceDeploymentType.winrm
+      })
     }
     return types as DeploymentTypeItem[]
-  }, [getString])
+  }, [getString, SSH_NG])
 
   const [cgDeploymentTypes, setCgDeploymentTypes] = React.useState(cgSupportedDeploymentTypes)
   const [ngDeploymentTypes, setNgDeploymentTypes] = React.useState(ngSupportedDeploymentTypes)

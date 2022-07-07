@@ -15,7 +15,8 @@ import { useStrings } from 'framework/strings'
 import { ChangeSourceTypes } from '@cv/pages/ChangeSource/ChangeSourceDrawer/ChangeSourceDrawer.constants'
 import { EXECUTED_BY } from '@cv/constants'
 import type { ChangeEventDTO } from 'services/cv'
-import { createDetailsTitle, getOnClickOptions, statusToColorMapping } from './ChangeDetails.utils'
+import { getDetailsLabel } from '@cv/utils/CommonUtils'
+import { getOnClickOptions, statusToColorMapping } from './ChangeDetails.utils'
 import type { ChangeDetailsDataInterface } from '../../ChangeEventCard.types'
 import StatusChip from './components/StatusChip/StatusChip'
 import css from './ChangeDetails.module.scss'
@@ -26,7 +27,7 @@ export default function ChangeDetails({
   ChangeDetailsData: ChangeDetailsDataInterface
 }): JSX.Element {
   const { getString } = useStrings()
-  const { type, category, status, executedBy } = ChangeDetailsData
+  const { type, status, executedBy } = ChangeDetailsData
   let { details } = ChangeDetailsData
   const { color, backgroundColor } = statusToColorMapping(status, type) || {}
   if ([ChangeSourceTypes.HarnessCDNextGen, ChangeSourceTypes.K8sCluster].includes(type as ChangeSourceTypes)) {
@@ -34,11 +35,9 @@ export default function ChangeDetails({
   }
   return (
     <Container>
-      {type && category ? (
-        <Text font={{ size: 'medium', weight: 'bold' }} color={Color.GREY_800}>
-          {createDetailsTitle(type, category)} {getString('details')}
-        </Text>
-      ) : null}
+      <Text font={{ size: 'normal', weight: 'bold' }} color={Color.GREY_800}>
+        {getString('details')}
+      </Text>
       <div className={css.gridContainer}>{getChanges(details)}</div>
       {status && type !== ChangeSourceTypes.HarnessCDNextGen ? (
         <StatusChip status={status} color={color} backgroundColor={backgroundColor} />
@@ -52,6 +51,7 @@ export const getChanges = (details: {
 }) => {
   return _map(_entries(details), item => {
     const isExecutedBy = item[0] === EXECUTED_BY
+    const { getString } = useStrings()
     let value
     let shouldVisible = true
     if (isExecutedBy) {
@@ -63,14 +63,17 @@ export const getChanges = (details: {
     return value ? (
       <>
         <Text className={css.gridItem} font={{ size: 'small' }}>
-          {shouldVisible ? item[0] : ''}
+          {shouldVisible ? getDetailsLabel(item[0], getString) : ''}
         </Text>
         {isExecutedBy ? (
-          value
+          <Text font={{ size: 'small', weight: 'semi-bold' }} color={Color.BLACK_100}>
+            {value}
+          </Text>
         ) : (
           <Text
             className={cx(typeof item[1] !== 'string' && item[1]?.url && css.isLink)}
-            font={{ size: 'small' }}
+            font={{ size: 'small', weight: 'semi-bold' }}
+            color={Color.BLACK_100}
             {...getOnClickOptions(item[1])}
           >
             {value}

@@ -14,6 +14,7 @@ import type { Feature, Segment, Target } from 'services/cf'
 import { useStrings } from 'framework/strings'
 import { CF_DEFAULT_PAGE_SIZE } from '@cf/utils/CFUtils'
 import usePercentageRolloutValidationSchema from '@cf/hooks/usePercentageRolloutValidationSchema'
+import { useFFGitSyncContext } from '@cf/contexts/ff-git-sync-context/FFGitSyncContext'
 import TargetManagementFlagsListing from '../TargetManagementFlagsListing/TargetManagementFlagsListing'
 import NoSearchResults from '../NoData/NoSearchResults'
 import NoFlags, { NoFlagsProps } from './NoFlags'
@@ -23,6 +24,7 @@ import useFormDisabled from './useFormDisabled'
 import FormButtons from './FormButtons'
 import AddFlagButton from './AddFlagButton'
 import { STATUS, TargetManagementFlagConfigurationPanelFormValues as FormValues } from './types'
+import TargetManagementToolbar from '../TargetManagementToolbar/TargetManagementToolbar'
 
 import css from './TargetManagementFlagConfigurationPanel.module.scss'
 
@@ -57,6 +59,8 @@ const TargetManagementFlagConfigurationPanel: FC<TargetManagementFlagConfigurati
 
   const percentageRolloutValidationSchema = usePercentageRolloutValidationSchema()
 
+  const { isGitSyncActionsEnabled } = useFFGitSyncContext()
+
   const validationSchema = useMemo(() => {
     if (!includePercentageRollout) {
       return undefined
@@ -81,7 +85,7 @@ const TargetManagementFlagConfigurationPanel: FC<TargetManagementFlagConfigurati
           .required()
       )
     })
-  }, [includePercentageRollout, percentageRolloutValidationSchema])
+  }, [getString, includePercentageRollout, percentageRolloutValidationSchema])
 
   const { searchedFlags, filteredFlags, pagedFlags } = useProcessedFlags({
     flags,
@@ -159,14 +163,17 @@ const TargetManagementFlagConfigurationPanel: FC<TargetManagementFlagConfigurati
       {({ dirty, setFieldValue }) => (
         <Form className={css.layout}>
           <Page.SubHeader className={css.toolbar}>
-            <AddFlagButton
-              item={item}
-              onAdd={onAdd}
-              existingFlagIds={existingFlagIds}
-              includePercentageRollout={includePercentageRollout}
-              planEnforcementProps={planEnforcementProps}
-              title={addFlagsDialogTitle}
-            />
+            <div className={css.flagGitSync}>
+              <AddFlagButton
+                item={item}
+                onAdd={onAdd}
+                existingFlagIds={existingFlagIds}
+                includePercentageRollout={includePercentageRollout}
+                planEnforcementProps={planEnforcementProps}
+                title={addFlagsDialogTitle}
+              />
+              {isGitSyncActionsEnabled && <TargetManagementToolbar />}
+            </div>
             <ExpandingSearchInput alwaysExpanded onChange={onSearch} />
           </Page.SubHeader>
 

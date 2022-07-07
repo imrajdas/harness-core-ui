@@ -27,12 +27,29 @@ export interface spec {
   [x: string]: any
 }
 
+export interface MonitoredServiceTemplateVariable {
+  name: string
+  type: string
+  value: string
+}
+
+export interface TemplateInputs {
+  identifier: string
+  type: string
+  serviceRef: string
+  environmentRef: string
+  sources: {
+    healthSources: any
+  }
+  variables: MonitoredServiceTemplateVariable[]
+}
 export interface VerifyStepMonitoredService {
   type: MONITORED_SERVICE_TYPE | string
   spec: {
     monitoredServiceRef?: string | SelectOption
     monitoredServiceTemplateRef?: string
     versionLabel?: string
+    templateInputs?: TemplateInputs
   }
 }
 
@@ -47,5 +64,6 @@ export interface ContinousVerificationData extends StepElementConfig {
     }[]
     spec?: spec
     monitoredService: VerifyStepMonitoredService
+    initialMonitoredService?: VerifyStepMonitoredService
   }
 }

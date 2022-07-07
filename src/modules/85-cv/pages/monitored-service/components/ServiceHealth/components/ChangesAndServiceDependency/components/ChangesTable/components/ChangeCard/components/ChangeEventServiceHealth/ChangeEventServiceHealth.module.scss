@@ -8,15 +8,29 @@
 .main {
   .status {
     font-weight: bolder !important;
-    font-size: var(--font-size-medium) !important;
+    font-size: var(--font-size-normal) !important;
     margin-bottom: var(--spacing-small) !important;
     color: var(--black) !important;
   }
 
   .healthTrend {
-    font-weight: bolder !important;
     color: var(--black) !important;
     font-size: var(--font-size-small) !important;
+  }
+  .serviceHealth {
+    align-self: center;
+  }
+
+  .flexRow {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    margin-right: var(--spacing-large) !important;
+  }
+
+  .horizontal {
+    flex-grow: 2;
+    align-self: flex-end;
   }
 
   .timestamps {

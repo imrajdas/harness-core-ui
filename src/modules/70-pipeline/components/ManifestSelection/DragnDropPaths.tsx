@@ -7,7 +7,6 @@
 
 import React from 'react'
 import { FieldArray, FormikValues } from 'formik'
-import { v4 as nameSpace, v5 as uuid } from 'uuid'
 import {
   Layout,
   FormInput,
@@ -25,17 +24,16 @@ import MultiTypeFieldSelector from '@common/components/MultiTypeFieldSelector/Mu
 
 import css from './ManifestWizardSteps/K8sValuesManifest/ManifestDetails.module.scss'
 
-export interface DragnDropPathsProps {
+export interface DragnDropPathsProps<T = unknown> {
   formik: FormikValues
   expressions: string[]
   allowableTypes: MultiTypeInputType[]
-  allowOnlyOneFilePath?: boolean
   pathLabel: string
   fieldPath: string
   placeholder: string
+  defaultValue: T
+  allowOnlyOneFilePath?: boolean
 }
-
-const defaultValueToReset = [{ path: '', uuid: uuid('', nameSpace()) }]
 
 function DragnDropPaths({
   formik,
@@ -44,6 +42,7 @@ function DragnDropPaths({
   pathLabel,
   fieldPath,
   placeholder,
+  defaultValue,
   allowOnlyOneFilePath
 }: DragnDropPathsProps): React.ReactElement {
   const { getString } = useStrings()
@@ -64,7 +63,7 @@ function DragnDropPaths({
         {(provided, _snapshot) => (
           <div {...provided.droppableProps} ref={provided.innerRef}>
             <MultiTypeFieldSelector
-              defaultValueToReset={defaultValueToReset}
+              defaultValueToReset={[defaultValue]}
               allowedTypes={allowableTypes.filter(allowedType => allowedType !== MultiTypeInputType.EXPRESSION)}
               name={fieldPath}
               label={<Text>{pathLabel}</Text>}
@@ -103,7 +102,7 @@ function DragnDropPaths({
                                 }}
                               />
 
-                              {formik.values?.[fieldPath]?.length > 1 && (
+                              {formik.values[fieldPath]?.length > 1 && (
                                 <Button minimal icon="main-trash" onClick={() => arrayHelpers.remove(index)} />
                               )}
                             </Layout.Horizontal>
@@ -113,7 +112,7 @@ function DragnDropPaths({
                     ))}
                     {provided.placeholder}
 
-                    {allowOnlyOneFilePath && formik.values?.paths.length === 1 ? null : (
+                    {allowOnlyOneFilePath && formik.values[fieldPath].length === 1 ? null : (
                       <span>
                         <Button
                           text={getString('addFileText')}
@@ -121,7 +120,7 @@ function DragnDropPaths({
                           size={ButtonSize.SMALL}
                           variation={ButtonVariation.LINK}
                           className={css.addFileButton}
-                          onClick={() => arrayHelpers.push({ path: '', uuid: uuid('', nameSpace()) })}
+                          onClick={() => arrayHelpers.push(defaultValue)}
                         />
                       </span>
                     )}

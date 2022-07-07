@@ -32,6 +32,14 @@
   border-radius: 6px;
   padding: var(--spacing-medium) var(--spacing-large) !important;
   min-height: 336px;
+  transition: all ease-in-out 0.5s;
+  &.collapsed {
+    min-height: fit-content;
+  }
+
+  .pointerCursor {
+    cursor: pointer;
+  }
 
   .analyticsColHeader {
     margin-bottom: 10px !important;

@@ -60,3 +60,7 @@ export const DelegateSize = {
   MEDIUM: 'MEDIUM',
   LARGE: 'LARGE'
 }
+
+export const isHelmDelegateEnabled = (isEnabled = false): boolean => {
+  return isEnabled
+}

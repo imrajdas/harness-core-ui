@@ -6,10 +6,10 @@
  */
 
 import React, { useMemo, useCallback } from 'react'
-import { Text, Container, Layout, Button, ButtonVariation } from '@wings-software/uicore'
+import { Text, Container, Layout, Button, ButtonVariation, ButtonSize } from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
-import cx from 'classnames'
 import { useStrings } from 'framework/strings'
+import VerificationStatusCard from '@cv/components/ExecutionVerification/components/DeploymentProgressAndNodes/components/VerificationStatusCard/VerificationStatusCard'
 import type { ChangeTitleData } from '../../ChangeEventCard.types'
 import { IconWithText } from '../IconWithText/IconWithText'
 import css from '../ChangeTitle/ChangeTitle.module.scss'
@@ -34,41 +34,41 @@ export default function ChangeTitleForHarness({ changeTitleData }: { changeTitle
   }, [url])
 
   return (
-    <Container className={cx(css.main, css.padding)}>
-      <Layout.Vertical>
-        <Layout.Horizontal>
-          <Text
-            {...titleOptions}
-            font={{ size: 'medium', weight: 'semi-bold' }}
-            width="max-content"
-            margin={{ right: 'medium' }}
-            color={Color.GREY_800}
-          >
-            {name}
-          </Text>
-          <Text font={{ size: 'xsmall' }} color={Color.GREY_800} flex={{ align: 'center-center' }}>
-            ({getString('cd.serviceDashboard.executionId')}
-            <span>{executionId}</span>)
-          </Text>
-        </Layout.Horizontal>
-        <Container height={7}></Container>
-        <Layout.Horizontal>
+    <Container>
+      <Layout.Horizontal>
+        <Text
+          {...titleOptions}
+          font={{ size: 'medium', weight: 'semi-bold' }}
+          width="max-content"
+          margin={{ right: 'medium' }}
+          color={Color.BLACK_100}
+        >
+          {name}
+        </Text>
+        <Text font={{ size: 'xsmall' }} color={Color.GREY_800} flex={{ align: 'center-center' }}>
+          ({getString('cd.serviceDashboard.executionId')}
+          <span>{executionId}</span>)
+        </Text>
+      </Layout.Horizontal>
+      <Container flex margin={{ top: 'xsmall' }}>
+        <Layout.Horizontal spacing="xlarge">
           <IconWithText icon={'cd-solid'} />
           <IconWithText icon={'main-setup'} text={serviceIdentifier} />
           <IconWithText icon={'environments'} text={envIdentifier} />
-          <IconWithText text={status} />
+          <VerificationStatusCard status={status} />
         </Layout.Horizontal>
-      </Layout.Vertical>
-      {url ? (
-        <Button
-          onClick={openPipelineInNewTab}
-          className={css.redirectButtonPipeline}
-          text={getString('cv.changeSource.changeSourceCard.viewDeployment')}
-          icon="share"
-          iconProps={{ size: 12 }}
-          variation={ButtonVariation.SECONDARY}
-        />
-      ) : null}
+        {url ? (
+          <Button
+            onClick={openPipelineInNewTab}
+            className={css.redirectButtonPipeline}
+            text={getString('cv.changeSource.changeSourceCard.viewDeployment')}
+            icon="share"
+            iconProps={{ size: 12 }}
+            variation={ButtonVariation.SECONDARY}
+            size={ButtonSize.SMALL}
+          />
+        ) : null}
+      </Container>
     </Container>
   )
 }

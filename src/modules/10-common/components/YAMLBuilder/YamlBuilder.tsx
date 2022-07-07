@@ -240,18 +240,21 @@ const YAMLBuilder: React.FC<YamlBuilderProps> = (props: YamlBuilderProps): JSX.E
 
   /* #region Handle various interactions with the editor */
 
-  const onYamlChange = debounce((updatedYaml: string): void => {
-    setCurrentYaml(updatedYaml)
-    yamlRef.current = updatedYaml
-    verifyYAML({
-      updatedYaml,
-      setYamlValidationErrors,
-      showError,
-      schema,
-      errorMessage: yamlError
-    })
-    onChange?.(!(updatedYaml === ''))
-  }, 500)
+  const onYamlChange = useCallback(
+    debounce((updatedYaml: string): void => {
+      setCurrentYaml(updatedYaml)
+      yamlRef.current = updatedYaml
+      verifyYAML({
+        updatedYaml,
+        setYamlValidationErrors,
+        showError,
+        schema,
+        errorMessage: yamlError
+      })
+      onChange?.(!(updatedYaml === ''))
+    }, 500),
+    [setYamlValidationErrors, showError, schema, yamlError, setCurrentYaml, onChange]
+  )
 
   const showNoPermissionError = useCallback(
     throttle(() => {

@@ -82,6 +82,7 @@
   }
   .mainNavTag {
     display: flex;
+    flex-flow: wrap;
     align-items: center;
     padding-left: var(--spacing-4) !important;
     section {

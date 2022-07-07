@@ -234,7 +234,7 @@ exports[`Nexus Artifact tests form renders correctly in Edit Case 1`] = `
                       autocomplete="off"
                       class="bp3-input"
                       name="artifactPath"
-                      placeholder="pipeline.artifactsSelection.artifactNamePlaceholder"
+                      placeholder="pipeline.artifactsSelection.artifactPathPlaceholder"
                       type="text"
                       value=""
                     />
@@ -730,7 +730,7 @@ exports[`Nexus Artifact tests renders without crashing 1`] = `
                       autocomplete="off"
                       class="bp3-input"
                       name="artifactPath"
-                      placeholder="pipeline.artifactsSelection.artifactNamePlaceholder"
+                      placeholder="pipeline.artifactsSelection.artifactPathPlaceholder"
                       type="text"
                       value=""
                     />

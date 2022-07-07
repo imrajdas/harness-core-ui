@@ -22,6 +22,20 @@ export const manifests = [
         }
       }
     }
+  },
+  {
+    manifest: {
+      identifier: 'ValuesManifest',
+      type: 'Values',
+      spec: {
+        store: {
+          type: 'InheritFromManifest',
+          spec: {
+            paths: ['./filepath']
+          }
+        }
+      }
+    }
   }
 ]
 
@@ -39,6 +53,20 @@ export const template = {
               gitFetchType: 'Branch',
               paths: ['./'],
               branch: '<+input>'
+            }
+          }
+        }
+      }
+    },
+    {
+      manifest: {
+        identifier: 'ValuesManifest',
+        type: 'Values',
+        spec: {
+          store: {
+            type: 'InheritFromManifest',
+            spec: {
+              paths: ['./filepath']
             }
           }
         }

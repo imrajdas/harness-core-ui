@@ -203,13 +203,9 @@ exports[`ArtifactsSelection tests artifact list renders with proper payload 1`] 
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  &lt;+input&gt;
-                </span>
+                &lt;+input&gt;
               </p>
             </div>
             <div
@@ -390,18 +386,12 @@ exports[`ArtifactsSelection tests artifact list renders with proper payload 1`] 
                 </svg>
               </span>
             </div>
-            <div
-              class="locationField"
-            >
+            <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  &lt;+input&gt;
-                </span>
+                &lt;+input&gt;
               </p>
             </div>
             <span>
@@ -654,12 +644,8 @@ exports[`ArtifactsSelection tests delete artifact list works correctly 1`] = `
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1; width: 340px;"
-              >
-                <span
-                  class="noWrap"
-                />
-              </p>
+                style="--text-line-clamp: 1;"
+              />
             </div>
             <div
               class="Layout--horizontal StyledProps--main"
@@ -937,12 +923,8 @@ exports[`ArtifactsSelection tests edit artifact list works correctly 1`] = `
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1; width: 340px;"
-              >
-                <span
-                  class="noWrap"
-                />
-              </p>
+                style="--text-line-clamp: 1;"
+              />
             </div>
             <div
               class="Layout--horizontal StyledProps--main"
@@ -1220,12 +1202,8 @@ exports[`ArtifactsSelection tests renders Artifact Listview with connectors Data
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1; width: 340px;"
-              >
-                <span
-                  class="noWrap"
-                />
-              </p>
+                style="--text-line-clamp: 1;"
+              />
             </div>
             <div
               class="Layout--horizontal StyledProps--main"
@@ -1422,12 +1400,8 @@ exports[`ArtifactsSelection tests renders Artifact Listview without crashing 1`]
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1; width: 340px;"
-              >
-                <span
-                  class="noWrap"
-                />
-              </p>
+                style="--text-line-clamp: 1;"
+              />
             </div>
             <div
               class="Layout--horizontal StyledProps--main"
@@ -1584,13 +1558,9 @@ exports[`ArtifactsSelection tests renders add Artifact option without crashing 1
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  &lt;+input&gt;
-                </span>
+                &lt;+input&gt;
               </p>
             </div>
             <div
@@ -1796,18 +1766,12 @@ exports[`ArtifactsSelection tests renders add Artifact option without crashing 1
                 </svg>
               </span>
             </div>
-            <div
-              class="locationField"
-            >
+            <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  library/nginx
-                </span>
+                library/nginx
               </p>
             </div>
             <span>
@@ -1960,18 +1924,12 @@ exports[`ArtifactsSelection tests renders add Artifact option without crashing 1
                 </svg>
               </span>
             </div>
-            <div
-              class="locationField"
-            >
+            <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  library/nginx
-                </span>
+                library/nginx
               </p>
             </div>
             <span>
@@ -2131,13 +2089,9 @@ exports[`ArtifactsSelection tests renders artifact when overrideSetIdentifier an
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  &lt;+input&gt;
-                </span>
+                &lt;+input&gt;
               </p>
             </div>
             <div
@@ -2343,18 +2297,12 @@ exports[`ArtifactsSelection tests renders artifact when overrideSetIdentifier an
                 </svg>
               </span>
             </div>
-            <div
-              class="locationField"
-            >
+            <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  library/nginx
-                </span>
+                library/nginx
               </p>
             </div>
             <span>
@@ -2507,18 +2455,12 @@ exports[`ArtifactsSelection tests renders artifact when overrideSetIdentifier an
                 </svg>
               </span>
             </div>
-            <div
-              class="locationField"
-            >
+            <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  library/nginx
-                </span>
+                library/nginx
               </p>
             </div>
             <span>
@@ -2678,13 +2620,9 @@ exports[`ArtifactsSelection tests renders without crashing 1`] = `
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  &lt;+input&gt;
-                </span>
+                &lt;+input&gt;
               </p>
             </div>
             <div
@@ -2890,18 +2828,12 @@ exports[`ArtifactsSelection tests renders without crashing 1`] = `
                 </svg>
               </span>
             </div>
-            <div
-              class="locationField"
-            >
+            <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  library/nginx
-                </span>
+                library/nginx
               </p>
             </div>
             <span>
@@ -3054,18 +2986,12 @@ exports[`ArtifactsSelection tests renders without crashing 1`] = `
                 </svg>
               </span>
             </div>
-            <div
-              class="locationField"
-            >
+            <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main"
-                style="--text-line-clamp: 1; width: 340px;"
+                style="--text-line-clamp: 1;"
               >
-                <span
-                  class="noWrap"
-                >
-                  library/nginx
-                </span>
+                library/nginx
               </p>
             </div>
             <span>

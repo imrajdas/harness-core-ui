@@ -47,7 +47,7 @@ import { TemplateRouteDestinations } from '@templates-library/RouteDestinations'
 import { TriggersRouteDestinations } from '@triggers/RouteDestinations'
 import { VariableRouteDestinations } from '@variables/RouteDestinations'
 import FileStorePage from '@filestore/pages/filestore/FileStorePage'
-import CIPipelineStudioWrapper from '@ci/pages/pipeline-studio/CIPipelineStudioWrapper'
+import CIPipelineStudio from '@ci/pages/pipeline-studio/CIPipelineStudio'
 import { useAppStore } from 'framework/AppStore/AppStoreContext'
 import { FeatureIdentifier } from 'framework/featureStore/FeatureIdentifier'
 import featureFactory from 'framework/featureStore/FeaturesFactory'
@@ -320,7 +320,7 @@ export default (
 
     {
       PipelineRouteDestinations({
-        pipelineStudioComponent: CIPipelineStudioWrapper,
+        pipelineStudioComponent: CIPipelineStudio,
         pipelineStudioPageName: PAGE_NAME.CIPipelineStudio,
         pipelineDeploymentListComponent: CIPipelineDeploymentList,
         pipelineDeploymentListPageName: PAGE_NAME.CIPipelineDeploymentList,

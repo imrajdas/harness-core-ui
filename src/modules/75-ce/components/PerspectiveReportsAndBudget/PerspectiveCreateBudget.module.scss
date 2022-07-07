@@ -15,7 +15,7 @@
     width: 100%;
     :global {
       svg[data-icon='vertical-bar-chart-asc'] {
-        fill: white !important;
+        fill: var(--white) !important;
       }
     }
 
@@ -60,12 +60,6 @@
 
       [class*='OverlaySpinner--overlaySpinner'] {
         position: initial;
-      }
-
-      .addNewAlertBtn {
-        box-shadow: 0px 0px 1px rgba(40, 41, 61, 0.04), 0px 2px 4px rgba(96, 97, 112, 0.16) !important;
-        border-radius: 8px;
-        border: 1px solid #0278d5 !important;
       }
     }
   }
@@ -146,16 +140,65 @@
       }
     }
 
-    .tagInput {
-      max-height: 80px;
-      overflow-y: auto;
-    }
+    .sendAlertTo {
+      display: grid;
+      grid-template-columns: 60px 1fr;
 
-    .tag {
-      background-color: var(--primary-1);
-      color: var(--grey-800);
-      padding: 0 8px;
-      border-radius: 4px;
+      .alertChannelsInput {
+        border: 1px solid var(--primary-2);
+        background: var(--primary-bg);
+        width: 60px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        display: grid;
+        grid-template-rows: 1fr;
+
+        div[class*='bp3-popover-target'] {
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+        }
+
+        div[class*='bp3-overlay'] {
+          width: 0;
+        }
+
+        span[class*='bp3-input-left-container'] {
+          padding-left: var(--spacing-xsmall);
+        }
+
+        input[class*='bp3-input'] {
+          border: 0;
+          background: var(--primary-bg);
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0px;
+        }
+      }
+
+      .tagInput {
+        min-height: 34px;
+        max-height: 80px;
+        overflow-y: auto;
+        flex: 1;
+        border: 1px solid var(--grey-200);
+        border-left: 0;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        box-shadow: none;
+
+        div[class*='bp3-tag-input-values'] {
+          margin-top: 0 !important;
+        }
+
+        .tag {
+          background-color: var(--primary-1);
+          color: var(--grey-800);
+          padding: 0 8px;
+          border-radius: 4px;
+        }
+      }
     }
 
     :global {

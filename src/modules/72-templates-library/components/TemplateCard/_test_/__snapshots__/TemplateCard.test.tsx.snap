@@ -52,6 +52,23 @@ exports[`<TemplateCard /> tests snapshot test with git sync enabled 1`] = `
         </p>
       </div>
       <div
+        class="StyledProps--font StyledProps--main"
+      >
+        <span
+          class="Tag--main"
+        >
+          <span
+            class="bp3-tag scopeLabel project"
+          >
+            <span
+              class="bp3-text-overflow-ellipsis bp3-fill"
+            >
+              SCOPE: PROJECT
+            </span>
+          </span>
+        </span>
+      </div>
+      <div
         class="StyledProps--font StyledProps--main container"
       >
         <div

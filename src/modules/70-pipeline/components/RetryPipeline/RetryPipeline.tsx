@@ -74,6 +74,7 @@ import type { InputSetDTO, Pipeline } from '@pipeline/utils/types'
 import { PipelineErrorView } from '@pipeline/components/RunPipelineModal/PipelineErrorView'
 import { YamlBuilderMemo } from '@common/components/YAMLBuilder/YamlBuilder'
 import GitRemoteDetails from '@common/components/GitRemoteDetails/GitRemoteDetails'
+import { getErrorsList } from '@pipeline/utils/errorUtils'
 import { ErrorsStrip } from '../ErrorsStrip/ErrorsStrip'
 import GitPopover from '../GitPopover/GitPopover'
 import SelectStagetoRetry from './SelectStagetoRetry'
@@ -81,8 +82,7 @@ import factory from '../PipelineSteps/PipelineStepFactory'
 
 import { PipelineInputSetForm } from '../PipelineInputSetForm/PipelineInputSetForm'
 import { StepViewType } from '../AbstractSteps/Step'
-import { getErrorsList, validatePipeline } from '../PipelineStudio/StepUtil'
-
+import { validatePipeline } from '../PipelineStudio/StepUtil'
 import SaveAsInputSet from '../RunPipelineModal/SaveAsInputSet'
 import { InputSetSelector, InputSetSelectorProps } from '../InputSetSelector/InputSetSelector'
 import SelectExistingInputsOrProvideNew from '../RunPipelineModal/SelectExistingOrProvide'
@@ -112,8 +112,15 @@ function RetryPipeline({
   const { getRBACErrorMessage } = useRBACError()
   const history = useHistory()
 
-  const { projectIdentifier, orgIdentifier, pipelineIdentifier, accountId, executionIdentifier, module, source } =
-    useParams<PipelineType<ExecutionPathProps>>()
+  const {
+    projectIdentifier,
+    orgIdentifier,
+    pipelineIdentifier,
+    accountId,
+    executionIdentifier,
+    module,
+    source = 'executions'
+  } = useParams<PipelineType<ExecutionPathProps>>()
 
   const { pipelineExecutionDetail } = useExecutionContext()
 

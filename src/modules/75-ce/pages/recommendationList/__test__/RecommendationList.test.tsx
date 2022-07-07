@@ -13,6 +13,7 @@ import type { DocumentNode } from 'graphql'
 
 import { TestWrapper } from '@common/utils/testUtils'
 import { FetchCcmMetaDataDocument } from 'services/ce/services'
+import * as useFeatureFlagMock from '@common/hooks/useFeatureFlag'
 
 import RecommendationList from '../RecommendationList'
 import ResponseData from './ListData.json'
@@ -36,18 +37,20 @@ const CCMMetaDataResponse = {
 }
 
 jest.mock('services/ce', () => ({
-  useListRecommendations: jest.fn().mockImplementation(() => ({
-    mutate: jest
-      .fn()
-      .mockReturnValueOnce(() => ({
+  useListRecommendations: jest
+    .fn()
+    .mockImplementationOnce(() => ({
+      mutate: async () => ({
         status: 'SUCCESS',
         data: { items: [] }
-      }))
-      .mockImplementation(() => ({
+      })
+    }))
+    .mockImplementation(() => ({
+      mutate: async () => ({
         status: 'SUCCESS',
         data: { items: ResponseData.data.recommendationsV2.items }
-      }))
-  })),
+      })
+    })),
   useRecommendationStats: jest.fn().mockImplementation(() => ({
     mutate: async () => {
       return {
@@ -182,5 +185,32 @@ describe('test cases for Recommendation List Page', () => {
       </TestWrapper>
     )
     expect(container).toMatchSnapshot()
+  })
+
+  test('Should be able to render Sustainability Cards', () => {
+    jest.spyOn(useFeatureFlagMock, 'useFeatureFlag').mockReturnValue(true)
+
+    const responseState = {
+      executeQuery: ({ query }: { query: DocumentNode }) => {
+        if (query === FetchCcmMetaDataDocument) {
+          return fromValue({
+            data: {
+              ccmMetaData: CCMMetaDataResponse
+            }
+          })
+        }
+      }
+    }
+
+    const { getByText } = render(
+      <TestWrapper pathParams={params}>
+        <Provider value={responseState as any}>
+          <RecommendationList />
+        </Provider>
+      </TestWrapper>
+    )
+
+    expect(getByText('ce.recommendation.listPage.potentialReducedEmissionTitle')).toBeDefined()
+    expect(getByText('ce.recommendation.listPage.potentialEmissionTitle')).toBeDefined()
   })
 })

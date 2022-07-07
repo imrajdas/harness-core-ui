@@ -7,10 +7,12 @@
 
 import React, { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
-import { Button, Container, FormInput, Layout, Text } from '@wings-software/uicore'
+import { Button, Container, FormInput, Layout, MultiTypeInputType, Text } from '@wings-software/uicore'
 import { isEmpty } from 'lodash-es'
 import { useStrings } from 'framework/strings'
 import { MapGCPLogsToServiceFieldNames } from '@cv/pages/health-source/connectors/GCOLogsMonitoringSource/components/MapQueriesToHarnessService/constants'
+import MultiTypeFieldSelector from '@common/components/MultiTypeFieldSelector/MultiTypeFieldSelector'
+import { ShellScriptMonacoField } from '@common/components/ShellScriptMonaco/ShellScriptMonaco'
 import type { QueryViewerProps, QueryContentProps } from './types'
 import { Records } from '../Records/Records'
 import { QueryViewDialog } from './components/QueryViewDialog'
@@ -94,14 +96,17 @@ export function QueryViewer(props: QueryViewerProps): JSX.Element {
     queryLabel,
     recordsClassName,
     fetchEntityName,
-    dataTooltipId
+    dataTooltipId,
+    isTemplate,
+    expressions,
+    isConnectorRuntimeOrExpression
   } = props
   const { getString } = useStrings()
   const [isDialogOpen, setIsDialogOpen] = useState(false)
 
   useEffect(() => {
     // if query exists then always fetch records on did mount
-    if (query) {
+    if (query && !isConnectorRuntimeOrExpression) {
       fetchRecords()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -117,20 +122,58 @@ export function QueryViewer(props: QueryViewerProps): JSX.Element {
 
   return (
     <Container className={cx(css.main, className)}>
-      <Text className={css.labelText} tooltipProps={{ dataTooltipId }}>
-        {queryLabel ?? getString('cv.query')}
-      </Text>
-      <QueryContent
-        onClickExpand={setIsDialogOpen}
-        query={query}
-        isDialogOpen={isDialogOpen}
-        loading={loading}
-        handleFetchRecords={handleFetchRecords}
-        textAreaProps={queryTextAreaProps}
-        staleRecordsWarning={staleRecordsWarning}
-        isAutoFetch={isAutoFetch}
-        mandatoryFields={queryContentMandatoryProps}
-      />
+      {!isTemplate && (
+        <Text className={css.labelText} tooltipProps={{ dataTooltipId }}>
+          {queryLabel ?? getString('cv.query')}
+        </Text>
+      )}
+      {isTemplate ? (
+        <MultiTypeFieldSelector
+          name={MapGCPLogsToServiceFieldNames.QUERY}
+          label={getString('cv.query')}
+          defaultValueToReset=""
+          skipRenderValueInExpressionLabel
+          allowedTypes={
+            isConnectorRuntimeOrExpression
+              ? [MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
+              : [MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
+          }
+          expressionRender={() => {
+            return (
+              <ShellScriptMonacoField
+                name={MapGCPLogsToServiceFieldNames.QUERY}
+                scriptType={'Bash'}
+                expressions={expressions}
+                editorOptions={{ lineNumbers: 'off' }}
+              />
+            )
+          }}
+        >
+          <ShellScriptMonacoField
+            name={MapGCPLogsToServiceFieldNames.QUERY}
+            scriptType={'Bash'}
+            editorOptions={{ lineNumbers: 'off' }}
+          />
+          <Button
+            intent="primary"
+            text={getString('cv.monitoringSources.gcoLogs.fetchRecords')}
+            onClick={handleFetchRecords}
+            disabled={isEmpty(query) || isConnectorRuntimeOrExpression || loading}
+          />
+        </MultiTypeFieldSelector>
+      ) : (
+        <QueryContent
+          onClickExpand={setIsDialogOpen}
+          query={query}
+          isDialogOpen={isDialogOpen}
+          loading={loading}
+          handleFetchRecords={handleFetchRecords}
+          textAreaProps={queryTextAreaProps}
+          staleRecordsWarning={staleRecordsWarning}
+          isAutoFetch={isAutoFetch}
+          mandatoryFields={queryContentMandatoryProps}
+        />
+      )}
 
       <Records
         fetchRecords={handleFetchRecords}
@@ -139,8 +182,12 @@ export function QueryViewer(props: QueryViewerProps): JSX.Element {
         data={records}
         error={error}
         query={query}
-        isQueryExecuted={isQueryExecuted}
-        queryNotExecutedMessage={queryNotExecutedMessage}
+        isQueryExecuted={isConnectorRuntimeOrExpression ? !isConnectorRuntimeOrExpression : isQueryExecuted}
+        queryNotExecutedMessage={
+          isConnectorRuntimeOrExpression
+            ? getString('cv.customHealthSource.chartRuntimeWarning')
+            : queryNotExecutedMessage
+        }
         fetchEntityName={fetchEntityName}
       />
       <QueryViewDialog

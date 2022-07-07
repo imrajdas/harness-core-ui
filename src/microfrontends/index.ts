@@ -41,7 +41,7 @@ export interface CommonComponents {
 }
 
 export interface Hooks {
-  useDocumentTitle(title: Title): UseDocumentTitleReturn
+  useDocumentTitle(title: Title, accountLevel?: boolean): UseDocumentTitleReturn
 }
 
 /**

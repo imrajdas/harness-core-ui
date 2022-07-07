@@ -89,7 +89,7 @@ export function getStepPaletteModuleInfosFromStage(
     case 'ServerlessAwsLambda':
       category = 'ServerlessAwsLambda'
       break
-    case 'AzureWebApp':
+    case 'AzureWebApps':
       category = 'AzureWebApp'
       break
   }
@@ -174,6 +174,11 @@ export function getStepDataFromValues(
         set(node, 'spec.delegateSelectors', item.delegateSelectors)
       } else if (node.spec?.delegateSelectors) {
         delete node.spec.delegateSelectors
+      }
+      if (!isEmpty(item.strategy)) {
+        node.strategy = item.strategy
+      } else if (node.strategy) {
+        delete node.strategy
       }
     }
     // default strategies can be present without having the need to click on Advanced Tab. For eg. in CV step.

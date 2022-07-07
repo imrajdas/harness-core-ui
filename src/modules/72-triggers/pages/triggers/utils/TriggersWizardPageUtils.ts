@@ -43,7 +43,9 @@ export const eventTypes = {
   TAG: 'Tag',
   PULL_REQUEST: 'PullRequest',
   MERGE_REQUEST: 'MergeRequest',
-  ISSUE_COMMENT: 'IssueComment'
+  ISSUE_COMMENT: 'IssueComment',
+  PR_COMMENT: 'PRComment',
+  MR_COMMENT: 'MRComment'
 }
 
 export const getArtifactId = (isManifest?: boolean, selectedArtifactId?: string) => {
@@ -1958,13 +1960,17 @@ export const getErrorMessage = (error: any): string =>
 export enum TriggerGitEvent {
   PULL_REQUEST = 'PullRequest',
   ISSUE_COMMENT = 'IssueComment',
-  PUSH = 'Push'
+  PUSH = 'Push',
+  MR_COMMENT = 'MRComment',
+  PR_COMMENT = 'PRComment'
 }
 
 export const TriggerGitEventTypes: Readonly<string[]> = [
   TriggerGitEvent.PULL_REQUEST,
   TriggerGitEvent.ISSUE_COMMENT,
-  TriggerGitEvent.PUSH
+  TriggerGitEvent.PUSH,
+  TriggerGitEvent.MR_COMMENT,
+  TriggerGitEvent.PR_COMMENT
 ]
 
 export const isHarnessExpression = (str = ''): boolean => str.startsWith('<+') && str.endsWith('>')

@@ -9,7 +9,10 @@
 declare const styles: {
   readonly active: string
   readonly card: string
+  readonly cvEnableSwitch: string
   readonly enableVerification: string
+  readonly enableVerificationDetail: string
+  readonly enableVerificationImage: string
   readonly enableVerificationSection: string
   readonly header: string
   readonly headerText: string

@@ -6,7 +6,7 @@
  */
 
 .layout {
-  height: calc(100vh - var(--page-header-height) - var(--git-sync-toolbar-height, 0px));
+  height: calc(100vh - var(--page-header-height));
   display: grid;
   grid-template-rows: auto 1fr auto auto;
   grid-template-areas:
@@ -41,4 +41,11 @@
 
 .footer {
   grid-area: footer;
+}
+
+.flagGitSync {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
 }

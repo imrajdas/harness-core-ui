@@ -145,7 +145,7 @@ exports[`test cases for Perspective Grid should be able to render Perspective Gr
                     />
                   </span>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main name"
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     Compute Engine
@@ -227,7 +227,7 @@ exports[`test cases for Perspective Grid should be able to render Perspective Gr
                     />
                   </span>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main name"
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     Kubernetes Engine
@@ -309,7 +309,7 @@ exports[`test cases for Perspective Grid should be able to render Perspective Gr
                     />
                   </span>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main name"
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     Cloud SQL
@@ -391,7 +391,7 @@ exports[`test cases for Perspective Grid should be able to render Perspective Gr
                     />
                   </span>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main name"
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     BigQuery
@@ -473,7 +473,7 @@ exports[`test cases for Perspective Grid should be able to render Perspective Gr
                     />
                   </span>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main name"
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     Cloud Storage
@@ -555,7 +555,7 @@ exports[`test cases for Perspective Grid should be able to render Perspective Gr
                     />
                   </span>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main name"
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     Cloud Logging
@@ -637,7 +637,7 @@ exports[`test cases for Perspective Grid should be able to render Perspective Gr
                     />
                   </span>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main name"
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     Stackdriver Logging

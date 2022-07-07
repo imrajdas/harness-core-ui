@@ -135,5 +135,14 @@ export enum PermissionIdentifier {
   // Chaos Permissions
   VIEW_CHAOSHUB = 'chaos_chaoshub_view',
   EDIT_CHAOSHUB = 'chaos_chaoshub_edit',
-  DELETE_CHAOSHUB = 'chaos_chaoshub_delete'
+  DELETE_CHAOSHUB = 'chaos_chaoshub_delete',
+
+  // STO Permissions
+  VIEW_STO_ISSUE = 'sto_issue_view',
+  VIEW_STO_SCAN = 'sto_scan_view',
+  VIEW_STO_TESTTARGET = 'sto_testtarget_view',
+  EDIT_STO_TESTTARGET = 'sto_testtarget_edit',
+  VIEW_STO_EXEMPTION = 'sto_exemption_view',
+  CREATE_STO_EXEMPTION = 'sto_exemption_create',
+  APPROVE_STO_EXEMPTION = 'sto_exemption_approve'
 }

@@ -20,11 +20,15 @@ import {
 import { StageType } from '@pipeline/utils/stageHelpers'
 import * as useValidationErrors from '@pipeline/components/PipelineStudio/PiplineHooks/useValidationErrors'
 import { StageErrorContext } from '@pipeline/context/StageErrorContext'
-import overridePipelineContext from './overrideSetPipeline.json'
-import DeployServiceSpecifications from '../DeployServiceSpecifications'
-import connectorListJSON from './connectorList.json'
-import mockListSecrets from './mockListSecret.json'
+import factory from '@pipeline/components/PipelineSteps/PipelineStepFactory'
+import { DeployServiceStep } from '@cd/components/PipelineSteps/DeployServiceStep/DeployServiceStep'
+import { KubernetesServiceSpec } from '@cd/components/PipelineSteps/K8sServiceSpec/K8sServiceSpec'
+import { ServerlessAwsLambdaServiceSpec } from '@cd/components/PipelineSteps/ServerlessAwsLambdaServiceSpec/ServerlessAwsLambdaServiceSpec'
 import services, { servicesV2Mock } from './servicesMock'
+import mockListSecrets from './mockListSecret.json'
+import connectorListJSON from './connectorList.json'
+import DeployServiceSpecifications from '../DeployServiceSpecifications'
+import overridePipelineContext from './overrideSetPipeline.json'
 
 const setDefaultServiceSchema = jest.fn()
 const mockchildren = <div />
@@ -94,6 +98,11 @@ const intersectionObserverMock = () => ({
 window.IntersectionObserver = jest.fn().mockImplementation(intersectionObserverMock)
 
 describe('Deploy service stage specifications', () => {
+  beforeAll(() => {
+    factory.registerStep(new DeployServiceStep())
+    factory.registerStep(new KubernetesServiceSpec())
+    factory.registerStep(new ServerlessAwsLambdaServiceSpec())
+  })
   test(`Propagate from option and dropdown to select previous stage and service should be present`, async () => {
     const { getByPlaceholderText, getByText } = render(
       <TestWrapper>

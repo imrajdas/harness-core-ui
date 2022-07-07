@@ -7,7 +7,8 @@
 
 import React from 'react'
 import { Dialog } from '@blueprintjs/core'
-import { Button, ButtonVariation } from '@wings-software/uicore'
+import { parse } from 'yaml'
+import { Button, ButtonVariation, useToaster } from '@wings-software/uicore'
 import { useModalHook } from '@harness/use-modal'
 import { defaultTo, get, isEmpty, merge, noop } from 'lodash-es'
 import { useParams } from 'react-router-dom'
@@ -53,6 +54,7 @@ export function SaveTemplatePopover({ getErrors }: SaveTemplatePopoverProps): Re
   const [disabled, setDisabled] = React.useState<boolean>(false)
   const { isGitSyncEnabled } = React.useContext(AppStoreContext)
   const { getComments } = useCommentModal()
+  const { showError, clear } = useToaster()
 
   const [showConfigModal, hideConfigModal] = useModalHook(
     () => (
@@ -85,13 +87,20 @@ export function SaveTemplatePopover({ getErrors }: SaveTemplatePopoverProps): Re
 
   const checkErrors = React.useCallback(
     (callback: () => void) => {
+      const yamlValidationErrorMap = yamlHandler?.getYAMLValidationErrorMap()
+      const latestYaml = defaultTo(yamlHandler?.getLatestYaml(), '')
+      if (yamlHandler && (!parse(latestYaml) || (yamlValidationErrorMap && yamlValidationErrorMap.size > 0))) {
+        clear()
+        showError(getString('invalidYamlText'))
+        return
+      }
       getErrors().then(response => {
         if (response.status === 'SUCCESS' && isEmpty(response.errors)) {
           callback()
         }
       })
     },
-    [getErrors]
+    [getErrors, yamlHandler]
   )
 
   const onSubmit = React.useCallback(

@@ -17,12 +17,14 @@ export enum TemplateType {
   Infrastructure = 'Infrastructure',
   StepGroup = 'StepGroup',
   Execution = 'Execution',
-  MonitoredService = 'MonitoredService'
+  MonitoredService = 'MonitoredService',
+  Script = 'Script'
 }
 
 export const getAllowedTemplateTypes = (
   getString: UseStringsReturn['getString'],
-  module?: string
+  module?: string,
+  scriptTemplateEnabled?: boolean
 ): { label: string; value: string; disabled?: boolean }[] => {
   const AllowedTemplateTypes = [
     {
@@ -59,7 +61,16 @@ export const getAllowedTemplateTypes = (
       label: getString('executionText'),
       value: TemplateType.Execution,
       disabled: true
-    }
+    },
+    ...(scriptTemplateEnabled
+      ? [
+          {
+            label: getString('script'),
+            value: TemplateType.Script,
+            disabled: !scriptTemplateEnabled
+          }
+        ]
+      : [])
   ]
   if (module === 'cv') {
     return [

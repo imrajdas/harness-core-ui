@@ -149,7 +149,9 @@ const ConnectorDetailsStep: React.FC<StepProps<ConnectorConfigDTO> & ConnectorDe
 
   return (
     <Layout.Vertical spacing="xxlarge" className={css.firstep}>
-      <Text font={{ variation: FontVariation.H3 }}>{getString(getHeadingIdByType(props.type))}</Text>
+      <Text font={{ variation: FontVariation.H3 }} data-cy="connector-overview-heading">
+        {getString(getHeadingIdByType(props.type))}
+      </Text>
       <ModalErrorHandler bind={setModalErrorHandler} style={{ maxWidth: '740px' }} />
 
       <Container className={css.connectorForm}>

@@ -54,7 +54,7 @@
     top: -17px;
     left: 6px;
     background: var(--pipeline-barrier-yellow) !important;
-    border: 2px solid #fff;
+    border: 2px solid var(--grey-0);
     border-radius: 50%;
     padding: 1px !important;
   }
@@ -63,6 +63,13 @@
     position: absolute;
     bottom: 5px;
     left: 5px;
+  }
+
+  .loopingStrategy {
+    position: absolute;
+    transform: rotate(-45deg);
+    top: 2px;
+    right: 5px;
   }
 
   .conditional {

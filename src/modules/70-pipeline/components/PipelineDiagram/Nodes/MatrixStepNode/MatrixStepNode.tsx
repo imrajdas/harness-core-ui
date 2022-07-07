@@ -47,7 +47,7 @@ export const getCalculatedStepNodeStyles = (
         : (Math.floor(maxChildLength / parallelism) + Math.ceil((maxChildLength % parallelism) / parallelism)) *
           nodeHeight
     const finalWidth = nodeWidth * (parallelism === 0 ? 1 : Math.min(parallelism, (data || []).length))
-    return { height: finalHeight + 40, width: finalWidth - 40 } // 80 is link gap that we dont need for last stepgroup node
+    return { height: finalHeight + 60, width: finalWidth - 40 } // 80 is link gap that we dont need for last stepgroup node
   } else {
     const updatedParallelism = Math.min(parallelism, MAX_ALLOWED_MATRIX__COLLAPSED_NODES)
     const maxChildLength = Math.min(data.length, COLLAPSED_MATRIX_NODE_LENGTH)
@@ -58,7 +58,7 @@ export const getCalculatedStepNodeStyles = (
             Math.ceil((maxChildLength % updatedParallelism) / updatedParallelism)) *
           nodeHeight
     const finalWidth = nodeWidth * (parallelism === 0 ? 1 : Math.min(updatedParallelism, (data || []).length))
-    return { height: finalHeight + 40, width: finalWidth - 40 } // 80 is
+    return { height: finalHeight + 60, width: finalWidth - 40 } // 80 is
   }
 }
 
@@ -160,6 +160,7 @@ export function MatrixStepNode(props: any): JSX.Element {
             <Layout.Horizontal flex={{ justifyContent: 'space-between' }}>
               <Layout.Horizontal
                 spacing="small"
+                style={{ width: '60%' }}
                 onMouseOver={e => {
                   e.stopPropagation()
                 }}
@@ -211,7 +212,7 @@ export function MatrixStepNode(props: any): JSX.Element {
                 </Text>
               </Layout.Horizontal>
               {/* Execution summary on collapse */}
-              {isNodeCollapsed && <NodeStatusIndicator nodeState={stepGroupData} />}
+              <NodeStatusIndicator nodeState={stepGroupData} />
             </Layout.Horizontal>
           </div>
           <div
@@ -247,7 +248,7 @@ export function MatrixStepNode(props: any): JSX.Element {
                       ) as React.FC<BaseReactComponentProps>
                       const matrixNodeName = defaultTo(node?.matrixNodeName, node?.data?.matrixNodeName)
                       return (
-                        <>
+                        <React.Fragment key={node.data?.identifier}>
                           {index < (showAllNodes ? stepGroupData?.length : COLLAPSED_MATRIX_NODE_LENGTH) ? (
                             <NodeComponent
                               {...node}
@@ -281,7 +282,7 @@ export function MatrixStepNode(props: any): JSX.Element {
                               name={matrixNodeName ? `${matrixNodeName}${node?.name}` : node?.name}
                             />
                           ) : null}
-                        </>
+                        </React.Fragment>
                       )
                     })}
                   </div>
@@ -308,22 +309,24 @@ export function MatrixStepNode(props: any): JSX.Element {
                 )}
                 {stepGroupData.length > COLLAPSED_MATRIX_NODE_LENGTH && (
                   <Layout.Horizontal className={css.matrixFooter}>
-                    <Layout.Horizontal margin={0} className={css.showNodes}>
-                      <>
-                        <Text padding={0}>{`${
-                          !showAllNodes
-                            ? Math.min(stepGroupData.length, COLLAPSED_MATRIX_NODE_LENGTH)
-                            : stepGroupData.length
-                        }/ ${stepGroupData.length}`}</Text>
-                        <Text className={css.showNodeText} padding={0} onClick={() => setShowAllNodes(!showAllNodes)}>
-                          {`${!showAllNodes ? getString('showAll') : getString('common.hideAll')}`}
-                        </Text>
-                      </>
-                    </Layout.Horizontal>
+                    <Layout.Horizontal className={css.matrixBorderWrapper}>
+                      <Layout.Horizontal margin={0} className={css.showNodes}>
+                        <>
+                          <Text padding={0}>{`${
+                            !showAllNodes
+                              ? Math.min(stepGroupData.length, COLLAPSED_MATRIX_NODE_LENGTH)
+                              : stepGroupData.length
+                          }/ ${stepGroupData.length}`}</Text>
+                          <Text className={css.showNodeText} padding={0} onClick={() => setShowAllNodes(!showAllNodes)}>
+                            {`${!showAllNodes ? getString('showAll') : getString('common.hideAll')}`}
+                          </Text>
+                        </>
+                      </Layout.Horizontal>
 
-                    <Text font="normal" margin={0}>
-                      {maxParallelism ? `${getString('pipeline.MatrixNode.maxConcurrency')} ${maxParallelism}` : ''}
-                    </Text>
+                      <Text font="normal" className={css.concurrencyLabel}>
+                        {maxParallelism ? `${getString('pipeline.MatrixNode.maxConcurrency')} ${maxParallelism}` : ''}
+                      </Text>
+                    </Layout.Horizontal>
                   </Layout.Horizontal>
                 )}
 

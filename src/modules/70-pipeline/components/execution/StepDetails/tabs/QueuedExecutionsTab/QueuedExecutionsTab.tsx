@@ -61,10 +61,10 @@ const renderData = (
         {resourceConstraints.map((resourceConstraint: ResourceConstraintDetail) => {
           const isCurrent = executionIdentifier === resourceConstraint.planExecutionId
           const route = routes.toExecutionPipelineView({
-            orgIdentifier,
+            orgIdentifier: resourceConstraint.orgIdentifier || orgIdentifier,
             pipelineIdentifier: pipelineIdentifier,
             executionIdentifier: resourceConstraint.planExecutionId || executionIdentifier,
-            projectIdentifier,
+            projectIdentifier: resourceConstraint.projectIdentifier || projectIdentifier,
             accountId,
             module: module as Module,
             source: 'executions'
@@ -107,7 +107,7 @@ export function QueuedExecutionsTab(props: ExecutionStepDetailsTabProps): React.
   const params = useParams<Record<string, string>>()
 
   const { step } = props
-  const resourceUnit = step?.stepParameters?.spec?.resourceUnit
+  const resourceUnit = step?.stepParameters?.spec?.key
 
   const {
     data: resourceConstraintsData,

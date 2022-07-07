@@ -16,5 +16,6 @@ export const AUTO_COMMIT_MESSAGES: Record<string, string> = {
   DELETED_FLAG_VARIATIONS: 'Deleted feature flag variations',
   UPDATES_FLAG_PREREQS: 'Updated feature flag prerequisites',
   UPDATED_FLAG_TARGETS: 'Updated feature flag targets',
-  DELETED_FLAG: 'Deleted feature flag'
+  DELETED_FLAG: 'Deleted feature flag',
+  ADDED_FLAG_TARGETS: 'Added feature flag to targets'
 }

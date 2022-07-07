@@ -8,11 +8,11 @@
 import React from 'react'
 import moment from 'moment'
 import { Container, Layout, Text } from '@wings-software/uicore'
+import { Color } from '@harness/design-system'
 import { useStrings } from 'framework/strings'
 import { ChangeSourceTypes } from '@cv/pages/ChangeSource/ChangeSourceDrawer/ChangeSourceDrawer.constants'
 import { durationAsString } from './DeploymentTimeDuration.utils'
 import { TIME_FORMAT } from './DeploymentTimeDuration.constant'
-import css from './DeploymentTimeDuration.module.scss'
 
 export default function DeploymentTimeDuration({
   startTime,
@@ -29,20 +29,27 @@ export default function DeploymentTimeDuration({
   const marginals = type === ChangeSourceTypes.HarnessCDNextGen ? { right: 'medium' } : undefined
 
   return (
-    <Container className={css.main}>
+    <Container>
       <Layout.Horizontal flex={{ justifyContent: 'space-between' }}>
         {type === ChangeSourceTypes.HarnessCDNextGen && (
           <Text icon={'time'} iconProps={{ size: 12 }} font={{ size: 'small' }} margin={marginals}>
-            {`Start: ${moment(startTime).format(TIME_FORMAT)}`}
+            Start:&nbsp;
+            <Text tag="span" font={{ size: 'small', weight: 'semi-bold' }} color={Color.BLACK_100}>
+              {moment(startTime).format(TIME_FORMAT)}
+            </Text>
           </Text>
         )}
         <Text icon={'time'} iconProps={{ size: 12 }} font={{ size: 'small' }} margin={marginals}>
-          {getString('cv.changeSource.changeSourceCard.finished')}
-          {moment(endTime).format(TIME_FORMAT)}
+          {getString('cv.changeSource.changeSourceCard.finished')}:&nbsp;
+          <Text tag="span" font={{ size: 'small', weight: 'semi-bold' }} color={Color.BLACK_100}>
+            {moment(endTime).format(TIME_FORMAT)}
+          </Text>
         </Text>
         <Text icon={'time'} iconProps={{ size: 12 }} font={{ size: 'small' }} margin={marginals}>
-          {getString('common.durationPrefix')}
-          {durationString}
+          {getString('common.durationPrefix')}:&nbsp;
+          <Text tag="span" font={{ size: 'small', weight: 'semi-bold' }} color={Color.BLACK_100}>
+            {durationString}
+          </Text>
         </Text>
         {type !== ChangeSourceTypes.HarnessCDNextGen && (
           <Text icon={'calendar'} iconProps={{ size: 12 }} font={{ size: 'small' }} margin={marginals}>

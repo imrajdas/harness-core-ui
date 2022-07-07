@@ -409,6 +409,11 @@ cdng:
     monitoringServiceRequired: Monitored Service is required
     healthSourceRequired: At least one health source is required
     timeoutValidation: Timeout should be at least 40 minutes
+    applicationNameValidation: Application Name is required.
+    tierNameValidation: Tier Name is required.
+    completeMetricPathValidation: Complete Metric Path is required.
+    serviceInstanceMetricPathValidation: Service Instance Metric Path is required.
+    serviceInstanceFieldNameValidation: Service Instance Field Name is required.
   verificationSensitivityLabel:
     high: High
     medium: Medium

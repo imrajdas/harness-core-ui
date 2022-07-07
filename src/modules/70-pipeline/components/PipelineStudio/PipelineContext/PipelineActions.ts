@@ -21,8 +21,6 @@ import type {
   PipelineInfoConfig
 } from 'services/pipeline-ng'
 import type { DependencyElement } from 'services/ci'
-import type { TemplateType } from '@common/interfaces/RouteInterfaces'
-import type { TemplateSummaryResponse } from 'services/template-ng'
 import type { StepState } from '../ExecutionGraph/ExecutionGraphUtil'
 import type { AdvancedPanels, StepOrStepGroupOrTemplateStepData } from '../StepCommands/StepCommandTypes'
 
@@ -102,15 +100,6 @@ export interface DrawerData extends Omit<IDrawerProps, 'isOpen'> {
       hiddenAdvancedPanels?: AdvancedPanels[]
     }
   }
-}
-
-export interface SelectorData {
-  templateType: TemplateType
-  selectedChildType?: string
-  allChildTypes?: string[]
-  selectedTemplate?: TemplateSummaryResponse
-  onSubmit?: (template: TemplateSummaryResponse, isCopied: boolean) => void
-  onCancel?: () => void
 }
 
 export interface PipelineViewData {

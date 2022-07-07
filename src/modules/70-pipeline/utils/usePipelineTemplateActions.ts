@@ -13,6 +13,7 @@ import type { PipelineInfoConfig } from 'services/pipeline-ng'
 import { usePipelineContext } from '@pipeline/components/PipelineStudio/PipelineContext/PipelineContext'
 import { createTemplate } from '@pipeline/utils/templateUtils'
 import type { TemplateSummaryResponse } from 'services/template-ng'
+import { useTemplateSelector } from 'framework/Templates/TemplateSelectorContext/useTemplateSelector'
 
 interface TemplateActionsReturnType {
   addOrUpdateTemplate: (selectedTemplate?: TemplateSummaryResponse) => Promise<void>
@@ -22,9 +23,19 @@ interface TemplateActionsReturnType {
 export function usePipelineTemplateActions(): TemplateActionsReturnType {
   const {
     state: { pipeline },
-    updatePipeline,
-    getTemplate
+    updatePipeline
   } = usePipelineContext()
+  const { getTemplate } = useTemplateSelector()
+
+  const copyPipelineMetaData = useCallback(
+    (processNode: PipelineInfoConfig) => {
+      processNode.description = pipeline.description
+      processNode.tags = pipeline.tags
+      processNode.projectIdentifier = pipeline.projectIdentifier
+      processNode.orgIdentifier = pipeline.orgIdentifier
+    },
+    [pipeline]
+  )
 
   const addOrUpdateTemplate = useCallback(
     async (selectedTemplate?: TemplateSummaryResponse) => {
@@ -38,6 +49,7 @@ export function usePipelineTemplateActions(): TemplateActionsReturnType {
             draft.identifier = defaultTo(pipeline?.identifier, '')
           })
         : createTemplate(pipeline, template)
+      copyPipelineMetaData(processNode)
       await updatePipeline(processNode)
     },
     [pipeline.template, getTemplate, updatePipeline]
@@ -49,6 +61,7 @@ export function usePipelineTemplateActions(): TemplateActionsReturnType {
       draft.name = defaultTo(node?.name, '')
       draft.identifier = defaultTo(node?.identifier, '')
     })
+    copyPipelineMetaData(processNode)
     await updatePipeline(processNode)
   }, [pipeline, updatePipeline])
 

@@ -11,12 +11,38 @@ exports[`Cumulative Analytics tests render component 1`] = `
       <div
         class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
       >
-        <p
-          class="StyledProps--font StyledProps--main StyledProps--font-variation-h6"
-          data-tooltip-id="summaryOfRulesHeader"
+        <div
+          class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
         >
-          ce.co.summarySection.sectionHeader
-        </p>
+          <p
+            class="StyledProps--font StyledProps--main StyledProps--font-variation-h6"
+            data-tooltip-id="summaryOfRulesHeader"
+          >
+            ce.co.summarySection.sectionHeader
+          </p>
+          <p
+            class="StyledProps--font StyledProps--main pointerCursor StyledProps--color StyledProps--color-primary7"
+            style="display: flex; align-items: center;"
+          >
+            ce.common.collapse
+            <span
+              class="bp3-icon StyledProps--main Text--icon StyledProps--padding-left-xsmall StyledProps--color StyledProps--color-primary7"
+              data-icon="main-chevron-up"
+            >
+              <svg
+                height="12"
+                viewBox="0 0 14 8"
+                width="12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.7 6.3l-6-6C7.5.1 7.3 0 7 0s-.5.1-.7.3l-6 6c-.2.2-.3.4-.3.7 0 .6.4 1 1 1 .3 0 .5-.1.7-.3L7 2.4l5.3 5.3c.2.2.4.3.7.3.6 0 1-.4 1-1 0-.3-.1-.5-.3-.7z"
+                  fill="#4d5969"
+                />
+              </svg>
+            </span>
+          </p>
+        </div>
         <div
           class="StyledProps--font StyledProps--main StyledProps--margin-right-xxxlarge"
         >
@@ -147,8 +173,7 @@ exports[`Cumulative Analytics tests render component 1`] = `
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-variation-h2 StyledProps--color StyledProps--color-grey700"
               >
-                $
-                21
+                $21
               </p>
             </div>
           </div>
@@ -166,8 +191,7 @@ exports[`Cumulative Analytics tests render component 1`] = `
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-variation-h3 StyledProps--color StyledProps--color-grey500"
               >
-                $
-                0
+                $0
               </p>
             </div>
           </div>
@@ -189,12 +213,38 @@ exports[`Cumulative Analytics tests render component in Dry run mode 1`] = `
       <div
         class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
       >
-        <p
-          class="StyledProps--font StyledProps--main StyledProps--font-variation-h6"
-          data-tooltip-id="summaryOfRulesHeader"
+        <div
+          class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
         >
-          ce.co.summarySection.sectionHeader
-        </p>
+          <p
+            class="StyledProps--font StyledProps--main StyledProps--font-variation-h6"
+            data-tooltip-id="summaryOfRulesHeader"
+          >
+            ce.co.summarySection.sectionHeader
+          </p>
+          <p
+            class="StyledProps--font StyledProps--main pointerCursor StyledProps--color StyledProps--color-primary7"
+            style="display: flex; align-items: center;"
+          >
+            ce.common.collapse
+            <span
+              class="bp3-icon StyledProps--main Text--icon StyledProps--padding-left-xsmall StyledProps--color StyledProps--color-primary7"
+              data-icon="main-chevron-up"
+            >
+              <svg
+                height="12"
+                viewBox="0 0 14 8"
+                width="12"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.7 6.3l-6-6C7.5.1 7.3 0 7 0s-.5.1-.7.3l-6 6c-.2.2-.3.4-.3.7 0 .6.4 1 1 1 .3 0 .5-.1.7-.3L7 2.4l5.3 5.3c.2.2.4.3.7.3.6 0 1-.4 1-1 0-.3-.1-.5-.3-.7z"
+                  fill="#4d5969"
+                />
+              </svg>
+            </span>
+          </p>
+        </div>
         <div
           class="StyledProps--font StyledProps--main StyledProps--margin-right-xxxlarge"
         >
@@ -325,8 +375,7 @@ exports[`Cumulative Analytics tests render component in Dry run mode 1`] = `
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-variation-h2 StyledProps--color StyledProps--color-grey700"
               >
-                $
-                21
+                $21
               </p>
             </div>
           </div>
@@ -344,8 +393,7 @@ exports[`Cumulative Analytics tests render component in Dry run mode 1`] = `
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-variation-h3 StyledProps--color StyledProps--color-grey500"
               >
-                $
-                0
+                $0
               </p>
             </div>
           </div>

@@ -10,6 +10,7 @@ declare const styles: {
   readonly accordionSummary: string
   readonly conditionalExecutionTitle: string
   readonly container: string
+  readonly editor: string
   readonly header: string
   readonly infraSection: string
   readonly inputWidth: string

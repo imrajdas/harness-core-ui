@@ -10,13 +10,14 @@ declare const styles: {
   readonly avatarWrapper: string
   readonly cardFooter: string
   readonly cardStats: string
+  readonly cardStyle: string
   readonly chartWrapper: string
   readonly content: string
   readonly duration: string
+  readonly lastExecutionStatus: string
   readonly mainContent: string
   readonly message: string
   readonly rateDiffValue: string
-  readonly repositoryCard: string
   readonly statContent: string
   readonly statHeader: string
   readonly statWrap: string

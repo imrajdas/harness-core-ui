@@ -112,27 +112,13 @@ function QueueWidget(props: QueueProps, formikRef: StepFormikFowardRef<QueueData
                 )}
               </div>
               <div className={cx(stepCss.formGroup, stepCss.md)}>
-                <FormInput.MultiTypeInput
-                  useValue
-                  selectItems={scopeOptions}
-                  disabled={readonly}
-                  multiTypeInputProps={{ expressions, disabled: readonly, allowableTypes }}
-                  label={getString('pipeline.queueStep.scope')}
+                <FormInput.Select
                   name="spec.scope"
+                  label={getString('pipeline.queueStep.scope')}
+                  items={scopeOptions}
+                  disabled={readonly}
                   placeholder={getString('pipeline.queueStep.scopePlaceholder')}
                 />
-                {getMultiTypeFromValue(values.spec.scope) === MultiTypeInputType.RUNTIME && (
-                  <ConfigureOptions
-                    value={values.spec.scope}
-                    type="String"
-                    variableName="spec.scope"
-                    showRequiredField={false}
-                    showDefaultField={false}
-                    showAdvanced={true}
-                    onChange={value => setFieldValue('spec.scope', value)}
-                    isReadonly={readonly}
-                  />
-                )}
               </div>
             </>
           )

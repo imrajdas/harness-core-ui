@@ -114,7 +114,8 @@ describe('FlagSettings', () => {
     await waitFor(() => expect(screen.getByTestId('save-flag-to-git-modal')).toBeInTheDocument())
     userEvent.type(
       document.querySelector("textarea[name='gitDetails.commitMsg']") as HTMLInputElement,
-      'TEST COMMIT MESSAGE'
+      'TEST COMMIT MESSAGE',
+      { allAtOnce: true }
     )
     userEvent.click(screen.getByTestId('save-flag-to-git-modal-save-button'))
 
@@ -175,7 +176,8 @@ describe('FlagSettings', () => {
     await waitFor(() => expect(screen.getByTestId('save-flag-to-git-modal')).toBeInTheDocument())
     userEvent.type(
       document.querySelector("textarea[name='gitDetails.commitMsg']") as HTMLInputElement,
-      'TEST COMMIT MESSAGE'
+      'TEST COMMIT MESSAGE',
+      { allAtOnce: true }
     )
 
     const autoCommitCheckbox = document.querySelector("input[name='autoCommit']") as HTMLInputElement

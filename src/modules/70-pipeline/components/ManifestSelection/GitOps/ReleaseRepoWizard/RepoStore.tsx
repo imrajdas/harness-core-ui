@@ -35,8 +35,14 @@ import type { ConnectorSelectedValue } from '@connectors/components/ConnectorRef
 import { usePermission } from '@rbac/hooks/usePermission'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
-import { ManifestStoreMap, ManifestIconByType, ManifestToConnectorMap, manifestStoreTypes } from '../../Manifesthelper'
+import { ManifestToConnectorMap } from '../../Manifesthelper'
 import type { ManifestStores, ManifestStepInitData } from '../../ManifestInterface'
+import {
+  ReleaseRepoManifestStoreMap,
+  releaseRepoManifestStoreTypes,
+  ReleaseRepoManifestToConnectorMap,
+  RepoStoreIcons
+} from '../ReleaseRepoInterface'
 
 import css from '../../ManifestWizardSteps/ManifestWizardSteps.module.scss'
 
@@ -50,7 +56,6 @@ interface ReleaseRepoStorePropType {
   handleStoreChange: (store: ManifestStores) => void
   selectedManifest?: any
 }
-type ManifestStoreExcludingInheritFromManifest = Exclude<ManifestStores, 'InheritFromManifest'>
 
 function RepoStore({
   stepName,
@@ -94,7 +99,7 @@ function RepoStore({
     )
   }
   /* istanbul ignore next */
-  const handleOptionSelection = (storeSelected: ManifestStoreExcludingInheritFromManifest): void => {
+  const handleOptionSelection = (storeSelected: any): void => {
     /* istanbul ignore next */
     handleStoreChange(storeSelected)
     setSelectedStore(storeSelected)
@@ -102,9 +107,9 @@ function RepoStore({
 
   const supportedManifestTypes = useMemo(
     () =>
-      manifestStoreTypes.map(manifest => ({
+      releaseRepoManifestStoreTypes.map(manifest => ({
         label: manifest,
-        icon: ManifestIconByType[manifest] as IconName,
+        icon: RepoStoreIcons[manifest] as IconName,
         value: manifest
       })),
     []
@@ -147,7 +152,7 @@ function RepoStore({
                       /* istanbul ignore next */
                       storeSelected => {
                         /* istanbul ignore next */
-                        handleOptionSelection(storeSelected as ManifestStoreExcludingInheritFromManifest)
+                        handleOptionSelection(storeSelected)
                       }
                     }
                   />
@@ -165,8 +170,10 @@ function RepoStore({
                         setIsLoadingConnectors(false)
                       }}
                       name="connectorRef"
-                      label={`${ManifestStoreMap[formik.values.store] as string} ${getString('connector')}`}
-                      placeholder={`${ManifestStoreMap[formik.values.store] as string} ${getString('connector')}`}
+                      label={`${ReleaseRepoManifestStoreMap[formik.values.store] as string} ${getString('connector')}`}
+                      placeholder={`${ReleaseRepoManifestStoreMap[formik.values.store] as string} ${getString(
+                        'connector'
+                      )}`}
                       accountIdentifier={accountId}
                       projectIdentifier={projectIdentifier}
                       orgIdentifier={orgIdentifier}
@@ -182,7 +189,7 @@ function RepoStore({
                         )
                       }
                       createNewLabel={newConnectorLabel}
-                      type={ManifestToConnectorMap[formik.values.store]}
+                      type={ReleaseRepoManifestToConnectorMap[formik.values.store]}
                       enableConfigureOptions={false}
                       gitScope={{ repo: repoIdentifier || '', branch, getDefaultFromOtherRepo: true }}
                     />
@@ -191,7 +198,7 @@ function RepoStore({
                       <ConfigureOptions
                         className={css.configureOptions}
                         value={formik.values.connectorRef as unknown as string}
-                        type={ManifestToConnectorMap[formik.values.store]}
+                        type={ReleaseRepoManifestToConnectorMap[formik.values.store]}
                         variableName="connectorRef"
                         showRequiredField={false}
                         showDefaultField={false}

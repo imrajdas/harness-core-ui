@@ -13,7 +13,7 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots 1`] =
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 25%;"
+        style="width: 20%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -25,7 +25,7 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots 1`] =
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 45%;"
+        style="width: 40%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -37,12 +37,24 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots 1`] =
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 25%;"
+        style="width: 20%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
         >
           VERSION
+        </p>
+      </div>
+      <div
+        class="TableV2--cell"
+        colspan="1"
+        role="columnheader"
+        style="width: 15%;"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
+        >
+          Scope
         </p>
       </div>
       <div
@@ -68,10 +80,10 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots 1`] =
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 25%;"
+          style="width: 20%;"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
           >
             <svg
               fill="none"
@@ -97,71 +109,75 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots 1`] =
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 45%;"
+          style="width: 40%;"
         >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start"
+            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-right-medium"
-              data-testid="manjutesttemplate"
+              class="StyledProps--font StyledProps--main"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                    style="--text-line-clamp: 1;"
+                  >
+                    manju-test-template-qq-12344
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          5
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                </div>
                 <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
                   style="--text-line-clamp: 1;"
                 >
-                  manju-test-template-qq-12344
+                  idLabel
                 </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
-                    >
-                      <span
-                        class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
-                      >
-                        <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
-                          />
-                        </svg>
-                      </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        5
-                      </p>
-                    </div>
-                  </span>
-                </span>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
-              >
-                idLabel
-              </p>
             </div>
           </div>
         </div>
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 25%;"
+          style="width: 20%;"
         >
           <div
             class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
@@ -172,6 +188,29 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots 1`] =
             >
               v4
             </p>
+          </div>
+        </div>
+        <div
+          class="TableV2--cell"
+          role="cell"
+          style="width: 15%;"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+          >
+            <span
+              class="Tag--main"
+            >
+              <span
+                class="bp3-tag scopeLabel project"
+              >
+                <span
+                  class="bp3-text-overflow-ellipsis bp3-fill"
+                >
+                  PROJECT
+                </span>
+              </span>
+            </span>
           </div>
         </div>
         <div
@@ -340,7 +379,7 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots when 
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 35%;"
+        style="width: 30%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -364,12 +403,24 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots when 
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 35%;"
+        style="width: 30%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
         >
           COMMON.GITSYNC.REPODETAILS
+        </p>
+      </div>
+      <div
+        class="TableV2--cell"
+        colspan="1"
+        role="columnheader"
+        style="width: 10%;"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
+        >
+          Scope
         </p>
       </div>
       <div
@@ -398,7 +449,7 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots when 
           style="width: 15%;"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
           >
             <svg
               fill="none"
@@ -424,64 +475,68 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots when 
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 35%;"
+          style="width: 30%;"
         >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start"
+            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-right-medium"
-              data-testid="manjutesttemplate"
+              class="StyledProps--font StyledProps--main"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                    style="--text-line-clamp: 1;"
+                  >
+                    manju-test-template-qq-12344
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          5
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                </div>
                 <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
                   style="--text-line-clamp: 1;"
                 >
-                  manju-test-template-qq-12344
+                  idLabel
                 </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
-                    >
-                      <span
-                        class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
-                      >
-                        <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
-                          />
-                        </svg>
-                      </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        5
-                      </p>
-                    </div>
-                  </span>
-                </span>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
-              >
-                idLabel
-              </p>
             </div>
             <div
               class="StyledProps--font StyledProps--main"
@@ -541,8 +596,31 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots when 
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 35%;"
+          style="width: 30%;"
         />
+        <div
+          class="TableV2--cell"
+          role="cell"
+          style="width: 10%;"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+          >
+            <span
+              class="Tag--main"
+            >
+              <span
+                class="bp3-tag scopeLabel project"
+              >
+                <span
+                  class="bp3-text-overflow-ellipsis bp3-fill"
+                >
+                  PROJECT
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
         <div
           class="TableV2--cell"
           role="cell"
@@ -697,7 +775,7 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots 1`
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 25%;"
+        style="width: 20%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -709,7 +787,7 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots 1`
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 50%;"
+        style="width: 45%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -721,12 +799,24 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots 1`
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 25%;"
+        style="width: 20%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
         >
           VERSION
+        </p>
+      </div>
+      <div
+        class="TableV2--cell"
+        colspan="1"
+        role="columnheader"
+        style="width: 15%;"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
+        >
+          Scope
         </p>
       </div>
     </div>
@@ -740,10 +830,10 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots 1`
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 25%;"
+          style="width: 20%;"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
           >
             <svg
               fill="none"
@@ -769,71 +859,75 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots 1`
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 50%;"
+          style="width: 45%;"
         >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start"
+            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-right-medium"
-              data-testid="manjutesttemplate"
+              class="StyledProps--font StyledProps--main"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                    style="--text-line-clamp: 1;"
+                  >
+                    manju-test-template-qq-12344
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          5
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                </div>
                 <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
                   style="--text-line-clamp: 1;"
                 >
-                  manju-test-template-qq-12344
+                  idLabel
                 </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
-                    >
-                      <span
-                        class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
-                      >
-                        <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
-                          />
-                        </svg>
-                      </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        5
-                      </p>
-                    </div>
-                  </span>
-                </span>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
-              >
-                idLabel
-              </p>
             </div>
           </div>
         </div>
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 25%;"
+          style="width: 20%;"
         >
           <div
             class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
@@ -844,6 +938,29 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots 1`
             >
               v4
             </p>
+          </div>
+        </div>
+        <div
+          class="TableV2--cell"
+          role="cell"
+          style="width: 15%;"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+          >
+            <span
+              class="Tag--main"
+            >
+              <span
+                class="bp3-tag scopeLabel project"
+              >
+                <span
+                  class="bp3-text-overflow-ellipsis bp3-fill"
+                >
+                  PROJECT
+                </span>
+              </span>
+            </span>
           </div>
         </div>
       </div>
@@ -957,7 +1074,7 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots an
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 25%;"
+        style="width: 20%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -969,7 +1086,7 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots an
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 50%;"
+        style="width: 45%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -981,12 +1098,24 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots an
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 25%;"
+        style="width: 20%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
         >
           VERSION
+        </p>
+      </div>
+      <div
+        class="TableV2--cell"
+        colspan="1"
+        role="columnheader"
+        style="width: 15%;"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
+        >
+          Scope
         </p>
       </div>
     </div>
@@ -1000,10 +1129,10 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots an
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 25%;"
+          style="width: 20%;"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
           >
             <svg
               fill="none"
@@ -1029,71 +1158,75 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots an
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 50%;"
+          style="width: 45%;"
         >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start"
+            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-right-medium"
-              data-testid="manjutesttemplate"
+              class="StyledProps--font StyledProps--main"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                    style="--text-line-clamp: 1;"
+                  >
+                    manju-test-template-qq-12344
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          5
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                </div>
                 <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
                   style="--text-line-clamp: 1;"
                 >
-                  manju-test-template-qq-12344
+                  idLabel
                 </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
-                    >
-                      <span
-                        class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
-                      >
-                        <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
-                          />
-                        </svg>
-                      </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        5
-                      </p>
-                    </div>
-                  </span>
-                </span>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
-              >
-                idLabel
-              </p>
             </div>
           </div>
         </div>
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 25%;"
+          style="width: 20%;"
         >
           <div
             class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
@@ -1104,6 +1237,29 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots an
             >
               v4
             </p>
+          </div>
+        </div>
+        <div
+          class="TableV2--cell"
+          role="cell"
+          style="width: 15%;"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+          >
+            <span
+              class="Tag--main"
+            >
+              <span
+                class="bp3-tag scopeLabel project"
+              >
+                <span
+                  class="bp3-text-overflow-ellipsis bp3-fill"
+                >
+                  PROJECT
+                </span>
+              </span>
+            </span>
           </div>
         </div>
       </div>
@@ -1229,7 +1385,7 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots wh
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 40%;"
+        style="width: 35%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -1253,12 +1409,24 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots wh
         class="TableV2--cell"
         colspan="1"
         role="columnheader"
-        style="width: 35%;"
+        style="width: 30%;"
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
         >
           COMMON.GITSYNC.REPODETAILS
+        </p>
+      </div>
+      <div
+        class="TableV2--cell"
+        colspan="1"
+        role="columnheader"
+        style="width: 10%;"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
+        >
+          Scope
         </p>
       </div>
     </div>
@@ -1275,7 +1443,7 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots wh
           style="width: 15%;"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
           >
             <svg
               fill="none"
@@ -1301,64 +1469,68 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots wh
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 40%;"
+          style="width: 35%;"
         >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start"
+            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-right-medium"
-              data-testid="manjutesttemplate"
+              class="StyledProps--font StyledProps--main"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                    style="--text-line-clamp: 1;"
+                  >
+                    manju-test-template-qq-12344
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          5
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                </div>
                 <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
                   style="--text-line-clamp: 1;"
                 >
-                  manju-test-template-qq-12344
+                  idLabel
                 </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
-                    >
-                      <span
-                        class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
-                      >
-                        <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
-                          />
-                        </svg>
-                      </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        5
-                      </p>
-                    </div>
-                  </span>
-                </span>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
-              >
-                idLabel
-              </p>
             </div>
           </div>
         </div>
@@ -1381,8 +1553,31 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots wh
         <div
           class="TableV2--cell"
           role="cell"
-          style="width: 35%;"
+          style="width: 30%;"
         />
+        <div
+          class="TableV2--cell"
+          role="cell"
+          style="width: 10%;"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+          >
+            <span
+              class="Tag--main"
+            >
+              <span
+                class="bp3-tag scopeLabel project"
+              >
+                <span
+                  class="bp3-text-overflow-ellipsis bp3-fill"
+                >
+                  PROJECT
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
     <div

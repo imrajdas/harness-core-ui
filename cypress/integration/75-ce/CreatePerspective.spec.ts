@@ -78,6 +78,7 @@ describe('CCM Perspective Creation flow', () => {
       })
     }).as('getReports')
 
+    cy.visitPageAssertion('[class^=MainNav-module_main]')
     cy.contains('p', 'Cloud Costs').click()
     cy.wait('@gqlFetchCcmMetaDataQuery')
 

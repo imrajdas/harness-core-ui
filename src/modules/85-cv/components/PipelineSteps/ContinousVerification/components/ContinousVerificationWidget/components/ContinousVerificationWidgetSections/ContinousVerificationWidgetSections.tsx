@@ -46,9 +46,9 @@ export function ContinousVerificationWidgetSections({
         allowableTypes={allowableTypes}
       />
       <SelectVerificationType />
-      {CVNG_TEMPLATE_VERIFY_STEP && <SelectMonitoredServiceType />}
-      {CVNG_TEMPLATE_VERIFY_STEP ? renderMonitoredService() : <MonitoredService formik={formik} />}
       {formik?.values?.spec?.type ? <ConfigureFields formik={formik} allowableTypes={allowableTypes} /> : null}
+      {CVNG_TEMPLATE_VERIFY_STEP && <SelectMonitoredServiceType formik={formik} allowableTypes={allowableTypes} />}
+      {CVNG_TEMPLATE_VERIFY_STEP ? renderMonitoredService() : <MonitoredService formik={formik} />}
     </>
   )
 }

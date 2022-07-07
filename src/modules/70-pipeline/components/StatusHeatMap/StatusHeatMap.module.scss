@@ -1,20 +1,37 @@
+/*
+ * Copyright 2022 Harness Inc. All rights reserved.
+ * Use of this source code is governed by the PolyForm Shield 1.0.0 license
+ * that can be found in the licenses directory at the root of this repository, also available at
+ * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
+ */
+
 .statusHeatMap {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   column-gap: var(--spacing-2);
+  line-height: 0;
 
   &Cell {
     width: 14px;
     height: 14px;
     border-radius: 2px;
     flex: 0 0 auto;
+    outline: none;
     background-color: var(--grey-200);
+    &:hover,
+    &:focus {
+      box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--grey-200) 0px 0px 0px 4px;
+    }
 
     &[data-status='failed'],
     &[data-status='errored'],
     &[data-status='rejected'],
     &[data-status='suspended'],
     &[data-status='approvalrejected'] {
+      &:hover,
+      &:focus {
+        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--red-400) 0px 0px 0px 4px;
+      }
       background-color: var(--red-400);
     }
 
@@ -24,11 +41,19 @@
     &[data-status='discontinuing'],
     &[data-status='expired'],
     &[data-status='notstarted'] {
+      &:hover,
+      &:focus {
+        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--grey-300) 0px 0px 0px 4px;
+      }
       background-color: var(--grey-300);
     }
 
     &[data-status='success'],
     &[data-status='ignorefailed'] {
+      &:hover,
+      &:focus {
+        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--green-600) 0px 0px 0px 4px;
+      }
       background-color: var(--green-600);
     }
 
@@ -36,6 +61,10 @@
     &[data-status='asyncwaiting'],
     &[data-status='taskwaiting'],
     &[data-status='timedwaiting'] {
+      &:hover,
+      &:focus {
+        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--primary-7) 0px 0px 0px 4px;
+      }
       background-color: var(--primary-7);
     }
 
@@ -43,11 +72,19 @@
     &[data-status='approvalwaiting'],
     &[data-status='interventionwaiting'],
     &[data-status='inputwaiting'] {
+      &:hover,
+      &:focus {
+        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--yellow-500) 0px 0px 0px 4px;
+      }
       background-color: var(--yellow-500);
     }
 
     &[data-status='pausing'],
     &[data-status='paused'] {
+      &:hover,
+      &:focus {
+        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--primary-2) 0px 0px 0px 4px;
+      }
       background-color: var(--primary-2);
     }
   }

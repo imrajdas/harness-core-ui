@@ -10,7 +10,6 @@ import { cloneDeep, isEqual, noop } from 'lodash-es'
 import { MultiTypeInputType, VisualYamlSelectedView as SelectedView } from '@wings-software/uicore'
 import {
   PipelineContext,
-  PipelineContextInterface,
   PipelineContextType
 } from '@pipeline/components/PipelineStudio/PipelineContext/PipelineContext'
 import {
@@ -42,14 +41,12 @@ export interface InfrastructurePipelineProviderProps {
   queryParams: GetPipelineQueryParams
   initialValue: PipelineInfoConfig
   isReadOnly: boolean
-  getTemplate: PipelineContextInterface['getTemplate']
 }
 
 export function InfrastructurePipelineProvider({
   queryParams,
   initialValue,
   isReadOnly,
-  getTemplate,
   children
 }: React.PropsWithChildren<InfrastructurePipelineProviderProps>): React.ReactElement {
   const allowableTypes = [MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
@@ -184,8 +181,7 @@ export function InfrastructurePipelineProvider({
         setSelectedSectionId: noop,
         setSelection,
         getStagePathFromPipeline,
-        setTemplateTypes: noop,
-        getTemplate
+        setTemplateTypes: noop
       }}
     >
       {children}

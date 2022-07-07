@@ -2,41 +2,140 @@
 
 exports[`VerificationStatusCard matches snapshot when status = ERROR 1`] = `
 <div>
-  <div
-    class="StyledProps--font StyledProps--main verificationStatusCard StyledProps--color StyledProps--color-red500 StyledProps--background-red200"
+  <p
+    class="StyledProps--font StyledProps--main verificationStatusCard StyledProps--background-red200 StyledProps--color StyledProps--color-red500"
+    style="display: flex; align-items: center;"
   >
+    <span
+      class="bp3-icon bp3-icon-error StyledProps--main Text--icon StyledProps--padding-right-xsmall"
+      icon="error"
+    >
+      <svg
+        data-icon="error"
+        height="16"
+        viewBox="0 0 16 16"
+        width="16"
+      >
+        <desc>
+          error
+        </desc>
+        <path
+          d="M7.99-.01c-4.42 0-8 3.58-8 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm1 13h-2v-2h2v2zm0-3h-2v-7h2v7z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
     error
-  </div>
+  </p>
 </div>
 `;
 
 exports[`VerificationStatusCard matches snapshot when status = IN_PROGRESS 1`] = `
 <div>
-  <div
-    class="StyledProps--font StyledProps--main verificationStatusCard StyledProps--color StyledProps--color-primary2 StyledProps--background-primary6"
+  <p
+    class="StyledProps--font StyledProps--main verificationStatusCard StyledProps--background-primary6 StyledProps--color StyledProps--color-primary2"
+    style="display: flex; align-items: center;"
   >
+    <span
+      class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall"
+      data-icon="deployment-inprogress-new"
+    >
+      <svg
+        height="16"
+        viewBox="0 0 14 14"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+        >
+          <rect
+            fill="#25a6f7"
+            height="14"
+            rx="4"
+            width="14"
+          />
+          <path
+            d="M7 1.8a5.2 5.2 0 110 10.4A5.2 5.2 0 017 1.8"
+            fill="#fff"
+          />
+          <path
+            d="M7.4 6.5V3H6.3v4.7h4V6.5z"
+            fill="#25a6f7"
+          />
+        </g>
+      </svg>
+    </span>
     inProgress
-  </div>
+  </p>
 </div>
 `;
 
 exports[`VerificationStatusCard matches snapshot when status = VERIFICATION_FAILED 1`] = `
 <div>
-  <div
-    class="StyledProps--font StyledProps--main verificationStatusCard StyledProps--color StyledProps--color-red500 StyledProps--background-red200"
+  <p
+    class="StyledProps--font StyledProps--main verificationStatusCard StyledProps--background-red200 StyledProps--color StyledProps--color-red500"
+    style="display: flex; align-items: center;"
   >
+    <span
+      class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall"
+      data-icon="danger-icon"
+    >
+      <svg
+        fill="none"
+        height="16"
+        viewBox="0 0 32 32"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M16.878 4.506a1 1 0 00-1.737 0L3.153 25.505A1 1 0 004.022 27h23.974a1 1 0 00.869-1.495L16.878 4.506zm.603 17.973c0-.823-.684-1.49-1.527-1.49-.843 0-1.527.667-1.527 1.49 0 .822.684 1.49 1.527 1.49.843 0 1.527-.668 1.527-1.49zm-1.527-3.486a1 1 0 001-1v-6.997a1 1 0 00-2 0v6.997a1 1 0 001 1z"
+          fill="#DA291D"
+          fill-rule="evenodd"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M4.022 26L16.009 5.002 27.996 26H4.022zm11.832-6.01a2 2 0 01-1.9-1.997v-6.997a2 2 0 114 0v6.997a2 2 0 01-1.9 1.998c1.328.052 2.427 1.124 2.427 2.488 0 1.398-1.155 2.49-2.527 2.49s-2.527-1.092-2.527-2.49c0-1.364 1.099-2.436 2.427-2.488zM15.14 4.507a1 1 0 011.737 0l11.987 20.999A1 1 0 0127.996 27H4.022a1 1 0 01-.869-1.495L15.141 4.506zm.813 16.483c.843 0 1.527.667 1.527 1.49 0 .822-.684 1.49-1.527 1.49-.843 0-1.527-.668-1.527-1.49 0-.823.684-1.49 1.527-1.49zm1-2.996a1 1 0 01-2 0v-6.997a1 1 0 112 0v6.997z"
+          fill="#DA291D"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
     failed
-  </div>
+  </p>
    
 </div>
 `;
 
 exports[`VerificationStatusCard matches snapshot when status = VERIFICATION_PASSED 1`] = `
 <div>
-  <div
-    class="StyledProps--font StyledProps--main verificationStatusCard StyledProps--color StyledProps--color-green700 StyledProps--background-green350"
+  <p
+    class="StyledProps--font StyledProps--main verificationStatusCard StyledProps--background-green350 StyledProps--color StyledProps--color-green700"
+    style="display: flex; align-items: center;"
   >
+    <span
+      class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall"
+      data-icon="deployment-success-new"
+    >
+      <svg
+        height="16"
+        viewBox="0 0 14 14"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M4 0h6c2.2 0 4 1.8 4 4v6c0 2.2-1.8 4-4 4H4c-2.2 0-4-1.8-4-4V4c0-2.2 1.8-4 4-4z"
+          fill="#38d168"
+        />
+        <path
+          d="M5.8 9.5l4.4-4.1-.9-1-3.6 3.2-1.2-1.2-1.1 1.1 2.1 2.1.1.1z"
+          fill="#fff"
+        />
+      </svg>
+    </span>
     passed
-  </div>
+  </p>
 </div>
 `;

@@ -1,0 +1,32 @@
+.stepCount {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 var(--spacing-2) !important;
+  font-size: var(--font-size-normal) !important;
+  color: var(--grey-900);
+  font-weight: 500;
+  height: var(--spacing-6);
+  white-space: nowrap;
+
+  & > :global(.bp3-icon),
+  & > .running-animation {
+    margin-right: var(--spacing-2);
+  }
+
+  &[data-status='success'] > :global(.bp3-icon) {
+    color: var(--green-500);
+  }
+
+  &[data-status='failed'] > :global(.bp3-icon) {
+    color: var(--red-500);
+  }
+}
+
+.stepCountWrapper {
+  .stepCount {
+    border-left: 1px solid var(--grey-200);
+  }
+  :first-child {
+    border-left: 0px !important;
+  }
+}

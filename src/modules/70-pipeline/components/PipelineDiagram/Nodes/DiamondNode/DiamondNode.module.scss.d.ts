@@ -14,6 +14,7 @@ declare const styles: {
   readonly diamondPortOut: string
   readonly horizontalBar: string
   readonly inComplete: string
+  readonly loopingStrategy: string
   readonly primaryIcon: string
   readonly secondaryIcon: string
   readonly template: string

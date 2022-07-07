@@ -13,6 +13,7 @@ declare const styles: {
   readonly grid: string
   readonly inputWidth: string
   readonly label: string
+  readonly sectionContent: string
   readonly thumbnailSelect: string
   readonly yamlToggleEnv: string
 }

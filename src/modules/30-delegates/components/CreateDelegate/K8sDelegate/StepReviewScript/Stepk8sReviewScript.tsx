@@ -15,6 +15,11 @@ import { useGenerateKubernetesYaml, DelegateSetupDetails, GenerateKubernetesYaml
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { useTelemetry } from '@common/hooks/useTelemetry'
 import { Category, DelegateActions } from '@common/constants/TrackingConstants'
+import {
+  GenerateNgHelmValuesYamlQueryParams,
+  useGenerateNgHelmValuesYaml,
+  DelegateSetupDetails as HelmDelegateSetupDetails
+} from 'services/cd-ng'
 
 import type { K8sDelegateWizardData } from '../DelegateSetupStep/DelegateSetupStep'
 
@@ -23,9 +28,10 @@ import css from '../CreateK8sDelegate.module.scss'
 const k8sFileName = 'harness-delegate.yml'
 
 const Stepk8ReviewScript: React.FC<StepProps<K8sDelegateWizardData>> = props => {
+  const { prevStepData } = props
   const { getString } = useStrings()
   const { accountId, orgIdentifier, projectIdentifier } = useParams<ProjectPathProps>()
-  const { mutate: downloadYaml } = useGenerateKubernetesYaml({
+  const { mutate: downloadKubernetesYaml } = useGenerateKubernetesYaml({
     queryParams: {
       accountId,
       orgId: orgIdentifier,
@@ -33,19 +39,32 @@ const Stepk8ReviewScript: React.FC<StepProps<K8sDelegateWizardData>> = props => 
       fileFormat: 'text/plain'
     } as GenerateKubernetesYamlQueryParams
   })
+  const { mutate: downloadNgHelmValuesYaml } = useGenerateNgHelmValuesYaml({
+    queryParams: {
+      accountIdentifier: accountId,
+      orgIdentifier,
+      projectIdentifier
+    } as GenerateNgHelmValuesYamlQueryParams
+  })
   const linkRef = React.useRef<HTMLAnchorElement>(null)
   const [generatedYaml, setGeneratedYaml] = React.useState<string>()
 
   const onGenYaml = async (): Promise<void> => {
-    const data = props?.prevStepData?.delegateYaml || {}
-    set(data, 'delegateType', 'KUBERNETES')
-    const response = await downloadYaml(data as DelegateSetupDetails)
+    const delegateType = prevStepData?.delegateYaml?.delegateType || 'KUBERNETES'
+    const data = prevStepData?.delegateYaml || {}
+    set(data, 'delegateType', delegateType)
+    let response
+    if (delegateType !== 'KUBERNETES') {
+      response = await downloadNgHelmValuesYaml(data as HelmDelegateSetupDetails)
+    } else {
+      response = await downloadKubernetesYaml(data as DelegateSetupDetails)
+    }
     setGeneratedYaml(response as any)
   }
 
   React.useEffect(() => {
-    if (props?.prevStepData?.generatedYaml) {
-      setGeneratedYaml(props?.prevStepData?.generatedYaml)
+    if (prevStepData?.generatedYaml) {
+      setGeneratedYaml(prevStepData?.generatedYaml)
     } else {
       onGenYaml()
     }

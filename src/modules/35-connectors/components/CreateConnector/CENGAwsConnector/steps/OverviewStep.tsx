@@ -22,7 +22,7 @@ import {
 import { FontVariation } from '@harness/design-system'
 import * as Yup from 'yup'
 import { omit, pick } from 'lodash-es'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 import {
   ConnectorInfoDTO,
@@ -33,6 +33,7 @@ import {
   CEAwsConnector,
   AwsCurAttributes
 } from 'services/cd-ng'
+import routes from '@common/RouteDefinitions'
 import { Description, Tags } from '@common/components/NameIdDescriptionTags/NameIdDescriptionTags'
 import { IdentifierSchema, NameSchema } from '@common/utils/Validation'
 import { CE_AWS_CONNECTOR_CREATION_EVENTS } from '@connectors/trackingConstants'
@@ -79,6 +80,7 @@ const OverviewStep: React.FC<OverviewProps> = props => {
   const [awsAccountID, setAwsAccountID] = useState<string>('')
   const [isUniqueConnnector, setIsUniqueConnnector] = useState<boolean>(true)
   const [existingConnectorName, setExistingConnectorName] = useState<string>('')
+  const [existingConnectorId, setExistingConnectorId] = useState<string>('')
   const [modalErrorHandler, setModalErrorHandler] = useState<ModalErrorHandlerBinding | undefined>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [featureText, setFeatureText] = useState<string>('')
@@ -155,6 +157,7 @@ const OverviewStep: React.FC<OverviewProps> = props => {
           setAwsAccountID(formData?.awsAccountId)
           setIsUniqueConnnector(false)
           setExistingConnectorName(response?.data?.content?.[0]?.connector?.name || '')
+          setExistingConnectorId(response?.data?.content?.[0]?.connector?.identifier || '')
           const featuresEnabled = response?.data?.content?.[0]?.connector?.spec?.featuresEnabled || []
           let newFeatureText = featuresEnabled.join(' and ')
           if (featuresEnabled.length > 2) {
@@ -192,6 +195,7 @@ const OverviewStep: React.FC<OverviewProps> = props => {
         font={{ variation: FontVariation.H3 }}
         tooltipProps={{ dataTooltipId: 'awsConnectorOverview' }}
         margin={{ bottom: 'large' }}
+        data-cy="aws-overview"
       >
         {getString('connectors.ceAws.overview.heading')}
       </Text>
@@ -255,7 +259,10 @@ const OverviewStep: React.FC<OverviewProps> = props => {
                       <Icon name="lightbulb" style={{ paddingRight: 5 }}></Icon>
                       {getString('connectors.ceAws.overview.trySuggestion')}
                       <div>
-                        {getString('connectors.ceAws.overview.editConnector')} <a>{existingConnectorName}</a>{' '}
+                        {getString('connectors.ceAws.overview.editConnector')}{' '}
+                        <Link to={routes.toConnectorDetails({ accountId, connectorId: existingConnectorId })}>
+                          {existingConnectorName}
+                        </Link>{' '}
                         {getString('connectors.ceAws.overview.ifReq')}
                       </div>
                     </div>

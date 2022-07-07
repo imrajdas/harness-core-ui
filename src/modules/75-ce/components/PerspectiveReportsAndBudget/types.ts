@@ -12,3 +12,8 @@ export interface BudgetStepData extends Budget {
   perspectiveName: string
   budgetName: string
 }
+
+export enum BudgetAlertChannels {
+  SLACK,
+  EMAIL
+}

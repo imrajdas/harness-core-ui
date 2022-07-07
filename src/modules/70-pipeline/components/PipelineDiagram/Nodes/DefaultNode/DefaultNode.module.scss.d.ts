@@ -25,6 +25,7 @@ declare const styles: {
   readonly iconGroup: string
   readonly inComplete: string
   readonly left: string
+  readonly loopingStrategy: string
   readonly marginBottom: string
   readonly markerEnd: string
   readonly markerStart: string

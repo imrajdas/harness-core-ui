@@ -6,32 +6,40 @@
  */
 
 import React from 'react'
-import { Icon, Layout } from '@wings-software/uicore'
+import { Color } from '@harness/design-system'
+import { Layout, Text } from '@wings-software/uicore'
+import { useStrings } from 'framework/strings'
 import css from './InstanceStatusIndicator.module.scss'
 
 export const RunningStatusIndicator = () => {
+  const { getString } = useStrings()
   return (
     <Layout.Horizontal className={css.instanceStatusIndicator}>
-      <Icon name={'play'} />
-      <span style={{ color: '#42ab45' }}>Running</span>
+      <Text icon="play" color={Color.GREEN_600} style={{ textTransform: 'capitalize' }}>
+        {getString('ce.co.ruleState.running')}
+      </Text>
     </Layout.Horizontal>
   )
 }
 
 export const StoppedStatusIndicator = () => {
+  const { getString } = useStrings()
   return (
     <Layout.Horizontal className={css.instanceStatusIndicator}>
-      <Icon name={'stop'} />
-      <span style={{ color: '#DA291D' }}>Stopped</span>
+      <Text icon="stop" color={Color.RED_600}>
+        {getString('ce.co.ruleState.stopped')}
+      </Text>
     </Layout.Horizontal>
   )
 }
 
 export const CreatedStatusIndicator = () => {
+  const { getString } = useStrings()
   return (
     <Layout.Horizontal className={css.instanceStatusIndicator}>
-      <Icon name={'full-circle'} size={10} />
-      <span style={{ color: '#42ab45' }}>Created</span>
+      <Text icon="full-circle" iconProps={{ size: 10 }} color={Color.GREEN_500}>
+        {getString('created')}
+      </Text>
     </Layout.Horizontal>
   )
 }

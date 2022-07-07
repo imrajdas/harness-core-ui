@@ -1,0 +1,24 @@
+{
+  "status": "SUCCESS",
+  "data": {
+    "environment": {
+      "accountId": "kmpySmUISimoRrJL6NL73w",
+      "orgIdentifier": "default",
+      "projectIdentifier": "Ashwin_2",
+      "identifier": "Env_1",
+      "name": "Env 1",
+      "description": "description",
+      "color": "#0063F7",
+      "type": "PreProduction",
+      "deleted": false,
+      "tags": {
+        "tag": ""
+      },
+      "yaml": "environment:\n    name: Env 1\n    identifier: Env_1\n    description: description\n    tags:\n        tag: \"\"\n    type: PreProduction\n    orgIdentifier: default\n    projectIdentifier: Ashwin_2\n    variables:\n        - name: test\n          type: String\n          value: <+input>\n"
+    },
+    "createdAt": 1656379350330,
+    "lastModifiedAt": 1657016898864
+  },
+  "metaData": null,
+  "correlationId": "2f18a93c-2fde-4322-89ac-cc6fa4f81ba5"
+}

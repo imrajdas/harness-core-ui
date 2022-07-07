@@ -13,6 +13,6 @@ export enum MONITORED_SERVICE_TYPE {
 
 export const monitoredServiceTypes = [
   { label: 'Default', value: MONITORED_SERVICE_TYPE.DEFAULT },
-  { label: 'Configured', value: MONITORED_SERVICE_TYPE.CONFIGURED }
-  // { label: 'Template', value: MONITORED_SERVICE_TYPE.TEMPLATE }
+  { label: 'Configured', value: MONITORED_SERVICE_TYPE.CONFIGURED },
+  { label: 'Template', value: MONITORED_SERVICE_TYPE.TEMPLATE }
 ]

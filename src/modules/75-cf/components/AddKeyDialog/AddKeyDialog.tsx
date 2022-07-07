@@ -23,6 +23,7 @@ import {
 } from '@harness/uicore'
 import { Color, FontVariation } from '@harness/design-system'
 import { useModalHook } from '@harness/use-modal'
+import type { FormikErrors } from 'formik'
 import { NameSchema } from '@common/utils/Validation'
 import { AddAPIKeyQueryParams, ApiKey, useAddAPIKey } from 'services/cf/index'
 import { useEnvStrings } from '@cf/hooks/environment'
@@ -45,13 +46,14 @@ import javascript from '@cf/images/icons/javascript.svg'
 import python from '@cf/images/icons/python.svg'
 import css from './AddKeyDialog.module.scss'
 
-interface Props {
+export interface AddKeyDialogProps {
   disabled?: boolean
   primary?: boolean
   environment: EnvironmentResponseDTO
   onCreate: (newKey: ApiKey, hideModal: () => void) => void
   buttonProps?: ButtonProps
   keyType?: EnvironmentSDKKeyType
+  apiKeys?: ApiKey[]
 }
 
 interface KeyValues {
@@ -59,7 +61,15 @@ interface KeyValues {
   type: EnvironmentSDKKeyType
 }
 
-const AddKeyDialog: React.FC<Props> = ({ disabled, primary, environment, onCreate, buttonProps, keyType }) => {
+const AddKeyDialog: React.FC<AddKeyDialogProps> = ({
+  disabled,
+  primary,
+  environment,
+  onCreate,
+  buttonProps,
+  keyType,
+  apiKeys = []
+}) => {
   const { showError } = useToaster()
   const { getString, getEnvString } = useEnvStrings()
   const { mutate: createKey, loading } = useAddAPIKey({
@@ -133,6 +143,15 @@ const AddKeyDialog: React.FC<Props> = ({ disabled, primary, environment, onCreat
     )
   }
 
+  const handleValidation = (values: KeyValues): FormikErrors<KeyValues> => {
+    const errors: { name?: string } = {}
+
+    if (apiKeys.some((key: ApiKey) => key.name === values.name)) {
+      errors.name = getEnvString('apiKeys.duplicateKey')
+    }
+    return errors
+  }
+
   const [openModal, hideModal] = useModalHook(() => {
     return (
       <Dialog isOpen enforceFocus={false} onClose={hideModal} title={getEnvString('apiKeys.addKeyTitle')}>
@@ -149,6 +168,7 @@ const AddKeyDialog: React.FC<Props> = ({ disabled, primary, environment, onCreat
             })
             hideModal()
           }}
+          validate={handleValidation}
         >
           {formikProps => (
             <FormikForm>

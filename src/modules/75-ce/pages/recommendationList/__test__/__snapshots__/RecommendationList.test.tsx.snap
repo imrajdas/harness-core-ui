@@ -470,7 +470,7 @@ exports[`test cases for Recommendation List Page should be able to render empty 
             <p
               class="StyledProps--font StyledProps--main errorText"
             >
-              ce.pageErrorMsg.noFilteredRecommendations
+              ce.pageErrorMsg.noRecommendations
             </p>
           </div>
         </div>
@@ -1923,7 +1923,7 @@ exports[`test cases for Recommendation List Page should be able to render the li
             <p
               class="StyledProps--font StyledProps--main errorText"
             >
-              ce.pageErrorMsg.noFilteredRecommendations
+              ce.pageErrorMsg.noRecommendations
             </p>
           </div>
         </div>

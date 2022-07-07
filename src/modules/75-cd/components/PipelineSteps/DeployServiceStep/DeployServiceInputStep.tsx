@@ -33,15 +33,13 @@ import type { DeployServiceProps, DeployServiceState } from './DeployServiceInte
 import ExperimentalInput from '../K8sServiceSpec/K8sServiceSpecForms/ExperimentalInput'
 import { isEditService } from './DeployServiceUtils'
 import { NewEditServiceModal } from './NewEditServiceModal'
-import DeployServiceEntityInputStep from './DeployServiceEntityInputStep'
 import css from './DeployServiceStep.module.scss'
 
 const DeployServiceInputStep: React.FC<DeployServiceProps & { formik?: any }> = ({
   inputSetData,
   initialValues,
   formik,
-  allowableTypes,
-  customStepProps
+  allowableTypes
 }) => {
   const { getString } = useStrings()
   const { accountId, projectIdentifier, orgIdentifier } = useParams<
@@ -61,16 +59,10 @@ const DeployServiceInputStep: React.FC<DeployServiceProps & { formik?: any }> = 
     error,
     refetch
   } = useGetServiceAccessList({
-    queryParams: { accountIdentifier: accountId, orgIdentifier, projectIdentifier },
-    lazy: true
+    queryParams: { accountIdentifier: accountId, orgIdentifier, projectIdentifier }
   })
 
   const [services, setService] = React.useState<SelectOption[]>([])
-
-  React.useEffect(() => {
-    refetch()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   React.useEffect(() => {
     if (serviceResponse?.data?.length) {
@@ -147,18 +139,7 @@ const DeployServiceInputStep: React.FC<DeployServiceProps & { formik?: any }> = 
     clear()
     showError(getRBACErrorMessage(error), undefined, 'cd.svc.list.error')
   }
-  if (customStepProps?.isNewServiceEntity) {
-    return (
-      <DeployServiceEntityInputStep
-        inputSetData={inputSetData}
-        initialValues={initialValues}
-        formik={formik}
-        allowableTypes={allowableTypes}
-        readonly={!!inputSetData?.readonly}
-        customStepProps={customStepProps}
-      />
-    )
-  }
+
   return (
     <>
       {getMultiTypeFromValue(inputSetData?.template?.serviceRef) === MultiTypeInputType.RUNTIME && (

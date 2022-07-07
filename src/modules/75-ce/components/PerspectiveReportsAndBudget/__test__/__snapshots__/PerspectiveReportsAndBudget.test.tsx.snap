@@ -531,6 +531,7 @@ exports[`test cases for Perspective Create Budgets should be able to open create
                                   autocomplete="off"
                                   class="bp3-input"
                                   name="alertThresholds.0.percentage"
+                                  placeholder="ce.perspectives.budgets.configureAlerts.enterPercent"
                                   type="number"
                                   value=""
                                 />
@@ -541,20 +542,90 @@ exports[`test cases for Perspective Create Budgets should be able to open create
                             class="StyledProps--font StyledProps--main"
                           >
                             <div
-                              class="bp3-input bp3-tag-input tagInput"
+                              class="StyledProps--font StyledProps--main sendAlertTo"
                             >
                               <div
-                                class="bp3-tag-input-values"
+                                class="bp3-popover-wrapper alertChannelsInput Select--main bp3-fill"
                               >
-                                <input
-                                  class="bp3-input-ghost"
-                                  placeholder="ce.perspectives.reports.emailPlaceholder"
-                                  value=""
-                                />
+                                <div
+                                  class="bp3-popover-target"
+                                >
+                                  <div
+                                    class="bp3-input-group"
+                                  >
+                                    <span
+                                      class="bp3-input-left-container"
+                                    >
+                                      <span
+                                        class="bp3-icon StyledProps--main"
+                                        data-icon="email-inline"
+                                      >
+                                        <svg
+                                          height="16"
+                                          viewBox="0 0 10 9"
+                                          width="16"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                          <path
+                                            clip-rule="evenodd"
+                                            d="M.91 0h8.18c.503 0 .91.415.91.926v6.481a.918.918 0 01-.91.926H.91A.918.918 0 010 7.407V.926C0 .415.407 0 .91 0zm0 3.064v4.343H9.09V3.064L5 5.147.91 3.064zm0-1.035L5 4.112 9.091 2.03V.926H.909v1.103z"
+                                            fill="#4F5162"
+                                            fill-rule="evenodd"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </span>
+                                    <input
+                                      autocomplete="off"
+                                      class="bp3-input"
+                                      name="alertThresholds.0.notificationChannel"
+                                      placeholder="- Select -"
+                                      style="padding-right: 0px; padding-left: 0px;"
+                                      type="text"
+                                      value="email"
+                                    />
+                                    <span
+                                      class="bp3-input-action"
+                                    >
+                                      <span
+                                        class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
+                                        icon="chevron-down"
+                                      >
+                                        <svg
+                                          data-icon="chevron-down"
+                                          height="14"
+                                          viewBox="0 0 16 16"
+                                          width="14"
+                                        >
+                                          <desc>
+                                            chevron-down
+                                          </desc>
+                                          <path
+                                            d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                                            fill-rule="evenodd"
+                                          />
+                                        </svg>
+                                      </span>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="bp3-input bp3-tag-input tagInput"
+                              >
+                                <div
+                                  class="bp3-tag-input-values"
+                                >
+                                  <input
+                                    class="bp3-input-ghost"
+                                    placeholder="ce.perspectives.budgets.configureAlerts.emailPlaceholder"
+                                    value=""
+                                  />
+                                </div>
                               </div>
                             </div>
                             <p
-                              class="StyledProps--font StyledProps--main StyledProps--font-variation-form-message-danger"
+                              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-red600 StyledProps--margin-top-small StyledProps--margin-left-small"
                             />
                           </div>
                           <span
@@ -584,7 +655,7 @@ exports[`test cases for Perspective Create Budgets should be able to open create
                         class="StyledProps--font StyledProps--main StyledProps--margin-medium"
                       >
                         <button
-                          class="bp3-button Button--button StyledProps--font StyledProps--main addNewAlertBtn Button--with-current-color Button--without-shadow"
+                          class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--variation Button--variation-secondary"
                           type="button"
                         >
                           <span

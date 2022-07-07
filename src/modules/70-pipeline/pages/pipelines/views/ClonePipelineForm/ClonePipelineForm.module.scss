@@ -31,6 +31,17 @@
   margin-bottom: var(--spacing-4);
 }
 
+.inputWithSpinner {
+  position: relative;
+
+  :global(.bp3-icon[data-icon='steps-spinner']) {
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    transform: translate(10px, -50%);
+  }
+}
+
 .choosePipelineSetupHeader {
   margin-top: var(--spacing-medium) !important;
   margin-bottom: var(--spacing-medium) !important;

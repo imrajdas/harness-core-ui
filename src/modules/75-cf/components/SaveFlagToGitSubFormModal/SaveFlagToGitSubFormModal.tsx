@@ -15,9 +15,15 @@ interface SaveFlagToGitSubFormModalProps {
   title: string
   onSubmit?: () => void
   onClose: () => void
+  hideNameField?: boolean
 }
 
-const SaveFlagToGitSubFormModal = ({ title, onSubmit, onClose }: SaveFlagToGitSubFormModalProps): ReactElement => {
+const SaveFlagToGitSubFormModal = ({
+  title,
+  onSubmit,
+  onClose,
+  hideNameField
+}: SaveFlagToGitSubFormModalProps): ReactElement => {
   const { getString } = useStrings()
 
   return (
@@ -27,7 +33,7 @@ const SaveFlagToGitSubFormModal = ({ title, onSubmit, onClose }: SaveFlagToGitSu
         data-testid="save-flag-to-git-modal-body"
         padding={{ bottom: 'xlarge', left: 'xlarge', right: 'xlarge' }}
       >
-        <SaveFlagToGitSubForm title={title} />
+        <SaveFlagToGitSubForm title={title} hideNameField={hideNameField} />
         <Layout.Horizontal spacing="small" style={{ alignItems: 'center' }} padding={{ top: 'xxlarge' }}>
           <Button
             text={getString('save')}

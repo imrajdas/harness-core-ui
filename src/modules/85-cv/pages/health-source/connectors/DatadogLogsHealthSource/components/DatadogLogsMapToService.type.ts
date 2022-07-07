@@ -11,4 +11,6 @@ import type { DatadogLogsInfo } from '@cv/pages/health-source/connectors/Datadog
 export interface DatadogLogsMapToServiceProps {
   formikProps: FormikProps<DatadogLogsInfo | undefined>
   sourceData: any
+  isTemplate?: boolean
+  expressions?: string[]
 }

@@ -60,10 +60,8 @@ exports[`Validate ChangeCard should render Pager Duty card 1`] = `
       class="StyledProps--font StyledProps--main"
     >
       <p
-        class="StyledProps--font StyledProps--main StyledProps--font-size-medium StyledProps--font-weight-bold StyledProps--color StyledProps--color-grey800"
+        class="StyledProps--font StyledProps--main StyledProps--font-size-normal StyledProps--font-weight-bold StyledProps--color StyledProps--color-grey800"
       >
-        PagerDuty Alert 
-         
         details
       </p>
       <div
@@ -75,7 +73,7 @@ exports[`Validate ChangeCard should render Pager Duty card 1`] = `
           service
         </p>
         <p
-          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+          class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-black100"
         >
           service1
         </p>
@@ -85,7 +83,7 @@ exports[`Validate ChangeCard should render Pager Duty card 1`] = `
           environment
         </p>
         <p
-          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+          class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-black100"
         >
           prod
         </p>
@@ -95,7 +93,7 @@ exports[`Validate ChangeCard should render Pager Duty card 1`] = `
           source
         </p>
         <p
-          class="StyledProps--font StyledProps--main isLink StyledProps--font-size-small"
+          class="StyledProps--font StyledProps--main isLink StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-black100"
         >
           PagerDuty
         </p>
@@ -239,6 +237,89 @@ exports[`Validate ChangeCard should render Pager Duty card 1`] = `
         cv.serviceHealthTrend
       </p>
       <div
+        class="Layout--horizontal StyledProps--main StyledProps--margin-top-medium StyledProps--margin-bottom-medium"
+      >
+        <div
+          class="StyledProps--font StyledProps--main container StyledProps--background-primary1"
+        >
+          <div
+            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--flex StyledProps--padding-left-medium StyledProps--padding-right-medium"
+            style="height: 30px;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-black100"
+            >
+              cv.monitoredServices.monitoredServiceTabs.serviceHealth:
+            </p>
+            <div
+              class="StyledProps--font StyledProps--main StyledProps--flex"
+            >
+              <div
+                class="StyledProps--font StyledProps--main serviceState StyledProps--margin-right-xsmall"
+                style="width: 8px; height: 8px;"
+              />
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-tiny StyledProps--color StyledProps--color-grey700"
+              >
+                cv.monitoredServices.serviceHealth.serviceDependencies.states.unhealthy
+              </p>
+            </div>
+            <div
+              class="StyledProps--font StyledProps--main StyledProps--flex"
+            >
+              <div
+                class="StyledProps--font StyledProps--main serviceState StyledProps--margin-right-xsmall"
+                style="width: 8px; height: 8px;"
+              />
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-tiny StyledProps--color StyledProps--color-grey700"
+              >
+                cv.monitoredServices.serviceHealth.serviceDependencies.states.needsAttention
+              </p>
+            </div>
+            <div
+              class="StyledProps--font StyledProps--main StyledProps--flex"
+            >
+              <div
+                class="StyledProps--font StyledProps--main serviceState StyledProps--margin-right-xsmall"
+                style="width: 8px; height: 8px;"
+              />
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-tiny StyledProps--color StyledProps--color-grey700"
+              >
+                cv.monitoredServices.serviceHealth.serviceDependencies.states.observe
+              </p>
+            </div>
+            <div
+              class="StyledProps--font StyledProps--main StyledProps--flex"
+            >
+              <div
+                class="StyledProps--font StyledProps--main serviceState StyledProps--margin-right-xsmall"
+                style="width: 8px; height: 8px;"
+              />
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-tiny StyledProps--color StyledProps--color-grey700"
+              >
+                cv.monitoredServices.serviceHealth.serviceDependencies.states.healthy
+              </p>
+            </div>
+            <div
+              class="StyledProps--font StyledProps--main StyledProps--flex"
+            >
+              <div
+                class="StyledProps--font StyledProps--main serviceState StyledProps--margin-right-xsmall"
+                style="width: 8px; height: 8px;"
+              />
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-variation-tiny StyledProps--color StyledProps--color-grey700"
+              >
+                na
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
         class="StyledProps--font StyledProps--main main extraMarginForChart"
       >
         <div
@@ -268,80 +349,6 @@ exports[`Validate ChangeCard should render Pager Duty card 1`] = `
         </div>
       </div>
       <div />
-      <div
-        class="StyledProps--font StyledProps--main container StyledProps--background-primary1 StyledProps--margin-top-small"
-      >
-        <div
-          class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--flex StyledProps--padding-left-medium StyledProps--padding-right-medium"
-          style="height: 30px;"
-        >
-          <div
-            class="StyledProps--font StyledProps--main StyledProps--flex"
-          >
-            <div
-              class="StyledProps--font StyledProps--main serviceState StyledProps--margin-right-xsmall"
-              style="width: 8px; height: 8px;"
-            />
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-variation-tiny StyledProps--color StyledProps--color-grey700"
-            >
-              cv.monitoredServices.serviceHealth.serviceDependencies.states.unhealthy
-            </p>
-          </div>
-          <div
-            class="StyledProps--font StyledProps--main StyledProps--flex"
-          >
-            <div
-              class="StyledProps--font StyledProps--main serviceState StyledProps--margin-right-xsmall"
-              style="width: 8px; height: 8px;"
-            />
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-variation-tiny StyledProps--color StyledProps--color-grey700"
-            >
-              cv.monitoredServices.serviceHealth.serviceDependencies.states.needsAttention
-            </p>
-          </div>
-          <div
-            class="StyledProps--font StyledProps--main StyledProps--flex"
-          >
-            <div
-              class="StyledProps--font StyledProps--main serviceState StyledProps--margin-right-xsmall"
-              style="width: 8px; height: 8px;"
-            />
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-variation-tiny StyledProps--color StyledProps--color-grey700"
-            >
-              cv.monitoredServices.serviceHealth.serviceDependencies.states.observe
-            </p>
-          </div>
-          <div
-            class="StyledProps--font StyledProps--main StyledProps--flex"
-          >
-            <div
-              class="StyledProps--font StyledProps--main serviceState StyledProps--margin-right-xsmall"
-              style="width: 8px; height: 8px;"
-            />
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-variation-tiny StyledProps--color StyledProps--color-grey700"
-            >
-              cv.monitoredServices.serviceHealth.serviceDependencies.states.healthy
-            </p>
-          </div>
-          <div
-            class="StyledProps--font StyledProps--main StyledProps--flex"
-          >
-            <div
-              class="StyledProps--font StyledProps--main serviceState StyledProps--margin-right-xsmall"
-              style="width: 8px; height: 8px;"
-            />
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-variation-tiny StyledProps--color StyledProps--color-grey700"
-            >
-              na
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
     <div
       data-testid="SLO-and-errorBudget"

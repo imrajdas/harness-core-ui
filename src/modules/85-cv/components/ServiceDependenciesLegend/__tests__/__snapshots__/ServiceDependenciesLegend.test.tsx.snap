@@ -9,6 +9,11 @@ exports[`ServiceDependenciesLegend Tests should render ServiceDependenciesLegend
       class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--flex StyledProps--padding-left-medium StyledProps--padding-right-medium"
       style="height: 30px;"
     >
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-black100"
+      >
+        cv.monitoredServices.monitoredServiceTabs.serviceHealth:
+      </p>
       <div
         class="StyledProps--font StyledProps--main StyledProps--flex"
       >
@@ -153,6 +158,11 @@ exports[`ServiceDependenciesLegend Tests should render ServiceDependenciesLegend
       class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--flex StyledProps--padding-left-medium StyledProps--padding-right-medium"
       style="height: 30px;"
     >
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-black100"
+      >
+        cv.monitoredServices.monitoredServiceTabs.serviceHealth:
+      </p>
       <div
         class="StyledProps--font StyledProps--main StyledProps--flex"
       >

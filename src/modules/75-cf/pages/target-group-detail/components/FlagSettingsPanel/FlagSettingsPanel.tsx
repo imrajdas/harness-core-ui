@@ -10,12 +10,16 @@ import { useParams } from 'react-router-dom'
 import { PageError, useToaster } from '@harness/uicore'
 import { useStrings } from 'framework/strings'
 import { Feature, Segment, usePatchSegment } from 'services/cf'
-import useRBACError from '@rbac/utils/useRBACError/useRBACError'
+import type { PatchOperation } from 'services/cf'
+import useResponseError from '@cf/hooks/useResponseError'
 import { ContainerSpinner } from '@common/components/ContainerSpinner/ContainerSpinner'
 import { getErrorMessage } from '@cf/utils/CFUtils'
 import { PERCENTAGE_ROLLOUT_VALUE } from '@cf/constants'
 import type { TargetManagementFlagConfigurationPanelFormValues as FormValues } from '@cf/components/TargetManagementFlagConfigurationPanel/types'
 import TargetManagementFlagConfigurationPanel from '@cf/components/TargetManagementFlagConfigurationPanel/TargetManagementFlagConfigurationPanel'
+import { useFFGitSyncContext } from '@cf/contexts/ff-git-sync-context/FFGitSyncContext'
+import { useGovernance } from '@cf/hooks/useGovernance'
+import { AUTO_COMMIT_MESSAGES } from '@cf/constants/GitSyncConstants'
 import useGetTargetGroupFlags from '../../hooks/useGetTargetGroupFlags'
 import { getAddFlagsInstruction, getFlagSettingsInstructions } from './flagSettingsInstructions'
 
@@ -25,10 +29,12 @@ export interface FlagSettingsPanelProps {
 
 const FlagSettingsPanel: FC<FlagSettingsPanelProps> = ({ targetGroup }) => {
   const { getString } = useStrings()
-  const { showSuccess, showError } = useToaster()
-  const { getRBACErrorMessage } = useRBACError()
+  const { showSuccess } = useToaster()
+  const { saveWithGit } = useFFGitSyncContext()
 
   const { accountId: accountIdentifier, orgIdentifier, projectIdentifier } = useParams<Record<string, string>>()
+  const { handleError: handleGovernanceError, isGovernanceError } = useGovernance()
+  const { handleResponseError } = useResponseError()
 
   const {
     data: flags,
@@ -77,6 +83,18 @@ const FlagSettingsPanel: FC<FlagSettingsPanelProps> = ({ targetGroup }) => {
     }
   })
 
+  const handleSave = async (data: PatchOperation): Promise<void> => {
+    try {
+      const response = await patchTargetGroup(data)
+      if (isGovernanceError(response)) {
+        handleGovernanceError(response)
+      }
+      refetch()
+    } catch (e: unknown) {
+      handleResponseError(e)
+    }
+  }
+
   const onChange = useCallback(
     async (values: FormValues) => {
       const instructions = getFlagSettingsInstructions(
@@ -87,23 +105,17 @@ const FlagSettingsPanel: FC<FlagSettingsPanelProps> = ({ targetGroup }) => {
       )
 
       try {
-        await patchTargetGroup({ instructions })
+        saveWithGit({
+          autoCommitMessage: AUTO_COMMIT_MESSAGES.UPDATED_FLAG_VARIATIONS,
+          patchInstructions: { instructions },
+          onSave: handleSave
+        })
         showSuccess(getString('cf.segmentDetail.updateSuccessful'))
-        refetch()
-      } catch (e) {
-        showError(getRBACErrorMessage(e))
+      } catch (e: unknown) {
+        handleResponseError(e)
       }
     },
-    [
-      targetGroup.identifier,
-      initialValues,
-      flags,
-      patchTargetGroup,
-      showSuccess,
-      refetch,
-      showError,
-      getRBACErrorMessage
-    ]
+    [targetGroup.identifier, initialValues, flags, saveWithGit, showSuccess, getString]
   )
 
   const onAdd = useCallback(
@@ -111,14 +123,17 @@ const FlagSettingsPanel: FC<FlagSettingsPanelProps> = ({ targetGroup }) => {
       const instructions = [getAddFlagsInstruction(values.flags)]
 
       try {
-        await patchTargetGroup({ instructions })
+        saveWithGit({
+          autoCommitMessage: AUTO_COMMIT_MESSAGES.ADDED_FLAG_TARGETS,
+          patchInstructions: { instructions },
+          onSave: handleSave
+        })
         showSuccess(getString('cf.segmentDetail.flagsAddedSuccessfully'))
-        refetch()
-      } catch (e) {
-        showError(getRBACErrorMessage(e))
+      } catch (e: unknown) {
+        handleResponseError(e)
       }
     },
-    [getRBACErrorMessage, patchTargetGroup, refetch, showError, showSuccess, targetGroup.identifier]
+    [saveWithGit, refetch, showSuccess, handleSave]
   )
 
   if (error) {

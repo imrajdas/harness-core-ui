@@ -1,0 +1,51 @@
+{
+  "status": "SUCCESS",
+  "data": {
+    "totalPages": 1,
+    "totalItems": 2,
+    "pageItemCount": 2,
+    "pageSize": 10,
+    "content": [
+      {
+        "environment": {
+          "accountId": "dummy",
+          "orgIdentifier": "dummy",
+          "projectIdentifier": "dummy",
+          "identifier": "Env_2",
+          "name": "Env 2",
+          "description": "Test",
+          "color": "#0063F7",
+          "type": "Production",
+          "deleted": false,
+          "tags": {},
+          "yaml": "environment:\n  orgIdentifier: \"dummy\"\n  projectIdentifier: \"dummy\"\n  identifier: \"Env_2\"\n  tags: {}\n  name: \"Env 2\"\n  description: \"Test\"\n  type: \"Production\"\n"
+        },
+        "createdAt": 1653638342021,
+        "lastModifiedAt": 1653638342021
+      },
+      {
+        "environment": {
+          "accountId": "dummy",
+          "orgIdentifier": "dummy",
+          "projectIdentifier": "dummy",
+          "identifier": "env",
+          "name": "env",
+          "description": "",
+          "color": "#0063F7",
+          "type": "PreProduction",
+          "deleted": false,
+          "tags": {
+            "test": ""
+          },
+          "yaml": "environment:\n    name: env\n    identifier: env\n    description: \"\"\n    tags:\n        test: \"\"\n    type: PreProduction\n    orgIdentifier: dummy\n    projectIdentifier: dummy\n    variables:\n        - name: test\n          type: String\n          value: test\n    serviceOverrides:\n        - serviceRef: servicebhavya\n          variables:\n              - name: vara\n                type: String\n                value: a\n        - serviceRef: servicecontext\n          variables:\n              - name: variableA\n                type: String\n                value: asafv\n              - name: variableB\n                type: String\n                value: adas\n"
+        },
+        "createdAt": 1652799971400,
+        "lastModifiedAt": 1653460224698
+      }
+    ],
+    "pageIndex": 0,
+    "empty": false
+  },
+  "metaData": null,
+  "correlationId": "93e541d6-f1b0-4c56-a943-b47e8e97ab33"
+}

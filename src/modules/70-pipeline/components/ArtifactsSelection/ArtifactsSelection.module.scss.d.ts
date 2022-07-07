@@ -17,7 +17,6 @@ declare const styles: {
   readonly crossButton: string
   readonly editForm: string
   readonly listHeader: string
-  readonly locationField: string
   readonly modal: string
   readonly noWrap: string
   readonly paddingVertical: string

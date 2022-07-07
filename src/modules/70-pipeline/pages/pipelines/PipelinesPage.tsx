@@ -289,7 +289,6 @@ function PipelinesPage({ mockData }: CDPipelinesPageProps): React.ReactElement {
   const defaultQueryParamsForPiplines = {
     accountIdentifier: accountId,
     projectIdentifier,
-    module,
     orgIdentifier,
     searchTerm,
     page,

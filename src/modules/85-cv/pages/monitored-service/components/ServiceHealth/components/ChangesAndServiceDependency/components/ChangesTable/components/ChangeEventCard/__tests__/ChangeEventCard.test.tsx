@@ -66,7 +66,7 @@ describe('Validate ChangeCard', () => {
     await waitFor(() => expect(getByText(payload.resource.metadata.status)).toBeTruthy())
 
     // Card details title
-    await waitFor(() => expect(getByText(`PagerDuty Alert details`)).toBeTruthy())
+    await waitFor(() => expect(getByText('details')).toBeTruthy())
 
     expect(container).toMatchSnapshot()
   })
@@ -113,7 +113,7 @@ describe('Validate ChangeCard', () => {
       fireEvent.click(btn!)
     })
     // Card details title
-    await waitFor(() => expect(getByText(`HarnessCDNextGen Deployment details`)).toBeTruthy())
+    await waitFor(() => expect(getByText('details')).toBeTruthy())
   })
   test('should render Deployment Harness NextGen card without metadata', async () => {
     jest.spyOn(cvService, 'useGetChangeEventDetail').mockImplementation(
@@ -149,7 +149,7 @@ describe('Validate ChangeCard', () => {
     )
 
     // Card details title
-    await waitFor(() => expect(getByText(`HarnessCDNextGen Deployment details`)).toBeInTheDocument())
+    await waitFor(() => expect(getByText('details')).toBeInTheDocument())
   })
 
   test('should render Deployment HarnessCD card', async () => {
@@ -166,7 +166,7 @@ describe('Validate ChangeCard', () => {
       data: mockedHealthScoreData,
       refetch: jest.fn() as unknown
     } as UseGetReturn<any, any, any, any>)
-    const { getByText } = render(
+    const { getByText, getAllByText } = render(
       <TestWrapper>
         <ChangeEventCard activityId={'dasda'} />
       </TestWrapper>
@@ -176,7 +176,7 @@ describe('Validate ChangeCard', () => {
     await waitFor(() => expect(getByText(HarnessCDMockData.resource.name)).toBeTruthy())
 
     // Card details title
-    await waitFor(() => expect(getByText(`HarnessCD Deployment details`)).toBeTruthy())
+    await waitFor(() => expect(getAllByText('details')).toHaveLength(2))
   })
 
   test('should render in loading state', async () => {

@@ -16,6 +16,9 @@ import { stagesCollection } from '@pipeline/components/PipelineStudio/Stages/Sta
 import { StageType } from '@pipeline/utils/stageHelpers'
 // eslint-disable-next-line no-restricted-imports
 import { getStageAttributes, getStageEditorImplementation } from '@cd/components/PipelineStudio/DeployStage'
+import factory from '@pipeline/components/PipelineSteps/PipelineStepFactory'
+// eslint-disable-next-line no-restricted-imports
+import { HttpStep } from '@cd/components/PipelineSteps/HttpStep/HttpStep'
 
 function getString(key: StringKeys): StringKeys {
   return key
@@ -24,6 +27,7 @@ function getString(key: StringKeys): StringKeys {
 describe('TemplatesPageUtils tests', () => {
   beforeAll(() => {
     stagesCollection.registerStageFactory(StageType.DEPLOY, getStageAttributes, getStageEditorImplementation)
+    factory.registerStep(new HttpStep())
   })
   test('Test getIconForTemplate method', () => {
     expect(getIconForTemplate(getString, stepTemplateMock)).toEqual('http-step')

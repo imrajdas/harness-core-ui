@@ -50,7 +50,8 @@ describe('Connectors list', () => {
     cy.contains('span', 'Google Cloud Provider').should('be.visible')
 
     // Overview step
-    cy.contains('p', 'Overview').should('be.visible')
+
+    cy.get('[data-cy="connector-overview-heading"]').should('be.visible')
     cy.fillName('testConnector')
     cy.get('span[data-testid="description-edit"]').should('be.visible')
     cy.get('span[data-testid="description-edit"]').click()

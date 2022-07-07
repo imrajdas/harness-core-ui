@@ -17,8 +17,12 @@ import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { TemplateContext } from '@templates-library/components/TemplateStudio/TemplateContext/TemplateContext'
+import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
+import { FeatureFlag } from '@common/featureFlags'
 import factory from '@pipeline/components/PipelineSteps/PipelineStepFactory'
 import { useVariablesExpression } from '@pipeline/components/PipelineStudio/PiplineHooks/useVariablesExpression'
+import { useGetTemplateSchema } from 'services/template-ng'
+import { getScopeFromDTO } from '@common/components/EntityReference/EntityReference'
 import { YamlBuilderMemo } from '@common/components/YAMLBuilder/YamlBuilder'
 import css from './TemplateYamlView.module.scss'
 
@@ -45,6 +49,7 @@ const TemplateYamlView: React.FC = () => {
   const [yamlFileName, setYamlFileName] = React.useState<string>(defaultFileName)
   const { getString } = useStrings()
   const { expressions } = useVariablesExpression()
+  const isTemplateSchemaValidationEnabled = useFeatureFlag(FeatureFlag.TEMPLATE_SCHEMA_VALIDATION)
   const expressionRef = React.useRef<string[]>([])
   expressionRef.current = expressions
 
@@ -54,10 +59,12 @@ const TemplateYamlView: React.FC = () => {
       Interval = window.setInterval(() => {
         try {
           const templateFromYaml = parse(yamlHandler.getLatestYaml())?.template
+          const schemaValidationErrorMap = yamlHandler.getYAMLValidationErrorMap()
+          const areSchemaValidationErrorsAbsent = !(schemaValidationErrorMap && schemaValidationErrorMap.size > 0)
           if (
             !isEqual(template, templateFromYaml) &&
-            !isEmpty(templateFromYaml) // Remove this line when template yaml validation is ready and uncomment below line
-            // yamlHandler.getYAMLValidationErrorMap()?.size === 0 // Don't update for Invalid Yaml
+            !isEmpty(templateFromYaml) &&
+            areSchemaValidationErrorsAbsent // Don't update for Invalid Yaml
           ) {
             updateTemplate(templateFromYaml)
           }
@@ -83,6 +90,18 @@ const TemplateYamlView: React.FC = () => {
     setYamlFileName(template.identifier + '.yaml')
   }, [template.identifier])
 
+  const { data: templateSchema } = useGetTemplateSchema({
+    queryParams: {
+      templateEntityType: template.type,
+      entityType: template.spec?.type,
+      projectIdentifier,
+      orgIdentifier,
+      accountIdentifier: accountId,
+      scope: getScopeFromDTO({ accountIdentifier: accountId, orgIdentifier, projectIdentifier })
+    },
+    lazy: !isTemplateSchemaValidationEnabled
+  })
+
   return (
     <div className={css.yamlBuilder}>
       <>
@@ -96,6 +115,7 @@ const TemplateYamlView: React.FC = () => {
             existingYaml={!valid ? templateYaml : undefined}
             bind={setYamlHandler}
             showSnippetSection={false}
+            schema={templateSchema?.data}
             onExpressionTrigger={() => {
               return Promise.resolve(
                 expressionRef.current.map(item => ({ label: item, insertText: `${item}>`, kind: 1 }))

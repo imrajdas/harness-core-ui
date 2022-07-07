@@ -45,6 +45,13 @@ interface GitSyncFormMeta {
   gitSyncValidationSchema: ObjectSchema<Record<string, unknown> | undefined>
 }
 
+interface SaveWithGitArgs {
+  featureFlagName?: string
+  featureFlagIdentifier?: string
+  autoCommitMessage: string
+  patchInstructions: PatchOperation
+  onSave: (reqData: PatchOperation) => Promise<void>
+}
 export interface UseGitSync {
   gitRepoDetails?: GitRepo
   isAutoCommitEnabled: boolean
@@ -53,13 +60,7 @@ export interface UseGitSync {
   isGitSyncActionsEnabled: boolean
   gitSyncLoading: boolean
   apiError: string
-  saveWithGit: (
-    featureFlagName: string,
-    featureFlagIdentifier: string,
-    autoCommitMessage: string,
-    formData: PatchOperation,
-    onSave: (requestData: PatchOperation) => Promise<void>
-  ) => void
+  saveWithGit: (reqData: SaveWithGitArgs) => void
   handleAutoCommit: (newAutoCommitValue: boolean) => Promise<void>
   handleGitPause: (newGitPauseValue: boolean) => Promise<void>
   getGitSyncFormMeta: (autoCommitMessage?: string) => GitSyncFormMeta
@@ -74,7 +75,6 @@ export const useGitSync = (): UseGitSync => {
     accountId: accountIdentifier,
     orgIdentifier
   } = useParams<ProjectPathProps & ModulePathParams>()
-
   const { getString } = useStrings()
 
   const getGitRepo = useGetGitRepo({
@@ -154,8 +154,8 @@ export const useGitSync = (): UseGitSync => {
   }
 
   const entityDataRef = useRef<{
-    featureFlagIdentifier: string
-    featureFlagName: string
+    featureFlagIdentifier?: string
+    featureFlagName?: string
     instructions: PatchInstruction
     onSave?: (reqData: PatchOperation) => Promise<void>
   }>({
@@ -273,17 +273,17 @@ export const useGitSync = (): UseGitSync => {
     await getGitRepo.refetch()
   }
 
-  const saveWithGit = async (
-    featureFlagName: string,
-    featureFlagIdentifier: string,
-    autoCommitMessage: string,
-    formData: PatchOperation,
-    onSave: (reqData: PatchOperation) => Promise<void>
-  ): Promise<void> => {
+  const saveWithGit = async ({
+    featureFlagName,
+    featureFlagIdentifier,
+    autoCommitMessage,
+    patchInstructions,
+    onSave
+  }: SaveWithGitArgs): Promise<void> => {
     entityDataRef.current = {
       featureFlagIdentifier,
       featureFlagName,
-      instructions: formData.instructions,
+      instructions: patchInstructions.instructions,
       onSave
     }
 
@@ -294,7 +294,7 @@ export const useGitSync = (): UseGitSync => {
         showGitSyncModal()
       }
     } else {
-      onSave(formData)
+      onSave(patchInstructions)
     }
   }
 

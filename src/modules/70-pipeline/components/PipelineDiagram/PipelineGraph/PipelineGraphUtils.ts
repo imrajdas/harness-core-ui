@@ -390,6 +390,7 @@ const transformStageData = (
           graphType,
           ...stage,
           isInComplete: isCustomGeneratedString(stage.stage.identifier) || hasErrors,
+          loopingStrategyEnabled: !!stage.stage?.strategy,
           conditionalExecutionEnabled: stage.stage.when
             ? stage.stage.when?.pipelineStatus !== 'Success' || !!stage.stage.when?.condition?.trim()
             : false,
@@ -418,6 +419,7 @@ const transformStageData = (
           graphType,
           ...stage,
           isInComplete: isCustomGeneratedString(first?.stage?.identifier as string) || hasErrors,
+          loopingStrategyEnabled: !!first.stage?.strategy,
           conditionalExecutionEnabled: first?.stage?.when
             ? first?.stage?.when?.pipelineStatus !== 'Success' || !!first?.stage.when?.condition?.trim()
             : false,
@@ -445,6 +447,7 @@ const transformStageData = (
           graphType,
           ...stage,
           isInComplete: isCustomGeneratedString(stage.identifier) || hasErrors,
+          loopingStrategyEnabled: !!stage?.strategy,
           conditionalExecutionEnabled: stage.when
             ? stage.when?.pipelineStatus !== 'Success' || !!stage.when?.condition?.trim()
             : false,

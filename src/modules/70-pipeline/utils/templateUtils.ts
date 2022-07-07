@@ -31,21 +31,8 @@ import {
   GetTemplateListQueryParams,
   ResponsePageTemplateSummaryResponse
 } from 'services/template-ng'
-import type { TemplateType } from '@common/interfaces/RouteInterfaces'
 
 export const TEMPLATE_INPUT_PATH = 'template.templateInputs'
-
-export interface GetTemplateResponse {
-  template: TemplateSummaryResponse
-  isCopied: boolean
-}
-
-export interface GetTemplateProps {
-  templateType: TemplateType
-  selectedChildType?: string
-  allChildTypes?: string[]
-  selectedTemplate?: TemplateSummaryResponse
-}
 
 export const getTemplateNameWithLabel = (template?: TemplateSummaryResponse): string => {
   return `${template?.name} (${defaultTo(template?.versionLabel, 'Stable')})`

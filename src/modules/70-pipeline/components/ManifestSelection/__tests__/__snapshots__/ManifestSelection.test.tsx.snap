@@ -138,11 +138,7 @@ exports[`ManifestSelection tests delete manifest list works correctly 1`] = `
                   class="StyledProps--font Text--lineclamp StyledProps--main"
                   style="--text-line-clamp: 1; width: 200px;"
                 >
-                  <span
-                    class="noWrap"
-                  >
-                    path
-                  </span>
+                  path
                 </p>
               </span>
               <span>
@@ -477,11 +473,7 @@ exports[`ManifestSelection tests edit manifest list works correctly 1`] = `
                   class="StyledProps--font Text--lineclamp StyledProps--main"
                   style="--text-line-clamp: 1; width: 200px;"
                 >
-                  <span
-                    class="noWrap"
-                  >
-                    test
-                  </span>
+                  test
                 </p>
               </span>
               <span>
@@ -817,11 +809,7 @@ exports[`ManifestSelection tests renders add Manifest option without crashing 1`
                     class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1; width: 200px;"
                   >
-                    <span
-                      class="noWrap"
-                    >
-                      1, 2
-                    </span>
+                    1, 2
                   </p>
                 </span>
                 <span>
@@ -988,11 +976,7 @@ exports[`ManifestSelection tests renders add Manifest option without crashing 1`
                     class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1; width: 200px;"
                   >
-                    <span
-                      class="noWrap"
-                    >
-                      a1, b
-                    </span>
+                    a1, b
                   </p>
                 </span>
                 <span>
@@ -1159,11 +1143,7 @@ exports[`ManifestSelection tests renders add Manifest option without crashing 1`
                     class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1; width: 200px;"
                   >
-                    <span
-                      class="noWrap"
-                    >
-                      &lt;+input&gt;
-                    </span>
+                    &lt;+input&gt;
                   </p>
                 </span>
                 <span>
@@ -1330,11 +1310,7 @@ exports[`ManifestSelection tests renders add Manifest option without crashing 1`
                     class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1; width: 200px;"
                   >
-                    <span
-                      class="noWrap"
-                    >
-                      p1
-                    </span>
+                    p1
                   </p>
                 </span>
                 <span>
@@ -1566,11 +1542,7 @@ exports[`ManifestSelection tests renders manifest selection when overrideSetIden
                     class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1; width: 200px;"
                   >
-                    <span
-                      class="noWrap"
-                    >
-                      1, 2
-                    </span>
+                    1, 2
                   </p>
                 </span>
                 <span>
@@ -1737,11 +1709,7 @@ exports[`ManifestSelection tests renders manifest selection when overrideSetIden
                     class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1; width: 200px;"
                   >
-                    <span
-                      class="noWrap"
-                    >
-                      a1, b
-                    </span>
+                    a1, b
                   </p>
                 </span>
                 <span>
@@ -1908,11 +1876,7 @@ exports[`ManifestSelection tests renders manifest selection when overrideSetIden
                     class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1; width: 200px;"
                   >
-                    <span
-                      class="noWrap"
-                    >
-                      &lt;+input&gt;
-                    </span>
+                    &lt;+input&gt;
                   </p>
                 </span>
                 <span>
@@ -2079,11 +2043,7 @@ exports[`ManifestSelection tests renders manifest selection when overrideSetIden
                     class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1; width: 200px;"
                   >
-                    <span
-                      class="noWrap"
-                    >
-                      p1
-                    </span>
+                    p1
                   </p>
                 </span>
                 <span>

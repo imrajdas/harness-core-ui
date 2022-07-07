@@ -28,7 +28,6 @@ import { useQueryParams } from '@common/hooks'
 import { useLicenseStore } from 'framework/LicenseStore/LicenseStoreContext'
 import { FeatureFlag } from '@common/featureFlags'
 import type { ModuleLicenseType } from '@common/constants/SubscriptionTypes'
-import { useTemplateSelector } from '@templates-library/hooks/useTemplateSelector'
 import css from './CDPipelineStudio.module.scss'
 
 const CDPipelineStudio: React.FC = (): JSX.Element => {
@@ -77,7 +76,6 @@ const CDPipelineStudio: React.FC = (): JSX.Element => {
   const isSTOEnabled = useFeatureFlag(FeatureFlag.SECURITY_STAGE)
   const isCustomStageEnabled = useFeatureFlag(FeatureFlag.NG_CUSTOM_STAGE)
   const { getString } = useStrings()
-  const { getTemplate } = useTemplateSelector()
 
   return (
     <PipelineProvider
@@ -98,7 +96,6 @@ const CDPipelineStudio: React.FC = (): JSX.Element => {
       }
       stepsFactory={factory}
       runPipeline={handleRunPipeline}
-      getTemplate={getTemplate}
     >
       <PipelineStudio
         className={css.container}

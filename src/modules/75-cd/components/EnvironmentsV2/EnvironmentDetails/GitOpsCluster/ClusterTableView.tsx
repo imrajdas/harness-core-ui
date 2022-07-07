@@ -8,12 +8,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import {
   Button,
+  Color,
   Container,
   Intent,
   Layout,
   PageSpinner,
   TableV2,
   useConfirmationDialog,
+  Text,
   useToaster
 } from '@harness/uicore'
 import React from 'react'
@@ -36,6 +38,21 @@ interface ClusterTableViewProps {
   envRef: string
 }
 
+const RenderClusterRef: Renderer<CellProps<ClusterResponse>> = ({ row }) => {
+  const data = row.original.clusterRef as any
+  const { getString } = useStrings()
+  return (
+    <Layout.Vertical>
+      <Layout.Horizontal flex={{ justifyContent: 'flex-start' }} spacing="small" margin={{ bottom: 'small' }}>
+        <Text color={Color.BLACK}>{data}</Text>
+      </Layout.Horizontal>
+
+      <Text color={Color.GREY_500} font={{ size: 'small' }} lineClamp={1}>
+        {getString('common.ID')}: {data}
+      </Text>
+    </Layout.Vertical>
+  )
+}
 const RenderColumnMenu: Renderer<CellProps<ClusterResponse>> = ({ row, column }) => {
   const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
   const data = row.original.clusterRef as any
@@ -120,7 +137,8 @@ const ClusterTableView = (props: ClusterTableViewProps): React.ReactElement => {
         Header: 'Clusters',
         id: 'clusterRef',
         accessor: 'clusterRef',
-        width: '75%'
+        width: '75%',
+        Cell: RenderClusterRef
       },
       {
         Header: 'Last Updated At',

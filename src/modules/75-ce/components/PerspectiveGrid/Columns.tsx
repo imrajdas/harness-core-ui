@@ -10,6 +10,7 @@ import type { CellProps } from 'react-table'
 import moment from 'moment'
 import { CircularPercentageChart, Text } from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
+import cx from 'classnames'
 import formatCost from '@ce/utils/formatCost'
 import {
   QlceViewFieldInputInput,
@@ -159,12 +160,14 @@ const GRID_EFFICIENCY_SCORE = {
 // Cell Renderers
 const RenderNameCell = ({ row }: CellProps<GridData>): ReactNode => {
   const { legendColor, name } = row.original
+  const columns = row.cells.length
+
   return (
     <div className={css.nameCell}>
       <span className={css.legendColorCtn}>
         <span style={{ background: legendColor }} className={css.legendColor}></span>
       </span>
-      <Text lineClamp={1} className={css.name}>
+      <Text lineClamp={1} className={cx({ [css.name]: columns > DEFAULT_COLS.length })}>
         {name}
       </Text>
     </div>

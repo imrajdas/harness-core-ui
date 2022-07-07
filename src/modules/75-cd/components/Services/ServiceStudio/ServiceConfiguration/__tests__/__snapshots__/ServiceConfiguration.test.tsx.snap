@@ -951,7 +951,7 @@ exports[`Service Configuration renders correctly 1`] = `
                       <input
                         disabled=""
                         type="checkbox"
-                        value="winrm"
+                        value="WinRm"
                       />
                     </label>
                   </div>

@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Validate MonitoredServiceInputsetVariables   should render MonitoredServiceInputsetVariables with empty variables 1`] = `
+<div>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <div
+      class="bp3-card bp3-elevation-0 Card--card cardStyle"
+    >
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-normal"
+      >
+        common.variables
+      </p>
+      <div
+        class="StyledProps--font StyledProps--main"
+        style="height: 100%;"
+      >
+        <div
+          class="Layout--vertical Layout--layout-spacing-large StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+          style="height: 100%;"
+        >
+          <img
+            src="test-file-stub"
+            width="117px"
+          />
+          <p
+            class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey700"
+          >
+            No Runtime inputs variables available
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Validate MonitoredServiceInputsetVariables   should render MonitoredServiceInputsetVariables with variables 1`] = `
+<div>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <div
+      class="bp3-card bp3-elevation-0 Card--card cardStyle"
+    >
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-normal"
+      >
+        common.variables
+      </p>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+          for="variables.0.value"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="wrapperComponent_variables.0.value"
+          >
+            variable 1
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+          >
+            <div
+              class="TextInput--main MultiTypeInput--input"
+            >
+              <div
+                class="bp3-input-group bp3-disabled"
+              >
+                <input
+                  class="bp3-input"
+                  disabled=""
+                  name="variables.0.value"
+                  placeholder="<+input>"
+                  type="text"
+                  value="<+input>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bp3-form-group"
+      >
+        <label
+          class="bp3-label"
+          for="variables.1.value"
+        >
+          <span
+            class="Tooltip--acenter"
+            data-tooltip-id="wrapperComponent_variables.1.value"
+          >
+            variable 2
+          </span>
+           
+          <span
+            class="bp3-text-muted"
+          />
+        </label>
+        <div
+          class="bp3-form-content"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+          >
+            <div
+              class="TextInput--main MultiTypeInput--input"
+            >
+              <div
+                class="bp3-input-group bp3-disabled"
+              >
+                <input
+                  class="bp3-input"
+                  disabled=""
+                  name="variables.1.value"
+                  placeholder="<+input>"
+                  type="text"
+                  value="<+input>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Validate MonitoredServiceInputsetVariables   should render MonitoredServiceInputsetVariables without variables 1`] = `
+<div>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <div
+      class="bp3-card bp3-elevation-0 Card--card cardStyle"
+    >
+      <p
+        class="StyledProps--font StyledProps--main StyledProps--font-normal"
+      >
+        common.variables
+      </p>
+      <div
+        class="StyledProps--font StyledProps--main"
+        style="height: 100%;"
+      >
+        <div
+          class="Layout--vertical Layout--layout-spacing-large StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+          style="height: 100%;"
+        >
+          <img
+            src="test-file-stub"
+            width="117px"
+          />
+          <p
+            class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey700"
+          >
+            No Runtime inputs variables available
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

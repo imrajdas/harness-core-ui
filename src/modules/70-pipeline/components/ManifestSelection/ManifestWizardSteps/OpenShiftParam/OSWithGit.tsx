@@ -82,7 +82,7 @@ function OpenShiftParamWithGit({
         : prevStepData?.url
       : null
 
-  const getInitialValues = React.useCallback((): OpenShiftParamDataType => {
+  const getInitialValues = (): OpenShiftParamDataType => {
     const specValues = get(initialValues, 'spec.store.spec', null)
 
     if (specValues) {
@@ -105,7 +105,7 @@ function OpenShiftParamWithGit({
       paths: [{ path: '', uuid: uuid('', nameSpace()) }],
       repoName: getRepositoryName(prevStepData, initialValues)
     }
-  }, [])
+  }
 
   const submitFormData = (formData: OpenShiftParamDataType & { store?: string; connectorRef?: string }): void => {
     const manifestObj: ManifestConfigWrapper = {
@@ -284,6 +284,7 @@ function OpenShiftParamWithGit({
                     pathLabel={getString('pipelineSteps.paths')}
                     fieldPath="paths"
                     placeholder={getString('pipeline.manifestType.pathPlaceholder')}
+                    defaultValue={{ path: '', uuid: uuid('', nameSpace()) }}
                   />
                 </div>
                 {getMultiTypeFromValue(formik.values.paths) === MultiTypeInputType.RUNTIME && (

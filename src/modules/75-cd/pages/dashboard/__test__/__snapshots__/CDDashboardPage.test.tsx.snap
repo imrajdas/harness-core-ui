@@ -508,7 +508,7 @@ exports[`CDDashboardPage snapshot test should render properly 1`] = `
           class="StyledProps--font StyledProps--main content"
         >
           <div
-            class="bp3-card bp3-elevation-0 Card--card repositoryCard hoverService"
+            class="bp3-card bp3-elevation-0 Card--card cardStyle lastExecutionStatus hoverService"
           >
             <div
               class="content"

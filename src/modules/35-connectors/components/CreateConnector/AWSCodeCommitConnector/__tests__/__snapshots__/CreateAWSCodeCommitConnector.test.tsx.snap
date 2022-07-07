@@ -192,6 +192,7 @@ exports[`CreateAWSCodeCommitConnector matches snapshot and goes through steps co
       >
         <p
           class="StyledProps--font StyledProps--main StyledProps--font-variation-h3"
+          data-cy="connector-overview-heading"
         >
           overview
         </p>

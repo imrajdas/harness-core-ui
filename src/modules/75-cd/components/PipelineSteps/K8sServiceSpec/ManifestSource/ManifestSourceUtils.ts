@@ -14,12 +14,15 @@ import type { K8SDirectServiceStep } from '@pipeline/factories/ArtifactTriggerIn
 import type { ManifestTypes } from '@pipeline/components/ManifestSelection/ManifestInterface'
 import type { ManifestAttributes } from 'services/cd-ng'
 
+export const DefaultParam = 'defaultParam'
 export const fromPipelineInputTriggerTab = (formik: FormikValues, fromTrigger = false): boolean => {
   return (
     formik?.values?.triggerType === TriggerTypes.MANIFEST && !isEmpty(formik?.values?.selectedArtifact) && !fromTrigger
   )
 }
-
+export function isNewServiceEntity(path: string): boolean {
+  return path?.includes('service.serviceInputs.serviceDefinition')
+}
 export const isSelectedStage = (stageIdentifier: string, formikStageId: string): boolean =>
   stageIdentifier === formikStageId
 export const isSelectedManifest = (selectedManifest: any, identifier: string): boolean =>
@@ -53,10 +56,18 @@ export const shouldDisplayRepositoryName = (item: any): boolean => {
   )
 }
 
-export const getConnectorRef = (initialConnectorRefData: string, formikConnectorRefValue: string): string => {
-  return getMultiTypeFromValue(initialConnectorRefData) !== MultiTypeInputType.RUNTIME
-    ? initialConnectorRefData
-    : formikConnectorRefValue
+export const getDefaultQueryParam = (initialQueryData: string, formikQueryDataValue: string): string => {
+  //initialConnectorRefData is empty in case of new service entity, so we return defaultParam string to make tag as enabled
+  if (isEmpty(initialQueryData)) {
+    return DefaultParam
+  }
+  return getMultiTypeFromValue(initialQueryData) !== MultiTypeInputType.RUNTIME
+    ? initialQueryData
+    : formikQueryDataValue
+}
+
+export function getFinalQueryParamData(initialParam: string): string | undefined {
+  return initialParam !== DefaultParam ? initialParam : undefined
 }
 
 export const getManifestTriggerSetValues = (
@@ -101,4 +112,7 @@ export const getManifestTriggerSetValues = (
       }
     }
   }
+}
+export function getFqnPath(stageIdentifier: string, manifestPath: string): string {
+  return `pipeline.stages.${stageIdentifier}.spec.service.serviceInputs.serviceDefinition.spec.${manifestPath}.spec.store.spec.bucketName`
 }

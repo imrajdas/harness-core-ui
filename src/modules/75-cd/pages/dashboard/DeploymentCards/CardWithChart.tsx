@@ -14,9 +14,17 @@ import HighchartsReact from 'highcharts-react-official'
 import Highcharts from 'highcharts'
 import { defaultTo, merge } from 'lodash-es'
 import { Duration, TimeAgoPopover, UserLabel } from '@common/exports'
-import { useStrings } from 'framework/strings'
-import { diffStartAndEndTime, roundNumber } from '@pipeline/components/Dashboards/shared'
+import { String, useStrings } from 'framework/strings'
+import {
+  ActiveStatus,
+  diffStartAndEndTime,
+  FailedStatus,
+  mapToExecutionStatus,
+  roundNumber
+} from '@pipeline/components/Dashboards/shared'
+import { ExecutionStatusEnum } from '@pipeline/utils/statusHelpers'
 import { defaultChartOptions } from '@pipeline/components/Dashboards/BuildCards/RepositoryCard'
+import { mapTriggerTypeToStringID } from '@pipeline/utils/triggerUtils'
 import styles from './CardWithChart.module.scss'
 
 interface BuildCount {
@@ -41,6 +49,20 @@ export interface ServiceCardWithChartProps {
   countList?: BuildInfo[]
   onClick?: () => void
   className?: string
+  lastExecutionStatus?: string
+  profileUrl?: string
+}
+
+function mapStatusToColor(status?: string): string {
+  const mappedStatus = mapToExecutionStatus(status)
+  if (mappedStatus === ExecutionStatusEnum.Success) {
+    return 'var(--green-400)'
+  } else if (Object.prototype.hasOwnProperty.call(FailedStatus, mappedStatus!)) {
+    return 'var(--red-400)'
+  } else if (Object.prototype.hasOwnProperty.call(ActiveStatus, mappedStatus!)) {
+    return 'var(--orange-400)'
+  }
+  return 'var(--grey-0)'
 }
 
 export default function ServiceCardWithChart({
@@ -56,7 +78,9 @@ export default function ServiceCardWithChart({
   seriesName = 'Builds',
   countList,
   onClick,
-  className
+  className,
+  lastExecutionStatus,
+  profileUrl
 }: ServiceCardWithChartProps) {
   const { getString } = useStrings()
   const [chartOptions, setChartOptions] = useState(defaultChartOptions)
@@ -88,7 +112,11 @@ export default function ServiceCardWithChart({
 
   const rateColor = successRateDiff >= 0 ? 'var(--ci-color-green-500)' : 'var(--ci-color-red-500)'
   return (
-    <Card className={cx(styles.repositoryCard, className)} onClick={onClick}>
+    <Card
+      className={cx(styles.cardStyle, styles.lastExecutionStatus, className)}
+      onClick={onClick}
+      style={{ borderLeftColor: mapStatusToColor(lastExecutionStatus) }}
+    >
       <div className={styles.content}>
         <Text className={styles.title} lineClamp={1}>
           {title}
@@ -126,9 +154,10 @@ export default function ServiceCardWithChart({
       </div>
       <Layout.Horizontal className={styles.cardFooter} spacing="small">
         <Layout.Horizontal className={styles.avatarWrapper} spacing="small">
-          {username && ( //todo: decision pending on whether to keepit or not
+          {username && (
             <UserLabel
               name={username}
+              profilePictureUrl={profileUrl}
               textProps={{
                 lineClamp: 1,
                 font: { variation: FontVariation.TINY },
@@ -138,16 +167,11 @@ export default function ServiceCardWithChart({
               className={styles.userLabel}
             />
           )}
-          {message ? ( //todo: decision pending on whether to keepit or not
-            <Text
-              font={{ variation: FontVariation.TINY }}
-              lineClamp={2}
-              color={Color.GREY_900}
-              className={styles.message}
-            >
-              {message}
+          {message && (
+            <Text font={{ variation: FontVariation.TINY }}>
+              <String className={styles.message} stringID={mapTriggerTypeToStringID(message)} />
             </Text>
-          ) : null}
+          )}
         </Layout.Horizontal>
         <Layout.Horizontal flex={{ justifyContent: 'end' }} className={styles.times} spacing="xsmall">
           {startTime ? (

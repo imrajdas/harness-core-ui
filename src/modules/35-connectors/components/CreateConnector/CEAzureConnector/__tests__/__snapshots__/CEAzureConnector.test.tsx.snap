@@ -2705,6 +2705,7 @@ exports[`Create Azure connector Wizard should render overview step 1`] = `
             >
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-variation-h3 StyledProps--margin-bottom-large"
+                data-cy="azure-overview"
               >
                 connectors.ceAzure.overview.heading
               </p>
@@ -3171,6 +3172,7 @@ exports[`Create Azure connector Wizard should throw an error when connectors alr
             >
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-variation-h3 StyledProps--margin-bottom-large"
+                data-cy="azure-overview"
               >
                 connectors.ceAzure.overview.heading
               </p>
@@ -3528,7 +3530,7 @@ exports[`Create Azure connector Wizard should throw an error when connectors alr
                             connectors.ceAzure.overview.editConnector
                              
                             <a
-                              href="#"
+                              href="/account/dummy/settings/resources/connectors/undefined"
                             />
                              
                             connectors.ceAzure.overview.required

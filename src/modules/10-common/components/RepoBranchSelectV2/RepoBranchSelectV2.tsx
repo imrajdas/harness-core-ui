@@ -134,7 +134,6 @@ const RepoBranchSelectV2: React.FC<RepoBranchSelectProps> = props => {
       orgIdentifier,
       projectIdentifier,
       repoName,
-      page: 0,
       size: 100
     },
     debounce: 500,

@@ -98,6 +98,7 @@ const EnvironmentDetails: React.FC = () => {
           toolbar={
             hasKeys && (
               <AddKeyDialog
+                apiKeys={keys?.apiKeys}
                 environment={environment}
                 primary
                 onCreate={(newKey: ApiKey, hideModal) => {

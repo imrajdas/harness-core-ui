@@ -31,7 +31,7 @@
       "@rbac/*": ["modules/20-rbac/*"],
       "@governance/*": ["modules/25-governance/*"],
       "@sto/*": ["modules/27-sto/*"],
-      "@filestore/*": ["modules/28-filestore/*"],
+      "@filestore/*": ["modules/31-filestore/*"],
       "@et/*": ["modules/28-et/*"],
       "@auth-settings/*": ["modules/33-auth-settings/*"],
       "@secrets/*": ["modules/30-secrets/*"],

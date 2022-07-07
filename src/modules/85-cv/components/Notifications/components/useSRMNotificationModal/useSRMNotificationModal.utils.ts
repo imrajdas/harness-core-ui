@@ -30,8 +30,9 @@ export const createNotificationsPayload = (
 }
 
 export function getNotificationConditions(conditions?: NotificationConditionRow[]): NotificationRuleCondition[] {
+  const validConditions = conditions?.filter(el => el?.condition !== null)
   return (
-    conditions?.map(el => {
+    validConditions?.map(el => {
       return {
         type: el?.condition?.value,
         spec: {

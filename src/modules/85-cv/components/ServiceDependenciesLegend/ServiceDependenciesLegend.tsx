@@ -10,9 +10,9 @@ import { Container, Icon, Text, Layout } from '@wings-software/uicore'
 import { FontVariation, Color, Spacing } from '@harness/design-system'
 import type { MarginProps } from '@harness/design-system'
 import { useStrings } from 'framework/strings'
+import type { StringsMap } from 'stringTypes'
 import { getServicesStates, getServicesTypes } from './ServiceDependenciesLegend.utils'
 import css from './ServiceDependenciesLegend.module.scss'
-
 interface ServiceDependenciesLegendProps {
   hideServiceTypeLegend?: boolean
   margin?: Spacing | MarginProps
@@ -26,6 +26,9 @@ const ServiceDependenciesLegend: React.FC<ServiceDependenciesLegendProps> = ({ h
   return (
     <Container background={Color.PRIMARY_1} width="fit-content" className={css.container} margin={margin}>
       <Layout.Horizontal flex spacing="medium" height={30} padding={{ left: 'medium', right: 'medium' }}>
+        <Text font={{ size: 'small', weight: 'semi-bold' }} color={Color.BLACK_100}>
+          {`${getString('cv.monitoredServices.monitoredServiceTabs.serviceHealth' as keyof StringsMap)}:`}
+        </Text>
         {servicesStates.map(state => (
           <Container flex key={state.labelId}>
             <Container

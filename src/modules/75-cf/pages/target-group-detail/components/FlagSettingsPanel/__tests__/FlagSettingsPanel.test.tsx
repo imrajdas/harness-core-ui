@@ -6,34 +6,101 @@
  */
 
 import React from 'react'
-import { getByPlaceholderText, render, RenderResult, screen, waitFor } from '@testing-library/react'
+import { act, getByPlaceholderText, render, RenderResult, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { cloneDeep } from 'lodash-es'
+import * as uuid from 'uuid'
 import * as cfServices from 'services/cf'
+import type { Feature, Features } from 'services/cf'
 import { TestWrapper } from '@common/utils/testUtils'
 import { mockFeatures, mockTargetGroup } from '@cf/pages/target-group-detail/__tests__/mocks'
+import mockTarget from '@cf/utils/testData/data/mockTarget'
+import { FFGitSyncProvider } from '@cf/contexts/ff-git-sync-context/FFGitSyncContext'
 import { CF_DEFAULT_PAGE_SIZE } from '@cf/utils/CFUtils'
+import { GIT_SYNC_ERROR_CODE } from '@cf/hooks/useGitSync'
+import * as useFeatureFlagMock from '@common/hooks/useFeatureFlag'
 import FlagSettingsPanel, { FlagSettingsPanelProps } from '../FlagSettingsPanel'
 import * as useGetTargetGroupFlagsHook from '../../../hooks/useGetTargetGroupFlags'
+
+const mockFlags = [
+  {
+    identifier: 'f1',
+    name: 'Flag 1',
+    variations: [
+      { name: 'Variation 1', identifier: 'v1' },
+      { name: 'Variation 2', identifier: 'v2' },
+      { identifier: 'v3' }
+    ],
+    envProperties: {
+      variationMap: [{ variation: 'v1', targets: [{ identifier: mockTarget.identifier, name: mockTarget.name }] }]
+    }
+  }
+] as Feature[]
+
+const useGetAllFeaturesMock = jest.spyOn(cfServices, 'useGetAllFeatures')
+beforeAll(() => {
+  jest.spyOn(useFeatureFlagMock, 'useFeatureFlag').mockReturnValue(true)
+  jest.spyOn(uuid, 'v4').mockReturnValue('UUID')
+
+  useGetAllFeaturesMock.mockReturnValue({
+    data: mockResponse(),
+    loading: false,
+    error: null,
+    refetch: jest.fn()
+  } as any)
+})
 
 jest.mock('@common/components/ContainerSpinner/ContainerSpinner', () => ({
   ContainerSpinner: () => <span data-testid="container-spinner">Container Spinner</span>
 }))
 
+jest.mock('uuid')
+
+const mockResponse = (flags: Feature[] = mockFlags): Features =>
+  ({
+    features: flags,
+    pageIndex: 0,
+    pageSize: CF_DEFAULT_PAGE_SIZE,
+    itemCount: flags.length,
+    pageCount: Math.ceil(flags.length / CF_DEFAULT_PAGE_SIZE),
+    version: 1
+  } as Features)
+
 const renderComponent = (props: Partial<FlagSettingsPanelProps> = {}): RenderResult =>
   render(
-    <TestWrapper>
-      <FlagSettingsPanel targetGroup={mockTargetGroup} {...props} />
+    <TestWrapper
+      path="/account/:accountId/cf/orgs/:orgIdentifier/projects/:projectIdentifier/feature-flags"
+      pathParams={{ accountId: 'dummy', orgIdentifier: 'dummy', projectIdentifier: 'dummy' }}
+    >
+      <FFGitSyncProvider>
+        <FlagSettingsPanel targetGroup={mockTargetGroup} {...props} />
+      </FFGitSyncProvider>
     </TestWrapper>
   )
 
 describe('FlagSettingsPanel', () => {
   const useGetTargetGroupFlagsMock = jest.spyOn(useGetTargetGroupFlagsHook, 'default')
   const patchSegmentMock = jest.fn()
-  const usePatchSegmentMock = jest.spyOn(cfServices, 'usePatchSegment')
+  const patchGitRepoMock = jest.fn()
+
+  beforeAll(() => {
+    jest.spyOn(useFeatureFlagMock, 'useFeatureFlag').mockReturnValue(true)
+    jest.spyOn(uuid, 'v4').mockReturnValue('UUID')
+  })
 
   beforeEach(() => {
     jest.clearAllMocks()
+
+    jest.spyOn(cfServices, 'useGetGitRepo').mockReturnValue({
+      loading: false,
+      refetch: jest.fn(),
+      data: {
+        repoDetails: {
+          enabled: false
+        },
+        repoSet: false
+      }
+    } as any)
 
     useGetTargetGroupFlagsMock.mockReturnValue({
       data: mockFeatures,
@@ -42,8 +109,23 @@ describe('FlagSettingsPanel', () => {
       refetch: jest.fn()
     } as any)
 
-    usePatchSegmentMock.mockReturnValue({
-      mutate: patchSegmentMock
+    jest.spyOn(cfServices, 'usePatchSegment').mockReturnValue({
+      mutate: patchSegmentMock,
+      loading: false,
+      refetch: jest.fn()
+    } as any)
+
+    jest.spyOn(cfServices, 'useGetAllFeatures').mockReturnValue({
+      data: mockResponse(),
+      loading: false,
+      error: null,
+      refetch: jest.fn()
+    } as any)
+
+    jest.spyOn(cfServices, 'usePatchGitRepo').mockReturnValue({
+      mutate: patchGitRepoMock,
+      loading: false,
+      refetch: jest.fn()
     } as any)
   })
 
@@ -111,18 +193,14 @@ describe('FlagSettingsPanel', () => {
     })
   })
 
-  test('it should display an error and not refetch if the patchTarget hook fails', async () => {
+  test('it should display an error and not refetch if the patchSegment hook fails', async () => {
     const message = 'ERROR MESSAGE'
     const refetchMock = jest.fn()
 
-    useGetTargetGroupFlagsMock.mockReturnValue({
-      data: mockFeatures,
-      loading: false,
-      error: null,
-      refetch: refetchMock
+    patchSegmentMock.mockRejectedValue({
+      status: GIT_SYNC_ERROR_CODE,
+      data: { message }
     })
-
-    patchSegmentMock.mockRejectedValue({ message })
 
     renderComponent()
 
@@ -166,7 +244,14 @@ describe('FlagSettingsPanel', () => {
 
       renderComponent()
 
-      userEvent.click(screen.getByRole('button', { name: 'cf.targetManagementFlagConfiguration.addFlag' }))
+      useGetAllFeaturesMock.mockReturnValue({
+        data: mockResponse([newFlag]),
+        loading: false,
+        error: null,
+        refetch: jest.fn()
+      } as any)
+
+      userEvent.click(screen.getAllByText('cf.targetManagementFlagConfiguration.addFlag')[0])
 
       await waitFor(() => expect(screen.getByText('cf.segmentDetail.addFlagToTargetGroup')).toBeInTheDocument())
 
@@ -189,9 +274,10 @@ describe('FlagSettingsPanel', () => {
         expect(refetchMock).not.toHaveBeenCalled()
       })
 
-      userEvent.click(submitBtn)
+      await act(async () => {
+        userEvent.click(submitBtn)
+      })
     }
-
     test('it should call patchTargetGroup and refetch when the add flags form is submitted', async () => {
       patchSegmentMock.mockResolvedValue(undefined)
       const refetchMock = jest.fn()

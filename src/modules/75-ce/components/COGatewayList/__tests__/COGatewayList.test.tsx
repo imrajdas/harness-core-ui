@@ -68,18 +68,26 @@ const mockedCumulativeSavingsData = {
   total_savings: 0
 }
 
-const mockedSavingsData = [
-  {
+const mockedSavingsData = {
+  actual_savings: 10,
+  savings_percentage: 50,
+  usage_date: Date.now(),
+  potential_cost: 120,
+  actual_hours: 48,
+  idle_hours: 30
+}
+
+const mockedSavingsOfServiceData = { response: mockedSavingsData }
+const mockedSavingsOfServiceData2 = {
+  response: {
     actual_savings: 10,
-    savings_percentage: 50,
+    savings_percentage: 32,
     usage_date: Date.now(),
     potential_cost: 120,
     actual_hours: 48,
     idle_hours: 30
   }
-]
-
-const mockedSavingsOfServiceData = { response: mockedSavingsData }
+}
 
 const mockedConnectorData = {
   data: {
@@ -141,10 +149,16 @@ jest.mock('services/lw', () => ({
     data: null,
     loading: false
   })),
-  useSavingsOfService: jest.fn().mockImplementation(() => ({
-    data: mockedSavingsOfServiceData,
-    loading: false
-  })),
+  useSavingsOfService: jest
+    .fn()
+    .mockImplementationOnce(() => ({
+      data: mockedSavingsOfServiceData2,
+      loading: false
+    }))
+    .mockImplementation(() => ({
+      data: mockedSavingsOfServiceData,
+      loading: false
+    })),
   useGetServiceDiagnostics: jest.fn().mockImplementation(() => ({
     data: null
   })),
@@ -221,6 +235,14 @@ describe('Test COGatewayList', () => {
   })
 
   test('clicking on a row should open info drawer', async () => {
+    const data = { response: [] }
+    jest.spyOn(lwServices, 'useSavingsOfService').mockImplementation(
+      () =>
+        ({
+          loading: false,
+          data
+        } as any)
+    )
     const { container } = render(
       <TestWrapper path={testpath} pathParams={testparams}>
         <COGatewayList></COGatewayList>

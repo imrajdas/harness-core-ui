@@ -36,64 +36,72 @@
       }
     }
   }
-  .instanceTable {
-    width: 100%;
-    div[class*='TableV2--body'] {
-      overflow: auto;
-      max-height: 455px;
-    }
-    div[role='row'] {
-      box-shadow: none;
-      border: 0;
-      padding: 0;
-      margin: 0;
-    }
-    .paddedContainer {
-      padding: var(--spacing-small);
-    }
-    .envContainer {
-      padding: var(--spacing-small);
-      display: flex;
-      background-color: var(--lime-400) !important;
-      width: 84px;
-      height: var(--spacing-xlarge);
-      border-radius: var(--spacing-2);
-      align-items: center;
-      justify-content: center;
-    }
-    .environmentRow {
-      font-style: normal;
-      max-width: var(--spacing-12);
-    }
-    .overflow {
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .seeMore {
-      text-align: center;
-      cursor: pointer;
-      padding: var(--spacing-tiny) 0;
-    }
-    .instanceCount {
-      padding: var(--spacing-xsmall);
-      border-radius: 4px;
-      text-align: center;
-    }
-    .hexContainer {
-      flex-wrap: wrap;
-      .hex {
-        flex-shrink: 0;
-        cursor: pointer;
-        -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-        clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-      }
-    }
+  .moreDetails {
+    position: absolute;
+    right: 40px;
+    margin-top: 16px;
+    cursor: pointer;
   }
   .hover {
     cursor: pointer;
   }
   .activeServiceInstancesEmpty {
     flex-shrink: 1 !important;
+  }
+}
+
+.instanceTable {
+  width: 100%;
+  div[class*='TableV2--body'] {
+    overflow: auto;
+    max-height: 455px;
+  }
+  div[role='row'] {
+    box-shadow: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  .paddedContainer {
+    width: fit-content;
+    padding: var(--spacing-small) 0;
+  }
+  .envContainer {
+    padding: var(--spacing-small);
+    display: flex;
+    background-color: var(--lime-400) !important;
+    width: 84px;
+    height: var(--spacing-xlarge);
+    border-radius: var(--spacing-2);
+    align-items: center;
+    justify-content: center;
+  }
+  .environmentRow {
+    font-style: normal;
+    max-width: var(--spacing-12);
+  }
+  .overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .seeMore {
+    text-align: center;
+    cursor: pointer;
+    padding: var(--spacing-tiny) 0;
+  }
+  .countBadge {
+    padding: var(--spacing-xsmall) var(--spacing-small);
+    border-radius: 4px;
+    text-align: center;
+  }
+  .hexContainer {
+    flex-wrap: wrap;
+    .hex {
+      flex-shrink: 0;
+      cursor: pointer;
+      -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+      clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+    }
   }
 }
 

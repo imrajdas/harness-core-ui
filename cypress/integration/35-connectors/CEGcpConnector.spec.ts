@@ -66,12 +66,11 @@ describe('CE GCP Connector', () => {
     cy.contains('span', 'Create a Connector').should('be.visible')
     cy.contains('span', 'Create a Connector').click()
 
-    cy.contains('span', 'Cloud Costs').should('be.visible')
     cy.get('[data-cy="Cloud Costs_GCP"]').click()
     cy.contains('span', 'GCP Connector').should('be.visible')
 
     // Overview step
-    cy.contains('p', 'Overview').should('be.visible')
+    cy.get('[data-cy="gcp-overview"]').should('be.visible')
     cy.fillName('testConnector')
     cy.fillField('projectId', 'durable-circle-282815')
     cy.get('span[data-testid="description-edit"]').should('be.visible')

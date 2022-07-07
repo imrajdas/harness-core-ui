@@ -6,8 +6,8 @@
  */
 
 import { FormikErrors, yupToFormErrors } from 'formik'
-import { getMultiTypeFromValue, MultiTypeInputType } from '@harness/uicore'
-import { isEmpty, has, set, reduce, isObject, memoize, isBoolean, get } from 'lodash-es'
+import { getMultiTypeFromValue, MultiTypeInputType, RUNTIME_INPUT_VALUE } from '@harness/uicore'
+import { isEmpty, has, set, isBoolean, get } from 'lodash-es'
 import * as Yup from 'yup'
 import type { K8sDirectInfraYaml } from 'services/ci'
 import type { DeploymentStageConfig, Infrastructure } from 'services/cd-ng'
@@ -25,6 +25,7 @@ import type {
 import { ServiceDeploymentType } from '@pipeline/utils/stageHelpers'
 import { getPrCloneStrategyOptions } from '@pipeline/utils/constants'
 import { CodebaseTypes, isCloneCodebaseEnabledAtLeastOneStage } from '@pipeline/utils/CIUtils'
+import type { DeployStageConfig, InfraStructureDefinitionYaml } from '@pipeline/utils/DeployStageInterface'
 import factory from '../PipelineSteps/PipelineStepFactory'
 import { StepType } from '../PipelineSteps/PipelineStepInterface'
 // eslint-disable-next-line no-restricted-imports
@@ -231,7 +232,45 @@ export const validateStage = ({
       }
     }
 
-    // TODO: errors
+    if (stage.type === 'Deployment' && (templateStageConfig as DeployStageConfig)?.environment) {
+      const step = factory.getStep(StepType.DeployInfrastructure)
+      const errorsResponse = step?.validateInputSet({
+        data: stageConfig,
+        template: templateStageConfig as DeployStageConfig,
+        getString,
+        viewType
+      })
+
+      if (!isEmpty(errorsResponse)) {
+        set(errors, 'spec.environment', errorsResponse)
+      }
+
+      const infrastructureDefinitions = (stageConfig as DeployStageConfig).environment?.infrastructureDefinitions
+      if (
+        infrastructureDefinitions &&
+        ((templateStageConfig as DeployStageConfig).environment?.infrastructureDefinitions as unknown as string) !==
+          RUNTIME_INPUT_VALUE
+      ) {
+        infrastructureDefinitions.forEach((infrastructureDefinition: InfraStructureDefinitionYaml, index: number) => {
+          const infrastructureStep = factory.getStep(infrastructureDefinition.inputs?.type as unknown as string)
+          const infrastructureErrorsResponse = infrastructureStep?.validateInputSet({
+            data: infrastructureDefinition.inputs?.spec,
+            template: (templateStageConfig as DeployStageConfig).environment?.infrastructureDefinitions?.[index].inputs
+              ?.spec,
+            getString,
+            viewType
+          })
+
+          if (!isEmpty(infrastructureErrorsResponse)) {
+            set(
+              errors,
+              `spec.environment.infrastructureDefinitions[${index}].inputs.spec`,
+              infrastructureErrorsResponse
+            )
+          }
+        })
+      }
+    }
 
     if (stage.type === 'Deployment' && templateStageConfig?.infrastructure?.environmentRef) {
       const step = factory.getStep(StepType.DeployEnvironment)
@@ -654,41 +693,6 @@ export const validatePipeline = ({
     return errors
   }
 }
-
-const getErrorsFlatten = memoize((errors: any): string[] => {
-  return reduce(
-    errors,
-    (result: string[], value: any) => {
-      if (typeof value === 'string') {
-        result.push(value)
-      } else if (isObject(value)) {
-        return result.concat(getErrorsFlatten(value as any))
-      }
-
-      return result
-    },
-    []
-  )
-})
-
-export const getErrorsList = memoize((errors: any): { errorStrings: string[]; errorCount: number } => {
-  const errorList = getErrorsFlatten(errors)
-  const errorCountMap: { [key: string]: number } = {}
-  errorList.forEach(error => {
-    if (errorCountMap[error]) {
-      errorCountMap[error]++
-    } else {
-      errorCountMap[error] = 1
-    }
-  })
-  const mapEntries = Object.entries(errorCountMap)
-  const errorStrings = mapEntries.map(([key, count]) => `${key}  (${count})`)
-  let errorCount = 0
-  mapEntries.forEach(([_unused, count]) => {
-    errorCount += count
-  })
-  return { errorStrings, errorCount }
-})
 
 export const validateCICodebaseConfiguration = ({ pipeline, getString }: Partial<ValidatePipelineProps>): string => {
   const shouldValidateCICodebase = isCloneCodebaseEnabledAtLeastOneStage(pipeline)

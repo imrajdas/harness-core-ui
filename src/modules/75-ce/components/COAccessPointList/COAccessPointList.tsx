@@ -54,8 +54,7 @@ function NameCell(tableProps: CellProps<AccessPoint>): JSX.Element {
       </Container>
       <Layout.Horizontal spacing={'medium'}>
         <TextWithToolTip
-          iconSize={12}
-          errors={tableProps.row.original.metadata?.error ? [{ error: tableProps.row.original.metadata?.error }] : []}
+          errors={tableProps.row.original.status_msg ? [{ error: tableProps.row.original.status_msg }] : []}
           status={
             tableProps.row.original.status === 'errored' ? textWithToolTipStatus.ERROR : textWithToolTipStatus.SUCCESS
           }

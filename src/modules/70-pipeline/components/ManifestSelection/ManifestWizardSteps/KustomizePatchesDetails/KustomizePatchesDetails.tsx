@@ -272,7 +272,7 @@ function KustomizePatchDetails({
     handleSubmit(manifestObj)
   }
 
-  const getInitialValues = React.useCallback((): KustomizePatchDataType => {
+  const getInitialValues = (): KustomizePatchDataType => {
     const specValues = get(initialValues, 'spec.store.spec', null)
 
     if (specValues) {
@@ -297,7 +297,7 @@ function KustomizePatchDetails({
       gitFetchType: 'Branch',
       paths: [{ path: '', id: uuid('', nameSpace()) }]
     }
-  }, [])
+  }
   const defaultValueToReset = [{ path: '', uuid: uuid('', nameSpace()) }]
 
   return (

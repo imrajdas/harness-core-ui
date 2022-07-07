@@ -8,9 +8,8 @@
 import React from 'react'
 import { act, fireEvent, render } from '@testing-library/react'
 import { TestWrapper } from '@common/utils/testUtils'
-import { useTemplateSelector } from '@templates-library/hooks/useTemplateSelector'
-import { TemplateSelectorContext } from '@templates-library/components/TemplateSelectorContext/TemplateSelectorContext'
-import { templateSelectorContextMock } from '@templates-library/components/TemplateSelectorContext/stateMocks'
+import { templateSelectorContextMock } from 'framework/Templates/TemplateSelectorContext/stateMocks'
+import { useTemplateSelector } from 'framework/Templates/TemplateSelectorContext/useTemplateSelector'
 
 function Wrapped(): React.ReactElement {
   const { getTemplate } = useTemplateSelector()
@@ -24,11 +23,9 @@ function Wrapped(): React.ReactElement {
 describe('useTemplateSelector Test', () => {
   test('should work as expected', async () => {
     const { getByText } = render(
-      <TemplateSelectorContext.Provider value={templateSelectorContextMock}>
-        <TestWrapper>
-          <Wrapped />
-        </TestWrapper>
-      </TemplateSelectorContext.Provider>
+      <TestWrapper defaultTemplateSelectorValues={templateSelectorContextMock}>
+        <Wrapped />
+      </TestWrapper>
     )
 
     const getTemplateBtn = getByText('Get Template')

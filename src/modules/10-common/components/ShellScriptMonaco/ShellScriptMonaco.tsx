@@ -57,6 +57,7 @@ export function ShellScriptMonaco(props: ConnectedShellScriptMonacoProps): React
         .map(label => ({
           label,
           insertText: label + '>',
+          documentation: `<+${label}}>`,
           kind: 13
         }))
 

@@ -12,6 +12,9 @@ common:
   totalCount: 'Total: {{ count }}'
   emissionUnitHTML: '{{value}} kg CO<sub>2</sub>'
   refresh: '{{$.common.refresh}}'
+  expand: 'Expand'
+  collapse: 'Collapse'
+  disabled: 'disabled'
 allRegions: 'All Regions'
 allClusters: 'All Clusters'
 enforcementMessage:
@@ -455,10 +458,10 @@ co:
     totalSpend: 'TOTAL SPEND'
     dryRunSpend: 'POTENTIAL SPEND'
   rulesTableHeaders:
-    name: '{{$.name}}'
+    name: 'Rule name'
     idleTime: 'IDLE TIME'
     fulfilment: 'COMPUTE TYPE'
-    mangedResources: 'RESOURCES MANAGED BY THE RULE'
+    mangedResources: 'RESOURCES MANAGED'
     savings: 'Cumulative Savings'
     lastActivity: 'LAST ACTIVITY'
     status: 'RULE STATUS'
@@ -471,6 +474,27 @@ co:
   filters:
     resourceTypeLabelWithExample: 'Resource Type (ECS, K8s, RDS, etc.)'
     namespaceLabel: 'Namespaces (kubernetes only)'
+  ruleTypes:
+    k8s: 'K8s workload'
+    ec2: 'EC2 instance(s)'
+    ecs: 'ECS service'
+    rds: 'RDS cluster'
+    asg: 'Auto Scaling group'
+    gcpVm: 'Compute Engine VM(s)'
+    ig: 'Instance group'
+  resourcesManagedDescription:
+    k8s: 'No. of Pods in the worload'
+    ec2: 'No. of EC2 VMs'
+    ecs: 'No. of Tasks in the ECS service'
+    rds: 'No. of RDS instances'
+    asg: 'No. of EC2 VMs in the ASG'
+    gcpVm: 'No. of Compute Engine VMs'
+    azureVm: 'No. of Azure VMs'
+  ruleState:
+    running: 'running'
+    stopped: 'Stopped'
+    warmingUp: 'Warming up'
+    coolingDown: 'Cooling down'
 
 learnMore: Learn more about Cloud Cost Management
 ceTrialHomePage:
@@ -778,6 +802,7 @@ perspectives:
     recipientLabel: Send report to
     searchTimezonePlaceholder: Search Timezone
     reportDeletedTxt: 'Report {{ name }} deleted'
+    perspectiveReport: Perspective Report
   recommendations:
     viewText: '{{ $.common.viewText }}'
     recommendationCountTxt: '{{ count }} recommendation(s) saving upto'
@@ -801,6 +826,7 @@ perspectives:
     sendAlerts: Send alerts at
     actualSpend: Actual spend
     forecastedCost: Forecasted cost
+    perspectiveBudgets: Perspective Budget
     defineTarget:
       title: Define Target
       text: Budgets are created on Perspectives. If you do not have a Perspective of the resources you would like to budget, create a new Perspective and then proceed to set a budget.
@@ -833,6 +859,8 @@ perspectives:
       exceeds: exceeds
       percent: '% of Budget'
       createAlert: '+ add new alert'
+      enterPercent: Enter %
+      emailPlaceholder: Enter email IDs/email groups/Slack webhook url
   folders:
     customFolders: '{{ $.dashboards.homePage.folders }}'
     newFolder: New folder
@@ -1097,3 +1125,4 @@ businessMapping:
     createdBy: Created By
     lastEdit: Last Edit
     unallocated: Unallocated
+  costCategory: Cost Category

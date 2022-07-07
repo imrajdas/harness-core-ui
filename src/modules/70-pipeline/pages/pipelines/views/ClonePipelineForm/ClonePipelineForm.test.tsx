@@ -6,20 +6,14 @@
  */
 
 import React from 'react'
-import {
-  render,
-  queryByAttribute,
-  fireEvent,
-  waitFor,
-  findByText as findByTextGlobal,
-  act
-} from '@testing-library/react'
+import { render, queryByAttribute, waitFor, findByText as findByTextGlobal } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { useToaster } from '@harness/uicore'
 import { TestWrapper, CurrentLocation } from '@common/utils/testUtils'
 import routes from '@common/RouteDefinitions'
 import type { PipelineType, ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { useClonePipeline } from 'services/pipeline-ng'
-import { useGetProjectAggregateDTOList } from 'services/cd-ng'
+import { useGetProjectAggregateDTOList, useGetOrganizationList } from 'services/cd-ng'
 
 import { ClonePipelineForm, ClonePipelineFormProps } from './ClonePipelineForm'
 
@@ -52,28 +46,8 @@ const PATH_PARAMS: PipelineType<ProjectPathProps> = {
 const FORM_ID = 'clone-pipeline-form'
 
 jest.mock('services/cd-ng', () => ({
-  useGetOrganizationList: jest.fn().mockReturnValue({
-    data: {
-      data: {
-        content: [
-          { organization: { name: 'Test Org 1', identifier: 'TEST_ORG1' } },
-          { organization: { name: 'Test Org 2', identifier: 'TEST_ORG2' } }
-        ]
-      }
-    },
-    loading: false
-  }),
-  useGetProjectAggregateDTOList: jest.fn().mockReturnValue({
-    data: {
-      data: {
-        content: [
-          { projectResponse: { project: { name: 'Test Project 1', identifier: 'TEST_PROJECT1' } } },
-          { projectResponse: { project: { name: 'Test Project 2', identifier: 'TEST_PROJECT2' } } }
-        ]
-      }
-    },
-    loading: false
-  }),
+  useGetOrganizationList: jest.fn(),
+  useGetProjectAggregateDTOList: jest.fn(),
   useGetConnector: jest.fn().mockReturnValue({
     data: {},
     refetch: jest.fn()
@@ -93,6 +67,30 @@ jest.mock('services/pipeline-ng', () => ({
 }))
 
 describe('<ClonePipelineForm /> tests', () => {
+  beforeEach(() => {
+    ;(useGetProjectAggregateDTOList as jest.Mock).mockImplementation().mockReturnValue({
+      data: {
+        data: {
+          content: [
+            { projectResponse: { project: { name: 'Test Project 1', identifier: 'TEST_PROJECT1' } } },
+            { projectResponse: { project: { name: 'Test Project 2', identifier: 'TEST_PROJECT2' } } }
+          ]
+        }
+      },
+      loading: false
+    })
+    ;(useGetOrganizationList as jest.Mock).mockImplementation().mockReturnValue({
+      data: {
+        data: {
+          content: [
+            { organization: { name: 'Test Org 1', identifier: 'TEST_ORG1' } },
+            { organization: { name: 'Test Org 2', identifier: 'TEST_ORG2' } }
+          ]
+        }
+      },
+      loading: false
+    })
+  })
   describe('isGitSimplificationEnabled = false', () => {
     test('snapshot test', async () => {
       const { findByTestId } = render(
@@ -117,6 +115,26 @@ describe('<ClonePipelineForm /> tests', () => {
       expect(description.value).toBe(originalPipeline.description)
     })
 
+    test('org and proj loading', async () => {
+      ;(useGetProjectAggregateDTOList as jest.Mock).mockImplementation(() => ({
+        data: {},
+        loading: true
+      }))
+      ;(useGetOrganizationList as jest.Mock).mockImplementation(() => ({
+        data: {},
+        loading: true
+      }))
+      const { findByTestId } = render(
+        <TestWrapper path={TEST_PATH} pathParams={PATH_PARAMS as any}>
+          <ClonePipelineForm originalPipeline={originalPipeline} onClose={jest.fn()} isOpen />
+        </TestWrapper>
+      )
+
+      const form = await findByTestId(FORM_ID)
+      expect(form.querySelectorAll('[data-icon="steps-spinner"]').length).toBe(2)
+      expect(form).toMatchSnapshot()
+    })
+
     test('submit flow', async () => {
       const clonePipeline = jest.fn()
       ;(useClonePipeline as jest.Mock).mockImplementation().mockReturnValue({
@@ -131,9 +149,7 @@ describe('<ClonePipelineForm /> tests', () => {
 
       const clone = await findByTestId('clone')
 
-      act(() => {
-        fireEvent.click(clone)
-      })
+      userEvent.click(clone)
 
       await waitFor(() =>
         expect(clonePipeline).toHaveBeenLastCalledWith(
@@ -195,18 +211,34 @@ describe('<ClonePipelineForm /> tests', () => {
       )
 
       const clone = await findByTestId('clone')
-
-      act(() => {
-        fireEvent.click(clone)
-      })
+      userEvent.click(clone)
 
       await waitFor(() => expect(showError).toHaveBeenLastCalledWith(err_msg))
     })
 
+    test('handle case where current project is not present in the list', async () => {
+      const projectNotInList = { name: 'Test Project 3', identifier: 'TEST_PROJECT3', orgIdentifier: 'TEST_ORG1' }
+      const { findByTestId } = render(
+        <TestWrapper
+          path={TEST_PATH}
+          pathParams={{ ...PATH_PARAMS, projectIdentifier: projectNotInList.identifier } as any}
+          defaultAppStoreValues={{
+            selectedProject: projectNotInList
+          }}
+        >
+          <ClonePipelineForm originalPipeline={originalPipeline} onClose={jest.fn()} isOpen />
+          <CurrentLocation />
+        </TestWrapper>
+      )
+
+      const form = await findByTestId(FORM_ID)
+      const proj = queryByAttribute('name', form, 'destinationConfig.projectIdentifier') as HTMLInputElement
+
+      expect(proj.value).toBe('Test Project 3')
+    })
+
     test('new projects are fetched, when org is changed', async () => {
-      const refetch = jest.fn()
       ;(useGetProjectAggregateDTOList as jest.Mock).mockImplementation().mockReturnValue({
-        refetch,
         data: {
           data: {
             content: [
@@ -227,9 +259,7 @@ describe('<ClonePipelineForm /> tests', () => {
       const form = await findByTestId(FORM_ID)
       const org = queryByAttribute('name', form, 'destinationConfig.orgIdentifier') as HTMLInputElement
 
-      act(() => {
-        fireEvent.click(org.parentElement!.querySelector('.bp3-icon')!)
-      })
+      userEvent.click(org.parentElement!.querySelector('.bp3-icon')!)
 
       await waitFor(() => {
         expect(document.querySelector('ul.bp3-menu')).toBeTruthy()
@@ -237,12 +267,13 @@ describe('<ClonePipelineForm /> tests', () => {
 
       const item = await findByTextGlobal(document.body, 'Test Org 2')
 
-      act(() => {
-        fireEvent.click(item)
-      })
+      userEvent.click(item)
 
       await waitFor(() =>
-        expect(refetch).toHaveBeenLastCalledWith({
+        expect(useGetProjectAggregateDTOList).toHaveBeenLastCalledWith({
+          debounce: 400,
+          lazy: false,
+          searchTerm: undefined,
           queryParams: {
             accountIdentifier: 'TEST_ACCOUNT1',
             orgIdentifier: 'TEST_ORG2'
@@ -369,7 +400,7 @@ describe('<ClonePipelineForm /> tests', () => {
 
       expect(getCardTick(inlineStore)).toBeInTheDocument()
 
-      fireEvent.click(remoteStore)
+      userEvent.click(remoteStore)
 
       const remoteStore2 = await findByText('common.git.remoteStoreLabel')
 
@@ -403,9 +434,7 @@ describe('<ClonePipelineForm /> tests', () => {
 
       const clone = await findByTestId('clone')
 
-      act(() => {
-        fireEvent.click(clone)
-      })
+      userEvent.click(clone)
 
       await waitFor(() =>
         expect(clonePipeline).toHaveBeenLastCalledWith(

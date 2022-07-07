@@ -31,7 +31,6 @@ export default function ChangeEventCard({ activityId }: { activityId: string }):
   })
 
   const { type } = data?.resource || {}
-
   if (loading) {
     return <PageSpinner />
   } else if (error) {

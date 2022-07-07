@@ -166,7 +166,7 @@ exports[`ArtifactImagePathTagView tests check if artifactimagetagView renders wi
               autocomplete="off"
               class="bp3-input"
               name="artifactPath"
-              placeholder="pipeline.artifactsSelection.artifactNamePlaceholder"
+              placeholder="pipeline.artifactsSelection.artifactPathPlaceholder"
               type="text"
               value=""
             />

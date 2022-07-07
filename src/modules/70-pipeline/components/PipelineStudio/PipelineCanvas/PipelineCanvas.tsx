@@ -69,6 +69,7 @@ import { useSaveTemplateListener } from '@pipeline/components/PipelineStudio/hoo
 import { StoreMetadata, StoreType } from '@common/constants/GitSyncTypes'
 import GitRemoteDetails from '@common/components/GitRemoteDetails/GitRemoteDetails'
 import { OutOfSyncErrorStrip } from '@pipeline/components/TemplateLibraryErrorHandling/OutOfSyncErrorStrip/OutOfSyncErrorStrip'
+import { useTemplateSelector } from 'framework/Templates/TemplateSelectorContext/useTemplateSelector'
 import { usePipelineContext } from '../PipelineContext/PipelineContext'
 import CreatePipelines from '../CreateModal/PipelineCreate'
 import { DefaultNewPipelineId, DrawerTypes } from '../PipelineContext/PipelineActions'
@@ -140,9 +141,9 @@ export function PipelineCanvas({
     isReadonly,
     updatePipelineView,
     setSelectedStageId,
-    setSelectedSectionId,
-    getTemplate
+    setSelectedSectionId
   } = usePipelineContext()
+  const { getTemplate } = useTemplateSelector()
   const {
     repoIdentifier,
     branch,
@@ -495,8 +496,8 @@ export function PipelineCanvas({
   React.useEffect(() => {
     if (useTemplate && (!isGitSyncEnabled || !isEmpty(gitDetails))) {
       getPipelineTemplate()
-        .catch(_error => {
-          onCloseCreate()
+        .catch(_ => {
+          // Do nothing.. user cancelled template selection
         })
         .finally(() => {
           setUseTemplate(false)
@@ -794,7 +795,7 @@ export function PipelineCanvas({
             history.push(newPath)
           }}
         />
-        <div>
+        <Layout.Vertical height={'100%'}>
           <div className={css.titleBar}>
             <div className={css.breadcrumbsMenu}>
               <div className={css.pipelineMetadataContainer}>
@@ -917,18 +918,20 @@ export function PipelineCanvas({
               </div>
             </div>
           </div>
-        </div>
-        {templateInputsErrorNodeSummary && (
-          <OutOfSyncErrorStrip
-            templateInputsErrorNodeSummary={templateInputsErrorNodeSummary}
-            entity={'Pipeline'}
-            isReadOnly={isReadonly}
-            onRefreshEntity={() => {
-              fetchPipeline({ forceFetch: true, forceUpdate: true })
-            }}
-          />
-        )}
-        {isYaml ? <PipelineYamlView /> : pipeline.template ? <TemplatePipelineBuilder /> : <StageBuilder />}
+          {templateInputsErrorNodeSummary && (
+            <OutOfSyncErrorStrip
+              templateInputsErrorNodeSummary={templateInputsErrorNodeSummary}
+              entity={'Pipeline'}
+              isReadOnly={isReadonly}
+              onRefreshEntity={() => {
+                fetchPipeline({ forceFetch: true, forceUpdate: true })
+              }}
+            />
+          )}
+          <Container style={{ flex: 1 }}>
+            {isYaml ? <PipelineYamlView /> : pipeline.template ? <TemplatePipelineBuilder /> : <StageBuilder />}
+          </Container>
+        </Layout.Vertical>
       </div>
       <RightBar />
     </PipelineVariablesContextProvider>

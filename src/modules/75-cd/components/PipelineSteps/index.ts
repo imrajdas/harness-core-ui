@@ -33,6 +33,7 @@ import { TerraformApply } from './TerraformApply/TerraformApply'
 import { InfraProvisioning } from './InfraProvisioning/InfraProvisioning'
 import { GcpInfrastructureSpec } from './GcpInfrastructureSpec/GcpInfrastructureSpec'
 import { PDCInfrastructureSpec } from './PDCInfrastructureSpec/PDCInfrastructureSpec'
+import { SshWinRmAzureInfrastructureSpec } from './SshWinRmAzureInfrastructureSpec/SshWinRmAzureInfrastructureSpec'
 import { PolicyStep } from './PolicyStep/PolicyStep'
 import { ServerlessLambdaDeployStep } from './ServerlessLambdaDeploy/ServerlessLambdaDeploy'
 import { ServerlessLambdaRollbackStep } from './ServerlessLambdaRollback/ServerlessLambdaRollback'
@@ -47,6 +48,8 @@ import { CreatePr } from './CreatePrStep/CreatePrStep'
 import { MergePR } from './MergePrStep/MergePrStep'
 import { AzureWebAppRollback } from './AzureWebAppRollback/AzureWebAppRollback'
 import { AzureSlotDeployment } from './AzureSlotDeployment/AzureSlotDeployment'
+import { AzureTrafficShift } from './AzureTrafficShift/AzureTrafficShift'
+import { AzureSwapSlot } from './AzureWebAppSwapSlot/AzureWebAppSwapSlot'
 
 factory.registerStep(new HttpStep())
 factory.registerStep(new K8RolloutDeployStep())
@@ -62,6 +65,7 @@ factory.registerStep(new ShellScriptStep())
 factory.registerStep(new KubernetesInfraSpec())
 factory.registerStep(new GcpInfrastructureSpec())
 factory.registerStep(new PDCInfrastructureSpec())
+factory.registerStep(new SshWinRmAzureInfrastructureSpec())
 factory.registerStep(new ServerlessAwsLambdaSpec())
 factory.registerStep(new ServerlessAzureSpec())
 factory.registerStep(new ServerlessGCPSpec())
@@ -88,3 +92,5 @@ factory.registerStep(new CreatePr())
 factory.registerStep(new MergePR())
 factory.registerStep(new AzureWebAppRollback())
 factory.registerStep(new AzureSlotDeployment())
+factory.registerStep(new AzureTrafficShift())
+factory.registerStep(new AzureSwapSlot())

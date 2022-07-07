@@ -95,10 +95,12 @@ secretManagerRequired: 'Secret Manager is required.'
 pipelineSteps:
   environmentTab:
     specifyYourEnvironment: Specify Environment
+    specifyYourEnvironmentGroup: Specify Environment Group
     specifyYourInfrastructure: Specify Infrastructure
     specifyEnvironmentOrGroup: Specify environment or environment group
     specifyGitOpsClusters: Specify GitOps Clusters
     selectEnvironment: '- Select Environment -'
+    selectEnvironmentGroup: '- Select Environment Group -'
     selectInfrastructure: '- Select Infrastructure -'
     plusNewEnvironment: '+ {{$.newEnvironment}}'
     newEnvironment: '{{$.newEnvironment}}'
@@ -152,6 +154,8 @@ serviceDashboard:
   6monthTrend: 6 month trend
   instanceCountHistory: Instance Count History
   instanceDetails: Instance Details
+  instancesDetails: Instances Details
+  moreDetails: More Details >
   pod: pod
   function: function
   deployedAt: Deployed At
@@ -277,6 +281,10 @@ infrastructure:
   delete: Delete Infrastructure
   deleteConfirmation: Are you sure you want to delete this Infrastructure?
   deleted: Successfully deleted Infrastructure {{ identifier }}
+  sshWinRmAzure:
+    cloudProvider: Cloud Provider
+    hostConnectionAttributes: Host Connection Attributes
+    usePublicDns: Use Public DNS connection
 cloudFormation:
   createDescription: Provision resources using a CloudFormation template.
   deleteDescription: Remove any CloudFormation stack you provisioned via Harness or other methods.
@@ -331,3 +339,4 @@ unLinkedCluster: 'Unlinked Successfully'
 overrideYaml: Override Yaml Values
 manifestId: Manifest Id
 azureWebAppRollbackDescription: Rollback to the last successfully deployed app.
+azureWebAppSwapSlotDescription: Azure Swap environment slot with new instance.

@@ -87,6 +87,40 @@ describe('<SaveTemplatePopover /> tests', () => {
     ).toBeCalledWith(stepTemplateContextMock.state.template, { comment: 'Some Comment', isEdit: false })
   })
 
+  test('should not call saveAndPublish if yaml is empty or yaml has schema validation errors', async () => {
+    const updatedTemplateContextMock = {
+      ...stepTemplateContextMock,
+      state: {
+        ...stepTemplateContextMock.state,
+        yamlHandler: {
+          getLatestYaml: () => '',
+          getYAMLValidationErrorMap: () => {
+            const errorMap = new Map()
+            errorMap.set(4, 'Expected type string')
+            return errorMap
+          }
+        }
+      }
+    }
+    const { container } = render(
+      <TestWrapper path={PATH} pathParams={{ ...PATH_PARAMS, templateIdentifier: DefaultNewTemplateId }}>
+        <TemplateContext.Provider value={updatedTemplateContextMock}>
+          <SaveTemplatePopover {...baseProps} />
+        </TemplateContext.Provider>
+      </TestWrapper>
+    )
+
+    const saveButton = getByText(container, 'save')
+    await act(async () => {
+      fireEvent.click(saveButton)
+    })
+
+    expect(
+      useSaveTemplate({ template: { name: 'name', identifier: 'identifier', type: 'Step', versionLabel: 'v1' } })
+        .saveAndPublish
+    ).not.toBeCalled()
+  })
+
   test('should call saveAndPublish with correct params when updating a template', async () => {
     const updatedStepTemplateContextMock = produce(stepTemplateContextMock, draft => {
       set(draft, 'state.isUpdated', true)

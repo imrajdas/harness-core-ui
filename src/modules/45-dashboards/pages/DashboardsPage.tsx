@@ -20,7 +20,9 @@ import css from './home/HomePage.module.scss'
 const isEnterpriseLicense = (
   licenseInformation: Record<string, ModuleLicenseDTO> | Record<string, undefined>
 ): boolean => {
-  return Object.values(licenseInformation).some(license => license?.edition === Editions.ENTERPRISE)
+  return Object.values(licenseInformation).some(
+    license => license?.status === 'ACTIVE' && license?.edition === Editions.ENTERPRISE
+  )
 }
 
 const DashboardsPage: React.FC = ({ children }) => {
