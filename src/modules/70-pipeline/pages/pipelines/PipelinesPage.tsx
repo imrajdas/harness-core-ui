@@ -26,6 +26,7 @@ import { useModalHook } from '@harness/use-modal'
 import { useHistory, useParams } from 'react-router-dom'
 import type { FormikProps } from 'formik'
 import { defaultTo, isEmpty, pick } from 'lodash-es'
+import { HelpPanel, HelpPanelType } from '@harness/help-panel'
 import { Page, StringUtils, useToaster } from '@common/exports'
 import routes from '@common/RouteDefinitions'
 import {
@@ -43,7 +44,6 @@ import {
   useSoftDeletePipeline,
   useUpdateFilter
 } from 'services/pipeline-ng'
-import { HelpPanel, HelpPanelType } from '@harness/help-panel'
 import {
   useGetServiceListForProject,
   useGetEnvironmentListForProject,
