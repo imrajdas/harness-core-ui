@@ -1598,10 +1598,6 @@ const routes = {
     ({ orgIdentifier, projectIdentifier }: Partial<ProjectPathProps & ModulePathParams>) =>
       `/chaos/orgs/${orgIdentifier}/projects/${projectIdentifier}/scenarios`
   ),
-  toChaosWorkflows: withAccountId(
-    ({ orgIdentifier, projectIdentifier }: Partial<ProjectPathProps & ModulePathParams>) =>
-      `/chaos/orgs/${orgIdentifier}/projects/${projectIdentifier}/scenarios/runs`
-  ),
   toChaosHubs: withAccountId(
     ({ orgIdentifier, projectIdentifier }: Partial<ProjectPathProps>) =>
       `/chaos/orgs/${orgIdentifier}/projects/${projectIdentifier}/chaos-hubs`

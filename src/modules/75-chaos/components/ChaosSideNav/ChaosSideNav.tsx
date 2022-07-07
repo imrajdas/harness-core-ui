@@ -1,3 +1,10 @@
+/*
+ * Copyright 2022 Harness Inc. All rights reserved.
+ * Use of this source code is governed by the PolyForm Shield 1.0.0 license
+ * that can be found in the licenses directory at the root of this repository, also available at
+ * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
+ */
+
 import React from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { Layout } from '@harness/uicore'
@@ -34,9 +41,8 @@ export default function ChaosSideNav(): React.ReactElement {
       {projectIdentifier && orgIdentifier ? (
         <>
           <SidebarLink label="Overview" to={routes.toProjectOverview({ ...params, module: 'chaos' })} />
-          <SidebarLink label="Scenarios" to={routes.toChaosScenarios({ ...params })} />
-          <SidebarLink label="Workflows" to={routes.toChaosWorkflows({ ...params })} />
-          <SidebarLink label="ChaosHubs" to={routes.toChaosHubs({ ...params })} />
+          <SidebarLink label="Chaos Scenarios" to={routes.toChaosScenarios({ ...params })} />
+          <SidebarLink label="Chaoshub" to={routes.toChaosHubs({ ...params })} />
           <SidebarLink label="Chaos Delegates" to={routes.toChaosDelegate({ ...params })} />
           <ProjectSetupMenu module="chaos" />
         </>
