@@ -9,7 +9,7 @@ exports[`CVHomePage snapshot test Ensure project success handler calls history p
     <div
       data-testid="location"
     >
-      /account/undefined/cv/orgs//projects/undefined/monitoringservices
+      /account/undefined/cv/orgs//projects/undefined/slos
     </div>
   </div>
 </div>
