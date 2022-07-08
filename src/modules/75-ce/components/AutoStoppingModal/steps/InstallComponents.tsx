@@ -15,6 +15,7 @@ import { useStepLoadTelemetry } from '@connectors/common/useTrackStepLoad/useSte
 import { CE_K8S_CONNECTOR_CREATION_EVENTS } from '@connectors/trackingConstants'
 import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import { DialogExtensionContext } from '@connectors/common/ConnectorExtention/DialogExtention'
+import EnableAutoStoppingHeader from '@ce/components/CloudVisibilityModal/steps/EnableAutoStoppingStep'
 
 import type { ConnectorInfoDTO } from 'services/cd-ng'
 import { useMutateAsGet } from '@common/hooks'
@@ -57,14 +58,7 @@ const InstallComponents: React.FC<StepProps<ConnectorInfoDTO> & InstallComponent
 
   return (
     <Layout.Vertical height={'100%'} spacing={'medium'}>
-      {isCloudReportingModal ? (
-        <Text font={{ variation: FontVariation.H3 }} color={Color.GREY_800}>
-          {getString('ce.cloudIntegration.enableAutoStopping')}{' '}
-          <Text inline font={{ weight: 'light', italic: true }} color={Color.GREY_800}>
-            {getString('common.optionalLabel')}
-          </Text>
-        </Text>
-      ) : null}
+      {isCloudReportingModal ? <EnableAutoStoppingHeader /> : null}
       <Text font={{ variation: FontVariation.H4 }} color={Color.GREY_800}>
         {`i. ${getString('ce.cloudIntegration.autoStoppingModal.installComponents.title')}`}
       </Text>

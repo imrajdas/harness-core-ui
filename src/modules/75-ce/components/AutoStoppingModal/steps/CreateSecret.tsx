@@ -17,6 +17,7 @@ import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import CopyCodeSection from '@connectors/components/CreateConnector/CEK8sConnector/components/CopyCodeSection'
 import { yamlStringify } from '@common/utils/YamlHelperMethods'
 import type { ConnectorInfoDTO } from 'services/cd-ng'
+import EnableAutoStoppingHeader from '@ce/components/CloudVisibilityModal/steps/EnableAutoStoppingStep'
 
 import css from '../AutoStoppingModal.module.scss'
 
@@ -50,14 +51,7 @@ const CreateSecret: React.FC<StepProps<ConnectorInfoDTO> & CreateSecretProps> = 
 
   return (
     <Layout.Vertical height={'100%'} spacing={'medium'}>
-      {isCloudReportingModal ? (
-        <Text font={{ variation: FontVariation.H3 }} color={Color.GREY_800}>
-          {getString('ce.cloudIntegration.enableAutoStopping')}{' '}
-          <Text inline font={{ weight: 'light', italic: true }} color={Color.GREY_800}>
-            {getString('common.optionalLabel')}
-          </Text>
-        </Text>
-      ) : null}
+      {isCloudReportingModal ? <EnableAutoStoppingHeader /> : null}
       <Text font={{ variation: FontVariation.H4 }} color={Color.GREY_800}>
         {`i. ${getString('secrets.createSecret')}`}
       </Text>
@@ -98,15 +92,17 @@ const CreateSecret: React.FC<StepProps<ConnectorInfoDTO> & CreateSecretProps> = 
         <CopyCodeSection snippet={getString('connectors.ceK8.secretCreationStep.creationCommand')} />
       </div>
       <div>
-        <Button
-          icon="chevron-left"
-          text={getString('back')}
-          variation={ButtonVariation.SECONDARY}
-          margin={{ right: 'medium' }}
-          onClick={() => {
-            gotoStep?.({ stepNumber: 1 })
-          }}
-        />
+        {isCloudReportingModal ? (
+          <Button
+            icon="chevron-left"
+            text={getString('back')}
+            variation={ButtonVariation.SECONDARY}
+            margin={{ right: 'medium' }}
+            onClick={() => {
+              gotoStep?.({ stepNumber: 1 })
+            }}
+          />
+        ) : null}
         <Button
           rightIcon="chevron-right"
           text={getString('continue')}

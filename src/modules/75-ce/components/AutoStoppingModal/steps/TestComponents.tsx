@@ -15,6 +15,7 @@ import type { StepDetails } from '@connectors/interfaces/ConnectorInterface'
 import { ConnectorInfoDTO, Error, ResponseConnectorValidationResult, useGetTestConnectionResult } from 'services/cd-ng'
 import { ErrorHandler } from '@common/components/ErrorHandler/ErrorHandler'
 import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
+import EnableAutoStoppingHeader from '@ce/components/CloudVisibilityModal/steps/EnableAutoStoppingStep'
 
 import css from '../AutoStoppingModal.module.scss'
 
@@ -85,14 +86,7 @@ const TestComponents: React.FC<StepProps<ConnectorInfoDTO> & TestComponentsProps
 
   return (
     <Layout.Vertical height={'100%'} spacing={'medium'}>
-      {isCloudReportingModal ? (
-        <Text font={{ variation: FontVariation.H3 }} color={Color.GREY_800}>
-          {getString('ce.cloudIntegration.enableAutoStopping')}{' '}
-          <Text inline font={{ weight: 'light', italic: true }} color={Color.GREY_800}>
-            {getString('common.optionalLabel')}
-          </Text>
-        </Text>
-      ) : null}
+      {isCloudReportingModal ? <EnableAutoStoppingHeader /> : null}
       <Text font={{ variation: FontVariation.H4 }} color={Color.GREY_800}>
         {`iii. ${getString('ce.cloudIntegration.autoStoppingModal.testComponents.title')}`}
       </Text>

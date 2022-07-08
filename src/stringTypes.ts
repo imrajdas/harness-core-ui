@@ -4255,6 +4255,8 @@ export interface StringsMap {
   'ce.cloudIntegration.cloudAccounts': string
   'ce.cloudIntegration.clusterPermissions': string
   'ce.cloudIntegration.connectorStatus': string
+  'ce.cloudIntegration.costVisibilityDialog.popover.permissions': string
+  'ce.cloudIntegration.costVisibilityDialog.popover.title': string
   'ce.cloudIntegration.costVisibilityDialog.step1.desc': string
   'ce.cloudIntegration.costVisibilityDialog.step1.step1': string
   'ce.cloudIntegration.costVisibilityDialog.step1.step2': string

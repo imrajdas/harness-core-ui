@@ -30,7 +30,13 @@ import routes from '@common/RouteDefinitions'
 import RbacButton from '@rbac/components/Button/Button'
 import useCreateConnectorModal from '@connectors/modals/ConnectorModal/useCreateConnectorModal'
 import { useStrings } from 'framework/strings'
-import { ConnectorInfoDTO, ConnectorResponse, PageConnectorResponse, useGetConnectorListV2 } from 'services/cd-ng'
+import {
+  ConnectorInfoDTO,
+  ConnectorResponse,
+  PageConnectorResponse,
+  useGetConnectorListV2,
+  useGetTestConnectionResult
+} from 'services/cd-ng'
 import { useFetchCcmMetaDataQuery } from 'services/ce/services'
 import { generateFilters } from '@ce/utils/anomaliesUtils'
 import { GROUP_BY_CLUSTER_NAME } from '@ce/utils/perspectiveUtils'
@@ -66,9 +72,20 @@ const ConnectorNameCell: CustomCell = cell => {
 
 const ConnectorStatusCell: CustomCell = cell => {
   const { getString } = useStrings()
+  const { accountId } = useParams<{ accountId: string }>()
 
-  const data = cell.row.original.status
+  const data = cell.row.original
+  const status = data.status
   const isStatusSuccess = data?.status === 'SUCCESS'
+
+  const [lastTestedAt, setLastTestedAt] = useState<number>()
+
+  const { mutate: testConnection } = useGetTestConnectionResult({
+    identifier: data.connector?.identifier || '',
+    queryParams: {
+      accountIdentifier: accountId
+    }
+  })
 
   const iconProps: { icon: IconName; iconProps: { size: number; color: Color } } = useMemo(() => {
     if (isStatusSuccess) {
@@ -85,7 +102,7 @@ const ConnectorStatusCell: CustomCell = cell => {
         font={{ variation: FontVariation.BODY }}
         color={isStatusSuccess ? Color.GREY_800 : Color.RED_500}
       >
-        <ReactTimeago date={data?.lastTestedAt || data?.testedAt || ''} />
+        <ReactTimeago date={lastTestedAt || status?.lastTestedAt || status?.testedAt || ''} />
       </Text>
       {!isStatusSuccess ? (
         <Button
@@ -93,6 +110,14 @@ const ConnectorStatusCell: CustomCell = cell => {
           size={ButtonSize.SMALL}
           text={getString('test')}
           className={css.testBtn}
+          onClick={async e => {
+            try {
+              e.stopPropagation()
+              await testConnection()
+            } finally {
+              setLastTestedAt(new Date().getTime())
+            }
+          }}
         />
       ) : null}
     </div>
@@ -271,19 +296,19 @@ const K8sClustersTab: React.FC = () => {
   const columns = useMemo(
     () => [
       {
-        accessor: 'connector.name',
+        accessor: 'name',
         Header: getString('connectors.name'),
         Cell: ConnectorNameCell,
         width: '25%'
       },
       {
-        accessor: 'connector.status',
+        accessor: 'status',
         Header: getString('ce.cloudIntegration.connectorStatus'),
         Cell: ConnectorStatusCell,
         width: '30%'
       },
       {
-        accessor: 'connector.spec',
+        accessor: 'featuresEnabled',
         Header: getString('ce.cloudIntegration.featuresEnabled'),
         Cell: FeaturesEnabledCell,
         width: '40%'

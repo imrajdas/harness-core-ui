@@ -1158,6 +1158,9 @@ cloudIntegration:
       step3: Checking for <a target="_blank" href="https://ngdocs.harness.io/article/ltt65r6k39-set-up-cost-visibility-for-kubernetes#prerequisites">required permissions<a/>
     step2:
       title: Enable AutoStopping (optional)
+    popover:
+      title: '<b>Cost Reporting</b> gives you:'
+      permissions: 'This is done by collecting Cost data on your existing Connector with <a target="_blank" href="https://ngdocs.harness.io/article/ltt65r6k39-set-up-cost-visibility-for-kubernetes#prerequisites">these permissions<a/>.'
   viewCosts: View costs
   autoStoppingModal:
     createSecret:

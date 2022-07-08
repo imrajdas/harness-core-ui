@@ -6,32 +6,27 @@
  */
 
 import React from 'react'
-import { Layout, StepProps, Text } from '@harness/uicore'
+import { StepProps, Text } from '@harness/uicore'
 import { FontVariation, Color } from '@harness/design-system'
 
 import { useStrings } from 'framework/strings'
 import type { ConnectorInfoDTO } from 'services/cd-ng'
 
 interface Props {
-  name: string
+  name?: string
 }
 
-const EnableAutoStoppingStep: React.FC<Props & StepProps<ConnectorInfoDTO>> = () => {
+const EnableAutoStoppingHeader: React.FC<Props & StepProps<ConnectorInfoDTO>> = () => {
   const { getString } = useStrings()
 
   return (
-    <Layout.Vertical spacing={'xlarge'}>
-      <Text font={{ variation: FontVariation.H3 }} color={Color.GREY_800}>
-        {getString('ce.cloudIntegration.enableAutoStopping')}{' '}
-        <Text inline font={{ weight: 'light', italic: true }} color={Color.GREY_800}>
-          {getString('common.optionalLabel')}
-        </Text>
+    <Text font={{ variation: FontVariation.H3 }} color={Color.GREY_800}>
+      {getString('ce.cloudIntegration.enableAutoStopping')}{' '}
+      <Text inline font={{ weight: 'light', italic: true }} color={Color.GREY_800}>
+        {getString('common.optionalLabel')}
       </Text>
-      <Text font={{ variation: FontVariation.BODY }} color={Color.GREY_700}>
-        {getString('ce.cloudIntegration.costVisibilityDialog.step1.desc')}
-      </Text>
-    </Layout.Vertical>
+    </Text>
   )
 }
 
-export default EnableAutoStoppingStep
+export default EnableAutoStoppingHeader

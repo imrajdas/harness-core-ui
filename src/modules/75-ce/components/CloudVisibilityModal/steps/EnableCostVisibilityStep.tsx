@@ -31,6 +31,7 @@ import {
 import type { StepDetails } from '@connectors/interfaces/ConnectorInterface'
 import { ErrorHandler } from '@common/components/ErrorHandler/ErrorHandler'
 import { Connectors } from '@connectors/constants'
+import CostReportingPopover from '../CostReportingPopover'
 
 import css from '../CloudVisibilityModal.module.scss'
 
@@ -147,9 +148,12 @@ const EnableCostVisibilityStep: React.FC<Props & StepProps<ConnectorInfoDTO>> = 
     <>
       <Layout.Vertical height={'100%'} spacing={'xlarge'}>
         <ModalErrorHandler bind={setModalErrorHandler} />
-        <Text font={{ variation: FontVariation.H3 }} color={Color.GREY_800}>
-          {getString('ce.cloudIntegration.costVisibilityDialog.step1.title')}
-        </Text>
+        <Layout.Horizontal spacing={'xsmall'} style={{ alignItems: 'center' }}>
+          <Text font={{ variation: FontVariation.H3 }} color={Color.GREY_800}>
+            {getString('ce.cloudIntegration.costVisibilityDialog.step1.title')}
+          </Text>
+          <CostReportingPopover />
+        </Layout.Horizontal>
         <Text font={{ variation: FontVariation.BODY }} color={Color.GREY_700}>
           {getString('ce.cloudIntegration.costVisibilityDialog.step1.desc', { connectorName: connector.name })}
         </Text>

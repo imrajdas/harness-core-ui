@@ -10,6 +10,7 @@ declare const styles: {
   readonly crossIcon: string
   readonly errorContainer: string
   readonly modal: string
+  readonly popover: string
   readonly stepWizard: string
   readonly steps: string
 }
