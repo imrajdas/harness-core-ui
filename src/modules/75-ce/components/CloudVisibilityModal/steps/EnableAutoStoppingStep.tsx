@@ -6,11 +6,12 @@
  */
 
 import React from 'react'
-import { StepProps, Text } from '@harness/uicore'
+import { StepProps, Text, Layout } from '@harness/uicore'
 import { FontVariation, Color } from '@harness/design-system'
 
 import { useStrings } from 'framework/strings'
 import type { ConnectorInfoDTO } from 'services/cd-ng'
+import AutoStoppingPopover from '../AutoStoppingPopover'
 
 interface Props {
   name?: string
@@ -20,12 +21,15 @@ const EnableAutoStoppingHeader: React.FC<Props & StepProps<ConnectorInfoDTO>> = 
   const { getString } = useStrings()
 
   return (
-    <Text font={{ variation: FontVariation.H3 }} color={Color.GREY_800}>
-      {getString('ce.cloudIntegration.enableAutoStopping')}{' '}
-      <Text inline font={{ weight: 'light', italic: true }} color={Color.GREY_800}>
-        {getString('common.optionalLabel')}
+    <Layout.Horizontal spacing={'xsmall'} style={{ alignItems: 'center' }}>
+      <Text font={{ variation: FontVariation.H3 }} color={Color.GREY_800}>
+        {getString('ce.cloudIntegration.enableAutoStopping')}{' '}
+        <Text inline font={{ weight: 'light', italic: true }} color={Color.GREY_800}>
+          {getString('common.optionalLabel')}
+        </Text>
       </Text>
-    </Text>
+      <AutoStoppingPopover />
+    </Layout.Horizontal>
   )
 }
 

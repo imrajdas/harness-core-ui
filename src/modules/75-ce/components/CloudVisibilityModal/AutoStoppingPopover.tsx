@@ -12,17 +12,16 @@ import { Classes, Popover, PopoverInteractionKind, Position } from '@blueprintjs
 import { String, useStrings } from 'framework/strings'
 import type { StringsMap } from 'stringTypes'
 
-const CostReportingPopover = () => {
+const AutoStoppingPopover = () => {
   const { getString } = useStrings()
 
   const features: (keyof StringsMap)[] = useMemo(
     () => [
-      'ce.cloudIntegration.enableCloudCostDialog.content.feat1',
-      'ce.cloudIntegration.enableCloudCostDialog.content.feat2',
-      'ce.cloudIntegration.enableCloudCostDialog.content.feat3',
-      'ce.cloudIntegration.enableCloudCostDialog.content.feat4',
-      'ce.cloudIntegration.enableCloudCostDialog.content.feat5',
-      'ce.cloudIntegration.enableCloudCostDialog.content.feat6'
+      'ce.cloudIntegration.autoStoppingModal.popover.feat1',
+      'ce.cloudIntegration.autoStoppingModal.popover.feat2',
+      'ce.cloudIntegration.autoStoppingModal.popover.feat3',
+      'ce.cloudIntegration.autoStoppingModal.popover.feat4',
+      'ce.cloudIntegration.autoStoppingModal.popover.feat5'
     ],
     []
   )
@@ -35,7 +34,7 @@ const CostReportingPopover = () => {
       content={
         <Layout.Vertical width={436} padding={'medium'} spacing={'medium'}>
           <Text font={{ variation: FontVariation.BODY }} color={Color.WHITE}>
-            <String stringID="ce.cloudIntegration.costVisibilityDialog.popover.title" useRichText />
+            <String stringID="ce.cloudIntegration.autoStoppingModal.popover.title" useRichText />
           </Text>
           <div>
             {features.map(feature => (
@@ -61,4 +60,4 @@ const CostReportingPopover = () => {
   )
 }
 
-export default CostReportingPopover
+export default AutoStoppingPopover

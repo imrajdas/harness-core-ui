@@ -4250,6 +4250,12 @@ export interface StringsMap {
   'ce.cloudIntegration.autoStoppingModal.installComponents.step1': string
   'ce.cloudIntegration.autoStoppingModal.installComponents.step2': string
   'ce.cloudIntegration.autoStoppingModal.installComponents.title': string
+  'ce.cloudIntegration.autoStoppingModal.popover.feat1': string
+  'ce.cloudIntegration.autoStoppingModal.popover.feat2': string
+  'ce.cloudIntegration.autoStoppingModal.popover.feat3': string
+  'ce.cloudIntegration.autoStoppingModal.popover.feat4': string
+  'ce.cloudIntegration.autoStoppingModal.popover.feat5': string
+  'ce.cloudIntegration.autoStoppingModal.popover.title': string
   'ce.cloudIntegration.autoStoppingModal.testComponents.title': string
   'ce.cloudIntegration.banner': string
   'ce.cloudIntegration.cloudAccounts': string

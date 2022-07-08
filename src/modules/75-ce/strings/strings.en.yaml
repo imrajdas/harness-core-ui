@@ -1176,3 +1176,10 @@ cloudIntegration:
       step2: 'Apply the YAML using the command:'
     testComponents:
       title: Test Components
+    popover:
+      title: '<b>AutoStopping</b> gives you:'
+      feat1: Works for custom clusters and EKS, AKS, GKE, etc
+      feat2: Orchestrate pods based on idleness
+      feat3: Set dependencies between workloads like pods, VMs, etc.
+      feat4: '{{ $.connectors.ceAzure.chooseRequirements.visibility.feat3 }}'
+      feat5: '{{ $.connectors.ceAzure.chooseRequirements.visibility.feat4 }}'
