@@ -67,14 +67,24 @@ import MonitoredServiceInputSetsTemplate from './pages/monitored-service/Monitor
 //   }
 // )
 
+export const cvModuleParams: ModulePathParams = {
+  module: ':module(cv)'
+}
 const RedirectToCVProject = (): React.ReactElement => {
   const params = useParams<ProjectPathProps>()
   const { selectedProject } = useAppStore()
 
   if (selectedProject?.modules?.includes(ModuleName.CV)) {
     return (
+      // <Redirect
+      //   to={routes.toCVMonitoringServices({
+      //     accountId: params.accountId,
+      //     orgIdentifier: selectedProject.orgIdentifier || '',
+      //     projectIdentifier: selectedProject.identifier
+      //   })}
+      // />
       <Redirect
-        to={routes.toCVMonitoringServices({
+        to={routes.toCVSLOs({
           accountId: params.accountId,
           orgIdentifier: selectedProject.orgIdentifier || '',
           projectIdentifier: selectedProject.identifier
@@ -84,10 +94,6 @@ const RedirectToCVProject = (): React.ReactElement => {
   } else {
     return <Redirect to={routes.toCVHome(params)} />
   }
-}
-
-export const cvModuleParams: ModulePathParams = {
-  module: ':module(cv)'
 }
 
 const cvLabel = 'common.purpose.cv.serviceReliability'

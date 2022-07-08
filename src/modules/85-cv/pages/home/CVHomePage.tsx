@@ -22,7 +22,7 @@ const CVHomePage: React.FC = () => {
   const projectCreateSuccessHandler = (project?: Project): void => {
     if (project) {
       history.push(
-        routes.toCVMonitoringServices({
+        routes.toCVSLOs({
           projectIdentifier: project.identifier,
           orgIdentifier: project.orgIdentifier || '',
           accountId

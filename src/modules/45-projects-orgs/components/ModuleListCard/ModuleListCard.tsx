@@ -40,7 +40,7 @@ export const getModuleLink = ({ accountId, orgIdentifier, projectIdentifier, mod
         module: 'ci'
       })
     case ModuleName.CV:
-      return routes.toCVMonitoringServices({
+      return routes.toCVSLOs({
         projectIdentifier,
         orgIdentifier,
         accountId
