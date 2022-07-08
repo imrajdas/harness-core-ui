@@ -109,8 +109,6 @@ multivariate: Multivariate
 featureNotReady: This feature is not yet ready. Please check back later.
 noFlag: You currently have no flags
 noResultMatch: No results match your search criteria
-noTarget: There are currently no targets
-noTargetForEnv: There are currently no targets for this environment
 homepage:
   slogan: '{{ $.common.purpose.cf.descriptionOnly }}'
   learnMore: Learn more about Feature Flags
@@ -301,6 +299,8 @@ targets:
   deleteTargetSuccess: Target <strong>{{name}}</strong> deleted.
   pageDescription: This list displays targets manually added or impacted by flags.
   uploadError: CSV processing failed
+  noTargetForEnv: There are no targets in this environment
+  noTargetDescription: <a href="https://docs.harness.io/article/dbk9uoaid3-add-targets#step_add_a_target" target="_blank" rel="noreferrer">Targets</a> are individual evaluations of flags based on attributes you define in our SDKs. For instance, a target can be a single customer or account that toggle a flag.
 targetDetail:
   title: 'Targets: Individual'
   environmentLine: '<strong>Environment</strong>: {{name}}'

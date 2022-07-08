@@ -5371,8 +5371,6 @@ export interface StringsMap {
   'cf.noEnvironment.title': string
   'cf.noFlag': string
   'cf.noResultMatch': string
-  'cf.noTarget': string
-  'cf.noTargetForEnv': string
   'cf.onboarding.allSet': string
   'cf.onboarding.backToStart': string
   'cf.onboarding.behindTheSenes': string
@@ -5627,6 +5625,8 @@ export interface StringsMap {
   'cf.targets.list': string
   'cf.targets.name': string
   'cf.targets.noSegmentFound': string
+  'cf.targets.noTargetDescription': string
+  'cf.targets.noTargetForEnv': string
   'cf.targets.noTargetFound': string
   'cf.targets.noneDefined': string
   'cf.targets.pageDescription': string

@@ -189,7 +189,7 @@ describe('TargetsPage', () => {
 
     expect(document.querySelector('[data-testid="nodata-image"]')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'plus cf.targets.create' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'cf.noTarget' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'cf.targets.noTargetForEnv' })).toBeInTheDocument()
   })
 
   test('TargetsPage should render data correctly', async () => {
