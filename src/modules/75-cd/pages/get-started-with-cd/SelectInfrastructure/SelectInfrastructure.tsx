@@ -15,8 +15,6 @@ import {
   Container,
   Formik,
   FormikForm as Form,
-  Button,
-  ButtonVariation,
   Accordion,
   FormInput,
   FormError
@@ -24,6 +22,7 @@ import {
 import type { FormikContextType } from 'formik'
 import { get } from 'lodash-es'
 import { useStrings } from 'framework/strings'
+
 import { InfrastructureTypes, InfrastructureType } from '../DeployProvisioningWizard/Constants'
 import { SelectAuthenticationMethod, SelectAuthenticationMethodRef } from './SelectAuthenticationMethod'
 import { useCDOnboardingContext } from '../CDOnboardingStore'
@@ -91,6 +90,7 @@ const SelectInfrastructureRef = (
       forwardRef.current = {
         values,
         setFieldTouched: setFieldTouched
+        // authValues: selectAuthenticationMethodRef?.current?.values
         // validate: validateInfraSetup
       }
     }
@@ -202,36 +202,6 @@ const SelectInfrastructureRef = (
                         disableNextBtn={() => setDisableBtn(true)}
                         enableNextBtn={() => setDisableBtn(disableBtn)}
                       ></SelectAuthenticationMethod>
-                      // <Stepk8ClusterDetails
-                      //   setIsEditMode={props.setIsEditMode}
-                      //   identifier={CONNECTOR_CREDENTIALS_STEP_IDENTIFIER}
-                      //   connectorInfo={props.connectorInfo}
-                      //   accountId={''}
-                      //   orgIdentifier={''}
-                      //   projectIdentifier={''}
-                      //   isEditMode={false}
-                      //   // gitDetails={props.gitDetails}
-                      //   onConnectorCreated={props.onSuccess}
-                      //   onBoarding={true}
-                      // ></Stepk8ClusterDetails>
-                    }
-                  />
-
-                  <Accordion.Panel
-                    id="setUpDelegate"
-                    summary={
-                      <Text font={{ variation: FontVariation.H5 }} width={300}>
-                        {'Test your connection to the cluster'}
-                      </Text>
-                    }
-                    details={
-                      <>
-                        <Button
-                          text={'Test Connection'}
-                          variation={ButtonVariation.PRIMARY}
-                          // onClick={showDelegateModal}
-                        />
-                      </>
                     }
                   />
                 </Accordion>

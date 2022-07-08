@@ -8,30 +8,46 @@
 import {
   Button,
   ButtonVariation,
+  Color,
   Container,
-  Dialog,
   FontVariation,
   FormError,
   Formik,
   FormInput,
+  Icon,
   Layout,
   Text
 } from '@harness/uicore'
-import React, { useCallback, useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Form, FormikContextType, FormikProps } from 'formik'
-import cx from 'classnames'
-import { useModalHook } from '@harness/use-modal'
-import { Classes, IDialogProps } from '@blueprintjs/core'
+import { useParams } from 'react-router'
+import { set } from 'lodash-es'
+import produce from 'immer'
 import { useStrings } from 'framework/strings'
 import TextReference, { TextReferenceInterface, ValueType } from '@secrets/components/TextReference/TextReference'
 import type { SecretReferenceInterface } from '@secrets/utils/SecretField'
-import { DelegateTypes } from '@connectors/pages/connectors/utils/ConnectorUtils'
+import { buildKubPayload, DelegateTypes } from '@connectors/pages/connectors/utils/ConnectorUtils'
 import { AuthTypes } from '@connectors/pages/connectors/utils/ConnectorHelper'
 import SecretInput from '@secrets/components/SecretInput/SecretInput'
-import { CreateDelegateWizard } from '@delegates/components/CreateDelegate/CreateDelegateWizard'
+import { TestStatus } from '@common/components/TestConnectionWidget/TestConnectionWidget'
+import {
+  DelegateOptions,
+  DelegateSelector,
+  DelegatesFoundState
+} from '@connectors/components/CreateConnector/commonSteps/DelegateSelectorStep/DelegateSelector/DelegateSelector'
+import { Connectors } from '@connectors/constants'
+import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
+import type { ConnectorInfoDTO, ResponseConnectorResponse, ResponseMessage } from 'services/cd-ng'
+import useCreateEditConnector, { BuildPayloadProps } from '@connectors/hooks/useCreateEditConnector'
 import { CLIENT_KEY_ALGO_OPTIONS } from '../DeployProvisioningWizard/Constants'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 import commonStyles from '@connectors/components/CreateConnector/commonSteps/ConnectorCommonStyles.module.scss'
+import { ErrorHandler } from '@common/components/ErrorHandler/ErrorHandler'
+
+interface DelegateSelectorStepData extends BuildPayloadProps {
+  delegateSelectors: Array<string>
+}
+
 export interface SelectAuthenticationMethodRef {
   values: SelectAuthenticationMethodInterface
   // setFieldTouched(
@@ -41,7 +57,7 @@ export interface SelectAuthenticationMethodRef {
   // ): void
   validate: () => boolean
   // showValidationErrors: () => void
-  // validatedSecret?: SecretDTOV2
+  validatedConnector?: ConnectorInfoDTO
 }
 
 export type SelectAuthMethodForwardRef =
@@ -49,7 +65,7 @@ export type SelectAuthMethodForwardRef =
   | React.MutableRefObject<SelectAuthenticationMethodRef | null>
   | null
 
-interface SelectAuthenticationMethodInterface {
+export interface SelectAuthenticationMethodInterface {
   connectorName: string
   delegateType: string
   authType?: string
@@ -105,6 +121,7 @@ const SelectAuthenticationMethodRef = (
   _props: SelectAuthenticationMethodProps,
   forwardRef: SelectAuthMethodForwardRef
 ): React.ReactElement => {
+  const scrollRef = useRef<Element>()
   const { getString } = useStrings()
   const formikRef = useRef<FormikContextType<SelectAuthenticationMethodInterface>>()
 
@@ -147,29 +164,179 @@ const SelectAuthenticationMethodRef = (
     return true
   }
 
-  const [showDelegateModal, hideDelegateModal] = useModalHook(() => {
-    const onClose = (): void => {
-      hideDelegateModal()
+  const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
+  const isDelegateSelectorMandatory = (): boolean => {
+    return DelegateTypes.DELEGATE_IN_CLUSTER === formikRef?.current?.values?.delegateType
+  }
+
+  const [delegateSelectors, setDelegateSelectors] = useState<Array<string>>([])
+  const [mode, setMode] = useState<DelegateOptions>(
+    delegateSelectors.length || isDelegateSelectorMandatory()
+      ? DelegateOptions.DelegateOptionsSelective
+      : DelegateOptions.DelegateOptionsAny
+  )
+
+  const buildAuthTypePayload = React.useCallback(() => {
+    const { values } = formikRef?.current || {}
+    switch (values?.authType) {
+      case AuthTypes.USER_PASSWORD:
+        return {
+          username: values.username?.type === ValueType.TEXT ? values?.username?.value : undefined,
+          usernameRef: values.username?.type === ValueType.ENCRYPTED ? values?.username?.value : undefined,
+          passwordRef: values.password?.referenceString
+        }
+      case AuthTypes.SERVICE_ACCOUNT:
+        return {
+          serviceAccountTokenRef: values.serviceAccountToken?.referenceString,
+          caCertRef: values.clientKeyCACertificate?.referenceString // optional
+        }
+      case AuthTypes.OIDC:
+        return {
+          oidcIssuerUrl: values.oidcIssuerUrl,
+          oidcUsername: values.oidcUsername?.type === ValueType.TEXT ? values.oidcUsername.value : undefined,
+          oidcUsernameRef: values.oidcUsername?.type === ValueType.ENCRYPTED ? values.oidcUsername.value : undefined,
+          oidcPasswordRef: values.oidcPassword?.referenceString,
+          oidcClientIdRef: values.oidcCleintId?.referenceString,
+          oidcSecretRef: values.oidcCleintSecret?.referenceString,
+          oidcScopes: values.oidcScopes
+        }
+
+      case AuthTypes.CLIENT_KEY_CERT:
+        return {
+          clientKeyRef: values.clientKey?.referenceString,
+          clientCertRef: values.clientKeyCertificate?.referenceString,
+          clientKeyPassphraseRef: values.clientKeyPassphrase?.referenceString,
+          caCertRef: values.clientKeyCACertificate?.referenceString, // optional
+          clientKeyAlgo: values.clientKeyAlgo
+        }
+      default:
+        return {}
     }
-    return (
-      <Dialog onClose={onClose} {...DIALOG_PROPS} className={cx(css.modal, Classes.DIALOG)}>
-        <CreateDelegateWizard onClose={onClose}></CreateDelegateWizard>
-        <Button minimal icon="cross" onClick={onClose} className={css.crossIcon} />
-      </Dialog>
-    )
   }, [])
-  const DIALOG_PROPS: IDialogProps = {
-    isOpen: true,
-    usePortal: true,
-    autoFocus: true,
-    canEscapeKeyClose: false,
-    canOutsideClickClose: false,
-    enforceFocus: false,
-    style: { width: 1175, minHeight: 640, borderLeft: 0, paddingBottom: 0, position: 'relative', overflow: 'hidden' }
+
+  const authStepData: ConnectorInfoDTO = {
+    name: formikRef?.current?.values?.connectorName || '',
+    description: '',
+    projectIdentifier: projectIdentifier,
+    orgIdentifier: orgIdentifier,
+    identifier: formikRef?.current?.values?.connectorName || '',
+    type: Connectors.KUBERNETES_CLUSTER,
+    spec: {
+      credential: {
+        type: formikRef?.current?.values?.delegateType,
+        spec:
+          formikRef?.current?.values?.delegateType === DelegateTypes.DELEGATE_OUT_CLUSTER
+            ? {
+                masterUrl: formikRef?.current?.values?.masterUrl,
+                auth: {
+                  type: formikRef?.current?.values?.authType,
+                  spec: buildAuthTypePayload()
+                }
+              }
+            : {}
+      },
+      delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors
+    }
+  }
+
+  // const updatedStepData = produce(authStepData as ConnectorInfoDTO, draft => {
+
+  //   set(draft, 'spec.delegateSelectors', mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors)
+  // })
+
+  const connectorData: DelegateSelectorStepData = {
+    ...authStepData,
+    delegateSelectors: authStepData?.spec?.delegateSelectors
+  }
+
+  const afterSuccessHandler = (response: ResponseConnectorResponse): void => {
+    console.log('successful', response?.data)
+
+    onInitiate({
+      connectorFormData: connectorData,
+      buildPayload: buildKubPayload
+    })
+  }
+
+  const { onInitiate, loading } = useCreateEditConnector<DelegateSelectorStepData>({
+    accountId,
+    isEditMode: false,
+    isGitSyncEnabled: false,
+    afterSuccessHandler
+  })
+
+  const [delegatesFound, setDelegatesFound] = useState<DelegatesFoundState>(DelegatesFoundState.ActivelyConnected)
+  const [connectorInfo, setConnectorInfo] = useState<ConnectorInfoDTO>()
+  const [testConnectionStatus, setTestConnectionStatus] = useState<TestStatus>(TestStatus.NOT_INITIATED)
+  const [testConnectionErrors, setTestConnectionErrors] = useState<ResponseMessage[]>()
+  useEffect(() => {
+    if (scrollRef) {
+      scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [testConnectionErrors?.length])
+  const TestConnection = (): React.ReactElement => {
+    switch (testConnectionStatus) {
+      case TestStatus.FAILED:
+      case TestStatus.NOT_INITIATED:
+        return (
+          <Layout.Vertical>
+            <Button
+              variation={ButtonVariation.PRIMARY}
+              text={getString('common.smtp.testConnection')}
+              width={300}
+              type="submit"
+              disabled={
+                (isDelegateSelectorMandatory() && delegateSelectors.length === 0) ||
+                (mode === DelegateOptions.DelegateOptionsSelective && delegateSelectors.length === 0) ||
+                loading
+              }
+              onClick={() => {
+                if (validateAuthMethodSetup()) {
+                  setTestConnectionStatus(TestStatus.IN_PROGRESS)
+                  setTestConnectionErrors([])
+                  setConnectorInfo(authStepData)
+                  onInitiate({
+                    connectorFormData: connectorData,
+                    buildPayload: buildKubPayload
+                  })
+                }
+              }}
+            />
+            {testConnectionStatus === TestStatus.FAILED &&
+            Array.isArray(testConnectionErrors) &&
+            testConnectionErrors.length > 0 ? (
+              <Container padding={{ top: 'medium' }} ref={scrollRef}>
+                <ErrorHandler responseMessages={testConnectionErrors || []} />
+              </Container>
+            ) : null}
+          </Layout.Vertical>
+        )
+      case TestStatus.IN_PROGRESS:
+        return (
+          <Layout.Horizontal flex={{ alignItems: 'center', justifyContent: 'flex-start' }} spacing="small">
+            <Icon name="steps-spinner" color={Color.PRIMARY_7} />
+            <Text font={{ variation: FontVariation.BODY2 }} color={Color.PRIMARY_7}>
+              {getString('common.test.inProgress')}
+            </Text>
+          </Layout.Horizontal>
+        )
+      case TestStatus.SUCCESS:
+        return (
+          <Layout.Horizontal flex={{ alignItems: 'center', justifyContent: 'flex-start' }} spacing="small">
+            <Icon name="success-tick" />
+            <Text font={{ variation: FontVariation.BODY2 }} color={Color.GREEN_700}>
+              {getString('common.test.connectionSuccessful')}
+            </Text>
+          </Layout.Horizontal>
+        )
+      default:
+        return <></>
+    }
   }
 
   const setForwardRef = ({
-    values
+    values,
+    validatedConnector
   }: // setFieldTouched
   Omit<SelectAuthenticationMethodRef, 'validate'>): void => {
     if (!forwardRef) {
@@ -182,10 +349,8 @@ const SelectAuthenticationMethodRef = (
     if (values) {
       forwardRef.current = {
         values,
-        // setFieldTouched: setFieldTouched
-        validate: validateAuthMethodSetup
-        // showValidationErrors: markFieldsTouchedToShowValidationErrors,
-        // validatedSecret
+        validate: validateAuthMethodSetup,
+        validatedConnector
       }
     }
   }
@@ -193,8 +358,8 @@ const SelectAuthenticationMethodRef = (
   useEffect(() => {
     if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
       setForwardRef({
-        values: formikRef.current.values
-        // setFieldTouched: formikRef.current.setFieldTouched
+        values: formikRef.current.values,
+        validatedConnector: connectorInfo
       })
     }
   }, [formikRef.current?.values])
@@ -389,16 +554,25 @@ const SelectAuthenticationMethodRef = (
                 ) : (
                   <></>
                 )}
-                <Text font={{ variation: FontVariation.H5 }} width={300} padding={{ top: 'large' }}>
-                  {getString('cd.getStartedWithCD.setupDelegate')}
-                </Text>
-                <Text padding={{ bottom: 'medium' }}>{getString('cd.getStartedWithCD.delegateInfo')}</Text>
-                <Button
-                  text={getString('cd.getStartedWithCD.setupaNewDelegate')}
-                  variation={ButtonVariation.SECONDARY}
-                  onClick={showDelegateModal}
-                  width={300}
-                />
+                {validateAuthMethodSetup() ? (
+                  <>
+                    <Text font={{ variation: FontVariation.H5 }} width={300} padding={{ top: 'large' }}>
+                      {getString('cd.getStartedWithCD.setupDelegate')}
+                    </Text>
+                    <DelegateSelector
+                      mode={mode}
+                      setMode={setMode}
+                      delegateSelectors={delegateSelectors}
+                      setDelegateSelectors={setDelegateSelectors}
+                      setDelegatesFound={setDelegatesFound}
+                      delegateSelectorMandatory={isDelegateSelectorMandatory()}
+                      accountId={accountId}
+                      orgIdentifier={orgIdentifier}
+                      projectIdentifier={projectIdentifier}
+                    />
+                    <TestConnection />
+                  </>
+                ) : null}
               </Layout.Vertical>
             </Form>
           )

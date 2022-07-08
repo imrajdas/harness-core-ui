@@ -387,12 +387,13 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
           updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
         },
         onClickNext: async () => {
-          const { values, setFieldTouched } = selectInfrastructureRef.current || {}
+          const { values, setFieldTouched, authValues } = selectInfrastructureRef.current || {}
           const { infraType, envId, infraId, namespace } = values || {}
           if (!infraType) {
             setFieldTouched?.('infraType', true)
             return
           }
+
           // const isEnvironmentNameUpdated =
           // isEmpty(get(environmentData, 'type')) || get(environmentData, 'name') !== envId
 
@@ -405,6 +406,9 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
               getUniqueServiceRef(envId as string)
               // : get(environmentData, 'identifier')
             )
+
+            set(draft, 'data.manifestValues', authValues)
+            // set(draft, 'data.repoValues', repoValues)
           })
 
           const cleanEnvironmentData = cleanEnvironmentDataUtil(updatedContextEnvironment as ServiceRequestDTO)
