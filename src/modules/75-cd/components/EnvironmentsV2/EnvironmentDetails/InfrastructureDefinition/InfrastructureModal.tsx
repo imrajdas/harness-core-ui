@@ -88,7 +88,7 @@ export default function InfrastructureModal({
   const { accountId, orgIdentifier, projectIdentifier } = useParams<ProjectPathProps>()
 
   const infrastructureDefinition = useMemo(() => {
-    return (parse(defaultTo(infrastructureToEdit, '{}')) as InfrastructureConfig).infrastructureDefinition
+    return (parse(defaultTo(infrastructureToEdit, '{}')) as InfrastructureConfig)?.infrastructureDefinition
   }, [infrastructureToEdit])
 
   const { type, spec, allowSimultaneousDeployments } = defaultTo(
