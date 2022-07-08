@@ -15,7 +15,6 @@ import imageURL from './target.svg'
 
 export interface NoTargetsViewProps {
   onNewTargetsCreated: () => void
-  hasEnvironment: boolean
 }
 
 export const NoTargetsView: React.FC<NoTargetsViewProps> = ({ onNewTargetsCreated }) => {

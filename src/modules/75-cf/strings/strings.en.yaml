@@ -359,7 +359,8 @@ segments:
   nameRequired: Target Group name is required
   idRequired: Target Group identifier is required
   noSegment: There are currently no target groups
-  noSegmentForEnv: There are currently no target groups for this environment
+  noTargetGroupsForEnv: There are no target groups in this environment
+  noTargetGroupsDescription: <a href="https://docs.harness.io/article/5qz1qrugyk-add-target-groups#manage-target-groups" target="_blank" rel="noreferrer">Target Groups</a> are larger collection of targets used to toggle flags for entire cohorts. For instance, a target group could be an entire country, an early adopter list or an internal team.
   pageDescription: Target Groups allow you to serve flag variations to a list of targets in bulk.
 environments:
   title: '{{ $.environments }}'

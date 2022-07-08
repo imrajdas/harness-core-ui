@@ -272,7 +272,6 @@ export const SegmentsPage: React.FC = () => {
     </Container>
   ) : noSegmentExists ? (
     <NoSegmentsView
-      hasEnvironment={!!environments?.length}
       onNewSegmentCreated={segmentIdentifier => {
         gotoSegmentDetailPage(segmentIdentifier)
         showToaster(getString('cf.messages.segmentCreated'))

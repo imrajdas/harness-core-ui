@@ -5535,7 +5535,8 @@ export interface StringsMap {
   'cf.segments.modalTitle': string
   'cf.segments.nameRequired': string
   'cf.segments.noSegment': string
-  'cf.segments.noSegmentForEnv': string
+  'cf.segments.noTargetGroupsDescription': string
+  'cf.segments.noTargetGroupsForEnv': string
   'cf.segments.pageDescription': string
   'cf.segments.targetDefinition': string
   'cf.segments.uploadImage': string

@@ -9,16 +9,15 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Container } from '@wings-software/uicore'
 import { NoData } from '@cf/components/NoData/NoData'
-import { useStrings } from 'framework/strings'
+import { String, useStrings } from 'framework/strings'
 import { NewSegmentButton } from './NewSegmentButton'
 import imageURL from '../../../images/segment.svg'
 
 export interface NoSegmentsViewProps {
-  hasEnvironment: boolean
   onNewSegmentCreated: (segmentIdentifier: string) => void
 }
 
-export const NoSegmentsView: React.FC<NoSegmentsViewProps> = ({ hasEnvironment, onNewSegmentCreated }) => {
+export const NoSegmentsView: React.FC<NoSegmentsViewProps> = ({ onNewSegmentCreated }) => {
   const { projectIdentifier, orgIdentifier, accountId: accountIdentifier } = useParams<Record<string, string>>()
   const { getString } = useStrings()
 
@@ -26,7 +25,8 @@ export const NoSegmentsView: React.FC<NoSegmentsViewProps> = ({ hasEnvironment, 
     <Container width="100%" height="100%" flex={{ align: 'center-center' }}>
       <NoData
         imageURL={imageURL}
-        message={getString(hasEnvironment ? 'cf.segments.noSegmentForEnv' : 'cf.segments.noSegment')}
+        message={getString('cf.segments.noTargetGroupsForEnv')}
+        description={<String useRichText stringID="cf.segments.noTargetGroupsDescription" />}
       >
         <NewSegmentButton
           accountIdentifier={accountIdentifier}

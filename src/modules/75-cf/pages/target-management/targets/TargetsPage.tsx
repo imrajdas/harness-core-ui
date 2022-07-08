@@ -336,7 +336,6 @@ export const TargetsPage: React.FC = () => {
         refetchTargets({ queryParams: { ...queryParams, pageNumber: 0 } })
         showToaster(getString('cf.messages.targetCreated'))
       }}
-      hasEnvironment={!!environments?.length}
     />
   ) : (
     <>
