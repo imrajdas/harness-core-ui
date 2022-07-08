@@ -76,13 +76,6 @@ const RedirectToCVProject = (): React.ReactElement => {
 
   if (selectedProject?.modules?.includes(ModuleName.CV)) {
     return (
-      // <Redirect
-      //   to={routes.toCVMonitoringServices({
-      //     accountId: params.accountId,
-      //     orgIdentifier: selectedProject.orgIdentifier || '',
-      //     projectIdentifier: selectedProject.identifier
-      //   })}
-      // />
       <Redirect
         to={routes.toCVSLOs({
           accountId: params.accountId,
