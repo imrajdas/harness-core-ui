@@ -33,10 +33,10 @@ export class AzureSlotDeployment extends PipelineStep<AzureSlotDeploymentStepInf
   }
 
   protected type = StepType.AzureSlotDeployment
-  protected stepIcon: IconName = 'microsoft-azure'
+  protected stepIcon: IconName = 'slot-deployment'
   protected stepName = 'Azure Web Apps Rollback'
   protected stepDescription: keyof StringsMap = 'pipeline.stepDescription.AzureSlotDeployment'
-  protected stepIconSize = 32
+  protected stepIconSize = 25
 
   protected defaultValues = {
     type: StepType.AzureSlotDeployment,
