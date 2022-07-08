@@ -21,8 +21,7 @@ import {
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Form, FormikContextType, FormikProps } from 'formik'
 import { useParams } from 'react-router'
-import { set } from 'lodash-es'
-import produce from 'immer'
+
 import { useStrings } from 'framework/strings'
 import TextReference, { TextReferenceInterface, ValueType } from '@secrets/components/TextReference/TextReference'
 import type { SecretReferenceInterface } from '@secrets/utils/SecretField'
@@ -176,86 +175,78 @@ const SelectAuthenticationMethodRef = (
       : DelegateOptions.DelegateOptionsAny
   )
 
-  const buildAuthTypePayload = React.useCallback(() => {
-    const { values } = formikRef?.current || {}
-    switch (values?.authType) {
-      case AuthTypes.USER_PASSWORD:
-        return {
-          username: values.username?.type === ValueType.TEXT ? values?.username?.value : undefined,
-          usernameRef: values.username?.type === ValueType.ENCRYPTED ? values?.username?.value : undefined,
-          passwordRef: values.password?.referenceString
-        }
-      case AuthTypes.SERVICE_ACCOUNT:
-        return {
-          serviceAccountTokenRef: values.serviceAccountToken?.referenceString,
-          caCertRef: values.clientKeyCACertificate?.referenceString // optional
-        }
-      case AuthTypes.OIDC:
-        return {
-          oidcIssuerUrl: values.oidcIssuerUrl,
-          oidcUsername: values.oidcUsername?.type === ValueType.TEXT ? values.oidcUsername.value : undefined,
-          oidcUsernameRef: values.oidcUsername?.type === ValueType.ENCRYPTED ? values.oidcUsername.value : undefined,
-          oidcPasswordRef: values.oidcPassword?.referenceString,
-          oidcClientIdRef: values.oidcCleintId?.referenceString,
-          oidcSecretRef: values.oidcCleintSecret?.referenceString,
-          oidcScopes: values.oidcScopes
-        }
-
-      case AuthTypes.CLIENT_KEY_CERT:
-        return {
-          clientKeyRef: values.clientKey?.referenceString,
-          clientCertRef: values.clientKeyCertificate?.referenceString,
-          clientKeyPassphraseRef: values.clientKeyPassphrase?.referenceString,
-          caCertRef: values.clientKeyCACertificate?.referenceString, // optional
-          clientKeyAlgo: values.clientKeyAlgo
-        }
-      default:
-        return {}
-    }
-  }, [])
-
-  const authStepData: ConnectorInfoDTO = {
-    name: formikRef?.current?.values?.connectorName || '',
+  const authStepData: any = {
+    delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors,
+    name: formikRef.current?.values?.connectorName || '',
     description: '',
     projectIdentifier: projectIdentifier,
     orgIdentifier: orgIdentifier,
-    identifier: formikRef?.current?.values?.connectorName || '',
+    identifier: formikRef.current?.values?.connectorName || '',
     type: Connectors.KUBERNETES_CLUSTER,
-    spec: {
-      credential: {
-        type: formikRef?.current?.values?.delegateType,
-        spec:
-          formikRef?.current?.values?.delegateType === DelegateTypes.DELEGATE_OUT_CLUSTER
-            ? {
-                masterUrl: formikRef?.current?.values?.masterUrl,
-                auth: {
-                  type: formikRef?.current?.values?.authType,
-                  spec: buildAuthTypePayload()
-                }
-              }
-            : {}
-      },
-      delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors
-    }
+    delegateType: formikRef.current?.values?.delegateType,
+    masterUrl: formikRef.current?.values?.masterUrl,
+    authType: formikRef.current?.values?.authType,
+    password: {
+      referenceString: formikRef.current?.values?.password?.referenceString
+    },
+    username: {
+      value: formikRef.current?.values?.username?.value,
+      type: ValueType.TEXT
+    },
+    usernameRef: {
+      value: formikRef.current?.values?.username?.value,
+      type: ValueType.ENCRYPTED
+    },
+    serviceAccountToken: {
+      referenceString: formikRef.current?.values?.serviceAccountToken?.referenceString
+    },
+    clientKeyCACertificate: {
+      referenceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
+    },
+    oidcIssueUrl: formikRef.current?.values?.oidcIssuerUrl,
+    oidcScopes: formikRef.current?.values?.oidcScopes,
+    oidcUsername: {
+      type: ValueType.TEXT,
+      value: formikRef.current?.values?.oidcUsername?.value
+    },
+    oidcUsernameRef: {
+      type: ValueType.ENCRYPTED,
+      value: formikRef.current?.values?.oidcUsername?.value
+    },
+    oidcPassword: {
+      referenceString: formikRef.current?.values?.oidcPassword?.referenceString
+    },
+    oidcCleintId: {
+      referenceString: formikRef.current?.values?.oidcCleintId?.referenceString
+    },
+    oidcSecretRef: {
+      refernceString: formikRef.current?.values?.oidcCleintSecret?.referenceString
+    },
+    clientKey: {
+      referenceString: formikRef.current?.values?.clientKey?.referenceString
+    },
+    clientKeyCertificate: {
+      refernceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
+    },
+    clientKeyPassphrase: {
+      refernceString: formikRef.current?.values?.clientKeyPassphrase?.referenceString
+    },
+    clientKeyAlgo: formikRef?.current?.values?.clientKeyAlgo
   }
 
-  // const updatedStepData = produce(authStepData as ConnectorInfoDTO, draft => {
-
-  //   set(draft, 'spec.delegateSelectors', mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors)
-  // })
-
-  const connectorData: DelegateSelectorStepData = {
-    ...authStepData,
-    delegateSelectors: authStepData?.spec?.delegateSelectors
-  }
+  // const connectorData: any = () => {
+  //   return {
+  //     ...authStepData
+  //     // delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors
+  //   }
+  // }
 
   const afterSuccessHandler = (response: ResponseConnectorResponse): void => {
-    console.log('successful', response?.data)
-
-    onInitiate({
-      connectorFormData: connectorData,
-      buildPayload: buildKubPayload
-    })
+    if (response?.status === 'SUCCESS') {
+      setTestConnectionStatus(TestStatus.SUCCESS)
+    } else if (response?.status === 'FAILURE') {
+      setTestConnectionStatus(TestStatus.FAILED)
+    }
   }
 
   const { onInitiate, loading } = useCreateEditConnector<DelegateSelectorStepData>({
@@ -266,7 +257,7 @@ const SelectAuthenticationMethodRef = (
   })
 
   const [delegatesFound, setDelegatesFound] = useState<DelegatesFoundState>(DelegatesFoundState.ActivelyConnected)
-  const [connectorInfo, setConnectorInfo] = useState<ConnectorInfoDTO>()
+  const [connectorInfo, setConnectorInfo] = useState()
   const [testConnectionStatus, setTestConnectionStatus] = useState<TestStatus>(TestStatus.NOT_INITIATED)
   const [testConnectionErrors, setTestConnectionErrors] = useState<ResponseMessage[]>()
   useEffect(() => {
@@ -274,6 +265,12 @@ const SelectAuthenticationMethodRef = (
       scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
     }
   }, [testConnectionErrors?.length])
+
+  useEffect(() => {
+    if (validateAuthMethodSetup()) {
+      setTestConnectionStatus(TestStatus.NOT_INITIATED)
+    }
+  }, [formikRef?.current?.values?.delegateType])
   const TestConnection = (): React.ReactElement => {
     switch (testConnectionStatus) {
       case TestStatus.FAILED:
@@ -294,11 +291,13 @@ const SelectAuthenticationMethodRef = (
                 if (validateAuthMethodSetup()) {
                   setTestConnectionStatus(TestStatus.IN_PROGRESS)
                   setTestConnectionErrors([])
-                  setConnectorInfo(authStepData)
+
                   onInitiate({
-                    connectorFormData: connectorData,
+                    connectorFormData: authStepData,
                     buildPayload: buildKubPayload
+                    // customHandleCreate:
                   })
+                  setConnectorInfo(authStepData)
                 }
               }}
             />
