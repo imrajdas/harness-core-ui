@@ -149,6 +149,7 @@ function DeployEnvironment({
               }
             : undefined
         )
+        set(values, `${path}.infrastructureDefinitions`, '')
         formik?.setValues({ ...values })
 
         updateTemplate(
@@ -159,7 +160,8 @@ function DeployEnvironment({
             }),
             ...(parsedServiceOverridesYaml?.serviceOverrideInputs && {
               serviceOverrideInputs: parsedServiceOverridesYaml?.serviceOverrideInputs
-            })
+            }),
+            infrastructureDefinitions: RUNTIME_INPUT_VALUE
           },
           path
         )
