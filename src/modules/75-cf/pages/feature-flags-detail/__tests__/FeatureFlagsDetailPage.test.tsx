@@ -182,7 +182,7 @@ describe('FeatureFlagsDetailPage', () => {
 
     expect(getByText(container, 'cf.noEnvironment.title')).toBeDefined()
     expect(getByText(container, 'cf.noEnvironment.message')).toBeDefined()
-    expect(getByText(container, 'cf.environments.create.title')).toBeDefined()
+    expect(getByText(container, 'newEnvironment')).toBeDefined()
   })
 
   test('FeatureFlagsDetailPage should render data correctly', async () => {
