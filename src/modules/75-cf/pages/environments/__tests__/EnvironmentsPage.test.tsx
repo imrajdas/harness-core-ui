@@ -14,6 +14,8 @@ import EnvironmentsPage from '../EnvironmentsPage'
 import mockEnvironments from './mockEnvironments'
 
 describe('EnvironmentsPage', () => {
+  beforeEach(() => jest.resetAllMocks())
+
   const renderComponent = (): RenderResult => {
     return render(
       <TestWrapper
@@ -161,5 +163,35 @@ describe('EnvironmentsPage', () => {
       // expect modal to disappear
       expect(screen.queryByText('cf.environments.delete.title')).not.toBeInTheDocument()
     })
+  })
+
+  test('Should render correct empty state when there are no environments', () => {
+    const noData = {
+      status: 'SUCCESS',
+      data: {
+        totalPages: 1,
+        totalItems: 0,
+        pageItemCount: 15,
+        pageSize: 15,
+        content: [],
+        pageIndex: 0,
+        empty: false
+      }
+    }
+
+    mockImport('services/cd-ng', {
+      useGetEnvironmentListForProject: () => ({
+        error: undefined,
+        loading: false,
+        refetch: jest.fn(),
+        data: noData
+      })
+    })
+
+    renderComponent()
+
+    expect(document.querySelector('[data-testid="nodata-image"]')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'plus newEnvironment' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'cf.noEnvironment.title' })).toBeInTheDocument()
   })
 })

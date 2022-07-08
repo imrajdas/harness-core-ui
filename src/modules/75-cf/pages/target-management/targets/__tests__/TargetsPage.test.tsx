@@ -16,6 +16,8 @@ import { FeatureIdentifier } from 'framework/featureStore/FeatureIdentifier'
 import { TargetsPage } from '../TargetsPage'
 
 describe('TargetsPage', () => {
+  beforeEach(() => jest.resetAllMocks())
+
   const renderComponent = (): RenderResult => {
     return render(
       <TestWrapper
@@ -136,6 +138,58 @@ describe('TargetsPage', () => {
     renderComponent()
 
     expect(getByText(document.body, error.message)).toBeDefined()
+  })
+
+  test('Targets Page should render environment empty state when there are no environments', () => {
+    mockImport('@cf/hooks/useEnvironmentSelectV2', {
+      useEnvironmentSelectV2: () => ({
+        environments: [],
+        loading: false,
+        error: undefined,
+        refetch: jest.fn(),
+        EnvironmentSelect: function EnvironmentSelect() {
+          return <div />
+        }
+      })
+    })
+
+    renderComponent()
+
+    expect(document.querySelector('[data-testid="nodata-image"]')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'plus newEnvironment' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'cf.noEnvironment.title' })).toBeInTheDocument()
+  })
+
+  test('Targets Page should render Target empty state when there are environments but no targets', () => {
+    const noTargets = {
+      itemCount: 0,
+      pageCount: 0,
+      pageIndex: 0,
+      pageSize: 15,
+      targets: []
+    }
+
+    mockImport('services/cf', {
+      useGetAllTargets: () => ({ data: noTargets, loading: false, refetch: jest.fn() })
+    })
+
+    mockImport('@cf/hooks/useEnvironmentSelectV2', {
+      useEnvironmentSelectV2: () => ({
+        environments: mockEnvironments,
+        loading: false,
+        error: undefined,
+        refetch: jest.fn(),
+        EnvironmentSelect: function EnvironmentSelect() {
+          return <div />
+        }
+      })
+    })
+
+    renderComponent()
+
+    expect(document.querySelector('[data-testid="nodata-image"]')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'plus cf.targets.create' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'cf.noTarget' })).toBeInTheDocument()
   })
 
   test('TargetsPage should render data correctly', async () => {
