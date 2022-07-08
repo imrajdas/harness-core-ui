@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { Container } from '@wings-software/uicore'
+import { Container } from '@harness/uicore'
 import { NoData } from '@cf/components/NoData/NoData'
 import { String, useStrings } from 'framework/strings'
 import { NewSegmentButton } from './NewSegmentButton'
