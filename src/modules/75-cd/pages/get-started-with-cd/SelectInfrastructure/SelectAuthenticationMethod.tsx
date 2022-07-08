@@ -203,7 +203,7 @@ const SelectAuthenticationMethodRef = (
     clientKeyCACertificate: {
       referenceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
     },
-    oidcIssueUrl: formikRef.current?.values?.oidcIssuerUrl,
+    oidcIssuerUrl: formikRef.current?.values?.oidcIssuerUrl,
     oidcScopes: formikRef.current?.values?.oidcScopes,
     oidcUsername: {
       type: ValueType.TEXT,
@@ -220,16 +220,16 @@ const SelectAuthenticationMethodRef = (
       referenceString: formikRef.current?.values?.oidcCleintId?.referenceString
     },
     oidcSecretRef: {
-      refernceString: formikRef.current?.values?.oidcCleintSecret?.referenceString
+      referenceString: formikRef.current?.values?.oidcCleintSecret?.referenceString
     },
     clientKey: {
       referenceString: formikRef.current?.values?.clientKey?.referenceString
     },
     clientKeyCertificate: {
-      refernceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
+      referenceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
     },
     clientKeyPassphrase: {
-      refernceString: formikRef.current?.values?.clientKeyPassphrase?.referenceString
+      referenceString: formikRef.current?.values?.clientKeyPassphrase?.referenceString
     },
     clientKeyAlgo: formikRef?.current?.values?.clientKeyAlgo
   }
@@ -244,7 +244,7 @@ const SelectAuthenticationMethodRef = (
   const afterSuccessHandler = (response: ResponseConnectorResponse): void => {
     if (response?.status === 'SUCCESS') {
       setTestConnectionStatus(TestStatus.SUCCESS)
-    } else if (response?.status === 'FAILURE') {
+    } else if (response?.status === 'FAILURE' || response?.status === 'ERROR') {
       setTestConnectionStatus(TestStatus.FAILED)
     }
   }
