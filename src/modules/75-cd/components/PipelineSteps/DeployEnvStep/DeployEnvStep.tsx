@@ -24,7 +24,8 @@ import {
   VisualYamlSelectedView as SelectedView,
   VisualYamlToggle,
   getErrorInfoFromErrorObject,
-  Container
+  Container,
+  PageSpinner
 } from '@wings-software/uicore'
 import { useModalHook } from '@harness/use-modal'
 import * as Yup from 'yup'
@@ -48,7 +49,7 @@ import {
   useGetYamlSchema
 } from 'services/cd-ng'
 import { IdentifierSchema, NameSchema } from '@common/utils/Validation'
-import { NameIdDescriptionTags, PageSpinner } from '@common/components'
+import { NameIdDescriptionTags } from '@common/components'
 import { useStrings } from 'framework/strings'
 import { loggerFor } from 'framework/logging/logging'
 import { ModuleName } from 'framework/types/ModuleName'
@@ -237,11 +238,10 @@ export const NewEditEnvironmentModal: React.FC<NewEditEnvironmentModalProps> = (
     },
     [yamlHandler?.getLatestYaml, data]
   )
-  if (createLoading || updateLoading) {
-    return <PageSpinner />
-  }
+
   return (
     <>
+      {(createLoading || updateLoading) && <PageSpinner />}
       <Container className={css.yamlToggleEnv}>
         <Layout.Horizontal flex={{ justifyContent: flexStart }} padding={{ top: 'small' }}>
           <VisualYamlToggle
