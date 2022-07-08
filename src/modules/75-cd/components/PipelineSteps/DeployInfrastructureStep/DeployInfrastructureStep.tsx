@@ -101,6 +101,7 @@ export class DeployInfrastructureStep extends Step<DeployStageConfig> {
           stepViewType={stepViewType}
           allowableTypes={allowableTypes}
           inputSetData={inputSetData}
+          gitOpsEnabled={(customStepProps as any).gitOpsEnabled}
         />
       )
     }

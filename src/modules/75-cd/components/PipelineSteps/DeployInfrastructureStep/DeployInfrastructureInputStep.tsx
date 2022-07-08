@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 import { Container, Layout, RUNTIME_INPUT_VALUE, Text } from '@harness/uicore'
 import { Color } from '@harness/design-system'
 import { connect } from 'formik'
-import { get } from 'lodash-es'
+import { defaultTo, get } from 'lodash-es'
 
 import { useStrings } from 'framework/strings'
 import { useDeepCompareEffect } from '@common/hooks'
@@ -18,6 +18,7 @@ import { CustomVariableInputSet } from '@pipeline/components/PipelineSteps/Steps
 import DeployInfrastructures from './DeployInfrastructures/DeployInfrastructures'
 import DeployEnvironment from './DeployEnvironment/DeployEnvironment'
 import DeployEnvironmentGroup from './DeployEnvironmentGroup/DeployEnvironmentGroup'
+import DeployClusters from './DeployClusters/DeployClusters'
 import type { DeployInfrastructureProps } from './utils'
 
 import css from './DeployInfrastructureStep.module.scss'
@@ -26,16 +27,24 @@ function DeployInfrastructureInputStepInternal({
   inputSetData,
   initialValues,
   allowableTypes,
-  formik
+  formik,
+  gitOpsEnabled
 }: DeployInfrastructureProps & { formik?: any }) {
   const { getString } = useStrings()
   const [isInfrastructureDefinitionRuntime, setIsInfrastructureDefinitionRuntime] = useState(false)
+  const [isGitopsClusterRuntime, setIsGitopsClusterRuntime] = useState(false)
 
   useDeepCompareEffect(() => {
     if ((inputSetData?.template?.environment?.infrastructureDefinitions as unknown as string) === RUNTIME_INPUT_VALUE) {
       setIsInfrastructureDefinitionRuntime(true)
     }
   }, [inputSetData?.template?.environment?.infrastructureDefinitions])
+
+  useDeepCompareEffect(() => {
+    if ((inputSetData?.template?.environment?.gitOpsClusters as unknown as string) === RUNTIME_INPUT_VALUE) {
+      setIsGitopsClusterRuntime(true)
+    }
+  }, [inputSetData?.template?.environment?.gitOpsClusters])
 
   return (
     <>
@@ -62,6 +71,7 @@ function DeployInfrastructureInputStepInternal({
             allowableTypes={allowableTypes}
             path={inputSetData?.path}
             serviceRef={initialValues.service?.serviceRef}
+            gitOpsEnabled={gitOpsEnabled}
           />
         </Container>
       )}
@@ -105,38 +115,71 @@ function DeployInfrastructureInputStepInternal({
         </>
       )}
 
-      {isInfrastructureDefinitionRuntime &&
-        initialValues.environment?.environmentRef !== RUNTIME_INPUT_VALUE &&
+      {!gitOpsEnabled &&
+        isInfrastructureDefinitionRuntime &&
         inputSetData?.template?.environment?.infrastructureDefinitions && (
           <>
-            <Text font={{ size: 'normal', weight: 'bold' }} color={Color.BLACK} padding={{ bottom: 'medium' }}>
-              {getString('infrastructureText')}
-            </Text>
-            <DeployInfrastructures
-              initialValues={initialValues}
-              allowableTypes={allowableTypes}
-              environmentRef={initialValues.environment?.environmentRef}
-              path={inputSetData?.path}
-            />
+            {initialValues.environment?.environmentRef !== RUNTIME_INPUT_VALUE && (
+              <>
+                <Text font={{ size: 'normal', weight: 'bold' }} color={Color.BLACK} padding={{ bottom: 'medium' }}>
+                  {getString('infrastructureText')}
+                </Text>
+                <DeployInfrastructures
+                  initialValues={initialValues}
+                  allowableTypes={allowableTypes}
+                  environmentRef={initialValues.environment?.environmentRef}
+                  path={inputSetData?.path}
+                />
+              </>
+            )}
+
+            {initialValues.environment?.environmentRef === RUNTIME_INPUT_VALUE &&
+              get(formik.values, `${inputSetData?.path}.environmentRef`) && (
+                <>
+                  <Text font={{ size: 'normal', weight: 'bold' }} color={Color.BLACK} padding={{ bottom: 'medium' }}>
+                    {getString('infrastructureText')}
+                  </Text>
+                  <DeployInfrastructures
+                    initialValues={initialValues}
+                    allowableTypes={allowableTypes}
+                    environmentRef={get(formik.values, `${inputSetData.path}.environmentRef`)}
+                    path={inputSetData?.path}
+                  />
+                </>
+              )}
           </>
         )}
 
-      {isInfrastructureDefinitionRuntime &&
-        initialValues.environment?.environmentRef === RUNTIME_INPUT_VALUE &&
-        get(formik.values, `${inputSetData?.path}.environmentRef`) &&
-        inputSetData?.template?.environment?.infrastructureDefinitions && (
-          <>
-            <Text font={{ size: 'normal', weight: 'bold' }} color={Color.BLACK} padding={{ bottom: 'medium' }}>
-              {getString('infrastructureText')}
-            </Text>
-            <DeployInfrastructures
-              initialValues={initialValues}
-              allowableTypes={allowableTypes}
-              environmentRef={get(formik.values, `${inputSetData.path}.environmentRef`)}
-              path={inputSetData?.path}
-            />
-          </>
-        )}
+      {gitOpsEnabled && isGitopsClusterRuntime && inputSetData?.template?.environment?.gitOpsClusters && (
+        <>
+          {initialValues.environment?.environmentRef !== RUNTIME_INPUT_VALUE && (
+            <>
+              <Text font={{ size: 'normal', weight: 'bold' }} color={Color.BLACK} padding={{ bottom: 'medium' }}>
+                {getString('common.clusters')}
+              </Text>
+              <DeployClusters
+                allowableTypes={allowableTypes}
+                environmentIdentifier={defaultTo(initialValues.environment?.environmentRef, '')}
+                path={inputSetData?.path}
+              />
+            </>
+          )}
+
+          {initialValues.environment?.environmentRef === RUNTIME_INPUT_VALUE &&
+            get(formik.values, `${inputSetData?.path}.environmentRef`) && (
+              <>
+                <Text font={{ size: 'normal', weight: 'bold' }} color={Color.BLACK} padding={{ bottom: 'medium' }}>
+                  {getString('common.clusters')}
+                </Text>
+                <DeployClusters
+                  allowableTypes={allowableTypes}
+                  environmentIdentifier={get(formik.values, `${inputSetData.path}.environmentRef`)}
+                  path={inputSetData?.path}
+                />
+              </>
+            )}
+        </>
+      )}
     </>
   )
 }

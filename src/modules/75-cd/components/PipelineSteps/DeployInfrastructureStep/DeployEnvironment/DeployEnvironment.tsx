@@ -62,6 +62,7 @@ interface DeployEnvironmentProps {
   allowableTypes: MultiTypeInputType[]
   serviceRef?: string
   path?: string
+  gitOpsEnabled?: boolean
 }
 
 function DeployEnvironment({
@@ -70,7 +71,8 @@ function DeployEnvironment({
   formik,
   allowableTypes,
   serviceRef,
-  path
+  path,
+  gitOpsEnabled
 }: DeployEnvironmentProps) {
   const { accountId, projectIdentifier, orgIdentifier } = useParams<PipelinePathProps>()
   const { getString } = useStrings()
@@ -149,7 +151,12 @@ function DeployEnvironment({
               }
             : undefined
         )
-        set(values, `${path}.infrastructureDefinitions`, '')
+
+        if (gitOpsEnabled) {
+          set(values, `${path}.gitOpsClusters`, '')
+        } else {
+          set(values, `${path}.infrastructureDefinitions`, '')
+        }
         formik?.setValues({ ...values })
 
         updateTemplate(
@@ -161,7 +168,8 @@ function DeployEnvironment({
             ...(parsedServiceOverridesYaml?.serviceOverrideInputs && {
               serviceOverrideInputs: parsedServiceOverridesYaml?.serviceOverrideInputs
             }),
-            infrastructureDefinitions: RUNTIME_INPUT_VALUE
+            ...(!gitOpsEnabled && { infrastructureDefinitions: RUNTIME_INPUT_VALUE }),
+            ...(gitOpsEnabled && { gitOpsClusters: RUNTIME_INPUT_VALUE })
           },
           path
         )
@@ -187,13 +195,20 @@ function DeployEnvironment({
           delete draft.environmentInputs
           delete draft.serviceOverrideInputs
         }
+        if (gitOpsEnabled) {
+          set(draft, 'gitOpsClusters', RUNTIME_INPUT_VALUE)
+        } else {
+          set(draft, 'infrastructureDefinitions', RUNTIME_INPUT_VALUE)
+        }
       })
       const environmentValues = get(formik?.values, `${path}`)
       if (environmentValues) {
         delete environmentValues.environmentInputs
         delete environmentValues.serviceOverrideInputs
         formik?.setFieldValue(path, {
-          ...environmentValues
+          ...environmentValues,
+          ...(!gitOpsEnabled && { infrastructureDefinitions: [] }),
+          ...(gitOpsEnabled && { gitOpsClusters: [] })
         })
         updateTemplate(updatedTemplate, path)
       }
