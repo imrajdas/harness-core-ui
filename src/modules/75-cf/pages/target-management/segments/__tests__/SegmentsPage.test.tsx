@@ -236,7 +236,7 @@ describe('SegmentsPage', () => {
 
     expect(document.querySelector('[data-testid="nodata-image"]')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'plus cf.segments.create' })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'cf.segments.noSegment' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'cf.segments.noTargetGroupsForEnv' })).toBeInTheDocument()
   })
 
   test('No environment view should be rendered', async () => {
