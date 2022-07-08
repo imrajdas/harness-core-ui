@@ -1,0 +1,43 @@
+/*
+ * Copyright 2022 Harness Inc. All rights reserved.
+ * Use of this source code is governed by the PolyForm Shield 1.0.0 license
+ * that can be found in the licenses directory at the root of this repository, also available at
+ * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
+ */
+
+:root {
+  // Continuous Delivery
+  --cd-light: #f6fff2;
+  --cd-medium: #5fb34e;
+  --cd-dark: #30841f;
+
+  // Continuous Integration
+  --ci-light: #e2f5ff;
+  --ci-medium: #2bb1f2;
+  --ci-dark: #0672b6;
+
+  // Cloud Cost Management
+  --ccm-light: #ecffff;
+  --ccm-medium: #01c9cc;
+  --ccm-dark: #24807f;
+
+  // Feature Flag Management
+  --ff-light: #fcf4e3;
+  --ff-medium: #ee8625;
+  --ff-dark: #c05809;
+
+  // Service Reliability Management
+  --srm-light: #f6f1ff;
+  --srm-medium: #ae82fc;
+  --srm-dark: #6938c0;
+
+  // Security Test Orchestration
+  --sto-light: #ebefff;
+  --sto-medium: #4791ff;
+  --sto-dark: #1947ec;
+
+  // Chaos Engineering
+  --ce-light: #fff1f7;
+  --ce-medium: #ff006a;
+  --ce-dark: #9a0041;
+}
