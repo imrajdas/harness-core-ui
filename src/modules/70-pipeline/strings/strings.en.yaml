@@ -481,7 +481,7 @@ execution:
     abortTitle: Abort Execution?
 resourceConstraints:
   title: Resource Constraint
-  infoText: 'You have {{executioncount}} {{executiontext}} in queue that have to complete before your execution begins. Only one execution on a {{infraEntityText}} is allowed at a time.'
+  infoText: You have {{executioncount}} Pipeline {{executiontext}} queued for this {{infraEntityText}}. Only one execution on the same {{infraEntityText}} is allowed at a time.
   currentlyExecuting: ' ( currently executing )'
   yourPipeline: ' ( your execution )'
   k8sNamespaceText: K8s namespace
