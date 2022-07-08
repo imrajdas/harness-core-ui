@@ -13,6 +13,8 @@ import cx from 'classnames'
 
 import { useStrings } from 'framework/strings'
 import type { ConnectorInfoDTO } from 'services/cd-ng'
+import DialogExtention from '@connectors/common/ConnectorExtention/DialogExtention'
+import { CONNECTOR_MODAL_MIN_WIDTH } from '@connectors/constants'
 
 import CreateSecret from '@ce/components/AutoStoppingModal/steps/CreateSecret'
 import InstallComponents from '@ce/components/AutoStoppingModal/steps/InstallComponents'
@@ -30,45 +32,49 @@ export const useCloudVisibilityModal = ({ connector }: { connector: ConnectorInf
     isOpen: true,
     enforceFocus: false,
     style: {
-      width: 1175,
+      width: 'auto',
+      minWidth: CONNECTOR_MODAL_MIN_WIDTH,
       minHeight: 640,
       borderLeft: 0,
       paddingBottom: 0,
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'auto'
     }
   }
 
   const [openModal, closeModal] = useModalHook(
     () => (
       <Dialog {...modalProps} onClose={closeModal} className={cx(css.modal, Classes.DIALOG)}>
-        <StepWizard
-          icon="ccm-solid"
-          iconProps={{ size: 50 }}
-          title={getString('ce.cloudIntegration.enableCloudCosts')}
-          className={css.stepWizard}
-        >
-          <EnableCostVisibilityStep
-            connector={connector}
-            name={getString('ce.cloudIntegration.costVisibilityDialog.step1.title')}
-            closeModal={closeModal}
-          />
-          <EnableAutoStoppingStep name={getString('ce.cloudIntegration.costVisibilityDialog.step2.title')} />
-          <StepWizard>
-            <CreateSecret
-              isCloudReportingModal={true}
-              name={getString('ce.cloudIntegration.autoStoppingModal.createSecret.title')}
+        <DialogExtention>
+          <StepWizard
+            icon="ccm-solid"
+            iconProps={{ size: 50 }}
+            title={getString('ce.cloudIntegration.enableCloudCosts')}
+            className={css.stepWizard}
+          >
+            <EnableCostVisibilityStep
+              connector={connector}
+              name={getString('ce.cloudIntegration.costVisibilityDialog.step1.title')}
+              closeModal={closeModal}
             />
-            <InstallComponents
-              isCloudReportingModal={true}
-              name={getString('ce.cloudIntegration.autoStoppingModal.installComponents.title')}
-            />
-            <TestComponents
-              isCloudReportingModal={true}
-              name={getString('ce.cloudIntegration.autoStoppingModal.testComponents.title')}
-            />
+            <EnableAutoStoppingStep name={getString('ce.cloudIntegration.costVisibilityDialog.step2.title')} />
+            <StepWizard>
+              <CreateSecret
+                isCloudReportingModal={true}
+                name={getString('ce.cloudIntegration.autoStoppingModal.createSecret.title')}
+              />
+              <InstallComponents
+                isCloudReportingModal={true}
+                name={getString('ce.cloudIntegration.autoStoppingModal.installComponents.title')}
+              />
+              <TestComponents
+                closeModal={closeModal}
+                isCloudReportingModal={true}
+                name={getString('ce.cloudIntegration.autoStoppingModal.testComponents.title')}
+              />
+            </StepWizard>
           </StepWizard>
-        </StepWizard>
+        </DialogExtention>
         <Button minimal icon="cross" iconProps={{ size: 18 }} onClick={closeModal} className={css.crossIcon} />
       </Dialog>
     ),

@@ -26,7 +26,7 @@ interface CreateSecretProps {
 }
 
 const CreateSecret: React.FC<StepProps<ConnectorInfoDTO> & CreateSecretProps> = ({
-  previousStep,
+  gotoStep,
   prevStepData,
   nextStep,
   isCloudReportingModal
@@ -103,7 +103,9 @@ const CreateSecret: React.FC<StepProps<ConnectorInfoDTO> & CreateSecretProps> = 
           text={getString('back')}
           variation={ButtonVariation.SECONDARY}
           margin={{ right: 'medium' }}
-          onClick={() => previousStep?.()}
+          onClick={() => {
+            gotoStep?.({ stepNumber: 1 })
+          }}
         />
         <Button
           rightIcon="chevron-right"

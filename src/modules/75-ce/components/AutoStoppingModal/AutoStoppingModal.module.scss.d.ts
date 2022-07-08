@@ -10,6 +10,7 @@ declare const styles: {
   readonly container: string
   readonly crossIcon: string
   readonly downloadYaml: string
+  readonly errorContainer: string
   readonly modal: string
   readonly step1: string
   readonly stepContainer: string

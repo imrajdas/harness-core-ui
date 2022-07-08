@@ -13,6 +13,8 @@ import cx from 'classnames'
 
 import { useStrings } from 'framework/strings'
 import type { ConnectorInfoDTO } from 'services/cd-ng'
+import DialogExtention from '@connectors/common/ConnectorExtention/DialogExtention'
+import { CONNECTOR_MODAL_MIN_WIDTH } from '@connectors/constants'
 
 import CreateSecret from './steps/CreateSecret'
 import InstallComponents from './steps/InstallComponents'
@@ -27,32 +29,39 @@ export const useAutoStoppingModal = ({ connector }: { connector: ConnectorInfoDT
     isOpen: true,
     enforceFocus: false,
     style: {
-      width: 1175,
+      width: 'auto',
+      minWidth: CONNECTOR_MODAL_MIN_WIDTH,
       minHeight: 640,
       borderLeft: 0,
       paddingBottom: 0,
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'auto'
     }
   }
 
   const [openModal, closeModal] = useModalHook(
     () => (
       <Dialog {...modalProps} onClose={closeModal} className={cx(css.modal, Classes.DIALOG)}>
-        <StepWizard
-          icon="autostopping"
-          iconProps={{ size: 70 }}
-          title={getString('ce.cloudIntegration.enableAutoStopping')}
-          className={css.stepWizard}
-        >
-          <CreateSecret name={getString('ce.cloudIntegration.autoStoppingModal.createSecret.title')} />
-          <InstallComponents
-            connector={connector}
-            name={getString('ce.cloudIntegration.autoStoppingModal.installComponents.title')}
-          />
-          <TestComponents name={getString('ce.cloudIntegration.autoStoppingModal.testComponents.title')} />
-        </StepWizard>
-        <Button minimal icon="cross" iconProps={{ size: 18 }} onClick={closeModal} className={css.crossIcon} />
+        <DialogExtention>
+          <StepWizard
+            icon="autostopping"
+            iconProps={{ size: 70 }}
+            title={getString('ce.cloudIntegration.enableAutoStopping')}
+            className={css.stepWizard}
+          >
+            <CreateSecret name={getString('ce.cloudIntegration.autoStoppingModal.createSecret.title')} />
+            <InstallComponents
+              connector={connector}
+              name={getString('ce.cloudIntegration.autoStoppingModal.installComponents.title')}
+            />
+            <TestComponents
+              connector={connector}
+              closeModal={closeModal}
+              name={getString('ce.cloudIntegration.autoStoppingModal.testComponents.title')}
+            />
+          </StepWizard>
+          <Button minimal icon="cross" iconProps={{ size: 18 }} onClick={closeModal} className={css.crossIcon} />
+        </DialogExtention>
       </Dialog>
     ),
     []

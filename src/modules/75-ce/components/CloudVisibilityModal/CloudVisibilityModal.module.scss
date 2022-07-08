@@ -12,6 +12,7 @@
 
   .stepWizard {
     flex-grow: 1;
+    min-height: 640px;
   }
 
   p[class*='StepWizard--stepName'] {

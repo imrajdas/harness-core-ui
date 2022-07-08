@@ -12,6 +12,7 @@
 
   .stepWizard {
     flex-grow: 1;
+    min-height: 640px;
   }
 
   p[class*='StepWizard--stepName'] {
@@ -37,6 +38,17 @@
     svg {
       fill: var(--primary-7);
     }
+  }
+
+  [data-icon='steps-spinner'] {
+    margin-top: var(--spacing-1);
+    margin-bottom: var(--spacing-1);
+    color: var(--primary-7) !important;
+  }
+
+  .errorContainer {
+    margin-top: var(--spacing-medium);
+    width: 645px;
   }
 
   .stepContainer {
