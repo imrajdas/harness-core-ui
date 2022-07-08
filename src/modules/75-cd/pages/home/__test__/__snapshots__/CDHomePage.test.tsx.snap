@@ -79,7 +79,7 @@ exports[`CDHomePage snapshot test should pop up select project CD Trial modal if
       </p>
       <a
         class="bp3-button Button--button StyledProps--font StyledProps--main link StyledProps--color StyledProps--font StyledProps--font-size-normal Button--with-current-color Button--link"
-        href="https://ngdocs.harness.io/article/knunou9j30-kubernetes-cd-quickstart"
+        href="https://docs.harness.io/article/knunou9j30-kubernetes-cd-quickstart"
         rel="noreferrer noopener"
         role="button"
         tabindex="0"
@@ -139,7 +139,7 @@ exports[`CDHomePage snapshot test should render HomePageTemplate when return suc
       </p>
       <a
         class="bp3-button Button--button StyledProps--font StyledProps--main link StyledProps--color StyledProps--font StyledProps--font-size-normal Button--with-current-color Button--link"
-        href="https://ngdocs.harness.io/article/knunou9j30-kubernetes-cd-quickstart"
+        href="https://docs.harness.io/article/knunou9j30-kubernetes-cd-quickstart"
         rel="noreferrer noopener"
         role="button"
         tabindex="0"

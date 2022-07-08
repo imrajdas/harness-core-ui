@@ -21,7 +21,6 @@ export enum DashboardTags {
   CE = 'CE',
   CF = 'CF',
   CI = 'CI',
-  CG_CD = 'CG_CD',
   STO = 'STO'
 }
 

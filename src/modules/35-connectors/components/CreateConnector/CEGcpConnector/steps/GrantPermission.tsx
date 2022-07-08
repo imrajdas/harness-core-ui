@@ -24,7 +24,7 @@ import { useCreateConnector, useUpdateConnector, Failure } from 'services/cd-ng'
 import CopyToClipboard from '@common/components/CopyToClipBoard/CopyToClipBoard'
 import { CE_GCP_CONNECTOR_CREATION_EVENTS } from '@connectors/trackingConstants'
 import { useStepLoadTelemetry } from '@connectors/common/useTrackStepLoad/useStepLoadTelemetry'
-import { useFeatureFlag, useFeatureFlags } from '@common/hooks/useFeatureFlag'
+import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
 import { useGovernanceMetaDataModal } from '@governance/hooks/useGovernanceMetaDataModal'
 import { connectorGovernanceModalProps } from '@connectors/utils/utils'
 import { useTelemetry, useTrackEvent } from '@common/hooks/useTelemetry'
@@ -36,7 +36,6 @@ import css from '../CreateCeGcpConnector.module.scss'
 
 const GrantPermission: React.FC<StepProps<CEGcpConnectorDTO>> = props => {
   const { getString } = useStrings()
-  const { CE_AS_GCP_VM_SUPPORT } = useFeatureFlags()
 
   useStepLoadTelemetry(CE_GCP_CONNECTOR_CREATION_EVENTS.LOAD_GRANT_PERMISSIONS)
 
@@ -114,8 +113,7 @@ const GrantPermission: React.FC<StepProps<CEGcpConnectorDTO>> = props => {
   }
 
   const renderAdditionalSteps = () => {
-    const optimizationEnabled =
-      CE_AS_GCP_VM_SUPPORT && props.prevStepData?.spec.featuresEnabled?.includes('OPTIMIZATION')
+    const optimizationEnabled = props.prevStepData?.spec.featuresEnabled?.includes('OPTIMIZATION')
     const inventoryEnabled = props.prevStepData?.spec.featuresEnabled?.includes('VISIBILITY')
     return optimizationEnabled && inventoryEnabled ? (
       <>

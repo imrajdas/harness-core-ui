@@ -22,12 +22,7 @@ const TroubleShooting: React.FC<TroubleShootingProps> = props => {
   const { getString } = useStrings()
   const docsLink = (
     <div style={{ padding: 'var(--spacing-medium) 0px' }}>
-      <a
-        href="https://ngdocs.harness.io"
-        target="_blank"
-        rel="noreferrer"
-        style={{ marginTop: 'var(--spacing-medium)' }}
-      >
+      <a href="https://docs.harness.io" target="_blank" rel="noreferrer" style={{ marginTop: 'var(--spacing-medium)' }}>
         {getString('delegates.harnessDocs')}
       </a>
     </div>
@@ -137,7 +132,7 @@ const TroubleShooting: React.FC<TroubleShootingProps> = props => {
         <Layout.Horizontal flex>
           <Text color={Color.BLACK_100}>{getString('delegates.delegateNotInstalled.statusOfCluster')}</Text>
           <a
-            href="https://ngdocs.harness.io/"
+            href="https://docs.harness.io/"
             target="_blank"
             rel="noreferrer"
             style={{ textAlign: 'end', fontSize: '13px' }}
@@ -312,7 +307,7 @@ const TroubleShooting: React.FC<TroubleShootingProps> = props => {
               {getString('delegates.delegateNotInstalled.tabs.commonProblems.checkTheDelegateLogs')}
             </Text>
             <a
-              href="https://ngdocs.harness.io/"
+              href="https://docs.harness.io/"
               target="_blank"
               rel="noreferrer"
               style={{ textAlign: 'end', fontSize: '13px' }}
@@ -465,7 +460,7 @@ const TroubleShooting: React.FC<TroubleShootingProps> = props => {
               {getString('delegates.delegateNotInstalled.tabs.commonProblems.checkTheDelegateLogs')}
             </Text>
             <a
-              href="https://ngdocs.harness.io/"
+              href="https://docs.harness.io/"
               target="_blank"
               rel="noreferrer"
               style={{ textAlign: 'end', fontSize: '13px' }}

@@ -25,7 +25,7 @@ exports[`CFTrialHomePage snapshot test should render properly 1`] = `
         </p>
         <a
           class="learnMore"
-          href="https://ngdocs.harness.io/article/0a2u2ppp8s-getting-started-with-continuous-features"
+          href="https://docs.harness.io/article/0a2u2ppp8s-getting-started-with-continuous-features"
           rel="noreferrer"
           target="_blank"
         >

@@ -620,12 +620,12 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step one 
                                 class="RadioButton--input"
                                 name="urlType"
                                 type="radio"
-                                value="Account"
+                                value="Project"
                               />
                               <span
                                 class="RadioButton--radioIcon"
                               />
-                              account
+                              projectLabel
                             </label>
                             <label
                               class="RadioButton--radio StyledProps--main"
@@ -754,51 +754,11 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step one 
                   <p
                     class="StyledProps--font StyledProps--main bottomMargin5 topMargin1 StyledProps--font-variation-body"
                   >
-                    common.git.testProjectAndRepositoryDescription
+                    common.git.testRepositoryDescription
                   </p>
                   <div
                     class="bp3-form-group formElm"
-                    data-id="validationProject-3"
-                  >
-                    <label
-                      class="bp3-label"
-                      for="validationProject"
-                    >
-                      <span
-                        class="Tooltip--acenter"
-                        data-tooltip-id="azurerepoDetailsStepForm_projectName"
-                      >
-                        <p
-                          class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                        >
-                          projectCard.projectName
-                        </p>
-                      </span>
-                       
-                      <span
-                        class="bp3-text-muted"
-                      />
-                    </label>
-                    <div
-                      class="bp3-form-content"
-                    >
-                      <div
-                        class="bp3-input-group"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="bp3-input"
-                          name="validationProject"
-                          placeholder="common.git.projectNamePlaceholder"
-                          type="text"
-                          value=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="bp3-form-group formElm"
-                    data-id="validationRepo-4"
+                    data-id="validationRepo-3"
                   >
                     <label
                       class="bp3-label"
@@ -1005,12 +965,30 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step one 
         </p>
       </div>
       <div
-        class="StepWizard--navStep StepWizard--activeStep"
+        class="StepWizard--navStep StepWizard--completedStep"
       >
         <span
-          class="StepWizard--number"
+          class="StepWizard--completedIcon"
         >
-          2
+          <span
+            class="bp3-icon bp3-icon-small-tick StyledProps--main StyledProps--color StyledProps--color-primary7"
+            icon="small-tick"
+          >
+            <svg
+              data-icon="small-tick"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+            >
+              <desc>
+                small-tick
+              </desc>
+              <path
+                d="M15 5c-.28 0-.53.11-.71.29L8 11.59l-2.29-2.3a1.003 1.003 0 00-1.42 1.42l3 3c.18.18.43.29.71.29s.53-.11.71-.29l7-7A1.003 1.003 0 0015 5z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
         </span>
         <p
           class="StyledProps--font Text--lineclamp StyledProps--main StepWizard--stepName"
@@ -1020,7 +998,7 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step one 
         </p>
       </div>
       <div
-        class="StepWizard--navStep"
+        class="StepWizard--navStep StepWizard--activeStep"
       >
         <span
           class="StepWizard--number"
@@ -1070,353 +1048,303 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step one 
     >
        
       <div
-        class="Layout--vertical StyledProps--main gitDetails firstep stepContainer"
+        class="Layout--vertical StyledProps--main secondStep stepContainer"
+        style="min-height: 460px; width: 60%;"
       >
-        <div
-          class="Text--withDocsTooltip"
-          data-tooltip-id="azureReposConnectorDetailsTooltip"
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--font-variation-h3"
         >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-h3"
-          >
-            details
-          </p>
-        </div>
+          credentials
+        </p>
         <div
           class="OverlaySpinner--overlaySpinner"
         >
           <form
             action="#"
-            class="FormikForm--main connectorForm fullHeight fullHeightDivsWithFlex"
+            class="FormikForm--main fullHeight fullHeightDivsWithFlex"
           >
             <div>
               <div
-                class="Layout--vertical StyledProps--main paddingTop8"
+                class="StyledProps--font StyledProps--main stepFormWrapper paddingTop8"
               >
-                <div
-                  class="StyledProps--font StyledProps--main bottomPadding1"
-                >
-                  <div
-                    class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-                  >
-                    <div
-                      class="Text--withDocsTooltip"
-                      data-tooltip-id="azurerepoURLType"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                      >
-                        common.git.urlType
-                      </p>
-                    </div>
-                    <div
-                      class="bp3-form-group"
-                      data-id="urlType-0"
-                    >
-                      <div
-                        class="bp3-form-content"
-                      >
-                        <div
-                          class="StyledProps--main"
-                        >
-                          
-                          <div
-                            class="RadioButtonGroup--inline"
-                          >
-                            <label
-                              class="RadioButton--radio StyledProps--main"
-                            >
-                              <input
-                                checked=""
-                                class="RadioButton--input"
-                                name="urlType"
-                                type="radio"
-                                value="Account"
-                              />
-                              <span
-                                class="RadioButton--radioIcon"
-                              />
-                              account
-                            </label>
-                            <label
-                              class="RadioButton--radio StyledProps--main"
-                            >
-                              <input
-                                class="RadioButton--input"
-                                name="urlType"
-                                type="radio"
-                                value="Repo"
-                              />
-                              <span
-                                class="RadioButton--radioIcon"
-                              />
-                              repository
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-                  >
-                    <div
-                      class="Text--withDocsTooltip"
-                      data-tooltip-id="azurerepoConnectionType"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                      >
-                        common.git.connectionType
-                      </p>
-                    </div>
-                    <div
-                      class="bp3-form-group"
-                      data-id="connectionType-1"
-                    >
-                      <div
-                        class="bp3-form-content"
-                      >
-                        <div
-                          class="StyledProps--main"
-                        >
-                          
-                          <div
-                            class="RadioButtonGroup--inline"
-                          >
-                            <label
-                              class="RadioButton--radio StyledProps--main"
-                            >
-                              <input
-                                checked=""
-                                class="RadioButton--input"
-                                name="connectionType"
-                                type="radio"
-                                value="Http"
-                              />
-                              <span
-                                class="RadioButton--radioIcon"
-                              />
-                              HTTP
-                            </label>
-                            <label
-                              class="RadioButton--radio StyledProps--main"
-                            >
-                              <input
-                                class="RadioButton--input"
-                                name="connectionType"
-                                type="radio"
-                                value="Ssh"
-                              />
-                              <span
-                                class="RadioButton--radioIcon"
-                              />
-                              SSH
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="bp3-form-group formElm"
-                  data-id="url-2"
-                >
-                  <label
-                    class="bp3-label"
-                    for="url"
-                  >
-                    <span
-                      class="Tooltip--acenter"
-                      data-tooltip-id="azurerepoDetailsStepForm_url"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                      >
-                        common.git.azureReposProjectUrl
-                      </p>
-                    </span>
-                     
-                    <span
-                      class="bp3-text-muted"
-                    />
-                  </label>
-                  <div
-                    class="bp3-form-content"
-                  >
-                    <div
-                      class="bp3-input-group"
-                    >
-                      <input
-                        autocomplete="off"
-                        class="bp3-input"
-                        name="url"
-                        placeholder="common.git.azureReposUrlPlaceholder"
-                        type="text"
-                        value="http://dev.azure.com/"
-                      />
-                    </div>
-                  </div>
-                </div>
                 <div
                   class="StyledProps--font StyledProps--main"
                 >
-                  <p
-                    class="StyledProps--font StyledProps--main bottomMargin5 topMargin1 StyledProps--font-variation-body"
-                  >
-                    common.git.testProjectAndRepositoryDescription
-                  </p>
                   <div
-                    class="bp3-form-group bp3-intent-danger formElm"
-                    data-id="validationProject-3"
+                    class="StyledProps--font StyledProps--main authHeaderRow StyledProps--flex StyledProps--flex-alignItems-baseline"
                   >
-                    <label
-                      class="bp3-label"
-                      for="validationProject"
-                    >
-                      <span
-                        class="Tooltip--acenter"
-                        data-tooltip-id="azurerepoDetailsStepForm_projectName"
-                      >
-                        <p
-                          class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                        >
-                          projectCard.projectName
-                        </p>
-                      </span>
-                       
-                      <span
-                        class="bp3-text-muted"
-                      />
-                    </label>
                     <div
-                      class="bp3-form-content"
+                      class="Text--withDocsTooltip"
+                      data-tooltip-id="azureRepoAuthentication"
+                    >
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--font-variation-h6"
+                      >
+                        authentication
+                      </p>
+                    </div>
+                    <div
+                      class="bp3-form-group authTypeSelect"
+                      data-id="authType-0"
                     >
                       <div
-                        class="bp3-input-group bp3-intent-danger"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="bp3-input"
-                          name="validationProject"
-                          placeholder="common.git.projectNamePlaceholder"
-                          type="text"
-                          value=""
-                        />
-                      </div>
-                      <div
-                        class="bp3-form-helper-text"
+                        class="bp3-form-content"
                       >
                         <div
-                          class="FormError--errorDiv"
-                          data-name="validationProject"
+                          class="bp3-popover-wrapper Select--main bp3-fill"
                         >
-                          <span
-                            class="bp3-icon StyledProps--main FormError--errorTextIcon StyledProps--intent-danger"
-                            data-icon="circle-cross"
+                          <div
+                            class="bp3-popover-target"
                           >
-                            <svg
-                              height="12"
-                              viewBox="0 0 13 13"
-                              width="12"
-                              xmlns="http://www.w3.org/2000/svg"
+                            <div
+                              class="bp3-input-group"
                             >
-                              <path
-                                clip-rule="evenodd"
-                                d="M.167 6.501a6.333 6.333 0 1012.666 0 6.333 6.333 0 00-12.666 0zm4.071-3.003l2.26 2.263 2.264-2.263c.495-.495 1.236.248.741.743L7.24 6.504l2.254 2.258c.495.495-.247 1.238-.742.743L6.497 7.246 4.238 9.505c-.495.495-1.236-.249-.741-.744l2.258-2.258-2.259-2.262c-.494-.495.248-1.238.742-.743z"
-                                fill-rule="evenodd"
+                              <input
+                                autocomplete="off"
+                                class="bp3-input"
+                                name="authType"
+                                placeholder="- Select -"
+                                style="padding-right: 0px;"
+                                type="text"
+                                value="usernameToken"
                               />
-                            </svg>
-                          </span>
-                          <span
-                            class="FormError--error"
-                          >
-                            common.validation.validationProjectIsRequired
-                          </span>
+                              <span
+                                class="bp3-input-action"
+                              >
+                                <span
+                                  class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--padding-small"
+                                  icon="chevron-down"
+                                >
+                                  <svg
+                                    data-icon="chevron-down"
+                                    height="14"
+                                    viewBox="0 0 16 16"
+                                    width="14"
+                                  >
+                                    <desc>
+                                      chevron-down
+                                    </desc>
+                                    <path
+                                      d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div
-                    class="bp3-form-group bp3-intent-danger formElm"
-                    data-id="validationRepo-4"
+                    class="bp3-form-group bp3-intent-danger"
+                    data-id="null-1"
                   >
-                    <label
-                      class="bp3-label"
-                      for="validationRepo"
-                    >
-                      <span
-                        class="Tooltip--acenter"
-                        data-tooltip-id="azurerepoDetailsStepForm_validationRepo"
-                      >
-                        <p
-                          class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                        >
-                          common.git.testRepository
-                        </p>
-                      </span>
-                       
-                      <span
-                        class="bp3-text-muted"
-                      />
-                    </label>
                     <div
                       class="bp3-form-content"
                     >
                       <div
-                        class="bp3-input-group bp3-intent-danger"
+                        class="Layout--vertical StyledProps--main"
                       >
-                        <input
-                          autocomplete="off"
-                          class="bp3-input"
-                          name="validationRepo"
-                          placeholder="common.git.selectRepoLabel"
-                          type="text"
-                          value=""
-                        />
+                        <div
+                          class="label"
+                        >
+                          <span
+                            class="align bp3-label stringWithTooltipLabel"
+                            data-tooltip-id="stepAzureRepoAuthForm_username"
+                          >
+                            username
+                          </span>
+                          <div
+                            class="bp3-form-group"
+                            data-id="undefined-2"
+                          >
+                            <div
+                              class="bp3-form-content"
+                            >
+                              <div
+                                class="bp3-popover-wrapper DropDown--main"
+                              >
+                                <div
+                                  class="bp3-popover-target"
+                                >
+                                  <div
+                                    class=""
+                                  >
+                                    <div
+                                      class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--minWidth StyledProps--flex"
+                                      data-testid="dropdown-button"
+                                      style="min-width: unset;"
+                                    >
+                                      <div
+                                        class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
+                                      >
+                                        <p
+                                          class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
+                                          data-testid="dropdown-value"
+                                          style="--text-line-clamp: 1;"
+                                        >
+                                          plaintext
+                                        </p>
+                                      </div>
+                                      <div
+                                        class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
+                                      >
+                                        <span
+                                          class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
+                                          data-icon="main-chevron-down"
+                                        >
+                                          <svg
+                                            height="8"
+                                            viewBox="0 0 14 8"
+                                            width="8"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <path
+                                              d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
+                                              fill="#4d5969"
+                                            />
+                                          </svg>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="bp3-form-group textCss"
+                        >
+                          <div
+                            class="bp3-form-content"
+                          >
+                            <div
+                              class="bp3-input-group"
+                            >
+                              <input
+                                autocomplete="off"
+                                class="bp3-input"
+                                name="usernametextField"
+                                type="text"
+                                value=""
+                              />
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       <div
                         class="bp3-form-helper-text"
                       >
-                        <div
-                          class="FormError--errorDiv"
-                          data-name="validationRepo"
+                        validation.username
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="bp3-form-group"
+                    data-id="null-4"
+                  >
+                    <div
+                      class="bp3-form-content"
+                    >
+                      <div
+                        class="Layout--vertical StyledProps--main"
+                      >
+                        <label
+                          class="bp3-label"
                         >
                           <span
-                            class="bp3-icon StyledProps--main FormError--errorTextIcon StyledProps--intent-danger"
-                            data-icon="circle-cross"
+                            class="Tooltip--acenter"
+                            data-tooltip-id="stepAzureRepoAuthForm_accessToken"
                           >
-                            <svg
-                              height="12"
-                              viewBox="0 0 13 13"
-                              width="12"
-                              xmlns="http://www.w3.org/2000/svg"
+                            personalAccessToken
+                          </span>
+                        </label>
+                        <div
+                          class="StyledProps--font StyledProps--main container StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-space-between"
+                        >
+                          <a
+                            class="containerLink"
+                            data-testid="accessToken"
+                            href="/account/dummy/resources/connectors"
+                          >
+                            <span
+                              class="bp3-icon StyledProps--main"
+                              data-icon="key-main"
+                              style="height: 12px;"
                             >
-                              <path
-                                clip-rule="evenodd"
-                                d="M.167 6.501a6.333 6.333 0 1012.666 0 6.333 6.333 0 00-12.666 0zm4.071-3.003l2.26 2.263 2.264-2.263c.495-.495 1.236.248.741.743L7.24 6.504l2.254 2.258c.495.495-.247 1.238-.742.743L6.497 7.246 4.238 9.505c-.495.495-1.236-.249-.741-.744l2.258-2.258-2.259-2.262c-.494-.495.248-1.238.742-.743z"
-                                fill-rule="evenodd"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="FormError--error"
-                          >
-                            common.validation.testRepoIsRequired
-                          </span>
+                              <svg
+                                height="24"
+                                width="24"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <g
+                                  fill="none"
+                                  stroke="#1C1C28"
+                                  stroke-width="0.5"
+                                >
+                                  <path
+                                    d="M5.444 1A4.45 4.45 0 001 5.444c0 2.459 1.994 4.46 4.444 4.46 1.939 0 3.613-1.542 4.202-2.995a.393.393 0 01.23-.223.39.39 0 01.322.015l1.032.507.757-.72a.402.402 0 01.552-.007l.543.493.547-.556a.404.404 0 01.572-.005l.527.516.528-.53a.406.406 0 01.571-.002l.522.522.524-.523a.406.406 0 01.571 0l.522.522.523-.522a.414.414 0 01.315-.118.41.41 0 01.294.16l.277.369c.116-.153.234-.311.312-.396a.412.412 0 01.3-.134c.693 0 .927-.37.927-1.465 0-1.018-.636-1.381-1.23-1.381H9.638a.408.408 0 01-.35-.202A4.448 4.448 0 005.444 1h0z"
+                                  />
+                                  <path
+                                    d="M3.828 3.99c.403 0 .769.163 1.034.428a1.458 1.458 0 010 2.067 1.458 1.458 0 01-2.067 0 1.458 1.458 0 010-2.067c.265-.265.63-.428 1.033-.428z"
+                                  />
+                                </g>
+                              </svg>
+                            </span>
+                            <p
+                              class="StyledProps--font StyledProps--main containerLinkText StyledProps--color StyledProps--color-primary7 StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--flex-inline StyledProps--padding-small"
+                            >
+                              <div>
+                                createOrSelectSecret
+                              </div>
+                            </p>
+                          </a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <div
+                  class="bp3-form-group"
+                  data-id="enableAPIAccess-5"
+                >
+                  <div
+                    class="bp3-form-content"
+                  >
+                    <label
+                      class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox StyledProps--main StyledProps--padding-left-xxlarge StyledProps--inline"
+                    >
+                      <input
+                        name="enableAPIAccess"
+                        type="checkbox"
+                      />
+                      <span
+                        class="bp3-control-indicator"
+                      />
+                      <span
+                        class="Tooltip--acenter FormikForm--checkBoxDocTooltipLabel"
+                        data-tooltip-id="stepAzureRepoAuthForm_enableAPIAccess"
+                      >
+                        common.git.enableAPIAccess
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main bottomMargin4 StyledProps--font-small"
+                >
+                  common.git.APIAccessDescription
+                </p>
               </div>
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--padding-top-small"
               >
                 <button
                   class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--withLeftIcon Button--variation Button--variation-secondary"
-                  data-name="commonGitBackButton"
+                  data-name="azureRepoBackButton"
                   type="button"
                 >
                   <span
@@ -1451,9 +1379,7 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step one 
                   <span
                     class="bp3-button-text"
                   >
-                    <span>
-                      continue
-                    </span>
+                    continue
                   </span>
                   <span
                     class="bp3-icon bp3-icon-chevron-right StyledProps--main"
@@ -1704,12 +1630,12 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step two 
                                 class="RadioButton--input"
                                 name="urlType"
                                 type="radio"
-                                value="Account"
+                                value="Project"
                               />
                               <span
                                 class="RadioButton--radioIcon"
                               />
-                              account
+                              projectLabel
                             </label>
                             <label
                               class="RadioButton--radio StyledProps--main"
@@ -1838,51 +1764,11 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step two 
                   <p
                     class="StyledProps--font StyledProps--main bottomMargin5 topMargin1 StyledProps--font-variation-body"
                   >
-                    common.git.testProjectAndRepositoryDescription
+                    common.git.testRepositoryDescription
                   </p>
                   <div
                     class="bp3-form-group formElm"
-                    data-id="validationProject-3"
-                  >
-                    <label
-                      class="bp3-label"
-                      for="validationProject"
-                    >
-                      <span
-                        class="Tooltip--acenter"
-                        data-tooltip-id="azurerepoDetailsStepForm_projectName"
-                      >
-                        <p
-                          class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                        >
-                          projectCard.projectName
-                        </p>
-                      </span>
-                       
-                      <span
-                        class="bp3-text-muted"
-                      />
-                    </label>
-                    <div
-                      class="bp3-form-content"
-                    >
-                      <div
-                        class="bp3-input-group"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="bp3-input"
-                          name="validationProject"
-                          placeholder="common.git.projectNamePlaceholder"
-                          type="text"
-                          value=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="bp3-form-group formElm"
-                    data-id="validationRepo-4"
+                    data-id="validationRepo-3"
                   >
                     <label
                       class="bp3-label"
@@ -2089,12 +1975,30 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step two 
         </p>
       </div>
       <div
-        class="StepWizard--navStep StepWizard--activeStep"
+        class="StepWizard--navStep StepWizard--completedStep"
       >
         <span
-          class="StepWizard--number"
+          class="StepWizard--completedIcon"
         >
-          2
+          <span
+            class="bp3-icon bp3-icon-small-tick StyledProps--main StyledProps--color StyledProps--color-primary7"
+            icon="small-tick"
+          >
+            <svg
+              data-icon="small-tick"
+              height="20"
+              viewBox="0 0 20 20"
+              width="20"
+            >
+              <desc>
+                small-tick
+              </desc>
+              <path
+                d="M15 5c-.28 0-.53.11-.71.29L8 11.59l-2.29-2.3a1.003 1.003 0 00-1.42 1.42l3 3c.18.18.43.29.71.29s.53-.11.71-.29l7-7A1.003 1.003 0 0015 5z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </span>
         </span>
         <p
           class="StyledProps--font Text--lineclamp StyledProps--main StepWizard--stepName"
@@ -2104,7 +2008,7 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step two 
         </p>
       </div>
       <div
-        class="StepWizard--navStep"
+        class="StepWizard--navStep StepWizard--activeStep"
       >
         <span
           class="StepWizard--number"
@@ -2154,353 +2058,142 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step two 
     >
        
       <div
-        class="Layout--vertical StyledProps--main gitDetails firstep stepContainer"
+        class="Layout--vertical StyledProps--main secondStep stepContainer"
+        style="min-height: 460px; width: 60%;"
       >
-        <div
-          class="Text--withDocsTooltip"
-          data-tooltip-id="azureReposConnectorDetailsTooltip"
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--font-variation-h3"
         >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-h3"
-          >
-            details
-          </p>
-        </div>
+          credentials
+        </p>
         <div
           class="OverlaySpinner--overlaySpinner"
         >
           <form
             action="#"
-            class="FormikForm--main connectorForm fullHeight fullHeightDivsWithFlex"
+            class="FormikForm--main fullHeight fullHeightDivsWithFlex"
           >
             <div>
               <div
-                class="Layout--vertical StyledProps--main paddingTop8"
+                class="StyledProps--font StyledProps--main stepFormWrapper paddingTop8"
               >
                 <div
-                  class="StyledProps--font StyledProps--main bottomPadding1"
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--flex StyledProps--flex-alignItems-baseline"
                 >
                   <div
-                    class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                    class="Text--withDocsTooltip"
+                    data-tooltip-id="azureRepoAuthentication"
                   >
-                    <div
-                      class="Text--withDocsTooltip"
-                      data-tooltip-id="azurerepoURLType"
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--font-variation-h6"
                     >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                      >
-                        common.git.urlType
-                      </p>
-                    </div>
-                    <div
-                      class="bp3-form-group"
-                      data-id="urlType-0"
-                    >
-                      <div
-                        class="bp3-form-content"
-                      >
-                        <div
-                          class="StyledProps--main"
-                        >
-                          
-                          <div
-                            class="RadioButtonGroup--inline"
-                          >
-                            <label
-                              class="RadioButton--radio StyledProps--main"
-                            >
-                              <input
-                                checked=""
-                                class="RadioButton--input"
-                                name="urlType"
-                                type="radio"
-                                value="Account"
-                              />
-                              <span
-                                class="RadioButton--radioIcon"
-                              />
-                              account
-                            </label>
-                            <label
-                              class="RadioButton--radio StyledProps--main"
-                            >
-                              <input
-                                class="RadioButton--input"
-                                name="urlType"
-                                type="radio"
-                                value="Repo"
-                              />
-                              <span
-                                class="RadioButton--radioIcon"
-                              />
-                              repository
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      authentication
+                    </p>
                   </div>
                   <div
-                    class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                    class="bp3-form-group bp3-intent-danger"
+                    data-id="null-0"
                   >
                     <div
-                      class="Text--withDocsTooltip"
-                      data-tooltip-id="azurerepoConnectionType"
+                      class="bp3-form-content"
                     >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
+                      <label
+                        class="bp3-label"
                       >
-                        common.git.connectionType
-                      </p>
-                    </div>
-                    <div
-                      class="bp3-form-group"
-                      data-id="connectionType-1"
-                    >
-                      <div
-                        class="bp3-form-content"
-                      >
-                        <div
-                          class="StyledProps--main"
+                        <span
+                          class="Tooltip--acenter"
+                          data-tooltip-id="stepAzureRepoAuthForm_sshKey"
                         >
-                          
-                          <div
-                            class="RadioButtonGroup--inline"
+                          SSH_KEY
+                        </span>
+                      </label>
+                      <div
+                        class="StyledProps--font StyledProps--main container StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-space-between"
+                      >
+                        <a
+                          class="containerLink"
+                          data-testid="sshKey"
+                          href="/account/dummy/resources/connectors"
+                        >
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="key-main"
+                            style="height: 12px;"
                           >
-                            <label
-                              class="RadioButton--radio StyledProps--main"
+                            <svg
+                              height="24"
+                              width="24"
+                              xmlns="http://www.w3.org/2000/svg"
                             >
-                              <input
-                                class="RadioButton--input"
-                                name="connectionType"
-                                type="radio"
-                                value="Http"
-                              />
-                              <span
-                                class="RadioButton--radioIcon"
-                              />
-                              HTTP
-                            </label>
-                            <label
-                              class="RadioButton--radio StyledProps--main"
-                            >
-                              <input
-                                checked=""
-                                class="RadioButton--input"
-                                name="connectionType"
-                                type="radio"
-                                value="Ssh"
-                              />
-                              <span
-                                class="RadioButton--radioIcon"
-                              />
-                              SSH
-                            </label>
-                          </div>
-                        </div>
+                              <g
+                                fill="none"
+                                stroke="#1C1C28"
+                                stroke-width="0.5"
+                              >
+                                <path
+                                  d="M5.444 1A4.45 4.45 0 001 5.444c0 2.459 1.994 4.46 4.444 4.46 1.939 0 3.613-1.542 4.202-2.995a.393.393 0 01.23-.223.39.39 0 01.322.015l1.032.507.757-.72a.402.402 0 01.552-.007l.543.493.547-.556a.404.404 0 01.572-.005l.527.516.528-.53a.406.406 0 01.571-.002l.522.522.524-.523a.406.406 0 01.571 0l.522.522.523-.522a.414.414 0 01.315-.118.41.41 0 01.294.16l.277.369c.116-.153.234-.311.312-.396a.412.412 0 01.3-.134c.693 0 .927-.37.927-1.465 0-1.018-.636-1.381-1.23-1.381H9.638a.408.408 0 01-.35-.202A4.448 4.448 0 005.444 1h0z"
+                                />
+                                <path
+                                  d="M3.828 3.99c.403 0 .769.163 1.034.428a1.458 1.458 0 010 2.067 1.458 1.458 0 01-2.067 0 1.458 1.458 0 010-2.067c.265-.265.63-.428 1.033-.428z"
+                                />
+                              </g>
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main containerLinkText StyledProps--color StyledProps--color-primary7 StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--flex-inline StyledProps--padding-small"
+                          >
+                            <div>
+                              createOrSelectSecret
+                            </div>
+                          </p>
+                        </a>
+                      </div>
+                      <div
+                        class="bp3-form-helper-text"
+                      >
+                        validation.sshKey
                       </div>
                     </div>
                   </div>
                 </div>
                 <div
-                  class="bp3-form-group formElm"
-                  data-id="url-2"
+                  class="bp3-form-group"
+                  data-id="enableAPIAccess-1"
                 >
-                  <label
-                    class="bp3-label"
-                    for="url"
-                  >
-                    <span
-                      class="Tooltip--acenter"
-                      data-tooltip-id="azurerepoDetailsStepForm_url"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                      >
-                        common.git.azureReposProjectUrl
-                      </p>
-                    </span>
-                     
-                    <span
-                      class="bp3-text-muted"
-                    />
-                  </label>
                   <div
                     class="bp3-form-content"
                   >
-                    <div
-                      class="bp3-input-group"
+                    <label
+                      class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox StyledProps--main StyledProps--padding-left-xxlarge StyledProps--inline"
                     >
                       <input
-                        autocomplete="off"
-                        class="bp3-input"
-                        name="url"
-                        placeholder="common.git.azureReposPlaceholderSSH"
-                        type="text"
-                        value="git@ssh.dev.azure.com/org/account"
+                        name="enableAPIAccess"
+                        type="checkbox"
                       />
-                    </div>
+                      <span
+                        class="bp3-control-indicator"
+                      />
+                      <span
+                        class="Tooltip--acenter FormikForm--checkBoxDocTooltipLabel"
+                        data-tooltip-id="stepAzureRepoAuthForm_enableAPIAccess"
+                      >
+                        common.git.enableAPIAccess
+                      </span>
+                    </label>
                   </div>
                 </div>
-                <div
-                  class="StyledProps--font StyledProps--main"
+                <p
+                  class="StyledProps--font StyledProps--main bottomMargin4 StyledProps--font-small"
                 >
-                  <p
-                    class="StyledProps--font StyledProps--main bottomMargin5 topMargin1 StyledProps--font-variation-body"
-                  >
-                    common.git.testProjectAndRepositoryDescription
-                  </p>
-                  <div
-                    class="bp3-form-group bp3-intent-danger formElm"
-                    data-id="validationProject-3"
-                  >
-                    <label
-                      class="bp3-label"
-                      for="validationProject"
-                    >
-                      <span
-                        class="Tooltip--acenter"
-                        data-tooltip-id="azurerepoDetailsStepForm_projectName"
-                      >
-                        <p
-                          class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                        >
-                          projectCard.projectName
-                        </p>
-                      </span>
-                       
-                      <span
-                        class="bp3-text-muted"
-                      />
-                    </label>
-                    <div
-                      class="bp3-form-content"
-                    >
-                      <div
-                        class="bp3-input-group bp3-intent-danger"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="bp3-input"
-                          name="validationProject"
-                          placeholder="common.git.projectNamePlaceholder"
-                          type="text"
-                          value=""
-                        />
-                      </div>
-                      <div
-                        class="bp3-form-helper-text"
-                      >
-                        <div
-                          class="FormError--errorDiv"
-                          data-name="validationProject"
-                        >
-                          <span
-                            class="bp3-icon StyledProps--main FormError--errorTextIcon StyledProps--intent-danger"
-                            data-icon="circle-cross"
-                          >
-                            <svg
-                              height="12"
-                              viewBox="0 0 13 13"
-                              width="12"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                clip-rule="evenodd"
-                                d="M.167 6.501a6.333 6.333 0 1012.666 0 6.333 6.333 0 00-12.666 0zm4.071-3.003l2.26 2.263 2.264-2.263c.495-.495 1.236.248.741.743L7.24 6.504l2.254 2.258c.495.495-.247 1.238-.742.743L6.497 7.246 4.238 9.505c-.495.495-1.236-.249-.741-.744l2.258-2.258-2.259-2.262c-.494-.495.248-1.238.742-.743z"
-                                fill-rule="evenodd"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="FormError--error"
-                          >
-                            common.validation.validationProjectIsRequired
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="bp3-form-group bp3-intent-danger formElm"
-                    data-id="validationRepo-4"
-                  >
-                    <label
-                      class="bp3-label"
-                      for="validationRepo"
-                    >
-                      <span
-                        class="Tooltip--acenter"
-                        data-tooltip-id="azurerepoDetailsStepForm_validationRepo"
-                      >
-                        <p
-                          class="StyledProps--font StyledProps--main StyledProps--font-variation-form-label"
-                        >
-                          common.git.testRepository
-                        </p>
-                      </span>
-                       
-                      <span
-                        class="bp3-text-muted"
-                      />
-                    </label>
-                    <div
-                      class="bp3-form-content"
-                    >
-                      <div
-                        class="bp3-input-group bp3-intent-danger"
-                      >
-                        <input
-                          autocomplete="off"
-                          class="bp3-input"
-                          name="validationRepo"
-                          placeholder="common.git.selectRepoLabel"
-                          type="text"
-                          value=""
-                        />
-                      </div>
-                      <div
-                        class="bp3-form-helper-text"
-                      >
-                        <div
-                          class="FormError--errorDiv"
-                          data-name="validationRepo"
-                        >
-                          <span
-                            class="bp3-icon StyledProps--main FormError--errorTextIcon StyledProps--intent-danger"
-                            data-icon="circle-cross"
-                          >
-                            <svg
-                              height="12"
-                              viewBox="0 0 13 13"
-                              width="12"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                clip-rule="evenodd"
-                                d="M.167 6.501a6.333 6.333 0 1012.666 0 6.333 6.333 0 00-12.666 0zm4.071-3.003l2.26 2.263 2.264-2.263c.495-.495 1.236.248.741.743L7.24 6.504l2.254 2.258c.495.495-.247 1.238-.742.743L6.497 7.246 4.238 9.505c-.495.495-1.236-.249-.741-.744l2.258-2.258-2.259-2.262c-.494-.495.248-1.238.742-.743z"
-                                fill-rule="evenodd"
-                              />
-                            </svg>
-                          </span>
-                          <span
-                            class="FormError--error"
-                          >
-                            common.validation.testRepoIsRequired
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  common.git.APIAccessDescription
+                </p>
               </div>
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--padding-top-small"
               >
                 <button
                   class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--withLeftIcon Button--variation Button--variation-secondary"
-                  data-name="commonGitBackButton"
+                  data-name="azureRepoBackButton"
                   type="button"
                 >
                   <span
@@ -2535,9 +2228,7 @@ exports[`Create AzureRepoconnector Wizard Creating AzureRepo connector step two 
                   <span
                     class="bp3-button-text"
                   >
-                    <span>
-                      continue
-                    </span>
+                    continue
                   </span>
                   <span
                     class="bp3-icon bp3-icon-chevron-right StyledProps--main"

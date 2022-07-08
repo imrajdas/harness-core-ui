@@ -112,7 +112,6 @@ const HomePage: React.FC = () => {
     CD: false,
     CI: false,
     CF: false,
-    CG_CD: false,
     STO: false
   }
 

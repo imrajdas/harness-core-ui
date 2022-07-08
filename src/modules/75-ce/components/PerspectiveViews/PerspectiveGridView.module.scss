@@ -54,13 +54,13 @@
 
   .cardClass {
     width: 210px;
-    height: 226px;
+    height: 246px;
     padding: var(--spacing-medium);
     margin: var(--spacing-small);
     position: relative;
 
     .sampleRibbon {
-      height: 228px;
+      height: 248px;
       width: 6px;
       position: absolute;
       border-radius: 4px 0px 0px 4px;
@@ -71,6 +71,10 @@
 
     .cardContent {
       height: 100%;
+    }
+
+    .folderName > span {
+      margin-top: -2px;
     }
   }
 }

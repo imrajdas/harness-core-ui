@@ -8,6 +8,7 @@
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import React from 'react'
 import { TestWrapper } from '@common/utils/testUtils'
+import { communityLicenseStoreValues } from '@common/utils/DefaultAppStoreData'
 import { ResourceCenter } from '../ResourceCenter'
 
 jest.mock('refiner-js', () => {
@@ -67,9 +68,8 @@ describe('ResourceCenter', () => {
   })
 
   test('should render community', async () => {
-    window.deploymentType = 'COMMUNITY'
     const { getByTestId, getByText, queryByText } = render(
-      <TestWrapper>
+      <TestWrapper defaultLicenseStoreValues={communityLicenseStoreValues}>
         <ResourceCenter />
       </TestWrapper>
     )
@@ -92,15 +92,14 @@ describe('ResourceCenter', () => {
       await waitFor(() => {
         expect(releaseNote).toHaveAttribute(
           'href',
-          'https://ngdocs.harness.io/article/7zkchy5lhj-harness-saa-s-release-notes-2022'
+          'https://docs.harness.io/article/7zkchy5lhj-harness-saa-s-release-notes-2022'
         )
       })
     })
 
     test('release note for community', async () => {
-      window.deploymentType = 'COMMUNITY'
       const { getByTestId, getByText } = render(
-        <TestWrapper>
+        <TestWrapper defaultLicenseStoreValues={communityLicenseStoreValues}>
           <ResourceCenter />
         </TestWrapper>
       )
@@ -109,7 +108,7 @@ describe('ResourceCenter', () => {
       await waitFor(() => {
         expect(releaseNote).toHaveAttribute(
           'href',
-          'https://ngdocs.harness.io/article/556wy85kbo-harness-on-prem-release-notes'
+          'https://docs.harness.io/article/556wy85kbo-harness-on-prem-release-notes'
         )
       })
     })
@@ -126,7 +125,7 @@ describe('ResourceCenter', () => {
       await waitFor(() => {
         expect(releaseNote).toHaveAttribute(
           'href',
-          'https://ngdocs.harness.io/article/556wy85kbo-harness-on-prem-release-notes'
+          'https://docs.harness.io/article/556wy85kbo-harness-on-prem-release-notes'
         )
       })
     })

@@ -70,6 +70,7 @@ export const SideNavItem: React.FC<SidebarLinkProps> = ({
 }) => {
   const { uuid: folderId = '', name = '', pinned = false } = folderData
   const [isEdit, setEditEnable] = useState(false)
+  const isActiveFolder = selectedFolderId === folderId
 
   const onPinClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void = e => {
     e.stopPropagation()
@@ -90,10 +91,7 @@ export const SideNavItem: React.FC<SidebarLinkProps> = ({
   }
 
   return (
-    <li
-      className={cx(css.link, selectedFolderId === folderId ? css.active : '')}
-      onClick={() => setSelectedFolder(folderId)}
-    >
+    <li className={cx(css.link, { [css.active]: isActiveFolder })} onClick={() => setSelectedFolder(folderId)}>
       <Layout.Horizontal flex={{ justifyContent: 'space-between' }}>
         {isEdit ? (
           <TextInput
@@ -109,16 +107,18 @@ export const SideNavItem: React.FC<SidebarLinkProps> = ({
           <Text
             icon={icon}
             font={{ variation: FontVariation.BODY }}
-            color={Color.GREY_700}
-            className={textClassName}
+            className={cx(textClassName, { [css.activeFolder]: isActiveFolder })}
             lineClamp={1}
             style={{ maxWidth: 200 }}
-            iconProps={{ padding: { right: 'small' } }}
+            iconProps={{
+              padding: { right: 'small' },
+              color: isActiveFolder ? Color.PRIMARY_7 : Color.GREY_600
+            }}
           >
             {name}
           </Text>
         )}
-        {showIcons && (
+        {showIcons && isActiveFolder && (
           <Layout.Horizontal spacing="small" flex={{ alignItems: 'center' }}>
             <Icon
               name="Edit"
@@ -152,7 +152,9 @@ export const SideNavItem: React.FC<SidebarLinkProps> = ({
 }
 
 const getCustomFolder = (foldersList: CEViewFolder[]) => {
-  return foldersList.filter(item => item.viewType === folderViewType.CUSTOMER)
+  return foldersList.filter(
+    item => item.viewType === folderViewType.CUSTOMER || item.viewType === folderViewType.DEFAULT
+  )
 }
 
 const PerspectiveFoldersSideNav: React.FC<SideNavProps> = props => {
@@ -163,11 +165,17 @@ const PerspectiveFoldersSideNav: React.FC<SideNavProps> = props => {
     setSelectedFolder: props.setSelectedFolder
   })
   const [deleteFolderId, setDeleteFolderId] = useState('')
-  const defaultFolders: CEViewFolder[] = props.foldersList.filter(
-    item => item.viewType === folderViewType.DEFAULT || item.viewType === folderViewType.SAMPLE
-  )
+  let defaultFolders: CEViewFolder[] = props.foldersList.filter(item => item.viewType === folderViewType.SAMPLE)
   const customFolders: CEViewFolder[] = getCustomFolder(props.foldersList)
   const [customFoldersList, setCustomFoldersList] = useState(customFolders)
+
+  defaultFolders = [
+    ...defaultFolders,
+    {
+      name: getString('ce.perspectives.folders.allPerspective'),
+      uuid: ''
+    }
+  ]
 
   useEffect(() => {
     const updateFolders: CEViewFolder[] = getCustomFolder(props.foldersList)
@@ -210,13 +218,7 @@ const PerspectiveFoldersSideNav: React.FC<SideNavProps> = props => {
                 <SideNavItem
                   key={item.uuid}
                   folderData={item}
-                  icon={
-                    item.viewType === folderViewType.SAMPLE
-                      ? 'harness-with-color'
-                      : props.selectedFolderId === item.uuid
-                      ? 'main-folder-open'
-                      : 'main-folder'
-                  }
+                  icon={item.viewType === folderViewType.SAMPLE ? 'harness-with-color' : 'dashboard'}
                   className={css.sidenav}
                   textClassName={css.sidenavText}
                   showIcons={false}
@@ -260,6 +262,7 @@ const PerspectiveFoldersSideNav: React.FC<SideNavProps> = props => {
                   icon={
                     props.selectedFolderId === item.uuid ? /* istanbul ignore next */ 'main-folder-open' : 'main-folder'
                   }
+                  showIcons={item.viewType === folderViewType.DEFAULT ? false : true}
                   className={css.sidenav}
                   textClassName={css.sidenavText}
                   selectedFolderId={props.selectedFolderId}

@@ -817,7 +817,7 @@ ceGcp:
     step7: 'Select the BigQuery export tab (this tab is selected by default). On the BigQuery export tab, enable Daily cost detail.'
     otherLinks: 'Other Links:'
     link1: 'https://cloud.google.com/billing/docs/how-to/export-data-bigquery-setup'
-    link2: 'Harness Docs (https://ngdocs.harness.io/article/kxnsritjls)'
+    link2: 'Harness Docs (https://docs.harness.io/article/kxnsritjls)'
   existingCurTable:
     projectId: 'Project ID'
     searchPlaceholder: 'Search Project ID'

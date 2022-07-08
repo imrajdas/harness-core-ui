@@ -32,7 +32,7 @@ import { ResourceType } from '@rbac/interfaces/ResourceType'
 import RbacButton from '@rbac/components/Button/Button'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import RbacMenuItem from '@rbac/components/MenuItem/MenuItem'
-import { setPageNumber, isCommunityPlan } from '@common/utils/utils'
+import { setPageNumber, useGetCommunity } from '@common/utils/utils'
 import useRBACError from '@rbac/utils/useRBACError/useRBACError'
 import css from './UserListView.module.scss'
 
@@ -196,7 +196,7 @@ const PendingUserListView: React.FC<PendingUserListViewProps> = ({ searchTerm, s
   const { getString } = useStrings()
   const { accountId, orgIdentifier, projectIdentifier } = useParams<ProjectPathProps>()
   const [page, setPage] = useState(0)
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
 
   const { data, loading, error, refetch } = useMutateAsGet(useGetPendingUsersAggregated, {
     body: {},

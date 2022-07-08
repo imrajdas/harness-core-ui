@@ -41,9 +41,23 @@ describe('Welcome Page', () => {
         <WelcomePage />
       </TestWrapper>
     )
+    await waitFor(() => expect(queryByText('common.purpose.ci.descriptionOnly')).toBeInTheDocument())
     fireEvent.click(getByTestId('ci'))
     fireEvent.click(getByText('continue'))
-    await waitFor(() => expect(queryByText('common.purpose.ci.description')).not.toBeInTheDocument())
+    await waitFor(() => expect(queryByText('common.purpose.ci.descriptionOnly')).not.toBeInTheDocument())
+    expect(container).toMatchSnapshot()
+  })
+
+  test('Should go to module home page when select cd module and continue', async () => {
+    const { container, getByText, getByTestId, queryByText } = render(
+      <TestWrapper defaultAppStoreValues={{ featureFlags }}>
+        <WelcomePage />
+      </TestWrapper>
+    )
+    await waitFor(() => expect(queryByText('common.purpose.cd.description')).toBeInTheDocument())
+    fireEvent.click(getByTestId('cd'))
+    fireEvent.click(getByText('continue'))
+    await waitFor(() => expect(queryByText('common.purpose.cd.description')).not.toBeInTheDocument())
     expect(container).toMatchSnapshot()
   })
 })

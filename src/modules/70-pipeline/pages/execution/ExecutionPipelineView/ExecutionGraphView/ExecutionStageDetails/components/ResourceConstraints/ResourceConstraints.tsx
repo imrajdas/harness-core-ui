@@ -72,6 +72,9 @@ export default function ResourceConstraintTooltip(props: ResourceConstraintToolt
                 ? getString('pipeline.resourceConstraints.serverlessInfraEntity')
                 : getString('pipeline.resourceConstraints.k8sNamespaceText')
             })}
+            <a href="https://docs.harness.io/article/jrzwrdpvm2" target="_blank" rel="noopener noreferrer">
+              {getString('learnMore')}
+            </a>
           </Text>
           {props?.data?.executionList?.map((pipeline: ResourceConstraintDetail, index: number) => (
             <Container key={`${pipeline.pipelineIdentifier}-${index}`}>

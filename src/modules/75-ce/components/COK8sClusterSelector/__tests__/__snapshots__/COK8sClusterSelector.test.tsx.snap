@@ -197,161 +197,165 @@ exports[`K8s cluster selector render cluster selector screen with data 1`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 5%;"
-              >
-                <label
-                  class="bp3-control bp3-radio StyledProps--font Radio--radio radioSelector StyledProps--main"
-                >
-                  <input
-                    checked=""
-                    type="radio"
-                  />
-                  <span
-                    class="bp3-control-indicator"
-                  />
-                </label>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 20%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 5%;"
+                >
+                  <label
+                    class="bp3-control bp3-radio StyledProps--font Radio--radio radioSelector StyledProps--main"
+                  >
+                    <input
+                      checked=""
+                      type="radio"
+                    />
+                    <span
+                      class="bp3-control-indicator"
+                    />
+                  </label>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 20%;"
+                >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  >
+                    <div
+                      class="wrapper"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                      >
+                        <div
+                          class="name"
+                          color="black"
+                          title="ry-04-07-21"
+                        >
+                          ry-04-07-21
+                        </div>
+                      </div>
+                      <div
+                        class="identifier"
+                        title="ry040721"
+                      >
+                        ry040721
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 20%;"
                 >
                   <div
                     class="wrapper"
                   >
                     <div
-                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                      color="black"
                     >
                       <div
-                        class="name"
-                        color="black"
-                        title="ry-04-07-21"
-                      >
-                        ry-04-07-21
-                      </div>
-                    </div>
-                    <div
-                      class="identifier"
-                      title="ry040721"
-                    >
-                      ry040721
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 20%;"
-              >
-                <div
-                  class="wrapper"
-                >
-                  <div
-                    color="black"
-                  >
-                    <div
-                      class="name flex"
-                    >
-                      <span
-                        class="StyledProps--font StyledProps--main StyledProps--inline StyledProps--color StyledProps--color-black"
-                      >
-                        <span>
-                          UrlLabel
-                        </span>
-                        :
-                      </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 20%;"
-              >
-                <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="activity"
-                  >
-                    <svg
-                      height="16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8 0C3.538.036-.035 3.644 0 8.053.036 12.427 3.61 16 8 16h.054c2.133-.018 4.142-.853 5.635-2.382 1.493-1.53 2.329-3.538 2.311-5.671C15.965 3.573 12.391 0 8 0zm5.262 8.836h-1.635a.52.52 0 01-.48-.338l-.836-2.276-1.653 5.245a.49.49 0 01-.462.355H8.16a.51.51 0 01-.462-.302L5.796 7.253l-.907 1.351a.5.5 0 01-.427.232H2.667a.516.516 0 010-1.032h1.511L5.44 5.902a.513.513 0 01.48-.23.488.488 0 01.427.301L8.07 9.867l1.725-5.423a.512.512 0 01.48-.355c.23 0 .426.124.498.338l1.208 3.36h1.28c.285 0 .516.23.516.515a.531.531 0 01-.516.534z"
-                        fill="#1D76FF"
-                      />
-                    </svg>
-                  </span>
-                  dummy date
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 15%;"
-              >
-                <div
-                  class="Layout--horizontal StyledProps--main"
-                >
-                  <div
-                    class="Layout--vertical StyledProps--main"
-                    style="width: 100px;"
-                  >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    >
-                      <span
-                        class="StyledProps--font StyledProps--main StyledProps--inline"
-                        style="display: inline-flex; align-items: center;"
+                        class="name flex"
                       >
                         <span
-                          class="bp3-icon bp3-icon-full-circle StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-green500"
-                          icon="full-circle"
+                          class="StyledProps--font StyledProps--main StyledProps--inline StyledProps--color StyledProps--color-black"
                         >
-                          <svg
-                            data-icon="full-circle"
-                            height="6"
-                            viewBox="0 0 16 16"
-                            width="6"
-                          >
-                            <desc>
-                              full-circle
-                            </desc>
-                            <path
-                              d="M8 0a8 8 0 100 16A8 8 0 108 0z"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
+                          <span>
+                            UrlLabel
+                          </span>
+                          :
                         </span>
-                        active
-                      </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 20%;"
-              >
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 20%;"
                 >
-                  dummy date
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  >
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="activity"
+                    >
+                      <svg
+                        height="16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 0C3.538.036-.035 3.644 0 8.053.036 12.427 3.61 16 8 16h.054c2.133-.018 4.142-.853 5.635-2.382 1.493-1.53 2.329-3.538 2.311-5.671C15.965 3.573 12.391 0 8 0zm5.262 8.836h-1.635a.52.52 0 01-.48-.338l-.836-2.276-1.653 5.245a.49.49 0 01-.462.355H8.16a.51.51 0 01-.462-.302L5.796 7.253l-.907 1.351a.5.5 0 01-.427.232H2.667a.516.516 0 010-1.032h1.511L5.44 5.902a.513.513 0 01.48-.23.488.488 0 01.427.301L8.07 9.867l1.725-5.423a.512.512 0 01.48-.355c.23 0 .426.124.498.338l1.208 3.36h1.28c.285 0 .516.23.516.515a.531.531 0 01-.516.534z"
+                          fill="#1D76FF"
+                        />
+                      </svg>
+                    </span>
+                    dummy date
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 15%;"
+                >
+                  <div
+                    class="Layout--horizontal StyledProps--main"
+                  >
+                    <div
+                      class="Layout--vertical StyledProps--main"
+                      style="width: 100px;"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                      >
+                        <span
+                          class="StyledProps--font StyledProps--main StyledProps--inline"
+                          style="display: inline-flex; align-items: center;"
+                        >
+                          <span
+                            class="bp3-icon bp3-icon-full-circle StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-green500"
+                            icon="full-circle"
+                          >
+                            <svg
+                              data-icon="full-circle"
+                              height="6"
+                              viewBox="0 0 16 16"
+                              width="6"
+                            >
+                              <desc>
+                                full-circle
+                              </desc>
+                              <path
+                                d="M8 0a8 8 0 100 16A8 8 0 108 0z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                          active
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 20%;"
+                >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  >
+                    dummy date
+                  </div>
                 </div>
               </div>
             </div>

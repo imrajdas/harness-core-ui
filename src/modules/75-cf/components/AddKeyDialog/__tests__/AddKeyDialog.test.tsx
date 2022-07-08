@@ -76,7 +76,7 @@ describe('Test AddKeyDialog', () => {
   }
 
   const openDialog = async (): Promise<void> => {
-    const addKeyBtn = screen.getByRole('button', { name: 'cf.environments.apiKeys.addKey' })
+    const addKeyBtn = screen.getByRole('button', { name: 'plus cf.environments.apiKeys.addKey' })
     expect(addKeyBtn).toBeInTheDocument()
     userEvent.click(addKeyBtn)
     await waitFor(() => expect(screen.getByText('cf.environments.apiKeys.addKeyTitle')).toBeInTheDocument())

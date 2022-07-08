@@ -662,7 +662,7 @@ exports[`Create Secret Manager Wizard should render form 2`] = `
                   >
                     connectors.ceAws.cur.instructions.i2
                     <a
-                      href="https://ngdocs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#step_2_cost_and_usage_report"
+                      href="https://docs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#step_2_cost_and_usage_report"
                       rel="noreferrer"
                       target="_blank"
                     >
@@ -1477,7 +1477,7 @@ exports[`Create Secret Manager Wizard should render form 3`] = `
                             connectors.ceAzure.chooseRequirements.optimization.footer1
                              
                             <a
-                              href="https://ngdocs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#aws_ecs_and_resource_inventory_management"
+                              href="https://docs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#aws_ecs_and_resource_inventory_management"
                               rel="noreferrer"
                               target="_blank"
                             >
@@ -1655,7 +1655,7 @@ exports[`Create Secret Manager Wizard should render form 3`] = `
                             connectors.ceAzure.chooseRequirements.optimization.footer1
                              
                             <a
-                              href="https://ngdocs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#aws_resource_optimization_using_auto_stopping_rules"
+                              href="https://docs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#aws_resource_optimization_using_auto_stopping_rules"
                               rel="noreferrer"
                               target="_blank"
                             >
@@ -2036,7 +2036,7 @@ exports[`Create Secret Manager Wizard should render form 4`] = `
                   >
                     connectors.ceAws.cur.instructions.i2
                     <a
-                      href="https://ngdocs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#step_4_create_cross_account_role"
+                      href="https://docs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#step_4_create_cross_account_role"
                       rel="noreferrer"
                       target="_blank"
                     >

@@ -171,106 +171,110 @@ exports[`Select Artifact - For Artifact tests initial render 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-            style="justify-content: center;"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
-            <div>
-              <label
-                class="bp3-label"
-              />
-              <label
-                class="bp3-control bp3-radio"
-              >
-                <input
-                  name="artifactLabel"
-                  type="radio"
-                  value="stagea: Primary"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              style="justify-content: center;"
+            >
+              <div>
+                <label
+                  class="bp3-label"
                 />
-                <span
-                  class="bp3-control-indicator"
-                />
-              </label>
+                <label
+                  class="bp3-control bp3-radio"
+                >
+                  <input
+                    name="artifactLabel"
+                    type="radio"
+                    value="stagea: Primary"
+                  />
+                  <span
+                    class="bp3-control-indicator"
+                  />
+                </label>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 25%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 25%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="--text-line-clamp: 1; width: 176px;"
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              stagea: Primary
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="--text-line-clamp: 1; width: 176px;"
+              >
+                stagea: Primary
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 25%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 25%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="--text-line-clamp: 1; width: 159px;"
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              Runtime Input
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="--text-line-clamp: 1; width: 159px;"
+              >
+                Runtime Input
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 18%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 18%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="min-height: 18px; --text-line-clamp: 1; width: 110px;"
-            />
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 13%;"
-        >
-          <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="min-height: 18px; --text-line-clamp: 1; width: 100px;"
-            />
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 18%;"
-        >
-          <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              Yes
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="min-height: 18px; --text-line-clamp: 1; width: 110px;"
+              />
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 13%;"
+          >
+            <div
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+            >
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="min-height: 18px; --text-line-clamp: 1; width: 100px;"
+              />
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 18%;"
+          >
+            <div
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Yes
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -576,106 +580,110 @@ exports[`Select Artifact - For Artifact tests on click of select button 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-            style="justify-content: center;"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
-            <div>
-              <label
-                class="bp3-label"
-              />
-              <label
-                class="bp3-control bp3-radio"
-              >
-                <input
-                  name="artifactLabel"
-                  type="radio"
-                  value="stagea: Primary"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              style="justify-content: center;"
+            >
+              <div>
+                <label
+                  class="bp3-label"
                 />
-                <span
-                  class="bp3-control-indicator"
-                />
-              </label>
+                <label
+                  class="bp3-control bp3-radio"
+                >
+                  <input
+                    name="artifactLabel"
+                    type="radio"
+                    value="stagea: Primary"
+                  />
+                  <span
+                    class="bp3-control-indicator"
+                  />
+                </label>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 25%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 25%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="--text-line-clamp: 1; width: 176px;"
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              stagea: Primary
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="--text-line-clamp: 1; width: 176px;"
+              >
+                stagea: Primary
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 25%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 25%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="--text-line-clamp: 1; width: 159px;"
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              Runtime Input
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="--text-line-clamp: 1; width: 159px;"
+              >
+                Runtime Input
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 18%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 18%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="min-height: 18px; --text-line-clamp: 1; width: 110px;"
-            />
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 13%;"
-        >
-          <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="min-height: 18px; --text-line-clamp: 1; width: 100px;"
-            />
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 18%;"
-        >
-          <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              Yes
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="min-height: 18px; --text-line-clamp: 1; width: 110px;"
+              />
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 13%;"
+          >
+            <div
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+            >
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="min-height: 18px; --text-line-clamp: 1; width: 100px;"
+              />
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 18%;"
+          >
+            <div
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Yes
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -881,108 +889,112 @@ exports[`Select Artifact - For Artifact tests when selected tag is not runtime i
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-            style="justify-content: center;"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
-            <div>
-              <label
-                class="bp3-label"
-              />
-              <label
-                class="bp3-control bp3-radio"
-              >
-                <input
-                  name="artifactLabel"
-                  type="radio"
-                  value="stagea: Primary"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              style="justify-content: center;"
+            >
+              <div>
+                <label
+                  class="bp3-label"
                 />
-                <span
-                  class="bp3-control-indicator"
-                />
-              </label>
+                <label
+                  class="bp3-control bp3-radio"
+                >
+                  <input
+                    name="artifactLabel"
+                    type="radio"
+                    value="stagea: Primary"
+                  />
+                  <span
+                    class="bp3-control-indicator"
+                  />
+                </label>
+              </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 25%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 25%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="--text-line-clamp: 1; width: 176px;"
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              stagea: Primary
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="--text-line-clamp: 1; width: 176px;"
+              >
+                stagea: Primary
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 25%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 25%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="--text-line-clamp: 1; width: 159px;"
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              Runtime Input
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="--text-line-clamp: 1; width: 159px;"
+              >
+                Runtime Input
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 18%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 18%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="min-height: 18px; --text-line-clamp: 1; width: 110px;"
-            />
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 13%;"
-        >
-          <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main"
-              style="min-height: 18px; --text-line-clamp: 1; width: 100px;"
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              test
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="min-height: 18px; --text-line-clamp: 1; width: 110px;"
+              />
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 18%;"
-        >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 13%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
             >
-              Yes
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main"
+                style="min-height: 18px; --text-line-clamp: 1; width: 100px;"
+              >
+                test
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 18%;"
+          >
+            <div
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Yes
+              </p>
+            </div>
           </div>
         </div>
       </div>

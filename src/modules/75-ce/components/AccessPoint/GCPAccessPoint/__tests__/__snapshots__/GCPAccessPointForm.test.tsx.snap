@@ -417,6 +417,82 @@ exports[`GCP AP form fill form 1`] = `
             </div>
           </div>
           <div
+            class="Layout--horizontal StyledProps--main formFieldRow"
+          >
+            <div
+              class="bp3-form-group"
+              data-id="cert_secret_id-6"
+            >
+              <label
+                class="bp3-label"
+                for="cert_secret_id"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="tlsCertificateSecretId"
+                >
+                  ce.co.accessPoint.gcpCertificateId
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
+              <div
+                class="bp3-form-content"
+              >
+                <div
+                  class="bp3-input-group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="bp3-input"
+                    name="cert_secret_id"
+                    placeholder="ce.co.accessPoint.gcpCertificatePlaceholder"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="bp3-form-group"
+              data-id="key_secret_id-7"
+            >
+              <label
+                class="bp3-label"
+                for="key_secret_id"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="tlsPrivateKeySecretId"
+                >
+                  ce.co.accessPoint.gcpSecretId
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
+              <div
+                class="bp3-form-content"
+              >
+                <div
+                  class="bp3-input-group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="bp3-input"
+                    name="key_secret_id"
+                    placeholder="ce.co.accessPoint.gcpSecretPlaceholder"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
             class="Layout--horizontal StyledProps--main"
             style="margin-top: 220px;"
           >
@@ -898,6 +974,82 @@ exports[`GCP AP form form in edit mode 1`] = `
                       </span>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="Layout--horizontal StyledProps--main formFieldRow"
+          >
+            <div
+              class="bp3-form-group"
+              data-id="cert_secret_id-6"
+            >
+              <label
+                class="bp3-label"
+                for="cert_secret_id"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="tlsCertificateSecretId"
+                >
+                  ce.co.accessPoint.gcpCertificateId
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
+              <div
+                class="bp3-form-content"
+              >
+                <div
+                  class="bp3-input-group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="bp3-input"
+                    name="cert_secret_id"
+                    placeholder="ce.co.accessPoint.gcpCertificatePlaceholder"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="bp3-form-group"
+              data-id="key_secret_id-7"
+            >
+              <label
+                class="bp3-label"
+                for="key_secret_id"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="tlsPrivateKeySecretId"
+                >
+                  ce.co.accessPoint.gcpSecretId
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
+              <div
+                class="bp3-form-content"
+              >
+                <div
+                  class="bp3-input-group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="bp3-input"
+                    name="key_secret_id"
+                    placeholder="ce.co.accessPoint.gcpSecretPlaceholder"
+                    type="text"
+                    value=""
+                  />
                 </div>
               </div>
             </div>
@@ -1387,6 +1539,82 @@ exports[`GCP AP form form while saving 1`] = `
             </div>
           </div>
           <div
+            class="Layout--horizontal StyledProps--main formFieldRow"
+          >
+            <div
+              class="bp3-form-group"
+              data-id="cert_secret_id-6"
+            >
+              <label
+                class="bp3-label"
+                for="cert_secret_id"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="tlsCertificateSecretId"
+                >
+                  ce.co.accessPoint.gcpCertificateId
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
+              <div
+                class="bp3-form-content"
+              >
+                <div
+                  class="bp3-input-group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="bp3-input"
+                    name="cert_secret_id"
+                    placeholder="ce.co.accessPoint.gcpCertificatePlaceholder"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="bp3-form-group"
+              data-id="key_secret_id-7"
+            >
+              <label
+                class="bp3-label"
+                for="key_secret_id"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="tlsPrivateKeySecretId"
+                >
+                  ce.co.accessPoint.gcpSecretId
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
+              <div
+                class="bp3-form-content"
+              >
+                <div
+                  class="bp3-input-group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="bp3-input"
+                    name="key_secret_id"
+                    placeholder="ce.co.accessPoint.gcpSecretPlaceholder"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
             class="Layout--horizontal StyledProps--main"
             style="margin-top: 220px;"
           >
@@ -1862,6 +2090,82 @@ exports[`GCP AP form form with no data 1`] = `
                       </span>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="Layout--horizontal StyledProps--main formFieldRow"
+          >
+            <div
+              class="bp3-form-group"
+              data-id="cert_secret_id-6"
+            >
+              <label
+                class="bp3-label"
+                for="cert_secret_id"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="tlsCertificateSecretId"
+                >
+                  ce.co.accessPoint.gcpCertificateId
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
+              <div
+                class="bp3-form-content"
+              >
+                <div
+                  class="bp3-input-group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="bp3-input"
+                    name="cert_secret_id"
+                    placeholder="ce.co.accessPoint.gcpCertificatePlaceholder"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="bp3-form-group"
+              data-id="key_secret_id-7"
+            >
+              <label
+                class="bp3-label"
+                for="key_secret_id"
+              >
+                <span
+                  class="Tooltip--acenter"
+                  data-tooltip-id="tlsPrivateKeySecretId"
+                >
+                  ce.co.accessPoint.gcpSecretId
+                </span>
+                 
+                <span
+                  class="bp3-text-muted"
+                />
+              </label>
+              <div
+                class="bp3-form-content"
+              >
+                <div
+                  class="bp3-input-group"
+                >
+                  <input
+                    autocomplete="off"
+                    class="bp3-input"
+                    name="key_secret_id"
+                    placeholder="ce.co.accessPoint.gcpSecretPlaceholder"
+                    type="text"
+                    value=""
+                  />
                 </div>
               </div>
             </div>

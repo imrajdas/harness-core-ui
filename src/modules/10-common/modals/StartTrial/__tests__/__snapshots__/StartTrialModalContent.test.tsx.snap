@@ -1025,7 +1025,7 @@ exports[`StartTrialModalContent Rendering Trial Modal with one license 1`] = `
     </div>
     <a
       class="compareVersion"
-      href="https://ngdocs.harness.io/article/1fjmm4by22-harness-first-gen-vs-harness-next-gen"
+      href="https://docs.harness.io/article/1fjmm4by22-harness-first-gen-vs-harness-next-gen"
       rel="noreferrer"
       target="_blank"
     >

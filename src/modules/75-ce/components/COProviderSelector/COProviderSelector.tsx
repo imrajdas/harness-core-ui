@@ -25,9 +25,7 @@ import type { GatewayDetails, Provider, ProviderWithDependencies } from '@ce/com
 import { useTelemetry } from '@common/hooks/useTelemetry'
 import { Breadcrumbs } from '@common/components/Breadcrumbs/Breadcrumbs'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
-import { useFeatureFlags } from '@common/hooks/useFeatureFlag'
 import { USER_JOURNEY_EVENTS } from '@ce/TrackingEventsConstants'
-import { Utils } from '@ce/common/Utils'
 import COGatewayBasics from '../COGatewayBasics/COGatewayBasics'
 import COFixedDrawer from '../COGatewayAccess/COFixedDrawer'
 import COHelpSidebar from '../COHelpSidebar/COHelpSidebar'
@@ -54,8 +52,7 @@ const data: ProviderWithDependencies[] = [
   {
     name: 'GCP',
     value: 'gcp',
-    icon: 'gcp',
-    ffDependencies: ['CE_AS_KUBERNETES_ENABLED']
+    icon: 'gcp'
   }
 ]
 
@@ -66,7 +63,6 @@ function getProvider(name: string | unknown): Provider | undefined {
 const COProviderSelector: React.FC<COProviderSelectorProps> = props => {
   const { getString } = useStrings()
   const { trackEvent } = useTelemetry()
-  const { CE_AS_KUBERNETES_ENABLED } = useFeatureFlags()
   const [selectedCard, setSelectedCard] = useState<Provider | undefined>(
     getProvider(props.gatewayDetails.provider.name)
   )
@@ -91,11 +87,6 @@ const COProviderSelector: React.FC<COProviderSelectorProps> = props => {
       delete _gatewayDetails.metadata.cloud_provider_details
     }
   }
-
-  const providerData = React.useMemo(
-    () => data.filter(p => Utils.isFFEnabledForResource(p.ffDependencies, { CE_AS_KUBERNETES_ENABLED })),
-    [CE_AS_KUBERNETES_ENABLED]
-  )
 
   return (
     <>
@@ -126,7 +117,7 @@ const COProviderSelector: React.FC<COProviderSelectorProps> = props => {
           <Layout.Vertical spacing="small">
             <Layout.Horizontal spacing="small" style={{ paddingTop: '29px' }}>
               <CardSelect
-                data={providerData}
+                data={data}
                 selected={selectedCard}
                 className={css.providersViewGrid}
                 onChange={item => {
@@ -144,7 +135,7 @@ const COProviderSelector: React.FC<COProviderSelectorProps> = props => {
               ></CardSelect>
             </Layout.Horizontal>
             <Layout.Horizontal spacing="medium" className={css.instanceTypeNameGrid}>
-              {providerData.map(provider => {
+              {data.map(provider => {
                 return (
                   <Text font={{ align: 'center' }} style={{ fontSize: 11 }} key={provider.value}>
                     {provider.name}

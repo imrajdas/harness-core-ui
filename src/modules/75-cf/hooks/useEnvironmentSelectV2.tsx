@@ -9,15 +9,16 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Select, SelectOption, SelectProps } from '@wings-software/uicore'
 import { EnvironmentResponseDTO, useGetEnvironmentListForProject } from 'services/cd-ng'
+import { rewriteCurrentLocationWithActiveEnvironment } from '@cf/utils/CFUtils'
 
 export interface UseEnvironmentSelectV2Params {
   selectedEnvironmentIdentifier?: string
-  onChange: (opt: SelectOption, environment: EnvironmentResponseDTO, userEvent: boolean) => void
+  onChange?: (opt: SelectOption, environment: EnvironmentResponseDTO, userEvent: boolean) => void
   onEmpty?: () => void
 }
 
 export const useEnvironmentSelectV2 = (params: UseEnvironmentSelectV2Params) => {
-  const { onChange, onEmpty, selectedEnvironmentIdentifier } = params
+  const { onChange = () => undefined, onEmpty = () => undefined, selectedEnvironmentIdentifier } = params
   const { projectIdentifier, orgIdentifier, accountId } = useParams<Record<string, string>>()
   const { data, loading, error, refetch } = useGetEnvironmentListForProject({
     queryParams: { accountId, orgIdentifier, projectIdentifier }
@@ -41,14 +42,17 @@ export const useEnvironmentSelectV2 = (params: UseEnvironmentSelectV2Params) => 
           }
           setSelectedEnvironment(newValue)
           onChange(newValue, found, false)
+          rewriteCurrentLocationWithActiveEnvironment(found.identifier)
           return
         }
       }
 
       setSelectedEnvironment(selectOptions[0])
       onChange(selectOptions[0], data?.data?.content?.[0], false)
+      rewriteCurrentLocationWithActiveEnvironment(data?.data?.content?.[0].identifier)
     } else if (data?.data?.content?.length === 0) {
-      onEmpty?.()
+      onEmpty()
+      rewriteCurrentLocationWithActiveEnvironment()
     }
   }, [data?.data?.content?.length, data?.data?.content?.find, selectedEnvironmentIdentifier]) // eslint-disable-line
 
@@ -66,6 +70,7 @@ export const useEnvironmentSelectV2 = (params: UseEnvironmentSelectV2Params) => 
                 data?.data?.content?.find(env => env.identifier === opt.value) as EnvironmentResponseDTO,
                 true
               )
+              rewriteCurrentLocationWithActiveEnvironment(opt.value as string)
             }
           }}
           {...props}

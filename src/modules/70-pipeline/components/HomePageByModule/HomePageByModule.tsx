@@ -54,14 +54,14 @@ function getStringByModuleProps(module: ModuleName): StringByModuleProps {
       title = 'ci.continuous'
       subTitle = 'ci.dashboard.subHeading'
       documentText = 'ci.learnMore'
-      documentURL = 'https://ngdocs.harness.io/category/zgffarnh1m-ci-category'
+      documentURL = 'https://docs.harness.io/category/zgffarnh1m-ci-category'
       break
     }
     case ModuleName.CD: {
       title = 'cd.continuous'
       subTitle = 'cd.dashboard.subHeading'
       documentText = 'cd.learnMore'
-      documentURL = 'https://ngdocs.harness.io/article/knunou9j30-kubernetes-cd-quickstart'
+      documentURL = 'https://docs.harness.io/article/knunou9j30-kubernetes-cd-quickstart'
       break
     }
   }

@@ -163,7 +163,7 @@ exports[`ConfigureNotifications Microsoft Teams - edit case 1`] = `
         notifications.helpMSTeams
       </p>
       <a
-        href="https://ngdocs.harness.io/article/xcb28vgn82-send-notifications-to-microsoft-teams"
+        href="https://docs.harness.io/article/xcb28vgn82-send-notifications-to-microsoft-teams"
         rel="noreferrer"
         target="_blank"
       >
@@ -362,7 +362,7 @@ exports[`ConfigureNotifications Microsoft Teams - edit case 2`] = `
         notifications.helpMSTeams
       </p>
       <a
-        href="https://ngdocs.harness.io/article/xcb28vgn82-send-notifications-to-microsoft-teams"
+        href="https://docs.harness.io/article/xcb28vgn82-send-notifications-to-microsoft-teams"
         rel="noreferrer"
         target="_blank"
       >
@@ -580,7 +580,7 @@ exports[`ConfigureNotifications Microsoft Teams 1`] = `
         notifications.helpMSTeams
       </p>
       <a
-        href="https://ngdocs.harness.io/article/xcb28vgn82-send-notifications-to-microsoft-teams"
+        href="https://docs.harness.io/article/xcb28vgn82-send-notifications-to-microsoft-teams"
         rel="noreferrer"
         target="_blank"
       >

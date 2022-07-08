@@ -1,0 +1,789 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom remote tests initial rendering 1`] = `
+<div>
+  <div
+    class="Layout--vertical Layout--layout-spacing-medium StyledProps--main optionsViewContainer"
+    style="height: inherit;"
+  >
+    <p
+      class="StyledProps--font StyledProps--main StyledProps--font-variation-h3 StyledProps--margin-bottom-medium"
+    >
+      Manifest details
+    </p>
+    <div
+      class="OverlaySpinner--overlaySpinner"
+    >
+      <form
+        action="#"
+      >
+        <div
+          class="Layout--vertical StyledProps--main manifestForm StyledProps--flex StyledProps--flex-justifyContent-space-between StyledProps--flex-alignItems-flex-start"
+        >
+          <div
+            class="manifestStepWidth"
+          >
+            <div
+              class="halfWidth"
+            >
+              <div
+                class="bp3-form-group"
+              >
+                <label
+                  class="bp3-label"
+                  for="identifier"
+                >
+                  <span
+                    class="Tooltip--acenter"
+                    data-tooltip-id="manifestDetails_identifier"
+                  >
+                    pipeline.manifestType.manifestIdentifier
+                  </span>
+                   
+                  <span
+                    class="bp3-text-muted"
+                  />
+                </label>
+                <div
+                  class="bp3-form-content"
+                >
+                  <div
+                    class="bp3-input-group"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="bp3-input"
+                      name="identifier"
+                      placeholder="pipeline.manifestType.manifestPlaceholder"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="halfWidth"
+            >
+              <div
+                class="bp3-form-group"
+              >
+                <label
+                  class="bp3-label"
+                  for="files"
+                >
+                  <div
+                    class="formLabel"
+                  >
+                    <span
+                      class="Tooltip--acenter"
+                      data-tooltip-id="manifestDetails_files"
+                    >
+                      resourcePage.fileStore
+                    </span>
+                    <div
+                      class="bp3-popover-wrapper typeSelectorWrapper"
+                    >
+                      <div
+                        class="bp3-popover-target typeSelector"
+                      >
+                        <button
+                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main btn Button--iconOnly Button--without-shadow"
+                          type="button"
+                        >
+                          <span
+                            class="bp3-button-text"
+                          >
+                            <span
+                              class="bp3-icon StyledProps--main icon fixed"
+                              data-icon="fixed-input"
+                            >
+                              <svg
+                                height="12"
+                                viewBox="0 0 9 9"
+                                width="12"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M5.61 7.55c.62-.7.3-1.42.18-2.35a.32.32 0 01.1-.29l1.43-1.42a.76.76 0 01.28-.15c.39-.1 1 0 1.28-.29a.34.34 0 000-.51L6.46.12a.33.33 0 00-.52 0c-.28.29-.2.9-.28 1.3a.53.53 0 01-.13.23L4.09 3.12a.29.29 0 01-.28.09c-.89-.11-1.6-.49-2.27.11-.29.26-.29.43 0 .7l1.31 1.34.15.16-.15.15-2.7 2.69a.36.36 0 000 .54.36.36 0 00.54-.05l2.63-2.68.17-.17.17.16c.45.46.9.91 1.36 1.36.21.21.42.22.59.03z"
+                                  fill="currentColor"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <span
+                    class="bp3-text-muted"
+                  />
+                </label>
+                <div
+                  class="bp3-form-content"
+                >
+                  <div
+                    class="Layout--vertical StyledProps--main"
+                  >
+                    <div
+                      class="Layout--horizontal StyledProps--main StyledProps--margin-top-medium"
+                    >
+                      <div
+                        class="bp3-form-group"
+                        style="width: 100%;"
+                      >
+                        <div
+                          class="bp3-form-content"
+                        >
+                          <div
+                            class="Layout--vertical StyledProps--main"
+                          >
+                            <div
+                              class="StyledProps--font StyledProps--main container StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-space-between"
+                            >
+                              <p
+                                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--padding-left-xsmall"
+                              >
+                                - 
+                                select
+                                 -
+                              </p>
+                              <div
+                                class="StyledProps--font StyledProps--main StyledProps--padding-right-small"
+                              >
+                                <span
+                                  class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--margin-right-small StyledProps--margin-left-small"
+                                  icon="chevron-down"
+                                >
+                                  <svg
+                                    data-icon="chevron-down"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    width="16"
+                                  >
+                                    <desc>
+                                      chevron-down
+                                    </desc>
+                                    <path
+                                      d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span>
+                      <button
+                        class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--without-shadow Button--variation Button--variation-primary"
+                        type="button"
+                      >
+                        <span
+                          class="bp3-button-text"
+                        >
+                          add
+                        </span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="halfWidth"
+            >
+              <div
+                class="bp3-form-group"
+              >
+                <label
+                  class="bp3-label"
+                  for="valuesPaths"
+                >
+                  <div
+                    class="formLabel"
+                  >
+                    <span
+                      class="Tooltip--acenter"
+                      data-tooltip-id="manifestDetails_valuesPaths"
+                    >
+                      pipeline.manifestType.valuesYamlPath
+                    </span>
+                    <div
+                      class="bp3-popover-wrapper typeSelectorWrapper"
+                    >
+                      <div
+                        class="bp3-popover-target typeSelector"
+                      >
+                        <button
+                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main btn Button--iconOnly Button--without-shadow"
+                          type="button"
+                        >
+                          <span
+                            class="bp3-button-text"
+                          >
+                            <span
+                              class="bp3-icon StyledProps--main icon fixed"
+                              data-icon="fixed-input"
+                            >
+                              <svg
+                                height="12"
+                                viewBox="0 0 9 9"
+                                width="12"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M5.61 7.55c.62-.7.3-1.42.18-2.35a.32.32 0 01.1-.29l1.43-1.42a.76.76 0 01.28-.15c.39-.1 1 0 1.28-.29a.34.34 0 000-.51L6.46.12a.33.33 0 00-.52 0c-.28.29-.2.9-.28 1.3a.53.53 0 01-.13.23L4.09 3.12a.29.29 0 01-.28.09c-.89-.11-1.6-.49-2.27.11-.29.26-.29.43 0 .7l1.31 1.34.15.16-.15.15-2.7 2.69a.36.36 0 000 .54.36.36 0 00.54-.05l2.63-2.68.17-.17.17.16c.45.46.9.91 1.36 1.36.21.21.42.22.59.03z"
+                                  fill="currentColor"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <span
+                    class="bp3-text-muted"
+                  />
+                </label>
+                <div
+                  class="bp3-form-content"
+                >
+                  <div
+                    class="Layout--vertical StyledProps--main"
+                  >
+                    <div
+                      class="Layout--horizontal StyledProps--main StyledProps--margin-top-medium"
+                    >
+                      <div
+                        class="bp3-form-group"
+                        style="width: 100%;"
+                      >
+                        <div
+                          class="bp3-form-content"
+                        >
+                          <div
+                            class="Layout--vertical StyledProps--main"
+                          >
+                            <div
+                              class="StyledProps--font StyledProps--main container StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-space-between"
+                            >
+                              <p
+                                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--padding-left-xsmall"
+                              >
+                                - 
+                                select
+                                 -
+                              </p>
+                              <div
+                                class="StyledProps--font StyledProps--main StyledProps--padding-right-small"
+                              >
+                                <span
+                                  class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--margin-right-small StyledProps--margin-left-small"
+                                  icon="chevron-down"
+                                >
+                                  <svg
+                                    data-icon="chevron-down"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    width="16"
+                                  >
+                                    <desc>
+                                      chevron-down
+                                    </desc>
+                                    <path
+                                      d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span>
+                      <button
+                        class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--without-shadow Button--variation Button--variation-primary"
+                        type="button"
+                      >
+                        <span
+                          class="bp3-button-text"
+                        >
+                          add
+                        </span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main saveBtn"
+          >
+            <button
+              class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--withLeftIcon Button--variation Button--variation-secondary"
+              type="button"
+            >
+              <span
+                class="bp3-icon bp3-icon-chevron-left StyledProps--main StyledProps--padding-right-xsmall"
+                icon="chevron-left"
+              >
+                <svg
+                  data-icon="chevron-left"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                >
+                  <desc>
+                    chevron-left
+                  </desc>
+                  <path
+                    d="M7.41 8l3.29-3.29c.19-.18.3-.43.3-.71a1.003 1.003 0 00-1.71-.71l-4 4C5.11 7.47 5 7.72 5 8c0 .28.11.53.29.71l4 4a1.003 1.003 0 001.42-1.42L7.41 8z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+              <span
+                class="bp3-button-text"
+              >
+                back
+              </span>
+            </button>
+            <button
+              class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--withRightIcon Button--variation Button--variation-primary"
+              type="submit"
+            >
+              <span
+                class="bp3-button-text"
+              >
+                submit
+              </span>
+              <span
+                class="bp3-icon bp3-icon-chevron-right StyledProps--main"
+                icon="chevron-right"
+              >
+                <svg
+                  data-icon="chevron-right"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                >
+                  <desc>
+                    chevron-right
+                  </desc>
+                  <path
+                    d="M10.71 7.29l-4-4a1.003 1.003 0 00-1.42 1.42L8.59 8 5.3 11.29c-.19.18-.3.43-.3.71a1.003 1.003 0 001.71.71l4-4c.18-.18.29-.43.29-.71 0-.28-.11-.53-.29-.71z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Custom remote tests when fields are runtime input 1`] = `
+<div>
+  <div
+    class="Layout--vertical Layout--layout-spacing-medium StyledProps--main optionsViewContainer"
+    style="height: inherit;"
+  >
+    <p
+      class="StyledProps--font StyledProps--main StyledProps--font-variation-h3 StyledProps--margin-bottom-medium"
+    >
+      Manifest details
+    </p>
+    <div
+      class="OverlaySpinner--overlaySpinner"
+    >
+      <form
+        action="#"
+      >
+        <div
+          class="Layout--vertical StyledProps--main manifestForm StyledProps--flex StyledProps--flex-justifyContent-space-between StyledProps--flex-alignItems-flex-start"
+        >
+          <div
+            class="manifestStepWidth"
+          >
+            <div
+              class="halfWidth"
+            >
+              <div
+                class="bp3-form-group"
+              >
+                <label
+                  class="bp3-label"
+                  for="identifier"
+                >
+                  <span
+                    class="Tooltip--acenter"
+                    data-tooltip-id="manifestDetails_identifier"
+                  >
+                    pipeline.manifestType.manifestIdentifier
+                  </span>
+                   
+                  <span
+                    class="bp3-text-muted"
+                  />
+                </label>
+                <div
+                  class="bp3-form-content"
+                >
+                  <div
+                    class="bp3-input-group"
+                  >
+                    <input
+                      autocomplete="off"
+                      class="bp3-input"
+                      name="identifier"
+                      placeholder="pipeline.manifestType.manifestPlaceholder"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="halfWidth"
+            >
+              <div
+                class="bp3-form-group"
+              >
+                <label
+                  class="bp3-label"
+                  for="files"
+                >
+                  <div
+                    class="formLabel"
+                  >
+                    <span
+                      class="Tooltip--acenter"
+                      data-tooltip-id="manifestDetails_files"
+                    >
+                      resourcePage.fileStore
+                    </span>
+                    <div
+                      class="bp3-popover-wrapper typeSelectorWrapper"
+                    >
+                      <div
+                        class="bp3-popover-target typeSelector"
+                      >
+                        <button
+                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main btn Button--iconOnly Button--without-shadow"
+                          type="button"
+                        >
+                          <span
+                            class="bp3-button-text"
+                          >
+                            <span
+                              class="bp3-icon StyledProps--main icon fixed"
+                              data-icon="fixed-input"
+                            >
+                              <svg
+                                height="12"
+                                viewBox="0 0 9 9"
+                                width="12"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M5.61 7.55c.62-.7.3-1.42.18-2.35a.32.32 0 01.1-.29l1.43-1.42a.76.76 0 01.28-.15c.39-.1 1 0 1.28-.29a.34.34 0 000-.51L6.46.12a.33.33 0 00-.52 0c-.28.29-.2.9-.28 1.3a.53.53 0 01-.13.23L4.09 3.12a.29.29 0 01-.28.09c-.89-.11-1.6-.49-2.27.11-.29.26-.29.43 0 .7l1.31 1.34.15.16-.15.15-2.7 2.69a.36.36 0 000 .54.36.36 0 00.54-.05l2.63-2.68.17-.17.17.16c.45.46.9.91 1.36 1.36.21.21.42.22.59.03z"
+                                  fill="currentColor"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <span
+                    class="bp3-text-muted"
+                  />
+                </label>
+                <div
+                  class="bp3-form-content"
+                >
+                  <div
+                    class="Layout--vertical StyledProps--main"
+                  >
+                    <div
+                      class="Layout--horizontal StyledProps--main StyledProps--margin-top-medium"
+                    >
+                      <div
+                        class="bp3-form-group"
+                        style="width: 100%;"
+                      >
+                        <div
+                          class="bp3-form-content"
+                        >
+                          <div
+                            class="Layout--vertical StyledProps--main"
+                          >
+                            <div
+                              class="StyledProps--font StyledProps--main container StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-space-between"
+                            >
+                              <p
+                                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--padding-left-xsmall"
+                              >
+                                - 
+                                select
+                                 -
+                              </p>
+                              <div
+                                class="StyledProps--font StyledProps--main StyledProps--padding-right-small"
+                              >
+                                <span
+                                  class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--margin-right-small StyledProps--margin-left-small"
+                                  icon="chevron-down"
+                                >
+                                  <svg
+                                    data-icon="chevron-down"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    width="16"
+                                  >
+                                    <desc>
+                                      chevron-down
+                                    </desc>
+                                    <path
+                                      d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span>
+                      <button
+                        class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--without-shadow Button--variation Button--variation-primary"
+                        type="button"
+                      >
+                        <span
+                          class="bp3-button-text"
+                        >
+                          add
+                        </span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="halfWidth"
+            >
+              <div
+                class="bp3-form-group"
+              >
+                <label
+                  class="bp3-label"
+                  for="valuesPaths"
+                >
+                  <div
+                    class="formLabel"
+                  >
+                    <span
+                      class="Tooltip--acenter"
+                      data-tooltip-id="manifestDetails_valuesPaths"
+                    >
+                      pipeline.manifestType.valuesYamlPath
+                    </span>
+                    <div
+                      class="bp3-popover-wrapper typeSelectorWrapper"
+                    >
+                      <div
+                        class="bp3-popover-target typeSelector"
+                      >
+                        <button
+                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main btn Button--iconOnly Button--without-shadow"
+                          type="button"
+                        >
+                          <span
+                            class="bp3-button-text"
+                          >
+                            <span
+                              class="bp3-icon StyledProps--main icon fixed"
+                              data-icon="fixed-input"
+                            >
+                              <svg
+                                height="12"
+                                viewBox="0 0 9 9"
+                                width="12"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M5.61 7.55c.62-.7.3-1.42.18-2.35a.32.32 0 01.1-.29l1.43-1.42a.76.76 0 01.28-.15c.39-.1 1 0 1.28-.29a.34.34 0 000-.51L6.46.12a.33.33 0 00-.52 0c-.28.29-.2.9-.28 1.3a.53.53 0 01-.13.23L4.09 3.12a.29.29 0 01-.28.09c-.89-.11-1.6-.49-2.27.11-.29.26-.29.43 0 .7l1.31 1.34.15.16-.15.15-2.7 2.69a.36.36 0 000 .54.36.36 0 00.54-.05l2.63-2.68.17-.17.17.16c.45.46.9.91 1.36 1.36.21.21.42.22.59.03z"
+                                  fill="currentColor"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                   
+                  <span
+                    class="bp3-text-muted"
+                  />
+                </label>
+                <div
+                  class="bp3-form-content"
+                >
+                  <div
+                    class="Layout--vertical StyledProps--main"
+                  >
+                    <div
+                      class="Layout--horizontal StyledProps--main StyledProps--margin-top-medium"
+                    >
+                      <div
+                        class="bp3-form-group"
+                        style="width: 100%;"
+                      >
+                        <div
+                          class="bp3-form-content"
+                        >
+                          <div
+                            class="Layout--vertical StyledProps--main"
+                          >
+                            <div
+                              class="StyledProps--font StyledProps--main container StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-space-between"
+                            >
+                              <p
+                                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--padding-left-xsmall"
+                              >
+                                - 
+                                select
+                                 -
+                              </p>
+                              <div
+                                class="StyledProps--font StyledProps--main StyledProps--padding-right-small"
+                              >
+                                <span
+                                  class="bp3-icon bp3-icon-chevron-down StyledProps--main StyledProps--margin-right-small StyledProps--margin-left-small"
+                                  icon="chevron-down"
+                                >
+                                  <svg
+                                    data-icon="chevron-down"
+                                    height="16"
+                                    viewBox="0 0 16 16"
+                                    width="16"
+                                  >
+                                    <desc>
+                                      chevron-down
+                                    </desc>
+                                    <path
+                                      d="M12 5c-.28 0-.53.11-.71.29L8 8.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l4-4A1.003 1.003 0 0012 5z"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <span>
+                      <button
+                        class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--without-shadow Button--variation Button--variation-primary"
+                        type="button"
+                      >
+                        <span
+                          class="bp3-button-text"
+                        >
+                          add
+                        </span>
+                      </button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main saveBtn"
+          >
+            <button
+              class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--withLeftIcon Button--variation Button--variation-secondary"
+              type="button"
+            >
+              <span
+                class="bp3-icon bp3-icon-chevron-left StyledProps--main StyledProps--padding-right-xsmall"
+                icon="chevron-left"
+              >
+                <svg
+                  data-icon="chevron-left"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                >
+                  <desc>
+                    chevron-left
+                  </desc>
+                  <path
+                    d="M7.41 8l3.29-3.29c.19-.18.3-.43.3-.71a1.003 1.003 0 00-1.71-.71l-4 4C5.11 7.47 5 7.72 5 8c0 .28.11.53.29.71l4 4a1.003 1.003 0 001.42-1.42L7.41 8z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+              <span
+                class="bp3-button-text"
+              >
+                back
+              </span>
+            </button>
+            <button
+              class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--withRightIcon Button--variation Button--variation-primary"
+              type="submit"
+            >
+              <span
+                class="bp3-button-text"
+              >
+                submit
+              </span>
+              <span
+                class="bp3-icon bp3-icon-chevron-right StyledProps--main"
+                icon="chevron-right"
+              >
+                <svg
+                  data-icon="chevron-right"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                >
+                  <desc>
+                    chevron-right
+                  </desc>
+                  <path
+                    d="M10.71 7.29l-4-4a1.003 1.003 0 00-1.42 1.42L8.59 8 5.3 11.29c-.19.18-.3.43-.3.71a1.003 1.003 0 001.71.71l4-4c.18-.18.29-.43.29-.71 0-.28-.11-.53-.29-.71z"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

@@ -42,7 +42,7 @@ import RbacButton from '@rbac/components/Button/Button'
 import PipelineSummaryCards from '@pipeline/components/Dashboards/PipelineSummaryCards/PipelineSummaryCards'
 import PipelineBuildExecutionsChart from '@pipeline/components/Dashboards/BuildExecutionsChart/PipelineBuildExecutionsChart'
 import useTabVisible from '@common/hooks/useTabVisible'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import type { StoreType } from '@common/constants/GitSyncTypes'
 import type { StringsMap } from 'stringTypes'
 import pipelineIllustration from '@pipeline/pages/pipelines/images/deploypipeline-illustration.svg'
@@ -388,7 +388,9 @@ export default function PipelineDeploymentList(props: PipelineDeploymentListProp
     setData(await (await reloadPipelines({ filterType: 'PipelineSetup' }))?.data?.totalElements)
   }, [cancel])
 
-  const isCommunityAndCDModule = module === 'cd' && isCommunityPlan()
+  const isCommunity = useGetCommunity()
+
+  const isCommunityAndCDModule = module === 'cd' && isCommunity
 
   const {
     data,

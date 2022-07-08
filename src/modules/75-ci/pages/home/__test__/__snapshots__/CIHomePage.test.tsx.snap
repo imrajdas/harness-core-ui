@@ -79,7 +79,7 @@ exports[`CIHomePage should pop up select project CI Trial modal if query param m
       </p>
       <a
         class="bp3-button Button--button StyledProps--font StyledProps--main link StyledProps--color StyledProps--font StyledProps--font-size-normal Button--with-current-color Button--link"
-        href="https://ngdocs.harness.io/category/zgffarnh1m-ci-category"
+        href="https://docs.harness.io/category/zgffarnh1m-ci-category"
         rel="noreferrer noopener"
         role="button"
         tabindex="0"
@@ -139,7 +139,7 @@ exports[`CIHomePage should render HomePageTemplate when return success with data
       </p>
       <a
         class="bp3-button Button--button StyledProps--font StyledProps--main link StyledProps--color StyledProps--font StyledProps--font-size-normal Button--with-current-color Button--link"
-        href="https://ngdocs.harness.io/category/zgffarnh1m-ci-category"
+        href="https://docs.harness.io/category/zgffarnh1m-ci-category"
         rel="noreferrer noopener"
         role="button"
         tabindex="0"
@@ -199,7 +199,7 @@ exports[`CIHomePage should render the home page template when the current user i
       </p>
       <a
         class="bp3-button Button--button StyledProps--font StyledProps--main link StyledProps--color StyledProps--font StyledProps--font-size-normal Button--with-current-color Button--link"
-        href="https://ngdocs.harness.io/category/zgffarnh1m-ci-category"
+        href="https://docs.harness.io/category/zgffarnh1m-ci-category"
         rel="noreferrer noopener"
         role="button"
         tabindex="0"

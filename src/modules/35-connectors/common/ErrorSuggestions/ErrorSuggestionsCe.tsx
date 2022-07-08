@@ -40,19 +40,19 @@ const Suggestions: React.FC<{
   const getDocLink = () => {
     switch (props.connectorType) {
       case Connectors.CE_KUBERNETES:
-        return 'https://ngdocs.harness.io/article/ltt65r6k39-set-up-cost-visibility-for-kubernetes'
+        return 'https://docs.harness.io/article/ltt65r6k39-set-up-cost-visibility-for-kubernetes'
 
       case Connectors.CEAWS:
-        return 'https://ngdocs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws'
+        return 'https://docs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws'
 
       case Connectors.CE_AZURE:
-        return 'https://ngdocs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure'
+        return 'https://docs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure'
 
       case Connectors.CE_GCP:
-        return 'https://ngdocs.harness.io/article/kxnsritjls-set-up-cost-visibility-for-gcp'
+        return 'https://docs.harness.io/article/kxnsritjls-set-up-cost-visibility-for-gcp'
 
       default:
-        return 'https://ngdocs.harness.io/article/n8e7rddf8w-cloud-cost-management-overview'
+        return 'https://docs.harness.io/article/n8e7rddf8w-cloud-cost-management-overview'
     }
   }
 

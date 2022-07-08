@@ -14,7 +14,7 @@ import type { PermissionCheck, ResourceScope } from 'services/rbac'
 import type { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import type { ResourceType } from '@rbac/interfaces/ResourceType'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 
 export interface Resource {
   resourceType: ResourceType
@@ -48,7 +48,7 @@ export function usePermission(permissionsRequest?: PermissionsRequest, deps: Arr
   const { requestPermission, checkPermission, cancelRequest } = usePermissionsContext()
   const { accountId: accountIdentifier, orgIdentifier, projectIdentifier } = useParams<ProjectPathProps>()
   const defaultScope = { accountIdentifier, orgIdentifier, projectIdentifier }
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
 
   useDeepCompareEffect(() => {
     // generate PermissionRequest for every action user requested

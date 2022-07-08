@@ -6,75 +6,40 @@
  */
 
 import React from 'react'
-import { Text, Layout, Container, Checkbox, Popover } from '@harness/uicore'
-import { Color, FontVariation } from '@harness/design-system'
+import { Text, Layout, Checkbox, Popover } from '@harness/uicore'
+import { Color } from '@harness/design-system'
 import { PopoverInteractionKind, Classes, Position } from '@blueprintjs/core'
 import { useStrings } from 'framework/strings'
-import { TIME_TYPE } from '@auth-settings/pages/subscriptions/plans/planUtils'
 import css from './CostCalculator.module.scss'
 
-const PremLabel = ({ time, setTime }: { time: TIME_TYPE; setTime: (time: TIME_TYPE) => void }): React.ReactElement => {
+const PremLabel: React.FC = () => {
   const { getString } = useStrings()
   return (
     <Layout.Horizontal
-      flex={{ justifyContent: 'space-between', alignItems: 'start' }}
-      width={'90%'}
+      flex={{ alignItems: 'center', justifyContent: 'space-between' }}
       padding={{ top: 'xsmall' }}
+      width="90%"
     >
-      <Layout.Vertical>
-        <Layout.Horizontal flex={{ alignItems: 'start' }} spacing="small">
-          <Text
-            className={css.crownLabel}
-            padding={{ bottom: 'xsmall' }}
-            font={{ variation: FontVariation.SMALL }}
-            icon="crown"
-            iconProps={{ color: Color.ORANGE_700 }}
-          >
-            {getString('authSettings.costCalculator.premSupport.title')}
-          </Text>
-          {time === TIME_TYPE.MONTHLY && (
-            <Text
-              rightIcon="arrow-right"
-              rightIconProps={{ color: Color.PRIMARY_6 }}
-              onClick={() => setTime(TIME_TYPE.YEARLY)}
-              font={{ size: 'small', weight: 'semi-bold' }}
-              color={Color.PRIMARY_6}
-              className={css.switchToYearly}
-            >
-              {getString('authSettings.costCalculator.switchToYearly')}
-            </Text>
-          )}
-        </Layout.Horizontal>
-        <ul className={css.premLabel}>
-          <li key={'line1'}>
-            <Text font={{ size: 'xsmall' }}>{getString('authSettings.costCalculator.premSupport.line1')}</Text>
-          </li>
-          <li key={'line2'}>
-            <Text font={{ size: 'xsmall' }}>{getString('authSettings.costCalculator.premSupport.line2')}</Text>
-          </li>
-          <li key={'line3'}>
-            <Text font={{ size: 'xsmall' }}>{getString('authSettings.costCalculator.premSupport.line3')}</Text>
-          </li>
-        </ul>
-      </Layout.Vertical>
+      <Layout.Horizontal spacing="small">
+        <Text font={{ size: 'small', weight: 'bold' }} icon={'crown'} iconProps={{ color: Color.ORANGE_700 }}>
+          {getString('authSettings.costCalculator.premSupport.title')}
+        </Text>
+        <Text font={{ size: 'small', weight: 'semi-bold' }}>
+          {getString('authSettings.costCalculator.premSupport.onCallSupport')}
+        </Text>
+      </Layout.Horizontal>
       <Text font={{ size: 'xsmall' }}>{getString('authSettings.costCalculator.premSupport.includedByDefault')}</Text>
     </Layout.Horizontal>
   )
 }
 
-export const PremiumSupport = ({
-  value,
-  onChange,
-  disabled,
-  time,
-  setTime
-}: {
-  value: boolean
+interface PremiumSupportProps {
+  premiumSupport: boolean
   onChange: (value: boolean) => void
   disabled: boolean
-  time: TIME_TYPE
-  setTime: (time: TIME_TYPE) => void
-}): React.ReactElement => {
+}
+
+export const PremiumSupport: React.FC<PremiumSupportProps> = ({ premiumSupport, onChange, disabled }) => {
   const { getString } = useStrings()
   const checkbox = disabled ? (
     <Popover
@@ -87,17 +52,25 @@ export const PremiumSupport = ({
         </Text>
       }
     >
-      <Checkbox size={12} checked={value} onChange={() => onChange(!value)} disabled className={css.checkbox} />
+      <Checkbox
+        size={12}
+        checked={premiumSupport}
+        onChange={() => onChange(!premiumSupport)}
+        disabled
+        className={css.checkbox}
+      />
     </Popover>
   ) : (
-    <Checkbox size={12} checked={value} onChange={() => onChange(!value)} className={css.checkbox} />
+    <Checkbox size={12} checked={premiumSupport} onChange={() => onChange(!premiumSupport)} className={css.checkbox} />
   )
   return (
-    <Container className={css.premSupport}>
-      <Layout.Horizontal>
-        {checkbox}
-        <PremLabel time={time} setTime={setTime} />
-      </Layout.Horizontal>
-    </Container>
+    <Layout.Horizontal
+      className={css.premSupport}
+      padding={'small'}
+      flex={{ alignItems: 'baseline', justifyContent: 'start' }}
+    >
+      {checkbox}
+      <PremLabel />
+    </Layout.Horizontal>
   )
 }

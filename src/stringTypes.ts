@@ -104,10 +104,12 @@ export interface StringsMap {
   'common.banners.trial.success': string
   'common.bash': string
   'common.billed': string
+  'common.billingAddress': string
   'common.blank': string
   'common.branchName': string
   'common.by': string
   'common.capsAll': string
+  'common.cardNumber': string
   'common.ce.autostopping': string
   'common.ce.cost': string
   'common.ce.optimization': string
@@ -122,6 +124,7 @@ export interface StringsMap {
   'common.changesUnsaved': string
   'common.channel': string
   'common.chaosText': string
+  'common.city': string
   'common.clearSelection': string
   'common.clientId': string
   'common.clientSecret': string
@@ -164,6 +167,7 @@ export interface StringsMap {
   'common.copy': string
   'common.copyFqn': string
   'common.copyVariableName': string
+  'common.countryOrRegion': string
   'common.createPipeline': string
   'common.creating': string
   'common.current': string
@@ -321,14 +325,12 @@ export interface StringsMap {
   'common.git.noUserLabel': string
   'common.git.onlyDefaultBranchFound': string
   'common.git.privateKey': string
-  'common.git.projectNamePlaceholder': string
   'common.git.remoteStoreLabel': string
   'common.git.saveResourceLabel': string
   'common.git.selectBranchPlaceholder': string
   'common.git.selectRepoLabel': string
   'common.git.selectRepositoryPlaceholder': string
   'common.git.startPRLabel': string
-  'common.git.testProjectAndRepositoryDescription': string
   'common.git.testRepository': string
   'common.git.testRepositoryDescription': string
   'common.git.urlType': string
@@ -438,6 +440,7 @@ export interface StringsMap {
   'common.mostActiveServices': string
   'common.move': string
   'common.myProfile': string
+  'common.nameOnCard': string
   'common.namePlaceholder': string
   'common.namespace': string
   'common.new': string
@@ -477,6 +480,7 @@ export interface StringsMap {
   'common.path': string
   'common.payload': string
   'common.pendingInvitation': string
+  'common.perDeveloper': string
   'common.perMonth': string
   'common.perYear': string
   'common.performAction': string
@@ -690,6 +694,7 @@ export interface StringsMap {
   'common.startFree': string
   'common.startFreePlan': string
   'common.startTrial': string
+  'common.state': string
   'common.submittingRequest': string
   'common.submittingRequestToGitViaDelegate': string
   'common.subscribed': string
@@ -831,6 +836,7 @@ export interface StringsMap {
   'common.with': string
   'common.without': string
   'common.yearly': string
+  'common.zipCode': string
   'notifications.buttonSend': string
   'notifications.emailOrAlias': string
   'notifications.emailRecipients': string
@@ -1405,12 +1411,12 @@ export interface StringsMap {
   'authSettings.authorizationNotEnabled': string
   'authSettings.autoRenewal': string
   'authSettings.azure': string
-  'authSettings.billedAnnually': string
-  'authSettings.billedMonthly': string
   'authSettings.billing.next': string
-  'authSettings.billing.step': string
-  'authSettings.billing.subscribeNPay': string
   'authSettings.billing.totalDuetoday': string
+  'authSettings.billingInfo.billingContact': string
+  'authSettings.billingInfo.emailWarning': string
+  'authSettings.billingInfo.paymentMethod': string
+  'authSettings.billingInfo.saveCardWarning': string
   'authSettings.cdCommunityPlan.communityLinkText': string
   'authSettings.cdCommunityPlan.communityPlanStrings.item1': string
   'authSettings.cdCommunityPlan.communityPlanStrings.item2': string
@@ -1435,45 +1441,32 @@ export interface StringsMap {
   'authSettings.changeLoginToHarnessAccountOrOauth': string
   'authSettings.changeLoginToHarnessAccountOrOauthDescription': string
   'authSettings.chooseFile': string
+  'authSettings.choosePlan': string
   'authSettings.confirmDisableLockoutPolicy': string
   'authSettings.confirmDisableOAuthLogin': string
   'authSettings.confirmDisablePasswordExpiration': string
   'authSettings.confirmDisablePasswordStrength': string
   'authSettings.confirmDisableUserPasswordLogin': string
   'authSettings.confirmDisableWhitelistedDomains': string
-  'authSettings.costCalculator.autoRenew': string
   'authSettings.costCalculator.comparePlans': string
-  'authSettings.costCalculator.currentSubscription': string
-  'authSettings.costCalculator.currentUsage': string
-  'authSettings.costCalculator.developerLicenses': string
-  'authSettings.costCalculator.enterprise': string
-  'authSettings.costCalculator.ff.developer': string
-  'authSettings.costCalculator.ff.mau': string
-  'authSettings.costCalculator.includedFree': string
-  'authSettings.costCalculator.increments': string
+  'authSettings.costCalculator.currentSubscribed': string
+  'authSettings.costCalculator.developer.developer': string
+  'authSettings.costCalculator.developer.title': string
+  'authSettings.costCalculator.mau.kMauFree': string
+  'authSettings.costCalculator.mau.mMauFree': string
+  'authSettings.costCalculator.mau.mau': string
+  'authSettings.costCalculator.mau.perkMau': string
+  'authSettings.costCalculator.mau.permMau': string
+  'authSettings.costCalculator.mau.title': string
   'authSettings.costCalculator.maus': string
-  'authSettings.costCalculator.month': string
-  'authSettings.costCalculator.newSubscription': string
   'authSettings.costCalculator.next': string
-  'authSettings.costCalculator.nextPayment': string
-  'authSettings.costCalculator.payingToday': string
-  'authSettings.costCalculator.plannedUsage': string
   'authSettings.costCalculator.premSupport.includedByDefault': string
-  'authSettings.costCalculator.premSupport.line1': string
-  'authSettings.costCalculator.premSupport.line2': string
-  'authSettings.costCalculator.premSupport.line3': string
+  'authSettings.costCalculator.premSupport.onCallSupport': string
   'authSettings.costCalculator.premSupport.title': string
-  'authSettings.costCalculator.recommended': string
-  'authSettings.costCalculator.step': string
-  'authSettings.costCalculator.support': string
-  'authSettings.costCalculator.switchToYearly': string
+  'authSettings.costCalculator.premiumSupport': string
   'authSettings.costCalculator.switchTooltip': string
   'authSettings.costCalculator.tax': string
-  'authSettings.costCalculator.team': string
-  'authSettings.costCalculator.unitPrice': string
   'authSettings.costCalculator.using': string
-  'authSettings.costCalculator.year': string
-  'authSettings.costCalculator.yearlySave': string
   'authSettings.daysBeforePasswordExpires': string
   'authSettings.daysBeforeUserNotified': string
   'authSettings.deleteSamlProvider': string
@@ -1507,8 +1500,8 @@ export interface StringsMap {
   'authSettings.failedLoginsBeforeLockedAccount': string
   'authSettings.finalReview.ofTotalSpend': string
   'authSettings.finalReview.premiumSupport': string
-  'authSettings.finalReview.step': string
-  'authSettings.firstIncludedFree': string
+  'authSettings.finalReview.subscribeNPay': string
+  'authSettings.finalReview.upgradeToPlan': string
   'authSettings.friendlyReminder': string
   'authSettings.friendlyReminderDescription': string
   'authSettings.goToSettings': string
@@ -1528,7 +1521,6 @@ export interface StringsMap {
   'authSettings.loginViaSAML': string
   'authSettings.logoutUrl': string
   'authSettings.minLength': string
-  'authSettings.monthlySubscriptionTotal': string
   'authSettings.multipleOrganizations': string
   'authSettings.multipleProjects': string
   'authSettings.newMembersWillNeedToSetUpTwoFADuringSignup': string
@@ -1552,9 +1544,12 @@ export interface StringsMap {
   'authSettings.periodicallyExpirePasswordNote': string
   'authSettings.pleaseRemoveSAMLOrLDAPToEnableOauth': string
   'authSettings.plusSAMLProvider': string
-  'authSettings.plusTax': string
+  'authSettings.pricePreview.calculatedNextStep': string
+  'authSettings.pricePreview.discount': string
+  'authSettings.pricePreview.title': string
   'authSettings.publicOAuthLoginDisabled': string
   'authSettings.publicOAuthLoginEnabled': string
+  'authSettings.recomendation': string
   'authSettings.restrictUsersToEmailDomains': string
   'authSettings.saas': string
   'authSettings.samlLoginEnabled': string
@@ -1567,6 +1562,7 @@ export interface StringsMap {
   'authSettings.selectSAMLProvider': string
   'authSettings.success.msg': string
   'authSettings.success.title': string
+  'authSettings.success.woohoo': string
   'authSettings.sureToDisableTwoFAEnforcement': string
   'authSettings.testingSSO': string
   'authSettings.testingSSODescription': string
@@ -1580,7 +1576,6 @@ export interface StringsMap {
   'authSettings.useHarnessUsernameAndPassword': string
   'authSettings.usePublicOAuth': string
   'authSettings.whitelistedDomainsDisabled': string
-  'authSettings.yearlySubscriptionTotal': string
   'authSettings.yourAccountWillBeLockedOut': string
   'connectors.ECR.fullName': string
   'connectors.ECR.name': string
@@ -2495,7 +2490,6 @@ export interface StringsMap {
   'dashboards.homePage.noTags': string
   'dashboards.homePage.removeTagFromFilter': string
   'dashboards.homePage.searchPlaceholder': string
-  'dashboards.modules.cgDeployments': string
   'dashboards.modules.harness': string
   'dashboards.resourceModal.folderDetail': string
   'dashboards.resourceModal.folders': string
@@ -3047,6 +3041,8 @@ export interface StringsMap {
   'pipeline.featureRestriction.subscription90PercentLimit': string
   'pipeline.featureRestriction.subscriptionExceededLimit': string
   'pipeline.featureRestriction.unlimitedBuildsRequiredPlan': string
+  'pipeline.fieldLabels.commandType': string
+  'pipeline.fieldPlaceholders.commandType': string
   'pipeline.filters.builtTypePlaceholder': string
   'pipeline.filters.deploymentTypePlaceholder': string
   'pipeline.filters.environmentPlaceholder': string
@@ -3194,8 +3190,6 @@ export interface StringsMap {
   'pipeline.manifestType.gitFetchTypeLabel': string
   'pipeline.manifestType.helmCommandFlagLabel': string
   'pipeline.manifestType.helmCommandFlags': string
-  'pipeline.manifestType.helmCommandType': string
-  'pipeline.manifestType.helmCommandTypePlaceholder': string
   'pipeline.manifestType.helmSkipResourceVersion': string
   'pipeline.manifestType.helmVersionRequired': string
   'pipeline.manifestType.http.chartName': string
@@ -4091,6 +4085,21 @@ export interface StringsMap {
   'cd.steps.azureInfraStep.resourceGroupPlaceholder': string
   'cd.steps.azureInfraStep.subscription': string
   'cd.steps.azureInfraStep.subscriptionPlaceholder': string
+  'cd.steps.commands.addCommand': string
+  'cd.steps.commands.destinationPath': string
+  'cd.steps.commands.destinationPathPlaceholder': string
+  'cd.steps.commands.editCommand': string
+  'cd.steps.commands.fileToTail': string
+  'cd.steps.commands.fileToTailPlaceholder': string
+  'cd.steps.commands.filesAndPatterns': string
+  'cd.steps.commands.patternToSearch': string
+  'cd.steps.commands.patternToSearchPlaceholder': string
+  'cd.steps.commands.runOnDelegate': string
+  'cd.steps.commands.runTheCommands': string
+  'cd.steps.commands.scriptTypePlaceholder': string
+  'cd.steps.commands.sourceTypeLabel': string
+  'cd.steps.commands.validation.destinationPathRequired': string
+  'cd.steps.commands.validation.sourceTypeRequired': string
   'cd.steps.common.clusterDetails': string
   'cd.steps.common.releaseNamePlaceholder': string
   'cd.steps.common.selectOrEnterClusterPlaceholder': string
@@ -4147,7 +4156,6 @@ export interface StringsMap {
   'ce.anomalyDetection.filters.groupByNoneLabel': string
   'ce.anomalyDetection.filters.groupByNonePlaceholder': string
   'ce.anomalyDetection.filters.groupByNoneValue': string
-  'ce.anomalyDetection.filters.groupByPerspectivePlaceholder': string
   'ce.anomalyDetection.filters.spendPlaceholder': string
   'ce.anomalyDetection.listFetchingError': string
   'ce.anomalyDetection.listFetchingErrorDesc': string
@@ -4878,6 +4886,7 @@ export interface StringsMap {
   'ce.perspectives.exportCSV': string
   'ce.perspectives.exportRowsUpto': string
   'ce.perspectives.filename': string
+  'ce.perspectives.folders.allPerspective': string
   'ce.perspectives.folders.createNewFolder': string
   'ce.perspectives.folders.createNewFolderHeading': string
   'ce.perspectives.folders.currentFolderLabel': string
@@ -5244,14 +5253,19 @@ export interface StringsMap {
   'cf.featureFlags.flagFilters.term': string
   'cf.featureFlags.flagOff': string
   'cf.featureFlags.flagOn': string
+  'cf.featureFlags.flagPipeline.deleteModalText': string
+  'cf.featureFlags.flagPipeline.deleteModalTitle': string
   'cf.featureFlags.flagPipeline.drawerButtonText': string
   'cf.featureFlags.flagPipeline.drawerDescription': string
-  'cf.featureFlags.flagPipeline.drawerEnvText': string
   'cf.featureFlags.flagPipeline.drawerTitle': string
+  'cf.featureFlags.flagPipeline.envText': string
   'cf.featureFlags.flagPipeline.noAvailablePipelines': string
   'cf.featureFlags.flagPipeline.noDataButtonText': string
   'cf.featureFlags.flagPipeline.noDataDescription': string
   'cf.featureFlags.flagPipeline.noDataMessage': string
+  'cf.featureFlags.flagPipeline.noExecutionDescription': string
+  'cf.featureFlags.flagPipeline.noExecutionMessage': string
+  'cf.featureFlags.flagPipeline.saveSuccess': string
   'cf.featureFlags.flagPipeline.title': string
   'cf.featureFlags.flagWillTurnOff': string
   'cf.featureFlags.flagWillTurnOn': string
@@ -6148,7 +6162,9 @@ export interface StringsMap {
   'cv.monitoringSources.appD.appdMetricDetail': string
   'cv.monitoringSources.appD.appdPathDetail': string
   'cv.monitoringSources.appD.appdPathTitle': string
+  'cv.monitoringSources.appD.applicationName': string
   'cv.monitoringSources.appD.basePathPlaceholder': string
+  'cv.monitoringSources.appD.completeMetricPath': string
   'cv.monitoringSources.appD.connectToMonitoringSource': string
   'cv.monitoringSources.appD.createConnectorText': string
   'cv.monitoringSources.appD.defaultAppDMetricName': string
@@ -6181,6 +6197,9 @@ export interface StringsMap {
   'cv.monitoringSources.appD.searchPlaceholderApplications': string
   'cv.monitoringSources.appD.searchTiersPlaceHolder': string
   'cv.monitoringSources.appD.selectProduct': string
+  'cv.monitoringSources.appD.serviceInstanceFieldName': string
+  'cv.monitoringSources.appD.serviceInstanceMetricPath': string
+  'cv.monitoringSources.appD.tierName': string
   'cv.monitoringSources.appD.tiersMappedToServices': string
   'cv.monitoringSources.appD.validation': string
   'cv.monitoringSources.appD.validationMsg': string
@@ -6597,6 +6616,7 @@ export interface StringsMap {
   'stoSteps.noSecurityIssues': string
   'stoSteps.noSecurityTests': string
   'stoSteps.scans': string
+  'stoSteps.securityReview': string
   'stoSteps.securityStage.description': string
   'stoSteps.stepDescription.ZeroNorth': string
   'stoSteps.targets.testTargets': string

@@ -425,7 +425,7 @@ exports[`Create Docker Step2Script render component and go back 1`] = `
       >
         delegates.delegateCreation.docker.docLinkBefore
         <a
-          href="https://ngdocs.harness.io/article/5ww21ewdt8-configure-delegate-proxy-settings"
+          href="https://docs.harness.io/article/5ww21ewdt8-configure-delegate-proxy-settings"
           rel="noreferrer"
           target="_blank"
         >

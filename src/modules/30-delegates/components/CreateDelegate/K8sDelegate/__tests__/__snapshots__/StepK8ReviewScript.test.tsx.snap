@@ -141,7 +141,7 @@ exports[`Create Step Review Script Delegate render data 1`] = `
         >
           delegates.reviewScript.docLinkBefore
           <a
-            href="https://ngdocs.harness.io/article/5ww21ewdt8-configure-delegate-proxy-settings"
+            href="https://docs.harness.io/article/5ww21ewdt8-configure-delegate-proxy-settings"
             rel="noreferrer"
             target="_blank"
           >

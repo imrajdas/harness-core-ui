@@ -967,7 +967,7 @@ exports[`ModuleInfoCards Test Rendering should render footer when it is cd modul
   </div>
   <a
     class="compareVersion"
-    href="https://ngdocs.harness.io/article/1fjmm4by22-harness-first-gen-vs-harness-next-gen"
+    href="https://docs.harness.io/article/1fjmm4by22-harness-first-gen-vs-harness-next-gen"
     rel="noreferrer"
     target="_blank"
   >
@@ -1945,7 +1945,7 @@ exports[`ModuleInfoCards Test Rendering that the module info cards get selected 
   </div>
   <a
     class="compareVersion"
-    href="https://ngdocs.harness.io/article/1fjmm4by22-harness-first-gen-vs-harness-next-gen"
+    href="https://docs.harness.io/article/1fjmm4by22-harness-first-gen-vs-harness-next-gen"
     rel="noreferrer"
     target="_blank"
   >
@@ -2921,7 +2921,7 @@ exports[`ModuleInfoCards Test Rendering that the module info cards render 1`] = 
   </div>
   <a
     class="compareVersion"
-    href="https://ngdocs.harness.io/article/1fjmm4by22-harness-first-gen-vs-harness-next-gen"
+    href="https://docs.harness.io/article/1fjmm4by22-harness-first-gen-vs-harness-next-gen"
     rel="noreferrer"
     target="_blank"
   >

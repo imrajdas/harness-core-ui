@@ -109,7 +109,7 @@ exports[`AmazonS3ArtifactSource tests renders fine for all Runtime values when f
             </div>
           </div>
           <div
-            class="bp3-form-group"
+            class="bp3-form-group bp3-disabled"
             data-id="pipeline.stages[0].stage.spec.seviceConfig.serviceDefinition.spec.artifacts.primary.spec.bucketName-1"
           >
             <label
@@ -131,7 +131,7 @@ exports[`AmazonS3ArtifactSource tests renders fine for all Runtime values when f
               class="bp3-form-content"
             >
               <div
-                class="Layout--horizontal StyledProps--main MultiTypeInput--main"
+                class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
               >
                 <div
                   class="bp3-popover-wrapper MultiTypeInput--select MultiTypeInput--fixedValueInput Select--main bp3-fill"
@@ -140,11 +140,12 @@ exports[`AmazonS3ArtifactSource tests renders fine for all Runtime values when f
                     class="bp3-popover-target"
                   >
                     <div
-                      class="bp3-input-group"
+                      class="bp3-input-group bp3-disabled"
                     >
                       <input
                         autocomplete="off"
                         class="bp3-input"
+                        disabled=""
                         name="pipeline.stages[0].stage.spec.seviceConfig.serviceDefinition.spec.artifacts.primary.spec.bucketName"
                         placeholder="pipeline.manifestType.bucketPlaceHolder"
                         style="padding-right: 0px;"
@@ -336,7 +337,7 @@ exports[`AmazonS3ArtifactSource tests renders fine for all Runtime values when f
             </div>
           </div>
           <div
-            class="bp3-form-group"
+            class="bp3-form-group bp3-disabled"
             data-id="pipeline.stages[0].stage.spec.seviceConfig.serviceDefinition.spec.artifacts.primary.spec.bucketName-1"
           >
             <label
@@ -358,7 +359,7 @@ exports[`AmazonS3ArtifactSource tests renders fine for all Runtime values when f
               class="bp3-form-content"
             >
               <div
-                class="Layout--horizontal StyledProps--main MultiTypeInput--main"
+                class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
               >
                 <div
                   class="bp3-popover-wrapper MultiTypeInput--select MultiTypeInput--fixedValueInput Select--main bp3-fill"
@@ -367,11 +368,12 @@ exports[`AmazonS3ArtifactSource tests renders fine for all Runtime values when f
                     class="bp3-popover-target"
                   >
                     <div
-                      class="bp3-input-group"
+                      class="bp3-input-group bp3-disabled"
                     >
                       <input
                         autocomplete="off"
                         class="bp3-input"
+                        disabled=""
                         name="pipeline.stages[0].stage.spec.seviceConfig.serviceDefinition.spec.artifacts.primary.spec.bucketName"
                         placeholder="pipeline.manifestType.bucketPlaceHolder"
                         style="padding-right: 0px;"
@@ -449,6 +451,21 @@ exports[`AmazonS3ArtifactSource tests renders fine for all Runtime values when f
           </div>
         </div>
       </div>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`AmazonS3ArtifactSource tests when isArtifactsRuntime is false 1`] = `
+<div>
+  <div
+    class="OverlaySpinner--overlaySpinner"
+  >
+    <form
+      action="#"
+      class="FormikForm--main"
+    >
+      <div />
     </form>
   </div>
 </div>

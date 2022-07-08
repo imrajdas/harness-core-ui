@@ -54,6 +54,21 @@ const SelectModuleList: React.FC<SelectModuleListProps> = ({ onModuleClick, modu
   const getButtonProps = (buttonType: string): { clickHandle?: () => void; disabled?: boolean } => {
     switch (buttonType) {
       case 'ci':
+        return {
+          clickHandle: () => {
+            trackEvent(PurposeActions.ModuleContinue, { category: Category.SIGNUP, module: buttonType })
+            try {
+              updateDefaultExperience({
+                defaultExperience: Experiences.NG
+              }).then(() => {
+                history.push(routes.toModuleTrialHome({ accountId, module: buttonType }))
+              })
+            } catch (error) {
+              showError(error.data?.message || getString('somethingWentWrong'))
+            }
+          },
+          disabled: updatingDefaultExperience
+        }
       case 'cd':
       case 'ce':
       case 'cv':

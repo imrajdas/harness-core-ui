@@ -11,7 +11,7 @@ import moment from 'moment'
 import { NGBreadcrumbs } from '@common/components/NGBreadcrumbs/NGBreadcrumbs'
 import { Page } from '@common/exports'
 import { useStrings } from 'framework/strings'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import {
   startOfDay,
   TimeRangeSelector,
@@ -29,7 +29,7 @@ import css from './Services.module.scss'
 export const Services: React.FC = () => {
   const { view, setView, fetchDeploymentList } = useServiceStore()
   const { getString } = useStrings()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
 
   const [timeRange, setTimeRange] = useLocalStorage<TimeRangeSelectorProps>(
     'serviceTimeRange',

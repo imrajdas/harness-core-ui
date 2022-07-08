@@ -15,8 +15,6 @@ import { QlceViewTimeGroupType } from 'services/ce/services'
 import type { PerspectiveAnomalyData } from 'services/ce'
 import formatCost from '@ce/utils/formatCost'
 import routes from '@common/RouteDefinitions'
-import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
-import { FeatureFlag } from '@common/featureFlags'
 import { useStrings } from 'framework/strings'
 import { CE_DATE_FORMAT_INTERNAL } from '@ce/utils/momentUtils'
 import { generateGroupBy, getCloudProviderFromFields, getFiltersFromEnityMap } from '@ce/utils/anomaliesUtils'
@@ -69,7 +67,6 @@ const GetChart: React.FC<GetChartProps> = ({
   anomaliesCountData
 }) => {
   const [chartObj, setChartObj] = useState<Highcharts.Chart | null>(null)
-  const isAnomaliesEnabled = useFeatureFlag(FeatureFlag.CCM_ANOMALY_DETECTION_NG)
 
   const [forceCounter, setForceCounter] = useState(0)
   const history = useHistory()
@@ -261,7 +258,7 @@ const GetChart: React.FC<GetChartProps> = ({
             {
               labels: anomaliesLabels(),
               draggable: '',
-              visible: isAnomaliesEnabled,
+              visible: true,
               labelOptions: {
                 crop: false,
                 useHTML: true,

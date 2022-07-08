@@ -9,7 +9,7 @@ import React, { ReactElement } from 'react'
 
 import type { ModuleLicenseDTO } from 'services/cd-ng'
 import type { Editions } from '@common/constants/SubscriptionTypes'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import {
   NoSubscriptionDetailsCardInfo,
   SubscriptionDetailsCardInfo,
@@ -36,10 +36,11 @@ const SubscriptionDetailsCardBody = ({
   expiredDays,
   accountName
 }: SubscriptionDetailsCardBodyProps): ReactElement => {
+  const isCommunity = useGetCommunity()
   if (!licenseData) {
     return <NoSubscriptionDetailsCardInfo accountName={accountName} />
   }
-  if (isCommunityPlan()) {
+  if (isCommunity) {
     return <CommunitySubscriptionDetailsCardInfo accountName={accountName} />
   }
 

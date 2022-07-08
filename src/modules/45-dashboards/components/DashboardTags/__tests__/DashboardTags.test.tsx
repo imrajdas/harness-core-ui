@@ -105,15 +105,4 @@ describe('DashboardTags', () => {
     const expectedText: StringKeys = 'common.purpose.cf.continuous'
     expect(screen.getByText(expectedText)).toBeInTheDocument()
   })
-
-  test('it should display a Current Gen tag when Dashboard Tag is CG', async () => {
-    const mockDashboard: DashboardModel = {
-      ...defaultTestDashboard,
-      data_source: ['CG_CD']
-    }
-    renderComponent({ dashboard: mockDashboard })
-
-    const expectedText: StringKeys = 'dashboards.modules.cgDeployments'
-    expect(screen.getByText(expectedText)).toBeInTheDocument()
-  })
 })

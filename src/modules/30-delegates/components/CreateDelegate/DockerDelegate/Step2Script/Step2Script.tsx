@@ -193,7 +193,7 @@ const Step2Script: React.FC<StepProps<DockerDelegateWizardData>> = props => {
             {getString('delegates.delegateCreation.docker.docLinkBefore')}
             <a
               rel="noreferrer"
-              href="https://ngdocs.harness.io/article/5ww21ewdt8-configure-delegate-proxy-settings"
+              href="https://docs.harness.io/article/5ww21ewdt8-configure-delegate-proxy-settings"
               target="_blank"
             >
               {getString('delegates.delegateCreation.docker.docLink')}

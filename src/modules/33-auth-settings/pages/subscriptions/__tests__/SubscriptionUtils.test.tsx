@@ -8,7 +8,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { TestWrapper } from '@common/utils/testUtils'
-import { Editions, CD_LICENSE_TYPE } from '@common/constants/SubscriptionTypes'
+import { Editions, CDLicenseType } from '@common/constants/SubscriptionTypes'
 import type { ModuleLicenseDTO } from 'services/cd-ng'
 import {
   CommunitySubscriptionDetailsCardInfo,
@@ -70,7 +70,7 @@ describe('SubscriptionUtils', () => {
         edition: Editions.FREE,
         licenseData: {
           moduleType: 'CD' as ModuleLicenseDTO['moduleType'],
-          cdLicenseType: CD_LICENSE_TYPE.SERVICES
+          cdLicenseType: CDLicenseType.SERVICES
         },
         expiryDate: '23 Dec 2025'
       }

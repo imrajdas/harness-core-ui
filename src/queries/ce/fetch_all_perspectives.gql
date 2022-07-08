@@ -26,6 +26,7 @@ query FetchAllPerspectives($folderId: String, $sortCriteria: QLCEViewSortCriteri
       reportScheduledConfigured
       dataSources
       folderId
+      folderName
       groupBy {
         fieldId
         fieldName

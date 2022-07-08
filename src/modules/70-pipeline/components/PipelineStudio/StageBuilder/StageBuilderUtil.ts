@@ -563,8 +563,7 @@ export const getNodeEventListerner = (
   updateMoveStageDetails: (moveStageDetails: MoveStageDetailsType) => void,
   confirmMoveStage: () => void,
   stageMap: Map<string, StageState>,
-  newPipelineStudioEnabled?: boolean,
-  sectionId?: string | null
+  newPipelineStudioEnabled?: boolean
 ): NodeModelListener => {
   const {
     state: {
@@ -631,7 +630,7 @@ export const getNodeEventListerner = (
               )
               setSelectionRef.current({ stageId: undefined, sectionId: undefined })
             } else {
-              setSelectionRef.current({ stageId: data?.stage?.identifier, sectionId })
+              setSelectionRef.current({ stageId: data?.stage?.identifier, sectionId: undefined })
             }
           } /* istanbul ignore else */ else if (!isSplitViewOpen) {
             if (stageMap.has(data?.stage?.identifier || '')) {

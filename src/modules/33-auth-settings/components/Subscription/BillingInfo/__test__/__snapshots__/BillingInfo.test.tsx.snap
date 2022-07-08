@@ -6,214 +6,527 @@ exports[`BillingInfo render 1`] = `
     class="Layout--vertical StyledProps--main"
   >
     <div
-      class="Layout--vertical StyledProps--main StyledProps--padding-bottom-large"
+      class="Layout--horizontal StyledProps--main"
     >
-      <p
-        class="StyledProps--font StyledProps--main StyledProps--font-variation-h4 StyledProps--padding-bottom-large"
-        style="display: flex; align-items: center;"
-      >
-        <span
-          class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-          data-icon="ff-solid"
-        >
-          <svg
-            fill="none"
-            height="24"
-            viewBox="0 0 32 32"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <lineargradient
-              gradientUnits="userSpaceOnUse"
-              id="ff-solid_svg__a"
-              x1="6.837"
-              x2="23.78"
-              y1="2"
-              y2="28.227"
-            >
-              <stop
-                offset="0"
-                stop-color="#ffc100"
-              />
-              <stop
-                offset="1"
-                stop-color="#e66b35"
-              />
-            </lineargradient>
-            <g
-              fill="url(#ff-solid_svg__a)"
-            >
-              <path
-                d="M10.632 2.08A5.19 5.19 0 004.62 6.29L2.08 20.697a5.19 5.19 0 004.21 6.012l7.463 1.316a.2.2 0 00.208-.298L6.882 15.656c-.296-.469-.292-1.382.05-1.6.08-.05.313-.259.313-.259l.398-.436.066-.072c.37-.406.704-.773 1.76-1.302l.227-.079c1.548-.484 2.41-.449 3.27-.414.862.035 1.724.07 3.274-.414 1.272-.398 2.43-1.178 3.074-1.667a.622.622 0 01.9.15l4.596 7.362a.53.53 0 01-.101.696 8.694 8.694 0 01-2.834 1.538c-1.549.484-2.432.463-3.316.442-.884-.021-1.768-.042-3.318.442-1.314.41-1.868.948-2.07 1.204-.048.061-.07.21-.032.279.4.724 2.295 4.06 3.794 6.693a.998.998 0 00.695.49l3.07.541a5.19 5.19 0 006.012-4.21l2.54-14.408a5.19 5.19 0 00-4.21-6.012z"
-              />
-              <path
-                d="M16.646 13.074c-1.303.34-2.093.316-2.882.29-.79-.024-1.58-.049-2.881.291-.744.216-1.178.592-1.587 1.072a.197.197 0 00-.018.23l2.482 4.069c.064.106.209.13.307.055.374-.283 1.28-.9 2.42-1.198 1.469-.383 2.348-.375 3.273-.366.717.007 1.462.014 2.53-.16a4.454 4.454 0 001.629-.635.347.347 0 00.094-.488L19.472 12.3a.421.421 0 00-.56-.128 9.57 9.57 0 01-2.265.902z"
-              />
-            </g>
-          </svg>
-        </span>
-        common.purpose.cf.continuous common.plans.subscription
-      </p>
       <div
-        class="Layout--horizontal StyledProps--main"
+        class="Layout--horizontal StyledProps--main StyledProps--flex"
       >
         <div
-          class="Layout--horizontal StyledProps--main StyledProps--flex"
+          class="Layout--vertical StyledProps--main StyledProps--flex"
         >
           <div
-            class="Layout--vertical StyledProps--main StyledProps--flex"
+            class="MultiStepProgressIndicator--dotNameSuccess"
           >
-            <div
-              class="MultiStepProgressIndicator--dotNameSuccess"
-            >
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main MultiStepProgressIndicator--textmaxlength StyledProps--color StyledProps--color-primary7"
-                style="--text-line-clamp: 1;"
-              />
-            </div>
-            <div
-              class="MultiStepProgressIndicator--dot MultiStepProgressIndicator--dotSuccess MultiStepProgressIndicator--spacing"
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main MultiStepProgressIndicator--textmaxlength StyledProps--color StyledProps--color-primary7"
+              style="--text-line-clamp: 1;"
             />
           </div>
           <div
-            class="MultiStepProgressIndicator--statusBar"
-          >
-            <div
-              class="MultiStepProgressIndicator--bar MultiStepProgressIndicator--barSuccess MultiStepProgressIndicator--fullBar"
-            />
-          </div>
+            class="MultiStepProgressIndicator--dot MultiStepProgressIndicator--dotSuccess MultiStepProgressIndicator--spacing"
+          />
         </div>
         <div
-          class="Layout--horizontal StyledProps--main StyledProps--flex"
+          class="MultiStepProgressIndicator--statusBar"
         >
           <div
-            class="Layout--vertical StyledProps--main StyledProps--flex"
-          >
-            <div
-              class="MultiStepProgressIndicator--dotNameSuccess"
-            >
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main MultiStepProgressIndicator--textmaxlength StyledProps--color StyledProps--color-primary7"
-                style="--text-line-clamp: 1;"
-              />
-            </div>
-            <div
-              class="MultiStepProgressIndicator--dot MultiStepProgressIndicator--dotSuccess MultiStepProgressIndicator--spacing"
-            />
-          </div>
-          <div
-            class="MultiStepProgressIndicator--statusBar"
-          >
-            <div
-              class="MultiStepProgressIndicator--bar MultiStepProgressIndicator--barSuccess MultiStepProgressIndicator--fullBar"
-            />
-          </div>
-        </div>
-        <div
-          class="Layout--horizontal StyledProps--main StyledProps--flex"
-        >
-          <div
-            class="Layout--vertical StyledProps--main StyledProps--flex"
-          >
-            <div
-              class="MultiStepProgressIndicator--dotNameFailed"
-            >
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main MultiStepProgressIndicator--textmaxlength"
-                style="--text-line-clamp: 1;"
-              />
-            </div>
-            <div
-              class="MultiStepProgressIndicator--dot MultiStepProgressIndicator--dotOutLine MultiStepProgressIndicator--spacing"
-            />
-          </div>
+            class="MultiStepProgressIndicator--bar MultiStepProgressIndicator--barSuccess MultiStepProgressIndicator--fullBar"
+          />
         </div>
       </div>
-      <p
-        class="StyledProps--font StyledProps--main StyledProps--padding-top-large StyledProps--font-variation-h3"
+      <div
+        class="Layout--horizontal StyledProps--main StyledProps--flex"
       >
-        authSettings.billing.step
-      </p>
+        <div
+          class="Layout--vertical StyledProps--main StyledProps--flex"
+        >
+          <div
+            class="MultiStepProgressIndicator--dotNameSuccess"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main MultiStepProgressIndicator--textmaxlength StyledProps--color StyledProps--color-primary7"
+              style="--text-line-clamp: 1;"
+            />
+          </div>
+          <div
+            class="MultiStepProgressIndicator--dot MultiStepProgressIndicator--dotSuccess MultiStepProgressIndicator--spacing"
+          />
+        </div>
+        <div
+          class="MultiStepProgressIndicator--statusBar"
+        >
+          <div
+            class="MultiStepProgressIndicator--bar MultiStepProgressIndicator--barSuccess MultiStepProgressIndicator--fullBar"
+          />
+        </div>
+      </div>
+      <div
+        class="Layout--horizontal StyledProps--main StyledProps--flex"
+      >
+        <div
+          class="Layout--vertical StyledProps--main StyledProps--flex"
+        >
+          <div
+            class="MultiStepProgressIndicator--dotNameFailed"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main MultiStepProgressIndicator--textmaxlength"
+              style="--text-line-clamp: 1;"
+            />
+          </div>
+          <div
+            class="MultiStepProgressIndicator--dot MultiStepProgressIndicator--dotOutLine MultiStepProgressIndicator--spacing"
+          />
+        </div>
+      </div>
     </div>
     <div
-      class="Layout--horizontal StyledProps--main footer"
+      class="Layout--vertical Layout--layout-spacing-large StyledProps--main body StyledProps--padding-top-large StyledProps--padding-bottom-large"
     >
       <div
-        class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+        class="bp3-card bp3-elevation-0 Card--card"
       >
-        <button
-          class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--withLeftIcon Button--variation Button--variation-secondary"
-          type="button"
+        <div
+          class="Layout--vertical Layout--layout-spacing-large StyledProps--main"
         >
-          <span
-            class="bp3-icon bp3-icon-chevron-left StyledProps--main"
-            icon="chevron-left"
+          <p
+            class="StyledProps--font StyledProps--main StyledProps--font-variation-h5"
           >
-            <svg
-              data-icon="chevron-left"
-              height="16"
-              viewBox="0 0 16 16"
-              width="16"
+            authSettings.billingInfo.billingContact
+          </p>
+          <div
+            class="Layout--vertical Layout--layout-spacing-large StyledProps--main"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              <desc>
-                chevron-left
-              </desc>
-              <path
-                d="M7.41 8l3.29-3.29c.19-.18.3-.43.3-.71a1.003 1.003 0 00-1.71-.71l-4 4C5.11 7.47 5 7.72 5 8c0 .28.11.53.29.71l4 4a1.003 1.003 0 001.42-1.42L7.41 8z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </span>
-          <span
-            class="bp3-button-text"
-          >
-            back
-          </span>
-        </button>
-        <button
-          class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--withRightIcon Button--variation Button--variation-primary"
-          type="button"
-        >
-          <span
-            class="bp3-button-text"
-          >
-            authSettings.billing.next
-          </span>
-          <span
-            class="bp3-icon bp3-icon-chevron-right StyledProps--main"
-            icon="chevron-right"
-          >
-            <svg
-              data-icon="chevron-right"
-              height="16"
-              viewBox="0 0 16 16"
-              width="16"
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-right-large"
+                style="width: 30%;"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main"
+                >
+                  common.headerCompanyName
+                </p>
+                <div
+                  class="TextInput--main"
+                >
+                  <div
+                    class="bp3-input-group"
+                  >
+                    <input
+                      class="bp3-input"
+                      data-testid="companyName"
+                      type="text"
+                      value="Harness"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="Layout--vertical StyledProps--main"
+                style="width: 70%;"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--padding-bottom-small"
+                >
+                  email
+                </p>
+                <div
+                  class="TextInput--main"
+                >
+                  <div
+                    class="bp3-input-group"
+                  >
+                    <input
+                      class="bp3-input"
+                      data-testid="email"
+                      type="text"
+                      value="jane.doe@test.com"
+                    />
+                  </div>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main warning StyledProps--padding-small StyledProps--margin-bottom-small"
+                  style="display: flex; align-items: center;"
+                >
+                  <span
+                    class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-primary7"
+                    data-icon="info"
+                  >
+                    <svg
+                      height="16"
+                      viewBox="0 0 12 12"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M0 6a6 6 0 1012 0A6 6 0 000 6zm.75 0a5.25 5.25 0 1010.5 0A5.25 5.25 0 00.75 6zm4.206 3.104v.646h2.682v-.646l-.836-.144V4.203H4.956v.65l.836.144V8.96l-.836.144zm1.846-7.352v1.03h-1.01v-1.03h1.01z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  authSettings.billingInfo.emailWarning
+                </p>
+              </div>
+            </div>
+            <div
+              class="Layout--horizontal StyledProps--main"
             >
-              <desc>
-                chevron-right
-              </desc>
-              <path
-                d="M10.71 7.29l-4-4a1.003 1.003 0 00-1.42 1.42L8.59 8 5.3 11.29c-.19.18-.3.43-.3.71a1.003 1.003 0 001.71.71l4-4c.18-.18.29-.43.29-.71 0-.28-.11-.53-.29-.71z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </span>
-        </button>
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-right-large"
+                style="width: 30%;"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main"
+                >
+                  common.countryOrRegion
+                </p>
+                <div
+                  class="bp3-popover-wrapper DropDown--main"
+                >
+                  <div
+                    class="bp3-popover-target"
+                  >
+                    <div
+                      class=""
+                    >
+                      <div
+                        class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder DropDown--minWidth StyledProps--flex"
+                        data-testid="countryOrRegion"
+                        style="min-width: 130px;"
+                      >
+                        <div
+                          class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
+                        >
+                          <p
+                            class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
+                            data-testid="dropdown-value"
+                            style="--text-line-clamp: 1;"
+                          >
+                            Select
+                          </p>
+                        </div>
+                        <div
+                          class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
+                        >
+                          <span
+                            class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
+                            data-icon="main-chevron-down"
+                          >
+                            <svg
+                              height="8"
+                              viewBox="0 0 14 8"
+                              width="8"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
+                                fill="#4d5969"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="Layout--vertical StyledProps--main"
+                style="width: 70%;"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--padding-bottom-small"
+                >
+                  common.billingAddress
+                </p>
+                <div
+                  class="TextInput--main"
+                >
+                  <div
+                    class="bp3-input-group"
+                  >
+                    <input
+                      class="bp3-input"
+                      data-testid="billingAddress"
+                      type="text"
+                      value="billing address"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="Layout--horizontal StyledProps--main"
+            >
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-right-large"
+                style="width: 30%;"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main"
+                >
+                  common.city
+                </p>
+                <div
+                  class="TextInput--main"
+                >
+                  <div
+                    class="bp3-input-group"
+                  >
+                    <input
+                      class="bp3-input"
+                      data-testid="city"
+                      type="text"
+                      value="dallas"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between StyledProps--flex-alignItems-baseline"
+                style="width: 70%;"
+              >
+                <div
+                  class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                  >
+                    common.state
+                  </p>
+                  <div
+                    class="bp3-popover-wrapper DropDown--main"
+                  >
+                    <div
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class=""
+                      >
+                        <div
+                          class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder DropDown--minWidth StyledProps--flex"
+                          data-testid="state"
+                          style="min-width: 130px;"
+                        >
+                          <div
+                            class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
+                          >
+                            <p
+                              class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
+                              data-testid="dropdown-value"
+                              style="--text-line-clamp: 1;"
+                            >
+                              Select
+                            </p>
+                          </div>
+                          <div
+                            class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
+                          >
+                            <span
+                              class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
+                              data-icon="main-chevron-down"
+                            >
+                              <svg
+                                height="8"
+                                viewBox="0 0 14 8"
+                                width="8"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
+                                  fill="#4d5969"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                  >
+                    common.zipCode
+                  </p>
+                  <div
+                    class="TextInput--main"
+                  >
+                    <div
+                      class="bp3-input-group"
+                    >
+                      <input
+                        class="bp3-input"
+                        data-testid="zipCode"
+                        type="text"
+                        value="79809"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div
-        class="Layout--vertical StyledProps--main"
+        class="bp3-card bp3-elevation-0 Card--card"
       >
-        <p
-          class="StyledProps--font StyledProps--main"
+        <div
+          class="Layout--vertical StyledProps--main"
         >
-          authSettings.costCalculator.payingToday common.perMonth
-        </p>
-        <p
-          class="StyledProps--font StyledProps--main"
-        >
-          authSettings.plusTax
-        </p>
+          <div
+            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-start StyledProps--flex-justifyContent-space-between"
+          >
+            <div
+              class="Layout--vertical StyledProps--main"
+              style="width: 40%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--padding-bottom-large StyledProps--font-variation-h5"
+              >
+                authSettings.billingInfo.paymentMethod
+              </p>
+              <div
+                class="Layout--vertical StyledProps--main"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--padding-bottom-small"
+                >
+                  common.nameOnCard
+                </p>
+                <div
+                  class="TextInput--main"
+                >
+                  <div
+                    class="bp3-input-group"
+                  >
+                    <input
+                      class="bp3-input"
+                      data-testid="nameOnCard"
+                      type="text"
+                      value="Jane Doe"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img
+              alt=""
+              aria-hidden="true"
+              class="powerByStripe"
+              src="test-file-stub"
+            />
+          </div>
+          <div
+            class="Layout--vertical StyledProps--main"
+            style="width: 60%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--padding-bottom-small"
+            >
+              common.cardNumber
+            </p>
+            <div
+              class="creditCard"
+            >
+              <div />
+            </div>
+          </div>
+          <p
+            class="StyledProps--font StyledProps--main warning StyledProps--padding-small"
+            style="display: flex; align-items: center;"
+          >
+            <span
+              class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-primary7"
+              data-icon="info"
+            >
+              <svg
+                height="16"
+                viewBox="0 0 12 12"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M0 6a6 6 0 1012 0A6 6 0 000 6zm.75 0a5.25 5.25 0 1010.5 0A5.25 5.25 0 00.75 6zm4.206 3.104v.646h2.682v-.646l-.836-.144V4.203H4.956v.65l.836.144V8.96l-.836.144zm1.846-7.352v1.03h-1.01v-1.03h1.01z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </span>
+            authSettings.billingInfo.saveCardWarning
+          </p>
+        </div>
       </div>
+    </div>
+    <div
+      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+    >
+      <button
+        class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--withLeftIcon Button--variation Button--variation-secondary"
+        type="button"
+      >
+        <span
+          class="bp3-icon bp3-icon-chevron-left StyledProps--main"
+          icon="chevron-left"
+        >
+          <svg
+            data-icon="chevron-left"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+          >
+            <desc>
+              chevron-left
+            </desc>
+            <path
+              d="M7.41 8l3.29-3.29c.19-.18.3-.43.3-.71a1.003 1.003 0 00-1.71-.71l-4 4C5.11 7.47 5 7.72 5 8c0 .28.11.53.29.71l4 4a1.003 1.003 0 001.42-1.42L7.41 8z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        <span
+          class="bp3-button-text"
+        >
+          back
+        </span>
+      </button>
+      <button
+        class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--withRightIcon Button--variation Button--variation-primary"
+        type="button"
+      >
+        <span
+          class="bp3-button-text"
+        >
+          authSettings.billing.next
+        </span>
+        <span
+          class="bp3-icon bp3-icon-chevron-right StyledProps--main"
+          icon="chevron-right"
+        >
+          <svg
+            data-icon="chevron-right"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+          >
+            <desc>
+              chevron-right
+            </desc>
+            <path
+              d="M10.71 7.29l-4-4a1.003 1.003 0 00-1.42 1.42L8.59 8 5.3 11.29c-.19.18-.3.43-.3.71a1.003 1.003 0 001.71.71l4-4c.18-.18.29-.43.29-.71 0-.28-.11-.53-.29-.71z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+      </button>
     </div>
   </div>
 </div>

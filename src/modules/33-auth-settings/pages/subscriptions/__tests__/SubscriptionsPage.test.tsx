@@ -15,7 +15,7 @@ import {
   useExtendTrialLicense,
   useSaveFeedback
 } from 'services/cd-ng'
-import { CD_LICENSE_TYPE, Editions } from '@common/constants/SubscriptionTypes'
+import { CDLicenseType, Editions } from '@common/constants/SubscriptionTypes'
 import { ModuleName } from 'framework/types/ModuleName'
 import SubscriptionsPage from '../SubscriptionsPage'
 
@@ -419,7 +419,7 @@ describe('Subscriptions Page', () => {
                 edition: Editions.ENTERPRISE,
                 workloads: 100,
                 moduleType: 'CD',
-                cdLicenseType: CD_LICENSE_TYPE.SERVICES
+                cdLicenseType: CDLicenseType.SERVICES
               }
             ],
             status: 'SUCCESS'
@@ -458,7 +458,7 @@ describe('Subscriptions Page', () => {
                 edition: Editions.ENTERPRISE,
                 workloads: 100,
                 moduleType: 'CD',
-                cdLicenseType: CD_LICENSE_TYPE.SERVICE_INSTANCES
+                cdLicenseType: CDLicenseType.SERVICE_INSTANCES
               }
             ],
             status: 'SUCCESS'

@@ -6,12 +6,10 @@
  */
 
 .body {
-  width: max-content;
-  height: 600px;
   overflow-y: auto;
-
   :global(.PillToggle--selected) {
     background-color: var(--primary-7) !important;
+    height: var(--spacing-large);
   }
 
   :global(.TextInput--main) {
@@ -29,50 +27,6 @@
   :global(.bp3-intent-primary) {
     background-color: var(--primary-7);
   }
-}
-
-.billingHeader {
-  display: block !important;
-}
-
-.newSubscription {
-  border-bottom: 1px solid var(--grey-100);
-}
-
-.equation {
-  vertical-align: top;
-}
-
-.currentPlan {
-  padding: 4px !important;
-  background-color: var(--primary-7) !important;
-}
-
-.newPlan {
-  padding: 4px !important;
-  background-color: var(--green-600) !important;
-}
-
-.enterprisePlan {
-  padding: 4px !important;
-  background-color: var(--blue-600) !important;
-}
-
-.premLabel {
-  margin-left: 10px;
-  padding-left: 10px;
-}
-
-.premSupport {
-  padding: var(--spacing-large) !important;
-  margin-right: var(--spacing-xsmall) !important;
-  margin-bottom: var(--spacing-xxxlarge) !important;
-  border-radius: 4px;
-  background-color: var(--grey-100) !important;
-}
-
-.crownLabel {
-  align-items: flex-start !important;
 }
 
 .textInput {
@@ -96,16 +50,17 @@
   --cb-bg-color: unset;
 }
 
-.switchToYearly {
-  font-size: smaller;
-  &:hover {
-    cursor: pointer !important;
-  }
+.subscriptionInfo {
+  background-color: var(--primary-1) !important;
+  border-radius: 6px !important;
+  padding: var(--spacing-small) var(--spacing-large) !important;
 }
 
-.includedFree {
+.premSupport {
   background-color: var(--primary-2) !important;
-  margin-left: var(--spacing-small) !important;
-  border: unset !important;
-  color: var(--grey-0);
+  border-radius: 8px;
+}
+
+.plan {
+  height: var(--spacing-large);
 }

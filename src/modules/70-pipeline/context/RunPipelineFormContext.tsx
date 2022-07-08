@@ -10,12 +10,12 @@ import { noop } from 'lodash-es'
 import type { PipelineInfoConfig } from 'services/pipeline-ng'
 
 export interface RunPipelineFormContextValues {
-  template: PipelineInfoConfig
+  template<T>(path: string): T | PipelineInfoConfig
   updateTemplate<T = unknown>(data: T, path: string): void
 }
 
 export const RunPipelineFormContext = React.createContext<RunPipelineFormContextValues>({
-  template: {} as PipelineInfoConfig,
+  template: () => ({} as PipelineInfoConfig),
   updateTemplate: noop
 })
 

@@ -8,18 +8,19 @@
 import { useMemo } from 'react'
 import { useLicenseStore } from 'framework/LicenseStore/LicenseStoreContext'
 import { useAppStore } from 'framework/AppStore/AppStoreContext'
+import { useGetCommunity } from '@common/utils/utils'
 
 export function useShouldIntegrateHotJar(): boolean {
   const { licenseInformation } = useLicenseStore()
   const { currentUserInfo } = useAppStore()
   const { email } = currentUserInfo
+  const isCommunity = useGetCommunity()
 
   // HotJar is integrated for non-paid accounts (https://harness.atlassian.net/browse/PLG-946):
-  // 		1. Community = window.deploymentType is 'COMMUNITY'
+  // 		1. Community = cd license Edition is 'COMMUNITY'
   // 		2. Trial = deploymentType is 'SAAS' AND account does not have any paid module
   return useMemo(() => {
     const isProd = /^app.harness.io$/i.test(location.hostname)
-    const isCommunity = window.deploymentType === 'COMMUNITY'
     const isTrial =
       window.deploymentType === 'SAAS' &&
       licenseInformation &&

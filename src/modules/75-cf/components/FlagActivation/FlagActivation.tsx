@@ -43,7 +43,7 @@ import { useToaster } from '@common/exports'
 import { useQueryParams } from '@common/hooks'
 import { useEnvironmentSelectV2 } from '@cf/hooks/useEnvironmentSelectV2'
 import { useGovernance } from '@cf/hooks/useGovernance'
-import { FFDetailPageTab, getErrorMessage, rewriteCurrentLocationWithActiveEnvironment } from '@cf/utils/CFUtils'
+import { FFDetailPageTab, getErrorMessage } from '@cf/utils/CFUtils'
 import routes from '@common/RouteDefinitions'
 import useActiveEnvironment from '@cf/hooks/useActiveEnvironment'
 import type { FeatureFlagPathProps, ProjectPathProps } from '@common/interfaces/RouteInterfaces'
@@ -118,14 +118,7 @@ const FlagActivation: React.FC<FlagActivationProps> = props => {
     refetch: refetchEnvironments,
     environments
   } = useEnvironmentSelectV2({
-    selectedEnvironmentIdentifier: environmentIdentifier,
-    onChange: (_value, _environment, _userEvent) => {
-      rewriteCurrentLocationWithActiveEnvironment(_environment)
-
-      if (_userEvent) {
-        refetchFlag()
-      }
-    }
+    selectedEnvironmentIdentifier: environmentIdentifier
   })
   const { handleError: handleGovernanceError, isGovernanceError } = useGovernance()
 

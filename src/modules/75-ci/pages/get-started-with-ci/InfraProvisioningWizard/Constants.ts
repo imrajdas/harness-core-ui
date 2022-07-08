@@ -235,7 +235,7 @@ export const GitHubPRTriggerActions: GithubPRSpec['actions'] = ['Reopen', 'Synch
 export const GitlabPRTriggerActions: GitlabPRSpec['actions'] = ['Reopen', 'Sync', 'Open']
 
 export const AccessTokenPermissionsDocLinks: Map<ConnectorInfoDTO['type'], string> = new Map([
-  [Connectors.GITHUB, 'https://ngdocs.harness.io/article/jd77qvieuw#step_3_credentials'],
-  [Connectors.GITLAB, 'https://ngdocs.harness.io/article/5abnoghjgo#password_personal_access_token'],
-  [Connectors.BITBUCKET, 'https://ngdocs.harness.io/article/iz5tucdwyu#personal_access_token']
+  [Connectors.GITHUB, 'https://docs.harness.io/article/jd77qvieuw#step_3_credentials'],
+  [Connectors.GITLAB, 'https://docs.harness.io/article/5abnoghjgo#password_personal_access_token'],
+  [Connectors.BITBUCKET, 'https://docs.harness.io/article/iz5tucdwyu#personal_access_token']
 ])

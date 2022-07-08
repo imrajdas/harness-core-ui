@@ -40,7 +40,7 @@ import { ResourceType } from '@rbac/interfaces/ResourceType'
 import ManagePrincipalButton from '@rbac/components/ManagePrincipalButton/ManagePrincipalButton'
 import NotificationList from '@rbac/components/NotificationList/NotificationList'
 import useRBACError from '@rbac/utils/useRBACError/useRBACError'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import UserGroupRefScopeList from '@rbac/components/UserGroupRefScopeList/UserGroupRefScopeList'
 import css from './UserGroupDetails.module.scss'
 
@@ -49,7 +49,7 @@ const UserGroupDetails: React.FC = () => {
   const { accountId, orgIdentifier, projectIdentifier, module, userGroupIdentifier } =
     useParams<PipelineType<ProjectPathProps & { userGroupIdentifier: string }>>()
   const { parentScope } = useQueryParams<{ parentScope: PrincipalScope }>()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
   const history = useHistory()
 
   const { data, loading, error, refetch } = useGetUserGroupAggregate({

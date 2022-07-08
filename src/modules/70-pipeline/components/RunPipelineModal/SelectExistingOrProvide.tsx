@@ -54,7 +54,7 @@ function SelectExistingInputsOrProvideNew({
               <Text padding="medium" width={400}>
                 {getString('pipeline.inputSets.aboutInputSets')}
                 <a
-                  href="https://ngdocs.harness.io/article/3fqwa8et3d-input-sets"
+                  href="https://docs.harness.io/article/3fqwa8et3d-input-sets"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

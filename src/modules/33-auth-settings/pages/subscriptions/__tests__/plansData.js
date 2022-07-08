@@ -3303,7 +3303,7 @@ export const plansData = {
             },
             {
               title: 'AutoStopping Rules',
-              link: 'https://ngdocs.harness.io/article/wzr5tz0ero-auto-stopping-rules',
+              link: 'https://docs.harness.io/article/wzr5tz0ero-auto-stopping-rules',
               communityValue: null,
               communityText: null,
               freeValue: null,
@@ -3316,7 +3316,7 @@ export const plansData = {
             },
             {
               title: 'Cost Perspectives',
-              link: 'https://ngdocs.harness.io/article/dvspc6ub0v-create-cost-perspectives',
+              link: 'https://docs.harness.io/article/dvspc6ub0v-create-cost-perspectives',
               communityValue: null,
               communityText: null,
               freeValue: null,
@@ -3387,7 +3387,7 @@ export const plansData = {
             },
             {
               title: 'Cost Perspectives',
-              link: 'https://ngdocs.harness.io/article/dvspc6ub0v-create-cost-perspectives',
+              link: 'https://docs.harness.io/article/dvspc6ub0v-create-cost-perspectives',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -3400,7 +3400,7 @@ export const plansData = {
             },
             {
               title: 'Root Cost Analysis',
-              link: 'https://ngdocs.harness.io/article/1nf0qcz4o0-analyze-cost-for-aws',
+              link: 'https://docs.harness.io/article/1nf0qcz4o0-analyze-cost-for-aws',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -3484,7 +3484,7 @@ export const plansData = {
           detailedFeature: [
             {
               title: 'Intelligent Cloud AutoStopping',
-              link: 'https://ngdocs.harness.io/article/wzr5tz0ero-auto-stopping-rules',
+              link: 'https://docs.harness.io/article/wzr5tz0ero-auto-stopping-rules',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -3626,7 +3626,7 @@ export const plansData = {
           detailedFeature: [
             {
               title: 'Cloud Cost Management for AWS',
-              link: 'https://ngdocs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws',
+              link: 'https://docs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -3639,7 +3639,7 @@ export const plansData = {
             },
             {
               title: 'Cloud Cost Management for Azure',
-              link: 'https://ngdocs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure',
+              link: 'https://docs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -3652,7 +3652,7 @@ export const plansData = {
             },
             {
               title: 'Cloud Cost Management for GCP',
-              link: 'https://ngdocs.harness.io/article/kxnsritjls-set-up-cost-visibility-for-gcp',
+              link: 'https://docs.harness.io/article/kxnsritjls-set-up-cost-visibility-for-gcp',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -3665,7 +3665,7 @@ export const plansData = {
             },
             {
               title: 'Cloud Cost Management for Kubernetes',
-              link: 'https://ngdocs.harness.io/article/ltt65r6k39-set-up-cost-visibility-for-kubernetes',
+              link: 'https://docs.harness.io/article/ltt65r6k39-set-up-cost-visibility-for-kubernetes',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4103,7 +4103,7 @@ export const plansData = {
           detailedFeature: [
             {
               title: 'Boolean flags',
-              link: 'https://ngdocs.harness.io/article/1j7pdkqh7j-create-a-feature-flag',
+              link: 'https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4116,7 +4116,7 @@ export const plansData = {
             },
             {
               title: 'Multivariate flags',
-              link: 'https://ngdocs.harness.io/article/1j7pdkqh7j-create-a-feature-flag',
+              link: 'https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4129,7 +4129,7 @@ export const plansData = {
             },
             {
               title: 'Target individual users, or customizable groups',
-              link: 'https://ngdocs.harness.io/article/5qz1qrugyk-add-target-groups',
+              link: 'https://docs.harness.io/article/5qz1qrugyk-add-target-groups',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4278,7 +4278,7 @@ export const plansData = {
           detailedFeature: [
             {
               title: 'Java SDK',
-              link: 'https://ngdocs.harness.io/article/i7et9ebkst-integrate-feature-flag-with-java-sdk',
+              link: 'https://docs.harness.io/article/i7et9ebkst-integrate-feature-flag-with-java-sdk',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4291,7 +4291,7 @@ export const plansData = {
             },
             {
               title: '.NET SDK',
-              link: 'https://ngdocs.harness.io/article/c86rasy39v-net-sdk-reference',
+              link: 'https://docs.harness.io/article/c86rasy39v-net-sdk-reference',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4304,7 +4304,7 @@ export const plansData = {
             },
             {
               title: 'Python SDK',
-              link: 'https://ngdocs.harness.io/article/hwoxb6x2oe-python-sdk-reference',
+              link: 'https://docs.harness.io/article/hwoxb6x2oe-python-sdk-reference',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4317,7 +4317,7 @@ export const plansData = {
             },
             {
               title: ' Go SDK',
-              link: 'https://ngdocs.harness.io/article/4c8wljx60w-feature-flag-sdks-go-application',
+              link: 'https://docs.harness.io/article/4c8wljx60w-feature-flag-sdks-go-application',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4336,7 +4336,7 @@ export const plansData = {
           detailedFeature: [
             {
               title: 'JavaScript SDK',
-              link: 'https://ngdocs.harness.io/article/bmlvsxhp13-java-script-sdk-references',
+              link: 'https://docs.harness.io/article/bmlvsxhp13-java-script-sdk-references',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4349,7 +4349,7 @@ export const plansData = {
             },
             {
               title: 'Android SDK',
-              link: 'https://ngdocs.harness.io/article/74t18egxbi-android-sdk-reference',
+              link: 'https://docs.harness.io/article/74t18egxbi-android-sdk-reference',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4362,7 +4362,7 @@ export const plansData = {
             },
             {
               title: 'iOS SDK',
-              link: 'https://ngdocs.harness.io/article/6qt2v8g92m-ios-sdk-reference',
+              link: 'https://docs.harness.io/article/6qt2v8g92m-ios-sdk-reference',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4375,7 +4375,7 @@ export const plansData = {
             },
             {
               title: 'Flutter SDK',
-              link: 'https://ngdocs.harness.io/article/mmf7cu2owg-flutter-sdk-reference',
+              link: 'https://docs.harness.io/article/mmf7cu2owg-flutter-sdk-reference',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',
@@ -4388,7 +4388,7 @@ export const plansData = {
             },
             {
               title: 'C++ SDK',
-              link: 'https://ngdocs.harness.io/article/z2w6uj9mzb-react-native-sdk-reference',
+              link: 'https://docs.harness.io/article/z2w6uj9mzb-react-native-sdk-reference',
               communityValue: null,
               communityText: null,
               freeValue: 'Yes',

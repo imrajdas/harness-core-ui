@@ -8,7 +8,7 @@
 import React, { useCallback, useMemo } from 'react'
 import { Form, FormikValues } from 'formik'
 import { useParams } from 'react-router-dom'
-import { defaultTo, get, isNil, memoize, merge } from 'lodash-es'
+import { defaultTo, get, memoize, merge } from 'lodash-es'
 import * as Yup from 'yup'
 import { Menu } from '@blueprintjs/core'
 
@@ -221,7 +221,9 @@ export function AmazonS3(props: StepProps<ConnectorConfigDTO> & AmazonS3Artifact
             allowableTypes,
             selectProps: {
               noResults: (
-                <Text lineClamp={1}>{getRBACErrorMessage(error as RBACError) || getString('pipeline.noBuckets')}</Text>
+                <Text lineClamp={1} width={500} height={100}>
+                  {getRBACErrorMessage(error as RBACError) || getString('pipeline.noBuckets')}
+                </Text>
               ),
               itemRenderer: itemRenderer,
               items: getBuckets(),
@@ -283,27 +285,28 @@ export function AmazonS3(props: StepProps<ConnectorConfigDTO> & AmazonS3Artifact
                   radioGroup={{ inline: true }}
                   items={tagOptions}
                   className={css.radioGroup}
-                  onChange={() => {
-                    if (!isNil(formik.values?.filePath)) {
-                      if (getMultiTypeFromValue(formik.values?.filePath) !== MultiTypeInputType.FIXED) {
+                  onChange={event => {
+                    if (event.currentTarget.value === TagTypes.Regex) {
+                      if (getMultiTypeFromValue(formik.values.filePath) !== MultiTypeInputType.FIXED) {
                         formik.setFieldValue('filePathRegex', formik.values.filePath)
                       } else {
-                        formik.setFieldValue('filePathRegex', '')
+                        formik.setFieldValue('filePathRegex', defaultTo(formik.values.filePathRegex, ''))
                       }
                     } else {
-                      if (getMultiTypeFromValue(formik.values?.filePathRegex) !== MultiTypeInputType.FIXED) {
+                      if (getMultiTypeFromValue(formik.values.filePathRegex) !== MultiTypeInputType.FIXED) {
                         formik.setFieldValue('filePath', formik.values.filePathRegex)
                       } else {
-                        formik.setFieldValue('filePath', '')
+                        formik.setFieldValue('filePath', defaultTo(formik.values.filePath, ''))
                       }
                     }
                   }}
                 />
               </div>
 
-              {formik.values?.tagType === 'value' ? (
+              {formik.values?.tagType === TagTypes.Value ? (
                 <div className={css.imagePathContainer}>
                   <FormInput.MultiTextInput
+                    key={'filePath'}
                     label={getString('common.git.filePath')}
                     name="filePath"
                     placeholder={getString('pipeline.manifestType.pathPlaceholder')}
@@ -333,6 +336,7 @@ export function AmazonS3(props: StepProps<ConnectorConfigDTO> & AmazonS3Artifact
               ) : (
                 <div className={css.imagePathContainer}>
                   <FormInput.MultiTextInput
+                    key={'filePathRegex'}
                     label={getString('pipeline.artifactsSelection.filePathRegexLabel')}
                     name="filePathRegex"
                     placeholder={getString('pipeline.artifactsSelection.filePathRegexPlaceholder')}

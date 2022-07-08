@@ -45,7 +45,6 @@ export const usernameToken: ConnectorInfoDTO = {
     type: 'Account',
     url: 'https://dev.azure.com/azureRepoOrg',
     validationRepo: 'test',
-    validationProject: 'testProject',
     authentication: {
       type: 'Http',
       spec: {
@@ -69,7 +68,6 @@ export const usernameTokenWithAPIAccess: ConnectorInfoDTO = {
     type: 'Account',
     url: 'https://dev.azure.com/azureRepoOrg',
     validationRepo: 'test',
-    validationProject: 'testProject',
     authentication: {
       type: 'Http',
       spec: {

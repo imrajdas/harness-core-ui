@@ -12,9 +12,7 @@ import { useModuleInfo } from './useModuleInfo'
 export function useAnyEnterpriseLicense(): boolean {
   const { licenseInformation } = useLicenseStore()
 
-  const anyEntitlement = Object.values(licenseInformation).find(
-    license => license?.edition === Editions.ENTERPRISE && license?.status === 'ACTIVE'
-  )
+  const anyEntitlement = Object.values(licenseInformation).find(license => license?.edition === Editions.ENTERPRISE)
   return !!anyEntitlement
 }
 
@@ -26,8 +24,7 @@ export function useCurrentEnterpriseLicense(): boolean {
     ? licenseInformation?.[module?.toUpperCase()]
     : { edition: 'FREE', status: 'EXPIRED' } // default so we don't display HPE if theres an error getting license/module info
 
-  const currentModuleEntitlement =
-    moduleEntitlement?.edition === Editions.ENTERPRISE && moduleEntitlement.status === 'ACTIVE'
+  const currentModuleEntitlement = moduleEntitlement?.edition === Editions.ENTERPRISE
 
   return currentModuleEntitlement
 }

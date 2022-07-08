@@ -9,7 +9,6 @@ import React from 'react'
 import { noop } from 'lodash-es'
 import { render, getAllByText, fireEvent } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
-import * as FeatureFlag from '@common/hooks/useFeatureFlag'
 import { TestWrapper } from '@common/utils/testUtils'
 import { clickSubmit, fillAtForm, InputTypes } from '@common/utils/JestFormHelper'
 import {
@@ -107,9 +106,6 @@ useGetTestConnectionResultMock.mockImplementation(() => ({
 
 describe('Create Secret Manager Wizard', () => {
   test('should render form', async () => {
-    jest.spyOn(FeatureFlag, 'useFeatureFlags').mockReturnValue({
-      CE_AS_GCP_VM_SUPPORT: true
-    })
     const { container, getByText } = render(
       <TestWrapper path="/account/:accountId/resources/connectors" pathParams={{ accountId: 'dummy' }}>
         <CreateCeGcpConnector {...commonProps} isEditMode={false} connectorInfo={undefined} />
@@ -193,9 +189,6 @@ describe('Create Secret Manager Wizard', () => {
   })
 
   test('should show billing table for exising billing connectors', async () => {
-    jest.spyOn(FeatureFlag, 'useFeatureFlags').mockReturnValue({
-      CE_AS_GCP_VM_SUPPORT: true
-    })
     useGetConnectorListV2Mock.mockImplementation(() => ({
       mutate: async () => {
         return {
@@ -238,9 +231,6 @@ describe('Create Secret Manager Wizard', () => {
   })
 
   test('should throw an error when connectors already exist for a given gcpProjectId', async () => {
-    jest.spyOn(FeatureFlag, 'useFeatureFlags').mockReturnValue({
-      CE_AS_GCP_VM_SUPPORT: false
-    })
     useGetConnectorListV2Mock.mockImplementation(() => ({
       mutate: async () => {
         return {

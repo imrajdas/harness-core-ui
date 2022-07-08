@@ -52,7 +52,7 @@ const ChooseRequirements: React.FC<StepProps<CEGcpConnectorDTO>> = ({ prevStepDa
         <>
           {getString('connectors.ceAzure.chooseRequirements.optimization.footer1')}{' '}
           <a
-            href="https://ngdocs.harness.io/article/kxnsritjls-set-up-cost-visibility-for-gcp"
+            href="https://docs.harness.io/article/kxnsritjls-set-up-cost-visibility-for-gcp"
             target="_blank"
             rel="noreferrer"
             onClick={e => e.stopPropagation()}
@@ -77,7 +77,7 @@ const ChooseRequirements: React.FC<StepProps<CEGcpConnectorDTO>> = ({ prevStepDa
         <>
           {getString('connectors.ceAzure.chooseRequirements.optimization.footer1')}{' '}
           <a
-            href="https://ngdocs.harness.io/article/kxnsritjls-set-up-cost-visibility-for-gcp"
+            href="https://docs.harness.io/article/kxnsritjls-set-up-cost-visibility-for-gcp"
             target="_blank"
             rel="noreferrer"
             onClick={e => e.stopPropagation()}

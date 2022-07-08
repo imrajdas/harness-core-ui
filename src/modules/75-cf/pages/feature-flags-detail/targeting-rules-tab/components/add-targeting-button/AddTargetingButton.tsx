@@ -16,6 +16,7 @@ import { ResourceType } from '@rbac/interfaces/ResourceType'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 
 import type { Variation } from 'services/cf'
+import useActiveEnvironment from '@cf/hooks/useActiveEnvironment'
 import type { VariationColorMap } from '../../types'
 export interface AddTargetingButtonProps {
   targetingDropdownVariations: Variation[]
@@ -33,6 +34,7 @@ const AddTargetingButton = ({
   addPercentageRollout
 }: AddTargetingButtonProps): ReactElement => {
   const { getString } = useStrings()
+  const { activeEnvironment } = useActiveEnvironment()
 
   const items = [
     ...targetingDropdownVariations.map(variation => ({
@@ -41,7 +43,7 @@ const AddTargetingButton = ({
       icon: <Icon icon="full-circle" color={variationColorMap[variation.identifier]} />,
       text: variation.name || variation.identifier,
       permission: {
-        resource: { resourceType: ResourceType.FEATUREFLAG },
+        resource: { resourceType: ResourceType.ENVIRONMENT, resourceIdentifier: activeEnvironment },
         permission: PermissionIdentifier.EDIT_FF_FEATUREFLAG
       },
       featuresProps: {
@@ -56,7 +58,7 @@ const AddTargetingButton = ({
       icon: <Icon icon="percentage" />,
       text: getString('cf.featureFlags.percentageRollout'),
       permission: {
-        resource: { resourceType: ResourceType.FEATUREFLAG },
+        resource: { resourceType: ResourceType.ENVIRONMENT, resourceIdentifier: activeEnvironment },
         permission: PermissionIdentifier.EDIT_FF_FEATUREFLAG
       },
       featuresProps: {

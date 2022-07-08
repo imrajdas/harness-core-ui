@@ -36,7 +36,7 @@ export const CreateAFlagInfoView: React.FC = () => {
           </Text>
           <Container margin={{ top: 'medium' }}>
             <Link
-              href="https://ngdocs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_4_create_a_flag_type"
+              href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_4_create_a_flag_type"
               target="_blank"
               text={getString('cf.onboarding.otherTypes')}
             />

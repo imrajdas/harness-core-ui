@@ -485,96 +485,100 @@ exports[`Environments V2 test snapshot test with list view and after sort 1`] = 
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 50%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--vertical StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 50%;"
                 >
                   <div
-                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-start StyledProps--margin-bottom-small"
+                    class="Layout--vertical StyledProps--main"
                   >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                    <div
+                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-start StyledProps--margin-bottom-small"
                     >
-                      Env 2
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                      >
+                        Env 2
+                      </p>
+                    </div>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--font-size-small"
+                      style="--text-line-clamp: 1;"
+                    >
+                      common.ID
+                      : 
+                      Env_2
                     </p>
                   </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 15%;"
+                >
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--font-size-small"
-                    style="--text-line-clamp: 1;"
+                    class="StyledProps--font StyledProps--main environmentType production StyledProps--font-size-small"
                   >
-                    common.ID
-                    : 
-                    Env_2
+                    cd.serviceDashboard.prod
                   </p>
                 </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 15%;"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main environmentType production StyledProps--font-size-small"
-                >
-                  cd.serviceDashboard.prod
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
-              >
                 <div
-                  class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
                 >
-                  dummy date
+                  <div
+                    class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+                  >
+                    dummy date
+                  </div>
                 </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 10%;"
-              >
                 <div
-                  class="Layout--horizontal StyledProps--main"
-                  style="justify-content: flex-end;"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 10%;"
                 >
-                  <span
-                    class="bp3-popover-wrapper bp3-dark"
+                  <div
+                    class="Layout--horizontal StyledProps--main"
+                    style="justify-content: flex-end;"
                   >
                     <span
-                      class="bp3-popover-target"
+                      class="bp3-popover-wrapper bp3-dark"
                     >
-                      <button
-                        class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                        style="transform: rotate(90deg);"
-                        type="button"
+                      <span
+                        class="bp3-popover-target"
                       >
-                        <span
-                          class="bp3-icon bp3-icon-more StyledProps--main"
-                          icon="more"
+                        <button
+                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                          style="transform: rotate(90deg);"
+                          type="button"
                         >
-                          <svg
-                            data-icon="more"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            width="16"
+                          <span
+                            class="bp3-icon bp3-icon-more StyledProps--main"
+                            icon="more"
                           >
-                            <desc>
-                              more
-                            </desc>
-                            <path
-                              d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                      </button>
+                            <svg
+                              data-icon="more"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              width="16"
+                            >
+                              <desc>
+                                more
+                              </desc>
+                              <path
+                                d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </span>
                     </span>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -583,130 +587,134 @@ exports[`Environments V2 test snapshot test with list view and after sort 1`] = 
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 50%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--vertical StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 50%;"
                 >
                   <div
-                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-start StyledProps--margin-bottom-small"
+                    class="Layout--vertical StyledProps--main"
                   >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                    <div
+                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-start StyledProps--margin-bottom-small"
                     >
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                      >
+                        env
+                      </p>
+                      <span
+                        class="bp3-popover-wrapper"
+                      >
+                        <span
+                          class="bp3-popover-target"
+                        >
+                          <div
+                            class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main tagsPopover StyledProps--flex StyledProps--flex-align-center-center"
+                            tabindex="0"
+                          >
+                            <span
+                              class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey600"
+                              data-icon="main-tags"
+                            >
+                              <svg
+                                height="14"
+                                viewBox="0 0 14 14"
+                                width="14"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                                  fill="#4d5969"
+                                />
+                              </svg>
+                            </span>
+                            <p
+                              class="StyledProps--font StyledProps--main"
+                            >
+                              1
+                            </p>
+                          </div>
+                        </span>
+                      </span>
+                    </div>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--font-size-small"
+                      style="--text-line-clamp: 1;"
+                    >
+                      common.ID
+                      : 
                       env
                     </p>
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 15%;"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main environmentType StyledProps--font-size-small"
+                  >
+                    cd.preProductionType
+                  </p>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
+                >
+                  <div
+                    class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+                  >
+                    dummy date
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 10%;"
+                >
+                  <div
+                    class="Layout--horizontal StyledProps--main"
+                    style="justify-content: flex-end;"
+                  >
                     <span
-                      class="bp3-popover-wrapper"
+                      class="bp3-popover-wrapper bp3-dark"
                     >
                       <span
                         class="bp3-popover-target"
                       >
-                        <div
-                          class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main tagsPopover StyledProps--flex StyledProps--flex-align-center-center"
-                          tabindex="0"
+                        <button
+                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                          style="transform: rotate(90deg);"
+                          type="button"
                         >
                           <span
-                            class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey600"
-                            data-icon="main-tags"
+                            class="bp3-icon bp3-icon-more StyledProps--main"
+                            icon="more"
                           >
                             <svg
-                              height="14"
-                              viewBox="0 0 14 14"
-                              width="14"
-                              xmlns="http://www.w3.org/2000/svg"
+                              data-icon="more"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              width="16"
                             >
+                              <desc>
+                                more
+                              </desc>
                               <path
-                                d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                                fill="#4d5969"
+                                d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                                fill-rule="evenodd"
                               />
                             </svg>
                           </span>
-                          <p
-                            class="StyledProps--font StyledProps--main"
-                          >
-                            1
-                          </p>
-                        </div>
+                        </button>
                       </span>
                     </span>
                   </div>
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500 StyledProps--font-size-small"
-                    style="--text-line-clamp: 1;"
-                  >
-                    common.ID
-                    : 
-                    env
-                  </p>
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 15%;"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main environmentType StyledProps--font-size-small"
-                >
-                  cd.preProductionType
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
-              >
-                <div
-                  class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
-                >
-                  dummy date
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 10%;"
-              >
-                <div
-                  class="Layout--horizontal StyledProps--main"
-                  style="justify-content: flex-end;"
-                >
-                  <span
-                    class="bp3-popover-wrapper bp3-dark"
-                  >
-                    <span
-                      class="bp3-popover-target"
-                    >
-                      <button
-                        class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                        style="transform: rotate(90deg);"
-                        type="button"
-                      >
-                        <span
-                          class="bp3-icon bp3-icon-more StyledProps--main"
-                          icon="more"
-                        >
-                          <svg
-                            data-icon="more"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            width="16"
-                          >
-                            <desc>
-                              more
-                            </desc>
-                            <path
-                              d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                      </button>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>

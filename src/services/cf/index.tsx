@@ -356,27 +356,27 @@ export interface FeatureCounts {
   /**
    * The total number of flags with a active status in a project/environment
    */
-  totalActive: number
+  totalActive?: number
   /**
    * The total number of flags that are turned on in a project/environment
    */
-  totalEnabled: number
+  totalEnabled?: number
   /**
    * The total number of flags in the project/environment
    */
-  totalFeatures: number
+  totalFeatures?: number
   /**
    * The total number of permanent flags in a project/environment
    */
-  totalPermanent: number
+  totalPermanent?: number
   /**
    * The total number of flags with a potentially-stale status in a project/environment
    */
-  totalPotentiallyStale: number
+  totalPotentiallyStale?: number
   /**
    * The total number of flags with a recently-accessed status in a project/environment
    */
-  totalRecentlyAccessed: number
+  totalRecentlyAccessed?: number
 }
 
 /**
@@ -464,7 +464,69 @@ export interface FeaturePipeline {
   name: string
 }
 
+/**
+ * A pipeline execution to edit a feature
+ */
+export interface FeaturePipelineExecution {
+  /**
+   * created date in milliseconds
+   */
+  createdAt: number
+  /**
+   * timestamp of the end of the pipeline execution in milliseconds
+   */
+  endTs?: number
+  /**
+   * The environment of the pipeline execution
+   */
+  environment: string
+  /**
+   * The error info of the pipeline execution
+   */
+  executionErrorInfo?: string
+  /**
+   * The id of the pipeline execution
+   */
+  executionId: string
+  /**
+   * The number of failed stages in the pipeline execution
+   */
+  failedStagesCount?: number
+  /**
+   * The status of the pipeline execution
+   */
+  status: string
+  /**
+   * The number of succeeded stages in the pipeline execution
+   */
+  succeededStagesCount?: number
+  /**
+   * The number of stages in the pipeline execution
+   */
+  totalStagesCount?: number
+  /**
+   * The trigger details of the pipeline execution
+   */
+  triggerDetails: {
+    defaultServe?: Serve
+    /**
+     * A list of rules to use when evaluating this flag in this environment
+     */
+    rules?: ServingRule[]
+    state?: FeatureState
+    /**
+     * A list of the variations that will be served to specific targets or target groups in an environment.
+     */
+    variationMap?: VariationMap[]
+  }
+  /**
+   * The user who triggered the pipeline execution
+   */
+  triggeredBy?: string
+}
+
 export interface FeaturePipelineResp {
+  executionHistory?: FeaturePipelineExecution[]
   pipelineConfigured: boolean
   pipelineDetails?: FeaturePipeline
 }

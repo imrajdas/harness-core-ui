@@ -11,7 +11,6 @@ declare const styles: {
   readonly cdTag: string
   readonly ceTag: string
   readonly cfTag: string
-  readonly cgCdTag: string
   readonly ciTag: string
   readonly customTag: string
   readonly customTagButton: string

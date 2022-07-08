@@ -9,6 +9,7 @@ import React from 'react'
 import { render, act } from '@testing-library/react'
 import { TestWrapper } from '@common/utils/testUtils'
 import mockImport from 'framework/utils/mockImport'
+import { communityLicenseStoreValues } from '@common/utils/DefaultAppStoreData'
 import { ThirdPartyIntegrations } from '../ThirdPartyIntegrations'
 
 beforeAll(() => {
@@ -23,15 +24,10 @@ beforeAll(() => {
 })
 
 describe('<ThirdPartyIntegrations /> tests', () => {
-  test('Should integrate HotJar when deploymentType is COMMUNITY', () => {
+  test('Should integrate HotJar when CD license Edition is COMMUNITY', () => {
     const injectHotJar = jest.fn()
     const identifyHotJarUser = jest.fn()
 
-    mockImport('framework/LicenseStore/LicenseStoreContext', {
-      useLicenseStore: jest.fn().mockImplementation(() => ({
-        licenseInformation: {}
-      }))
-    })
     mockImport('framework/AppStore/AppStoreContext', {
       useAppStore: jest.fn().mockImplementation(() => ({
         currentUserInfo: {}
@@ -42,11 +38,9 @@ describe('<ThirdPartyIntegrations /> tests', () => {
       identifyHotJarUser
     })
 
-    window.deploymentType = 'COMMUNITY'
-
     act(() => {
       render(
-        <TestWrapper>
+        <TestWrapper defaultLicenseStoreValues={communityLicenseStoreValues}>
           <ThirdPartyIntegrations />
         </TestWrapper>
       )

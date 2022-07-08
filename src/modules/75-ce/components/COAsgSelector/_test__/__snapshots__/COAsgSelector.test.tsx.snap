@@ -131,57 +131,61 @@ exports[`ASG selection modal component should add the selected ASG 1`] = `
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
+                  class="TableV2--cells"
                 >
-                  <label
-                    class="bp3-control bp3-radio"
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
                   >
-                    <input
-                      checked=""
-                      type="radio"
-                    />
-                    <span
-                      class="bp3-control-indicator"
-                    />
-                  </label>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 70%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 1;"
+                    <label
+                      class="bp3-control bp3-radio"
+                    >
+                      <input
+                        checked=""
+                        type="radio"
+                      />
+                      <span
+                        class="bp3-control-indicator"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 70%;"
                   >
-                    undefined mockAsg
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 10%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 1;"
+                    >
+                      undefined mockAsg
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 10%;"
                   >
-                    0
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 10%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      0
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 10%;"
                   >
-                    us-east-1
-                  </p>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      us-east-1
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -489,57 +493,61 @@ exports[`ASG selection modal component should refresh the list 1`] = `
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
+                  class="TableV2--cells"
                 >
-                  <label
-                    class="bp3-control bp3-radio"
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
                   >
-                    <input
-                      checked=""
-                      type="radio"
-                    />
-                    <span
-                      class="bp3-control-indicator"
-                    />
-                  </label>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 70%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 1;"
+                    <label
+                      class="bp3-control bp3-radio"
+                    >
+                      <input
+                        checked=""
+                        type="radio"
+                      />
+                      <span
+                        class="bp3-control-indicator"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 70%;"
                   >
-                    undefined mockAsg
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 10%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 1;"
+                    >
+                      undefined mockAsg
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 10%;"
                   >
-                    0
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 10%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      0
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 10%;"
                   >
-                    us-east-1
-                  </p>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      us-east-1
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -821,57 +829,61 @@ exports[`ASG selection modal component should render successfully 1`] = `
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
+                  class="TableV2--cells"
                 >
-                  <label
-                    class="bp3-control bp3-radio"
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
                   >
-                    <input
-                      checked=""
-                      type="radio"
-                    />
-                    <span
-                      class="bp3-control-indicator"
-                    />
-                  </label>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 70%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 1;"
+                    <label
+                      class="bp3-control bp3-radio"
+                    >
+                      <input
+                        checked=""
+                        type="radio"
+                      />
+                      <span
+                        class="bp3-control-indicator"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 70%;"
                   >
-                    undefined mockAsg
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 10%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 1;"
+                    >
+                      undefined mockAsg
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 10%;"
                   >
-                    0
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 10%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      0
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 10%;"
                   >
-                    us-east-1
-                  </p>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      us-east-1
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

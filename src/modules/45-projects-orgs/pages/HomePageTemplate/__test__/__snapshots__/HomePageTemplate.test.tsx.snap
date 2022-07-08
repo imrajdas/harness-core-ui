@@ -21,7 +21,7 @@ exports[`HomePageTemplate should render 1`] = `
       </p>
       <a
         class="bp3-button Button--button StyledProps--font StyledProps--main link StyledProps--color StyledProps--font StyledProps--font-size-normal Button--with-current-color Button--link"
-        href="https://ngdocs.harness.io/"
+        href="https://docs.harness.io/"
         rel="noreferrer noopener"
         role="button"
         tabindex="0"

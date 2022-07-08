@@ -97,7 +97,7 @@ module.exports = {
     target: process.env.STO_API_URL || 'http://localhost:4000'
   },
   '/sto': {
-    pathRewrite: { '^/sto': '' },
+    pathRewrite: { '^/sto(/v2)?': '' },
     target: process.env.STO_UI_URL || 'http://localhost:3002'
   },
   '/gitops': {

@@ -42,6 +42,7 @@ module.exports = ({ enableGitOpsUI, enableSTO, enableChaosUI, enableCCMUI }) => 
 
   if (enableSTO) {
     remotes.sto = "sto@[window.getApiBaseUrl('sto/remoteEntry.js')]"
+    remotes.stoV2 = "sto@[window.getApiBaseUrl('sto/v2/remoteEntry.js')]"
   }
 
   if (enableChaosUI) {

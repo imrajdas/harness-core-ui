@@ -19,7 +19,6 @@ const DEFAULT_FILTER: MappedDashboardTagOptions = {
   CD: false,
   CI: false,
   CF: false,
-  CG_CD: false,
   STO: false
 }
 
@@ -91,9 +90,13 @@ describe('ModuleTagsFilter', () => {
       CE: true,
       CI: true,
       CD: false,
+<<<<<<< HEAD
       CF: false,
       CG_CD: false,
       STO: false
+=======
+      CF: false
+>>>>>>> develop
     }
     renderComponent({ selectedFilter })
 

@@ -24,7 +24,7 @@ import { useTelemetry } from '@common/hooks/useTelemetry'
 import { Category, PlanActions, TrialActions } from '@common/constants/TrackingConstants'
 import routes from '@common/RouteDefinitions'
 import useStartTrialModal from '@common/modals/StartTrial/StartTrialModal'
-import { Editions, ModuleLicenseType, SUBSCRIPTION_TAB_NAMES } from '@common/constants/SubscriptionTypes'
+import { Editions, ModuleLicenseType, SubscriptionTabNames } from '@common/constants/SubscriptionTypes'
 import { useFeatureFlags, useFeatureFlag } from '@common/hooks/useFeatureFlag'
 import { FeatureFlag } from '@common/featureFlags'
 import css from './StartTrialTemplate.module.scss'
@@ -114,7 +114,7 @@ const StartTrialComponent: React.FC<StartTrialProps> = startTrialProps => {
         disabled={loading}
       />
       {PLANS_ENABLED && (
-        <Link to={routes.toSubscriptions({ accountId, moduleCard: module, tab: SUBSCRIPTION_TAB_NAMES.PLANS })}>
+        <Link to={routes.toSubscriptions({ accountId, moduleCard: module, tab: SubscriptionTabNames.PLANS })}>
           {getString('common.exploreAllPlans')}
         </Link>
       )}

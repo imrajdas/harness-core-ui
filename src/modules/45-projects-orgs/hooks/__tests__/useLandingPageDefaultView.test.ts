@@ -7,6 +7,7 @@
 
 import { LICENSE_STATE_VALUES } from 'framework/LicenseStore/licenseStoreUtil'
 import { useLicenseStore } from 'framework/LicenseStore/LicenseStoreContext'
+import { Editions } from '@common/constants/SubscriptionTypes'
 import useLandingPageDefaultView, { View } from '../useLandingPageDefaultView'
 
 jest.mock('framework/LicenseStore/LicenseStoreContext')
@@ -46,7 +47,16 @@ describe('test landing page default view hook', () => {
   })
 
   test('if rendered in community', () => {
-    window.deploymentType = 'COMMUNITY'
+    useLicenseStoreMock.mockImplementation(() => {
+      return {
+        licenseInformation: {
+          CD: {
+            edition: Editions.COMMUNITY
+          }
+        },
+        CD_LICENSE_STATE: LICENSE_STATE_VALUES.ACTIVE
+      }
+    })
     const view = useLandingPageDefaultView()
     expect(view).toEqual(View.Welcome)
   })

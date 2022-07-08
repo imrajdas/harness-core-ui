@@ -12,7 +12,7 @@ import type { VerifyStepMonitoredService } from '@cv/components/PipelineSteps/Co
 import { useStrings } from 'framework/strings'
 import { FormMultiTypeConnectorField } from '@connectors/components/ConnectorReferenceField/FormMultiTypeConnectorField'
 import {
-  getLabelByName,
+  getFieldLabelForVerifyTemplate,
   getNestedRuntimeInputs
 } from '@cv/pages/monitored-service/CVMonitoredService/MonitoredServiceInputSetsTemplate.utils'
 import type { PipelineType, ProjectPathProps } from '@common/interfaces/RouteInterfaces'
@@ -52,7 +52,7 @@ export default function TemplatisedRunTimeMonitoredService(
         {checkIfRunTimeInput(serviceRef) ? (
           <FormInput.MultiTypeInput
             name={`${prefix}spec.monitoredService.spec.templateInputs.serviceRef`}
-            label={getString('cv.healthSource.serviceLabel')}
+            label={getString('service')}
             selectItems={serviceOptions}
             multiTypeInputProps={getMultiTypeInputProps(expressions, allowableTypes)}
             useValue
@@ -61,7 +61,7 @@ export default function TemplatisedRunTimeMonitoredService(
         {checkIfRunTimeInput(environmentRef) ? (
           <FormInput.MultiTypeInput
             name={`${prefix}spec.monitoredService.spec.templateInputs.environmentRef`}
-            label={getString('cv.healthSource.environmentLabel')}
+            label={getString('environment')}
             selectItems={environmentOptions}
             multiTypeInputProps={getMultiTypeInputProps(expressions, allowableTypes)}
             useValue
@@ -105,7 +105,7 @@ export default function TemplatisedRunTimeMonitoredService(
                       <FormInput.MultiTextInput
                         key={input.name}
                         name={`${prefix}spec.monitoredService.spec.templateInputs.${input.path}`}
-                        label={getLabelByName(input.name, getString)}
+                        label={getFieldLabelForVerifyTemplate(input.name, getString)}
                         multiTextInputProps={{
                           expressions,
                           allowableTypes
@@ -131,7 +131,7 @@ export default function TemplatisedRunTimeMonitoredService(
                         <FormInput.MultiTextInput
                           key={input.name}
                           name={`${prefix}spec.monitoredService.spec.templateInputs.${input.path}`}
-                          label={getLabelByName(input.name, getString)}
+                          label={getFieldLabelForVerifyTemplate(input.name, getString)}
                           multiTextInputProps={{
                             expressions,
                             allowableTypes

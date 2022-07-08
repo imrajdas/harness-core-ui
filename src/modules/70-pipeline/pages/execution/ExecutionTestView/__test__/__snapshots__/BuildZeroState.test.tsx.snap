@@ -111,7 +111,7 @@ exports[`BuildZeroState snapshot test should render properly 1`] = `
       pipeline.testsReports.testsWillAppear
     </p>
     <a
-      href="https://ngdocs.harness.io/article/sof7n3qjap-viewing-tests"
+      href="https://docs.harness.io/article/sof7n3qjap-viewing-tests"
       rel="noreferrer"
       target="_blank"
     >

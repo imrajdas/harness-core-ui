@@ -139,53 +139,6 @@ const SelectGitProviderRef = (
     showError(getString('connectors.oAuth.failed'))
   }, [])
 
-  /* Event listener for OAuth server event, this is essential for landing user back to the same tab from where the OAuth started, once it's done */
-  const handleOAuthServerEvent = (event: MessageEvent): void => {
-    if (oAuthStatus === Status.IN_PROGRESS) {
-      if (!gitProvider) {
-        return
-      }
-      if (event.origin !== getBackendServerUrl() && !isEnvironmentAllowedForOAuth()) {
-        markOAuthAsFailed()
-        return
-      }
-      if (!event || !event.data) {
-        markOAuthAsFailed()
-        return
-      }
-      const { accessTokenRef, refreshTokenRef, status, errorMessage } = event.data
-      // valid oauth event from server will always have some value
-      if (accessTokenRef && refreshTokenRef && status && errorMessage) {
-        //safeguard against backend server sending multiple oauth events, which could lead to multiple duplicate connectors getting created
-        if (!oAuthSecretIntercepted.current) {
-          if (
-            accessTokenRef !== OAUTH_PLACEHOLDER_VALUE &&
-            (status as string).toLowerCase() === Status.SUCCESS.toLowerCase()
-          ) {
-            oAuthSecretIntercepted.current = true
-            createOAuthConnector({ tokenRef: accessTokenRef, refreshTokenRef })
-          } else if (errorMessage !== OAUTH_PLACEHOLDER_VALUE) {
-            markOAuthAsFailed()
-          }
-        }
-      }
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('message', handleOAuthServerEvent)
-
-    return () => {
-      window.removeEventListener('message', handleOAuthServerEvent)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (oAuthSecretIntercepted.current) {
-      window.removeEventListener('message', handleOAuthServerEvent) // remove event listener once oauth is done
-    }
-  }, [oAuthSecretIntercepted.current])
-
   const createOAuthConnector = useCallback(
     ({ tokenRef, refreshTokenRef }: { tokenRef: string; refreshTokenRef?: string }): void => {
       if (gitProvider?.type) {
@@ -223,6 +176,56 @@ const SelectGitProviderRef = (
     },
     [gitProvider?.type]
   )
+
+  /* Event listener for OAuth server event, this is essential for landing user back to the same tab from where the OAuth started, once it's done */
+  const handleOAuthServerEvent = useCallback(
+    (event: MessageEvent): void => {
+      if (oAuthStatus === Status.IN_PROGRESS) {
+        if (!gitProvider) {
+          return
+        }
+        if (event.origin !== getBackendServerUrl() && !isEnvironmentAllowedForOAuth()) {
+          markOAuthAsFailed()
+          return
+        }
+        if (!event || !event.data) {
+          markOAuthAsFailed()
+          return
+        }
+        const { accessTokenRef, refreshTokenRef, status, errorMessage } = event.data
+        // valid oauth event from server will always have some value
+        if (accessTokenRef && refreshTokenRef && status && errorMessage) {
+          //safeguard against backend server sending multiple oauth events, which could lead to multiple duplicate connectors getting created
+          if (!oAuthSecretIntercepted.current) {
+            if (
+              accessTokenRef !== OAUTH_PLACEHOLDER_VALUE &&
+              (status as string).toLowerCase() === Status.SUCCESS.toLowerCase()
+            ) {
+              oAuthSecretIntercepted.current = true
+              createOAuthConnector({ tokenRef: accessTokenRef, refreshTokenRef })
+            } else if (errorMessage !== OAUTH_PLACEHOLDER_VALUE) {
+              markOAuthAsFailed()
+            }
+          }
+        }
+      }
+    },
+    [createOAuthConnector, gitProvider, markOAuthAsFailed, oAuthStatus]
+  )
+
+  useEffect(() => {
+    window.addEventListener('message', handleOAuthServerEvent)
+
+    return () => {
+      window.removeEventListener('message', handleOAuthServerEvent)
+    }
+  }, [handleOAuthServerEvent])
+
+  useEffect(() => {
+    if (oAuthSecretIntercepted.current) {
+      window.removeEventListener('message', handleOAuthServerEvent) // remove event listener once oauth is done
+    }
+  }, [oAuthSecretIntercepted.current])
 
   //#endregion
 

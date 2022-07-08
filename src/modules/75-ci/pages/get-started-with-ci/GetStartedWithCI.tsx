@@ -253,7 +253,7 @@ export default function GetStartedWithCI(): React.ReactElement {
         <Container padding={{ top: 'xxxlarge', bottom: 'huge' }}>
           <Button
             variation={ButtonVariation.PRIMARY}
-            href="https://ngdocs.harness.io/category/zgffarnh1m-ci-category"
+            href="https://docs.harness.io/category/zgffarnh1m-ci-category"
             target="_blank"
           >
             {getString('pipeline.createPipeline.learnMore')}

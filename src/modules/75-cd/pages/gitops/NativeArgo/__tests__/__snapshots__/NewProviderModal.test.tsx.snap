@@ -468,7 +468,7 @@ exports[`<NewProviderModal /> tests snapshot test for new provider modal 1`] = `
                               </svg>
                             </span>
                             <a
-                              href="https://ngdocs.harness.io/article/ptlvh7c6z2-harness-argo-cd-git-ops-quickstart"
+                              href="https://docs.harness.io/article/ptlvh7c6z2-harness-argo-cd-git-ops-quickstart"
                               rel="noreferrer"
                               target="_blank"
                             >

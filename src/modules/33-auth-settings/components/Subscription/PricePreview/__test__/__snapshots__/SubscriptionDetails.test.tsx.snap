@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubscriptionDetails render 1`] = `
+<div>
+  <div
+    class="Layout--vertical Layout--layout-spacing-large StyledProps--main StyledProps--padding-bottom-large"
+  >
+    <p
+      class="StyledProps--font StyledProps--main"
+    >
+      common.subscriptions.overview.details
+    </p>
+    <p
+      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-weight-bold"
+    >
+      Team common.subscriptions.overview.plan
+    </p>
+    <div
+      class="Layout--horizontal StyledProps--main line StyledProps--flex StyledProps--flex-justifyContent-space-between StyledProps--padding-top-small StyledProps--padding-bottom-small"
+    >
+      <p
+        class="StyledProps--font StyledProps--main"
+      >
+        authSettings.costCalculator.premiumSupport
+      </p>
+      <p
+        class="StyledProps--font StyledProps--main"
+      >
+        $20.00
+      </p>
+    </div>
+    <div
+      class="Layout--horizontal StyledProps--main line StyledProps--flex StyledProps--flex-justifyContent-space-between StyledProps--padding-top-small StyledProps--padding-bottom-small"
+    >
+      <p
+        class="StyledProps--font StyledProps--main"
+      >
+        authSettings.costCalculator.tax
+      </p>
+      <p
+        class="StyledProps--font StyledProps--main"
+      >
+        1
+      </p>
+    </div>
+  </div>
+</div>
+`;

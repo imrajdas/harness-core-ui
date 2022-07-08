@@ -109,7 +109,7 @@ const CETrialHomePage: React.FC = () => {
     description: getString('ce.homepage.slogan'),
     learnMore: {
       description: getString('ce.learnMore'),
-      url: 'https://ngdocs.harness.io/article/dvspc6ub0v-create-cost-perspectives'
+      url: 'https://docs.harness.io/article/dvspc6ub0v-create-cost-perspectives'
     },
     startBtn: {
       description: startBtnDescription,

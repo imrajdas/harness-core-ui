@@ -15,6 +15,23 @@ steps:
     releaseNamePlaceholder: Enter Release Name
     specifyCredentials: Specify Credentials
     undefinedType: Undefined deployment type
+  commands:
+    runTheCommands: Run the following commands
+    addCommand: Add Command
+    editCommand: Edit Command
+    sourceTypeLabel: Select file type to copy
+    destinationPath: Destination Path
+    destinationPathPlaceholder: Enter Destination Path
+    scriptTypePlaceholder: Enter Script Type
+    filesAndPatterns: Files and Patterns
+    fileToTail: FILE TO TAIL
+    patternToSearch: PATTERN TO SEARCH
+    fileToTailPlaceholder: Enter File to Tail
+    patternToSearchPlaceholder: Enter Pattern to Search
+    runOnDelegate: Run on Delegate
+    validation:
+      sourceTypeRequired: Source Type is required
+      destinationPathRequired: Destination Path is required
   kubernetesGcpStep:
     stepName: Specify your GCP Connector
   pdcStep:

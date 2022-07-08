@@ -22,8 +22,6 @@ import { useStrings } from 'framework/strings'
 import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import useRegionsForSelection from '@ce/common/hooks/useRegionsForSelection'
 import type { AccessPointScreenMode } from '@ce/types'
-import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
-import { FeatureFlag } from '@common/featureFlags'
 import css from './GCPAccessPoint.module.scss'
 
 export interface GcpApFormValue {
@@ -70,7 +68,6 @@ const GCPAccessPointForm: React.FC<GCPAccessPointFormProps> = ({
 }) => {
   const { getString } = useStrings()
   const { accountId } = useParams<AccountPathProps>()
-  const tlsSupportEnabled = useFeatureFlag(FeatureFlag.CCM_GCP_TLS_ENABLED)
 
   const [selectedRegion, setSelectedRegion] = useState<string | undefined>(loadBalancer.region)
   const [selectedVpc, setSelectedVpc] = useState<string | undefined>(loadBalancer.vpc)
@@ -359,22 +356,20 @@ const GCPAccessPointForm: React.FC<GCPAccessPointFormProps> = ({
                 disabled={isEditMode ? !editableFieldsMap['machine_type'] : machinesLoading}
               />
             </Layout.Horizontal>
-            {tlsSupportEnabled && (
-              <Layout.Horizontal className={css.formFieldRow}>
-                <FormInput.Text
-                  name="cert_secret_id"
-                  label={getString('ce.co.accessPoint.gcpCertificateId')}
-                  tooltipProps={{ dataTooltipId: 'tlsCertificateSecretId' }}
-                  placeholder={getString('ce.co.accessPoint.gcpCertificatePlaceholder')}
-                />
-                <FormInput.Text
-                  name="key_secret_id"
-                  label={getString('ce.co.accessPoint.gcpSecretId')}
-                  tooltipProps={{ dataTooltipId: 'tlsPrivateKeySecretId' }}
-                  placeholder={getString('ce.co.accessPoint.gcpSecretPlaceholder')}
-                />
-              </Layout.Horizontal>
-            )}
+            <Layout.Horizontal className={css.formFieldRow}>
+              <FormInput.Text
+                name="cert_secret_id"
+                label={getString('ce.co.accessPoint.gcpCertificateId')}
+                tooltipProps={{ dataTooltipId: 'tlsCertificateSecretId' }}
+                placeholder={getString('ce.co.accessPoint.gcpCertificatePlaceholder')}
+              />
+              <FormInput.Text
+                name="key_secret_id"
+                label={getString('ce.co.accessPoint.gcpSecretId')}
+                tooltipProps={{ dataTooltipId: 'tlsPrivateKeySecretId' }}
+                placeholder={getString('ce.co.accessPoint.gcpSecretPlaceholder')}
+              />
+            </Layout.Horizontal>
             <Layout.Horizontal style={{ marginTop: 220 }}>
               <Button
                 text={'Back'}

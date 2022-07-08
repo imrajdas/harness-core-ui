@@ -617,85 +617,89 @@ exports[`Unit tests for CVChanges Verify if all the fields are rendered correctl
                     role="row"
                   >
                     <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        Oct 19, 2021
-                      </p>
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
-                      >
-                        01:35 PM
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 30%;"
+                      class="TableV2--cells"
                     >
                       <div
-                        class="StyledProps--font StyledProps--main changeSoureName"
-                      >
-                        <span
-                          class="bp3-popover-wrapper"
-                        >
-                          <span
-                            class="bp3-popover-target Text--targetClass"
-                          >
-                            <p
-                              class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                              tabindex="0"
-                            >
-                              Kubernetes Deployment event
-                            </p>
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 25%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        service12
-                      </p>
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
-                      >
-                        env11
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        Infrastructure
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main changeSoureName"
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
                       >
                         <p
-                          class="StyledProps--font StyledProps--main sourceName StyledProps--font-size-small"
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
                         >
-                          K8sCluster
+                          Oct 19, 2021
                         </p>
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
+                        >
+                          01:35 PM
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 30%;"
+                      >
+                        <div
+                          class="StyledProps--font StyledProps--main changeSoureName"
+                        >
+                          <span
+                            class="bp3-popover-wrapper"
+                          >
+                            <span
+                              class="bp3-popover-target Text--targetClass"
+                            >
+                              <p
+                                class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                                tabindex="0"
+                              >
+                                Kubernetes Deployment event
+                              </p>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 25%;"
+                      >
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                        >
+                          service12
+                        </p>
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
+                        >
+                          env11
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
+                      >
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                        >
+                          Infrastructure
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
+                      >
+                        <div
+                          class="StyledProps--font StyledProps--main changeSoureName"
+                        >
+                          <p
+                            class="StyledProps--font StyledProps--main sourceName StyledProps--font-size-small"
+                          >
+                            K8sCluster
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -704,85 +708,89 @@ exports[`Unit tests for CVChanges Verify if all the fields are rendered correctl
                     role="row"
                   >
                     <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        Oct 19, 2021
-                      </p>
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
-                      >
-                        01:25 PM
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 30%;"
+                      class="TableV2--cells"
                     >
                       <div
-                        class="StyledProps--font StyledProps--main changeSoureName"
-                      >
-                        <span
-                          class="bp3-popover-wrapper"
-                        >
-                          <span
-                            class="bp3-popover-target Text--targetClass"
-                          >
-                            <p
-                              class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                              tabindex="0"
-                            >
-                              Deployment of manager in prod HarnessCD
-                            </p>
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 25%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        AppDService1012
-                      </p>
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
-                      >
-                        AppDTestEnv1-1
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        Deployment
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main changeSoureName"
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
                       >
                         <p
-                          class="StyledProps--font StyledProps--main sourceName StyledProps--font-size-small"
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
                         >
-                          HarnessCD
+                          Oct 19, 2021
                         </p>
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
+                        >
+                          01:25 PM
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 30%;"
+                      >
+                        <div
+                          class="StyledProps--font StyledProps--main changeSoureName"
+                        >
+                          <span
+                            class="bp3-popover-wrapper"
+                          >
+                            <span
+                              class="bp3-popover-target Text--targetClass"
+                            >
+                              <p
+                                class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                                tabindex="0"
+                              >
+                                Deployment of manager in prod HarnessCD
+                              </p>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 25%;"
+                      >
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                        >
+                          AppDService1012
+                        </p>
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
+                        >
+                          AppDTestEnv1-1
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
+                      >
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                        >
+                          Deployment
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
+                      >
+                        <div
+                          class="StyledProps--font StyledProps--main changeSoureName"
+                        >
+                          <p
+                            class="StyledProps--font StyledProps--main sourceName StyledProps--font-size-small"
+                          >
+                            HarnessCD
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -791,85 +799,89 @@ exports[`Unit tests for CVChanges Verify if all the fields are rendered correctl
                     role="row"
                   >
                     <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        Oct 19, 2021
-                      </p>
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
-                      >
-                        01:05 PM
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 30%;"
+                      class="TableV2--cells"
                     >
                       <div
-                        class="StyledProps--font StyledProps--main changeSoureName"
-                      >
-                        <span
-                          class="bp3-popover-wrapper"
-                        >
-                          <span
-                            class="bp3-popover-target Text--targetClass"
-                          >
-                            <p
-                              class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                              tabindex="0"
-                            >
-                              Deployment of manager in prod HarnessCDNextGen
-                            </p>
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 25%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        service132
-                      </p>
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
-                      >
-                        environ
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        Deployment
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main changeSoureName"
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
                       >
                         <p
-                          class="StyledProps--font StyledProps--main sourceName StyledProps--font-size-small"
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
                         >
-                          HarnessCDNextGen
+                          Oct 19, 2021
                         </p>
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
+                        >
+                          01:05 PM
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 30%;"
+                      >
+                        <div
+                          class="StyledProps--font StyledProps--main changeSoureName"
+                        >
+                          <span
+                            class="bp3-popover-wrapper"
+                          >
+                            <span
+                              class="bp3-popover-target Text--targetClass"
+                            >
+                              <p
+                                class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                                tabindex="0"
+                              >
+                                Deployment of manager in prod HarnessCDNextGen
+                              </p>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 25%;"
+                      >
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                        >
+                          service132
+                        </p>
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
+                        >
+                          environ
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
+                      >
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                        >
+                          Deployment
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
+                      >
+                        <div
+                          class="StyledProps--font StyledProps--main changeSoureName"
+                        >
+                          <p
+                            class="StyledProps--font StyledProps--main sourceName StyledProps--font-size-small"
+                          >
+                            HarnessCDNextGen
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -878,85 +890,89 @@ exports[`Unit tests for CVChanges Verify if all the fields are rendered correctl
                     role="row"
                   >
                     <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        Oct 19, 2021
-                      </p>
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
-                      >
-                        12:54 PM
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 30%;"
+                      class="TableV2--cells"
                     >
                       <div
-                        class="StyledProps--font StyledProps--main changeSoureName"
-                      >
-                        <span
-                          class="bp3-popover-wrapper"
-                        >
-                          <span
-                            class="bp3-popover-target Text--targetClass"
-                          >
-                            <p
-                              class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                              tabindex="0"
-                            >
-                              Demo Test PD
-                            </p>
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 25%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        AppDService1012
-                      </p>
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
-                      >
-                        environ1
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <p
-                        class="StyledProps--font StyledProps--main StyledProps--font-size-small"
-                      >
-                        Incident
-                      </p>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 15%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main changeSoureName"
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
                       >
                         <p
-                          class="StyledProps--font StyledProps--main sourceName StyledProps--font-size-small"
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
                         >
-                          PagerDuty
+                          Oct 19, 2021
                         </p>
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
+                        >
+                          12:54 PM
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 30%;"
+                      >
+                        <div
+                          class="StyledProps--font StyledProps--main changeSoureName"
+                        >
+                          <span
+                            class="bp3-popover-wrapper"
+                          >
+                            <span
+                              class="bp3-popover-target Text--targetClass"
+                            >
+                              <p
+                                class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                                tabindex="0"
+                              >
+                                Demo Test PD
+                              </p>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 25%;"
+                      >
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                        >
+                          AppDService1012
+                        </p>
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall"
+                        >
+                          environ1
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
+                      >
+                        <p
+                          class="StyledProps--font StyledProps--main StyledProps--font-size-small"
+                        >
+                          Incident
+                        </p>
+                      </div>
+                      <div
+                        class="TableV2--cell"
+                        role="cell"
+                        style="width: 15%;"
+                      >
+                        <div
+                          class="StyledProps--font StyledProps--main changeSoureName"
+                        >
+                          <p
+                            class="StyledProps--font StyledProps--main sourceName StyledProps--font-size-small"
+                          >
+                            PagerDuty
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>

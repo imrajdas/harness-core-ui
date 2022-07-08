@@ -45,38 +45,42 @@ exports[`Service Resource Modal Body test initializes ok  1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 150px;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
-              data-testid="manager"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
               >
-                manager
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              />
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 150px;"
+            >
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+                data-testid="manager"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  manager
+                </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -85,38 +89,42 @@ exports[`Service Resource Modal Body test initializes ok  1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 150px;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
-              data-testid="ManagerServiceLatest"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
               >
-                ManagerService
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              />
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 150px;"
+            >
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+                data-testid="ManagerServiceLatest"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  ManagerService
+                </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                />
+              </div>
             </div>
           </div>
         </div>

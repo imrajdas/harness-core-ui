@@ -8,6 +8,8 @@
 // this is an auto-generated file, do not update this manually
 declare const styles: {
   readonly dialog: string
-  readonly footer: string
+  readonly leftView: string
+  readonly success: string
+  readonly view: string
 }
 export default styles

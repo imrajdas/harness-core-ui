@@ -91,7 +91,7 @@ const DownloadCLI: React.FC = () => {
         {getString('ce.co.sshSetup')}
         <span>
           <a
-            href=" https://ngdocs.harness.io/article/7025n9ml7z-create-autostopping-rules-aws#setup_access_using_ssh_rdp"
+            href=" https://docs.harness.io/article/7025n9ml7z-create-autostopping-rules-aws#setup_access_using_ssh_rdp"
             target="_blank"
           >
             Read More

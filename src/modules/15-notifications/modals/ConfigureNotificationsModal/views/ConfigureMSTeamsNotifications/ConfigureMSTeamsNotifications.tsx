@@ -183,7 +183,7 @@ const ConfigureMSTeamsNotifications: React.FC<ConfigureMSTeamsNotificationsProps
         <Text>{getString('notifications.helpMSTeams')}</Text>
 
         <a
-          href="https://ngdocs.harness.io/article/xcb28vgn82-send-notifications-to-microsoft-teams"
+          href="https://docs.harness.io/article/xcb28vgn82-send-notifications-to-microsoft-teams"
           rel="noreferrer"
           target="_blank"
         >

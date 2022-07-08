@@ -7,7 +7,7 @@
 
 import { useLicenseStore } from 'framework/LicenseStore/LicenseStoreContext'
 import { LICENSE_STATE_VALUES } from 'framework/LicenseStore/licenseStoreUtil'
-import { isCommunityPlan, isOnPrem } from '@common/utils/utils'
+import { useGetCommunity, isOnPrem } from '@common/utils/utils'
 
 export enum View {
   Dashboard,
@@ -16,7 +16,8 @@ export enum View {
 
 const useLandingPageDefaultView = (): View => {
   const { CD_LICENSE_STATE } = useLicenseStore()
-  if (CD_LICENSE_STATE !== LICENSE_STATE_VALUES.ACTIVE || isCommunityPlan() || isOnPrem()) {
+  const isCommunity = useGetCommunity()
+  if (CD_LICENSE_STATE !== LICENSE_STATE_VALUES.ACTIVE || isCommunity || isOnPrem()) {
     return View.Welcome
   }
   return View.Dashboard

@@ -5,4 +5,4 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-export const cvLearnMoreHref = 'https://ngdocs.harness.io/article/3xhqq9xllp-verify-deployments-with-the-verify-step'
+export const cvLearnMoreHref = 'https://docs.harness.io/article/3xhqq9xllp-verify-deployments-with-the-verify-step'

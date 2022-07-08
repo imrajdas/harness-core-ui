@@ -158,7 +158,7 @@ const Stepk8ReviewScript: React.FC<StepProps<K8sDelegateWizardData>> = props => 
               {getString('delegates.reviewScript.docLinkBefore')}
               <a
                 rel="noreferrer"
-                href="https://ngdocs.harness.io/article/5ww21ewdt8-configure-delegate-proxy-settings"
+                href="https://docs.harness.io/article/5ww21ewdt8-configure-delegate-proxy-settings"
                 target="_blank"
               >
                 {getString('delegates.reviewScript.docLink')}

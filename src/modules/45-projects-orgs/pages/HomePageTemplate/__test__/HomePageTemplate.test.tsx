@@ -21,7 +21,7 @@ const props = {
   bgImageUrl: '',
   subTitle: 'subTitle',
   documentText: 'documentText',
-  documentURL: 'https://ngdocs.harness.io/',
+  documentURL: 'https://docs.harness.io/',
   projectCreateSuccessHandler: jest.fn()
 }
 describe('HomePageTemplate', () => {

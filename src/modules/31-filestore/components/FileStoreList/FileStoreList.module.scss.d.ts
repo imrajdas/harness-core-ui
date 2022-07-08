@@ -7,6 +7,7 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
+  readonly expressiondWrapper: string
   readonly group: string
   readonly label: string
   readonly selectFieldContainer: string

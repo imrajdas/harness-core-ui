@@ -11,7 +11,6 @@ import {
   ButtonVariation,
   Formik,
   FormInput,
-  getMultiTypeFromValue,
   Layout,
   MultiTypeInputType,
   StepProps,
@@ -20,7 +19,7 @@ import {
 import { FontVariation } from '@harness/design-system'
 import { FieldArray, Form } from 'formik'
 import * as Yup from 'yup'
-import { get } from 'lodash-es'
+import { defaultTo, get } from 'lodash-es'
 import { v4 as nameSpace, v5 as uuid } from 'uuid'
 import { useStrings } from 'framework/strings'
 import type { ConnectorConfigDTO, HarnessStoreFile, ManifestConfig, ManifestConfigWrapper } from 'services/cd-ng'
@@ -63,12 +62,15 @@ function HarnessFileStore({
 
   const getInitialValues = (): HarnessFileStoreDataType => {
     const specValues = get(initialValues, 'spec.store.spec', null)
-
+    const valuesPaths = get(initialValues, 'spec.valuesPaths')
     if (specValues) {
       return {
         ...specValues,
         identifier: initialValues.identifier,
-        valuesPaths: initialValues?.spec?.valuesPaths?.map((path: string) => ({ path, uuid: uuid(path, nameSpace()) }))
+        valuesPaths:
+          typeof valuesPaths === 'string'
+            ? valuesPaths
+            : defaultTo(valuesPaths, []).map((path: string) => ({ uuid: uuid(path, nameSpace()) }))
       }
     }
     return {
@@ -80,29 +82,33 @@ function HarnessFileStore({
   }
 
   const submitFormData = (formData: HarnessFileStoreFormData & { store?: string; connectorRef?: string }): void => {
-    const manifestObj: ManifestConfigWrapper = {
-      manifest: {
-        identifier: formData.identifier,
-        type: selectedManifest as ManifestTypes,
-        spec: {
-          store: {
-            type: ManifestStoreMap.Harness,
-            spec: {
-              files:
-                typeof formData?.files === 'string'
-                  ? formData?.files
-                  : formData?.files?.map((file: HarnessStoreFile) => `${file.scope}:${file.path}`)
-            }
-          },
-          valuesPaths:
-            typeof formData?.valuesPaths === 'string'
-              ? formData?.valuesPaths
-              : formData?.valuesPaths?.map((valueObj: HarnessStoreFile) => `${valueObj.scope}:${valueObj.path}`)
+    /* istanbul ignore else */
+    if (formData) {
+      const manifestObj: ManifestConfigWrapper = {
+        manifest: {
+          identifier: formData.identifier,
+          type: selectedManifest as ManifestTypes,
+          spec: {
+            store: {
+              type: ManifestStoreMap.Harness,
+              spec: {
+                files:
+                  typeof formData.files === 'string'
+                    ? formData.files
+                    : defaultTo(formData.files, []).map((file: HarnessStoreFile) => `${file.scope}:${file.path}`)
+              }
+            },
+            valuesPaths:
+              typeof formData.valuesPaths === 'string'
+                ? formData.valuesPaths
+                : defaultTo(formData.valuesPaths, []).map(
+                    (valueObj: HarnessStoreFile) => `${valueObj.scope}:${valueObj.path}`
+                  )
+          }
         }
       }
+      handleSubmit(manifestObj)
     }
-
-    handleSubmit(manifestObj)
   }
 
   return (
@@ -115,18 +121,7 @@ function HarnessFileStore({
         initialValues={getInitialValues()}
         formName="manifestDetails"
         validationSchema={Yup.object().shape({
-          ...ManifestIdentifierValidation(manifestIdsList, initialValues?.identifier, getString('pipeline.uniqueName')),
-          files: Yup.array().min(1).required(getString('pipeline.manifestType.pathRequired')),
-          valuesPaths: Yup.lazy((value): Yup.Schema<unknown> => {
-            if (getMultiTypeFromValue(value as any) === MultiTypeInputType.FIXED) {
-              return Yup.array().of(
-                Yup.object().shape({
-                  path: Yup.string().min(1).required(getString('pipeline.manifestType.pathRequired'))
-                })
-              )
-            }
-            return Yup.string().required(getString('pipeline.manifestType.pathRequired'))
-          })
+          ...ManifestIdentifierValidation(manifestIdsList, initialValues?.identifier, getString('pipeline.uniqueName'))
         })}
         onSubmit={formData => {
           submitFormData({
@@ -161,10 +156,16 @@ function HarnessFileStore({
                         name="files"
                         render={({ push, remove }) => (
                           <Layout.Vertical>
-                            {formik.values?.files?.map((file: string, index: number) => (
+                            {defaultTo(get(formik, 'values.files'), []).map((file: string, index: number) => (
                               <Layout.Horizontal key={file} margin={{ top: 'medium' }}>
                                 <FileStoreSelectField name={`files[${index}]`} />
-                                {index !== 0 && <Button minimal icon="main-trash" onClick={() => remove(index)} />}
+                                {index !== 0 && (
+                                  /* istanbul ignore next */ <Button
+                                    minimal
+                                    icon="main-trash"
+                                    onClick={() => remove(index)}
+                                  />
+                                )}
                               </Layout.Horizontal>
                             ))}
                             <span>
@@ -194,10 +195,17 @@ function HarnessFileStore({
                           name="valuesPaths"
                           render={({ push, remove }) => (
                             <Layout.Vertical>
-                              {formik.values?.valuesPaths?.map((paths: string, index: number) => (
+                              {defaultTo(get(formik, 'values.valuesPaths'), []).map((paths: string, index: number) => (
                                 <Layout.Horizontal key={paths} margin={{ top: 'medium' }}>
                                   <FileStoreSelectField name={`valuesPaths[${index}]`} />
-                                  {index !== 0 && <Button minimal icon="main-trash" onClick={() => remove(index)} />}
+
+                                  {index !== 0 && (
+                                    /* istanbul ignore next */ <Button
+                                      minimal
+                                      icon="main-trash"
+                                      onClick={() => remove(index)}
+                                    />
+                                  )}
                                 </Layout.Horizontal>
                               ))}
                               <span>

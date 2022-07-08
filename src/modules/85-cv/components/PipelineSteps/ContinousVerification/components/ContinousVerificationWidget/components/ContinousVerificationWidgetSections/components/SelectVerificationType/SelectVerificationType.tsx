@@ -6,24 +6,35 @@
  */
 
 import React from 'react'
-import { FormInput, SelectOption } from '@wings-software/uicore'
+import { FormInput, MultiTypeInputType, SelectOption } from '@wings-software/uicore'
 import cx from 'classnames'
+import type { FormikProps } from 'formik'
 import { useStrings } from 'framework/strings'
 import Card from '@cv/components/Card/Card'
+import type { ContinousVerificationData } from '@cv/components/PipelineSteps/ContinousVerification/types'
 import { continousVerificationTypes } from './constants'
+import ConfigureFields from '../ConfigureFields/ConfigureFields'
 import stepCss from '@pipeline/components/PipelineSteps/Steps/Steps.module.scss'
+interface SelectVerificationTypeProps {
+  formik: FormikProps<ContinousVerificationData>
+  allowableTypes: MultiTypeInputType[]
+}
 
-export default function SelectVerificationType(): React.ReactElement {
+export default function SelectVerificationType(props: SelectVerificationTypeProps): React.ReactElement {
+  const { formik, allowableTypes } = props
   const { getString } = useStrings()
   return (
     <Card>
-      <div className={cx(stepCss.formGroup)}>
-        <FormInput.Select
-          name="spec.type"
-          label={getString('connectors.cdng.continousVerificationType')}
-          items={continousVerificationTypes as SelectOption[]}
-        />
-      </div>
+      <>
+        <div className={cx(stepCss.formGroup)}>
+          <FormInput.Select
+            name="spec.type"
+            label={getString('connectors.cdng.continousVerificationType')}
+            items={continousVerificationTypes as SelectOption[]}
+          />
+        </div>
+        {formik?.values?.spec?.type ? <ConfigureFields formik={formik} allowableTypes={allowableTypes} /> : null}
+      </>
     </Card>
   )
 }

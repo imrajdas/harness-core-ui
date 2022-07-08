@@ -5,37 +5,67 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React from 'react'
-import { Layout, Button, ButtonVariation } from '@harness/uicore'
+import React, { useState } from 'react'
+import { Layout, Button, ButtonVariation, useToaster } from '@harness/uicore'
 import { useStrings } from 'framework/strings'
+import { usePayInvoice } from 'services/cd-ng/index'
 import { SubscribeViews } from '@common/constants/SubscriptionTypes'
-import type { TIME_TYPE } from '@auth-settings/pages/subscriptions/plans/planUtils'
-import css from '@auth-settings/modals/Subscription/useSubscriptionModal.module.scss'
+import { ContainerSpinner } from '@common/components/ContainerSpinner/ContainerSpinner'
 
 interface FooterProps {
-  time?: TIME_TYPE
   setView: (view: SubscribeViews) => void
+  invoiceId?: string
 }
 
-export const Footer = ({ setView }: FooterProps): React.ReactElement => {
+export const Footer: React.FC<FooterProps> = ({ setView, invoiceId = '' }) => {
   const { getString } = useStrings()
+  const { showError } = useToaster()
+  const [loading, setLoading] = useState<boolean>(false)
 
-  function handleNext(): void {
-    setView(SubscribeViews.SUCCESS)
-  }
+  const { mutate: payInvoice } = usePayInvoice({
+    queryParams: {
+      invoiceId
+    },
+    requestOptions: {
+      headers: {
+        'content-type': 'application/json'
+      }
+    }
+  })
 
   function handleBack(): void {
     setView(SubscribeViews.BILLINGINFO)
   }
 
+  async function handleNext(): Promise<void> {
+    setLoading(true)
+    try {
+      await payInvoice()
+      setView(SubscribeViews.SUCCESS)
+    } catch (err) {
+      showError(err?.message)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (loading) {
+    return <ContainerSpinner />
+  }
+
   return (
-    <Layout.Horizontal className={css.footer}>
+    <Layout.Horizontal>
       <Layout.Horizontal spacing={'large'}>
         <Button variation={ButtonVariation.SECONDARY} onClick={handleBack} icon={'chevron-left'}>
           {getString('back')}
         </Button>
-        <Button variation={ButtonVariation.PRIMARY} onClick={handleNext}>
-          {getString('authSettings.billing.subscribeNPay')}
+        <Button
+          variation={ButtonVariation.PRIMARY}
+          onClick={() => {
+            handleNext()
+          }}
+        >
+          {getString('authSettings.finalReview.subscribeNPay')}
         </Button>
       </Layout.Horizontal>
     </Layout.Horizontal>

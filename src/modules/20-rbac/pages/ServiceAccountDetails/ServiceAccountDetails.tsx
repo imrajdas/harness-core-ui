@@ -27,7 +27,7 @@ import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
 import { PrincipalType } from '@rbac/utils/utils'
 import useRBACError from '@rbac/utils/useRBACError/useRBACError'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import css from './ServiceAccountDetails.module.scss'
 
 const ServiceAccountDetails: React.FC = () => {
@@ -35,7 +35,7 @@ const ServiceAccountDetails: React.FC = () => {
   const { accountId, orgIdentifier, projectIdentifier, module, serviceAccountIdentifier } = useParams<
     ProjectPathProps & ServiceAccountPathProps & ModulePathParams
   >()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
 
   const { data, loading, error, refetch } = useListAggregatedServiceAccounts({
     queryParams: {

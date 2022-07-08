@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BillingContactCard render 1`] = `
+<div>
+  <div
+    class="bp3-card bp3-elevation-0 Card--card"
+  >
+    <div
+      class="Layout--vertical StyledProps--main"
+    >
+      <div
+        class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-start StyledProps--flex-alignItems-baseline StyledProps--padding-bottom-large"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--font-variation-h5"
+        >
+          authSettings.billingInfo.billingContact
+        </p>
+        <button
+          class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--variation Button--variation-link"
+          type="button"
+        >
+          <span
+            class="bp3-button-text"
+          >
+            edit
+          </span>
+        </button>
+      </div>
+      <div
+        class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+      >
+        <p
+          class="StyledProps--font StyledProps--main"
+        >
+          Jane Doe
+        </p>
+        <p
+          class="StyledProps--font StyledProps--main"
+        >
+          jane.doe@harness.io
+        </p>
+        <p
+          class="StyledProps--font StyledProps--main"
+        >
+          billing address, dallas, tx, 12345, us
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

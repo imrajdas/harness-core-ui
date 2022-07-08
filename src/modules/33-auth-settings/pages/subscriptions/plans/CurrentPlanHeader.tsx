@@ -12,13 +12,13 @@ import { Color } from '@harness/design-system'
 import cx from 'classnames'
 import { useStrings } from 'framework/strings'
 import type { ModuleName } from 'framework/types/ModuleName'
-import type { TIME_TYPE } from './planUtils'
+import type { TimeType } from '@common/constants/SubscriptionTypes'
 import css from './Plan.module.scss'
 
 interface CurrentPlanHeaderProps {
   isTrial?: boolean
   isPaid?: boolean
-  timeType: TIME_TYPE
+  timeType: TimeType
   module: ModuleName
   isCurrentPlan?: boolean
 }

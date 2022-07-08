@@ -8,13 +8,13 @@
 import React from 'react'
 
 import { Text } from '@wings-software/uicore'
-import { isCommunityPlan } from '@common/utils/utils'
+import { useGetCommunity } from '@common/utils/utils'
 import { useStrings } from 'framework/strings'
 import css from './DockerPrerequisites.module.scss'
 
 const DockerPrerequisites = () => {
   const { getString } = useStrings()
-  const isCommunity = isCommunityPlan()
+  const isCommunity = useGetCommunity()
   return (
     <div>
       <Text className={css.prereqTitle}>{getString('delegates.delegateCreation.dockerPrerequisites.title')}</Text>

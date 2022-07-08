@@ -212,6 +212,11 @@ monitoringSources:
   totalMappedQueries: '{{total}} {{query}} mapped'
   appD:
     appdPathTitle: AppDynamics Path
+    applicationName: Application Name
+    tierName: Tier Name
+    completeMetricPath: Complete Metric Path
+    serviceInstanceMetricPath: Service Instance Metric Path
+    serviceInstanceFieldName: Service Instance Field Name
     appdChartTitle: Chart & Record
     appdPathDetail: Select base path for AppD Metric
     appdMetricDetail: Select metric path for AppD Metric
@@ -520,7 +525,7 @@ notifications:
   newNotificationRule: New Notification Rule
   notificationName: Notification Name
   deleteNotification: Delete notfication {{ name }}
-  configureAlertConditions: Configure the alert conditions for which you want to be notified.
+  configureAlertConditions: Configure the conditions for which you want to be notified
   serviceHealth: Changes and Service Health
   serviceHealthDescription: Focuses on changes to a service's code, configuration, behaviour, deployment and infrastructure.
   sloDescription: Focuses on SLO target and error budget changes on a given SLO.

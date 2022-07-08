@@ -246,6 +246,12 @@ featureFlags:
     noData: No metrics found in this time range.
     totalEvaluations: Total Evaluations
   flagPipeline:
+    deleteModalTitle: Remove this pipeline from this flag?
+    deleteModalText:
+      If you remove the pipeline from the flag, the automated steps in this pipeline won’t be triggered, for example, automated approval steps.
+      The pipeline will be saved and you can add it again later.
+
+      Are you sure you want to separate the pipeline?
     title: Flag Pipeline
     noDataMessage: Automate processes with Flag Pipelines
     noDataDescription: Flag Pipelines help to automate routine processes like approval requests, notifications, Jira ticket creation or update
@@ -255,9 +261,12 @@ featureFlags:
       Flag pipelines allow to automate routine actions and execute automatically after any change. Flag pipelines
       have no CI or CD steps, instead they have only one flag change step. Flag, target and environment are all set
       to runtime input
-    drawerEnvText: 'Set all flags in {{ env }}'
     drawerButtonText: Set as Flag Pipeline
+    envText: 'Set all Flags in {{ env }}'
+    saveSuccess: Flag Pipeline updated
     noAvailablePipelines: No available pipelines found
+    noExecutionMessage: There are no pipeline executions yet
+    noExecutionDescription: Once a pipeline has been triggered, the execution details will appear here
 featureFlagDetail:
   variationCount: '{{ count }} variations'
 flagFilters:
@@ -273,7 +282,7 @@ targets:
   targetSegment: Target Group
   lastActivity: '{{ $.lastActivity }}'
   createdDate: Created Date
-  create: + New Target
+  create: New Target
   list: Add a target
   upload: Upload a list of targets (CSV files only)
   enterName: 'Enter target name'
@@ -282,7 +291,7 @@ targets:
   addTargets: + Add Target(s)
   noTargetFound: 'No target found in this environment. Click the button above to create target(s).'
   noSegmentFound: 'No target group found in this environment. Click the button above to create a target group.'
-  uploadHeadline: Please upload a CSV file according to our <a href="https://ngdocs.harness.io/article/dbk9uoaid3-add-targets#step_upload_a_list_of_targets" target="_blank" rel="noreferrer">template</a>.
+  uploadHeadline: Please upload a CSV file according to our <a href="https://docs.harness.io/article/dbk9uoaid3-add-targets#step_upload_a_list_of_targets" target="_blank" rel="noreferrer">template</a>.
   uploadHelp: 'Target CSV entry format: Name,Identifier'
   uploadYourFile: Click to upload your file
   uploadStats: <strong>Targets</strong> ({{ count }})
@@ -300,7 +309,7 @@ targetDetail:
   flagSetting: Flag Settings
   attribute: ATTRIBUTE
   attributes: Attributes ({{ counter }})
-  learnMore: To learn how to mark specific target attributes or information as private, read <a href="https://ngdocs.harness.io/category/vjolt35atg-feature-flags" target="_blank" rel="noreferrer">documentation</a>.
+  learnMore: To learn how to mark specific target attributes or information as private, read <a href="https://docs.harness.io/category/vjolt35atg-feature-flags" target="_blank" rel="noreferrer">documentation</a>.
   manuallyAdded: MANUALLY ADDED
   addToSegment: Add to {{count}} Target Groups
   autoAdded: AUTOMATICALLY ADDED THROUGH CONDITIONS
@@ -337,7 +346,7 @@ selectSegmentModal:
   flagsUsingThisSegment: FLAGS USING THIS TARGET GROUP
   empty: No Target Group found
 segments:
-  create: + New Target Group
+  create: New Target Group
   targetDefinition: Target Definition
   usingSegment: Flags using this target group
   usingSegmentWithCount: Flags using this target group ({{ count }})
@@ -373,7 +382,7 @@ environments:
     message: 'Secrets are only visible right after creation and redacted once you leave the page. Please make sure to copy and store your secret somewhere safe'
     title: 'SDK Keys'
     emptyName: 'SDK Key name is required'
-    addKey: '+ New SDK Key'
+    addKey: 'New SDK Key'
     duplicateKey: 'A SDK key with this name already exists. Try another name'
     clientType: '{{ $.cf.testTheFlag.sdkClient }}'
     clientDescription: 'A client id will be generated as your client-side SDK key.'
@@ -385,7 +394,7 @@ environments:
     keyType: 'Key Type'
     applicableLanguages: 'Applicable Languages:'
     noKeysFoundTitle: There are no SDK keys for this environment
-    noKeysFoundMessage: Create an <a href="https://ngdocs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_3_create_an_sdk_key" target="_blank" rel="noreferrer"> SDK key</a> for this environment so that your application can connect to our FF client. We support SDK keys for multiple programming languages.
+    noKeysFoundMessage: Create an <a href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_3_create_an_sdk_key" target="_blank" rel="noreferrer"> SDK key</a> for this environment so that your application can connect to our FF client. We support SDK keys for multiple programming languages.
     redactionWarning: Your secret will be redacted once you leave the page. Please make sure to copy and store your secret.
     lastUsed: 'Last Used'
 auditLogs:

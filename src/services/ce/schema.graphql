@@ -402,6 +402,7 @@ type QLCEView {
   createdBy: String
   dataSources: [ViewFieldIdentifier]
   folderId: String
+  folderName: String
   groupBy: QLCEViewField
   id: String
   lastUpdatedAt: Long

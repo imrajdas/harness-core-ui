@@ -58,7 +58,7 @@ describe('Custom remote tests', () => {
   test('initial rendering', () => {
     const { container } = render(
       <TestWrapper>
-        <CustomRemoteManifest {...props} initialValues={{} as any} />
+        <CustomRemoteManifest {...props} initialValues={initialValues} />
       </TestWrapper>
     )
     expect(container).toMatchSnapshot()

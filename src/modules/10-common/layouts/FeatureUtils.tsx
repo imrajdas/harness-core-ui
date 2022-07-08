@@ -15,7 +15,7 @@ import routes from '@common/RouteDefinitions'
 
 import type { AccountPathProps, Module } from '@common/interfaces/RouteInterfaces'
 import { useStrings } from 'framework/strings'
-import { SUBSCRIPTION_TAB_NAMES } from '@common/constants/SubscriptionTypes'
+import { SubscriptionTabNames } from '@common/constants/SubscriptionTypes'
 import css from './layouts.module.scss'
 
 function goToPage(e: React.MouseEvent<Element, MouseEvent>, pushToPage: () => void): void {
@@ -97,7 +97,7 @@ export const ManageSubscriptionBtn = ({
       size={size || ButtonSize.SMALL}
       onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
         goToPage(e, () =>
-          history.push(routes.toSubscriptions({ accountId, moduleCard: module, tab: SUBSCRIPTION_TAB_NAMES.OVERVIEW }))
+          history.push(routes.toSubscriptions({ accountId, moduleCard: module, tab: SubscriptionTabNames.OVERVIEW }))
         )
       }
       width={'fit-content'}
@@ -126,7 +126,7 @@ export const ExplorePlansBtn = ({
       size={size || ButtonSize.SMALL}
       onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
         goToPage(e, () =>
-          history.push(routes.toSubscriptions({ accountId, moduleCard: module, tab: SUBSCRIPTION_TAB_NAMES.PLANS }))
+          history.push(routes.toSubscriptions({ accountId, moduleCard: module, tab: SubscriptionTabNames.PLANS }))
         )
       }
       width={'fit-content'}
@@ -156,7 +156,7 @@ export const ViewUsageLink = ({
       size={size || ButtonSize.SMALL}
       onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
         goToPage(e, () =>
-          history.push(routes.toSubscriptions({ accountId, moduleCard: module, tab: SUBSCRIPTION_TAB_NAMES.OVERVIEW }))
+          history.push(routes.toSubscriptions({ accountId, moduleCard: module, tab: SubscriptionTabNames.OVERVIEW }))
         )
       }
       className={cx(css.btn, className)}

@@ -103,7 +103,7 @@ describe('CreateTargetModal', () => {
     // add row
     expect(getAllByPlaceholderText(modal, 'cf.targets.enterName').length).toBe(1)
     await act(async () => {
-      fireEvent.click(document.querySelector('.bp3-icon-plus') as HTMLElement)
+      fireEvent.click(screen.getByRole('button', { name: 'plus' }))
     })
     expect(getAllByPlaceholderText(modal, 'cf.targets.enterName').length).toBe(2)
 
@@ -147,7 +147,7 @@ describe('CreateTargetModal', () => {
     jest.spyOn(usePlanEnforcementMock, 'default').mockReturnValue({ isPlanEnforcementEnabled: true, isFreePlan: true })
 
     renderComponent()
-    const createTargetButton = screen.getByRole('button', { name: 'cf.targets.create' })
+    const createTargetButton = screen.getByRole('button', { name: 'plus cf.targets.create' })
     userEvent.click(createTargetButton)
 
     await waitFor(() => {
@@ -174,7 +174,7 @@ describe('CreateTargetModal', () => {
 
     renderComponent()
 
-    const createTargetButton = screen.getByRole('button', { name: 'cf.targets.create' })
+    const createTargetButton = screen.getByRole('button', { name: 'plus cf.targets.create' })
     fireEvent.mouseOver(createTargetButton)
     await waitFor(() => {
       expect(screen.getByText('cf.planEnforcement.upgradeRequiredMau')).toBeInTheDocument()

@@ -61,6 +61,16 @@ exports[`STO side nav tests renders project path 1`] = `
         stoSteps.targets.testTargets
       </p>
     </a>
+    <a
+      class="link"
+      href="/account/accountId/sto/orgs/orgIdentifier/projects/projectIdentifier/security-review"
+    >
+      <p
+        class="StyledProps--font StyledProps--main text"
+      >
+        stoSteps.securityReview
+      </p>
+    </a>
     <div>
       <div
         class="border"

@@ -1,0 +1,284 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SliderBar dropdown 1`] = `
+<div>
+  <div
+    class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
+  >
+    <div
+      class="bp3-slider slider"
+    >
+      <div
+        class="bp3-slider-track"
+      >
+        <div
+          class="bp3-slider-progress"
+          style="left: 0.00%; right: 100.00%; top: 0px;"
+        />
+        <div
+          class="bp3-slider-progress bp3-intent-primary"
+          style="left: 0.00%; right: 95.00%; top: 0px;"
+        />
+        <div
+          class="bp3-slider-progress"
+          style="left: 5.00%; right: 0.00%; top: 0px;"
+        />
+      </div>
+      <div
+        class="bp3-slider-axis"
+      >
+        <div
+          class="bp3-slider-label"
+          style="left: 0.00%;"
+        >
+          0
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 10.00%;"
+        >
+          10
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 20.00%;"
+        >
+          20
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 30.00%;"
+        >
+          30
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 40.00%;"
+        >
+          40
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 50.00%;"
+        >
+          50
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 60.00%;"
+        >
+          60
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 70.00%;"
+        >
+          70
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 80.00%;"
+        >
+          80
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 90.00%;"
+        >
+          90
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 100.00%;"
+        >
+          100
+        </div>
+      </div>
+      <span
+        class="bp3-slider-handle"
+        style="left: calc(5.00% - 0px);"
+        tabindex="0"
+      >
+        <span
+          class="bp3-slider-label"
+        >
+          5
+        </span>
+      </span>
+    </div>
+    <div
+      class="bp3-popover-wrapper DropDown--main dropdown"
+    >
+      <div
+        class="bp3-popover-target"
+      >
+        <div
+          class=""
+        >
+          <div
+            class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder StyledProps--flex"
+            data-testid="slider-dropdown"
+            style="width: 70px;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
+            >
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
+                data-testid="dropdown-value"
+                style="--text-line-clamp: 1;"
+              >
+                5m
+              </p>
+            </div>
+            <div
+              class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
+            >
+              <span
+                class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
+                data-icon="main-chevron-down"
+              >
+                <svg
+                  height="8"
+                  viewBox="0 0 14 8"
+                  width="8"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SliderBar input 1`] = `
+<div>
+  <div
+    class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
+  >
+    <div
+      class="bp3-slider slider"
+    >
+      <div
+        class="bp3-slider-track"
+      >
+        <div
+          class="bp3-slider-progress"
+          style="left: 0.00%; right: 100.00%; top: 0px;"
+        />
+        <div
+          class="bp3-slider-progress bp3-intent-primary"
+          style="left: 0.00%; right: 95.00%; top: 0px;"
+        />
+        <div
+          class="bp3-slider-progress"
+          style="left: 5.00%; right: 0.00%; top: 0px;"
+        />
+      </div>
+      <div
+        class="bp3-slider-axis"
+      >
+        <div
+          class="bp3-slider-label"
+          style="left: 0.00%;"
+        >
+          0
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 10.00%;"
+        >
+          10
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 20.00%;"
+        >
+          20
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 30.00%;"
+        >
+          30
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 40.00%;"
+        >
+          40
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 50.00%;"
+        >
+          50
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 60.00%;"
+        >
+          60
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 70.00%;"
+        >
+          70
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 80.00%;"
+        >
+          80
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 90.00%;"
+        >
+          90
+        </div>
+        <div
+          class="bp3-slider-label"
+          style="left: 100.00%;"
+        >
+          100
+        </div>
+      </div>
+      <span
+        class="bp3-slider-handle"
+        style="left: calc(5.00% - 0px);"
+        tabindex="0"
+      >
+        <span
+          class="bp3-slider-label"
+        >
+          5
+        </span>
+      </span>
+    </div>
+    <div
+      class="TextInput--main"
+    >
+      <div
+        class="bp3-input-group textInput"
+      >
+        <input
+          class="bp3-input"
+          data-testid="slider-input"
+          type="text"
+          value="5"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

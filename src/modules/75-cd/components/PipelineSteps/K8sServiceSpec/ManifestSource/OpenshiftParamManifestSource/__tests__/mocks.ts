@@ -37,6 +37,22 @@ export const manifests = [
         }
       }
     }
+  },
+  {
+    manifest: {
+      identifier: 'manifestIdentifier',
+      type: 'OpenShiftParams',
+      spec: {
+        store: {
+          type: 'CustomeRemote',
+          spec: {
+            filePath: 'file-path',
+            extractionScript: 'script',
+            delegateSelectors: ['delegate-selector']
+          }
+        }
+      }
+    }
   }
 ]
 
@@ -69,6 +85,22 @@ export const template = {
             type: 'InheritFromManifest',
             spec: {
               paths: ['./filepath']
+            }
+          }
+        }
+      }
+    },
+    {
+      manifest: {
+        identifier: 'ident',
+        type: 'OpenShiftParams',
+        spec: {
+          store: {
+            type: 'CustomeRemote',
+            spec: {
+              filePath: '<+input>',
+              extractionScript: 'script',
+              delegateSelectors: ['delegate-selector']
             }
           }
         }

@@ -16,7 +16,7 @@ describe('CE GCP Connector', () => {
     })
 
     cy.fixture('api/users/feature-flags/accountId').then(featureFlagsData => {
-      const chooseGcpRequirements = ['CE_AS_GCP_VM_SUPPORT']
+      const chooseGcpRequirements = []
 
       const updatedFeatureFlagsList = featureFlagsData.resource.reduce((acc, currentFlagData) => {
         if (chooseGcpRequirements.includes(currentFlagData.name)) {

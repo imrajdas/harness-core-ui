@@ -152,211 +152,215 @@ exports[`Input Set List tests render Input Set List view 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
-              <span
-                class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-blue500"
-                data-icon="step-group"
-              >
-                <svg
-                  height="30"
-                  id="step-group_svg__Layer_1"
-                  viewBox="0 0 21 20"
-                  width="30"
-                  x="0"
-                  xml:space="preserve"
-                  xmlns="http://www.w3.org/2000/svg"
-                  y="0"
-                >
-                  <style>
-                    .step-group_svg__st0{fill:#fff!important}
-                  </style>
-                  <path
-                    class="step-group_svg__st0"
-                    d="M1 .8h13v13.3H1z"
-                  />
-                  <path
-                    d="M14 1H1v13h13V1zm1-1v15H0V0h15z"
-                  />
-                  <path
-                    class="step-group_svg__st0"
-                    d="M7 6h13v13H7z"
-                  />
-                  <path
-                    class="step-group_svg__st1"
-                    d="M20 6H7v13h13V6zm1-1v15H6V5h15z"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--padding-right-medium"
-                style="flex-shrink: 1;"
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
               >
-                <div>
-                  <div
-                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    data-testid="OverLayInput"
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-blue500"
+                  data-icon="step-group"
+                >
+                  <svg
+                    height="30"
+                    id="step-group_svg__Layer_1"
+                    viewBox="0 0 21 20"
+                    width="30"
+                    x="0"
+                    xml:space="preserve"
+                    xmlns="http://www.w3.org/2000/svg"
+                    y="0"
                   >
+                    <style>
+                      .step-group_svg__st0{fill:#fff!important}
+                    </style>
+                    <path
+                      class="step-group_svg__st0"
+                      d="M1 .8h13v13.3H1z"
+                    />
+                    <path
+                      d="M14 1H1v13h13V1zm1-1v15H0V0h15z"
+                    />
+                    <path
+                      class="step-group_svg__st0"
+                      d="M7 6h13v13H7z"
+                    />
+                    <path
+                      class="step-group_svg__st1"
+                      d="M20 6H7v13h13V6zm1-1v15H6V5h15z"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--padding-right-medium"
+                  style="flex-shrink: 1;"
+                >
+                  <div>
+                    <div
+                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                      data-testid="OverLayInput"
+                    >
+                      <p
+                        class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                        style="--text-line-clamp: 1;"
+                      >
+                        OverLayInput
+                      </p>
+                    </div>
                     <p
-                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
                       style="--text-line-clamp: 1;"
                     >
-                      OverLayInput
+                      idLabel
                     </p>
                   </div>
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
-                    style="--text-line-clamp: 1;"
-                  >
-                    idLabel
-                  </p>
-                </div>
-                <div
-                  class="StyledProps--font StyledProps--main StyledProps--padding-left-large"
-                >
-                  <span
-                    class="bp3-popover-wrapper bp3-dark"
+                  <div
+                    class="StyledProps--font StyledProps--main StyledProps--padding-left-large"
                   >
                     <span
-                      class="bp3-popover-target"
+                      class="bp3-popover-wrapper bp3-dark"
                     >
                       <span
-                        class="bp3-icon StyledProps--main badgeIcon StyledProps--intent-danger"
-                        data-icon="error-outline"
-                        data-testid="invalid-icon"
-                        tabindex="0"
+                        class="bp3-popover-target"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main badgeIcon StyledProps--intent-danger"
+                          data-icon="error-outline"
+                          data-testid="invalid-icon"
+                          tabindex="0"
+                        >
+                          <svg
+                            fill="none"
+                            height="20"
+                            viewBox="0 0 16 16"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7.423 1.631a.667.667 0 011.154 0l6.543 11.333a.667.667 0 01-.577 1H1.457a.667.667 0 01-.577-1L7.423 1.631z"
+                              fill="#fff"
+                            />
+                            <path
+                              clip-rule="evenodd"
+                              d="M7.57 2.253a.5.5 0 01.869 0l5.993 10.5a.5.5 0 01-.434.747H2.011a.5.5 0 01-.434-.748L7.57 2.253zm.407 8.242c.422 0 .763.333.763.744a.754.754 0 01-.763.745.754.754 0 01-.763-.745c0-.411.341-.745.763-.745zm.5-1.498a.5.5 0 11-1 0V5.498a.5.5 0 111 0v3.499z"
+                              fill="currentColor"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 35%;"
+            >
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-right-medium StyledProps--color StyledProps--color-black"
+                style="--text-line-clamp: 2;"
+              >
+                OverLayInput
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
+            >
+              <button
+                class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--intent-success Button--with-current-color Button--withLeftIcon Button--variation Button--variation-primary"
+                type="button"
+              >
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--padding-right-xsmall"
+                  data-icon="run-pipeline"
+                >
+                  <svg
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs>
+                      <path
+                        d="M7.2 10.6V5.4L10.6 8l-3.4 2.6zm4.4-3.3L7.4 4.1c-.3-.2-.6-.2-.9-.1-.3.2-.5.5-.5.8v6.4c0 .3.2.6.5.8.3.1.6.1.9-.1l4.2-3.2c.2-.2.3-.4.3-.7s-.1-.5-.3-.7zm1.1 5.4c-2.2 2.2-5.7 2.6-8.4.8s-3.6-5.1-2.4-8c1.2-2.9 4.3-4.6 7.4-4 3.1.6 5.3 3.3 5.3 6.5.1 1.8-.6 3.4-1.9 4.7zm2.7-7.8C13.8 1.1 9.6-.9 5.7.4 1.7 1.6-.7 5.6.2 9.6s4.5 6.8 8.6 6.4c4.1-.4 7.2-3.8 7.2-8 0-1.1-.2-2.1-.6-3.1z"
+                        id="run-pipeline_svg__a"
+                      />
+                    </defs>
+                    <clippath
+                      id="run-pipeline_svg__b"
+                    >
+                      <use
+                        overflow="visible"
+                        xlink:href="#run-pipeline_svg__a"
+                      />
+                    </clippath>
+                    <path
+                      clip-path="url(#run-pipeline_svg__b)"
+                      d="M-5-5h26v26H-5z"
+                      fill="#54b610"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="bp3-button-text"
+                >
+                  runPipeline
+                </span>
+              </button>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+                style="justify-content: flex-end;"
+              >
+                <span
+                  class="bp3-popover-wrapper bp3-dark"
+                >
+                  <span
+                    class="bp3-popover-target"
+                  >
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      type="button"
+                    >
+                      <span
+                        class="bp3-icon bp3-icon-more StyledProps--main"
+                        icon="more"
                       >
                         <svg
-                          fill="none"
-                          height="20"
+                          data-icon="more"
+                          height="16"
                           viewBox="0 0 16 16"
-                          width="20"
-                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
                         >
+                          <desc>
+                            more
+                          </desc>
                           <path
-                            d="M7.423 1.631a.667.667 0 011.154 0l6.543 11.333a.667.667 0 01-.577 1H1.457a.667.667 0 01-.577-1L7.423 1.631z"
-                            fill="#fff"
-                          />
-                          <path
-                            clip-rule="evenodd"
-                            d="M7.57 2.253a.5.5 0 01.869 0l5.993 10.5a.5.5 0 01-.434.747H2.011a.5.5 0 01-.434-.748L7.57 2.253zm.407 8.242c.422 0 .763.333.763.744a.754.754 0 01-.763.745.754.754 0 01-.763-.745c0-.411.341-.745.763-.745zm.5-1.498a.5.5 0 11-1 0V5.498a.5.5 0 111 0v3.499z"
-                            fill="currentColor"
+                            d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
                             fill-rule="evenodd"
                           />
                         </svg>
                       </span>
-                    </span>
+                    </button>
                   </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 35%;"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-right-medium StyledProps--color StyledProps--color-black"
-              style="--text-line-clamp: 2;"
-            >
-              OverLayInput
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
-          >
-            <button
-              class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--intent-success Button--with-current-color Button--withLeftIcon Button--variation Button--variation-primary"
-              type="button"
-            >
-              <span
-                class="bp3-icon StyledProps--main StyledProps--padding-right-xsmall"
-                data-icon="run-pipeline"
-              >
-                <svg
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                >
-                  <defs>
-                    <path
-                      d="M7.2 10.6V5.4L10.6 8l-3.4 2.6zm4.4-3.3L7.4 4.1c-.3-.2-.6-.2-.9-.1-.3.2-.5.5-.5.8v6.4c0 .3.2.6.5.8.3.1.6.1.9-.1l4.2-3.2c.2-.2.3-.4.3-.7s-.1-.5-.3-.7zm1.1 5.4c-2.2 2.2-5.7 2.6-8.4.8s-3.6-5.1-2.4-8c1.2-2.9 4.3-4.6 7.4-4 3.1.6 5.3 3.3 5.3 6.5.1 1.8-.6 3.4-1.9 4.7zm2.7-7.8C13.8 1.1 9.6-.9 5.7.4 1.7 1.6-.7 5.6.2 9.6s4.5 6.8 8.6 6.4c4.1-.4 7.2-3.8 7.2-8 0-1.1-.2-2.1-.6-3.1z"
-                      id="run-pipeline_svg__a"
-                    />
-                  </defs>
-                  <clippath
-                    id="run-pipeline_svg__b"
-                  >
-                    <use
-                      overflow="visible"
-                      xlink:href="#run-pipeline_svg__a"
-                    />
-                  </clippath>
-                  <path
-                    clip-path="url(#run-pipeline_svg__b)"
-                    d="M-5-5h26v26H-5z"
-                    fill="#54b610"
-                  />
-                </svg>
-              </span>
-              <span
-                class="bp3-button-text"
-              >
-                runPipeline
-              </span>
-            </button>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-              style="justify-content: flex-end;"
-            >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
-              >
-                <span
-                  class="bp3-popover-target"
-                >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    type="button"
-                  >
-                    <span
-                      class="bp3-icon bp3-icon-more StyledProps--main"
-                      icon="more"
-                    >
-                      <svg
-                        data-icon="more"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        width="16"
-                      >
-                        <desc>
-                          more
-                        </desc>
-                        <path
-                          d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                  </button>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -365,199 +369,203 @@ exports[`Input Set List tests render Input Set List view 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
-              <span
-                class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-black"
-                data-icon="yaml-builder-input-sets"
-              >
-                <svg
-                  height="30"
-                  viewBox="0 0 18 16"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g
-                    fill="#22272D"
-                  >
-                    <path
-                      d="M12.946 5.347a.49.49 0 00-.492-.486H4.581a.49.49 0 00-.492.486c0 .269.22.486.492.486h7.873a.49.49 0 00.492-.486zM4.581 8.264c-.272 0-.492.218-.492.486s.22.486.492.486H9.01c.271 0 .492-.218.492-.486s-.22-.486-.492-.486H4.58zm7.92 5.833H3.644a.55.55 0 01-.538-.56V2.018a.55.55 0 01.538-.56h9.748a.55.55 0 01.54.56v5.325c0 .269.22.486.491.486a.49.49 0 00.492-.486V2.02c0-.844-.679-1.533-1.523-1.533H3.643c-.844 0-1.523.69-1.523 1.533v11.517c0 .844.68 1.533 1.523 1.533h8.859a.49.49 0 00.492-.486.49.49 0 00-.492-.486z"
-                    />
-                    <path
-                      d="M15.676 10.418h-1.005V9.413a.524.524 0 10-1.048 0v1.004H12.28a.524.524 0 000 1.049h1.343v1.343a.524.524 0 101.048 0v-1.343h1.005a.524.524 0 000-1.048z"
-                    />
-                  </g>
-                </svg>
-              </span>
               <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--padding-right-medium"
-                style="flex-shrink: 1;"
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
               >
-                <div>
-                  <div
-                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    data-testid="asd"
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-black"
+                  data-icon="yaml-builder-input-sets"
+                >
+                  <svg
+                    height="30"
+                    viewBox="0 0 18 16"
+                    width="30"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
+                    <g
+                      fill="#22272D"
+                    >
+                      <path
+                        d="M12.946 5.347a.49.49 0 00-.492-.486H4.581a.49.49 0 00-.492.486c0 .269.22.486.492.486h7.873a.49.49 0 00.492-.486zM4.581 8.264c-.272 0-.492.218-.492.486s.22.486.492.486H9.01c.271 0 .492-.218.492-.486s-.22-.486-.492-.486H4.58zm7.92 5.833H3.644a.55.55 0 01-.538-.56V2.018a.55.55 0 01.538-.56h9.748a.55.55 0 01.54.56v5.325c0 .269.22.486.491.486a.49.49 0 00.492-.486V2.02c0-.844-.679-1.533-1.523-1.533H3.643c-.844 0-1.523.69-1.523 1.533v11.517c0 .844.68 1.533 1.523 1.533h8.859a.49.49 0 00.492-.486.49.49 0 00-.492-.486z"
+                      />
+                      <path
+                        d="M15.676 10.418h-1.005V9.413a.524.524 0 10-1.048 0v1.004H12.28a.524.524 0 000 1.049h1.343v1.343a.524.524 0 101.048 0v-1.343h1.005a.524.524 0 000-1.048z"
+                      />
+                    </g>
+                  </svg>
+                </span>
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--padding-right-medium"
+                  style="flex-shrink: 1;"
+                >
+                  <div>
+                    <div
+                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                      data-testid="asd"
+                    >
+                      <p
+                        class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                        style="--text-line-clamp: 1;"
+                      >
+                        asd
+                      </p>
+                    </div>
                     <p
-                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
                       style="--text-line-clamp: 1;"
                     >
-                      asd
+                      idLabel
                     </p>
                   </div>
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
-                    style="--text-line-clamp: 1;"
-                  >
-                    idLabel
-                  </p>
-                </div>
-                <div
-                  class="StyledProps--font StyledProps--main StyledProps--padding-left-large"
-                >
-                  <span
-                    class="bp3-popover-wrapper bp3-dark"
+                  <div
+                    class="StyledProps--font StyledProps--main StyledProps--padding-left-large"
                   >
                     <span
-                      class="bp3-popover-target"
+                      class="bp3-popover-wrapper bp3-dark"
                     >
                       <span
-                        class="bp3-icon StyledProps--main badgeIcon StyledProps--intent-danger"
-                        data-icon="error-outline"
-                        data-testid="invalid-icon"
-                        tabindex="0"
+                        class="bp3-popover-target"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main badgeIcon StyledProps--intent-danger"
+                          data-icon="error-outline"
+                          data-testid="invalid-icon"
+                          tabindex="0"
+                        >
+                          <svg
+                            fill="none"
+                            height="20"
+                            viewBox="0 0 16 16"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7.423 1.631a.667.667 0 011.154 0l6.543 11.333a.667.667 0 01-.577 1H1.457a.667.667 0 01-.577-1L7.423 1.631z"
+                              fill="#fff"
+                            />
+                            <path
+                              clip-rule="evenodd"
+                              d="M7.57 2.253a.5.5 0 01.869 0l5.993 10.5a.5.5 0 01-.434.747H2.011a.5.5 0 01-.434-.748L7.57 2.253zm.407 8.242c.422 0 .763.333.763.744a.754.754 0 01-.763.745.754.754 0 01-.763-.745c0-.411.341-.745.763-.745zm.5-1.498a.5.5 0 11-1 0V5.498a.5.5 0 111 0v3.499z"
+                              fill="currentColor"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 35%;"
+            >
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-right-medium StyledProps--color StyledProps--color-black"
+                style="--text-line-clamp: 2;"
+              >
+                asd
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
+            >
+              <button
+                class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--intent-success Button--with-current-color Button--withLeftIcon Button--variation Button--variation-primary"
+                type="button"
+              >
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--padding-right-xsmall"
+                  data-icon="run-pipeline"
+                >
+                  <svg
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs>
+                      <path
+                        d="M7.2 10.6V5.4L10.6 8l-3.4 2.6zm4.4-3.3L7.4 4.1c-.3-.2-.6-.2-.9-.1-.3.2-.5.5-.5.8v6.4c0 .3.2.6.5.8.3.1.6.1.9-.1l4.2-3.2c.2-.2.3-.4.3-.7s-.1-.5-.3-.7zm1.1 5.4c-2.2 2.2-5.7 2.6-8.4.8s-3.6-5.1-2.4-8c1.2-2.9 4.3-4.6 7.4-4 3.1.6 5.3 3.3 5.3 6.5.1 1.8-.6 3.4-1.9 4.7zm2.7-7.8C13.8 1.1 9.6-.9 5.7.4 1.7 1.6-.7 5.6.2 9.6s4.5 6.8 8.6 6.4c4.1-.4 7.2-3.8 7.2-8 0-1.1-.2-2.1-.6-3.1z"
+                        id="run-pipeline_svg__a"
+                      />
+                    </defs>
+                    <clippath
+                      id="run-pipeline_svg__b"
+                    >
+                      <use
+                        overflow="visible"
+                        xlink:href="#run-pipeline_svg__a"
+                      />
+                    </clippath>
+                    <path
+                      clip-path="url(#run-pipeline_svg__b)"
+                      d="M-5-5h26v26H-5z"
+                      fill="#54b610"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="bp3-button-text"
+                >
+                  runPipeline
+                </span>
+              </button>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+                style="justify-content: flex-end;"
+              >
+                <span
+                  class="bp3-popover-wrapper bp3-dark"
+                >
+                  <span
+                    class="bp3-popover-target"
+                  >
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      type="button"
+                    >
+                      <span
+                        class="bp3-icon bp3-icon-more StyledProps--main"
+                        icon="more"
                       >
                         <svg
-                          fill="none"
-                          height="20"
+                          data-icon="more"
+                          height="16"
                           viewBox="0 0 16 16"
-                          width="20"
-                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
                         >
+                          <desc>
+                            more
+                          </desc>
                           <path
-                            d="M7.423 1.631a.667.667 0 011.154 0l6.543 11.333a.667.667 0 01-.577 1H1.457a.667.667 0 01-.577-1L7.423 1.631z"
-                            fill="#fff"
-                          />
-                          <path
-                            clip-rule="evenodd"
-                            d="M7.57 2.253a.5.5 0 01.869 0l5.993 10.5a.5.5 0 01-.434.747H2.011a.5.5 0 01-.434-.748L7.57 2.253zm.407 8.242c.422 0 .763.333.763.744a.754.754 0 01-.763.745.754.754 0 01-.763-.745c0-.411.341-.745.763-.745zm.5-1.498a.5.5 0 11-1 0V5.498a.5.5 0 111 0v3.499z"
-                            fill="currentColor"
+                            d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
                             fill-rule="evenodd"
                           />
                         </svg>
                       </span>
-                    </span>
+                    </button>
                   </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 35%;"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-right-medium StyledProps--color StyledProps--color-black"
-              style="--text-line-clamp: 2;"
-            >
-              asd
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
-          >
-            <button
-              class="bp3-button Button--button StyledProps--font StyledProps--main StyledProps--intent-success Button--with-current-color Button--withLeftIcon Button--variation Button--variation-primary"
-              type="button"
-            >
-              <span
-                class="bp3-icon StyledProps--main StyledProps--padding-right-xsmall"
-                data-icon="run-pipeline"
-              >
-                <svg
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                >
-                  <defs>
-                    <path
-                      d="M7.2 10.6V5.4L10.6 8l-3.4 2.6zm4.4-3.3L7.4 4.1c-.3-.2-.6-.2-.9-.1-.3.2-.5.5-.5.8v6.4c0 .3.2.6.5.8.3.1.6.1.9-.1l4.2-3.2c.2-.2.3-.4.3-.7s-.1-.5-.3-.7zm1.1 5.4c-2.2 2.2-5.7 2.6-8.4.8s-3.6-5.1-2.4-8c1.2-2.9 4.3-4.6 7.4-4 3.1.6 5.3 3.3 5.3 6.5.1 1.8-.6 3.4-1.9 4.7zm2.7-7.8C13.8 1.1 9.6-.9 5.7.4 1.7 1.6-.7 5.6.2 9.6s4.5 6.8 8.6 6.4c4.1-.4 7.2-3.8 7.2-8 0-1.1-.2-2.1-.6-3.1z"
-                      id="run-pipeline_svg__a"
-                    />
-                  </defs>
-                  <clippath
-                    id="run-pipeline_svg__b"
-                  >
-                    <use
-                      overflow="visible"
-                      xlink:href="#run-pipeline_svg__a"
-                    />
-                  </clippath>
-                  <path
-                    clip-path="url(#run-pipeline_svg__b)"
-                    d="M-5-5h26v26H-5z"
-                    fill="#54b610"
-                  />
-                </svg>
-              </span>
-              <span
-                class="bp3-button-text"
-              >
-                runPipeline
-              </span>
-            </button>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-              style="justify-content: flex-end;"
-            >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
-              >
-                <span
-                  class="bp3-popover-target"
-                >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    type="button"
-                  >
-                    <span
-                      class="bp3-icon bp3-icon-more StyledProps--main"
-                      icon="more"
-                    >
-                      <svg
-                        data-icon="more"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        width="16"
-                      >
-                        <desc>
-                          more
-                        </desc>
-                        <path
-                          d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
-                          fill-rule="evenodd"
-                        />
-                      </svg>
-                    </span>
-                  </button>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>

@@ -564,7 +564,8 @@ const transformStepsData = (
         })
       }
     } else {
-      const { iconName } = getNodeInfo('', graphType)
+      const type = (step as any)?.type as string
+      const { iconName } = getNodeInfo(defaultTo(type, ''), graphType)
       const updatedStagetPath = `${parentPath}.${index}.stepGroup.steps`
       const hasErrors =
         errorMap && [...errorMap.keys()].some(key => updatedStagetPath && key.startsWith(updatedStagetPath))

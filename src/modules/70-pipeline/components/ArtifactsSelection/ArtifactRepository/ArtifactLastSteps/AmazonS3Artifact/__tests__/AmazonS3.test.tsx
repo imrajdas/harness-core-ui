@@ -13,7 +13,8 @@ import {
   queryByAttribute,
   render,
   waitFor,
-  getByText as getElementByText
+  getByText as getElementByText,
+  queryAllByAttribute
 } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MultiTypeInputType, RUNTIME_INPUT_VALUE, StepProps } from '@harness/uicore'
@@ -115,9 +116,10 @@ describe('AmazonS3 tests', () => {
       </TestWrapper>
     )
 
-    expect(container.querySelector('input[name="bucketName"]')).not.toBeNull()
-    expect(container.querySelector('input[name="filePath"]')).not.toBeNull()
-    expect(container.querySelector('input[name="filePathRegex"]')).toBeNull()
+    const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
+    expect(queryByNameAttribute('bucketName')).not.toBeNull()
+    expect(queryByNameAttribute('filePath')).not.toBeNull()
+    expect(queryByNameAttribute('filePathRegex')).toBeNull()
     expect(container).toMatchSnapshot()
 
     const submitBtn = getByText('submit')
@@ -150,9 +152,10 @@ describe('AmazonS3 tests', () => {
       </TestWrapper>
     )
 
-    expect(container.querySelector('input[name="bucketName"]')).not.toBeNull()
-    expect(container.querySelector('input[name="filePath"]')).toBeNull()
-    expect(container.querySelector('input[name="filePathRegex"]')).not.toBeNull()
+    const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
+    expect(queryByNameAttribute('bucketName')).not.toBeNull()
+    expect(queryByNameAttribute('filePath')).toBeNull()
+    expect(queryByNameAttribute('filePathRegex')).not.toBeNull()
     expect(container).toMatchSnapshot()
 
     const submitBtn = getByText('submit')
@@ -185,8 +188,9 @@ describe('AmazonS3 tests', () => {
       </TestWrapper>
     )
 
-    expect(container.querySelector('input[name="bucketName"]')).not.toBeNull()
-    expect(container.querySelector('input[name="filePath"]')).not.toBeNull()
+    const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
+    expect(queryByNameAttribute('bucketName')).not.toBeNull()
+    expect(queryByNameAttribute('filePath')).not.toBeNull()
     expect(container).toMatchSnapshot()
 
     const submitBtn = getByText('submit')
@@ -198,6 +202,173 @@ describe('AmazonS3 tests', () => {
           connectorRef: 'testConnector',
           bucketName: RUNTIME_INPUT_VALUE,
           filePath: RUNTIME_INPUT_VALUE
+        }
+      })
+    })
+  })
+
+  test(`switching to Regex should set filePathRegex value as Runtime input when filePath is Runtime input`, async () => {
+    const initialValues = {
+      spec: {
+        identifier: '',
+        bucketName: RUNTIME_INPUT_VALUE,
+        tagType: TagTypes.Value,
+        filePath: RUNTIME_INPUT_VALUE
+      },
+      type: 'AmazonS3'
+    }
+    const { container, getByText } = render(
+      <TestWrapper>
+        <AmazonS3 initialValues={initialValues as any} {...props} />
+      </TestWrapper>
+    )
+
+    const regexOption = queryAllByAttribute('name', container, 'tagType')[1]
+    act(() => {
+      fireEvent.click(regexOption)
+    })
+    const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
+    expect(queryByNameAttribute('bucketName')).not.toBeNull()
+    expect(queryByNameAttribute('filePathRegex')).not.toBeNull()
+
+    const submitBtn = getByText('submit')
+    fireEvent.click(submitBtn)
+    await waitFor(() => {
+      expect(onSubmit).toBeCalled()
+      expect(onSubmit).toHaveBeenCalledWith({
+        spec: {
+          connectorRef: 'testConnector',
+          bucketName: RUNTIME_INPUT_VALUE,
+          filePathRegex: RUNTIME_INPUT_VALUE
+        }
+      })
+    })
+  })
+
+  test(`switching to Value should set filePath value as Runtime input when filePathRegex is Runtime input`, async () => {
+    const initialValues = {
+      spec: {
+        identifier: '',
+        bucketName: RUNTIME_INPUT_VALUE,
+        tagType: TagTypes.Regex,
+        filePathRegex: RUNTIME_INPUT_VALUE
+      },
+      type: 'AmazonS3'
+    }
+    const { container, getByText } = render(
+      <TestWrapper>
+        <AmazonS3 initialValues={initialValues as any} {...props} />
+      </TestWrapper>
+    )
+
+    const valueOption = queryAllByAttribute('name', container, 'tagType')[0]
+    act(() => {
+      fireEvent.click(valueOption)
+    })
+    const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
+    expect(queryByNameAttribute('bucketName')).not.toBeNull()
+    expect(queryByNameAttribute('filePath')).not.toBeNull()
+
+    const submitBtn = getByText('submit')
+    fireEvent.click(submitBtn)
+    await waitFor(() => {
+      expect(onSubmit).toBeCalled()
+      expect(onSubmit).toHaveBeenCalledWith({
+        spec: {
+          connectorRef: 'testConnector',
+          bucketName: RUNTIME_INPUT_VALUE,
+          filePath: RUNTIME_INPUT_VALUE
+        }
+      })
+    })
+  })
+
+  test(`switching to Regex should set filePathRegex as empty when filePath is Fixed input`, async () => {
+    const initialValues = {
+      spec: {
+        identifier: '',
+        bucketName: RUNTIME_INPUT_VALUE,
+        tagType: TagTypes.Value,
+        filePath: 'test_file_path'
+      },
+      type: 'AmazonS3'
+    }
+    const { container, getByText } = render(
+      <TestWrapper>
+        <AmazonS3 initialValues={initialValues as any} {...props} />
+      </TestWrapper>
+    )
+
+    const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
+
+    const regexOption = queryAllByAttribute('name', container, 'tagType')[1]
+    act(() => {
+      fireEvent.click(regexOption)
+    })
+
+    const filePathRegexInput = queryByNameAttribute('filePathRegex') as HTMLInputElement
+    expect(queryByNameAttribute('bucketName')).not.toBeNull()
+    expect(queryByNameAttribute('filePath')).toBeNull()
+    expect(filePathRegexInput).not.toBeNull()
+    expect(filePathRegexInput.value).toBe('')
+    act(() => {
+      fireEvent.change(filePathRegexInput, { target: { value: 'test_file_path_regex' } })
+    })
+
+    const submitBtn = getByText('submit')
+    fireEvent.click(submitBtn)
+    await waitFor(() => {
+      expect(onSubmit).toBeCalled()
+      expect(onSubmit).toHaveBeenCalledWith({
+        spec: {
+          connectorRef: 'testConnector',
+          bucketName: RUNTIME_INPUT_VALUE,
+          filePathRegex: 'test_file_path_regex'
+        }
+      })
+    })
+  })
+
+  test(`switching to Value should set filePath as empty when filePathRegex is Fixed input`, async () => {
+    const initialValues = {
+      spec: {
+        identifier: '',
+        bucketName: RUNTIME_INPUT_VALUE,
+        tagType: TagTypes.Regex,
+        filePathRegex: 'file_path_regex'
+      },
+      type: 'AmazonS3'
+    }
+    const { container, getByText } = render(
+      <TestWrapper>
+        <AmazonS3 initialValues={initialValues as any} {...props} />
+      </TestWrapper>
+    )
+
+    const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
+
+    const valueOption = queryAllByAttribute('name', container, 'tagType')[0]
+    act(() => {
+      fireEvent.click(valueOption)
+    })
+
+    expect(queryByNameAttribute('bucketName')).not.toBeNull()
+    const filePathInput = queryByNameAttribute('filePath') as HTMLInputElement
+    expect(filePathInput).not.toBeNull()
+    expect(filePathInput.value).toBe('')
+    act(() => {
+      fireEvent.change(filePathInput, { target: { value: 'file_path' } })
+    })
+
+    const submitBtn = getByText('submit')
+    fireEvent.click(submitBtn)
+    await waitFor(() => {
+      expect(onSubmit).toBeCalled()
+      expect(onSubmit).toHaveBeenCalledWith({
+        spec: {
+          connectorRef: 'testConnector',
+          bucketName: RUNTIME_INPUT_VALUE,
+          filePath: 'file_path'
         }
       })
     })
@@ -219,8 +390,10 @@ describe('AmazonS3 tests', () => {
       </TestWrapper>
     )
 
-    expect(container.querySelector('input[name="bucketName"]')).not.toBeNull()
-    expect(container.querySelector('input[name="filePath"]')).not.toBeNull()
+    const bucketNameInput = queryByAttribute('name', container, 'bucketName') as HTMLInputElement
+    const filePathInput = queryByAttribute('name', container, 'filePath') as HTMLInputElement
+    expect(bucketNameInput).not.toBeNull()
+    expect(filePathInput).not.toBeNull()
 
     const modals = document.getElementsByClassName('bp3-dialog')
     expect(modals.length).toBe(0)
@@ -230,14 +403,12 @@ describe('AmazonS3 tests', () => {
     userEvent.click(cogBucketName!)
     await waitFor(() => expect(modals.length).toBe(1))
     const bucketNameCOGModal = modals[0] as HTMLElement
-    const bucketNameInput = queryByAttribute('name', container, 'bucketName') as HTMLInputElement
     await doConfigureOptionsTesting(bucketNameCOGModal, bucketNameInput)
 
     const cogFilePath = document.getElementById('configureOptions_filePath')
     userEvent.click(cogFilePath!)
     await waitFor(() => expect(modals.length).toBe(2))
     const filePathCOGModal = modals[1] as HTMLElement
-    const filePathInput = queryByAttribute('name', container, 'filePath') as HTMLInputElement
     await doConfigureOptionsTesting(filePathCOGModal, filePathInput)
 
     const submitBtn = getElementByText(container, 'submit')
@@ -273,8 +444,9 @@ describe('AmazonS3 tests', () => {
       </TestWrapper>
     )
 
-    expect(container.querySelector('input[name="bucketName"]')).not.toBeNull()
-    expect(container.querySelector('input[name="filePathRegex"]')).not.toBeNull()
+    const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
+    expect(queryByNameAttribute('bucketName')).not.toBeNull()
+    expect(queryByNameAttribute('filePathRegex')).not.toBeNull()
 
     const modals = document.getElementsByClassName('bp3-dialog')
     expect(modals.length).toBe(0)
@@ -369,7 +541,6 @@ describe('AmazonS3 tests', () => {
       </TestWrapper>
     )
 
-    // Defining at top, used everywhere to find input elements
     const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
 
     const submitBtn = getByText('submit')
@@ -431,7 +602,6 @@ describe('AmazonS3 tests', () => {
       </TestWrapper>
     )
 
-    // Defining at top, used everywhere to find input elements
     const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
 
     const submitBtn = getByText('submit')
@@ -496,11 +666,10 @@ describe('AmazonS3 tests', () => {
       </TestWrapper>
     )
 
-    // Defining at top, used everywhere to find input elements
     const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
+
     const identifierField = queryByNameAttribute('identifier') as HTMLInputElement
     expect(identifierField.value).toBe('initial_id')
-
     // change value of identifier to empty
     act(() => {
       fireEvent.change(queryByNameAttribute('identifier')!, { target: { value: '' } })
@@ -550,7 +719,6 @@ describe('AmazonS3 tests', () => {
       </TestWrapper>
     )
 
-    // Defining at top, used everywhere to find input elements
     const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
 
     const submitBtn = getByText('submit')

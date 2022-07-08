@@ -199,7 +199,8 @@ const processParallelNodeData = ({
             data: parentNodeData
           }),
       nodeType: nodeStrategyType,
-      maxParallelism: parentNodeData?.stepParameters?.maxConcurrency
+      maxParallelism: parentNodeData?.stepParameters?.maxConcurrency,
+      graphType: PipelineGraphType.STEP_GRAPH
     },
     children: processNodeDataV1(childNodeIds || /* istanbul ignore next */ [], nodeMap, nodeAdjacencyListMap, rootNodes)
   })

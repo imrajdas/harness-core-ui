@@ -57,73 +57,77 @@ exports[`PipelineModal List View render list view 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 40%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-              data-testid="shell"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 40%;"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                data-testid="shell"
               >
-                <span
-                  class="bp3-popover-wrapper"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
                 >
                   <span
-                    class="bp3-popover-target Text--targetClass"
+                    class="bp3-popover-wrapper"
                   >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                      tabindex="0"
+                    <span
+                      class="bp3-popover-target Text--targetClass"
                     >
-                      shell
-                    </p>
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                        tabindex="0"
+                      >
+                        shell
+                      </p>
+                    </span>
                   </span>
-                </span>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  idLabel
+                </p>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                idLabel
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 55%;"
-          >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 55%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
-                Last run:
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                1612245891280
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  Last run:
+                </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  1612245891280
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -132,73 +136,77 @@ exports[`PipelineModal List View render list view 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 40%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-              data-testid="new_pipeline"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 40%;"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                data-testid="new_pipeline"
               >
-                <span
-                  class="bp3-popover-wrapper"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
                 >
                   <span
-                    class="bp3-popover-target Text--targetClass"
+                    class="bp3-popover-wrapper"
                   >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                      tabindex="0"
+                    <span
+                      class="bp3-popover-target Text--targetClass"
                     >
-                      new pipeline
-                    </p>
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                        tabindex="0"
+                      >
+                        new pipeline
+                      </p>
+                    </span>
                   </span>
-                </span>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  idLabel
+                </p>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                idLabel
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 55%;"
-          >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 55%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
-                Last run:
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                pipelineSteps.pullNeverLabel
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  Last run:
+                </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  pipelineSteps.pullNeverLabel
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -207,73 +215,77 @@ exports[`PipelineModal List View render list view 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 40%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-              data-testid="pipetagfix"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 40%;"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                data-testid="pipetagfix"
               >
-                <span
-                  class="bp3-popover-wrapper"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
                 >
                   <span
-                    class="bp3-popover-target Text--targetClass"
+                    class="bp3-popover-wrapper"
                   >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                      tabindex="0"
+                    <span
+                      class="bp3-popover-target Text--targetClass"
                     >
-                      pipe-tag-fix
-                    </p>
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                        tabindex="0"
+                      >
+                        pipe-tag-fix
+                      </p>
+                    </span>
                   </span>
-                </span>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  idLabel
+                </p>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                idLabel
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 55%;"
-          >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 55%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
-                Last run:
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                1616478470728
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  Last run:
+                </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  1616478470728
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -282,73 +294,77 @@ exports[`PipelineModal List View render list view 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 40%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-              data-testid="httpPipeline"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 40%;"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                data-testid="httpPipeline"
               >
-                <span
-                  class="bp3-popover-wrapper"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
                 >
                   <span
-                    class="bp3-popover-target Text--targetClass"
+                    class="bp3-popover-wrapper"
                   >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                      tabindex="0"
+                    <span
+                      class="bp3-popover-target Text--targetClass"
                     >
-                      http pipeline
-                    </p>
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                        tabindex="0"
+                      >
+                        http pipeline
+                      </p>
+                    </span>
                   </span>
-                </span>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  idLabel
+                </p>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                idLabel
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 55%;"
-          >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 55%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
-                Last run:
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                1610771852023
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  Last run:
+                </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  1610771852023
+                </p>
+              </div>
             </div>
           </div>
         </div>

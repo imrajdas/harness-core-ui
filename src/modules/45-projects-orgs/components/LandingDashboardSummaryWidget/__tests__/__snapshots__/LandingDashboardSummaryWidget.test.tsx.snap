@@ -281,91 +281,95 @@ exports[`LandingDashboard At a Glance LandingDashboard rendering 1`] = `
                   role="row"
                 >
                   <div
-                    class="TableV2--cell"
-                    role="cell"
-                    style="width: 40%;"
+                    class="TableV2--cells"
                   >
                     <div
-                      class="bp3-popover-wrapper bp3-fill"
+                      class="TableV2--cell"
+                      role="cell"
+                      style="width: 40%;"
                     >
                       <div
-                        class="bp3-popover-target"
+                        class="bp3-popover-wrapper bp3-fill"
                       >
-                        <a
-                          class=""
-                          href="/account/undefined/home/orgs/default/projects/dev_test/details"
-                          tabindex="0"
+                        <div
+                          class="bp3-popover-target"
                         >
-                          <label
-                            class="links"
-                          >
-                            dev test
-                          </label>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="TableV2--cell"
-                    role="cell"
-                    style="width: 60%;"
-                  >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    >
-                      <span
-                        class="bp3-popover-wrapper"
-                      >
-                        <span
-                          class="bp3-popover-target Text--targetClass"
-                        >
-                          <p
-                            class="StyledProps--font StyledProps--main StackedSummaryBar--summaryCount StyledProps--font-small"
+                          <a
+                            class=""
+                            href="/account/undefined/home/orgs/default/projects/dev_test/details"
                             tabindex="0"
                           >
-                            47
-                          </p>
-                        </span>
-                      </span>
-                      <div
-                        class="StyledProps--font StyledProps--main StyledProps--flex"
-                      >
-                        <div
-                          class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-green500"
-                          style="width: 85.48936170212767px;"
-                        />
-                        <div
-                          class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-red500"
-                          style="width: 12.51063829787234px;"
-                        />
+                            <label
+                              class="links"
+                            >
+                              dev test
+                            </label>
+                          </a>
+                        </div>
                       </div>
+                    </div>
+                    <div
+                      class="TableV2--cell"
+                      role="cell"
+                      style="width: 60%;"
+                    >
                       <div
-                        class="StyledProps--font StyledProps--main StyledProps--flex"
+                        class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                       >
                         <span
-                          class="bp3-icon bp3-icon-caret-right StyledProps--main StyledProps--color StyledProps--color-grey300"
-                          icon="caret-right"
+                          class="bp3-popover-wrapper"
                         >
-                          <svg
-                            data-icon="caret-right"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            width="16"
+                          <span
+                            class="bp3-popover-target Text--targetClass"
                           >
-                            <desc>
-                              caret-right
-                            </desc>
-                            <path
-                              d="M11 8c0-.15-.07-.28-.17-.37l-4-3.5A.495.495 0 006 4.5v7a.495.495 0 00.83.37l4-3.5c.1-.09.17-.22.17-.37z"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
+                            <p
+                              class="StyledProps--font StyledProps--main StackedSummaryBar--summaryCount StyledProps--font-small"
+                              tabindex="0"
+                            >
+                              47
+                            </p>
+                          </span>
                         </span>
-                        <p
-                          class="StyledProps--font StyledProps--main StyledProps--font-xsmall StyledProps--color StyledProps--color-grey300"
+                        <div
+                          class="StyledProps--font StyledProps--main StyledProps--flex"
                         >
-                          0%
-                        </p>
+                          <div
+                            class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-green500"
+                            style="width: 85.48936170212767px;"
+                          />
+                          <div
+                            class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-red500"
+                            style="width: 12.51063829787234px;"
+                          />
+                        </div>
+                        <div
+                          class="StyledProps--font StyledProps--main StyledProps--flex"
+                        >
+                          <span
+                            class="bp3-icon bp3-icon-caret-right StyledProps--main StyledProps--color StyledProps--color-grey300"
+                            icon="caret-right"
+                          >
+                            <svg
+                              data-icon="caret-right"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              width="16"
+                            >
+                              <desc>
+                                caret-right
+                              </desc>
+                              <path
+                                d="M11 8c0-.15-.07-.28-.17-.37l-4-3.5A.495.495 0 006 4.5v7a.495.495 0 00.83.37l4-3.5c.1-.09.17-.22.17-.37z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main StyledProps--font-xsmall StyledProps--color StyledProps--color-grey300"
+                          >
+                            0%
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -375,91 +379,95 @@ exports[`LandingDashboard At a Glance LandingDashboard rendering 1`] = `
                   role="row"
                 >
                   <div
-                    class="TableV2--cell"
-                    role="cell"
-                    style="width: 40%;"
+                    class="TableV2--cells"
                   >
                     <div
-                      class="bp3-popover-wrapper bp3-fill"
+                      class="TableV2--cell"
+                      role="cell"
+                      style="width: 40%;"
                     >
                       <div
-                        class="bp3-popover-target"
+                        class="bp3-popover-wrapper bp3-fill"
                       >
-                        <a
-                          class=""
-                          href="/account/undefined/home/orgs/default/projects/test18/details"
-                          tabindex="0"
+                        <div
+                          class="bp3-popover-target"
                         >
-                          <label
-                            class="links"
-                          >
-                            test18
-                          </label>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="TableV2--cell"
-                    role="cell"
-                    style="width: 60%;"
-                  >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    >
-                      <span
-                        class="bp3-popover-wrapper"
-                      >
-                        <span
-                          class="bp3-popover-target Text--targetClass"
-                        >
-                          <p
-                            class="StyledProps--font StyledProps--main StackedSummaryBar--summaryCount StyledProps--font-small"
+                          <a
+                            class=""
+                            href="/account/undefined/home/orgs/default/projects/test18/details"
                             tabindex="0"
                           >
-                            5
-                          </p>
-                        </span>
-                      </span>
-                      <div
-                        class="StyledProps--font StyledProps--main StyledProps--flex"
-                      >
-                        <div
-                          class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-red500"
-                          style="width: 10.425531914893616px;"
-                        />
-                        <div
-                          class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-grey100"
-                          style="width: 87.57446808510637px;"
-                        />
+                            <label
+                              class="links"
+                            >
+                              test18
+                            </label>
+                          </a>
+                        </div>
                       </div>
+                    </div>
+                    <div
+                      class="TableV2--cell"
+                      role="cell"
+                      style="width: 60%;"
+                    >
                       <div
-                        class="StyledProps--font StyledProps--main StyledProps--flex"
+                        class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                       >
                         <span
-                          class="bp3-icon bp3-icon-caret-right StyledProps--main StyledProps--color StyledProps--color-grey300"
-                          icon="caret-right"
+                          class="bp3-popover-wrapper"
                         >
-                          <svg
-                            data-icon="caret-right"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            width="16"
+                          <span
+                            class="bp3-popover-target Text--targetClass"
                           >
-                            <desc>
-                              caret-right
-                            </desc>
-                            <path
-                              d="M11 8c0-.15-.07-.28-.17-.37l-4-3.5A.495.495 0 006 4.5v7a.495.495 0 00.83.37l4-3.5c.1-.09.17-.22.17-.37z"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
+                            <p
+                              class="StyledProps--font StyledProps--main StackedSummaryBar--summaryCount StyledProps--font-small"
+                              tabindex="0"
+                            >
+                              5
+                            </p>
+                          </span>
                         </span>
-                        <p
-                          class="StyledProps--font StyledProps--main StyledProps--font-xsmall StyledProps--color StyledProps--color-grey300"
+                        <div
+                          class="StyledProps--font StyledProps--main StyledProps--flex"
                         >
-                          0%
-                        </p>
+                          <div
+                            class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-red500"
+                            style="width: 10.425531914893616px;"
+                          />
+                          <div
+                            class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-grey100"
+                            style="width: 87.57446808510637px;"
+                          />
+                        </div>
+                        <div
+                          class="StyledProps--font StyledProps--main StyledProps--flex"
+                        >
+                          <span
+                            class="bp3-icon bp3-icon-caret-right StyledProps--main StyledProps--color StyledProps--color-grey300"
+                            icon="caret-right"
+                          >
+                            <svg
+                              data-icon="caret-right"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              width="16"
+                            >
+                              <desc>
+                                caret-right
+                              </desc>
+                              <path
+                                d="M11 8c0-.15-.07-.28-.17-.37l-4-3.5A.495.495 0 006 4.5v7a.495.495 0 00.83.37l4-3.5c.1-.09.17-.22.17-.37z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main StyledProps--font-xsmall StyledProps--color StyledProps--color-grey300"
+                          >
+                            0%
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -469,91 +477,95 @@ exports[`LandingDashboard At a Glance LandingDashboard rendering 1`] = `
                   role="row"
                 >
                   <div
-                    class="TableV2--cell"
-                    role="cell"
-                    style="width: 40%;"
+                    class="TableV2--cells"
                   >
                     <div
-                      class="bp3-popover-wrapper bp3-fill"
+                      class="TableV2--cell"
+                      role="cell"
+                      style="width: 40%;"
                     >
                       <div
-                        class="bp3-popover-target"
+                        class="bp3-popover-wrapper bp3-fill"
                       >
-                        <a
-                          class=""
-                          href="/account/undefined/home/orgs/default/projects/test19/details"
-                          tabindex="0"
+                        <div
+                          class="bp3-popover-target"
                         >
-                          <label
-                            class="links"
-                          >
-                            test19
-                          </label>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="TableV2--cell"
-                    role="cell"
-                    style="width: 60%;"
-                  >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    >
-                      <span
-                        class="bp3-popover-wrapper"
-                      >
-                        <span
-                          class="bp3-popover-target Text--targetClass"
-                        >
-                          <p
-                            class="StyledProps--font StyledProps--main StackedSummaryBar--summaryCount StyledProps--font-small"
+                          <a
+                            class=""
+                            href="/account/undefined/home/orgs/default/projects/test19/details"
                             tabindex="0"
                           >
-                            2
-                          </p>
-                        </span>
-                      </span>
-                      <div
-                        class="StyledProps--font StyledProps--main StyledProps--flex"
-                      >
-                        <div
-                          class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-red500"
-                          style="width: 4.170212765957447px;"
-                        />
-                        <div
-                          class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-grey100"
-                          style="width: 93.82978723404256px;"
-                        />
+                            <label
+                              class="links"
+                            >
+                              test19
+                            </label>
+                          </a>
+                        </div>
                       </div>
+                    </div>
+                    <div
+                      class="TableV2--cell"
+                      role="cell"
+                      style="width: 60%;"
+                    >
                       <div
-                        class="StyledProps--font StyledProps--main StyledProps--flex"
+                        class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                       >
                         <span
-                          class="bp3-icon bp3-icon-caret-right StyledProps--main StyledProps--color StyledProps--color-grey300"
-                          icon="caret-right"
+                          class="bp3-popover-wrapper"
                         >
-                          <svg
-                            data-icon="caret-right"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            width="16"
+                          <span
+                            class="bp3-popover-target Text--targetClass"
                           >
-                            <desc>
-                              caret-right
-                            </desc>
-                            <path
-                              d="M11 8c0-.15-.07-.28-.17-.37l-4-3.5A.495.495 0 006 4.5v7a.495.495 0 00.83.37l4-3.5c.1-.09.17-.22.17-.37z"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
+                            <p
+                              class="StyledProps--font StyledProps--main StackedSummaryBar--summaryCount StyledProps--font-small"
+                              tabindex="0"
+                            >
+                              2
+                            </p>
+                          </span>
                         </span>
-                        <p
-                          class="StyledProps--font StyledProps--main StyledProps--font-xsmall StyledProps--color StyledProps--color-grey300"
+                        <div
+                          class="StyledProps--font StyledProps--main StyledProps--flex"
                         >
-                          0%
-                        </p>
+                          <div
+                            class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-red500"
+                            style="width: 4.170212765957447px;"
+                          />
+                          <div
+                            class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-grey100"
+                            style="width: 93.82978723404256px;"
+                          />
+                        </div>
+                        <div
+                          class="StyledProps--font StyledProps--main StyledProps--flex"
+                        >
+                          <span
+                            class="bp3-icon bp3-icon-caret-right StyledProps--main StyledProps--color StyledProps--color-grey300"
+                            icon="caret-right"
+                          >
+                            <svg
+                              data-icon="caret-right"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              width="16"
+                            >
+                              <desc>
+                                caret-right
+                              </desc>
+                              <path
+                                d="M11 8c0-.15-.07-.28-.17-.37l-4-3.5A.495.495 0 006 4.5v7a.495.495 0 00.83.37l4-3.5c.1-.09.17-.22.17-.37z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main StyledProps--font-xsmall StyledProps--color StyledProps--color-grey300"
+                          >
+                            0%
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -563,91 +575,95 @@ exports[`LandingDashboard At a Glance LandingDashboard rendering 1`] = `
                   role="row"
                 >
                   <div
-                    class="TableV2--cell"
-                    role="cell"
-                    style="width: 40%;"
+                    class="TableV2--cells"
                   >
                     <div
-                      class="bp3-popover-wrapper bp3-fill"
+                      class="TableV2--cell"
+                      role="cell"
+                      style="width: 40%;"
                     >
                       <div
-                        class="bp3-popover-target"
+                        class="bp3-popover-wrapper bp3-fill"
                       >
-                        <a
-                          class=""
-                          href="/account/undefined/home/orgs/default/projects/locust/details"
-                          tabindex="0"
+                        <div
+                          class="bp3-popover-target"
                         >
-                          <label
-                            class="links"
-                          >
-                            locust
-                          </label>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="TableV2--cell"
-                    role="cell"
-                    style="width: 60%;"
-                  >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    >
-                      <span
-                        class="bp3-popover-wrapper"
-                      >
-                        <span
-                          class="bp3-popover-target Text--targetClass"
-                        >
-                          <p
-                            class="StyledProps--font StyledProps--main StackedSummaryBar--summaryCount StyledProps--font-small"
+                          <a
+                            class=""
+                            href="/account/undefined/home/orgs/default/projects/locust/details"
                             tabindex="0"
                           >
-                            1
-                          </p>
-                        </span>
-                      </span>
-                      <div
-                        class="StyledProps--font StyledProps--main StyledProps--flex"
-                      >
-                        <div
-                          class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-red500"
-                          style="width: 2.0851063829787235px;"
-                        />
-                        <div
-                          class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-grey100"
-                          style="width: 95.91489361702128px;"
-                        />
+                            <label
+                              class="links"
+                            >
+                              locust
+                            </label>
+                          </a>
+                        </div>
                       </div>
+                    </div>
+                    <div
+                      class="TableV2--cell"
+                      role="cell"
+                      style="width: 60%;"
+                    >
                       <div
-                        class="StyledProps--font StyledProps--main StyledProps--flex"
+                        class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                       >
                         <span
-                          class="bp3-icon bp3-icon-caret-right StyledProps--main StyledProps--color StyledProps--color-grey300"
-                          icon="caret-right"
+                          class="bp3-popover-wrapper"
                         >
-                          <svg
-                            data-icon="caret-right"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            width="16"
+                          <span
+                            class="bp3-popover-target Text--targetClass"
                           >
-                            <desc>
-                              caret-right
-                            </desc>
-                            <path
-                              d="M11 8c0-.15-.07-.28-.17-.37l-4-3.5A.495.495 0 006 4.5v7a.495.495 0 00.83.37l4-3.5c.1-.09.17-.22.17-.37z"
-                              fill-rule="evenodd"
-                            />
-                          </svg>
+                            <p
+                              class="StyledProps--font StyledProps--main StackedSummaryBar--summaryCount StyledProps--font-small"
+                              tabindex="0"
+                            >
+                              1
+                            </p>
+                          </span>
                         </span>
-                        <p
-                          class="StyledProps--font StyledProps--main StyledProps--font-xsmall StyledProps--color StyledProps--color-grey300"
+                        <div
+                          class="StyledProps--font StyledProps--main StyledProps--flex"
                         >
-                          0%
-                        </p>
+                          <div
+                            class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-red500"
+                            style="width: 2.0851063829787235px;"
+                          />
+                          <div
+                            class="StyledProps--font StyledProps--main StackedSummaryBar--barSection StyledProps--background-grey100"
+                            style="width: 95.91489361702128px;"
+                          />
+                        </div>
+                        <div
+                          class="StyledProps--font StyledProps--main StyledProps--flex"
+                        >
+                          <span
+                            class="bp3-icon bp3-icon-caret-right StyledProps--main StyledProps--color StyledProps--color-grey300"
+                            icon="caret-right"
+                          >
+                            <svg
+                              data-icon="caret-right"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              width="16"
+                            >
+                              <desc>
+                                caret-right
+                              </desc>
+                              <path
+                                d="M11 8c0-.15-.07-.28-.17-.37l-4-3.5A.495.495 0 006 4.5v7a.495.495 0 00.83.37l4-3.5c.1-.09.17-.22.17-.37z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main StyledProps--font-xsmall StyledProps--color StyledProps--color-grey300"
+                          >
+                            0%
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>

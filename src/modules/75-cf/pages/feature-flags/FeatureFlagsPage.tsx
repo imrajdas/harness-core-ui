@@ -55,7 +55,6 @@ import {
   getDefaultVariation,
   getErrorMessage,
   isFeatureFlagOn,
-  rewriteCurrentLocationWithActiveEnvironment,
   useFeatureFlagTypeToStringMapping
 } from '@cf/utils/CFUtils'
 import { FlagTypeVariations } from '@cf/components/CreateFlagDialog/FlagDialogUtils'
@@ -456,14 +455,7 @@ const FeatureFlagsPage: React.FC = () => {
     refetch: refetchEnvironments,
     environments
   } = useEnvironmentSelectV2({
-    selectedEnvironmentIdentifier: environmentIdentifier,
-    onChange: (_value, _environment, _userEvent) => {
-      rewriteCurrentLocationWithActiveEnvironment(_environment)
-      refetch({ queryParams: { ...queryParams, environmentIdentifier: _environment.identifier as string } })
-    },
-    onEmpty: () => {
-      refetch({ queryParams: { ...queryParams, environmentIdentifier: undefined as unknown as string } })
-    }
+    selectedEnvironmentIdentifier: environmentIdentifier
   })
 
   const toggleFeatureFlag = useToggleFeatureFlag({
@@ -594,7 +586,9 @@ const FeatureFlagsPage: React.FC = () => {
   const emptyFeatureFlags = !features?.features?.length
   const hasFeatureFlags =
     // use emptyFeatureFlags as temp fallback to ensure FilterCards still display in case featureCounts is unavailable or flag STALE_FLAGS_FFM_1510 is toggled off on backend only
-    features?.featureCounts ? features?.featureCounts.totalFeatures > 0 : !emptyFeatureFlags
+    !loading && features?.featureCounts && features?.featureCounts.totalFeatures
+      ? features?.featureCounts.totalFeatures > 0
+      : !emptyFeatureFlags
 
   const title = getString('featureFlagsText')
   const FILTER_FEATURE_FLAGS = useFeatureFlag(FeatureFlag.STALE_FLAGS_FFM_1510)

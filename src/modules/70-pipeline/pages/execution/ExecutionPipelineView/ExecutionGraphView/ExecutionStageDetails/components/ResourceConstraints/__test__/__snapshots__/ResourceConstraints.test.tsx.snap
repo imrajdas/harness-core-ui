@@ -12,6 +12,13 @@ exports[`ResourceConstraintTooltip matches snapshot 1`] = `
         class="StyledProps--font StyledProps--main StyledProps--font-size-small"
       >
         pipeline.resourceConstraints.infoText
+        <a
+          href="https://docs.harness.io/article/jrzwrdpvm2"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          learnMore
+        </a>
       </p>
       <div
         class="StyledProps--font StyledProps--main"

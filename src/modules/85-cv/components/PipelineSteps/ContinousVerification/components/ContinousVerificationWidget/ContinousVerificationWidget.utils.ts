@@ -9,7 +9,7 @@ import { RUNTIME_INPUT_VALUE } from '@harness/uicore'
 import type { FormikErrors } from 'formik'
 import { set } from 'lodash-es'
 import {
-  getLabelByNameForTemplateInputs,
+  getValidationLabelByNameForTemplateInputs,
   getNestedFields
 } from '@cv/pages/monitored-service/CVMonitoredService/MonitoredServiceInputSetsTemplate.utils'
 import type { StringKeys } from 'framework/strings'
@@ -144,7 +144,7 @@ export function validateTemplateInputs(
       set(
         errors,
         `spec.monitoredService.spec.templateInputs.${key}`,
-        `${getLabelByNameForTemplateInputs(key, getString)}`
+        `${getValidationLabelByNameForTemplateInputs(key, getString)}`
       )
     } else if (shouldValidateVariables(templateInputsToValidate, key)) {
       validateHealthSourceVariables(templateInputsToValidate, key, templateInputs, errors)
@@ -211,7 +211,7 @@ export function validateTemplateInputsHealthSources(
         set(
           errors,
           `spec.monitoredService.spec.templateInputs.${path}.${healthSourceKey}`,
-          `${getLabelByNameForTemplateInputs(healthSourceKey, getString)}`
+          `${getValidationLabelByNameForTemplateInputs(healthSourceKey, getString)}`
         )
       }
     })
@@ -239,7 +239,7 @@ export function validateMetricDefinitions(
         set(
           errors,
           `spec.monitoredService.spec.templateInputs.${metricDefinitionField?.path}`,
-          `${getLabelByNameForTemplateInputs(metricDefinitionField?.name, getString)}`
+          `${getValidationLabelByNameForTemplateInputs(metricDefinitionField?.name, getString)}`
         )
       }
     }

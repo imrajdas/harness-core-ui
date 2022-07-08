@@ -322,7 +322,7 @@ const PerspectiveListPage: React.FC = () => {
   const { trackPage, trackEvent } = useTelemetry()
   const [defaultFolderId, setDefaultFolderId] = useState('')
   const [sampleFolderId, setSampleFolderId] = useState('')
-  const [selectedFolderId, setSelectedFolder] = useQueryParamsState<string | undefined>('folderId', defaultFolderId)
+  const [selectedFolderId, setSelectedFolder] = useQueryParamsState<string | undefined>('folderId', '')
   const [isRefetchFolders, setRefetchFolders] = useState(false)
   const [refetchPerspectives, setRefetchPerspectives] = useState(false)
   const searchRef = React.useRef<ExpandingSearchInputHandle>()
@@ -331,7 +331,7 @@ const PerspectiveListPage: React.FC = () => {
 
   const [result, executeQuery] = useFetchAllPerspectivesQuery({
     variables: {
-      folderId: selectedFolderId || defaultFolderId
+      folderId: selectedFolderId || ''
     }
   })
   const { data, fetching } = result
@@ -379,9 +379,6 @@ const PerspectiveListPage: React.FC = () => {
       const sampleFolder = foldersList.filter(folders => folders.viewType === folderViewType.SAMPLE)
       setDefaultFolderId(defaultFolder[0]?.uuid || '')
       setSampleFolderId(sampleFolder[0]?.uuid || '')
-      if (!selectedFolderId) {
-        setSelectedFolder(defaultFolderId)
-      }
     }
   }, [foldersList])
 

@@ -102,7 +102,7 @@ exports[`OnboardingDetailPage CreateAFlagView 1`] = `
           >
             <a
               class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--link"
-              href="https://ngdocs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_4_create_a_flag_type"
+              href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_4_create_a_flag_type"
               rel="noreferrer noopener"
               role="button"
               tabindex="0"
@@ -344,7 +344,7 @@ exports[`OnboardingDetailPage OnboardingDetailPage empty state should be rendere
                   >
                     <a
                       class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--link"
-                      href="https://ngdocs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_4_create_a_flag_type"
+                      href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_4_create_a_flag_type"
                       rel="noreferrer noopener"
                       role="button"
                       tabindex="0"
@@ -874,7 +874,7 @@ exports[`OnboardingDetailPage SetUpYourApplicationView 1`] = `
         >
           <a
             class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--link"
-            href="https://ngdocs.harness.io/article/rvqprvbq8f-client-side-and-server-side-sdks"
+            href="https://docs.harness.io/article/rvqprvbq8f-client-side-and-server-side-sdks"
             rel="noreferrer noopener"
             role="button"
             tabindex="0"
@@ -1116,7 +1116,7 @@ exports[`OnboardingDetailPage Should be able to create a flag 1`] = `
                   >
                     <a
                       class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--link"
-                      href="https://ngdocs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_4_create_a_flag_type"
+                      href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_4_create_a_flag_type"
                       rel="noreferrer noopener"
                       role="button"
                       tabindex="0"
@@ -1424,7 +1424,7 @@ exports[`OnboardingDetailPage TestYourFlagViewView 1`] = `
           >
             <a
               class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--link"
-              href="https://ngdocs.harness.io/category/vjolt35atg-feature-flags"
+              href="https://docs.harness.io/category/vjolt35atg-feature-flags"
               rel="noreferrer noopener"
               role="button"
               tabindex="0"

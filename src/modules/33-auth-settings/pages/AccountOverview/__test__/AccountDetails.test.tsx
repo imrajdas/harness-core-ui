@@ -9,6 +9,7 @@ import React from 'react'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import { TestWrapper, queryByNameAttribute } from '@common/utils/testUtils'
 import { useGetAccountNG, useUpdateAccountDefaultExperienceNG, useUpdateAccountNameNG } from 'services/cd-ng'
+import { communityLicenseStoreValues } from '@common/utils/DefaultAppStoreData'
 import AccountDetails from '../views/AccountDetails'
 
 jest.mock('services/cd-ng')
@@ -141,9 +142,8 @@ describe('AccountDetails', () => {
     expect(getByText('common.harnessNextGeneration')).toBeDefined()
   })
   test('Hide SwitchAccount button for community edition', async () => {
-    window.deploymentType = 'COMMUNITY'
     const { queryByText } = render(
-      <TestWrapper>
+      <TestWrapper defaultLicenseStoreValues={communityLicenseStoreValues}>
         <AccountDetails />
       </TestWrapper>
     )

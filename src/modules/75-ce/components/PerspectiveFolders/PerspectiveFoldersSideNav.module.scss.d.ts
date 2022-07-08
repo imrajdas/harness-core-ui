@@ -8,6 +8,7 @@
 // this is an auto-generated file, do not update this manually
 declare const styles: {
   readonly active: string
+  readonly activeFolder: string
   readonly checkbox: string
   readonly customFoldersNav: string
   readonly folderNameField: string

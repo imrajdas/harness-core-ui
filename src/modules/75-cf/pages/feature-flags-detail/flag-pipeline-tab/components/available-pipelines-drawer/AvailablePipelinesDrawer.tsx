@@ -20,25 +20,44 @@ import {
 import React, { useCallback, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
-import { FeatureAvailablePipeline, useGetAvailableFeaturePipelines } from 'services/cf'
+import {
+  FeatureAvailablePipeline,
+  FeaturePipeline,
+  useCreateFlagPipeline,
+  useGetAvailableFeaturePipelines,
+  usePatchFeaturePipeline
+} from 'services/cf'
 import useActiveEnvironment from '@cf/hooks/useActiveEnvironment'
 import { ContainerSpinner } from '@common/components/ContainerSpinner/ContainerSpinner'
+import { showToaster } from '@cf/utils/CFUtils'
+import useResponseError from '@cf/hooks/useResponseError'
 import PipelineCard from '../pipeline-card/PipelineCard'
 import css from './AvailablePipelinesDrawer.module.scss'
 interface AvailablePipelinesDrawerProps {
   isOpen: boolean
   flagIdentifier: string
+  configuredPipelineDetails?: FeaturePipeline // this means we're editing
+  refetchFeaturePipeline: () => void
   onClose: () => void
 }
 
-const AvailablePipelinesDrawer: React.FC<AvailablePipelinesDrawerProps> = ({ flagIdentifier, isOpen, onClose }) => {
+const AvailablePipelinesDrawer: React.FC<AvailablePipelinesDrawerProps> = ({
+  flagIdentifier,
+  configuredPipelineDetails,
+  refetchFeaturePipeline,
+  isOpen,
+  onClose
+}) => {
   const { getString } = useStrings()
   const { activeEnvironment: environmentIdentifier } = useActiveEnvironment()
-
-  const PAGE_SIZE = 100
-  const [selectedPipeline, setSelectedPipeline] = useState<FeatureAvailablePipeline>()
-
+  const { handleResponseError } = useResponseError()
   const { orgIdentifier, accountId: accountIdentifier, projectIdentifier } = useParams<Record<string, string>>()
+
+  const PAGE_SIZE = 50
+
+  const [selectedPipeline, setSelectedPipeline] = useState<FeatureAvailablePipeline | undefined>(
+    configuredPipelineDetails
+  )
 
   const queryParams = useMemo(
     () => ({
@@ -52,18 +71,62 @@ const AvailablePipelinesDrawer: React.FC<AvailablePipelinesDrawerProps> = ({ fla
     [accountIdentifier, environmentIdentifier, orgIdentifier, projectIdentifier, flagIdentifier]
   )
 
-  const { data, loading, refetch } = useGetAvailableFeaturePipelines({
+  const {
+    data: availableFeaturePipelines,
+    loading: getAvailablePipelinesLoading,
+    refetch: refetchAvailablePipelines
+  } = useGetAvailableFeaturePipelines({
     queryParams,
     debounce: 500
   })
 
+  const { mutate: createFeaturePipeline, loading: createFeaturePiplineLoading } = useCreateFlagPipeline({
+    identifier: flagIdentifier as string,
+    queryParams
+  })
+
+  const { mutate: updateFeaturePipeline, loading: patchFeaturePiplineLoading } = usePatchFeaturePipeline({
+    identifier: flagIdentifier as string,
+    queryParams
+  })
+
+  const onSaveClick = useCallback(async () => {
+    try {
+      if (configuredPipelineDetails) {
+        await updateFeaturePipeline({
+          pipelineIdentifier: selectedPipeline?.identifier as string,
+          pipelineName: selectedPipeline?.name as string
+        })
+      } else {
+        await createFeaturePipeline({
+          pipelineIdentifier: selectedPipeline?.identifier as string,
+          pipelineName: selectedPipeline?.name as string
+        })
+      }
+      refetchFeaturePipeline()
+      showToaster(getString('cf.featureFlags.flagPipeline.saveSuccess'))
+    } catch (error) {
+      handleResponseError(error)
+    }
+  }, [
+    configuredPipelineDetails,
+    refetchFeaturePipeline,
+    getString,
+    selectedPipeline,
+    updateFeaturePipeline,
+    createFeaturePipeline,
+    handleResponseError
+  ])
+
   const onSearchInputChanged = useCallback(
     value => {
       setSelectedPipeline(undefined)
-      refetch({ queryParams: { ...queryParams, pipelineName: value, pageNumber: 0 }, debounce: 500 })
+      refetchAvailablePipelines({ queryParams: { ...queryParams, pipelineName: value, pageNumber: 0 }, debounce: 500 })
     },
-    [queryParams, refetch]
+    [queryParams, refetchAvailablePipelines]
   )
+
+  const isLoading = getAvailablePipelinesLoading || patchFeaturePiplineLoading || createFeaturePiplineLoading
 
   return (
     <Drawer position={Position.RIGHT} isOpen={isOpen} onClose={onClose} className={css.drawer}>
@@ -86,16 +149,16 @@ const AvailablePipelinesDrawer: React.FC<AvailablePipelinesDrawerProps> = ({ fla
         </Text>
         <Container flex={{ justifyContent: 'space-between' }}>
           <Text font={{ variation: FontVariation.BODY2 }} className={css.envTag}>
-            {getString('cf.featureFlags.flagPipeline.drawerEnvText', { env: environmentIdentifier })}
+            {getString('cf.featureFlags.flagPipeline.envText', { env: environmentIdentifier })}
           </Text>
           <ExpandingSearchInput alwaysExpanded onChange={onSearchInputChanged} />
         </Container>
-        {loading ? (
+        {isLoading ? (
           <ContainerSpinner height="100%" flex={{ align: 'center-center' }} />
         ) : (
           <Container className={css.pipelineCardsGrid} role="list">
-            {data?.availablePipelines.length ? (
-              data.availablePipelines.map(pipeline => (
+            {availableFeaturePipelines?.availablePipelines.length ? (
+              availableFeaturePipelines.availablePipelines.map(pipeline => (
                 <PipelineCard
                   key={pipeline.identifier}
                   pipelineName={pipeline.name}
@@ -112,13 +175,14 @@ const AvailablePipelinesDrawer: React.FC<AvailablePipelinesDrawerProps> = ({ fla
           </Container>
         )}
       </Layout.Vertical>
-      {selectedPipeline && (
+      {(configuredPipelineDetails || selectedPipeline) && (
         <Container className={css.footer}>
           <Button
             text={getString('cf.featureFlags.flagPipeline.drawerButtonText')}
             intent="primary"
-            disabled={loading}
+            disabled={isLoading}
             variation={ButtonVariation.PRIMARY}
+            onClick={onSaveClick}
           />
         </Container>
       )}
