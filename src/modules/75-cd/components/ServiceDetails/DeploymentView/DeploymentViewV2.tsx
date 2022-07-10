@@ -25,7 +25,7 @@ import {
   TableRowData,
   TableType
 } from '../ActiveServiceInstances/ActiveServiceInstancesContentV2'
-import css from '../ActiveServiceInstances/ActiveServiceInstancesV2.module.scss'
+import css from '../ActiveServiceInstances/ActiveServiceInstances.module.scss'
 
 const columnsProperties = {
   artifacts: {

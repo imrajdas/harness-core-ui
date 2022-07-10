@@ -38,8 +38,8 @@
   }
   .moreDetails {
     position: absolute;
-    right: 40px;
-    margin-top: 16px;
+    right: 20px;
+    margin-top: 13px;
     cursor: pointer;
   }
   .hover {
@@ -84,6 +84,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .plusMore {
+    margin-left: 10px !important;
+  }
   .seeMore {
     text-align: center;
     cursor: pointer;
@@ -127,4 +130,11 @@
   & > :global(.bp3-tabs > .bp3-tab-list) {
     border-bottom: 1px solid var(--grey-200);
   }
+}
+
+.lastDeploymentText {
+  white-space: nowrap !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
 }

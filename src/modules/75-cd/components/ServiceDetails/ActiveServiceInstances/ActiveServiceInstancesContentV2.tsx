@@ -22,7 +22,7 @@ import { numberFormatter } from '@cd/components/Services/common'
 import routes from '@common/RouteDefinitions'
 import type { PipelineType, PipelinePathProps, ExecutionPathProps } from '@common/interfaces/RouteInterfaces'
 import { ActiveServiceInstancePopover } from './ActiveServiceInstancePopover'
-import css from './ActiveServiceInstancesV2.module.scss'
+import css from './ActiveServiceInstances.module.scss'
 
 const TOTAL_VISIBLE_INSTANCES = 7
 

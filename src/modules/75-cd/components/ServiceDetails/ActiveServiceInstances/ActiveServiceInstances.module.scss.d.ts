@@ -21,12 +21,14 @@ declare const styles: {
   readonly instanceCount: string
   readonly instanceTable: string
   readonly labelStyles: string
+  readonly lastDeploymentText: string
   readonly listStyles: string
   readonly moreDetails: string
   readonly overflow: string
   readonly paddedContainer: string
   readonly pieChartLabelContainerStyles: string
   readonly pieChartLabelStyles: string
+  readonly plusMore: string
   readonly sectionValue: string
   readonly seeMore: string
   readonly tabsStyle: string

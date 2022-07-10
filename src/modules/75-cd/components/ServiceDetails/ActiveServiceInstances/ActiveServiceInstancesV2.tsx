@@ -22,7 +22,7 @@ import { ActiveServiceInstancesContentV2, TableType } from './ActiveServiceInsta
 import { DeploymentsV2 } from '../DeploymentView/DeploymentViewV2'
 import InstancesDetailsDialog from './InstancesDetails/InstancesDetailsDialog'
 // import { activeResponse } from './mockApi'
-import css from './ActiveServiceInstancesV2.module.scss'
+import css from './ActiveServiceInstances.module.scss'
 
 export enum ServiceDetailTabs {
   ACTIVE = 'Active Service Instances',
