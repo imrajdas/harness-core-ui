@@ -57,6 +57,7 @@ import ServiceResourceModal from '@pipeline/components/RbacResourceModals/Servic
 import EnvironmentResourceModal from '@pipeline/components/RbacResourceModals/EnvironmentResourceModal/EnvironmentResourceModal'
 import EnvironmentGroupsResourceModal from '@pipeline/components/RbacResourceModals/EnvironmentGroupsResourceModal/EnvironmentGroupsResourceModal'
 import { HarnessApprovalView } from '@pipeline/components/execution/StepDetails/views/HarnessApprovalView/HarnessApprovalView'
+import { HarnessApprovalLogsView } from '@pipeline/components/execution/StepDetails/views/HarnessApprovalView/HarnessApprovalLogsView'
 import { JiraApprovalView } from '@pipeline/components/execution/StepDetails/views/JiraApprovalView/JiraApprovalView'
 import { StepType } from '@pipeline/components/PipelineSteps/PipelineStepInterface'
 import { ServiceNowApprovalView } from '@pipeline/components/execution/StepDetails/views/ServiceNowApprovalView/ServiceNowApprovalView'
@@ -131,6 +132,10 @@ RbacFactory.registerResourceTypeHandler(ResourceType.ENVIRONMENT_GROUP, {
  */
 ExecFactory.registerStepDetails(StepType.HarnessApproval, {
   component: HarnessApprovalView
+})
+
+ExecFactory.registerConsoleViewStepDetails(StepType.HarnessApproval, {
+  component: HarnessApprovalLogsView
 })
 
 ExecFactory.registerStepDetails(StepType.JiraCreate, {

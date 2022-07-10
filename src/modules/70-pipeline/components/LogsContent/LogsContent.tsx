@@ -25,7 +25,11 @@ import { ErrorList, extractInfo } from '@common/components/ErrorHandler/ErrorHan
 import { String as StrTemplate, useStrings } from 'framework/strings'
 import { useExecutionContext } from '@pipeline/context/ExecutionContext'
 import { useGlobalEventListener } from '@common/hooks'
-import type { ConsoleViewStepDetailProps } from '@pipeline/factories/ExecutionFactory/types'
+import type {
+  ConsoleViewStepDetailProps,
+  LogsContentProps,
+  RenderLogsInterface
+} from '@pipeline/factories/ExecutionFactory/types'
 import type { ExecutionPageQueryParams } from '@pipeline/utils/types'
 import type { ModulePathParams, ExecutionPathProps } from '@common/interfaces/RouteInterfaces'
 import { addHotJarSuppressionAttribute } from '@common/utils/utils'
@@ -105,20 +109,27 @@ function handleFullScreen(rootRef: React.MutableRefObject<HTMLDivElement | null>
 const isDocumentFullScreen = (elem: HTMLDivElement | null): boolean =>
   !!(document.fullscreenElement && document.fullscreenElement === elem)
 
-export interface LogsContentProps {
-  mode: 'step-details' | 'console-view'
-  toConsoleView?: string
-  errorMessage?: string
-  isWarning?: boolean
-}
-
 export enum SavedExecutionViewTypes {
   GRAPH = 'graph',
   LOG = 'log'
 }
 
+export const logsRenderer = ({ hasLogs, isSingleSectionLogs, virtuosoRef, state, actions }: RenderLogsInterface) => {
+  return hasLogs ? (
+    isSingleSectionLogs ? (
+      <SingleSectionLogs ref={virtuosoRef} state={state} actions={actions} />
+    ) : (
+      <GroupedLogs ref={virtuosoRef} state={state} actions={actions} />
+    )
+  ) : (
+    <pre className={css.container} {...addHotJarSuppressionAttribute()}>
+      <StrTemplate tagName="div" className={css.noLogs} stringID="common.logs.noLogsText" />
+    </pre>
+  )
+}
+
 export function LogsContent(props: LogsContentProps): React.ReactElement {
-  const { mode, toConsoleView = '', isWarning } = props
+  const { mode, toConsoleView = '', isWarning, renderLogs = logsRenderer } = props
   const pathParams = useParams<ExecutionPathProps & ModulePathParams>()
   const { pipelineStagesMap, selectedStageId, allNodeMap, selectedStepId, pipelineExecutionDetail, queryParams } =
     useExecutionContext()
@@ -260,17 +271,7 @@ export function LogsContent(props: LogsContentProps): React.ReactElement {
           ) : null}
         </div>
       </div>
-      {hasLogs ? (
-        isSingleSectionLogs ? (
-          <SingleSectionLogs ref={virtuosoRef} state={state} actions={actions} />
-        ) : (
-          <GroupedLogs ref={virtuosoRef} state={state} actions={actions} />
-        )
-      ) : (
-        <pre className={css.container} {...addHotJarSuppressionAttribute()}>
-          <StrTemplate tagName="div" className={css.noLogs} stringID="common.logs.noLogsText" />
-        </pre>
-      )}
+      {renderLogs({ hasLogs, isSingleSectionLogs, virtuosoRef, state, actions })}
       {mode === 'console-view' && hasError ? (
         <div className={cx(css.errorMsgs, { [css.isWarning]: isWarning })}>
           {errorObjects.map((errorObject, index) => {
@@ -345,11 +346,16 @@ export class LogsContentWithErrorBoundary extends React.Component<LogsContentPro
 }
 
 export function DefaultConsoleViewStepDetails(props: ConsoleViewStepDetailProps): React.ReactElement {
-  const { errorMessage, isSkipped } = props
+  const { errorMessage, isSkipped, renderLogs } = props
 
   return (
     <div className={css.logViewer}>
-      <LogsContentWithErrorBoundary mode="console-view" errorMessage={errorMessage} isWarning={isSkipped} />
+      <LogsContentWithErrorBoundary
+        mode="console-view"
+        errorMessage={errorMessage}
+        isWarning={isSkipped}
+        renderLogs={renderLogs}
+      />
     </div>
   )
 }
