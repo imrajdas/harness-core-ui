@@ -20,8 +20,8 @@ import {
 } from '@harness/uicore'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Form, FormikContextType, FormikProps } from 'formik'
-import { useParams } from 'react-router'
-
+import { useParams } from 'react-router-dom'
+import { defaultTo } from 'lodash-es'
 import { useStrings } from 'framework/strings'
 import TextReference, { TextReferenceInterface, ValueType } from '@secrets/components/TextReference/TextReference'
 import type { SecretReferenceInterface } from '@secrets/utils/SecretField'
@@ -36,12 +36,12 @@ import {
 } from '@connectors/components/CreateConnector/commonSteps/DelegateSelectorStep/DelegateSelector/DelegateSelector'
 import { Connectors } from '@connectors/constants'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
-import type { ConnectorInfoDTO, ResponseConnectorResponse, ResponseMessage } from 'services/cd-ng'
+import type { ResponseConnectorResponse, ResponseMessage } from 'services/cd-ng'
 import useCreateEditConnector, { BuildPayloadProps } from '@connectors/hooks/useCreateEditConnector'
+import VerifyOutOfClusterDelegate from '@connectors/common/VerifyOutOfClusterDelegate/VerifyOutOfClusterDelegate'
 import { CLIENT_KEY_ALGO_OPTIONS } from '../DeployProvisioningWizard/Constants'
-import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 import commonStyles from '@connectors/components/CreateConnector/commonSteps/ConnectorCommonStyles.module.scss'
-import { ErrorHandler } from '@common/components/ErrorHandler/ErrorHandler'
+import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 interface DelegateSelectorStepData extends BuildPayloadProps {
   delegateSelectors: Array<string>
@@ -49,14 +49,8 @@ interface DelegateSelectorStepData extends BuildPayloadProps {
 
 export interface SelectAuthenticationMethodRef {
   values: SelectAuthenticationMethodInterface
-  // setFieldTouched(
-  //   field: keyof SelectAuthenticationMethodInterface & string,
-  //   isTouched?: boolean,
-  //   shouldValidate?: boolean
-  // ): void
   validate: () => boolean
-  // showValidationErrors: () => void
-  validatedConnector?: ConnectorInfoDTO
+  connectorResponse?: ResponseConnectorResponse
 }
 
 export type SelectAuthMethodForwardRef =
@@ -86,7 +80,6 @@ export interface SelectAuthenticationMethodInterface {
 }
 
 const defaultInitialFormData: SelectAuthenticationMethodInterface = {
-  connectorName: '',
   authType: AuthTypes.USER_PASSWORD,
   delegateType: '',
   masterUrl: '',
@@ -103,7 +96,8 @@ const defaultInitialFormData: SelectAuthenticationMethodInterface = {
   clientKeyCertificate: undefined,
   clientKeyPassphrase: undefined,
   clientKeyAlgo: '',
-  clientKeyCACertificate: undefined
+  clientKeyCACertificate: undefined,
+  connectorName: ''
 }
 
 interface AuthOptionInterface {
@@ -114,6 +108,7 @@ interface AuthOptionInterface {
 interface SelectAuthenticationMethodProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
+  authValues?: SelectAuthenticationMethodInterface
 }
 
 const SelectAuthenticationMethodRef = (
@@ -123,7 +118,7 @@ const SelectAuthenticationMethodRef = (
   const scrollRef = useRef<Element>()
   const { getString } = useStrings()
   const formikRef = useRef<FormikContextType<SelectAuthenticationMethodInterface>>()
-
+  const { authValues } = _props
   const validateAuthMethodSetup = (): boolean => {
     const {
       connectorName,
@@ -174,77 +169,74 @@ const SelectAuthenticationMethodRef = (
       ? DelegateOptions.DelegateOptionsSelective
       : DelegateOptions.DelegateOptionsAny
   )
+  const [connectorResponse, setConnectorResponse] = useState<ResponseConnectorResponse>()
+  const [delegatesFound, setDelegatesFound] = useState<DelegatesFoundState>(DelegatesFoundState.ActivelyConnected)
+  const [testConnectionStatus, setTestConnectionStatus] = useState<TestStatus>(TestStatus.NOT_INITIATED)
+  const [testConnectionErrors, setTestConnectionErrors] = useState<ResponseMessage[]>()
 
-  const authStepData: any = {
-    delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors,
-    name: formikRef.current?.values?.connectorName || '',
-    description: '',
-    projectIdentifier: projectIdentifier,
-    orgIdentifier: orgIdentifier,
-    identifier: formikRef.current?.values?.connectorName || '',
-    type: Connectors.KUBERNETES_CLUSTER,
-    delegateType: formikRef.current?.values?.delegateType,
-    masterUrl: formikRef.current?.values?.masterUrl,
-    authType: formikRef.current?.values?.authType,
-    password: {
-      referenceString: formikRef.current?.values?.password?.referenceString
-    },
-    username: {
-      value: formikRef.current?.values?.username?.value,
-      type: ValueType.TEXT
-    },
-    usernameRef: {
-      value: formikRef.current?.values?.username?.value,
-      type: ValueType.ENCRYPTED
-    },
-    serviceAccountToken: {
-      referenceString: formikRef.current?.values?.serviceAccountToken?.referenceString
-    },
-    clientKeyCACertificate: {
-      referenceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
-    },
-    oidcIssuerUrl: formikRef.current?.values?.oidcIssuerUrl,
-    oidcScopes: formikRef.current?.values?.oidcScopes,
-    oidcUsername: {
-      type: ValueType.TEXT,
-      value: formikRef.current?.values?.oidcUsername?.value
-    },
-    oidcUsernameRef: {
-      type: ValueType.ENCRYPTED,
-      value: formikRef.current?.values?.oidcUsername?.value
-    },
-    oidcPassword: {
-      referenceString: formikRef.current?.values?.oidcPassword?.referenceString
-    },
-    oidcCleintId: {
-      referenceString: formikRef.current?.values?.oidcCleintId?.referenceString
-    },
-    oidcSecretRef: {
-      referenceString: formikRef.current?.values?.oidcCleintSecret?.referenceString
-    },
-    clientKey: {
-      referenceString: formikRef.current?.values?.clientKey?.referenceString
-    },
-    clientKeyCertificate: {
-      referenceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
-    },
-    clientKeyPassphrase: {
-      referenceString: formikRef.current?.values?.clientKeyPassphrase?.referenceString
-    },
-    clientKeyAlgo: formikRef?.current?.values?.clientKeyAlgo
-  }
-
-  // const connectorData: any = () => {
-  //   return {
-  //     ...authStepData
-  //     // delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors
-  //   }
+  // const authStepData: any = {
+  //   name: formikRef.current?.values?.connectorName || '',
+  //   description: '',
+  //   projectIdentifier: projectIdentifier,
+  //   orgIdentifier: orgIdentifier,
+  //   identifier: formikRef.current?.values?.connectorName || '',
+  //   type: Connectors.KUBERNETES_CLUSTER,
+  //   delegateType: formikRef.current?.values?.delegateType,
+  //   masterUrl: formikRef.current?.values?.masterUrl,
+  //   authType: formikRef.current?.values?.authType,
+  //   password: {
+  //     referenceString: formikRef.current?.values?.password?.referenceString
+  //   },
+  //   username: {
+  //     value: formikRef.current?.values?.username?.value,
+  //     type: ValueType.TEXT
+  //   },
+  //   usernameRef: {
+  //     value: formikRef.current?.values?.username?.value,
+  //     type: ValueType.ENCRYPTED
+  //   },
+  //   serviceAccountToken: {
+  //     referenceString: formikRef.current?.values?.serviceAccountToken?.referenceString
+  //   },
+  //   clientKeyCACertificate: {
+  //     referenceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
+  //   },
+  //   oidcIssuerUrl: formikRef.current?.values?.oidcIssuerUrl,
+  //   oidcScopes: formikRef.current?.values?.oidcScopes,
+  //   oidcUsername: {
+  //     type: ValueType.TEXT,
+  //     value: formikRef.current?.values?.oidcUsername?.value
+  //   },
+  //   oidcUsernameRef: {
+  //     type: ValueType.ENCRYPTED,
+  //     value: formikRef.current?.values?.oidcUsername?.value
+  //   },
+  //   oidcPassword: {
+  //     referenceString: formikRef.current?.values?.oidcPassword?.referenceString
+  //   },
+  //   oidcCleintId: {
+  //     referenceString: formikRef.current?.values?.oidcCleintId?.referenceString
+  //   },
+  //   oidcSecretRef: {
+  //     referenceString: formikRef.current?.values?.oidcCleintSecret?.referenceString
+  //   },
+  //   clientKey: {
+  //     referenceString: formikRef.current?.values?.clientKey?.referenceString
+  //   },
+  //   clientKeyCertificate: {
+  //     referenceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
+  //   },
+  //   clientKeyPassphrase: {
+  //     referenceString: formikRef.current?.values?.clientKeyPassphrase?.referenceString
+  //   },
+  //   clientKeyAlgo: formikRef?.current?.values?.clientKeyAlgo
   // }
 
   const afterSuccessHandler = (response: ResponseConnectorResponse): void => {
     if (response?.status === 'SUCCESS') {
+      setConnectorResponse(response)
       setTestConnectionStatus(TestStatus.SUCCESS)
-    } else if (response?.status === 'FAILURE' || response?.status === 'ERROR') {
+    } else {
       setTestConnectionStatus(TestStatus.FAILED)
     }
   }
@@ -256,10 +248,6 @@ const SelectAuthenticationMethodRef = (
     afterSuccessHandler
   })
 
-  const [delegatesFound, setDelegatesFound] = useState<DelegatesFoundState>(DelegatesFoundState.ActivelyConnected)
-  const [connectorInfo, setConnectorInfo] = useState()
-  const [testConnectionStatus, setTestConnectionStatus] = useState<TestStatus>(TestStatus.NOT_INITIATED)
-  const [testConnectionErrors, setTestConnectionErrors] = useState<ResponseMessage[]>()
   useEffect(() => {
     if (scrollRef) {
       scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -271,6 +259,7 @@ const SelectAuthenticationMethodRef = (
       setTestConnectionStatus(TestStatus.NOT_INITIATED)
     }
   }, [formikRef?.current?.values?.delegateType])
+
   const TestConnection = (): React.ReactElement => {
     switch (testConnectionStatus) {
       case TestStatus.FAILED:
@@ -291,23 +280,10 @@ const SelectAuthenticationMethodRef = (
                 if (validateAuthMethodSetup()) {
                   setTestConnectionStatus(TestStatus.IN_PROGRESS)
                   setTestConnectionErrors([])
-
-                  onInitiate({
-                    connectorFormData: authStepData,
-                    buildPayload: buildKubPayload
-                    // customHandleCreate:
-                  })
-                  setConnectorInfo(authStepData)
+                  formikRef.current?.submitForm()
                 }
               }}
             />
-            {testConnectionStatus === TestStatus.FAILED &&
-            Array.isArray(testConnectionErrors) &&
-            testConnectionErrors.length > 0 ? (
-              <Container padding={{ top: 'medium' }} ref={scrollRef}>
-                <ErrorHandler responseMessages={testConnectionErrors || []} />
-              </Container>
-            ) : null}
           </Layout.Vertical>
         )
       case TestStatus.IN_PROGRESS:
@@ -333,9 +309,25 @@ const SelectAuthenticationMethodRef = (
     }
   }
 
+  // const { mutate: testConnectionLoad } = useGetTestConnectionResult({
+  //   identifier:
+  //     testConnectionStatus === TestStatus.SUCCESS && connectorInfo && connectorInfo.identifier
+  //       ? connectorInfo.identifier
+  //       : authStepData.identifier,
+  //   queryParams: {
+  //     accountIdentifier: accountId,
+  //     orgIdentifier: connectorInfo?.orgIdentifier,
+  //     projectIdentifier: connectorInfo?.projectIdentifier
+  //   },
+  //   requestOptions: {
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     }
+  //   }
+  // })
+
   const setForwardRef = ({
-    values,
-    validatedConnector
+    values
   }: // setFieldTouched
   Omit<SelectAuthenticationMethodRef, 'validate'>): void => {
     if (!forwardRef) {
@@ -348,8 +340,8 @@ const SelectAuthenticationMethodRef = (
     if (values) {
       forwardRef.current = {
         values,
-        validate: validateAuthMethodSetup,
-        validatedConnector
+        connectorResponse,
+        validate: validateAuthMethodSetup
       }
     }
   }
@@ -357,8 +349,7 @@ const SelectAuthenticationMethodRef = (
   useEffect(() => {
     if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
       setForwardRef({
-        values: formikRef.current.values,
-        validatedConnector: connectorInfo
+        values: formikRef.current.values
       })
     }
   }, [formikRef.current?.values])
@@ -479,9 +470,27 @@ const SelectAuthenticationMethodRef = (
   return (
     <Layout.Vertical width="70%">
       <Formik<SelectAuthenticationMethodInterface>
-        initialValues={defaultInitialFormData}
+        initialValues={{
+          ...defaultInitialFormData,
+          connectorName: defaultTo(authValues?.connectorName, '')
+        }}
         formName="infraAuthentication"
-        onSubmit={(values: SelectAuthenticationMethodInterface) => Promise.resolve(values)}
+        onSubmit={(values: SelectAuthenticationMethodInterface) => {
+          const connectorData = {
+            ...values,
+            name: values.connectorName,
+            identifier: values.connectorName,
+            projectIdentifier: projectIdentifier,
+            orgIdentifier: orgIdentifier,
+            delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors
+          }
+          onInitiate({
+            connectorFormData: connectorData,
+            buildPayload: buildKubPayload
+          })
+
+          return Promise.resolve(values)
+        }}
       >
         {formikProps => {
           formikRef.current = formikProps
@@ -502,6 +511,7 @@ const SelectAuthenticationMethodRef = (
                     text={getString('connectors.k8.delegateOutClusterInfo')}
                     onClick={() => {
                       formikProps?.setFieldValue('delegateType', DelegateTypes.DELEGATE_OUT_CLUSTER)
+                      setTestConnectionStatus(TestStatus.NOT_INITIATED)
                     }}
                     intent={DelegateTypes.DELEGATE_OUT_CLUSTER === formikProps.values.delegateType ? 'primary' : 'none'}
                   />
@@ -511,6 +521,7 @@ const SelectAuthenticationMethodRef = (
                     text={'Use from a specific harness Delegate'}
                     onClick={() => {
                       formikProps?.setFieldValue('delegateType', DelegateTypes.DELEGATE_IN_CLUSTER)
+                      setTestConnectionStatus(TestStatus.NOT_INITIATED)
                     }}
                     intent={DelegateTypes.DELEGATE_IN_CLUSTER === formikProps.values.delegateType ? 'primary' : 'none'}
                   />
@@ -558,6 +569,7 @@ const SelectAuthenticationMethodRef = (
                     <Text font={{ variation: FontVariation.H5 }} width={300} padding={{ top: 'large' }}>
                       {getString('cd.getStartedWithCD.setupDelegate')}
                     </Text>
+
                     <DelegateSelector
                       mode={mode}
                       setMode={setMode}
@@ -570,6 +582,15 @@ const SelectAuthenticationMethodRef = (
                       projectIdentifier={projectIdentifier}
                     />
                     <TestConnection />
+
+                    {testConnectionStatus === TestStatus.SUCCESS || testConnectionStatus === TestStatus.FAILED ? (
+                      <VerifyOutOfClusterDelegate
+                        name={getString('connectors.stepThreeName')}
+                        connectorInfo={connectorResponse?.data?.connector}
+                        type={Connectors.KUBERNETES_CLUSTER}
+                        setIsEditMode={() => false}
+                      />
+                    ) : null}
                   </>
                 ) : null}
               </Layout.Vertical>

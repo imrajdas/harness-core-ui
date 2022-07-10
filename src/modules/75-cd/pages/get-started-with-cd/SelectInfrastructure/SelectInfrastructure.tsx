@@ -24,7 +24,11 @@ import { get } from 'lodash-es'
 import { useStrings } from 'framework/strings'
 
 import { InfrastructureTypes, InfrastructureType } from '../DeployProvisioningWizard/Constants'
-import { SelectAuthenticationMethod, SelectAuthenticationMethodRef } from './SelectAuthenticationMethod'
+import {
+  SelectAuthenticationMethod,
+  SelectAuthenticationMethodInterface,
+  SelectAuthenticationMethodRef
+} from './SelectAuthenticationMethod'
 import { useCDOnboardingContext } from '../CDOnboardingStore'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
@@ -37,6 +41,7 @@ export interface SelectInfrastructureRef {
   ): void
   validate?: () => boolean
   showValidationErrors?: () => void
+  authValues?: SelectAuthenticationMethodInterface
 }
 export interface SelectInfrastructureInterface {
   infraType: string

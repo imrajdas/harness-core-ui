@@ -406,9 +406,6 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
               getUniqueServiceRef(envId as string)
               // : get(environmentData, 'identifier')
             )
-
-            set(draft, 'data.manifestValues', authValues)
-            // set(draft, 'data.repoValues', repoValues)
           })
 
           const cleanEnvironmentData = cleanEnvironmentDataUtil(updatedContextEnvironment as ServiceRequestDTO)

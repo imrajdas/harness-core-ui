@@ -9,7 +9,6 @@
 declare const styles: {
   readonly authHeaderRow: string
   readonly authTitle: string
-  readonly borderBottom: string
   readonly card: string
   readonly cardRow: string
   readonly clusterWrapper: string

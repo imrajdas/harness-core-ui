@@ -55,7 +55,7 @@ interface RenderUrlInfo {
 
 interface VerifyOutOfClusterDelegateProps {
   type: string
-  isStep: boolean
+  isStep?: boolean
   onClose?: () => void
   onTestConnectionSuccess?: () => void
   setIsEditMode?: (val: boolean) => void // Remove after removing all usages

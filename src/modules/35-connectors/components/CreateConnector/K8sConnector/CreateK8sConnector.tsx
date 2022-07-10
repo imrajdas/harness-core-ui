@@ -55,7 +55,6 @@ const CreateK8sConnector: React.FC<CreateConnectorModalProps> = props => {
         onConnectorCreated={props.onSuccess}
         hideModal={props.onClose}
         {...commonProps}
-        onBoarding={false}
       />
       <DelegateSelectorStep
         name={getString('delegate.DelegateselectionLabel')}
