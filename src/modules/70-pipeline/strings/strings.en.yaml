@@ -60,6 +60,7 @@ clickToExpandErrorDetails: Click to expand error details
 totalCount: 'Total: {{ count }}'
 approvalStage:
   settingUpStage: Getting stage data
+  approvalStageLogsViewMessage: This step is waiting for your approval. Please click on the Approve button below to approve or reject.
 filters:
   pipelineNamePlaceholder: Enter Pipeline Name
   deploymentTypePlaceholder: Search/Select Deployment Type

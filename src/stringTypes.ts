@@ -2660,6 +2660,7 @@ export interface StringsMap {
   'pipeline.approvalCriteria.rejectionCriteriaOptional': string
   'pipeline.approvalCriteria.validations.approvalCriteriaCondition': string
   'pipeline.approvalCriteria.validations.expression': string
+  'pipeline.approvalStage.approvalStageLogsViewMessage': string
   'pipeline.approvalStage.settingUpStage': string
   'pipeline.approvalStep.addApproverInputs': string
   'pipeline.approvalStep.addUserGroups': string
