@@ -81,10 +81,10 @@ describe('<SaveTemplatePopover /> tests', () => {
       fireEvent.click(saveButton)
     })
 
-    expect(
-      useSaveTemplate({ template: { name: 'name', identifier: 'identifier', type: 'Step', versionLabel: 'v1' } })
-        .saveAndPublish
-    ).toBeCalledWith(stepTemplateContextMock.state.template, { comment: 'Some Comment', isEdit: false })
+    expect(useSaveTemplate({}).saveAndPublish).toBeCalledWith(stepTemplateContextMock.state.template, {
+      comment: 'Some Comment',
+      isEdit: false
+    })
   })
 
   test('should not call saveAndPublish if yaml is empty or yaml has schema validation errors', async () => {
@@ -115,10 +115,7 @@ describe('<SaveTemplatePopover /> tests', () => {
       fireEvent.click(saveButton)
     })
 
-    expect(
-      useSaveTemplate({ template: { name: 'name', identifier: 'identifier', type: 'Step', versionLabel: 'v1' } })
-        .saveAndPublish
-    ).not.toBeCalled()
+    expect(useSaveTemplate({}).saveAndPublish).not.toBeCalled()
   })
 
   test('should call saveAndPublish with correct params when updating a template', async () => {
@@ -147,10 +144,10 @@ describe('<SaveTemplatePopover /> tests', () => {
       fireEvent.click(updateButton)
     })
 
-    expect(
-      useSaveTemplate({ template: { name: 'name', identifier: 'identifier', type: 'Step', versionLabel: 'v1' } })
-        .saveAndPublish
-    ).toBeCalledWith(updatedStepTemplateContextMock.state.template, { comment: 'Some Comment', isEdit: true })
+    expect(useSaveTemplate({}).saveAndPublish).toBeCalledWith(updatedStepTemplateContextMock.state.template, {
+      comment: 'Some Comment',
+      isEdit: true
+    })
   })
 
   test('should call saveAndPublish with correct params when updating a template when git sync is enabled', async () => {
@@ -179,10 +176,10 @@ describe('<SaveTemplatePopover /> tests', () => {
       fireEvent.click(updateButton)
     })
 
-    expect(
-      useSaveTemplate({ template: { name: 'name', identifier: 'identifier', type: 'Step', versionLabel: 'v1' } })
-        .saveAndPublish
-    ).toBeCalledWith(updatedStepTemplateContextMock.state.template, { comment: '', isEdit: true })
+    expect(useSaveTemplate({}).saveAndPublish).toBeCalledWith(updatedStepTemplateContextMock.state.template, {
+      comment: '',
+      isEdit: true
+    })
   })
 
   test('should show dialog when saving as new version', async () => {

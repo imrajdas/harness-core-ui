@@ -22,7 +22,7 @@ import {
 import { useModalHook } from '@harness/use-modal'
 import { Color } from '@harness/design-system'
 import { useParams, useHistory } from 'react-router-dom'
-import { defaultTo, isEmpty, isNil, merge } from 'lodash-es'
+import { isEmpty, isNil } from 'lodash-es'
 import { Dialog } from '@blueprintjs/core'
 import {
   Fields,
@@ -47,18 +47,13 @@ import type { UseSaveSuccessResponse } from '@common/modals/SaveToGitDialog/useS
 import RbacButton from '@rbac/components/Button/Button'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { ResourceType } from '@rbac/interfaces/ResourceType'
-import type { IGitContextFormProps } from '@common/components/GitContextForm/GitContextForm'
 import { useQueryParams, useUpdateQueryParams } from '@common/hooks'
 import { AppStoreContext } from 'framework/AppStore/AppStoreContext'
 import { DefaultNewTemplateId, DefaultNewVersionLabel } from 'framework/Templates/templates'
 import type { GitFilterScope } from '@common/components/GitFilters/GitFilters'
 import StudioGitPopover from '@pipeline/components/PipelineStudio/StudioGitPopover'
+import type { IGitContextFormProps } from '@common/components/GitContextForm/GitContextForm'
 import css from './TemplateStudioSubHeaderLeftView.module.scss'
-
-interface TemplateWithGitContextFormProps extends NGTemplateInfoConfig {
-  repo?: string
-  branch?: string
-}
 
 export interface TemplateStudioSubHeaderLeftViewProps {
   onGitBranchChange?: (selectedFilter: GitFilterScope) => void
@@ -103,14 +98,11 @@ export const TemplateStudioSubHeaderLeftView: (props: TemplateStudioSubHeaderLef
       <Dialog enforceFocus={false} isOpen={true} className={css.createTemplateDialog}>
         {modalProps && (
           <TemplateConfigModal
-            initialValues={merge(template, {
-              repo: defaultTo(gitDetails.repoIdentifier, ''),
-              branch: defaultTo(gitDetails.branch, '')
-            })}
+            initialValues={template}
             onClose={onCloseCreate}
             modalProps={modalProps}
-            showGitFields={true}
-            gitDetails={gitDetails as IGitContextFormProps}
+            gitDetails={(templateIdentifier === DefaultNewTemplateId ? undefined : gitDetails) as IGitContextFormProps}
+            isEdit={templateIdentifier !== DefaultNewTemplateId}
           />
         )}
       </Dialog>
@@ -136,30 +128,23 @@ export const TemplateStudioSubHeaderLeftView: (props: TemplateStudioSubHeaderLef
 
   const onSubmit = React.useCallback(
     async (data: NGTemplateInfoConfig, extraInfo: PromiseExtraArgs): Promise<UseSaveSuccessResponse> => {
-      let { updatedGitDetails } = extraInfo
+      const { updatedGitDetails } = extraInfo
       template.name = data.name
       template.description = data.description
       template.identifier = data.identifier
       template.tags = data.tags ?? {}
       template.versionLabel = data.versionLabel
-      delete (template as TemplateWithGitContextFormProps).repo
-      delete (template as TemplateWithGitContextFormProps).branch
+      template.orgIdentifier = data.orgIdentifier
+      template.projectIdentifier = data.projectIdentifier
 
       try {
         await updateTemplate(template)
-        if (updatedGitDetails) {
-          if (gitDetails?.objectId) {
-            updatedGitDetails = { ...gitDetails, ...updatedGitDetails }
-          }
-          updateGitDetails(updatedGitDetails).then(() => {
-            if (updatedGitDetails) {
-              updateQueryParams(
-                { repoIdentifier: updatedGitDetails.repoIdentifier, branch: updatedGitDetails.branch },
-                { skipNulls: true }
-              )
-            }
-          })
-        }
+        updateGitDetails({ ...gitDetails, ...updatedGitDetails } || {}).then(() => {
+          updateQueryParams(
+            { repoIdentifier: updatedGitDetails?.repoIdentifier, branch: updatedGitDetails?.branch },
+            { skipNulls: true }
+          )
+        })
         return { status: 'SUCCESS' }
       } catch (error) {
         return { status: 'ERROR' }

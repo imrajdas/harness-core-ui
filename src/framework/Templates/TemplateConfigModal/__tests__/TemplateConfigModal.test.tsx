@@ -15,16 +15,18 @@ const getProps = (): ConfigModalProps => ({
   initialValues: {
     name: '',
     type: 'Step',
-    identifier: 'My_Step_Template',
-    versionLabel: 'v1',
-    repo: 'test_repo',
-    branch: 'test_branch'
+    identifier: '-1',
+    versionLabel: 'v1'
   },
   modalProps: {
     title: 'Some Title',
     promise: Promise.resolve
   },
-  showGitFields: false
+  gitDetails: {
+    repoIdentifier: 'test_repo',
+    branch: 'test_branch',
+    getDefaultFromOtherRepo: true
+  }
 })
 
 describe('CREATE MODE', () => {
@@ -39,7 +41,7 @@ describe('CREATE MODE', () => {
       fireEvent.change(container.querySelector('input[name="name"]')!, { target: { value: '' } })
     })
     act(() => {
-      fireEvent.click(getByText('save'))
+      fireEvent.click(getByText('start'))
     })
     await waitFor(() => expect(queryByText('common.validation.fieldIsRequired')).toBeTruthy())
   })

@@ -8,7 +8,7 @@
 import React from 'react'
 import { useModalHook } from '@harness/use-modal'
 import produce from 'immer'
-import { defaultTo, merge, omit } from 'lodash-es'
+import { omit } from 'lodash-es'
 import { Dialog } from '@blueprintjs/core'
 import { useParams } from 'react-router-dom'
 import { DefaultTemplate } from 'framework/Templates/templates'
@@ -21,6 +21,7 @@ import type { JsonNode } from 'services/cd-ng'
 import { AppStoreContext } from 'framework/AppStore/AppStoreContext'
 import type { SaveTemplateButtonProps } from '@pipeline/components/PipelineStudio/SaveTemplateButton/SaveTemplateButton'
 import { useStrings } from 'framework/strings'
+import type { IGitContextFormProps } from '@common/components/GitContextForm/GitContextForm'
 import css from './SaveAsTemplate.module.scss'
 
 interface TemplateActionsReturnType {
@@ -47,9 +48,11 @@ export function useSaveAsTemplate({
       <Dialog enforceFocus={false} isOpen={true} className={css.configDialog}>
         {modalProps && template && (
           <TemplateConfigModal
-            initialValues={merge(template, { repo: defaultTo(repoIdentifier, ''), branch: defaultTo(branch, '') })}
+            initialValues={template}
             onClose={hideConfigModal}
             modalProps={modalProps}
+            gitDetails={{ repoIdentifier, branch } as IGitContextFormProps}
+            isEdit={false}
           />
         )}
       </Dialog>
@@ -57,7 +60,6 @@ export function useSaveAsTemplate({
     [template, modalProps, repoIdentifier, branch]
   )
   const { saveAndPublish } = useSaveTemplate({
-    template: template as NGTemplateInfoConfig,
     gitDetails: { repoIdentifier, branch },
     isPipelineStudio: true,
     fireSuccessEvent

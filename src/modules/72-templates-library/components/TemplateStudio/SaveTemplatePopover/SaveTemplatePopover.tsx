@@ -10,9 +10,10 @@ import { Dialog } from '@blueprintjs/core'
 import { parse } from 'yaml'
 import { Button, ButtonVariation, useToaster } from '@wings-software/uicore'
 import { useModalHook } from '@harness/use-modal'
-import { defaultTo, get, isEmpty, merge, noop } from 'lodash-es'
+import { defaultTo, get, isEmpty, noop } from 'lodash-es'
 import { useParams } from 'react-router-dom'
 import type { FormikErrors } from 'formik'
+import produce from 'immer'
 import { String, useStrings } from 'framework/strings'
 import type { ModulePathParams, TemplateStudioPathProps } from '@common/interfaces/RouteInterfaces'
 import { Fields, ModalProps, TemplateConfigModal } from 'framework/Templates/TemplateConfigModal/TemplateConfigModal'
@@ -22,12 +23,13 @@ import {
   TemplatesActionPopover
 } from '@templates-library/components/TemplatesActionPopover/TemplatesActionPopover'
 import { useSaveTemplate } from '@pipeline/utils/useSaveTemplate'
-import type { Failure } from 'services/template-ng'
-import { DefaultNewTemplateId } from 'framework/Templates/templates'
+import type { EntityGitDetails, Failure, NGTemplateInfoConfig } from 'services/template-ng'
+import { DefaultNewTemplateId, DefaultNewVersionLabel } from 'framework/Templates/templates'
 import { AppStoreContext } from 'framework/AppStore/AppStoreContext'
 import useCommentModal from '@common/hooks/CommentModal/useCommentModal'
 import { TemplateType } from '@templates-library/utils/templatesUtils'
 import { getTemplateNameWithLabel } from '@pipeline/utils/templateUtils'
+import type { IGitContextFormProps } from '@common/components/GitContextForm/GitContextForm'
 import css from './SaveTemplatePopover.module.scss'
 
 export interface GetErrorResponse extends Omit<Failure, 'errors'> {
@@ -39,12 +41,13 @@ export interface SaveTemplatePopoverProps {
 
 export function SaveTemplatePopover({ getErrors }: SaveTemplatePopoverProps): React.ReactElement {
   const {
-    state: { template, yamlHandler, gitDetails, isUpdated, stableVersion, lastPublishedVersion },
+    state: { template, originalTemplate, yamlHandler, gitDetails, isUpdated, stableVersion, lastPublishedVersion },
     setLoading,
     fetchTemplate,
     deleteTemplateCache,
     view,
-    isReadonly
+    isReadonly,
+    updateTemplate
   } = React.useContext(TemplateContext)
   const { getString } = useStrings()
   const { templateIdentifier } = useParams<TemplateStudioPathProps & ModulePathParams>()
@@ -55,32 +58,40 @@ export function SaveTemplatePopover({ getErrors }: SaveTemplatePopoverProps): Re
   const { isGitSyncEnabled } = React.useContext(AppStoreContext)
   const { getComments } = useCommentModal()
   const { showError, clear } = useToaster()
+  const [templateToSave, setTemplateToSave] = React.useState<NGTemplateInfoConfig>()
 
   const [showConfigModal, hideConfigModal] = useModalHook(
     () => (
       <Dialog enforceFocus={false} isOpen={true} className={css.configDialog}>
-        {modalProps && (
+        {modalProps && templateToSave && (
           <TemplateConfigModal
-            initialValues={merge(template, {
-              repo: defaultTo(gitDetails.repoIdentifier, ''),
-              branch: defaultTo(gitDetails.branch, '')
-            })}
+            initialValues={templateToSave}
             onClose={hideConfigModal}
             modalProps={modalProps}
+            gitDetails={
+              (templateToSave.identifier === DefaultNewTemplateId ? undefined : gitDetails) as IGitContextFormProps
+            }
+            isEdit={templateToSave.identifier !== DefaultNewTemplateId}
           />
         )}
       </Dialog>
     ),
-    [template, modalProps]
+    [modalProps, templateToSave]
   )
 
   const { saveAndPublish } = useSaveTemplate({
-    template,
     yamlHandler,
     gitDetails,
     setLoading,
     fetchTemplate,
-    deleteTemplateCache,
+    deleteTemplateCache: async (details?: EntityGitDetails) => {
+      await updateTemplate(
+        produce(originalTemplate, draft => {
+          draft.type = template.type
+        })
+      )
+      await deleteTemplateCache(details)
+    },
     view,
     stableVersion
   })
@@ -146,25 +157,35 @@ export function SaveTemplatePopover({ getErrors }: SaveTemplatePopoverProps): Re
         title: getString('templatesLibrary.saveAsNewLabelModal.heading'),
         promise: saveAndPublish,
         disabledFields: [Fields.Name, Fields.Identifier, Fields.Description, Fields.Tags],
-        emptyFields: [Fields.VersionLabel],
         shouldGetComment: !isGitSyncEnabled,
         lastPublishedVersion
       })
+      setTemplateToSave(
+        produce(template, draft => {
+          draft.versionLabel = DefaultNewVersionLabel
+        })
+      )
       showConfigModal()
     })
-  }, [checkErrors, setModalProps, saveAndPublish])
+  }, [checkErrors, setModalProps, saveAndPublish, template, gitDetails])
 
   const onSaveAsNewTemplate = React.useCallback(() => {
     checkErrors(() => {
       setModalProps({
         title: getString('common.template.saveAsNewTemplateHeading'),
         promise: saveAndPublish,
-        emptyFields: [Fields.Name, Fields.Identifier, Fields.VersionLabel],
         shouldGetComment: !isGitSyncEnabled
       })
+      setTemplateToSave(
+        produce(template, draft => {
+          draft.name = ''
+          draft.identifier = DefaultNewTemplateId
+          draft.versionLabel = DefaultNewVersionLabel
+        })
+      )
       showConfigModal()
     })
-  }, [checkErrors, setModalProps, saveAndPublish])
+  }, [checkErrors, setModalProps, saveAndPublish, template, gitDetails])
 
   React.useEffect(() => {
     setDisabled(saveOptions.filter(item => !item.disabled).length === 0)

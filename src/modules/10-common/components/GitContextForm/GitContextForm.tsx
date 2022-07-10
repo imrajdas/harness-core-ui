@@ -6,11 +6,12 @@
  */
 
 import { Container, FormInput, Icon, Layout, SelectOption, Text } from '@wings-software/uicore'
-import { isEmpty } from 'lodash-es'
+import { isEmpty, set } from 'lodash-es'
 import type { FormikContextType } from 'formik'
 import React from 'react'
 import cx from 'classnames'
 import { useParams } from 'react-router-dom'
+import produce from 'immer'
 import { GitSyncConfig, EntityGitDetails, useGetListOfBranchesWithStatus, GitBranchDTO } from 'services/cd-ng'
 import { useStrings } from 'framework/strings'
 import { useGitSyncStore } from 'framework/GitRepoStore/GitSyncStoreContext'
@@ -76,8 +77,12 @@ const GitContextForm: React.FC<GitContextFormProps<Record<string, any> & GitCont
           value: gitRepo.identifier || ''
         }
       })
-      formikProps.setFieldValue('repo', gitDetails?.repoIdentifier ?? gitSyncRepos[0]?.identifier)
-      formikProps.setFieldValue('branch', gitDetails?.branch ?? gitSyncRepos[0]?.branch)
+      formikProps.setValues(
+        produce(formikProps.values, draft => {
+          set(draft, 'repo', gitDetails?.repoIdentifier ?? gitSyncRepos[0]?.identifier)
+          set(draft, 'branch', gitDetails?.branch ?? gitSyncRepos[0]?.branch)
+        })
+      )
       setRepoSelectOptions(reposAvailable)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

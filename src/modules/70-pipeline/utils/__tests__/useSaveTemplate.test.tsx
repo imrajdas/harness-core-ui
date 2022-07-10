@@ -59,8 +59,18 @@ function Wrapped(props: TemplateContextMetadata): React.ReactElement {
   const { saveAndPublish } = useSaveTemplate(props)
   return (
     <>
-      <button onClick={() => saveAndPublish(props.template as NGTemplateInfoConfig, {})}>Save</button>
-      <button onClick={() => saveAndPublish(props.template as NGTemplateInfoConfig, { isEdit: true })}>Edit</button>
+      <button onClick={() => saveAndPublish(stepTemplateMock as NGTemplateInfoConfig, {})}>Save</button>
+      <button onClick={() => saveAndPublish(stepTemplateMock as NGTemplateInfoConfig, { isEdit: true })}>Edit</button>
+      <button
+        onClick={() => saveAndPublish({ ...stepTemplateMock, versionLabel: 'v1.0.0' } as NGTemplateInfoConfig, {})}
+      >
+        Save with versionLabel
+      </button>
+      <button
+        onClick={() => saveAndPublish({ ...stepTemplateMock, versionLabel: 'v1.0.0-0_0' } as NGTemplateInfoConfig, {})}
+      >
+        Save with complex versionLabel
+      </button>
     </>
   )
 }
@@ -68,7 +78,6 @@ function Wrapped(props: TemplateContextMetadata): React.ReactElement {
 describe('useSaveTemplate Test', () => {
   test('create should work as expected', async () => {
     const props: TemplateContextMetadata = {
-      template: stepTemplateMock as NGTemplateInfoConfig,
       deleteTemplateCache: jest.fn()
     }
     const { getByText } = render(
@@ -86,7 +95,6 @@ describe('useSaveTemplate Test', () => {
   })
   test('edit should work as expected', async () => {
     const props: TemplateContextMetadata = {
-      template: stepTemplateMock as NGTemplateInfoConfig,
       fetchTemplate: jest.fn()
     }
     const { getByText } = render(
@@ -105,21 +113,19 @@ describe('useSaveTemplate Test', () => {
 
   test('filePath should be expected', async () => {
     const props: TemplateContextMetadata = {
-      template: stepTemplateMock as NGTemplateInfoConfig,
       deleteTemplateCache: jest.fn(),
       gitDetails: {
         repoIdentifier: 'testRepo',
         branch: 'testBranch'
       }
     }
-    props.template.versionLabel = 'v1.0.0'
     const { getByText } = render(
       <TestWrapper defaultAppStoreValues={{ isGitSyncEnabled: true }}>
         <Wrapped {...props} />
       </TestWrapper>
     )
 
-    const saveBtn = getByText('Save')
+    const saveBtn = getByText('Save with versionLabel')
     await act(async () => {
       fireEvent.click(saveBtn)
     })
@@ -132,21 +138,19 @@ describe('useSaveTemplate Test', () => {
   })
   test('filePath should be expected for underscore and hyphen', async () => {
     const props: TemplateContextMetadata = {
-      template: stepTemplateMock as NGTemplateInfoConfig,
       deleteTemplateCache: jest.fn(),
       gitDetails: {
         repoIdentifier: 'testRepo',
         branch: 'testBranch'
       }
     }
-    props.template.versionLabel = 'v1.0.0-0_0'
     const { getByText } = render(
       <TestWrapper defaultAppStoreValues={{ isGitSyncEnabled: true }}>
         <Wrapped {...props} />
       </TestWrapper>
     )
 
-    const saveBtn = getByText('Save')
+    const saveBtn = getByText('Save with complex versionLabel')
     await act(async () => {
       fireEvent.click(saveBtn)
     })
@@ -156,13 +160,11 @@ describe('useSaveTemplate Test', () => {
     const filePath = commentsDialog!.querySelector('input[name="filePath"]')!
     expect(filePath).toBeDefined()
     expect(filePath?.getAttribute('value')).toBe('Test_Http_Template_v100-0_0.yaml')
-    props.template.versionLabel = 'v1'
   })
 
   describe('When GitSync is enabled', () => {
     test('edit should work as expected', async () => {
       const props: TemplateContextMetadata = {
-        template: stepTemplateMock as NGTemplateInfoConfig,
         gitDetails: {
           branch: 'feature',
           filePath: 'test_pipeline.yaml',
@@ -207,7 +209,6 @@ describe('useSaveTemplate Test', () => {
         .mockImplementation(() => Promise.reject({ status: 'ERROR', message: 'There was error' }))
 
       const props: TemplateContextMetadata = {
-        template: stepTemplateMock as NGTemplateInfoConfig,
         gitDetails: {
           branch: 'feature',
           filePath: 'test_pipeline.yaml',
@@ -249,7 +250,6 @@ describe('useSaveTemplate Test', () => {
 
     test('create should work as expected', async () => {
       const props: TemplateContextMetadata = {
-        template: stepTemplateMock as NGTemplateInfoConfig,
         deleteTemplateCache: jest.fn(),
         gitDetails: {
           branch: 'feature',
@@ -293,7 +293,6 @@ describe('useSaveTemplate Test', () => {
         .mockImplementation(() => Promise.reject({ status: 'ERROR', message: 'There was error' }))
 
       const props: TemplateContextMetadata = {
-        template: stepTemplateMock as NGTemplateInfoConfig,
         deleteTemplateCache: jest.fn(),
         gitDetails: {
           branch: 'feature',

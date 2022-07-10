@@ -31,6 +31,8 @@ import type { GitQueryParams, ModulePathParams, TemplateStudioPathProps } from '
 import { useQueryParams } from '@common/hooks'
 import type { PromiseExtraArgs } from 'framework/Templates/TemplateConfigModal/TemplateConfigModal'
 import type { YamlBuilderHandlerBinding } from '@common/interfaces/YAMLBuilderProps'
+import { getScopeFromDTO } from '@common/components/EntityReference/EntityReference'
+import { Scope } from '@common/interfaces/SecretsInterface'
 
 export interface FetchTemplateUnboundProps {
   forceFetch?: boolean
@@ -58,7 +60,6 @@ interface UseSaveTemplateReturnType {
 }
 
 export interface TemplateContextMetadata {
-  template: NGTemplateInfoConfig
   yamlHandler?: YamlBuilderHandlerBinding
   gitDetails?: EntityGitDetails
   setLoading?: (loading: boolean) => void
@@ -72,7 +73,6 @@ export interface TemplateContextMetadata {
 
 export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata): UseSaveTemplateReturnType {
   const {
-    template,
     yamlHandler,
     gitDetails,
     setLoading,
@@ -94,20 +94,16 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
   const history = useHistory()
   const isYaml = view === SelectedView.YAML
 
-  const navigateToLocation = (
-    newTemplateId: string,
-    versionLabel: string,
-    updatedGitDetails?: SaveToGitFormInterface
-  ): void => {
+  const navigateToLocation = (newTemplate: NGTemplateInfoConfig, updatedGitDetails?: SaveToGitFormInterface): void => {
     history.replace(
       routes.toTemplateStudio({
-        projectIdentifier,
-        orgIdentifier,
+        projectIdentifier: newTemplate.projectIdentifier,
+        orgIdentifier: newTemplate.orgIdentifier,
         accountId,
-        module,
+        ...(!isEmpty(newTemplate.projectIdentifier) && { module }),
         templateType: templateType,
-        templateIdentifier: newTemplateId,
-        versionLabel: versionLabel,
+        templateIdentifier: newTemplate.identifier,
+        versionLabel: newTemplate.versionLabel,
         repoIdentifier: updatedGitDetails?.repoIdentifier,
         branch: updatedGitDetails?.branch
       })
@@ -135,15 +131,16 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
   )
 
   const updateExistingLabel = async (
+    latestTemplate: NGTemplateInfoConfig,
     comments?: string,
     updatedGitDetails?: SaveToGitFormInterface,
     lastObject?: { lastObjectId?: string }
   ): Promise<UseSaveSuccessResponse> => {
     try {
       const response = await updateExistingTemplateLabelPromise({
-        templateIdentifier: template.identifier,
-        versionLabel: template.versionLabel,
-        body: stringifyTemplate(omit(cloneDeep(template), 'repo', 'branch')),
+        templateIdentifier: latestTemplate.identifier,
+        versionLabel: latestTemplate.versionLabel,
+        body: stringifyTemplate(latestTemplate),
         queryParams: {
           accountIdentifier: accountId,
           projectIdentifier,
@@ -163,7 +160,7 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
         }
         await fetchTemplate?.({ forceFetch: true, forceUpdate: true })
         if (updatedGitDetails?.isNewBranch) {
-          navigateToLocation(template.identifier, template.versionLabel, updatedGitDetails)
+          navigateToLocation(latestTemplate, updatedGitDetails)
         }
         return { status: response.status }
       } else {
@@ -187,11 +184,12 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
     updatedGitDetails?: SaveToGitFormInterface,
     lastObject?: { lastObjectId?: string }
   ): Promise<UseSaveSuccessResponse> => {
-    if (!isGitSyncEnabled) {
+    const isGitExperienceEnabled = isGitSyncEnabled && getScopeFromDTO(latestTemplate) === Scope.PROJECT
+    if (!isGitExperienceEnabled) {
       setLoading?.(true)
     }
     if (isEdit) {
-      return updateExistingLabel(comments, updatedGitDetails, lastObject)
+      return updateExistingLabel(latestTemplate, comments, updatedGitDetails, lastObject)
     } else {
       try {
         const response = await createTemplatePromise({
@@ -206,20 +204,20 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
           },
           requestOptions: { headers: { 'Content-Type': 'application/yaml' } }
         })
-        if (!isGitSyncEnabled) {
+        if (!isGitExperienceEnabled) {
           setLoading?.(false)
         }
         if (response && response.status === 'SUCCESS') {
           if (fireSuccessEvent && response.data?.templateResponseDTO) {
             window.dispatchEvent(new CustomEvent('TEMPLATE_SAVED', { detail: response.data.templateResponseDTO }))
           }
-          if (!isGitSyncEnabled) {
+          if (!isGitExperienceEnabled) {
             clear()
             showSuccess(getString('common.template.saveTemplate.publishTemplate'))
           }
           await deleteTemplateCache?.()
           if (!isPipelineStudio) {
-            navigateToLocation(latestTemplate.identifier, latestTemplate.versionLabel, updatedGitDetails)
+            navigateToLocation(latestTemplate, updatedGitDetails)
           }
           return { status: response.status }
         } else {
@@ -227,7 +225,7 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
         }
       } catch (error) {
         clear()
-        if (!isGitSyncEnabled) {
+        if (!isGitExperienceEnabled) {
           showError(getRBACErrorMessage(error), undefined, 'template.save.template.error')
           return { status: 'FAILURE' }
         } else {
@@ -243,7 +241,7 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
     objectId?: string,
     isEdit = false
   ): Promise<UseSaveSuccessResponse> => {
-    let latestTemplate: NGTemplateInfoConfig = payload?.template || template
+    let latestTemplate = payload?.template as NGTemplateInfoConfig
 
     if (isYaml && yamlHandler) {
       try {
@@ -292,10 +290,9 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
   const saveAndPublish = React.useCallback(
     async (updatedTemplate: NGTemplateInfoConfig, extraInfo: PromiseExtraArgs): Promise<UseSaveSuccessResponse> => {
       const { isEdit, comment } = extraInfo
-      const latestTemplate: NGTemplateInfoConfig = defaultTo(updatedTemplate, template)
 
       // if Git sync enabled then display modal
-      if (isGitSyncEnabled) {
+      if (isGitSyncEnabled && getScopeFromDTO(updatedTemplate) === Scope.PROJECT) {
         if (isEmpty(gitDetails?.repoIdentifier) || isEmpty(gitDetails?.branch)) {
           clear()
           showError(getString('pipeline.gitExperience.selectRepoBranch'))
@@ -305,29 +302,19 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
             isEditing: defaultTo(isEdit, false),
             resource: {
               type: 'Template',
-              name: latestTemplate.name,
-              identifier: latestTemplate.identifier,
-              gitDetails: gitDetails ? getUpdatedGitDetails(gitDetails, latestTemplate, isEdit) : {}
+              name: updatedTemplate.name,
+              identifier: updatedTemplate.identifier,
+              gitDetails: gitDetails ? getUpdatedGitDetails(gitDetails, updatedTemplate, isEdit) : {}
             },
-            payload: { template: omit(latestTemplate, 'repo', 'branch') }
+            payload: { template: updatedTemplate }
           })
           return Promise.resolve({ status: 'SUCCESS' })
         }
       } else {
-        return saveAndPublishTemplate(latestTemplate, comment, isEdit)
+        return saveAndPublishTemplate(updatedTemplate, comment, isEdit)
       }
     },
-    [
-      template,
-      templateIdentifier,
-      gitDetails,
-      isGitSyncEnabled,
-      isYaml,
-      yamlHandler,
-      showError,
-      showSuccess,
-      stableVersion
-    ]
+    [templateIdentifier, gitDetails, isGitSyncEnabled, isYaml, yamlHandler, showError, showSuccess, stableVersion]
   )
 
   return {
