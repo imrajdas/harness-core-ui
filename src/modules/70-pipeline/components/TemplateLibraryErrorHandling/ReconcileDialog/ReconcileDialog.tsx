@@ -16,7 +16,8 @@ import {
   refreshAndUpdateTemplateInputsPromise as refreshAndUpdateTemplate,
   refreshAllPromise as refreshAllTemplatePromise,
   ErrorNodeSummary,
-  TemplateResponse
+  TemplateResponse,
+  updateExistingTemplateLabelPromise
 } from 'services/template-ng'
 import { YamlDiffView } from '@pipeline/components/TemplateLibraryErrorHandling/YamlDiffView/YamlDiffView'
 import { ErrorNode } from '@pipeline/components/TemplateLibraryErrorHandling/ErrorDirectory/ErrorNode'
@@ -42,13 +43,15 @@ export interface ReconcileDialogProps {
   entity: 'Pipeline' | 'Template'
   setResolvedTemplateResponses: (resolvedTemplateInfos: TemplateResponse[]) => void
   reload: () => void
+  originalEntityYaml: string
 }
 
 export function ReconcileDialog({
   templateInputsErrorNodeSummary,
   entity,
   setResolvedTemplateResponses: setResolvedTemplates,
-  reload
+  reload,
+  originalEntityYaml
 }: ReconcileDialogProps) {
   const hasChildren = !isEmpty(templateInputsErrorNodeSummary.childrenErrorNodes)
   const [selectedErrorNodeSummary, setSelectedErrorNodeSummary] = React.useState<ErrorNodeSummary>()
@@ -137,53 +140,84 @@ export function ReconcileDialog({
     }
   }
 
-  const onUpdateNode = async (): Promise<void> => {
+  const onUpdateNode = async (refreshedYaml: string): Promise<void> => {
     setLoading(true)
-    if (selectedErrorNodeSummary?.templateResponse) {
-      const scope = getScopeFromDTO(selectedErrorNodeSummary.templateResponse)
+    if (isEqual(selectedErrorNodeSummary?.nodeInfo, templateInputsErrorNodeSummary.nodeInfo)) {
+      if (selectedErrorNodeSummary?.templateResponse) {
+        const scope = getScopeFromDTO(selectedErrorNodeSummary.templateResponse)
+        try {
+          const response = await refreshAndUpdateTemplate({
+            queryParams: {
+              ...getScopeBasedProjectPathParams(params, scope),
+              templateIdentifier: defaultTo(selectedErrorNodeSummary.templateResponse.identifier, ''),
+              versionLabel: defaultTo(selectedErrorNodeSummary.templateResponse.versionLabel, ''),
+              branch,
+              repoIdentifier,
+              getDefaultFromOtherRepo: true
+            },
+            body: undefined
+          })
+          if (response && response.status === 'SUCCESS') {
+            if (isEqual(selectedErrorNodeSummary.nodeInfo, templateInputsErrorNodeSummary.nodeInfo)) {
+              reload()
+            } else if (selectedErrorNodeSummary.templateResponse) {
+              setResolvedTemplateResponses([
+                ...resolvedTemplateResponses,
+                clone(selectedErrorNodeSummary.templateResponse)
+              ])
+            }
+          } else {
+            throw response
+          }
+        } catch (error) {
+          showError(getRBACErrorMessage(error), undefined, 'template.refresh.error')
+        } finally {
+          setLoading(false)
+        }
+      } else {
+        try {
+          const response = await refreshAndUpdatePipeline({
+            queryParams: {
+              ...getScopeBasedProjectPathParams(params, Scope.PROJECT),
+              identifier: defaultTo(selectedErrorNodeSummary?.nodeInfo?.identifier, ''),
+              branch,
+              repoIdentifier,
+              getDefaultFromOtherRepo: true
+            },
+            body: undefined
+          })
+          if (response && response.status === 'SUCCESS') {
+            reload()
+          } else {
+            throw response
+          }
+        } catch (error) {
+          showError(getRBACErrorMessage(error), undefined, 'pipeline.refresh.error')
+        } finally {
+          setLoading(false)
+        }
+      }
+    } else if (selectedErrorNodeSummary) {
       try {
-        const response = await refreshAndUpdateTemplate({
+        const response = await updateExistingTemplateLabelPromise({
+          templateIdentifier: defaultTo(selectedErrorNodeSummary.templateResponse?.identifier, ''),
+          versionLabel: defaultTo(selectedErrorNodeSummary.templateResponse?.versionLabel, ''),
+          body: refreshedYaml,
           queryParams: {
-            ...getScopeBasedProjectPathParams(params, scope),
-            templateIdentifier: defaultTo(selectedErrorNodeSummary.templateResponse.identifier, ''),
-            versionLabel: defaultTo(selectedErrorNodeSummary.templateResponse.versionLabel, ''),
-            branch,
-            repoIdentifier,
-            getDefaultFromOtherRepo: true
+            accountIdentifier: defaultTo(selectedErrorNodeSummary.templateResponse?.accountId, ''),
+            projectIdentifier: defaultTo(selectedErrorNodeSummary.templateResponse?.projectIdentifier, ''),
+            orgIdentifier: defaultTo(selectedErrorNodeSummary.templateResponse?.orgIdentifier, ''),
+            comments: 'Reconciling template'
           },
-          body: undefined
+          requestOptions: { headers: { 'Content-Type': 'application/yaml' } }
         })
         if (response && response.status === 'SUCCESS') {
-          if (isEqual(selectedErrorNodeSummary.nodeInfo, templateInputsErrorNodeSummary.nodeInfo)) {
-            reload()
-          } else if (selectedErrorNodeSummary.templateResponse) {
+          if (selectedErrorNodeSummary.templateResponse) {
             setResolvedTemplateResponses([
               ...resolvedTemplateResponses,
               clone(selectedErrorNodeSummary.templateResponse)
             ])
           }
-        } else {
-          throw response
-        }
-      } catch (error) {
-        showError(getRBACErrorMessage(error), undefined, 'template.refresh.error')
-      } finally {
-        setLoading(false)
-      }
-    } else {
-      try {
-        const response = await refreshAndUpdatePipeline({
-          queryParams: {
-            ...getScopeBasedProjectPathParams(params, Scope.PROJECT),
-            identifier: defaultTo(selectedErrorNodeSummary?.nodeInfo?.identifier, ''),
-            branch,
-            repoIdentifier,
-            getDefaultFromOtherRepo: true
-          },
-          body: undefined
-        })
-        if (response && response.status === 'SUCCESS') {
-          reload()
         } else {
           throw response
         }
@@ -255,8 +289,10 @@ export function ReconcileDialog({
             <Container style={{ flex: 1 }}>
               <YamlDiffView
                 errorNodeSummary={selectedErrorNodeSummary}
+                rootErrorNodeSummary={templateInputsErrorNodeSummary}
                 resolvedTemplateResponses={resolvedTemplateResponses}
                 onUpdate={onUpdateNode}
+                originalEntityYaml={originalEntityYaml}
               />
             </Container>
           </Layout.Horizontal>

@@ -42,6 +42,7 @@ import NoEntityFound from '@pipeline/pages/utils/NoEntityFound/NoEntityFound'
 import { TemplateVariablesContextProvider } from '@pipeline/components/TemplateVariablesContext/TemplateVariablesContext'
 import { RightBar } from '@templates-library/components/TemplateStudio/RightBar/RightBar'
 import { OutOfSyncErrorStrip } from '@pipeline/components/TemplateLibraryErrorHandling/OutOfSyncErrorStrip/OutOfSyncErrorStrip'
+import { yamlStringify } from '@common/utils/YamlHelperMethods'
 import { TemplateContext } from './TemplateContext/TemplateContext'
 import { getContentAndTitleStringKeys, isValidYaml } from './TemplateStudioUtils'
 import css from './TemplateStudio.module.scss'
@@ -306,6 +307,7 @@ export function TemplateStudio(): React.ReactElement {
                   onRefreshEntity={() => {
                     fetchTemplate({ forceFetch: true, forceUpdate: true })
                   }}
+                  originalEntityYaml={yamlStringify(template)}
                 />
               )}
               <Container className={css.canvasContainer}>

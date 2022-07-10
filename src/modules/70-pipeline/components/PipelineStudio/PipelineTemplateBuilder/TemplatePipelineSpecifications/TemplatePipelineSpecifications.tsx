@@ -49,7 +49,7 @@ export function TemplatePipelineSpecifications(): JSX.Element {
   const formRefDom = React.useRef<HTMLElement | undefined>()
   const [inputsTemplate, setInputsTemplate] = React.useState<PipelineInfoConfig>()
   const [allValues, setAllValues] = React.useState<PipelineInfoConfig>()
-  const [initialValues, setInitialValues] = React.useState<PipelineInfoConfig>()
+  const [initialValues, setInitialValues] = React.useState<PipelineInfoConfig>(pipeline)
   const [formikErrors, setFormikErrors] = React.useState<FormikErrors<PipelineInfoConfig>>()
   const [showFormError, setShowFormError] = React.useState<boolean>()
   const dummyPipeline = useRef(pipeline)
@@ -114,14 +114,10 @@ export function TemplatePipelineSpecifications(): JSX.Element {
 
   React.useEffect(() => {
     if (inputsTemplate !== undefined) {
-      try {
-        const mergedTemplateInputs = merge({}, inputsTemplate, pipeline.template?.templateInputs)
-        setTemplateInputs(pipeline, mergedTemplateInputs)
-        updatePipeline(pipeline)
-        setInitialValues(cloneDeep(pipeline))
-      } catch (error) {
-        showError(error.message, undefined, 'template.parse.inputSet.error')
-      }
+      const mergedTemplateInputs = merge({}, inputsTemplate, pipeline.template?.templateInputs)
+      setTemplateInputs(pipeline, mergedTemplateInputs)
+      updatePipeline(pipeline)
+      setInitialValues(cloneDeep(pipeline))
     }
   }, [inputsTemplate])
 

@@ -16,7 +16,8 @@ import { FontVariation } from '@harness/design-system'
 import {
   getYamlDiffPromise as getYamlDiffPromiseForTemplate,
   ErrorNodeSummary,
-  TemplateResponse
+  TemplateResponse,
+  getRefreshedYamlPromise
 } from 'services/template-ng'
 import {
   getIdentifierFromValue,
@@ -36,14 +37,23 @@ import css from './YamlDiffView.module.scss'
 export interface YamlDiffViewProps {
   errorNodeSummary?: ErrorNodeSummary
   resolvedTemplateResponses?: TemplateResponse[]
-  onUpdate: () => Promise<void>
+  rootErrorNodeSummary?: ErrorNodeSummary
+  onUpdate: (refreshedYaml: string) => Promise<void>
+  originalEntityYaml: string
 }
 
-export function YamlDiffView({ errorNodeSummary, resolvedTemplateResponses = [], onUpdate }: YamlDiffViewProps) {
+export function YamlDiffView({
+  errorNodeSummary,
+  rootErrorNodeSummary,
+  resolvedTemplateResponses = [],
+  onUpdate,
+  originalEntityYaml
+}: YamlDiffViewProps) {
   const { getString } = useStrings()
   const { isGitSyncEnabled } = useAppStore()
   const params = useParams<ProjectPathProps>()
   const { branch, repoIdentifier } = useQueryParams<GitQueryParams>()
+  const { accountId, orgIdentifier, projectIdentifier } = useParams<ProjectPathProps>()
   const editorRef = useRef<MonacoDiffEditor>(null)
   const [loading, setLoading] = React.useState<boolean>(false)
   const [error, setError] = React.useState<any>()
@@ -56,13 +66,39 @@ export function YamlDiffView({ errorNodeSummary, resolvedTemplateResponses = [],
   )
 
   const onNodeUpdate = () => {
-    onUpdate().then(_ => {
+    onUpdate(refreshedYaml).then(_ => {
       setOriginalYaml(refreshedYaml)
     })
   }
 
   const refetch = async () => {
-    if (errorNodeSummary) {
+    if (isEqual(errorNodeSummary, rootErrorNodeSummary) && errorNodeSummary) {
+      setLoading(true)
+      setError(undefined)
+      try {
+        const response = await getRefreshedYamlPromise({
+          queryParams: {
+            accountIdentifier: accountId,
+            orgIdentifier,
+            projectIdentifier,
+            branch,
+            repoIdentifier,
+            getDefaultFromOtherRepo: true
+          },
+          body: { yaml: originalEntityYaml }
+        })
+        if (response && response.status === 'SUCCESS') {
+          setOriginalYaml(yamlStringify(yamlParse(originalEntityYaml)))
+          setRefreshedYaml(yamlStringify(yamlParse(defaultTo(response.data?.refreshedYaml, ''))))
+        } else {
+          throw response
+        }
+      } catch (err) {
+        setError(err)
+      } finally {
+        setLoading(false)
+      }
+    } else if (errorNodeSummary) {
       setLoading(true)
       setError(undefined)
       const templateResponse = errorNodeSummary.templateResponse

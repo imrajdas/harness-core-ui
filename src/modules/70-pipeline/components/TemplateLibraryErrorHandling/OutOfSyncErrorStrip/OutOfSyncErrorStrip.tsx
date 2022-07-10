@@ -21,13 +21,15 @@ export interface OutOfSyncErrorStripProps {
   entity: 'Pipeline' | 'Template'
   isReadOnly: boolean
   onRefreshEntity: () => void
+  originalEntityYaml: string
 }
 
 export function OutOfSyncErrorStrip({
   templateInputsErrorNodeSummary,
   entity,
   isReadOnly,
-  onRefreshEntity
+  onRefreshEntity,
+  originalEntityYaml
 }: OutOfSyncErrorStripProps) {
   const { getString } = useStrings()
   const [resolvedTemplateResponses, setResolvedTemplateResponses] = React.useState<TemplateResponse[]>([])
@@ -48,10 +50,11 @@ export function OutOfSyncErrorStrip({
           entity={entity}
           setResolvedTemplateResponses={setResolvedTemplateResponses}
           reload={onRefreshEntity}
+          originalEntityYaml={originalEntityYaml}
         />
       </Dialog>
     )
-  }, [resolvedTemplateResponses])
+  }, [resolvedTemplateResponses, originalEntityYaml])
 
   return (
     <Container className={css.mainContainer}>
