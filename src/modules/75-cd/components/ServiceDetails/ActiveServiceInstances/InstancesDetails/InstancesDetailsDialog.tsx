@@ -42,7 +42,9 @@ export default function InstancesDetailsDialog(props: InstancesDetailsDialogProp
           i =>
             i.envName?.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !== -1 ||
             i.instanceGroupedByInfraList?.filter(
-              infra => infra.infraName?.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !== -1
+              infra =>
+                infra.infraName?.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !== -1 ||
+                infra.lastPipelineExecutionName?.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !== -1
             ).length
         ).length
     )
@@ -140,7 +142,9 @@ export default function InstancesDetailsDialog(props: InstancesDetailsDialogProp
           flex={{ alignItems: 'center', justifyContent: 'space-between' }}
         >
           <Text color={Color.GREY_900} font={{ variation: FontVariation.H4, weight: 'semi-bold' }}>
-            {getString('cd.serviceDashboard.instancesDetails')}
+            {isActiveInstance
+              ? getString('cd.serviceDashboard.instancesDetails')
+              : getString('cd.serviceDashboard.deploymentDetails')}
           </Text>
           <ExpandingSearchInput
             placeholder={getString('search')}

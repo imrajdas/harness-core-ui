@@ -130,13 +130,18 @@ export const getSummaryTableData = (instanceGroupedByArtifact?: InstanceGroupedB
   return tableData
 }
 
-const RenderArtifactVersion: Renderer<CellProps<TableRowData>> = ({
+export const RenderArtifactVersion: Renderer<CellProps<TableRowData>> = ({
   row: {
     original: { artifactVersion, showArtifact }
   }
 }) => {
   return showArtifact ? (
-    <Text font={{ size: 'small', weight: 'semi-bold' }} lineClamp={1} color={Color.GREY_800}>
+    <Text
+      style={{ maxWidth: '200px' }}
+      font={{ size: 'small', weight: 'semi-bold' }}
+      lineClamp={1}
+      color={Color.GREY_800}
+    >
       {artifactVersion}
     </Text>
   ) : (
@@ -144,7 +149,7 @@ const RenderArtifactVersion: Renderer<CellProps<TableRowData>> = ({
   )
 }
 
-const RenderEnvironment: Renderer<CellProps<TableRowData>> = ({
+export const RenderEnvironment: Renderer<CellProps<TableRowData>> = ({
   row: {
     original: { showEnv, envName, totalEnvs }
   }
@@ -174,7 +179,7 @@ const RenderEnvironment: Renderer<CellProps<TableRowData>> = ({
   )
 }
 
-const RenderInfra: Renderer<CellProps<TableRowData>> = ({
+export const RenderInfra: Renderer<CellProps<TableRowData>> = ({
   row: {
     original: { infraName, totalInfras }
   }
@@ -182,7 +187,12 @@ const RenderInfra: Renderer<CellProps<TableRowData>> = ({
   return infraName ? (
     <Container flex>
       <Layout.Horizontal>
-        <Text font={{ size: 'small', weight: 'semi-bold' }} lineClamp={1} color={Color.GREY_800}>
+        <Text
+          style={{ maxWidth: '120px' }}
+          font={{ size: 'small', weight: 'semi-bold' }}
+          lineClamp={1}
+          color={Color.GREY_800}
+        >
           {infraName}
         </Text>
         {totalInfras && totalInfras > 1 && (
@@ -202,7 +212,7 @@ const RenderInfra: Renderer<CellProps<TableRowData>> = ({
   )
 }
 
-const RenderInfraCount: Renderer<CellProps<TableRowData>> = ({
+export const RenderInfraCount: Renderer<CellProps<TableRowData>> = ({
   row: {
     original: { totalInfras }
   }
@@ -283,7 +293,7 @@ const RenderInstances: Renderer<CellProps<TableRowData>> = ({
 }
 
 // Inspired by 'ServicesList > RenderLastDeployment', consider reusing
-const RenderPipelineExecution: Renderer<CellProps<TableRowData>> = ({
+export const RenderPipelineExecution: Renderer<CellProps<TableRowData>> = ({
   row: {
     original: { lastPipelineExecutionId, lastPipelineExecutionName, lastDeployedAt }
   }

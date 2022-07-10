@@ -6,159 +6,26 @@
  */
 
 import React, { useMemo } from 'react'
-import type { CellProps, Renderer } from 'react-table'
-import cx from 'classnames'
 import { Color } from '@harness/design-system'
 import { Container, Layout, Text, PageError } from '@wings-software/uicore'
 import type { GetDataError } from 'restful-react'
-import ReactTimeago from 'react-timeago'
 import { PageSpinner, Table } from '@common/components'
 import type { InstanceGroupedByArtifact } from 'services/cd-ng'
 import { useStrings } from 'framework/strings'
 import MostActiveServicesEmptyState from '@cd/icons/MostActiveServicesEmptyState.svg'
-import { numberFormatter } from '@cd/components/Services/common'
 import {
   getFullTableData,
   getPreviewTableData,
   getSummaryTableData,
-  TableRowData
+  RenderArtifactVersion,
+  RenderEnvironment,
+  RenderInfra,
+  RenderInfraCount,
+  RenderPipelineExecution,
+  TableRowData,
+  TableType
 } from '../ActiveServiceInstances/ActiveServiceInstancesContentV2'
 import css from '../ActiveServiceInstances/ActiveServiceInstancesV2.module.scss'
-
-const RenderArtifactVersion: Renderer<CellProps<TableRowData>> = ({
-  row: {
-    original: { artifactVersion, showArtifact }
-  }
-}) => {
-  return showArtifact ? (
-    <Text
-      style={{ maxWidth: '200px' }}
-      font={{ size: 'small', weight: 'semi-bold' }}
-      lineClamp={1}
-      color={Color.GREY_800}
-    >
-      {artifactVersion}
-    </Text>
-  ) : (
-    <></>
-  )
-}
-
-const RenderEnvironment: Renderer<CellProps<TableRowData>> = ({
-  row: {
-    original: { showEnv, envName, totalEnvs }
-  }
-}) => {
-  return showEnv ? (
-    <Container className={css.paddedContainer}>
-      <Container flex>
-        <Container className={css.envContainer}>
-          <Text className={css.environmentRow} font={{ size: 'small' }} color={Color.WHITE} lineClamp={1}>
-            {envName}
-          </Text>
-        </Container>
-        {totalEnvs && totalEnvs > 1 && (
-          <Text
-            font={{ size: 'xsmall' }}
-            style={{ lineHeight: 'small' }}
-            className={css.plusMore}
-            color={Color.GREY_500}
-          >
-            + {totalEnvs - 1}
-          </Text>
-        )}
-      </Container>
-    </Container>
-  ) : (
-    <></>
-  )
-}
-
-const RenderInfra: Renderer<CellProps<TableRowData>> = ({
-  row: {
-    original: { infraName, totalInfras }
-  }
-}) => {
-  return infraName ? (
-    <Container flex>
-      <Layout.Horizontal>
-        <Text
-          style={{ maxWidth: '120px' }}
-          font={{ size: 'small', weight: 'semi-bold' }}
-          lineClamp={1}
-          color={Color.GREY_800}
-        >
-          {infraName}
-        </Text>
-        {totalInfras && totalInfras > 1 && (
-          <Text
-            font={{ size: 'xsmall' }}
-            style={{ lineHeight: 'small' }}
-            className={css.plusMore}
-            color={Color.GREY_500}
-          >
-            + {totalInfras - 1}
-          </Text>
-        )}
-      </Layout.Horizontal>
-    </Container>
-  ) : (
-    <></>
-  )
-}
-
-const RenderInfraCount: Renderer<CellProps<TableRowData>> = ({
-  row: {
-    original: { totalInfras }
-  }
-}) => {
-  return totalInfras ? (
-    <Container className={css.paddedContainer}>
-      <Text
-        font={{ size: 'xsmall', weight: 'bold' }}
-        background={Color.GREY_100}
-        className={cx(css.countBadge, css.overflow)}
-      >
-        {numberFormatter(totalInfras)}
-      </Text>
-    </Container>
-  ) : (
-    <></>
-  )
-}
-
-/*
- * TODO-DASHBOARD-V2 [Guy Castel, July 07 2022]: Temporary
- * Inspired by 'ServicesList > RenderLastDeployment'.
- * Currently generated without link because missing 'pipelineIdentifier'.
- */
-const RenderPipelineExecution: Renderer<CellProps<TableRowData>> = ({
-  row: {
-    original: { /* lastPipelineExecutionId, lastPipelineExecutionName, */ lastDeployedAt }
-  }
-}) => {
-  return (
-    <Layout.Vertical margin={{ right: 'large' }} flex={{ alignItems: 'flex-start' }}>
-      {lastDeployedAt && (
-        <ReactTimeago
-          date={new Date(parseInt(lastDeployedAt))}
-          component={val => (
-            <Text font={{ size: 'small' }} color={Color.GREY_500}>
-              {' '}
-              {val.children}{' '}
-            </Text>
-          )}
-        />
-      )}
-    </Layout.Vertical>
-  )
-}
-
-export enum TableType {
-  PREVIEW = 'preview', // for card (headers visible, no Pipeline column, Clusters as count)
-  SUMMARY = 'summary', // for details popup collapsed row, assuming single entry in 'data' (headers hidden)
-  FULL = 'full' // for details popup expanded row (headers hidden)
-}
 
 const columnsProperties = {
   artifacts: {

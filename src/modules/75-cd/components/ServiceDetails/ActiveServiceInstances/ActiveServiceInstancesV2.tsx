@@ -92,42 +92,44 @@ export const ActiveServiceInstancesV2: React.FC = () => {
     setDefaultTab(data as ServiceDetailTabs)
   }
 
-  const moreDetails = (isActiveInstance: boolean) => (
-    <>
-      <Text
-        className={css.moreDetails}
-        font={{ size: 'small', weight: 'semi-bold' }}
-        color={Color.PRIMARY_7}
-        onClick={() => setIsDetailsDialogOpen(true)}
-      >
-        {getString('cd.serviceDashboard.moreDetails')}
-      </Text>
-      <InstancesDetailsDialog
-        data={activeInstanceData?.data?.instanceGroupedByArtifactList}
-        isOpen={isDetailsDialogOpen}
-        setIsOpen={setIsDetailsDialogOpen}
-        isActiveInstance={isActiveInstance}
-      />
-    </>
-  )
+  const moreDetails = () => {
+    return (
+      <>
+        <Text
+          className={css.moreDetails}
+          font={{ size: 'small', weight: 'semi-bold' }}
+          color={Color.PRIMARY_7}
+          onClick={() => setIsDetailsDialogOpen(true)}
+        >
+          {getString('cd.serviceDashboard.moreDetails')}
+        </Text>
+        <InstancesDetailsDialog
+          data={activeInstanceData?.data?.instanceGroupedByArtifactList}
+          isOpen={isDetailsDialogOpen}
+          setIsOpen={setIsDetailsDialogOpen}
+          isActiveInstance={defaultTab === ServiceDetailTabs.ACTIVE}
+        />
+      </>
+    )
+  }
 
   return (
     <Card className={css.activeServiceInstances}>
       <Layout.Vertical className={css.tabsStyle}>
-        <Tabs id="ServiceDetailTabs" selectedTabId={defaultTab} onChange={handleTabChange} renderAllTabPanels>
+        <Tabs id="ServiceDetailTabs" selectedTabId={defaultTab} onChange={handleTabChange}>
           <Tab
             id={ServiceDetailTabs.ACTIVE}
             title={getString('cd.serviceDashboard.activeServiceInstancesLabel')}
             panel={
               <>
                 <ActiveServiceInstancesHeader />
-                {moreDetails(true)}
+                {moreDetails()}
                 <ActiveServiceInstancesContentV2
                   tableType={TableType.PREVIEW}
                   loading={activeInstanceLoading}
                   data={activeInstanceData?.data?.instanceGroupedByArtifactList}
-                  error={activeInstanceError as any} //todo
-                  refetch={activeInstanceRefetch as any}
+                  error={activeInstanceError}
+                  refetch={activeInstanceRefetch}
                 />
               </>
             }
@@ -137,12 +139,12 @@ export const ActiveServiceInstancesV2: React.FC = () => {
             title={getString('deploymentsText')}
             panel={
               <>
-                {moreDetails(false)}
+                {moreDetails()}
                 <DeploymentsV2
                   tableType={TableType.PREVIEW}
                   loading={deploymentLoading}
                   data={activeInstanceData?.data?.instanceGroupedByArtifactList}
-                  error={deploymentError as any} //todo
+                  error={deploymentError as any} //tododeploymenttab
                   refetch={deploymentRefetch as any}
                 />
               </>
