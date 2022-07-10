@@ -48,3 +48,9 @@
     margin-top: -27px;
   }
 }
+
+.searchIconStyle {
+  & > input:focus {
+    width: 200px !important;
+  }
+}

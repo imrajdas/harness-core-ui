@@ -5,12 +5,14 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { Dispatch, SetStateAction, useCallback, useMemo, useState } from 'react'
 import cx from 'classnames'
-import { Collapse, Container, Dialog, Layout, Text } from '@wings-software/uicore'
-import { FontVariation } from '@harness/design-system'
+import { Collapse, Container, Dialog, ExpandingSearchInput, Layout, Text } from '@wings-software/uicore'
+import { Color, FontVariation } from '@harness/design-system'
+import { defaultTo } from 'lodash-es'
 import { useStrings } from 'framework/strings'
 import type { InstanceGroupedByArtifact } from 'services/cd-ng'
+import { DeploymentsV2 } from '../../DeploymentView/DeploymentViewV2'
 import { ActiveServiceInstancesContentV2, TableType } from '../ActiveServiceInstancesContentV2'
 import css from './InstancesDetailsDialog.module.scss'
 
@@ -18,11 +20,37 @@ export interface InstancesDetailsDialogProps {
   isOpen: boolean
   setIsOpen: Dispatch<SetStateAction<boolean>>
   data?: InstanceGroupedByArtifact[]
+  isActiveInstance?: boolean
 }
 
 export default function InstancesDetailsDialog(props: InstancesDetailsDialogProps): React.ReactElement {
-  const { isOpen, setIsOpen, data } = props
+  const { isOpen, setIsOpen, data, isActiveInstance } = props
   const { getString } = useStrings()
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const deployments = defaultTo(data, [])
+
+  //filter by artifactVersion envName and infraName
+  const filteredDeployments = useMemo(() => {
+    if (!searchTerm) {
+      return deployments
+    }
+    return deployments.filter(
+      deployment =>
+        (deployment.artifactVersion || '').toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !== -1 ||
+        deployment.instanceGroupedByEnvironmentList?.filter(
+          i =>
+            i.envName?.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !== -1 ||
+            i.instanceGroupedByInfraList?.filter(
+              infra => infra.infraName?.toLocaleLowerCase().indexOf(searchTerm.toLocaleLowerCase()) !== -1
+            ).length
+        ).length
+    )
+  }, [searchTerm, deployments])
+
+  const onSearch = useCallback((val: string) => {
+    setSearchTerm(val.trim())
+  }, [])
 
   const headers = React.useMemo(() => {
     const headersArray = [
@@ -55,6 +83,7 @@ export default function InstancesDetailsDialog(props: InstancesDetailsDialogProp
     return (
       <Layout.Horizontal flex padding={{ top: 'medium', bottom: 'medium' }}>
         {headersArray.map((header, index) => {
+          if (!isActiveInstance && header.label === getString('common.instanceLabel')) return <></>
           return (
             <Text
               key={index}
@@ -73,29 +102,55 @@ export default function InstancesDetailsDialog(props: InstancesDetailsDialogProp
   const list = React.useMemo(() => {
     return (
       <Container style={{ overflowY: 'auto' }}>
-        {data?.map((dataItem, index) => {
+        {filteredDeployments?.map((dataItem, index) => {
           return (
             <Collapse
               key={index}
               collapseClassName={css.collapse}
               collapseHeaderClassName={css.collapseHeader}
-              heading={<ActiveServiceInstancesContentV2 tableType={TableType.SUMMARY} data={[dataItem]} />}
+              heading={
+                isActiveInstance ? (
+                  <ActiveServiceInstancesContentV2 tableType={TableType.SUMMARY} data={[dataItem]} />
+                ) : (
+                  <DeploymentsV2 tableType={TableType.SUMMARY} data={[dataItem]} />
+                )
+              }
               expandedHeading={<>{/* empty element on purpose */}</>}
               collapsedIcon={'main-chevron-right'}
               expandedIcon={'main-chevron-down'}
             >
-              <ActiveServiceInstancesContentV2 tableType={TableType.FULL} data={[dataItem]} />
+              {isActiveInstance ? (
+                <ActiveServiceInstancesContentV2 tableType={TableType.FULL} data={[dataItem]} />
+              ) : (
+                <DeploymentsV2 tableType={TableType.FULL} data={[dataItem]} />
+              )}
             </Collapse>
           )
         })}
       </Container>
     )
-  }, [data])
+  }, [filteredDeployments])
 
   return (
     <Dialog
       className={cx('padded-dialog', css.dialogBase)}
-      title={getString('cd.serviceDashboard.instancesDetails')}
+      title={
+        <Layout.Horizontal
+          padding={{ bottom: 'large' }}
+          flex={{ alignItems: 'center', justifyContent: 'space-between' }}
+        >
+          <Text color={Color.GREY_900} font={{ variation: FontVariation.H4, weight: 'semi-bold' }}>
+            {getString('cd.serviceDashboard.instancesDetails')}
+          </Text>
+          <ExpandingSearchInput
+            placeholder={getString('search')}
+            throttle={200}
+            onChange={onSearch}
+            className={css.searchIconStyle}
+            alwaysExpanded
+          />
+        </Layout.Horizontal>
+      }
       isOpen={isOpen}
       onClose={() => setIsOpen(false)}
       enforceFocus={false}

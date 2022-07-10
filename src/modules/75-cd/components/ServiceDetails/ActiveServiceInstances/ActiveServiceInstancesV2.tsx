@@ -19,8 +19,9 @@ import {
 import type { ProjectPathProps, ServicePathProps } from '@common/interfaces/RouteInterfaces'
 import { ActiveServiceInstancesHeader } from './ActiveServiceInstancesHeader'
 import { ActiveServiceInstancesContentV2, TableType } from './ActiveServiceInstancesContentV2'
-import { Deployments } from '../DeploymentView/DeploymentView'
+import { DeploymentsV2 } from '../DeploymentView/DeploymentViewV2'
 import InstancesDetailsDialog from './InstancesDetails/InstancesDetailsDialog'
+// import { activeResponse } from './mockApi'
 import css from './ActiveServiceInstancesV2.module.scss'
 
 export enum ServiceDetailTabs {
@@ -47,6 +48,11 @@ export const ActiveServiceInstancesV2: React.FC = () => {
     refetch: activeInstanceRefetch
   } = useGetActiveServiceInstances({ queryParams })
 
+  // const activeInstanceData = activeResponse
+  // const activeInstanceLoading = false
+  // const activeInstanceError = false
+  // const activeInstanceRefetch = false
+
   const queryParamsDeployments: GetEnvArtifactDetailsByServiceIdQueryParams = {
     accountIdentifier: accountId,
     orgIdentifier,
@@ -54,7 +60,12 @@ export const ActiveServiceInstancesV2: React.FC = () => {
     serviceId
   }
 
-  const { data: deploymentData } = useGetEnvArtifactDetailsByServiceId({
+  const {
+    data: deploymentData,
+    loading: deploymentLoading,
+    error: deploymentError,
+    refetch: deploymentRefetch
+  } = useGetEnvArtifactDetailsByServiceId({
     queryParams: queryParamsDeployments
   })
 
@@ -81,7 +92,7 @@ export const ActiveServiceInstancesV2: React.FC = () => {
     setDefaultTab(data as ServiceDetailTabs)
   }
 
-  const moreDetails = (
+  const moreDetails = (isActiveInstance: boolean) => (
     <>
       <Text
         className={css.moreDetails}
@@ -95,6 +106,7 @@ export const ActiveServiceInstancesV2: React.FC = () => {
         data={activeInstanceData?.data?.instanceGroupedByArtifactList}
         isOpen={isDetailsDialogOpen}
         setIsOpen={setIsDetailsDialogOpen}
+        isActiveInstance={isActiveInstance}
       />
     </>
   )
@@ -102,25 +114,40 @@ export const ActiveServiceInstancesV2: React.FC = () => {
   return (
     <Card className={css.activeServiceInstances}>
       <Layout.Vertical className={css.tabsStyle}>
-        <Tabs id="ServiceDetailTabs" selectedTabId={defaultTab} onChange={handleTabChange}>
+        <Tabs id="ServiceDetailTabs" selectedTabId={defaultTab} onChange={handleTabChange} renderAllTabPanels>
           <Tab
             id={ServiceDetailTabs.ACTIVE}
             title={getString('cd.serviceDashboard.activeServiceInstancesLabel')}
             panel={
               <>
                 <ActiveServiceInstancesHeader />
-                {moreDetails}
+                {moreDetails(true)}
                 <ActiveServiceInstancesContentV2
                   tableType={TableType.PREVIEW}
                   loading={activeInstanceLoading}
                   data={activeInstanceData?.data?.instanceGroupedByArtifactList}
-                  error={activeInstanceError}
-                  refetch={activeInstanceRefetch}
+                  error={activeInstanceError as any} //todo
+                  refetch={activeInstanceRefetch as any}
                 />
               </>
             }
           />
-          <Tab id={ServiceDetailTabs.DEPLOYMENT} title={getString('deploymentsText')} panel={<Deployments />} />
+          <Tab
+            id={ServiceDetailTabs.DEPLOYMENT}
+            title={getString('deploymentsText')}
+            panel={
+              <>
+                {moreDetails(false)}
+                <DeploymentsV2
+                  tableType={TableType.PREVIEW}
+                  loading={deploymentLoading}
+                  data={activeInstanceData?.data?.instanceGroupedByArtifactList}
+                  error={deploymentError as any} //todo
+                  refetch={deploymentRefetch as any}
+                />
+              </>
+            }
+          />
         </Tabs>
       </Layout.Vertical>
     </Card>

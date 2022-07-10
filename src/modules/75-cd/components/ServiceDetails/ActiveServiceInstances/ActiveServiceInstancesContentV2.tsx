@@ -26,7 +26,7 @@ import css from './ActiveServiceInstancesV2.module.scss'
 
 const TOTAL_VISIBLE_INSTANCES = 7
 
-interface TableRowData {
+export interface TableRowData {
   artifactVersion?: string
   envId?: string
   envName?: string
@@ -42,7 +42,7 @@ interface TableRowData {
   totalInfras?: number
 }
 
-const getFullTableData = (instanceGroupedByArtifact?: InstanceGroupedByArtifact[]): TableRowData[] => {
+export const getFullTableData = (instanceGroupedByArtifact?: InstanceGroupedByArtifact[]): TableRowData[] => {
   const tableData: TableRowData[] = []
   instanceGroupedByArtifact?.forEach(artifact => {
     if (artifact.artifactVersion && artifact.instanceGroupedByEnvironmentList) {
@@ -69,7 +69,7 @@ const getFullTableData = (instanceGroupedByArtifact?: InstanceGroupedByArtifact[
   return tableData
 }
 
-const getPreviewTableData = (instanceGroupedByArtifact?: InstanceGroupedByArtifact[]): TableRowData[] => {
+export const getPreviewTableData = (instanceGroupedByArtifact?: InstanceGroupedByArtifact[]): TableRowData[] => {
   const tableData: TableRowData[] = []
   instanceGroupedByArtifact?.forEach(artifact => {
     artifact.instanceGroupedByEnvironmentList?.forEach((env, envIndex) => {
@@ -91,7 +91,7 @@ const getPreviewTableData = (instanceGroupedByArtifact?: InstanceGroupedByArtifa
   return tableData
 }
 
-const getSummaryTableData = (instanceGroupedByArtifact?: InstanceGroupedByArtifact[]): TableRowData[] => {
+export const getSummaryTableData = (instanceGroupedByArtifact?: InstanceGroupedByArtifact[]): TableRowData[] => {
   const tableData: TableRowData[] = []
   let artifactVersion: string | undefined
   let envName: string | undefined

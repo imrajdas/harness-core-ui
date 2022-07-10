@@ -10,5 +10,6 @@ declare const styles: {
   readonly collapse: string
   readonly collapseHeader: string
   readonly dialogBase: string
+  readonly searchIconStyle: string
 }
 export default styles
