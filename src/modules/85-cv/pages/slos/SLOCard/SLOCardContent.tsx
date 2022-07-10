@@ -19,7 +19,7 @@ import css from '../CVSLOsListingPage.module.scss'
 
 const SLOCardContent: React.FC<SLOCardContentProps> = props => {
   const { getString } = useStrings()
-  const { isCardView, serviceLevelObjective, setSliderTimeRange } = props
+  const { isCardView, serviceLevelObjective, setSliderTimeRange, showUserHint } = props
   const { sloPerformanceTrend, sloTargetPercentage } = serviceLevelObjective
 
   const [toggle, setToggle] = useState(SLOCardToggleViews.SLO)
@@ -108,12 +108,14 @@ const SLOCardContent: React.FC<SLOCardContentProps> = props => {
                 </Container>
               </Layout.Vertical>
               <Container style={{ overflow: 'auto' }} className={css.flexGrowOne}>
-                <Layout.Horizontal margin={{ top: 'small' }}>
-                  <Icon margin={{ right: 'small' }} name="main-issue" color={Color.PRIMARY_7} />
-                  <Text color={Color.GREY_600} font={{ variation: FontVariation.SMALL }}>
-                    {getString('cv.sloGraphUserHint')}
-                  </Text>
-                </Layout.Horizontal>
+                {showUserHint && (
+                  <Layout.Horizontal margin={{ top: 'small' }} data-testid="SLOCard_UserHint_SLO">
+                    <Icon margin={{ right: 'small' }} name="main-issue" color={Color.PRIMARY_7} />
+                    <Text color={Color.GREY_600} font={{ variation: FontVariation.SMALL }}>
+                      {getString('cv.sloGraphUserHint')}
+                    </Text>
+                  </Layout.Horizontal>
+                )}
                 <SLOTargetChartWithChangeTimeline
                   {...props}
                   type={SLOCardToggleViews.SLO}
@@ -162,12 +164,14 @@ const SLOCardContent: React.FC<SLOCardContentProps> = props => {
                   />
                 )}
               </Container>
-              <Layout.Horizontal margin={{ top: 'small' }}>
-                <Icon margin={{ right: 'small' }} name="main-issue" color={Color.PRIMARY_7} />
-                <Text color={Color.GREY_600} font={{ variation: FontVariation.SMALL }}>
-                  {getString('cv.sloGraphUserHint')}
-                </Text>
-              </Layout.Horizontal>
+              {showUserHint && (
+                <Layout.Horizontal margin={{ top: 'small' }} data-testid="SLOCard_UserHint_ErrorBudget">
+                  <Icon margin={{ right: 'small' }} name="main-issue" color={Color.PRIMARY_7} />
+                  <Text color={Color.GREY_600} font={{ variation: FontVariation.SMALL }}>
+                    {getString('cv.sloGraphUserHint')}
+                  </Text>
+                </Layout.Horizontal>
+              )}
               <SLOTargetChartWithChangeTimeline
                 {...props}
                 type={SLOCardToggleViews.ERROR_BUDGET}

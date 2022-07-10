@@ -69,6 +69,7 @@ const DetailsPanel: React.FC<DetailsPanelProps> = ({
             serviceLevelObjective={sloDashboardWidget}
             filteredServiceLevelObjective={data?.data?.sloDashboardWidget}
             timeRangeFilters={timeRangeFilters}
+            showUserHint
           />
 
           <Container padding={{ bottom: 'xlarge' }} />

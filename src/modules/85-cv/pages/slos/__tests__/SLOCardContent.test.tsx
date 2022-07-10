@@ -198,4 +198,47 @@ describe('SLOCardContent', () => {
 
     expect(screen.queryByText('reset')).not.toBeInTheDocument()
   })
+
+  test('should not render the user hint if showUserHint prop is not passed', () => {
+    const sliderTimeRange = { startTime: 1639993400000, endTime: 1639993420000 }
+
+    render(
+      <TestWrapper {...testWrapperProps}>
+        <SLOCardContent
+          isCardView
+          sliderTimeRange={sliderTimeRange}
+          setSliderTimeRange={jest.fn()}
+          serviceLevelObjective={dashboardWidgetsContent}
+        />
+      </TestWrapper>
+    )
+
+    expect(screen.queryByTestId('SLOCard_UserHint_SLO')).not.toBeInTheDocument()
+
+    userEvent.click(screen.getByText('cv.errorBudget'))
+
+    expect(screen.queryByTestId('SLOCard_UserHint_ErrorBudget')).not.toBeInTheDocument()
+  })
+
+  test('should render the user hint if showUserHint prop is passed', () => {
+    const sliderTimeRange = { startTime: 1639993400000, endTime: 1639993420000 }
+
+    render(
+      <TestWrapper {...testWrapperProps}>
+        <SLOCardContent
+          isCardView
+          sliderTimeRange={sliderTimeRange}
+          setSliderTimeRange={jest.fn()}
+          serviceLevelObjective={dashboardWidgetsContent}
+          showUserHint
+        />
+      </TestWrapper>
+    )
+
+    expect(screen.queryByTestId('SLOCard_UserHint_SLO')).toBeInTheDocument()
+
+    userEvent.click(screen.getByText('cv.errorBudget'))
+
+    expect(screen.queryByTestId('SLOCard_UserHint_ErrorBudget')).toBeInTheDocument()
+  })
 })

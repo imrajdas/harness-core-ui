@@ -32,6 +32,7 @@ export interface SLOCardHeaderProps {
 
 export interface SLOCardContentProps {
   isCardView?: boolean
+  showUserHint?: boolean
   serviceLevelObjective: SLODashboardWidget
   filteredServiceLevelObjective?: SLODashboardWidget
   timeRangeFilters?: TimeRangeFilter[]
