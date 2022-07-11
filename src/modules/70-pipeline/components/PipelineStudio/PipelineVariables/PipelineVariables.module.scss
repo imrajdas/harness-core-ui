@@ -95,7 +95,8 @@
 
     .variable-list {
       padding: var(--spacing-small) var(--spacing-xlarge) var(--spacing-xlarge) var(--spacing-xlarge);
-      overflow: auto;
+      overflow-x: clip;
+      overflow-y: auto;
       height: 100%;
       .stage-title {
         display: flex;
