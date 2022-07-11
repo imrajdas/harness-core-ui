@@ -12,32 +12,21 @@ import { get, merge } from 'lodash-es'
 
 import { useStrings } from 'framework/strings'
 import type { StepDetailProps } from '@pipeline/factories/ExecutionFactory/types'
-import {
-  ResponseApprovalInstanceResponse,
-  ResponseHarnessApprovalInstanceAuthorization,
-  useGetApprovalInstance,
-  useGetHarnessApprovalInstanceAuthorization
-} from 'services/pipeline-ng'
-import { useDeepCompareEffect } from '@common/hooks'
 import { isExecutionWaiting } from '@pipeline/utils/statusHelpers'
 
-import {
-  HarnessApprovalTab,
-  ApprovalData
-} from '@pipeline/components/execution/StepDetails/tabs/HarnessApprovalTab/HarnessApprovalTab'
+import { HarnessApprovalTab } from '@pipeline/components/execution/StepDetails/tabs/HarnessApprovalTab/HarnessApprovalTab'
 import { PipelineDetailsTab } from '@pipeline/components/execution/StepDetails/tabs/PipelineDetailsTab/PipelineDetailsTab'
 import { InputOutputTab } from '@pipeline/components/execution/StepDetails/tabs/InputOutputTab/InputOutputTab'
+import {
+  useHarnessApproval,
+  AuthMock,
+  ApprovalMock
+} from '@pipeline/components/execution/StepDetails/views/HarnessApprovalView/useHarnessApproval'
 import tabCss from '../DefaultView/DefaultView.module.scss'
 
 export interface HarnessApprovalViewProps extends StepDetailProps {
-  mock?: {
-    data?: ResponseApprovalInstanceResponse
-    loading?: boolean
-  }
-  getApprovalAuthorizationMock?: {
-    loading: boolean
-    data: ResponseHarnessApprovalInstanceAuthorization
-  }
+  mock?: ApprovalMock
+  getApprovalAuthorizationMock?: AuthMock
 }
 
 export function HarnessApprovalView(props: HarnessApprovalViewProps): React.ReactElement {
@@ -46,35 +35,17 @@ export function HarnessApprovalView(props: HarnessApprovalViewProps): React.Reac
   const isWaiting = isExecutionWaiting(step.status)
   const { getString } = useStrings()
 
-  // store the data in state because the approve/reject call returns the updated state
-  // hence we can save one additional call to the server
-  const [approvalData, setApprovalData] = React.useState<ApprovalData>(null)
-  const shouldFetchData = !!approvalInstanceId
-
   const {
-    data,
-    refetch,
-    loading: loadingApprovalData,
-    error
-  } = useGetApprovalInstance({
-    approvalInstanceId,
-    mock,
-    lazy: !shouldFetchData
-  })
-
-  const {
-    data: authData,
-    refetch: refetchAuthData,
-    loading: loadingAuthData
-  } = useGetHarnessApprovalInstanceAuthorization({
-    approvalInstanceId,
-    lazy: !shouldFetchData,
-    mock: getApprovalAuthorizationMock
-  })
-
-  useDeepCompareEffect(() => {
-    setApprovalData(data?.data as ApprovalData)
-  }, [data])
+    authData,
+    refetchAuthData,
+    approvalData,
+    setApprovalData,
+    loadingApprovalData,
+    loadingAuthData,
+    shouldFetchData,
+    error,
+    refetch
+  } = useHarnessApproval({ approvalInstanceId, mock, getApprovalAuthorizationMock })
 
   if (error) {
     return (
