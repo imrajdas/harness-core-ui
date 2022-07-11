@@ -7,7 +7,7 @@
 
 import React, { useEffect, useMemo } from 'react'
 import { Classes } from '@blueprintjs/core'
-import { Container, FormInput, Label, MultiTypeInputType, SelectOption, Text } from '@wings-software/uicore'
+import { Container, FormInput, Label, SelectOption, Text } from '@wings-software/uicore'
 import { useToaster } from '@common/exports'
 import { useStrings } from 'framework/strings'
 import type { useGetMetricPacks, useGetLabelNames } from 'services/cv'
@@ -78,16 +78,6 @@ export function RiskProfile(props: RiskProfileProps): JSX.Element {
         name={FieldNames.RISK_CATEGORY}
         items={metricPackOptions}
         key={riskCategory}
-      />
-    )
-  } else if (isTemplate && !metricPackOptions?.length) {
-    metricPackContent = (
-      <FormInput.MultiTextInput
-        label={getString('cv.monitoringSources.riskCategoryLabel')}
-        name={FieldNames.RISK_CATEGORY}
-        key={riskCategory}
-        multiTextInputProps={{ allowableTypes: [MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME] }}
-        placeholder={getString('cv.monitoringSources.riskCategoryTemplateNote')}
       />
     )
   }

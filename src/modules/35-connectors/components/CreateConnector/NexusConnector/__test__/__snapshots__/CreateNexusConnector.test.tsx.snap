@@ -784,7 +784,7 @@ exports[`Create Nexus connector Wizard Should render form 2`] = `
               class="StyledProps--font StyledProps--main formWrapper"
             >
               <div
-                class="bp3-form-group bp3-intent-danger"
+                class="bp3-form-group"
               >
                 <div
                   class="bp3-form-content"
@@ -878,11 +878,6 @@ exports[`Create Nexus connector Wizard Should render form 2`] = `
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    class="bp3-form-helper-text"
-                  >
-                    validation.username
                   </div>
                 </div>
               </div>

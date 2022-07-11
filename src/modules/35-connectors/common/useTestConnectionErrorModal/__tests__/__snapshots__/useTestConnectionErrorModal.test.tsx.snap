@@ -110,7 +110,7 @@ exports[`Test case for test connection error modal should work as expected 1`] =
                   Verify if the roleArn and externalId are entered correctly. For more information, refer to the 
                   <a
                     class="link linkSmall"
-                    href="https://ngdocs.harness.io/article/n8e7rddf8w-cloud-cost-management-overview"
+                    href="https://docs.harness.io/article/n8e7rddf8w-cloud-cost-management-overview"
                     rel="noreferrer"
                     target="_blank"
                   >

@@ -49,7 +49,7 @@ export interface FileStoreFieldData {
 function FileStoreInput(props: FormikFileStoreInput): React.ReactElement {
   const { getString } = useStrings()
   const { formik, label, name, tooltipProps, placeholder, readonly = false, onChange } = props
-  const fileStoreValue = get(formik.values, name)
+  const fileStoreValue = get(formik?.values, name)
   const prepareFileStoreValue = (scopeType: string, path: string): string => {
     switch (scopeType) {
       case Scope.ACCOUNT:

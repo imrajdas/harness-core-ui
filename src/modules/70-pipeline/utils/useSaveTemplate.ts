@@ -25,6 +25,7 @@ import { UseSaveSuccessResponse, useSaveToGitDialog } from '@common/modals/SaveT
 import type { SaveToGitFormInterface } from '@common/components/SaveToGitForm/SaveToGitForm'
 import { DefaultNewTemplateId } from 'framework/Templates/templates'
 import { yamlStringify } from '@common/utils/YamlHelperMethods'
+import { sanitize } from '@common/utils/JSONUtils'
 import routes from '@common/RouteDefinitions'
 import type { GitQueryParams, ModulePathParams, TemplateStudioPathProps } from '@common/interfaces/RouteInterfaces'
 import { useQueryParams } from '@common/hooks'
@@ -114,7 +115,22 @@ export function useSaveTemplate(TemplateContextMetadata: TemplateContextMetadata
   }
 
   const stringifyTemplate = React.useCallback(
-    (temp: NGTemplateInfoConfig) => yamlStringify(JSON.parse(JSON.stringify({ template: temp })), { version: '1.1' }),
+    // Important to sanitize the final template to avoid sending null values as it fails schema validation
+    (temp: NGTemplateInfoConfig) =>
+      yamlStringify(
+        JSON.parse(
+          JSON.stringify({
+            template: sanitize(temp, {
+              removeEmptyString: false,
+              removeEmptyObject: false,
+              removeEmptyArray: false
+            })
+          })
+        ),
+        {
+          version: '1.1'
+        }
+      ),
     []
   )
 

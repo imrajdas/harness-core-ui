@@ -43,20 +43,31 @@ export const getSelectedTabId = (accessDetails: ConnectionMetadata): string => {
   return key ? accessDetailsToTabIdMap[key] : ''
 }
 
-export const getValidStatusForDnsLink = (gatewayDetails: GatewayDetails): boolean => {
+export const areCustomDomainsValid = (customDomains: string[]) =>
+  customDomains.every(url =>
+    url.match(
+      /((https?):\/\/)?(www.)?[a-z0-9-]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#-]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/
+    )
+  )
+
+export const getValidStatusForDnsLink = (
+  gatewayDetails: GatewayDetails,
+  domainsToOverride?: string[],
+  overrideAgreement?: boolean
+): boolean => {
   let validStatus = true
   // check for custom domains validation
   if (gatewayDetails.customDomains?.length) {
-    validStatus = gatewayDetails.customDomains.every(url =>
-      url.match(
-        /((https?):\/\/)?(www.)?[a-z0-9-]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#-]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/
-      )
-    )
-    if (
-      !gatewayDetails.routing.custom_domain_providers?.others &&
-      !gatewayDetails.routing.custom_domain_providers?.route53?.hosted_zone_id
-    ) {
+    if (!_isEmpty(domainsToOverride) && !overrideAgreement) {
       validStatus = false
+    } else {
+      validStatus = areCustomDomainsValid(gatewayDetails.customDomains)
+      if (
+        !gatewayDetails.routing.custom_domain_providers?.others &&
+        !gatewayDetails.routing.custom_domain_providers?.route53?.hosted_zone_id
+      ) {
+        validStatus = false
+      }
     }
   }
   // checck for valid access point selected

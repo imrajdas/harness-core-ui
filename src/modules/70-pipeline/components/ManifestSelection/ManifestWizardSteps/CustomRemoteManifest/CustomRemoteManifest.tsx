@@ -22,7 +22,7 @@ import { useParams } from 'react-router-dom'
 import { FontVariation } from '@harness/design-system'
 import { Form } from 'formik'
 import * as Yup from 'yup'
-import { defaultTo, get } from 'lodash-es'
+import { defaultTo, get, set } from 'lodash-es'
 import { v4 as nameSpace, v5 as uuid } from 'uuid'
 import { useStrings } from 'framework/strings'
 import type { ConnectorConfigDTO, ManifestConfig, ManifestConfigWrapper } from 'services/cd-ng'
@@ -49,10 +49,17 @@ interface CustomRemoteManifestPropType {
 }
 
 const showValuesPaths = (selectedManifest: ManifestTypes): boolean => {
+  return [ManifestDataType.K8sManifest, ManifestDataType.HelmChart].includes(selectedManifest)
+}
+const showParamsPaths = (selectedManifest: ManifestTypes): boolean => {
+  return selectedManifest === ManifestDataType.OpenshiftTemplate
+}
+const showSkipResourceVersion = (selectedManifest: ManifestTypes): boolean => {
   return [ManifestDataType.K8sManifest, ManifestDataType.HelmChart, ManifestDataType.OpenshiftTemplate].includes(
     selectedManifest
   )
 }
+type PathsInterface = { path: string; uuid: string }
 
 function CustomRemoteManifest({
   stepName,
@@ -72,6 +79,7 @@ function CustomRemoteManifest({
   const getInitialValues = (): CustomManifestManifestDataType => {
     const specValues = get(initialValues, 'spec.store.spec', null)
     const valuesPaths = get(initialValues, 'spec.valuesPaths')
+    const paramsPaths = get(initialValues, 'spec.paramsPaths')
     if (specValues) {
       return {
         ...specValues,
@@ -80,7 +88,11 @@ function CustomRemoteManifest({
         valuesPaths:
           typeof valuesPaths === 'string'
             ? valuesPaths
-            : defaultTo(valuesPaths, []).map((path: string) => ({ path, uuid: uuid(path, nameSpace()) }))
+            : defaultTo(valuesPaths, []).map((path: string) => ({ path, uuid: uuid(path, nameSpace()) })),
+        paramsPaths:
+          typeof paramsPaths === 'string'
+            ? paramsPaths
+            : defaultTo(paramsPaths, []).map((path: string) => ({ path, uuid: uuid(path, nameSpace()) }))
       }
     }
     return {
@@ -88,7 +100,8 @@ function CustomRemoteManifest({
       filePath: '',
       extractionScript: '',
       skipResourceVersioning: false,
-      valuesPaths: [{ path: '', uuid: uuid('', nameSpace()) }],
+      valuesPaths: [{ path: '', uuid: uuid('', nameSpace()) } as PathsInterface],
+      paramsPaths: [{ path: '', uuid: uuid('', nameSpace()) } as PathsInterface],
       delegateSelectors: []
     }
   }
@@ -110,16 +123,30 @@ function CustomRemoteManifest({
                 extractionScript: formData.extractionScript,
                 delegateSelectors: formData.delegateSelectors
               }
-            },
-            valuesPaths:
-              typeof formData.valuesPaths === 'string'
-                ? formData.valuesPaths
-                : defaultTo(formData.valuesPaths as Array<{ path: string }>, []).map(
-                    (path: { path: string }) => path.path
-                  ),
-            skipResourceVersioning: formData.skipResourceVersioning
+            }
           }
         }
+      }
+      if (showSkipResourceVersion(selectedManifest as ManifestTypes)) {
+        set(manifestObj, 'manifest.spec.skipResourceVersioning', formData?.skipResourceVersioning)
+      }
+      if (showValuesPaths(selectedManifest as ManifestTypes)) {
+        set(
+          manifestObj,
+          'manifest.spec.valuesPaths',
+          typeof formData.valuesPaths === 'string'
+            ? formData.valuesPaths
+            : defaultTo(formData.valuesPaths as Array<{ path: string }>, []).map((path: { path: string }) => path.path)
+        )
+      }
+      if (showParamsPaths(selectedManifest as ManifestTypes)) {
+        set(
+          manifestObj,
+          'manifest.spec.paramsPaths',
+          typeof formData.paramsPaths === 'string'
+            ? formData.paramsPaths
+            : defaultTo(formData.paramsPaths as Array<{ path: string }>, []).map((path: { path: string }) => path.path)
+        )
       }
 
       handleSubmit(manifestObj)
@@ -136,7 +163,7 @@ function CustomRemoteManifest({
         initialValues={getInitialValues()}
         formName="manifestDetails"
         validationSchema={Yup.object().shape({
-          ...ManifestIdentifierValidation(manifestIdsList, initialValues.identifier, getString('pipeline.uniqueName')),
+          ...ManifestIdentifierValidation(manifestIdsList, initialValues?.identifier, getString('pipeline.uniqueName')),
           paths: Yup.lazy((value): Yup.Schema<unknown> => {
             if (getMultiTypeFromValue(value as any) === MultiTypeInputType.FIXED) {
               return Yup.array().of(
@@ -240,46 +267,60 @@ function CustomRemoteManifest({
                       />
                     </div>
                   )}
-
-                  <Accordion
-                    activeId={get(initialValues, 'spec.skipResourceVersioning') ? getString('advancedTitle') : ''}
-                    className={css.advancedStepOpen}
-                  >
-                    <Accordion.Panel
-                      id={getString('advancedTitle')}
-                      addDomId={true}
-                      summary={getString('advancedTitle')}
-                      details={
-                        <Layout.Horizontal
-                          width={'50%'}
-                          flex={{ justifyContent: 'flex-start', alignItems: 'center' }}
-                          margin={{ bottom: 'huge' }}
-                        >
-                          <FormMultiTypeCheckboxField
-                            name="skipResourceVersioning"
-                            label={getString('skipResourceVersion')}
-                            multiTypeTextbox={{ expressions, allowableTypes }}
-                            className={css.checkbox}
-                          />
-                          {getMultiTypeFromValue(get(formik, 'values.skipResourceVersioning')) ===
-                            MultiTypeInputType.RUNTIME && (
-                            <ConfigureOptions
-                              value={get(formik, 'values.skipResourceVersioning', '') as string}
-                              type="String"
-                              variableName="skipResourceVersioning"
-                              showRequiredField={false}
-                              showDefaultField={false}
-                              showAdvanced={true}
-                              onChange={value => formik.setFieldValue('skipResourceVersioning', value)}
-                              style={{ alignSelf: 'center', marginTop: 11 }}
-                              className={css.addmarginTop}
-                              isReadonly={isReadonly}
+                  {showParamsPaths(selectedManifest as ManifestTypes) && (
+                    <div className={css.halfWidth}>
+                      <DragnDropPaths
+                        formik={formik}
+                        expressions={expressions}
+                        allowableTypes={allowableTypes}
+                        fieldPath="paramsPaths"
+                        pathLabel={getString('pipeline.manifestType.paramsYamlPath')}
+                        placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+                        defaultValue={{ path: '', uuid: uuid('', nameSpace()) }}
+                      />
+                    </div>
+                  )}
+                  {showSkipResourceVersion(selectedManifest as ManifestTypes) && (
+                    <Accordion
+                      activeId={get(initialValues, 'spec.skipResourceVersioning') ? getString('advancedTitle') : ''}
+                      className={css.advancedStepOpen}
+                    >
+                      <Accordion.Panel
+                        id={getString('advancedTitle')}
+                        addDomId={true}
+                        summary={getString('advancedTitle')}
+                        details={
+                          <Layout.Horizontal
+                            width={'50%'}
+                            flex={{ justifyContent: 'flex-start', alignItems: 'center' }}
+                            margin={{ bottom: 'huge' }}
+                          >
+                            <FormMultiTypeCheckboxField
+                              name="skipResourceVersioning"
+                              label={getString('skipResourceVersion')}
+                              multiTypeTextbox={{ expressions, allowableTypes }}
+                              className={css.checkbox}
                             />
-                          )}
-                        </Layout.Horizontal>
-                      }
-                    />
-                  </Accordion>
+                            {getMultiTypeFromValue(get(formik, 'values.skipResourceVersioning')) ===
+                              MultiTypeInputType.RUNTIME && (
+                              <ConfigureOptions
+                                value={get(formik, 'values.skipResourceVersioning', '') as string}
+                                type="String"
+                                variableName="skipResourceVersioning"
+                                showRequiredField={false}
+                                showDefaultField={false}
+                                showAdvanced={true}
+                                onChange={value => formik.setFieldValue('skipResourceVersioning', value)}
+                                style={{ alignSelf: 'center', marginTop: 11 }}
+                                className={css.addmarginTop}
+                                isReadonly={isReadonly}
+                              />
+                            )}
+                          </Layout.Horizontal>
+                        }
+                      />
+                    </Accordion>
+                  )}
                 </div>
 
                 <Layout.Horizontal spacing="medium" className={css.saveBtn}>

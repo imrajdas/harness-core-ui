@@ -83,7 +83,7 @@ export interface ApprovalInstanceResponse {
   errorMessage?: string
   id?: string
   lastModifiedAt?: number
-  status: 'WAITING' | 'APPROVED' | 'REJECTED' | 'FAILED' | 'EXPIRED'
+  status: 'WAITING' | 'APPROVED' | 'REJECTED' | 'FAILED' | 'ABORTED' | 'EXPIRED'
   type: 'HarnessApproval' | 'JiraApproval' | 'CustomApproval' | 'ServiceNowApproval'
 }
 
@@ -189,6 +189,16 @@ export interface AzureRepoEventSpec {
   projectName?: string
 }
 
+export type AzureRepoIssueCommentSpec = AzureRepoEventSpec & {
+  actions?: ('Create' | 'Edit' | 'Delete')[]
+  autoAbortPreviousExecutions?: boolean
+  connectorRef?: string
+  headerConditions?: TriggerEventDataCondition[]
+  jexlCondition?: string
+  payloadConditions?: TriggerEventDataCondition[]
+  repoName?: string
+}
+
 export type AzureRepoPRSpec = AzureRepoEventSpec & {
   actions?: ('Create' | 'Update' | 'Merge')[]
   autoAbortPreviousExecutions?: boolean
@@ -210,7 +220,7 @@ export type AzureRepoPushSpec = AzureRepoEventSpec & {
 
 export type AzureRepoSpec = WebhookTriggerSpecV2 & {
   spec?: AzureRepoEventSpec
-  type?: 'PullRequest' | 'Push'
+  type?: 'PullRequest' | 'Push' | 'IssueComment'
 }
 
 export interface BarrierExecutionInfo {
@@ -247,6 +257,16 @@ export interface BitbucketEventSpec {
   [key: string]: any
 }
 
+export type BitbucketPRCommentSpec = BitbucketEventSpec & {
+  actions?: ('Create' | 'Edit' | 'Delete')[]
+  autoAbortPreviousExecutions?: boolean
+  connectorRef?: string
+  headerConditions?: TriggerEventDataCondition[]
+  jexlCondition?: string
+  payloadConditions?: TriggerEventDataCondition[]
+  repoName?: string
+}
+
 export type BitbucketPRSpec = BitbucketEventSpec & {
   actions?: ('Create' | 'Update' | 'Merge' | 'Decline')[]
   autoAbortPreviousExecutions?: boolean
@@ -268,7 +288,7 @@ export type BitbucketPushSpec = BitbucketEventSpec & {
 
 export type BitbucketSpec = WebhookTriggerSpecV2 & {
   spec?: BitbucketEventSpec
-  type?: 'PullRequest' | 'Push'
+  type?: 'PullRequest' | 'Push' | 'PRComment'
 }
 
 export type BranchBuildSpec = BuildSpec & {
@@ -470,7 +490,7 @@ export type CustomApprovalStepInfo = StepSpecType & {
   rejectionCriteria?: CriteriaSpecWrapper
   retryInterval: string
   scriptTimeout: string
-  shell: 'Bash'
+  shell: 'Bash' | 'PowerShell'
   source: ShellScriptSourceWrapper
 }
 
@@ -545,6 +565,15 @@ export interface EdgeLayoutList {
   nextIds?: string[]
 }
 
+export type EmailStepInfo = StepSpecType & {
+  body?: string
+  cc?: string
+  delegateSelectors?: string[]
+  metadata?: string
+  subject: string
+  to: string
+}
+
 export interface EmbeddedUser {
   email?: string
   externalUserId?: string
@@ -617,6 +646,7 @@ export interface Error {
     | 'SOCKET_CONNECTION_ERROR'
     | 'CONNECTION_ERROR'
     | 'SOCKET_CONNECTION_TIMEOUT'
+    | 'WINRM_COMMAND_EXECUTION_TIMEOUT'
     | 'CONNECTION_TIMEOUT'
     | 'SSH_CONNECTION_ERROR'
     | 'USER_GROUP_ERROR'
@@ -752,6 +782,7 @@ export interface Error {
     | 'USER_HAS_NO_PERMISSIONS'
     | 'USER_NOT_AUTHORIZED'
     | 'USER_ALREADY_PRESENT'
+    | 'EMAIL_ERROR'
     | 'INVALID_USAGE_RESTRICTION'
     | 'USAGE_RESTRICTION_ERROR'
     | 'STATE_EXECUTION_INSTANCE_NOT_FOUND'
@@ -1133,6 +1164,7 @@ export interface Failure {
     | 'SOCKET_CONNECTION_ERROR'
     | 'CONNECTION_ERROR'
     | 'SOCKET_CONNECTION_TIMEOUT'
+    | 'WINRM_COMMAND_EXECUTION_TIMEOUT'
     | 'CONNECTION_TIMEOUT'
     | 'SSH_CONNECTION_ERROR'
     | 'USER_GROUP_ERROR'
@@ -1268,6 +1300,7 @@ export interface Failure {
     | 'USER_HAS_NO_PERMISSIONS'
     | 'USER_NOT_AUTHORIZED'
     | 'USER_ALREADY_PRESENT'
+    | 'EMAIL_ERROR'
     | 'INVALID_USAGE_RESTRICTION'
     | 'USAGE_RESTRICTION_ERROR'
     | 'STATE_EXECUTION_INSTANCE_NOT_FOUND'
@@ -1544,7 +1577,7 @@ export interface GitlabEventSpec {
   [key: string]: any
 }
 
-export type GitlabIssueCommentSpec = GitlabEventSpec & {
+export type GitlabMRCommentSpec = GitlabEventSpec & {
   actions?: 'Create'[]
   autoAbortPreviousExecutions?: boolean
   connectorRef?: string
@@ -1575,7 +1608,7 @@ export type GitlabPushSpec = GitlabEventSpec & {
 
 export type GitlabSpec = WebhookTriggerSpecV2 & {
   spec?: GitlabEventSpec
-  type?: 'MergeRequest' | 'Push' | 'IssueComment'
+  type?: 'MergeRequest' | 'Push' | 'MRComment'
 }
 
 export interface GovernanceMetadata {
@@ -1719,9 +1752,8 @@ export interface InputSetErrorResponse {
   errors?: InputSetError[]
 }
 
-export interface InputSetErrorWrapper {
+export type InputSetErrorWrapper = ErrorMetadataDTO & {
   errorPipelineYaml?: string
-  type?: string
   uuidToErrorResponseMap?: {
     [key: string]: InputSetErrorResponse
   }
@@ -2134,6 +2166,12 @@ export interface OnTimeoutConfig {
 export interface OrgProjectIdentifier {
   orgIdentifier?: string
   projectIdentifier?: string
+}
+
+export type OverlayInputSetErrorWrapper = ErrorMetadataDTO & {
+  invalidReferences?: {
+    [key: string]: string
+  }
 }
 
 export interface OverlayInputSetResponse {
@@ -2776,6 +2814,10 @@ export interface ResourceDTO {
     | 'PERSPECTIVE_REPORT'
     | 'COST_CATEGORY'
     | 'SMTP'
+    | 'PERSPECTIVE_FOLDER'
+    | 'AUTOSTOPPING_RULE'
+    | 'AUTOSTOPPING_LB'
+    | 'AUTOSTOPPING_STARTSTOP'
 }
 
 export interface ResourceScopeDTO {
@@ -2936,7 +2978,7 @@ export interface ResponseListBitbucketPRAction {
 
 export interface ResponseListBitbucketTriggerEvent {
   correlationId?: string
-  data?: ('PullRequest' | 'Push')[]
+  data?: ('PullRequest' | 'Push' | 'PRComment')[]
   metaData?: { [key: string]: any }
   status?: 'SUCCESS' | 'FAILURE' | 'ERROR'
 }
@@ -2971,7 +3013,7 @@ export interface ResponseListGitlabPRAction {
 
 export interface ResponseListGitlabTriggerEvent {
   correlationId?: string
-  data?: ('MergeRequest' | 'Push' | 'IssueComment')[]
+  data?: ('MergeRequest' | 'Push' | 'MRComment')[]
   metaData?: { [key: string]: any }
   status?: 'SUCCESS' | 'FAILURE' | 'ERROR'
 }
@@ -3004,10 +3046,14 @@ export interface ResponseListWebhookAction {
     | 'reopen'
     | 'merge'
     | 'update'
+    | 'mr comment create'
     | 'pull request created'
     | 'pull request updated'
     | 'pull request merged'
     | 'pull request declined'
+    | 'pr comment created'
+    | 'pr comment edited'
+    | 'pr comment deleted'
   )[]
   metaData?: { [key: string]: any }
   status?: 'SUCCESS' | 'FAILURE' | 'ERROR'
@@ -3038,6 +3084,8 @@ export interface ResponseMapWebhookSourceRepoListWebhookEvent {
       | 'Pull Request'
       | 'Push'
       | 'Issue Comment'
+      | 'MR Comment'
+      | 'PR Comment'
       | 'Delete'
       | 'Merge Request'
       | 'Repository'
@@ -3100,6 +3148,7 @@ export interface ResponseMessage {
     | 'SOCKET_CONNECTION_ERROR'
     | 'CONNECTION_ERROR'
     | 'SOCKET_CONNECTION_TIMEOUT'
+    | 'WINRM_COMMAND_EXECUTION_TIMEOUT'
     | 'CONNECTION_TIMEOUT'
     | 'SSH_CONNECTION_ERROR'
     | 'USER_GROUP_ERROR'
@@ -3235,6 +3284,7 @@ export interface ResponseMessage {
     | 'USER_HAS_NO_PERMISSIONS'
     | 'USER_NOT_AUTHORIZED'
     | 'USER_ALREADY_PRESENT'
+    | 'EMAIL_ERROR'
     | 'INVALID_USAGE_RESTRICTION'
     | 'USAGE_RESTRICTION_ERROR'
     | 'STATE_EXECUTION_INSTANCE_NOT_FOUND'
@@ -3895,7 +3945,7 @@ export type ShellScriptStepInfo = StepSpecType & {
   metadata?: string
   onDelegate: boolean
   outputVariables?: NGVariable[]
-  shell: 'Bash'
+  shell: 'Bash' | 'PowerShell'
   source: ShellScriptSourceWrapper
 }
 
@@ -4037,9 +4087,12 @@ export interface StepData {
     | 'AZURE_TRAFFIC_SHIFT'
     | 'AZURE_SWAP_SLOT'
     | 'AZURE_WEBAPP_ROLLBACK'
+    | 'JENKINS_BUILD'
     | 'SECURITY'
     | 'DEVELOPERS'
     | 'MONTHLY_ACTIVE_USERS'
+    | 'JENKINS_ARTIFACT'
+    | 'STRATEGY_MAX_CONCURRENT'
   name?: string
   type?: string
 }
@@ -4060,7 +4113,7 @@ export interface StepGroupElementConfig {
   delegateSelectors?: string[]
   failureStrategies?: FailureStrategyConfig[]
   identifier: string
-  name?: string
+  name: string
   steps: ExecutionWrapperConfig[]
   when?: StepWhenCondition
 }
@@ -4118,13 +4171,13 @@ export type TagBuildSpec = BuildSpec & {
 export type TemplateFilterProperties = FilterProperties & {
   childTypes?: string[]
   description?: string
-  templateEntityTypes?: ('Step' | 'Stage' | 'Pipeline' | 'MonitoredService')[]
+  templateEntityTypes?: ('Step' | 'Stage' | 'Pipeline' | 'MonitoredService' | 'Script')[]
   templateIdentifiers?: string[]
   templateNames?: string[]
 }
 
 export interface TemplateInfo {
-  templateEntityType?: 'Step' | 'Stage' | 'Pipeline' | 'MonitoredService'
+  templateEntityType?: 'Step' | 'Stage' | 'Pipeline' | 'MonitoredService' | 'Script'
   templateIdentifier?: string
   versionLabel?: string
 }
@@ -4163,7 +4216,7 @@ export interface TemplateResponse {
   tags?: {
     [key: string]: string
   }
-  templateEntityType?: 'Step' | 'Stage' | 'Pipeline' | 'MonitoredService'
+  templateEntityType?: 'Step' | 'Stage' | 'Pipeline' | 'MonitoredService' | 'Script'
   templateScope?: 'account' | 'org' | 'project' | 'unknown'
   version?: number
   versionLabel?: string
@@ -4538,6 +4591,10 @@ export const getApprovalInstancePromise = (
     signal
   )
 
+export interface AddHarnessApprovalActivityQueryParams {
+  accountIdentifier?: string
+}
+
 export interface AddHarnessApprovalActivityPathParams {
   approvalInstanceId: string
 }
@@ -4546,7 +4603,7 @@ export type AddHarnessApprovalActivityProps = Omit<
   MutateProps<
     ResponseApprovalInstanceResponse,
     Failure | Error,
-    void,
+    AddHarnessApprovalActivityQueryParams,
     HarnessApprovalActivityRequest,
     AddHarnessApprovalActivityPathParams
   >,
@@ -4555,13 +4612,13 @@ export type AddHarnessApprovalActivityProps = Omit<
   AddHarnessApprovalActivityPathParams
 
 /**
- * Add a new Harness Approval activity
+ * Approve or Reject a Pipeline Execution
  */
 export const AddHarnessApprovalActivity = ({ approvalInstanceId, ...props }: AddHarnessApprovalActivityProps) => (
   <Mutate<
     ResponseApprovalInstanceResponse,
     Failure | Error,
-    void,
+    AddHarnessApprovalActivityQueryParams,
     HarnessApprovalActivityRequest,
     AddHarnessApprovalActivityPathParams
   >
@@ -4576,7 +4633,7 @@ export type UseAddHarnessApprovalActivityProps = Omit<
   UseMutateProps<
     ResponseApprovalInstanceResponse,
     Failure | Error,
-    void,
+    AddHarnessApprovalActivityQueryParams,
     HarnessApprovalActivityRequest,
     AddHarnessApprovalActivityPathParams
   >,
@@ -4585,13 +4642,13 @@ export type UseAddHarnessApprovalActivityProps = Omit<
   AddHarnessApprovalActivityPathParams
 
 /**
- * Add a new Harness Approval activity
+ * Approve or Reject a Pipeline Execution
  */
 export const useAddHarnessApprovalActivity = ({ approvalInstanceId, ...props }: UseAddHarnessApprovalActivityProps) =>
   useMutate<
     ResponseApprovalInstanceResponse,
     Failure | Error,
-    void,
+    AddHarnessApprovalActivityQueryParams,
     HarnessApprovalActivityRequest,
     AddHarnessApprovalActivityPathParams
   >(
@@ -4602,7 +4659,7 @@ export const useAddHarnessApprovalActivity = ({ approvalInstanceId, ...props }: 
   )
 
 /**
- * Add a new Harness Approval activity
+ * Approve or Reject a Pipeline Execution
  */
 export const addHarnessApprovalActivityPromise = (
   {
@@ -4611,7 +4668,7 @@ export const addHarnessApprovalActivityPromise = (
   }: MutateUsingFetchProps<
     ResponseApprovalInstanceResponse,
     Failure | Error,
-    void,
+    AddHarnessApprovalActivityQueryParams,
     HarnessApprovalActivityRequest,
     AddHarnessApprovalActivityPathParams
   > & { approvalInstanceId: string },
@@ -4620,7 +4677,7 @@ export const addHarnessApprovalActivityPromise = (
   mutateUsingFetch<
     ResponseApprovalInstanceResponse,
     Failure | Error,
-    void,
+    AddHarnessApprovalActivityQueryParams,
     HarnessApprovalActivityRequest,
     AddHarnessApprovalActivityPathParams
   >('POST', getConfig('pipeline/api'), `/approvals/${approvalInstanceId}/harness/activity`, props, signal)
@@ -12273,6 +12330,7 @@ export interface GetSchemaYamlQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -12319,6 +12377,7 @@ export interface GetSchemaYamlQueryParams {
     | 'ApprovalStage'
     | 'FeatureFlagStage'
     | 'Template'
+    | 'TemplateStage'
     | 'Triggers'
     | 'MonitoredService'
     | 'GitRepositories'
@@ -12355,6 +12414,7 @@ export interface GetSchemaYamlQueryParams {
     | 'AzureTrafficShift'
     | 'AzureSwapSlot'
     | 'AzureWebAppRollback'
+    | 'JenkinsBuild'
   projectIdentifier?: string
   orgIdentifier?: string
   scope?: 'account' | 'org' | 'project' | 'unknown'
@@ -12462,6 +12522,7 @@ export interface GetStepYamlSchemaQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -12508,6 +12569,7 @@ export interface GetStepYamlSchemaQueryParams {
     | 'ApprovalStage'
     | 'FeatureFlagStage'
     | 'Template'
+    | 'TemplateStage'
     | 'Triggers'
     | 'MonitoredService'
     | 'GitRepositories'
@@ -12544,6 +12606,7 @@ export interface GetStepYamlSchemaQueryParams {
     | 'AzureTrafficShift'
     | 'AzureSwapSlot'
     | 'AzureWebAppRollback'
+    | 'JenkinsBuild'
   scope?: 'account' | 'org' | 'project' | 'unknown'
 }
 

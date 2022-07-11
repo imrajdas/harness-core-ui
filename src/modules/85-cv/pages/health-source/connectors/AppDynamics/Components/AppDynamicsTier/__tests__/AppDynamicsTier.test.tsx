@@ -6,6 +6,7 @@
  */
 
 import React from 'react'
+import { RUNTIME_INPUT_VALUE } from '@harness/uicore'
 import { render } from '@testing-library/react'
 import { TestWrapper } from '@common/utils/testUtils'
 import AppDynamicsTier from '../AppDynamicsTier'
@@ -98,7 +99,7 @@ describe('AppDynamicsTier', () => {
           isTemplate={true}
           tierOptions={[]}
           tierLoading={false}
-          formikValues={{ appDtier: '<+input>', appdApplication: '<+input>' }}
+          formikValues={{ appDtier: RUNTIME_INPUT_VALUE, appdApplication: RUNTIME_INPUT_VALUE }}
           onValidate={onValidate}
           setAppDTierCustomField={setCustomField}
         />

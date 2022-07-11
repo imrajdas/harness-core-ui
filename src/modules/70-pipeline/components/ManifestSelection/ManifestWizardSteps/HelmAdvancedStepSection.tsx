@@ -131,9 +131,9 @@ function HelmAdvancedStepSection({
                       >
                         <FormInput.Select
                           name={`commandFlags[${index}].commandType`}
-                          label={index === 0 ? getString('pipeline.manifestType.helmCommandType') : ''}
+                          label={index === 0 ? getString('pipeline.fieldLabels.commandType') : ''}
                           items={commandFlagOptions[helmVersion]}
-                          placeholder={getString('pipeline.manifestType.helmCommandTypePlaceholder')}
+                          placeholder={getString('pipeline.fieldPlaceholders.commandType')}
                         />
                       </div>
                       <div

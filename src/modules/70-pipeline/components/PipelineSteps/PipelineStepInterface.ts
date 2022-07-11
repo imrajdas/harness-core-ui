@@ -11,6 +11,7 @@ import type { PipelineInfrastructure } from 'services/cd-ng'
 export enum StepType {
   HTTP = 'Http',
   SHELLSCRIPT = 'ShellScript',
+  Command = 'Command',
   CustomApproval = 'CustomApproval',
   Barrier = 'Barrier',
   Queue = 'Queue',

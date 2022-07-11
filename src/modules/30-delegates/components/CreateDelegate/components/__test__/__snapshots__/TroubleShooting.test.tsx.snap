@@ -67,7 +67,7 @@ exports[`Create Common Problems Tab render data 1`] = `
           delegates.delegateNotInstalled.statusOfCluster
         </p>
         <a
-          href="https://ngdocs.harness.io/"
+          href="https://docs.harness.io/"
           rel="noreferrer"
           style="text-align: end; font-size: 13px;"
           target="_blank"
@@ -221,7 +221,7 @@ exports[`Create Common Problems Tab show event error btn 1`] = `
           delegates.delegateNotInstalled.statusOfCluster
         </p>
         <a
-          href="https://ngdocs.harness.io/"
+          href="https://docs.harness.io/"
           rel="noreferrer"
           style="text-align: end; font-size: 13px;"
           target="_blank"

@@ -43,6 +43,7 @@ import DiagramLoader from '@pipeline/components/DiagramLoader/DiagramLoader'
 import { FeatureFlag } from '@common/featureFlags'
 import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
 import { MatrixStepNode } from '@pipeline/components/PipelineDiagram/Nodes/MatrixStepNode/MatrixStepNode'
+import { NodeDimensionProvider } from '@pipeline/components/PipelineDiagram/Nodes/NodeDimensionStore'
 import BarrierStepTooltip from './components/BarrierStepTooltip/BarrierStepTooltip'
 import ResourceConstraintTooltip from './components/ResourceConstraints/ResourceConstraints'
 import VerifyStepTooltip from './components/VerifyStepTooltip/VerifyStepTooltip'
@@ -192,7 +193,7 @@ export default function ExecutionStageDetails(props: ExecutionStageDetailsProps)
       event.target,
       {
         event,
-        data: { data: stageData }
+        data: { data: stageData, module: stage?.module, moduleInfo: stage?.moduleInfo }
       },
       { useArrows: true, darkMode: false, fixedPosition: false, placement: 'top' }
     )
@@ -257,15 +258,17 @@ export default function ExecutionStageDetails(props: ExecutionStageDetailsProps)
   return (
     <div className={cx(css.main, css.stepGroup)} data-layout={props.layout}>
       {!isEmpty(selectedStageId) && data.items?.length > 0 && newPipelineStudioEnabled ? (
-        <CDPipelineStudioNew
-          readonly
-          loaderComponent={DiagramLoader}
-          data={data.items}
-          selectedNodeId={selectedStepId}
-          panZoom={false}
-          showEndNode={showEndNode}
-          graphLinkClassname={css.graphLink}
-        />
+        <NodeDimensionProvider>
+          <CDPipelineStudioNew
+            readonly
+            loaderComponent={DiagramLoader}
+            data={data.items}
+            selectedNodeId={selectedStepId}
+            panZoom={false}
+            showEndNode={showEndNode}
+            graphLinkClassname={css.graphLink}
+          />
+        </NodeDimensionProvider>
       ) : (
         <ExecutionStageDiagram
           selectedIdentifier={selectedStepId}

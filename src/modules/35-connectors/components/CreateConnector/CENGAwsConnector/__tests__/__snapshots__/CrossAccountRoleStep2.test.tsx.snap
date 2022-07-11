@@ -91,7 +91,7 @@ exports[`Create CE AWS Connector Create Cross Account Role Step should render fo
           >
             connectors.ceAws.cur.instructions.i2
             <a
-              href="https://ngdocs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#step_4_create_cross_account_role"
+              href="https://docs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#step_4_create_cross_account_role"
               rel="noreferrer"
               target="_blank"
             >

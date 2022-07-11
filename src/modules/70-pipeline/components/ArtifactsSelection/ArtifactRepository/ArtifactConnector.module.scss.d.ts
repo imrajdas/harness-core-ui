@@ -20,6 +20,7 @@ declare const styles: {
   readonly headerContainer: string
   readonly heading: string
   readonly imagePathContainer: string
+  readonly jenkinsFieldContainer: string
   readonly optionsViewContainer: string
   readonly optionsViewGrid: string
   readonly padSmall: string

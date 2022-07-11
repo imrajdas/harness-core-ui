@@ -9,6 +9,10 @@ import { PREFERENCES_TOP_LEVEL_KEY } from 'framework/PreferenceStore/PreferenceS
 import SecureStorage from '../SecureStorage'
 
 describe('SecureStorage tests', () => {
+  beforeAll(() => {
+    SecureStorage.registerCleanupException(PREFERENCES_TOP_LEVEL_KEY)
+  })
+
   test('init', () => {
     localStorage.setItem(PREFERENCES_TOP_LEVEL_KEY, 'test')
     SecureStorage.set('sample', 'value')

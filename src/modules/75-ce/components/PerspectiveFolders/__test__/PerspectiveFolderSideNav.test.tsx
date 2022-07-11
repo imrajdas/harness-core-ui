@@ -74,7 +74,7 @@ describe('Test cases for perspective folder side nav', () => {
         <Provider value={responseState as any}>
           <PerspectiveFoldersSideNav
             setSelectedFolder={setSelectedFolder}
-            selectedFolderId={''}
+            selectedFolderId={'yVi1Q8cgQnaq-y1YqmELFQ'}
             foldersList={FoldersList.data as unknown as CEViewFolder[]}
             setRefetchFolders={jest.fn()}
             foldersLoading={false}
@@ -108,7 +108,7 @@ describe('Test cases for perspective folder side nav', () => {
         <Provider value={responseState as any}>
           <PerspectiveFoldersSideNav
             setSelectedFolder={setSelectedFolder}
-            selectedFolderId={''}
+            selectedFolderId={'yVi1Q8cgQnaq-y1YqmELFQ'}
             foldersList={FoldersList.data as unknown as CEViewFolder[]}
             setRefetchFolders={jest.fn()}
             foldersLoading={false}
@@ -134,7 +134,7 @@ describe('Test cases for perspective folder side nav', () => {
         <Provider value={responseState as any}>
           <PerspectiveFoldersSideNav
             setSelectedFolder={setSelectedFolder}
-            selectedFolderId={''}
+            selectedFolderId={'yVi1Q8cgQnaq-y1YqmELFQ'}
             foldersList={FoldersList.data as unknown as CEViewFolder[]}
             setRefetchFolders={jest.fn()}
             foldersLoading={false}

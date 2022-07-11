@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import { getMultiTypeFromValue, MultiTypeInputType, SelectOption } from '@harness/uicore'
+import { getMultiTypeFromValue, MultiTypeInputType, RUNTIME_INPUT_VALUE, SelectOption } from '@harness/uicore'
 import type {
   DatadogLogsHealthSpec,
   DatadogLogsInfo,
@@ -21,12 +21,24 @@ import { MapDatadogLogsFieldNames } from '@cv/pages/health-source/connectors/Dat
 
 export function initializeSelectedMetricsMap(
   defaultSelectedMetricName: string,
-  logsDefinitions?: Map<string, DatadogLogsInfo>
+  logsDefinitions?: Map<string, DatadogLogsInfo>,
+  isConnectorRuntimeOrExpression = false
 ): SelectedAndMappedMetrics {
   return {
     selectedMetric: Array.from(logsDefinitions?.keys() || [])?.[0] || defaultSelectedMetricName,
     mappedMetrics:
-      logsDefinitions || new Map([[defaultSelectedMetricName, { metricName: defaultSelectedMetricName, query: '' }]])
+      logsDefinitions ||
+      new Map([
+        [
+          defaultSelectedMetricName,
+          {
+            metricName: defaultSelectedMetricName,
+            query: isConnectorRuntimeOrExpression ? RUNTIME_INPUT_VALUE : '',
+            indexes: isConnectorRuntimeOrExpression ? RUNTIME_INPUT_VALUE : [],
+            serviceInstanceIdentifierTag: isConnectorRuntimeOrExpression ? RUNTIME_INPUT_VALUE : ''
+          }
+        ]
+      ])
   }
 }
 
@@ -34,7 +46,8 @@ export function updateSelectedMetricsMap({
   updatedMetric,
   oldMetric,
   mappedMetrics,
-  formikProps
+  formikProps,
+  isConnectorRuntimeOrExpression = false
 }: UpdateSelectedMetricsMap): SelectedAndMappedMetrics {
   const updatedMap = new Map(mappedMetrics)
 
@@ -45,7 +58,12 @@ export function updateSelectedMetricsMap({
 
   // if newly created metric create form object
   if (!updatedMap.has(updatedMetric)) {
-    updatedMap.set(updatedMetric, { metricName: updatedMetric, query: '' })
+    updatedMap.set(updatedMetric, {
+      metricName: updatedMetric,
+      query: isConnectorRuntimeOrExpression ? RUNTIME_INPUT_VALUE : '',
+      indexes: isConnectorRuntimeOrExpression ? RUNTIME_INPUT_VALUE : [],
+      serviceInstanceIdentifierTag: isConnectorRuntimeOrExpression ? RUNTIME_INPUT_VALUE : ''
+    })
   }
 
   // update map with current form data

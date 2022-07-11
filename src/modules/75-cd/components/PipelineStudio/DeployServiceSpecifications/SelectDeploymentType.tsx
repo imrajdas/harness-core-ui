@@ -334,7 +334,7 @@ export default function SelectDeploymentType({
             </Text>
             <a
               className={deployServiceCsss.learnMore}
-              href="https://ngdocs.harness.io/article/1fjmm4by22"
+              href="https://docs.harness.io/article/1fjmm4by22"
               rel="noreferrer"
               target="_blank"
             >
@@ -344,8 +344,8 @@ export default function SelectDeploymentType({
         </article>
       )
       return (
-        <Layout.Horizontal margin={{ top: 'medium' }}>
-          <Layout.Vertical padding={viewContext ? { right: 'huge' } : { right: 'small' }}>
+        <Layout.Vertical margin={{ top: 'medium' }}>
+          <Layout.Vertical padding={viewContext ? { right: 'huge' } : { right: 'small' }} margin={{ bottom: 'large' }}>
             <div className={cx(stageCss.tabSubHeading, 'ng-tooltip-native')}>
               {getString('common.currentlyAvailable')}
             </div>
@@ -363,7 +363,11 @@ export default function SelectDeploymentType({
             ) : null}
           </Layout.Vertical>
           {!!viewContext && (
-            <Layout.Vertical border={{ left: true }} padding={{ left: 'huge' }}>
+            <Layout.Vertical
+              padding={{ left: 'huge', bottom: 'large', top: 'large' }}
+              border={{ radius: 2 }}
+              className={deployServiceCsss.comingSoonLayout}
+            >
               <Layout.Horizontal>
                 <div className={deployServiceCsss.comingSoonBanner}>{getString('common.comingSoon')}</div>
                 <div
@@ -407,7 +411,7 @@ export default function SelectDeploymentType({
               />
             </Layout.Vertical>
           )}
-        </Layout.Horizontal>
+        </Layout.Vertical>
       )
     }
     return (

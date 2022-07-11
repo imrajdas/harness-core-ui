@@ -178,7 +178,7 @@ const CFHomePage: React.FC = () => {
       projectCreateSuccessHandler={projectCreateSuccessHandler}
       subTitle={getString('cf.homepage.slogan')}
       documentText={getString('cf.homepage.learnMore')}
-      documentURL="https://ngdocs.harness.io/article/0a2u2ppp8s-getting-started-with-continuous-features"
+      documentURL="https://docs.harness.io/article/0a2u2ppp8s-getting-started-with-continuous-features"
     />
   )
 }

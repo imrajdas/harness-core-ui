@@ -73,7 +73,6 @@ export function PrometheusHealthSource(props: PrometheusHealthSourceProps): JSX.
 
   const [labelNameTracingId, metricNameTracingId] = useMemo(() => [Utils.randomId(), Utils.randomId()], [])
   const metricPackResponse = useGetMetricPacks({
-    lazy: isConnectorRuntimeOrExpression,
     queryParams: { projectIdentifier, orgIdentifier, accountId, dataSourceType: 'PROMETHEUS' }
   })
   const labelNamesResponse = useGetLabelNames({
@@ -115,9 +114,7 @@ export function PrometheusHealthSource(props: PrometheusHealthSourceProps): JSX.
   )
 
   const initialFormValues = mappedMetrics.get(selectedMetric || '') as MapPrometheusQueryToService
-  if (isTemplate) {
-    initialFormValues.isManualQuery = isTemplate
-  }
+
   return (
     <Formik<MapPrometheusQueryToService>
       formName="mapPrometheus"
@@ -188,7 +185,7 @@ export function PrometheusHealthSource(props: PrometheusHealthSourceProps): JSX.
                   mainHeading={getString('cv.monitoringSources.prometheus.querySpecificationsAndMappings')}
                   subHeading={getString('cv.monitoringSources.prometheus.customizeQuery')}
                 />
-                {formikProps.values?.isManualQuery && (
+                {formikProps.values?.isManualQuery && !isTemplate && (
                   <Container className={css.manualQueryWarning}>
                     <Text icon="warning-sign" iconProps={{ size: 14 }}>
                       {getString('cv.monitoringSources.prometheus.isManualQuery')}
@@ -259,6 +256,7 @@ export function PrometheusHealthSource(props: PrometheusHealthSourceProps): JSX.
                       summary={getString('cv.monitoringSources.assign')}
                       details={
                         <SelectHealthSourceServices
+                          key={formikProps?.values?.identifier}
                           values={{
                             sli: !!formikProps?.values?.sli,
                             riskCategory: formikProps?.values?.riskCategory,

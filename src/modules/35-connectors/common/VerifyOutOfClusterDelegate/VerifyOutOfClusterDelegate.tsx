@@ -207,50 +207,50 @@ const VerifyOutOfClusterDelegate: React.FC<StepProps<VerifyOutOfClusterStepProps
     const getPermissionsLink = (): string => {
       switch (props.type) {
         case Connectors.KUBERNETES_CLUSTER:
-          return 'https://ngdocs.harness.io/article/sjjik49xww-kubernetes-cluster-connector-settings-reference'
+          return 'https://docs.harness.io/article/sjjik49xww-kubernetes-cluster-connector-settings-reference'
         case Connectors.DOCKER:
-          return 'https://ngdocs.harness.io/article/u9bsd77g5a-docker-registry-connector-settings-reference'
+          return 'https://docs.harness.io/article/u9bsd77g5a-docker-registry-connector-settings-reference'
         case Connectors.AWS:
-          return 'https://ngdocs.harness.io/article/m5vkql35ca-aws-connector-settings-reference'
+          return 'https://docs.harness.io/article/m5vkql35ca-aws-connector-settings-reference'
         case Connectors.NEXUS:
-          return 'https://ngdocs.harness.io/article/faor0dc98d-nexus-connector-settings-reference'
+          return 'https://docs.harness.io/article/faor0dc98d-nexus-connector-settings-reference'
         case Connectors.ARTIFACTORY:
-          return 'https://ngdocs.harness.io/article/euueiiai4m-artifactory-connector-settings-reference'
+          return 'https://docs.harness.io/article/euueiiai4m-artifactory-connector-settings-reference'
         case Connectors.GCP:
         case 'Gcr':
-          return 'https://ngdocs.harness.io/article/yykfduond6-gcs-connector-settings-reference'
+          return 'https://docs.harness.io/article/yykfduond6-gcs-connector-settings-reference'
         case Connectors.GIT:
-          return 'https://ngdocs.harness.io/category/xyexvcc206-ref-source-repo-provider'
+          return 'https://docs.harness.io/category/xyexvcc206-ref-source-repo-provider'
         case Connectors.GITHUB:
-          return 'https://ngdocs.harness.io/article/v9sigwjlgo-git-hub-connector-settings-reference'
+          return 'https://docs.harness.io/article/v9sigwjlgo-git-hub-connector-settings-reference'
         case Connectors.GITLAB:
-          return 'https://ngdocs.harness.io/article/5abnoghjgo-git-lab-connector-settings-reference'
+          return 'https://docs.harness.io/article/5abnoghjgo-git-lab-connector-settings-reference'
         case Connectors.BITBUCKET:
-          return 'https://ngdocs.harness.io/article/iz5tucdwyu-bitbucket-connector-settings-reference'
+          return 'https://docs.harness.io/article/iz5tucdwyu-bitbucket-connector-settings-reference'
         case Connectors.AZURE_REPO:
           return '' // TODO
         case Connectors.Jira:
-          return 'https://ngdocs.harness.io/article/e6s32ec7i7'
+          return 'https://docs.harness.io/article/e6s32ec7i7'
         case Connectors.SERVICE_NOW:
-          return 'https://ngdocs.harness.io/article/illz8off8q'
+          return 'https://docs.harness.io/article/illz8off8q'
         case Connectors.HttpHelmRepo:
-          return 'https://ngdocs.harness.io/article/a0jotsvsi7'
+          return 'https://docs.harness.io/article/a0jotsvsi7'
         case Connectors.OciHelmRepo:
-          return 'https://ngdocs.harness.io/article/a0jotsvsi7'
+          return 'https://docs.harness.io/article/a0jotsvsi7'
         case Connectors.DATADOG:
-          return 'https://ngdocs.harness.io/article/g21fb5kfkg-connect-to-monitoring-and-logging-systems#step_add_datadog'
+          return 'https://docs.harness.io/article/g21fb5kfkg-connect-to-monitoring-and-logging-systems#step_add_datadog'
         case Connectors.AZURE_KEY_VAULT:
-          return 'https://ngdocs.harness.io/article/53jrd1cv4i-azure-key-vault#step_1_create_azure_reader_role'
+          return 'https://docs.harness.io/article/53jrd1cv4i-azure-key-vault#step_1_create_azure_reader_role'
         case Connectors.AWS_SECRET_MANAGER:
-          return 'https://ngdocs.harness.io/article/a73o2cg3pe-add-an-aws-secret-manager#permissions_test_aws_permissions'
+          return 'https://docs.harness.io/article/a73o2cg3pe-add-an-aws-secret-manager#permissions_test_aws_permissions'
         case Connectors.GCP_KMS:
-          return 'https://ngdocs.harness.io/article/cyyym9tbqt-add-google-kms-secrets-manager#before_you_begin'
+          return 'https://docs.harness.io/article/cyyym9tbqt-add-google-kms-secrets-manager#before_you_begin'
         case Connectors.VAULT:
-          return 'https://ngdocs.harness.io/article/s65mzbyags-add-hashicorp-vault#permissions'
+          return 'https://docs.harness.io/article/s65mzbyags-add-hashicorp-vault#permissions'
         case Connectors.AWS_KMS:
-          return 'https://ngdocs.harness.io/article/pt52h8sb6z-add-an-aws-kms-secrets-manager'
+          return 'https://docs.harness.io/article/pt52h8sb6z-add-an-aws-kms-secrets-manager'
         case Connectors.AZURE:
-          return 'https://ngdocs.harness.io/article/9epdx5m9ae'
+          return 'https://docs.harness.io/article/9epdx5m9ae'
         default:
           return ''
       }

@@ -38,7 +38,7 @@ export const TestFlagInfoView: React.FC = () => {
           </Text>
           <Container margin={{ top: 'medium' }}>
             <Link
-              href="https://ngdocs.harness.io/category/vjolt35atg-feature-flags"
+              href="https://docs.harness.io/category/vjolt35atg-feature-flags"
               target="_blank"
               text={getString('cf.onboarding.help.test.readmore')}
             />

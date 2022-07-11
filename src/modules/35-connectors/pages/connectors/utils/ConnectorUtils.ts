@@ -82,6 +82,7 @@ export const DockerProviderType = {
 
 export const GitUrlType = {
   ACCOUNT: 'Account',
+  PROJECT: 'Project', // Used in Azure Repos
   REPO: 'Repo'
 }
 
@@ -376,7 +377,6 @@ export const buildAzureRepoPayload = (formData: FormData) => {
       type: formData.urlType,
       url: formData.url,
       ...(formData.validationRepo ? { validationRepo: formData.validationRepo } : {}),
-      ...(formData.validationProject ? { validationProject: formData.validationProject } : {}),
       authentication: {
         type: formData.connectionType,
         spec:

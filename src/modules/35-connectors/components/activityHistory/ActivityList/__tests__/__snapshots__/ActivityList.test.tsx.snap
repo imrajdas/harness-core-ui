@@ -57,77 +57,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline executed Successfully
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
-                icon="tick"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="tick"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    tick
-                  </desc>
-                  <path
-                    d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionSuccessful
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Used Successfully
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline executed Successfully
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
+                  icon="tick"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="tick"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      tick
+                    </desc>
+                    <path
+                      d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionSuccessful
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Used Successfully
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -137,77 +141,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline Failed
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
-                icon="warning-sign"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="warning-sign"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    warning-sign
-                  </desc>
-                  <path
-                    d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionFailed
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Connection Failed
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline Failed
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="warning-sign"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="warning-sign"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      warning-sign
+                    </desc>
+                    <path
+                      d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionFailed
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Connection Failed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -217,77 +225,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline executed Successfully
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
-                icon="tick"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="tick"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    tick
-                  </desc>
-                  <path
-                    d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionSuccessful
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Used Successfully
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline executed Successfully
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
+                  icon="tick"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="tick"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      tick
+                    </desc>
+                    <path
+                      d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionSuccessful
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Used Successfully
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -297,77 +309,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline Failed
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
-                icon="warning-sign"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="warning-sign"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    warning-sign
-                  </desc>
-                  <path
-                    d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionFailed
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Connection Failed
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline Failed
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="warning-sign"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="warning-sign"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      warning-sign
+                    </desc>
+                    <path
+                      d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionFailed
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Connection Failed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -377,77 +393,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline executed Successfully
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
-                icon="tick"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="tick"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    tick
-                  </desc>
-                  <path
-                    d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionSuccessful
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Used Successfully
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline executed Successfully
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
+                  icon="tick"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="tick"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      tick
+                    </desc>
+                    <path
+                      d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionSuccessful
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Used Successfully
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -457,77 +477,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline Failed
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
-                icon="warning-sign"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="warning-sign"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    warning-sign
-                  </desc>
-                  <path
-                    d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionFailed
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Connection Failed
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline Failed
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="warning-sign"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="warning-sign"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      warning-sign
+                    </desc>
+                    <path
+                      d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionFailed
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Connection Failed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -537,77 +561,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline Failed
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
-                icon="warning-sign"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="warning-sign"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    warning-sign
-                  </desc>
-                  <path
-                    d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionFailed
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Connection Failed
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline Failed
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="warning-sign"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="warning-sign"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      warning-sign
+                    </desc>
+                    <path
+                      d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionFailed
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Connection Failed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -617,77 +645,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline Failed
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
-                icon="warning-sign"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="warning-sign"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    warning-sign
-                  </desc>
-                  <path
-                    d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionFailed
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Connection Failed
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline Failed
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="warning-sign"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="warning-sign"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      warning-sign
+                    </desc>
+                    <path
+                      d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionFailed
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Connection Failed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -697,77 +729,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline executed Successfully
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
-                icon="tick"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="tick"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    tick
-                  </desc>
-                  <path
-                    d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionSuccessful
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Used Successfully
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline executed Successfully
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
+                  icon="tick"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="tick"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      tick
+                    </desc>
+                    <path
+                      d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionSuccessful
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Used Successfully
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -777,77 +813,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline Failed
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
-                icon="warning-sign"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="warning-sign"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    warning-sign
-                  </desc>
-                  <path
-                    d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionFailed
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Connection Failed
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline Failed
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="warning-sign"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="warning-sign"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      warning-sign
+                    </desc>
+                    <path
+                      d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionFailed
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Connection Failed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -857,77 +897,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline Failed
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
-                icon="warning-sign"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="warning-sign"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    warning-sign
-                  </desc>
-                  <path
-                    d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionFailed
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Connection Failed
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline Failed
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="warning-sign"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="warning-sign"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      warning-sign
+                    </desc>
+                    <path
+                      d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionFailed
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Connection Failed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -937,77 +981,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline Failed
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
-                icon="warning-sign"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="warning-sign"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    warning-sign
-                  </desc>
-                  <path
-                    d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionFailed
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Connection Failed
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline Failed
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="warning-sign"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="warning-sign"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      warning-sign
+                    </desc>
+                    <path
+                      d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionFailed
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Connection Failed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1017,77 +1065,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                18 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline executed Successfully
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
-                icon="tick"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="tick"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    tick
-                  </desc>
-                  <path
-                    d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionSuccessful
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Used Successfully
+                  18 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline executed Successfully
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
+                  icon="tick"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="tick"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      tick
+                    </desc>
+                    <path
+                      d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionSuccessful
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Used Successfully
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1097,77 +1149,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                17 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline Failed
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
-                icon="warning-sign"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="warning-sign"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    warning-sign
-                  </desc>
-                  <path
-                    d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionFailed
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Connection Failed
+                  17 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline Failed
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-warning-sign StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="warning-sign"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="warning-sign"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      warning-sign
+                    </desc>
+                    <path
+                      d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionFailed
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Connection Failed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1177,77 +1233,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                17 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline executed Successfully
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
-                icon="tick"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="tick"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    tick
-                  </desc>
-                  <path
-                    d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionSuccessful
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Used Successfully
+                  17 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline executed Successfully
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
+                  icon="tick"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="tick"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      tick
+                    </desc>
+                    <path
+                      d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionSuccessful
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Used Successfully
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1257,77 +1317,81 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                17 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              Pipeline myPipeline executed Successfully
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
-                icon="tick"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  data-icon="tick"
-                  height="12"
-                  viewBox="0 0 16 16"
-                  width="12"
-                >
-                  <desc>
-                    tick
-                  </desc>
-                  <path
-                    d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  common.test.connectionSuccessful
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  Connector Used Successfully
+                  17 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                Pipeline myPipeline executed Successfully
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon bp3-icon-tick StyledProps--main StyledProps--color StyledProps--color-green500"
+                  icon="tick"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    data-icon="tick"
+                    height="12"
+                    viewBox="0 0 16 16"
+                    width="12"
+                  >
+                    <desc>
+                      tick
+                    </desc>
+                    <path
+                      d="M14 3c-.28 0-.53.11-.71.29L6 10.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42l4 4c.18.18.43.29.71.29s.53-.11.71-.29l8-8A1.003 1.003 0 0014 3z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    common.test.connectionSuccessful
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    Connector Used Successfully
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1337,74 +1401,78 @@ exports[`Activity List render all activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                17 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              activityHistory.connectivityCheck
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-red500"
-                data-icon="main-delete"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  height="12"
-                  viewBox="0 0 14 14"
-                  width="12"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.5 4.2c0-.4-.3-.7-.7-.7-.2 0-.4.1-.5.2L7 6 4.7 3.7c-.1-.1-.3-.2-.5-.2-.4 0-.7.3-.7.7 0 .2.1.4.2.5L6 7 3.7 9.3c-.1.1-.2.3-.2.5 0 .4.3.7.7.7.2 0 .4-.1.5-.2L7 8l2.3 2.3c.1.1.3.2.5.2.4 0 .7-.3.7-.7 0-.2-.1-.4-.2-.5L8 7l2.3-2.3c.1-.1.2-.3.2-.5zM7 0C3.1 0 0 3.1 0 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm0 12.6c-3.1 0-5.6-2.5-5.6-5.6S3.9 1.4 7 1.4s5.6 2.5 5.6 5.6-2.5 5.6-5.6 5.6z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  activityHistory.heartbeatFailure (1)
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  activityHistory.connectivityCheckFailed
+                  17 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                activityHistory.connectivityCheck
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-red500"
+                  data-icon="main-delete"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    height="12"
+                    viewBox="0 0 14 14"
+                    width="12"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.5 4.2c0-.4-.3-.7-.7-.7-.2 0-.4.1-.5.2L7 6 4.7 3.7c-.1-.1-.3-.2-.5-.2-.4 0-.7.3-.7.7 0 .2.1.4.2.5L6 7 3.7 9.3c-.1.1-.2.3-.2.5 0 .4.3.7.7.7.2 0 .4-.1.5-.2L7 8l2.3 2.3c.1.1.3.2.5.2.4 0 .7-.3.7-.7 0-.2-.1-.4-.2-.5L8 7l2.3-2.3c.1-.1.2-.3.2-.5zM7 0C3.1 0 0 3.1 0 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm0 12.6c-3.1 0-5.6-2.5-5.6-5.6S3.9 1.4 7 1.4s5.6 2.5 5.6 5.6-2.5 5.6-5.6 5.6z"
+                      fill="#4d5969"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    activityHistory.heartbeatFailure (1)
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    activityHistory.connectivityCheckFailed
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1472,74 +1540,78 @@ exports[`Activity List render only connectivity check activity 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
-              >
-                activityLog
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
-              >
-                17 Oct 2020
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main"
-            >
-              activityHistory.connectivityCheck
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main"
-            >
-              <span
-                class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-red500"
-                data-icon="main-delete"
-                style="margin: 2px 5px;"
-              >
-                <svg
-                  height="12"
-                  viewBox="0 0 14 14"
-                  width="12"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.5 4.2c0-.4-.3-.7-.7-.7-.2 0-.4.1-.5.2L7 6 4.7 3.7c-.1-.1-.3-.2-.5-.2-.4 0-.7.3-.7.7 0 .2.1.4.2.5L6 7 3.7 9.3c-.1.1-.2.3-.2.5 0 .4.3.7.7.7.2 0 .4-.1.5-.2L7 8l2.3 2.3c.1.1.3.2.5.2.4 0 .7-.3.7-.7 0-.2-.1-.4-.2-.5L8 7l2.3-2.3c.1-.1.2-.3.2-.5zM7 0C3.1 0 0 3.1 0 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm0 12.6c-3.1 0-5.6-2.5-5.6-5.6S3.9 1.4 7 1.4s5.6 2.5 5.6 5.6-2.5 5.6-5.6 5.6z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
               >
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
                 >
-                  activityHistory.heartbeatFailure (1)
+                  activityLog
                 </p>
                 <p
                   class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
                 >
-                  activityHistory.connectivityCheckFailed
+                  17 Oct 2020
                 </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main"
+              >
+                activityHistory.connectivityCheck
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+              >
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-red500"
+                  data-icon="main-delete"
+                  style="margin: 2px 5px;"
+                >
+                  <svg
+                    height="12"
+                    viewBox="0 0 14 14"
+                    width="12"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10.5 4.2c0-.4-.3-.7-.7-.7-.2 0-.4.1-.5.2L7 6 4.7 3.7c-.1-.1-.3-.2-.5-.2-.4 0-.7.3-.7.7 0 .2.1.4.2.5L6 7 3.7 9.3c-.1.1-.2.3-.2.5 0 .4.3.7.7.7.2 0 .4-.1.5-.2L7 8l2.3 2.3c.1.1.3.2.5.2.4 0 .7-.3.7-.7 0-.2-.1-.4-.2-.5L8 7l2.3-2.3c.1-.1.2-.3.2-.5zM7 0C3.1 0 0 3.1 0 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm0 12.6c-3.1 0-5.6-2.5-5.6-5.6S3.9 1.4 7 1.4s5.6 2.5 5.6 5.6-2.5 5.6-5.6 5.6z"
+                      fill="#4d5969"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900"
+                  >
+                    activityHistory.heartbeatFailure (1)
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey450"
+                  >
+                    activityHistory.connectivityCheckFailed
+                  </p>
+                </div>
               </div>
             </div>
           </div>

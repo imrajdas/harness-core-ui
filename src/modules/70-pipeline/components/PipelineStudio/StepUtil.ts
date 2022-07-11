@@ -707,3 +707,9 @@ export const validateCICodebaseConfiguration = ({ pipeline, getString }: Partial
   }
   return ''
 }
+export const getTemplatePath = (path: string, parentPath: string): string => {
+  if (!isEmpty(parentPath)) {
+    return path.replace(`${parentPath}.`, '')
+  }
+  return path
+}

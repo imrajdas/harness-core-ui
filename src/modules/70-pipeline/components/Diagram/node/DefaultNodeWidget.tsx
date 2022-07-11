@@ -270,6 +270,18 @@ export function DefaultNodeWidget(props: DefaultNodeProps): JSX.Element {
             </Text>
           </div>
         )}
+        {options?.loopingStrategyEnabled && (
+          <div className={css.loopingStrategy}>
+            <Text
+              tooltip={getString('pipeline.loopingStrategy.title')}
+              tooltipProps={{
+                isDark: true
+              }}
+            >
+              <Icon size={16} name={'looping'} color={isSelected ? Color.WHITE : Color.PRIMARY_7} />
+            </Text>
+          </div>
+        )}
         {options.isTemplate && (
           <Icon
             size={8}

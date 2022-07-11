@@ -25,7 +25,7 @@ const CFTrialHomePage: React.FC = () => {
     description: getString('cf.cfTrialHomePage.startTrial.description'),
     learnMore: {
       description: getString('cf.learnMore'),
-      url: 'https://ngdocs.harness.io/article/0a2u2ppp8s-getting-started-with-continuous-features'
+      url: 'https://docs.harness.io/article/0a2u2ppp8s-getting-started-with-continuous-features'
     },
     startBtn: {
       description: startBtnDescription

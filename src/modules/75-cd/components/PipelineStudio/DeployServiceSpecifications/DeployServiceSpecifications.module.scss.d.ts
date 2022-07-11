@@ -14,6 +14,7 @@ declare const styles: {
   readonly cdGenerationSwitcher: string
   readonly cdGenerationSwitcherSelected: string
   readonly comingSoonBanner: string
+  readonly comingSoonLayout: string
   readonly currentGenSupported: string
   readonly cursorPointer: string
   readonly learnMore: string

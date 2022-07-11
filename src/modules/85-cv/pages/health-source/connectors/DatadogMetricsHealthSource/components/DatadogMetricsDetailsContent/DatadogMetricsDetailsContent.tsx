@@ -192,7 +192,6 @@ export default function DatadogMetricsDetailsContent(props: DatadogMetricsDetail
         }}
         setGroupNames={setMetricGroupNames}
       />
-
       <FormInput.Select
         disabled={!selectedMetricData?.isCustomCreatedMetric || formikProps?.values?.isManualQuery}
         label={getString('cv.monitoringSources.metricLabel')}

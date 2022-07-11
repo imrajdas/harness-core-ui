@@ -85,7 +85,10 @@ export default function HealthSourceInputsetForm({
           <NoResultsView minimal={true} text={getString('templatesLibrary.noInputsRequired')} />
         )}
         {Boolean(metricDefinitions?.length) && (
-          <MetricDefinitionInptsetForm path={path} metricDefinitions={metricDefinitions} />
+          <MetricDefinitionInptsetForm
+            path={`${path}.${hasQueries ? 'queries' : 'metricDefinitions'}`}
+            metricDefinitions={metricDefinitions}
+          />
         )}
       </Card>
     )

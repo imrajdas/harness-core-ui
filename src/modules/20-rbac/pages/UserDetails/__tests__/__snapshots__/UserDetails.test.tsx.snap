@@ -301,68 +301,72 @@ exports[`UserDetails Test render data 1`] = `
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 95%;"
+                  class="TableV2--cells"
                 >
                   <div
-                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main name"
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 95%;"
                   >
-                    <p
-                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                      style="--text-line-clamp: 1;"
+                    <div
+                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main name"
                     >
-                      testGroup
-                    </p>
+                      <p
+                        class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                        style="--text-line-clamp: 1;"
+                      >
+                        testGroup
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
-                >
-                  <span
-                    class="bp3-popover-wrapper bp3-dark"
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
                   >
                     <span
-                      class="bp3-popover-target"
+                      class="bp3-popover-wrapper bp3-dark"
                     >
-                      <button
-                        class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                        data-testid="menu-UserGroup-testGroup"
-                        type="button"
+                      <span
+                        class="bp3-popover-target"
                       >
-                        <span
-                          class="bp3-icon StyledProps--main"
-                          data-icon="Options"
+                        <button
+                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                          data-testid="menu-UserGroup-testGroup"
+                          type="button"
                         >
-                          <svg
-                            fill="currentColor"
-                            height="16"
-                            viewBox="0 0 4 16"
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="Options"
                           >
-                            <circle
-                              cx="2"
-                              cy="2"
-                              r="1.5"
-                            />
-                            <circle
-                              cx="2"
-                              cy="8"
-                              r="1.5"
-                            />
-                            <circle
-                              cx="2"
-                              cy="14"
-                              r="1.5"
-                            />
-                          </svg>
-                        </span>
-                      </button>
+                            <svg
+                              fill="currentColor"
+                              height="16"
+                              viewBox="0 0 4 16"
+                              width="16"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle
+                                cx="2"
+                                cy="2"
+                                r="1.5"
+                              />
+                              <circle
+                                cx="2"
+                                cy="8"
+                                r="1.5"
+                              />
+                              <circle
+                                cx="2"
+                                cy="14"
+                                r="1.5"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </span>
                     </span>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>

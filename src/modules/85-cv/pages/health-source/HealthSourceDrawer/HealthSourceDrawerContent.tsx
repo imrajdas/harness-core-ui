@@ -55,7 +55,11 @@ function HealthSourceDrawerContent({
     if (selectedProduct === GCOProduct.CLOUD_METRICS || selectedProduct === DatadogProduct.CLOUD_METRICS) {
       const dashboardsScreen =
         selectedProduct === DatadogProduct.CLOUD_METRICS ? (
-          <SelectDatadogMetricsDashboards key="selectDatadogDashboards" />
+          <SelectDatadogMetricsDashboards
+            key="selectDatadogDashboards"
+            isTemplate={isTemplate}
+            expressions={expressions}
+          />
         ) : (
           <SelectGCODashboards key="selectGCODashboards" />
         )
@@ -67,6 +71,8 @@ function HealthSourceDrawerContent({
         ],
         <DefineHealthSource
           key="defineHealthSource"
+          isTemplate={isTemplate}
+          expressions={expressions}
           onSubmit={values => {
             setSelectedProduct(values.product?.value)
           }}
@@ -75,6 +81,8 @@ function HealthSourceDrawerContent({
         <CustomiseHealthSource
           key="customiseHealthSource"
           onSuccess={onSuccess}
+          isTemplate={isTemplate}
+          expressions={expressions}
           shouldRenderAtVerifyStep={shouldRenderAtVerifyStep}
         />
       ]

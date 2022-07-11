@@ -45,41 +45,45 @@ exports[`Project Resource Modal Body test initializes ok  1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical StyledProps--main StyledProps--padding-left-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                style="--text-line-clamp: 1;"
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
               >
-                TestCiproject
-              </p>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
-                style="--text-line-clamp: 1;"
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--vertical StyledProps--main StyledProps--padding-left-small"
               >
-                
-              </p>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                  style="--text-line-clamp: 1;"
+                >
+                  TestCiproject
+                </p>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
+                  style="--text-line-clamp: 1;"
+                >
+                  
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -88,41 +92,45 @@ exports[`Project Resource Modal Body test initializes ok  1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical StyledProps--main StyledProps--padding-left-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                style="--text-line-clamp: 1;"
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
               >
-                test11
-              </p>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
-                style="--text-line-clamp: 1;"
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--vertical StyledProps--main StyledProps--padding-left-small"
               >
-                
-              </p>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                  style="--text-line-clamp: 1;"
+                >
+                  test11
+                </p>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
+                  style="--text-line-clamp: 1;"
+                >
+                  
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -131,41 +139,45 @@ exports[`Project Resource Modal Body test initializes ok  1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical StyledProps--main StyledProps--padding-left-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                style="--text-line-clamp: 1;"
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
               >
-                Project 1
-              </p>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
-                style="--text-line-clamp: 1;"
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--vertical StyledProps--main StyledProps--padding-left-small"
               >
-                
-              </p>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                  style="--text-line-clamp: 1;"
+                >
+                  Project 1
+                </p>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
+                  style="--text-line-clamp: 1;"
+                >
+                  
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -174,41 +186,45 @@ exports[`Project Resource Modal Body test initializes ok  1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical StyledProps--main StyledProps--padding-left-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                style="--text-line-clamp: 1;"
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
               >
-                fdfder32432
-              </p>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
-                style="--text-line-clamp: 1;"
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
+            >
+              <div
+                class="Layout--vertical StyledProps--main StyledProps--padding-left-small"
               >
-                
-              </p>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                  style="--text-line-clamp: 1;"
+                >
+                  fdfder32432
+                </p>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
+                  style="--text-line-clamp: 1;"
+                >
+                  
+                </p>
+              </div>
             </div>
           </div>
         </div>

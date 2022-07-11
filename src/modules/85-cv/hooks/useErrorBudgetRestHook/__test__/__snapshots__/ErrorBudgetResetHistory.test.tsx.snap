@@ -182,65 +182,69 @@ exports[`ErrorBudgetResetHistory it should render the data 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 200px;"
+            class="TableV2--cells"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 200px;"
             >
-              01/28/2022 12:00 AM
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 150px;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              >
+                01/28/2022 12:00 AM
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 150px;"
             >
-              75
-               
-              cv.minutes
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 150px;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              >
+                75
+                 
+                cv.minutes
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 150px;"
             >
-              60
-               
-              cv.minutes
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 150px;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              >
+                60
+                 
+                cv.minutes
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 150px;"
             >
-               
-              cv.minutes
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 150px;"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
-              style="--text-line-clamp: 1;"
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              >
+                 
+                cv.minutes
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 150px;"
             >
-              REASON
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+                style="--text-line-clamp: 1;"
+              >
+                REASON
+              </p>
+            </div>
           </div>
         </div>
         <div
@@ -248,65 +252,69 @@ exports[`ErrorBudgetResetHistory it should render the data 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 200px;"
+            class="TableV2--cells"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 200px;"
             >
-              01/27/2022 12:00 AM
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 150px;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              >
+                01/27/2022 12:00 AM
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 150px;"
             >
-              50
-               
-              cv.minutes
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 150px;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              >
+                50
+                 
+                cv.minutes
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 150px;"
             >
-              60
-               
-              cv.minutes
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 150px;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              >
+                60
+                 
+                cv.minutes
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 150px;"
             >
-               
-              cv.minutes
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 150px;"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
-              style="--text-line-clamp: 1;"
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+              >
+                 
+                cv.minutes
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 150px;"
             >
-              REASON
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-small"
+                style="--text-line-clamp: 1;"
+              >
+                REASON
+              </p>
+            </div>
           </div>
         </div>
       </div>

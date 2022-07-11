@@ -1277,173 +1277,177 @@ exports[`UsersPage Test render data 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
               <div
-                class="Avatar--Avatar Avatar--contentStyle"
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              >
+                <div
+                  class="Avatar--Avatar Avatar--contentStyle"
+                >
+                  <span
+                    class="bp3-popover-wrapper Avatar--avatarPopOver"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Avatar--AvatarInner"
+                        style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
+                        tabindex="0"
+                      >
+                        A
+                      </div>
+                    </span>
+                  </span>
+                </div>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                  style="width: 100%;"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
+                    style="--text-line-clamp: 1;"
+                  >
+                    abc
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 45%;"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
               >
                 <span
-                  class="bp3-popover-wrapper Avatar--avatarPopOver"
+                  class="bp3-tag harnesstag"
+                >
+                  <span
+                    class="bp3-text-overflow-ellipsis bp3-fill"
+                  >
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/organizations/org/setup/access-control/roles/_account_admin"
+                    >
+                      Account Admin
+                    </a>
+                     - 
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/organizations/org/setup/access-control/resource-groups/_all_account_level_resources"
+                    >
+                      All Resources
+                    </a>
+                  </span>
+                </span>
+                <span
+                  class="bp3-tag harnesstag"
+                >
+                  <span
+                    class="bp3-text-overflow-ellipsis bp3-fill"
+                  >
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/organizations/org/setup/access-control/roles/_account_viewer"
+                    >
+                      Account Viewer
+                    </a>
+                     - 
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/organizations/org/setup/access-control/resource-groups/_all_account_level_resources"
+                    >
+                      All Resources
+                    </a>
+                  </span>
+                </span>
+                <button
+                  class="bp3-button Button--button StyledProps--font StyledProps--main roleButton Button--with-current-color Button--variation Button--variation-link"
+                  data-testid="addRole-123"
+                  type="button"
+                >
+                  <span
+                    class="bp3-button-text"
+                  >
+                    common.plusNumber
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main"
+                >
+                  abc@harness.io
+                </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
+              >
+                <span
+                  class="bp3-popover-wrapper bp3-dark"
                 >
                   <span
                     class="bp3-popover-target"
                   >
-                    <div
-                      class="Avatar--AvatarInner"
-                      style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
-                      tabindex="0"
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      data-testid="menu-123"
+                      type="button"
                     >
-                      A
-                    </div>
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="Options"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="16"
+                          viewBox="0 0 4 16"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="2"
+                            cy="2"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="8"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="14"
+                            r="1.5"
+                          />
+                        </svg>
+                      </span>
+                    </button>
                   </span>
                 </span>
               </div>
-              <div
-                class="Layout--vertical StyledProps--main"
-                style="width: 100%;"
-              >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  abc
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 45%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
-            >
-              <span
-                class="bp3-tag harnesstag"
-              >
-                <span
-                  class="bp3-text-overflow-ellipsis bp3-fill"
-                >
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/organizations/org/setup/access-control/roles/_account_admin"
-                  >
-                    Account Admin
-                  </a>
-                   - 
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/organizations/org/setup/access-control/resource-groups/_all_account_level_resources"
-                  >
-                    All Resources
-                  </a>
-                </span>
-              </span>
-              <span
-                class="bp3-tag harnesstag"
-              >
-                <span
-                  class="bp3-text-overflow-ellipsis bp3-fill"
-                >
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/organizations/org/setup/access-control/roles/_account_viewer"
-                  >
-                    Account Viewer
-                  </a>
-                   - 
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/organizations/org/setup/access-control/resource-groups/_all_account_level_resources"
-                  >
-                    All Resources
-                  </a>
-                </span>
-              </span>
-              <button
-                class="bp3-button Button--button StyledProps--font StyledProps--main roleButton Button--with-current-color Button--variation Button--variation-link"
-                data-testid="addRole-123"
-                type="button"
-              >
-                <span
-                  class="bp3-button-text"
-                >
-                  common.plusNumber
-                </span>
-              </button>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
-            >
-              <p
-                class="StyledProps--font StyledProps--main"
-              >
-                abc@harness.io
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
-            >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
-              >
-                <span
-                  class="bp3-popover-target"
-                >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    data-testid="menu-123"
-                    type="button"
-                  >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="Options"
-                    >
-                      <svg
-                        fill="currentColor"
-                        height="16"
-                        viewBox="0 0 4 16"
-                        width="16"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <circle
-                          cx="2"
-                          cy="2"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="8"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="14"
-                          r="1.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-                </span>
-              </span>
             </div>
           </div>
         </div>
@@ -1452,179 +1456,183 @@ exports[`UsersPage Test render data 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
-              <span
-                class="bp3-icon bp3-icon-lock StyledProps--main lockIcon StyledProps--border StyledProps--color StyledProps--color-white StyledProps--background-grey300 StyledProps--flex StyledProps--flex-align-center-center StyledProps--margin-left-xsmall StyledProps--margin-right-xsmall"
-                icon="lock"
-                style="width: 32px; height: 32px;"
-              >
-                <svg
-                  data-icon="lock"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  width="16"
-                >
-                  <desc>
-                    lock
-                  </desc>
-                  <path
-                    d="M13.96 7H12V3.95C12 1.77 10.21 0 8 0S4 1.77 4 3.95V7H1.96c-.55 0-.96.35-.96.9v6.91c0 .54.41 1.19.96 1.19h12c.55 0 1.04-.65 1.04-1.19V7.9c0-.55-.49-.9-1.04-.9zM6 7V3.95c0-1.09.9-1.97 2-1.97s2 .88 2 1.97V7H6z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
               <div
-                class="Layout--vertical StyledProps--main"
-                style="width: 100%;"
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              >
+                <span
+                  class="bp3-icon bp3-icon-lock StyledProps--main lockIcon StyledProps--border StyledProps--color StyledProps--color-white StyledProps--background-grey300 StyledProps--flex StyledProps--flex-align-center-center StyledProps--margin-left-xsmall StyledProps--margin-right-xsmall"
+                  icon="lock"
+                  style="width: 32px; height: 32px;"
+                >
+                  <svg
+                    data-icon="lock"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    width="16"
+                  >
+                    <desc>
+                      lock
+                    </desc>
+                    <path
+                      d="M13.96 7H12V3.95C12 1.77 10.21 0 8 0S4 1.77 4 3.95V7H1.96c-.55 0-.96.35-.96.9v6.91c0 .54.41 1.19.96 1.19h12c.55 0 1.04-.65 1.04-1.19V7.9c0-.55-.49-.9-1.04-.9zM6 7V3.95c0-1.09.9-1.97 2-1.97s2 .88 2 1.97V7H6z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="Layout--vertical StyledProps--main"
+                  style="width: 100%;"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
+                    style="--text-line-clamp: 1;"
+                  >
+                    abc2
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-small StyledProps--color StyledProps--color-grey400"
+                  >
+                    rbac.usersPage.lockedOutLabel
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 45%;"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              >
+                <span
+                  class="bp3-tag harnesstag"
+                >
+                  <span
+                    class="bp3-text-overflow-ellipsis bp3-fill"
+                  >
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/organizations/org/setup/access-control/roles/_account_admin"
+                    >
+                      Account Admin
+                    </a>
+                     - 
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/organizations/org/setup/access-control/resource-groups/_all_account_level_resources"
+                    >
+                      All Resources
+                    </a>
+                  </span>
+                </span>
+                <span
+                  class="bp3-tag harnesstag"
+                >
+                  <span
+                    class="bp3-text-overflow-ellipsis bp3-fill"
+                  >
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/organizations/org/setup/access-control/roles/_account_viewer"
+                    >
+                      Account Viewer
+                    </a>
+                     - 
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/organizations/org/setup/access-control/resource-groups/_all_account_level_resources"
+                    >
+                      All Resources
+                    </a>
+                  </span>
+                </span>
+                <button
+                  class="bp3-button Button--button StyledProps--font StyledProps--main roleButton Button--with-current-color Button--variation Button--variation-link"
+                  data-testid="addRole-locked"
+                  type="button"
+                >
+                  <span
+                    class="bp3-button-text"
+                  >
+                    common.plusNumber
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
               >
                 <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
+                  class="StyledProps--font StyledProps--main"
                 >
-                  abc2
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-small StyledProps--color StyledProps--color-grey400"
-                >
-                  rbac.usersPage.lockedOutLabel
+                  abc2@harness.io
                 </p>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 45%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <span
-                class="bp3-tag harnesstag"
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
               >
                 <span
-                  class="bp3-text-overflow-ellipsis bp3-fill"
+                  class="bp3-popover-wrapper bp3-dark"
                 >
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/organizations/org/setup/access-control/roles/_account_admin"
+                  <span
+                    class="bp3-popover-target"
                   >
-                    Account Admin
-                  </a>
-                   - 
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/organizations/org/setup/access-control/resource-groups/_all_account_level_resources"
-                  >
-                    All Resources
-                  </a>
-                </span>
-              </span>
-              <span
-                class="bp3-tag harnesstag"
-              >
-                <span
-                  class="bp3-text-overflow-ellipsis bp3-fill"
-                >
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/organizations/org/setup/access-control/roles/_account_viewer"
-                  >
-                    Account Viewer
-                  </a>
-                   - 
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/organizations/org/setup/access-control/resource-groups/_all_account_level_resources"
-                  >
-                    All Resources
-                  </a>
-                </span>
-              </span>
-              <button
-                class="bp3-button Button--button StyledProps--font StyledProps--main roleButton Button--with-current-color Button--variation Button--variation-link"
-                data-testid="addRole-locked"
-                type="button"
-              >
-                <span
-                  class="bp3-button-text"
-                >
-                  common.plusNumber
-                </span>
-              </button>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
-            >
-              <p
-                class="StyledProps--font StyledProps--main"
-              >
-                abc2@harness.io
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <div
-              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
-            >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
-              >
-                <span
-                  class="bp3-popover-target"
-                >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    data-testid="menu-locked"
-                    type="button"
-                  >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="Options"
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      data-testid="menu-locked"
+                      type="button"
                     >
-                      <svg
-                        fill="currentColor"
-                        height="16"
-                        viewBox="0 0 4 16"
-                        width="16"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="Options"
                       >
-                        <circle
-                          cx="2"
-                          cy="2"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="8"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="14"
-                          r="1.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
+                        <svg
+                          fill="currentColor"
+                          height="16"
+                          viewBox="0 0 4 16"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="2"
+                            cy="2"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="8"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="14"
+                            r="1.5"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>

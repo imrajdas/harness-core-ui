@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React from 'react'
+import React, { lazy } from 'react'
 import { Redirect, Route, useParams } from 'react-router-dom'
 import { ConnectorRouteDestinations } from '@connectors/RouteDestinations'
 import { DelegateRouteDestinations } from '@delegates/RouteDestinations'
@@ -19,6 +19,8 @@ import CIPipelineDeploymentList from '@ci/pages/pipeline-deployment-list/CIPipel
 import CIPipelineStudio from '@ci/pages/pipeline-studio/CIPipelineStudio'
 import { GovernanceRouteDestinations } from '@governance/RouteDestinations'
 import { SecretRouteDestinations } from '@secrets/RouteDestinations'
+import { FeatureFlag } from '@common/featureFlags'
+import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
 import type { SidebarContext } from '@common/navigation/SidebarProvider'
 import routes from '@common/RouteDefinitions'
 import { RouteWithLayout } from '@common/router'
@@ -37,8 +39,6 @@ import { ResourceCategory, ResourceType } from '@rbac/interfaces/ResourceType'
 import RbacFactory from '@rbac/factories/RbacFactory'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { String as LocaleString } from 'framework/strings'
-
-const STOApp = React.lazy(() => import('sto/App')) // eslint-disable-line import/no-unresolved
 
 const STOSideNavProps: SidebarContext = {
   navComponent: STOSideNav,
@@ -115,90 +115,107 @@ const RedirectToProjectOverviewPage = (): React.ReactElement => {
   }
 }
 
-export default (
-  <>
-    <RouteWithLayout
-      exact
-      // licenseRedirectData={licenseRedirectData}
-      path={routes.toSTO({ ...accountPathProps })}
-    >
-      <RedirectToProjectOverviewPage />
-    </RouteWithLayout>
+const RouteDestinations: React.FC = () => {
+  const isV2 = useFeatureFlag(FeatureFlag.STO_API_V2)
+  const RemoteSTOApp = lazy(() => (isV2 ? import(`stoV2/App`) : import(`sto/App`)))
 
-    <RouteWithLayout
-      exact
-      // licenseRedirectData={licenseRedirectData}
-      sidebarProps={STOSideNavProps}
-      path={[
-        routes.toSTOOverview({ ...accountPathProps }),
-        routes.toSTOProjectOverview({ ...accountPathProps, ...projectPathProps })
-      ]}
-    >
-      <ChildAppMounter ChildApp={STOApp} customComponents={{ ExecutionCard, CardRailView }} />
-    </RouteWithLayout>
+  return (
+    <>
+      <RouteWithLayout
+        exact
+        // licenseRedirectData={licenseRedirectData}
+        path={routes.toSTO({ ...accountPathProps })}
+      >
+        <RedirectToProjectOverviewPage />
+      </RouteWithLayout>
 
-    <RouteWithLayout
-      sidebarProps={STOSideNavProps}
-      path={[
-        routes.toSTOTargets({ ...accountPathProps }),
-        routes.toSTOProjectTargets({ ...accountPathProps, ...projectPathProps })
-      ]}
-    >
-      <ChildAppMounter ChildApp={STOApp} />
-    </RouteWithLayout>
+      <RouteWithLayout
+        exact
+        // licenseRedirectData={licenseRedirectData}
+        sidebarProps={STOSideNavProps}
+        path={[
+          routes.toSTOOverview({ ...accountPathProps }),
+          routes.toSTOProjectOverview({ ...accountPathProps, ...projectPathProps })
+        ]}
+      >
+        <ChildAppMounter ChildApp={RemoteSTOApp} customComponents={{ ExecutionCard, CardRailView }} />
+      </RouteWithLayout>
 
-    <Route path="/account/:accountId/:module(sto)">
-      <PipelineRouteDestinations
-        pipelineStudioComponent={CIPipelineStudio}
-        pipelineDeploymentListComponent={CIPipelineDeploymentList}
-        moduleParams={moduleParams}
-        // licenseRedirectData={licenseRedirectData}
+      <RouteWithLayout
         sidebarProps={STOSideNavProps}
-      />
-      <AccessControlRouteDestinations
-        moduleParams={moduleParams}
-        // licenseRedirectData={licenseRedirectData}
+        path={[
+          routes.toSTOTargets({ ...accountPathProps }),
+          routes.toSTOProjectTargets({ ...accountPathProps, ...projectPathProps })
+        ]}
+      >
+        <ChildAppMounter ChildApp={RemoteSTOApp} />
+      </RouteWithLayout>
+
+      <RouteWithLayout
         sidebarProps={STOSideNavProps}
-      />
-      <ConnectorRouteDestinations
-        moduleParams={moduleParams}
-        // licenseRedirectData={licenseRedirectData}
-        sidebarProps={STOSideNavProps}
-      />
-      <SecretRouteDestinations
-        moduleParams={moduleParams}
-        // licenseRedirectData={licenseRedirectData}
-        sidebarProps={STOSideNavProps}
-      />
-      <VariableRouteDestinations
-        moduleParams={moduleParams}
-        // licenseRedirectData={licenseRedirectData}
-        sidebarProps={STOSideNavProps}
-      />
-      <DelegateRouteDestinations
-        moduleParams={moduleParams}
-        // licenseRedirectData={licenseRedirectData}
-        sidebarProps={STOSideNavProps}
-      />
-      <TemplateRouteDestinations
-        moduleParams={moduleParams}
-        // licenseRedirectData={licenseRedirectData}
-        sidebarProps={STOSideNavProps}
-      />
-      <GitSyncRouteDestinations
-        moduleParams={moduleParams}
-        // licenseRedirectData={licenseRedirectData}
-        sidebarProps={STOSideNavProps}
-      />
-      <TriggersRouteDestinations
-        moduleParams={moduleParams}
-        // licenseRedirectData={licenseRedirectData}
-        sidebarProps={STOSideNavProps}
-      />
-      <GovernanceRouteDestinations
-        sidebarProps={STOSideNavProps}
-        pathProps={{ ...accountPathProps, ...projectPathProps, ...moduleParams }}
-      />
-    </Route>
-  </>
-)
+        path={[
+          routes.toSTOSecurityReview({ ...accountPathProps }),
+          routes.toSTOProjectSecurityReview({ ...accountPathProps, ...projectPathProps })
+        ]}
+      >
+        <ChildAppMounter ChildApp={RemoteSTOApp} />
+      </RouteWithLayout>
+
+      <Route path="/account/:accountId/:module(sto)">
+        <PipelineRouteDestinations
+          pipelineStudioComponent={CIPipelineStudio}
+          pipelineDeploymentListComponent={CIPipelineDeploymentList}
+          moduleParams={moduleParams}
+          // licenseRedirectData={licenseRedirectData}
+          sidebarProps={STOSideNavProps}
+        />
+        <AccessControlRouteDestinations
+          moduleParams={moduleParams}
+          // licenseRedirectData={licenseRedirectData}
+          sidebarProps={STOSideNavProps}
+        />
+        <ConnectorRouteDestinations
+          moduleParams={moduleParams}
+          // licenseRedirectData={licenseRedirectData}
+          sidebarProps={STOSideNavProps}
+        />
+        <SecretRouteDestinations
+          moduleParams={moduleParams}
+          // licenseRedirectData={licenseRedirectData}
+          sidebarProps={STOSideNavProps}
+        />
+        <VariableRouteDestinations
+          moduleParams={moduleParams}
+          // licenseRedirectData={licenseRedirectData}
+          sidebarProps={STOSideNavProps}
+        />
+        <DelegateRouteDestinations
+          moduleParams={moduleParams}
+          // licenseRedirectData={licenseRedirectData}
+          sidebarProps={STOSideNavProps}
+        />
+        <TemplateRouteDestinations
+          moduleParams={moduleParams}
+          // licenseRedirectData={licenseRedirectData}
+          sidebarProps={STOSideNavProps}
+        />
+        <GitSyncRouteDestinations
+          moduleParams={moduleParams}
+          // licenseRedirectData={licenseRedirectData}
+          sidebarProps={STOSideNavProps}
+        />
+        <TriggersRouteDestinations
+          moduleParams={moduleParams}
+          // licenseRedirectData={licenseRedirectData}
+          sidebarProps={STOSideNavProps}
+        />
+        <GovernanceRouteDestinations
+          sidebarProps={STOSideNavProps}
+          pathProps={{ ...accountPathProps, ...projectPathProps, ...moduleParams }}
+        />
+      </Route>
+    </>
+  )
+}
+
+export default RouteDestinations

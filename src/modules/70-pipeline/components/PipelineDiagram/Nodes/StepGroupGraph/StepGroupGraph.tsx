@@ -83,7 +83,7 @@ const getCalculatedStyles = (data: PipelineGraphState[], childrenDimensions: Dim
       })
 
       height = Math.max(height, nodeHeight) + 40 //(each node)
-      width = width + nodeWidth + 100 // gap
+      width = width + nodeWidth + 120 // gap
     } else {
       if (node.type === 'STEP_GROUP') {
         hasStepGroupNode = true

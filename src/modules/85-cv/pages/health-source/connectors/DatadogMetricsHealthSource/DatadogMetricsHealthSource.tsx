@@ -6,7 +6,14 @@
  */
 
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { Formik, FormikForm, useToaster, Utils } from '@wings-software/uicore'
+import {
+  Formik,
+  FormikForm,
+  getMultiTypeFromValue,
+  MultiTypeInputType,
+  useToaster,
+  Utils
+} from '@wings-software/uicore'
 import { debounce, noop } from 'lodash-es'
 import { useParams } from 'react-router-dom'
 import type { FormikProps } from 'formik'
@@ -50,7 +57,7 @@ import useRBACError from '@rbac/utils/useRBACError/useRBACError'
 import { DatadogMetricsQueryExtractor } from './components/DatadogMetricsDetailsContent/DatadogMetricsDetailsContent.utils'
 
 export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSourceProps): JSX.Element {
-  const { data } = props
+  const { data, isTemplate, expressions } = props
   const { getString } = useStrings()
   const { getRBACErrorMessage } = useRBACError()
   const { showError } = useToaster()
@@ -64,17 +71,20 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
     return getCustomCreatedMetrics(data?.selectedMetrics || transformedData.metricDefinition)
   }, [data?.selectedMetrics, transformedData.metricDefinition])
 
+  const connectorIdentifier = data?.connectorRef?.value || (data?.connectorRef as string)
+  const isConnectorRuntimeOrExpression = getMultiTypeFromValue(connectorIdentifier) !== MultiTypeInputType.FIXED
   const {
     data: activeMetrics,
     refetch: refetchActiveMetrics,
     loading: activeMetricsLoading,
     error: activeMetricError
   } = useGetDatadogActiveMetrics({
+    lazy: isConnectorRuntimeOrExpression,
     queryParams: {
       projectIdentifier,
       orgIdentifier,
       accountId,
-      connectorIdentifier: data.connectorRef as string,
+      connectorIdentifier,
       tracingId: activeMetricsTracingId
     }
   })
@@ -115,7 +125,7 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
             projectIdentifier,
             orgIdentifier,
             accountId,
-            connectorIdentifier: data.connectorRef as string,
+            connectorIdentifier,
             tracingId: activeMetricsTracingId,
             ...queryObject
           }
@@ -137,7 +147,7 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
               projectIdentifier,
               orgIdentifier,
               accountId,
-              connectorIdentifier: data.connectorRef,
+              connectorIdentifier,
               tracingId: metricTagsTracingId,
               metric: selectedMetricData?.metric,
               ...queryObject
@@ -152,13 +162,13 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
   )
 
   useEffect(() => {
-    if (selectedMetricData?.metric) {
+    if (selectedMetricData?.metric && !isConnectorRuntimeOrExpression) {
       refetchMetricTags({
         queryParams: {
           projectIdentifier,
           orgIdentifier,
           accountId,
-          connectorIdentifier: data.connectorRef,
+          connectorIdentifier,
           tracingId: metricTagsTracingId,
           metric: selectedMetricData.metric
         }
@@ -174,6 +184,7 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
     refetchMetricTags,
     metricTagsTracingId
   ])
+
   const selectedDashboards = useMemo(() => {
     return getSelectedDashboards(data)
   }, [data])
@@ -186,7 +197,7 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
           projectIdentifier,
           accountId,
           tracingId: Utils.randomId(),
-          connectorIdentifier: data.connectorRef as string,
+          connectorIdentifier,
           query: query
         }
       })
@@ -212,6 +223,7 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
       })
     }
   }, [activeMetrics?.data, selectedMetricData, metricHealthDetailsData, activeMetricsLoading])
+
   const handleOnChangeManualEditQuery = (formikProps: FormikProps<DatadogMetricInfo>, enabled: boolean): void => {
     formikProps.setFieldValue(DatadogMetricsHealthSourceFieldNames.IS_MANUAL_QUERY, enabled)
   }
@@ -222,7 +234,12 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
     let metricInfo: DatadogMetricInfo | undefined = metricHealthDetailsData.get(selectedWidgetMetricData.id)
     const query = selectedWidgetMetricData.query === MANUAL_INPUT_QUERY ? '' : selectedWidgetMetricData.query
     if (!metricInfo) {
-      metricInfo = mapSelectedWidgetDataToDatadogMetricInfo(selectedWidgetMetricData, query, activeMetrics?.data || [])
+      metricInfo = mapSelectedWidgetDataToDatadogMetricInfo(
+        selectedWidgetMetricData,
+        query,
+        activeMetrics?.data || [],
+        isTemplate
+      )
     }
     metricHealthDetailsData.set(selectedWidgetMetricData.id, metricInfo)
     if (selectedMetricId) {
@@ -233,9 +250,11 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
     setSelectedMetricId(selectedWidgetMetricData.id)
     setCurrentTimeseriesData(null)
   }
+
   const handleOnNext = async (formikProps: FormikProps<DatadogMetricInfo>): Promise<void> => {
     formikProps.setTouched({
       ...formikProps.touched,
+      [DatadogMetricsHealthSourceFieldNames.QUERY]: true,
       [DatadogMetricsHealthSourceFieldNames.GROUP_NAME]: true,
       [DatadogMetricsHealthSourceFieldNames.METRIC]: true,
       [DatadogMetricsHealthSourceFieldNames.SLI]: true,
@@ -274,7 +293,6 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
     },
     []
   )
-
   const serviceInstanceList = useMemo(() => getServiceIntance(metricTags?.data?.tagKeys), [metricTags?.data?.tagKeys])
 
   return (
@@ -319,11 +337,13 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
               timeseriesDataLoading={timeseriesLoading}
               timeseriesDataError={timeseriesDataErrorMessage}
               dashboards={selectedDashboards}
-              connectorRef={data?.connectorRef as string}
+              connectorRef={connectorIdentifier as string}
               onWidgetMetricSelected={selectedWidgetMetricData =>
                 handleOnMetricSelected(selectedWidgetMetricData, formikProps)
               }
               serviceInstanceList={serviceInstanceList}
+              isTemplate={isTemplate}
+              expressions={expressions}
               metricDetailsContent={
                 <DatadogMetricsDetailsContent
                   selectedMetric={selectedMetricId}
@@ -335,8 +355,11 @@ export default function DatadogMetricsHealthSource(props: DatadogMetricsHealthSo
                   activeMetrics={activeMetrics?.data}
                   activeMetricsLoading={activeMetricsLoading}
                   metricTagsLoading={loadingMetricTags}
-                  fetchActiveMetrics={debounceRefetchActiveMetrics}
-                  fetchMetricTags={debounceRefetchMetricTags}
+                  fetchActiveMetrics={isConnectorRuntimeOrExpression ? undefined : debounceRefetchActiveMetrics}
+                  fetchMetricTags={isConnectorRuntimeOrExpression ? undefined : debounceRefetchMetricTags}
+                  isTemplate={isTemplate}
+                  expressions={expressions}
+                  isConnectorRuntimeOrExpression={isConnectorRuntimeOrExpression}
                 />
               }
             />

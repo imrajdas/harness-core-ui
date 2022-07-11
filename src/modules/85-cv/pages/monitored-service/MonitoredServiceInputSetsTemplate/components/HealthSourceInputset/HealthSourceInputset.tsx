@@ -21,13 +21,15 @@ import css from '@cv/pages/monitored-service/MonitoredServiceInputSetsTemplate/M
 interface HealthSourceInputsetInterface {
   sourceType: string
   templateRefData: TemplateDataInterface
+  healthSourcesWithRuntimeList: string[]
   isReadOnlyInputSet?: boolean
 }
 
 export default function HealthSourceInputset({
   sourceType,
   templateRefData,
-  isReadOnlyInputSet
+  isReadOnlyInputSet,
+  healthSourcesWithRuntimeList
 }: HealthSourceInputsetInterface): JSX.Element {
   const { getString } = useStrings()
   const [monitoredServiceYaml, setMonitoredServiceYaml] = React.useState<any>({})
@@ -58,7 +60,20 @@ export default function HealthSourceInputset({
   React.useEffect(() => {
     if (msTemplateResponse && msTemplateResponse?.data?.yaml) {
       const yaml = parse(msTemplateResponse?.data?.yaml) as any
-      setMonitoredServiceYaml(yaml?.template)
+      const filteredHealthSourceList = yaml?.template?.spec?.sources?.healthSources?.filter((i: any) =>
+        healthSourcesWithRuntimeList?.includes(i.identifier)
+      )
+      const filteredTemplate = {
+        ...yaml?.template,
+        spec: {
+          ...yaml?.template.spec,
+          sources: {
+            ...yaml?.template.spec.sources,
+            healthSources: filteredHealthSourceList
+          }
+        }
+      }
+      setMonitoredServiceYaml(filteredTemplate)
     }
   }, [msTemplateResponse])
 

@@ -286,10 +286,10 @@ exports[`Service Configuration renders correctly 1`] = `
           deploymentTypeText
         </div>
         <div
-          class="Layout--horizontal StyledProps--main StyledProps--margin-top-medium"
+          class="Layout--vertical StyledProps--main StyledProps--margin-top-medium"
         >
           <div
-            class="Layout--vertical StyledProps--main StyledProps--padding-right-huge"
+            class="Layout--vertical StyledProps--main StyledProps--padding-right-huge StyledProps--margin-bottom-large"
           >
             <div
               class="tabSubHeading ng-tooltip-native"
@@ -402,7 +402,7 @@ exports[`Service Configuration renders correctly 1`] = `
             </div>
           </div>
           <div
-            class="Layout--vertical StyledProps--main StyledProps--border StyledProps--border-left StyledProps--padding-left-huge"
+            class="Layout--vertical StyledProps--main comingSoonLayout StyledProps--padding-left-huge StyledProps--padding-bottom-large StyledProps--padding-top-large StyledProps--border"
           >
             <div
               class="Layout--horizontal StyledProps--main"

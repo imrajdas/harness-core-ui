@@ -268,129 +268,133 @@ exports[`Variables Page render page at account level 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
               <div
-                class="Layout--vertical StyledProps--main"
+                class="Layout--horizontal StyledProps--main"
               >
                 <div
-                  class="Layout--horizontal StyledProps--main"
-                  style="width: 230px;"
+                  class="Layout--vertical StyledProps--main"
                 >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 1;"
+                  <div
+                    class="Layout--horizontal StyledProps--main"
+                    style="width: 230px;"
                   >
-                    CUSTOM_VARIABLE
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 1;"
+                    >
+                      CUSTOM_VARIABLE
+                    </p>
+                    
+                  </div>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
+                    style="--text-line-clamp: 1; width: 230px;"
+                  >
+                    common.ID: CUSTOM_VARIABLE
                   </p>
-                  
                 </div>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
-                  style="--text-line-clamp: 1; width: 230px;"
-                >
-                  common.ID: CUSTOM_VARIABLE
-                </p>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 15%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body"
-            >
-              String
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 15%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body"
-            >
-              FIXED
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-form-input-text"
-              style="--text-line-clamp: 1;"
-            >
-              CUSTOM
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-form-input-text"
-            />
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
             <div
-              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-flex-end"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 15%;"
             >
-              <span
-                class="bp3-popover-wrapper"
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body"
+              >
+                String
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 15%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body"
+              >
+                FIXED
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
+            >
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-form-input-text"
+                style="--text-line-clamp: 1;"
+              >
+                CUSTOM
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-form-input-text"
+              />
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-flex-end"
               >
                 <span
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper"
                 >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    type="button"
+                  <span
+                    class="bp3-popover-target"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="Options"
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      type="button"
                     >
-                      <svg
-                        fill="currentColor"
-                        height="16"
-                        viewBox="0 0 4 16"
-                        width="16"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="Options"
                       >
-                        <circle
-                          cx="2"
-                          cy="2"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="8"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="14"
-                          r="1.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
+                        <svg
+                          fill="currentColor"
+                          height="16"
+                          viewBox="0 0 4 16"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="2"
+                            cy="2"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="8"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="14"
+                            r="1.5"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>

@@ -18,15 +18,15 @@ import MenuItems from './MenuItems'
 import resourceImage from './images/resource-center.png'
 import css from './ResourceCenter.module.scss'
 
-const ON_PREM_RELEASE_NODE_LINK = 'https://ngdocs.harness.io/article/556wy85kbo-harness-on-prem-release-notes'
-const SAAS_RELEASE_NODE_LINKE = 'https://ngdocs.harness.io/article/7zkchy5lhj-harness-saa-s-release-notes-2022'
+const ON_PREM_RELEASE_NODE_LINK = 'https://docs.harness.io/article/556wy85kbo-harness-on-prem-release-notes'
+const SAAS_RELEASE_NODE_LINKE = 'https://docs.harness.io/article/7zkchy5lhj-harness-saa-s-release-notes-2022'
 
 const HARNESS_SEARCH_LINK = 'https://harness.io/search/'
 const HARNESS_UNIVERISITY_LINK = 'https://university.harness.io/'
 const HARNESS_COMMUNITY_LINK = 'https://community.harness.io/'
 const HARNESS_COMMUNITY_SLACK_LINK =
   'https://join.slack.com/t/harnesscommunity/shared_invite/zt-y4hdqh7p-RVuEQyIl5Hcx4Ck8VCvzBw'
-const HARNESS_DOCS_LINK = 'https://ngdocs.harness.io/'
+const HARNESS_DOCS_LINK = 'https://docs.harness.io/'
 const HARNESS_API_DOCS_LINK = 'https://harness.io/docs/api/'
 const SITE_STATUS_LINK = 'https://status.harness.io/'
 

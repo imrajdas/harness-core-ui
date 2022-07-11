@@ -199,7 +199,8 @@ const processParallelNodeData = ({
             data: parentNodeData
           }),
       nodeType: nodeStrategyType,
-      maxParallelism: parentNodeData?.stepParameters?.maxConcurrency
+      maxParallelism: parentNodeData?.stepParameters?.maxConcurrency,
+      graphType: PipelineGraphType.STEP_GRAPH
     },
     children: processNodeDataV1(childNodeIds || /* istanbul ignore next */ [], nodeMap, nodeAdjacencyListMap, rootNodes)
   })
@@ -248,6 +249,8 @@ const processStepGroupSteps = ({ nodeAdjacencyListMap, id, nodeMap, rootNodes }:
             nodeMap,
             rootNodes
           })
+        : nodeStrategyType === NodeType.STEP_GROUP
+        ? processStepGroupSteps({ nodeAdjacencyListMap, id: nodeData?.uuid as string, nodeMap, rootNodes })
         : []
       const matrixNodeName =
         nodeData?.strategyMetadata?.matrixmetadata?.matrixvalues &&
@@ -260,26 +263,31 @@ const processStepGroupSteps = ({ nodeAdjacencyListMap, id, nodeMap, rootNodes }:
           graphType: PipelineGraphType.STEP_GRAPH,
           ...getIconDataBasedOnType(nodeData),
           matrixNodeName,
-          ...(isNodeTypeMatrixOrFor(nodeStrategyType) && {
-            type: nodeStrategyType,
-            data: {
-              ...nodeData?.progressData,
-              ...nodeData,
-              isNestedGroup: true, // strategy in step_group
-              maxParallelism: nodeData?.stepParameters?.maxConcurrency,
-              matrixNodeName,
-              nodeType: nodeStrategyType,
-              stepGroup: {
-                ...nodeData,
-                type: nodeStrategyType,
-                nodeType: nodeStrategyType,
-                maxParallelism: nodeData?.stepParameters?.maxConcurrency,
-                icon: StepTypeIconsMap.STEP_GROUP,
-                steps: stepData,
-                status: nodeData?.status as ExecutionStatus
+          type: nodeStrategyType,
+          nodeType: nodeStrategyType,
+          ...(isNodeTypeMatrixOrFor(nodeStrategyType) || nodeStrategyType === NodeType.STEP_GROUP
+            ? {
+                data: {
+                  ...nodeData?.progressData,
+                  ...nodeData,
+                  isNestedGroup: true, // strategy in step_group
+                  maxParallelism: nodeData?.stepParameters?.maxConcurrency,
+                  matrixNodeName,
+                  nodeType: nodeStrategyType,
+                  stepGroup: {
+                    ...nodeData,
+                    type: nodeStrategyType,
+                    nodeType: nodeStrategyType,
+                    maxParallelism: nodeData?.stepParameters?.maxConcurrency,
+                    icon: StepTypeIconsMap.STEP_GROUP,
+                    steps: stepData,
+                    status: nodeData?.status as ExecutionStatus
+                  }
+                }
               }
-            }
-          })
+            : {
+                data: { ...nodeData }
+              })
         }
       })
     }

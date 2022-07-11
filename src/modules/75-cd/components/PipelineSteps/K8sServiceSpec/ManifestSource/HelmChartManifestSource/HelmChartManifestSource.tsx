@@ -25,6 +25,8 @@ import { GitConfigDTO, useGetBucketListForS3, useGetGCSBucketList } from 'servic
 import { TriggerDefaultFieldList } from '@triggers/pages/triggers/utils/TriggersWizardPageUtils'
 import type { Scope } from '@common/interfaces/SecretsInterface'
 import type { CommandFlags } from '@pipeline/components/ManifestSelection/ManifestInterface'
+import { FileSelectList } from '@filestore/components/FileStoreList/FileStoreList'
+import { SELECT_FILES_TYPE } from '@filestore/utils/constants'
 import {
   getDefaultQueryParam,
   getFinalQueryParamData,
@@ -36,6 +38,7 @@ import {
 import { isFieldFixedType, isFieldRuntime } from '../../K8sServiceSpecHelper'
 import ExperimentalInput from '../../K8sServiceSpecForms/ExperimentalInput'
 import CustomRemoteManifestRuntimeFields from '../ManifestSourceRuntimeFields/CustomRemoteManifestRuntimeFields'
+import ManifestCommonRuntimeFields from '../ManifestSourceRuntimeFields/ManifestCommonRuntimeFields'
 import css from '../../KubernetesManifests/KubernetesManifests.module.scss'
 
 const Content = (props: ManifestSourceRenderProps): React.ReactElement => {
@@ -60,6 +63,7 @@ const Content = (props: ManifestSourceRenderProps): React.ReactElement => {
   const { getString } = useStrings()
   const { expressions } = useVariablesExpression()
   const [showRepoName, setShowRepoName] = useState(true)
+  const manifestStoreType = get(template, `${manifestPath}.spec.store.type`, null)
 
   const { data: regionData } = useListAwsRegions({
     queryParams: {
@@ -139,7 +143,6 @@ const Content = (props: ManifestSourceRenderProps): React.ReactElement => {
   }
 
   const renderBucketListforS3Gcs = (): React.ReactElement | null => {
-    const manifestStoreType = get(template, `${manifestPath}.spec.store.type`, null)
     if (manifestStoreType === ManifestStoreMap.S3) {
       return (
         <ExperimentalInput
@@ -428,20 +431,35 @@ const Content = (props: ManifestSourceRenderProps): React.ReactElement => {
 
       {isFieldRuntime(`${manifestPath}.spec.valuesPaths`, template) && (
         <div className={css.verticalSpacingInput}>
-          <List
-            labelClassName={css.listLabel}
-            label={getString('pipeline.manifestType.valuesYamlPath')}
-            name={`${path}.${manifestPath}.spec.valuesPaths`}
-            placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
-            disabled={isFieldDisabled(`${manifestPath}.spec.valuesPaths`)}
-            style={{ marginBottom: 'var(--spacing-small)' }}
-            expressions={expressions}
-            isNameOfArrayType
-          />
+          {manifestStoreType === ManifestStoreMap.Harness ? (
+            <FileSelectList
+              labelClassName={css.listLabel}
+              label={getString('pipeline.manifestType.valuesYamlPath')}
+              name={`${path}.${manifestPath}.spec.valuesPaths`}
+              placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+              disabled={isFieldDisabled(`${manifestPath}.spec.valuesPaths`)}
+              style={{ marginBottom: 'var(--spacing-small)' }}
+              expressions={expressions}
+              isNameOfArrayType
+              type={SELECT_FILES_TYPE.FILE_STORE}
+              formik={formik}
+            />
+          ) : (
+            <List
+              labelClassName={css.listLabel}
+              label={getString('pipeline.manifestType.valuesYamlPath')}
+              name={`${path}.${manifestPath}.spec.valuesPaths`}
+              placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+              disabled={isFieldDisabled(`${manifestPath}.spec.valuesPaths`)}
+              style={{ marginBottom: 'var(--spacing-small)' }}
+              expressions={expressions}
+              isNameOfArrayType
+            />
+          )}
         </div>
       )}
       <CustomRemoteManifestRuntimeFields {...props} />
-
+      <ManifestCommonRuntimeFields {...props} />
       {isFieldRuntime(`${manifestPath}.spec.skipResourceVersioning`, template) && (
         <div className={css.verticalSpacingInput}>
           <FormMultiTypeCheckboxField

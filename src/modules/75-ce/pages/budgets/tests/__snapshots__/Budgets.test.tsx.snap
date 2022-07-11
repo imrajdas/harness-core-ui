@@ -233,174 +233,178 @@ exports[`test cases for Budgets List Page should be able to render the budget li
             role="row"
           >
             <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 25%;"
+              class="TableV2--cells"
             >
               <div
-                class="Layout--vertical StyledProps--main"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 25%;"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
-                >
-                  App budget
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
-                >
-                  ce.budgets.listPage.timePeriodRemaining
-                </p>
-              </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 20%;"
-            >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-h5 StyledProps--color StyledProps--color-grey800"
-              >
-                $10.00
-              </p>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 35%;"
-            >
-              <div
-                class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-top-medium"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
-                >
-                  $0.00
-                </p>
                 <div
-                  class="StyledProps--font StyledProps--main budgetBar StyledProps--background-grey200"
-                  style="width: 266px;"
+                  class="Layout--vertical StyledProps--main"
                 >
-                  <div
-                    class="actualCostBar"
-                    style="width: 73px;"
-                  />
-                  <div
-                    class="forecastedBar"
-                    style="width: 212px;"
-                  />
-                  <div
-                    class="actualCostMarker"
-                    style="left: 73px;"
-                  />
                   <p
-                    class="StyledProps--font StyledProps--main actualCost StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall"
-                    style="left: 73px;"
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
                   >
-                    $2.77
+                    App budget
                   </p>
-                  <div
-                    class="overBudgetMarker"
-                    style="left: 212px; opacity: 0;"
-                  />
                   <p
-                    class="StyledProps--font StyledProps--main overBudgetText StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall StyledProps--color StyledProps--color-red700"
-                    style="left: 212px; opacity: 0; display: flex; align-items: center;"
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-red500"
-                      data-icon="execution-warning"
-                    >
-                      <svg
-                        height="14"
-                        viewBox="0 0 19 15"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          color="#fff"
-                          d="M15.964 15H3.027C.702 15-.737 12.787.392 11.021L6.29 1.339c1.152-1.785 5.261-1.785 6.412 0l5.897 9.682C19.75 12.768 18.288 15 15.964 15z"
-                        />
-                        <path
-                          d="M4.23 13.75h10.408c1.713 0 2.79-1.77 1.941-3.157l-5.22-8.53c-.848-1.417-3.002-1.417-3.85 0l-5.22 8.53c-.832 1.402.229 3.157 1.941 3.157zm5.22-1.894c-.456 0-.832-.354-.832-.785 0-.431.376-.786.832-.786.457 0 .832.354.816.801.016.416-.375.77-.816.77zm-.212-7.083c.392-.093.8.092.963.446.049.123.081.247.081.385-.016.385-.049.785-.081 1.17-.033.601-.082 1.217-.114 1.817-.017.2-.017.37-.017.57a.6.6 0 01-.62.57c-.342 0-.603-.231-.62-.554-.048-.94-.114-1.879-.163-2.818l-.049-.755a.82.82 0 01.62-.831z"
-                        />
-                      </svg>
-                    </span>
-                    ce.budgets.listPage.overBudgetText
+                    ce.budgets.listPage.timePeriodRemaining
                   </p>
                 </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 20%;"
+              >
                 <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-h5 StyledProps--color StyledProps--color-grey800"
                 >
                   $10.00
                 </p>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 15%;"
-            >
               <div
-                class="Layout--vertical StyledProps--main"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 35%;"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-top-medium"
                 >
-                  ce.budgets.listPage.mtdAlert
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
-                >
-                  ce.budgets.listPage.forecastAlert
-                </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
+                  >
+                    $0.00
+                  </p>
+                  <div
+                    class="StyledProps--font StyledProps--main budgetBar StyledProps--background-grey200"
+                    style="width: 266px;"
+                  >
+                    <div
+                      class="actualCostBar"
+                      style="width: 73px;"
+                    />
+                    <div
+                      class="forecastedBar"
+                      style="width: 212px;"
+                    />
+                    <div
+                      class="actualCostMarker"
+                      style="left: 73px;"
+                    />
+                    <p
+                      class="StyledProps--font StyledProps--main actualCost StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall"
+                      style="left: 73px;"
+                    >
+                      $2.77
+                    </p>
+                    <div
+                      class="overBudgetMarker"
+                      style="left: 212px; opacity: 0;"
+                    />
+                    <p
+                      class="StyledProps--font StyledProps--main overBudgetText StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall StyledProps--color StyledProps--color-red700"
+                      style="left: 212px; opacity: 0; display: flex; align-items: center;"
+                    >
+                      <span
+                        class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-red500"
+                        data-icon="execution-warning"
+                      >
+                        <svg
+                          height="14"
+                          viewBox="0 0 19 15"
+                          width="14"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            color="#fff"
+                            d="M15.964 15H3.027C.702 15-.737 12.787.392 11.021L6.29 1.339c1.152-1.785 5.261-1.785 6.412 0l5.897 9.682C19.75 12.768 18.288 15 15.964 15z"
+                          />
+                          <path
+                            d="M4.23 13.75h10.408c1.713 0 2.79-1.77 1.941-3.157l-5.22-8.53c-.848-1.417-3.002-1.417-3.85 0l-5.22 8.53c-.832 1.402.229 3.157 1.941 3.157zm5.22-1.894c-.456 0-.832-.354-.832-.785 0-.431.376-.786.832-.786.457 0 .832.354.816.801.016.416-.375.77-.816.77zm-.212-7.083c.392-.093.8.092.963.446.049.123.081.247.081.385-.016.385-.049.785-.081 1.17-.033.601-.082 1.217-.114 1.817-.017.2-.017.37-.017.57a.6.6 0 01-.62.57c-.342 0-.603-.231-.62-.554-.048-.94-.114-1.879-.163-2.818l-.049-.755a.82.82 0 01.62-.831z"
+                          />
+                        </svg>
+                      </span>
+                      ce.budgets.listPage.overBudgetText
+                    </p>
+                  </div>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
+                  >
+                    $10.00
+                  </p>
+                </div>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 5%;"
-            >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 15%;"
+              >
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                  >
+                    ce.budgets.listPage.mtdAlert
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                  >
+                    ce.budgets.listPage.forecastAlert
+                  </p>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 5%;"
               >
                 <span
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper bp3-dark"
                 >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    type="button"
+                  <span
+                    class="bp3-popover-target"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="Options"
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      type="button"
                     >
-                      <svg
-                        fill="currentColor"
-                        height="16"
-                        viewBox="0 0 4 16"
-                        width="16"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="Options"
                       >
-                        <circle
-                          cx="2"
-                          cy="2"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="8"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="14"
-                          r="1.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
+                        <svg
+                          fill="currentColor"
+                          height="16"
+                          viewBox="0 0 4 16"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="2"
+                            cy="2"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="8"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="14"
+                            r="1.5"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
           <div
@@ -408,174 +412,178 @@ exports[`test cases for Budgets List Page should be able to render the budget li
             role="row"
           >
             <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 25%;"
+              class="TableV2--cells"
             >
               <div
-                class="Layout--vertical StyledProps--main"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 25%;"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
-                >
-                  AzureBudget
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
-                >
-                  ce.budgets.listPage.timePeriodRemaining
-                </p>
-              </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 20%;"
-            >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-h5 StyledProps--color StyledProps--color-grey800"
-              >
-                $80,000.00
-              </p>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 35%;"
-            >
-              <div
-                class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-top-medium"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
-                >
-                  $0.00
-                </p>
                 <div
-                  class="StyledProps--font StyledProps--main budgetBar StyledProps--background-grey200"
-                  style="width: 266px;"
+                  class="Layout--vertical StyledProps--main"
                 >
-                  <div
-                    class="actualCostBar"
-                    style="width: 184px;"
-                  />
-                  <div
-                    class="forecastedBar"
-                    style="width: 199px;"
-                  />
-                  <div
-                    class="actualCostMarker"
-                    style="left: 184px;"
-                  />
                   <p
-                    class="StyledProps--font StyledProps--main actualCost left StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall"
-                    style="left: 184px;"
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
                   >
-                    $55,428.46
+                    AzureBudget
                   </p>
-                  <div
-                    class="overBudgetMarker"
-                    style="left: 199px; opacity: 0;"
-                  />
                   <p
-                    class="StyledProps--font StyledProps--main overBudgetText StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall StyledProps--color StyledProps--color-red700"
-                    style="left: 199px; opacity: 0; display: flex; align-items: center;"
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-red500"
-                      data-icon="execution-warning"
-                    >
-                      <svg
-                        height="14"
-                        viewBox="0 0 19 15"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          color="#fff"
-                          d="M15.964 15H3.027C.702 15-.737 12.787.392 11.021L6.29 1.339c1.152-1.785 5.261-1.785 6.412 0l5.897 9.682C19.75 12.768 18.288 15 15.964 15z"
-                        />
-                        <path
-                          d="M4.23 13.75h10.408c1.713 0 2.79-1.77 1.941-3.157l-5.22-8.53c-.848-1.417-3.002-1.417-3.85 0l-5.22 8.53c-.832 1.402.229 3.157 1.941 3.157zm5.22-1.894c-.456 0-.832-.354-.832-.785 0-.431.376-.786.832-.786.457 0 .832.354.816.801.016.416-.375.77-.816.77zm-.212-7.083c.392-.093.8.092.963.446.049.123.081.247.081.385-.016.385-.049.785-.081 1.17-.033.601-.082 1.217-.114 1.817-.017.2-.017.37-.017.57a.6.6 0 01-.62.57c-.342 0-.603-.231-.62-.554-.048-.94-.114-1.879-.163-2.818l-.049-.755a.82.82 0 01.62-.831z"
-                        />
-                      </svg>
-                    </span>
-                    ce.budgets.listPage.overBudgetText
+                    ce.budgets.listPage.timePeriodRemaining
                   </p>
                 </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 20%;"
+              >
                 <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-h5 StyledProps--color StyledProps--color-grey800"
                 >
                   $80,000.00
                 </p>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 15%;"
-            >
               <div
-                class="Layout--vertical StyledProps--main"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 35%;"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-top-medium"
                 >
-                  ce.budgets.listPage.mtdAlert
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
-                >
-                  ce.budgets.listPage.forecastAlert
-                </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
+                  >
+                    $0.00
+                  </p>
+                  <div
+                    class="StyledProps--font StyledProps--main budgetBar StyledProps--background-grey200"
+                    style="width: 266px;"
+                  >
+                    <div
+                      class="actualCostBar"
+                      style="width: 184px;"
+                    />
+                    <div
+                      class="forecastedBar"
+                      style="width: 199px;"
+                    />
+                    <div
+                      class="actualCostMarker"
+                      style="left: 184px;"
+                    />
+                    <p
+                      class="StyledProps--font StyledProps--main actualCost left StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall"
+                      style="left: 184px;"
+                    >
+                      $55,428.46
+                    </p>
+                    <div
+                      class="overBudgetMarker"
+                      style="left: 199px; opacity: 0;"
+                    />
+                    <p
+                      class="StyledProps--font StyledProps--main overBudgetText StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall StyledProps--color StyledProps--color-red700"
+                      style="left: 199px; opacity: 0; display: flex; align-items: center;"
+                    >
+                      <span
+                        class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-red500"
+                        data-icon="execution-warning"
+                      >
+                        <svg
+                          height="14"
+                          viewBox="0 0 19 15"
+                          width="14"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            color="#fff"
+                            d="M15.964 15H3.027C.702 15-.737 12.787.392 11.021L6.29 1.339c1.152-1.785 5.261-1.785 6.412 0l5.897 9.682C19.75 12.768 18.288 15 15.964 15z"
+                          />
+                          <path
+                            d="M4.23 13.75h10.408c1.713 0 2.79-1.77 1.941-3.157l-5.22-8.53c-.848-1.417-3.002-1.417-3.85 0l-5.22 8.53c-.832 1.402.229 3.157 1.941 3.157zm5.22-1.894c-.456 0-.832-.354-.832-.785 0-.431.376-.786.832-.786.457 0 .832.354.816.801.016.416-.375.77-.816.77zm-.212-7.083c.392-.093.8.092.963.446.049.123.081.247.081.385-.016.385-.049.785-.081 1.17-.033.601-.082 1.217-.114 1.817-.017.2-.017.37-.017.57a.6.6 0 01-.62.57c-.342 0-.603-.231-.62-.554-.048-.94-.114-1.879-.163-2.818l-.049-.755a.82.82 0 01.62-.831z"
+                          />
+                        </svg>
+                      </span>
+                      ce.budgets.listPage.overBudgetText
+                    </p>
+                  </div>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
+                  >
+                    $80,000.00
+                  </p>
+                </div>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 5%;"
-            >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 15%;"
+              >
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                  >
+                    ce.budgets.listPage.mtdAlert
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                  >
+                    ce.budgets.listPage.forecastAlert
+                  </p>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 5%;"
               >
                 <span
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper bp3-dark"
                 >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    type="button"
+                  <span
+                    class="bp3-popover-target"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="Options"
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      type="button"
                     >
-                      <svg
-                        fill="currentColor"
-                        height="16"
-                        viewBox="0 0 4 16"
-                        width="16"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="Options"
                       >
-                        <circle
-                          cx="2"
-                          cy="2"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="8"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="14"
-                          r="1.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
+                        <svg
+                          fill="currentColor"
+                          height="16"
+                          viewBox="0 0 4 16"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="2"
+                            cy="2"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="8"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="14"
+                            r="1.5"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
           <div
@@ -583,178 +591,182 @@ exports[`test cases for Budgets List Page should be able to render the budget li
             role="row"
           >
             <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 25%;"
+              class="TableV2--cells"
             >
               <div
-                class="Layout--vertical StyledProps--main"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 25%;"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
-                >
-                  sv azure 1
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
-                >
-                  ce.budgets.listPage.timePeriodRemaining
-                </p>
-              </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 20%;"
-            >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-h5 StyledProps--color StyledProps--color-grey800"
-              >
-                $10,000.00
-              </p>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 35%;"
-            >
-              <div
-                class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-top-medium"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
-                >
-                  $0.00
-                </p>
                 <div
-                  class="StyledProps--font StyledProps--main budgetBar StyledProps--background-grey200"
-                  style="width: 266px;"
+                  class="Layout--vertical StyledProps--main"
                 >
-                  <div
-                    class="actualCostBar"
-                    style="width: 3px;"
-                  />
-                  <div
-                    class="forecastedBar danger"
-                    style="width: 266px;"
-                  />
-                  <div
-                    class="budgetStatusBar"
-                    style="width: 44px;"
-                  />
-                  <div
-                    class="actualCostMarker"
-                    style="left: 3px;"
-                  />
                   <p
-                    class="StyledProps--font StyledProps--main actualCost StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall"
-                    style="left: 3px;"
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
                   >
-                    $866.68
+                    sv azure 1
                   </p>
-                  <div
-                    class="overBudgetMarker"
-                    style="left: 266px; opacity: 1;"
-                  />
                   <p
-                    class="StyledProps--font StyledProps--main overBudgetText StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall StyledProps--color StyledProps--color-red700"
-                    style="left: 266px; opacity: 1; display: flex; align-items: center;"
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-red500"
-                      data-icon="execution-warning"
-                    >
-                      <svg
-                        height="14"
-                        viewBox="0 0 19 15"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          color="#fff"
-                          d="M15.964 15H3.027C.702 15-.737 12.787.392 11.021L6.29 1.339c1.152-1.785 5.261-1.785 6.412 0l5.897 9.682C19.75 12.768 18.288 15 15.964 15z"
-                        />
-                        <path
-                          d="M4.23 13.75h10.408c1.713 0 2.79-1.77 1.941-3.157l-5.22-8.53c-.848-1.417-3.002-1.417-3.85 0l-5.22 8.53c-.832 1.402.229 3.157 1.941 3.157zm5.22-1.894c-.456 0-.832-.354-.832-.785 0-.431.376-.786.832-.786.457 0 .832.354.816.801.016.416-.375.77-.816.77zm-.212-7.083c.392-.093.8.092.963.446.049.123.081.247.081.385-.016.385-.049.785-.081 1.17-.033.601-.082 1.217-.114 1.817-.017.2-.017.37-.017.57a.6.6 0 01-.62.57c-.342 0-.603-.231-.62-.554-.048-.94-.114-1.879-.163-2.818l-.049-.755a.82.82 0 01.62-.831z"
-                        />
-                      </svg>
-                    </span>
-                    ce.budgets.listPage.overBudgetText
+                    ce.budgets.listPage.timePeriodRemaining
                   </p>
                 </div>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-red800 StyledProps--font-variation-tiny"
-                >
-                  $60,000.00
-                </p>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 15%;"
-            >
               <div
-                class="Layout--vertical StyledProps--main"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 20%;"
               >
                 <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-h5 StyledProps--color StyledProps--color-grey800"
                 >
-                  ce.budgets.listPage.mtdAlert
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
-                >
-                  ce.budgets.listPage.forecastAlert
+                  $10,000.00
                 </p>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 5%;"
-            >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 35%;"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-top-medium"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
+                  >
+                    $0.00
+                  </p>
+                  <div
+                    class="StyledProps--font StyledProps--main budgetBar StyledProps--background-grey200"
+                    style="width: 266px;"
+                  >
+                    <div
+                      class="actualCostBar"
+                      style="width: 3px;"
+                    />
+                    <div
+                      class="forecastedBar danger"
+                      style="width: 266px;"
+                    />
+                    <div
+                      class="budgetStatusBar"
+                      style="width: 44px;"
+                    />
+                    <div
+                      class="actualCostMarker"
+                      style="left: 3px;"
+                    />
+                    <p
+                      class="StyledProps--font StyledProps--main actualCost StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall"
+                      style="left: 3px;"
+                    >
+                      $866.68
+                    </p>
+                    <div
+                      class="overBudgetMarker"
+                      style="left: 266px; opacity: 1;"
+                    />
+                    <p
+                      class="StyledProps--font StyledProps--main overBudgetText StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall StyledProps--color StyledProps--color-red700"
+                      style="left: 266px; opacity: 1; display: flex; align-items: center;"
+                    >
+                      <span
+                        class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-red500"
+                        data-icon="execution-warning"
+                      >
+                        <svg
+                          height="14"
+                          viewBox="0 0 19 15"
+                          width="14"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            color="#fff"
+                            d="M15.964 15H3.027C.702 15-.737 12.787.392 11.021L6.29 1.339c1.152-1.785 5.261-1.785 6.412 0l5.897 9.682C19.75 12.768 18.288 15 15.964 15z"
+                          />
+                          <path
+                            d="M4.23 13.75h10.408c1.713 0 2.79-1.77 1.941-3.157l-5.22-8.53c-.848-1.417-3.002-1.417-3.85 0l-5.22 8.53c-.832 1.402.229 3.157 1.941 3.157zm5.22-1.894c-.456 0-.832-.354-.832-.785 0-.431.376-.786.832-.786.457 0 .832.354.816.801.016.416-.375.77-.816.77zm-.212-7.083c.392-.093.8.092.963.446.049.123.081.247.081.385-.016.385-.049.785-.081 1.17-.033.601-.082 1.217-.114 1.817-.017.2-.017.37-.017.57a.6.6 0 01-.62.57c-.342 0-.603-.231-.62-.554-.048-.94-.114-1.879-.163-2.818l-.049-.755a.82.82 0 01.62-.831z"
+                          />
+                        </svg>
+                      </span>
+                      ce.budgets.listPage.overBudgetText
+                    </p>
+                  </div>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-red800 StyledProps--font-variation-tiny"
+                  >
+                    $60,000.00
+                  </p>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 15%;"
+              >
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                  >
+                    ce.budgets.listPage.mtdAlert
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                  >
+                    ce.budgets.listPage.forecastAlert
+                  </p>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 5%;"
               >
                 <span
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper bp3-dark"
                 >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    type="button"
+                  <span
+                    class="bp3-popover-target"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="Options"
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      type="button"
                     >
-                      <svg
-                        fill="currentColor"
-                        height="16"
-                        viewBox="0 0 4 16"
-                        width="16"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="Options"
                       >
-                        <circle
-                          cx="2"
-                          cy="2"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="8"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="14"
-                          r="1.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
+                        <svg
+                          fill="currentColor"
+                          height="16"
+                          viewBox="0 0 4 16"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="2"
+                            cy="2"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="8"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="14"
+                            r="1.5"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
           <div
@@ -762,178 +774,182 @@ exports[`test cases for Budgets List Page should be able to render the budget li
             role="row"
           >
             <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 25%;"
+              class="TableV2--cells"
             >
               <div
-                class="Layout--vertical StyledProps--main"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 25%;"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
-                >
-                  sample
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
-                >
-                  ce.budgets.listPage.timePeriodRemaining
-                </p>
-              </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 20%;"
-            >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-h5 StyledProps--color StyledProps--color-grey800"
-              >
-                $10.00
-              </p>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 35%;"
-            >
-              <div
-                class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-top-medium"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
-                >
-                  $0.00
-                </p>
                 <div
-                  class="StyledProps--font StyledProps--main budgetBar StyledProps--background-grey200"
-                  style="width: 266px;"
+                  class="Layout--vertical StyledProps--main"
                 >
-                  <div
-                    class="actualCostBar danger"
-                    style="width: 144px;"
-                  />
-                  <div
-                    class="forecastedBar danger"
-                    style="width: 266px;"
-                  />
-                  <div
-                    class="budgetStatusBar"
-                    style="width: 53px;"
-                  />
-                  <div
-                    class="actualCostMarker danger"
-                    style="left: 144px;"
-                  />
                   <p
-                    class="StyledProps--font StyledProps--main actualCost left StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall"
-                    style="left: 144px;"
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
                   >
-                    $27.14
+                    sample
                   </p>
-                  <div
-                    class="overBudgetMarker"
-                    style="left: 266px; opacity: 1;"
-                  />
                   <p
-                    class="StyledProps--font StyledProps--main overBudgetText StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall StyledProps--color StyledProps--color-red700"
-                    style="left: 266px; opacity: 1; display: flex; align-items: center;"
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-red500"
-                      data-icon="execution-warning"
-                    >
-                      <svg
-                        height="14"
-                        viewBox="0 0 19 15"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          color="#fff"
-                          d="M15.964 15H3.027C.702 15-.737 12.787.392 11.021L6.29 1.339c1.152-1.785 5.261-1.785 6.412 0l5.897 9.682C19.75 12.768 18.288 15 15.964 15z"
-                        />
-                        <path
-                          d="M4.23 13.75h10.408c1.713 0 2.79-1.77 1.941-3.157l-5.22-8.53c-.848-1.417-3.002-1.417-3.85 0l-5.22 8.53c-.832 1.402.229 3.157 1.941 3.157zm5.22-1.894c-.456 0-.832-.354-.832-.785 0-.431.376-.786.832-.786.457 0 .832.354.816.801.016.416-.375.77-.816.77zm-.212-7.083c.392-.093.8.092.963.446.049.123.081.247.081.385-.016.385-.049.785-.081 1.17-.033.601-.082 1.217-.114 1.817-.017.2-.017.37-.017.57a.6.6 0 01-.62.57c-.342 0-.603-.231-.62-.554-.048-.94-.114-1.879-.163-2.818l-.049-.755a.82.82 0 01.62-.831z"
-                        />
-                      </svg>
-                    </span>
-                    ce.budgets.listPage.overBudgetText
+                    ce.budgets.listPage.timePeriodRemaining
                   </p>
                 </div>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-red800 StyledProps--font-variation-tiny"
-                >
-                  $50.00
-                </p>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 15%;"
-            >
               <div
-                class="Layout--vertical StyledProps--main"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 20%;"
               >
                 <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-h5 StyledProps--color StyledProps--color-grey800"
                 >
-                  ce.budgets.listPage.mtdAlert
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
-                >
-                  ce.budgets.listPage.forecastAlert
+                  $10.00
                 </p>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 5%;"
-            >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 35%;"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-top-medium"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-variation-tiny"
+                  >
+                    $0.00
+                  </p>
+                  <div
+                    class="StyledProps--font StyledProps--main budgetBar StyledProps--background-grey200"
+                    style="width: 266px;"
+                  >
+                    <div
+                      class="actualCostBar danger"
+                      style="width: 144px;"
+                    />
+                    <div
+                      class="forecastedBar danger"
+                      style="width: 266px;"
+                    />
+                    <div
+                      class="budgetStatusBar"
+                      style="width: 53px;"
+                    />
+                    <div
+                      class="actualCostMarker danger"
+                      style="left: 144px;"
+                    />
+                    <p
+                      class="StyledProps--font StyledProps--main actualCost left StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall"
+                      style="left: 144px;"
+                    >
+                      $27.14
+                    </p>
+                    <div
+                      class="overBudgetMarker"
+                      style="left: 266px; opacity: 1;"
+                    />
+                    <p
+                      class="StyledProps--font StyledProps--main overBudgetText StyledProps--font-variation-small-bold StyledProps--padding-right-xsmall StyledProps--padding-left-xsmall StyledProps--color StyledProps--color-red700"
+                      style="left: 266px; opacity: 1; display: flex; align-items: center;"
+                    >
+                      <span
+                        class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-red500"
+                        data-icon="execution-warning"
+                      >
+                        <svg
+                          height="14"
+                          viewBox="0 0 19 15"
+                          width="14"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            color="#fff"
+                            d="M15.964 15H3.027C.702 15-.737 12.787.392 11.021L6.29 1.339c1.152-1.785 5.261-1.785 6.412 0l5.897 9.682C19.75 12.768 18.288 15 15.964 15z"
+                          />
+                          <path
+                            d="M4.23 13.75h10.408c1.713 0 2.79-1.77 1.941-3.157l-5.22-8.53c-.848-1.417-3.002-1.417-3.85 0l-5.22 8.53c-.832 1.402.229 3.157 1.941 3.157zm5.22-1.894c-.456 0-.832-.354-.832-.785 0-.431.376-.786.832-.786.457 0 .832.354.816.801.016.416-.375.77-.816.77zm-.212-7.083c.392-.093.8.092.963.446.049.123.081.247.081.385-.016.385-.049.785-.081 1.17-.033.601-.082 1.217-.114 1.817-.017.2-.017.37-.017.57a.6.6 0 01-.62.57c-.342 0-.603-.231-.62-.554-.048-.94-.114-1.879-.163-2.818l-.049-.755a.82.82 0 01.62-.831z"
+                          />
+                        </svg>
+                      </span>
+                      ce.budgets.listPage.overBudgetText
+                    </p>
+                  </div>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-red800 StyledProps--font-variation-tiny"
+                  >
+                    $50.00
+                  </p>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 15%;"
+              >
+                <div
+                  class="Layout--vertical StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                  >
+                    ce.budgets.listPage.mtdAlert
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                  >
+                    ce.budgets.listPage.forecastAlert
+                  </p>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 5%;"
               >
                 <span
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper bp3-dark"
                 >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    type="button"
+                  <span
+                    class="bp3-popover-target"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="Options"
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      type="button"
                     >
-                      <svg
-                        fill="currentColor"
-                        height="16"
-                        viewBox="0 0 4 16"
-                        width="16"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="Options"
                       >
-                        <circle
-                          cx="2"
-                          cy="2"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="8"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="14"
-                          r="1.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
+                        <svg
+                          fill="currentColor"
+                          height="16"
+                          viewBox="0 0 4 16"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="2"
+                            cy="2"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="8"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="14"
+                            r="1.5"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>

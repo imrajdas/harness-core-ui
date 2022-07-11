@@ -6,7 +6,6 @@ rules:
         - microfrontends/*
         - '!microfrontends/ChildAppMounter'
         - modules/25-governance/*
-        - modules/27-sto/*
         - modules/28-et/*
         - modules/30-delegates/*
         - modules/30-secrets/*
@@ -30,7 +29,6 @@ rules:
         - modules/85-sto-steps/*
         - modules/90-gitops/*
         - '@governance/*'
-        - '@sto/*'
         - '@et/*'
         - '@delegates/*'
         - '@secrets/*'

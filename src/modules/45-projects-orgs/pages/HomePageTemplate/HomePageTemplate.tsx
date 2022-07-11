@@ -45,7 +45,7 @@ export const HomePageTemplate: React.FC<HomePageTemplate> = ({
   bgImageUrl,
   subTitle,
   documentText,
-  documentURL = 'https://ngdocs.harness.io/',
+  documentURL = 'https://docs.harness.io/',
   projectCreateSuccessHandler
 }) => {
   const { updateAppStore } = useAppStore()

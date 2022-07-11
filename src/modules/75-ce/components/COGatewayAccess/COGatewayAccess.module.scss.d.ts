@@ -29,6 +29,7 @@ declare const styles: {
   readonly loadBalancerSelector: string
   readonly mapDomainHelperText: string
   readonly othersHelpTextContainer: string
+  readonly overlappingDomainsInfo: string
   readonly page: string
   readonly publicAccessibleCheckboxContainer: string
   readonly radioBtn: string

@@ -14,7 +14,15 @@ import type { TableDashboardItem } from '@cv/components/MetricsDashboardList/Met
 import { mapDatadogMetricHealthSourceToDatadogMetricSetupSource } from '@cv/pages/health-source/connectors/DatadogMetricsHealthSource/DatadogMetricsHealthSource.utils'
 import { useStrings } from 'framework/strings'
 
-export function SelectDatadogMetricsDashboards(): JSX.Element {
+export interface SelectDatadogMetricsDashboardsInterface {
+  isTemplate?: boolean
+  expressions?: string[]
+}
+
+export function SelectDatadogMetricsDashboards({
+  isTemplate,
+  expressions
+}: SelectDatadogMetricsDashboardsInterface): JSX.Element {
   const { getString } = useStrings()
   const { sourceData } = useContext(SetupSourceTabsContext)
   const dashboardItemMapper: (dashboard: DatadogDashboardDTO) => TableDashboardItem = useCallback(dashboard => {
@@ -39,6 +47,8 @@ export function SelectDatadogMetricsDashboards(): JSX.Element {
       tableTitle={'cv.monitoringSources.datadog.selectDashboardsPage.dashboardColumnName'}
       selectedDashboardList={selectedDashboards || []}
       tableItemMapper={dashboardItemMapper}
+      isTemplate={isTemplate}
+      expressions={expressions}
     />
   )
 }

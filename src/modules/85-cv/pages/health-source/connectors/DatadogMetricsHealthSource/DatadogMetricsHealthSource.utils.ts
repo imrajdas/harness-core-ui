@@ -6,6 +6,7 @@
  */
 
 import { isEmpty } from 'lodash-es'
+import { getMultiTypeFromValue, MultiTypeInputType } from '@harness/uicore'
 import type {
   DatadogAggregationType,
   DatadogMetricInfo,
@@ -54,7 +55,7 @@ export function mapDatadogMetricHealthSourceToDatadogMetricSetupSource(sourceDat
     isEdit: sourceData.isEdit,
     healthSourceName: sourceData.healthSourceName,
     healthSourceIdentifier: sourceData.healthSourceIdentifier,
-    connectorRef: sourceData.connectorRef,
+    connectorRef: sourceData.connectorRef?.value || sourceData.connectorRef,
     product: sourceData.product
   }
 
@@ -127,7 +128,8 @@ export function mapDatadogMetricSetupSourceToDatadogHealthSource(
     identifier: setupSource.healthSourceIdentifier,
     name: setupSource.healthSourceName,
     spec: {
-      connectorRef: setupSource.connectorRef,
+      connectorRef:
+        typeof setupSource.connectorRef === 'string' ? setupSource.connectorRef : setupSource.connectorRef?.value,
       feature: DatadogProduct.CLOUD_METRICS,
       metricDefinitions: []
     }
@@ -209,7 +211,10 @@ export function validateFormMappings(
 
   if (!values?.query?.length) {
     errors.query = getString('cv.monitoringSources.gco.manualInputQueryModal.validation.query')
-  } else if (!values?.query?.includes(QUERY_CONTAINS_VALIDATION_PARAM)) {
+  } else if (
+    getMultiTypeFromValue(values?.query) === MultiTypeInputType.FIXED &&
+    !values?.query?.includes(QUERY_CONTAINS_VALIDATION_PARAM)
+  ) {
     errors.query = `${getString(
       'cv.monitoringSources.datadog.validation.queryContains'
     )}${QUERY_CONTAINS_VALIDATION_PARAM}`
@@ -257,7 +262,7 @@ export function validateFormMappings(
   if (!values.metricName?.length) {
     errors[DatadogMetricsHealthSourceFieldNames.METRIC_NAME] = getString('cv.monitoringSources.metricNameValidation')
   }
-  if (!values.metric?.length) {
+  if (!values.metric?.length && getMultiTypeFromValue(values.query) === MultiTypeInputType.FIXED) {
     errors[DatadogMetricsHealthSourceFieldNames.METRIC] = getString('cv.monitoringSources.metricValidation')
   }
   if (!values.groupName?.label?.length) {
@@ -343,7 +348,8 @@ function generateMetricPath(dashboardId: string, dashboardDetail: DatadogDashboa
 export function mapSelectedWidgetDataToDatadogMetricInfo(
   selectedWidgetMetricData: SelectedWidgetMetricData,
   query: string,
-  activeMetrics: string[]
+  activeMetrics: string[],
+  isTemplate = false
 ): DatadogMetricInfo {
   const queryExtractor = DatadogMetricsQueryExtractor(query, activeMetrics || [])
   const queryBuilder = DatadogMetricsQueryBuilder(
@@ -360,6 +366,7 @@ export function mapSelectedWidgetDataToDatadogMetricInfo(
     aggregator: queryExtractor.aggregation,
     metricTags: queryExtractor.metricTags,
     query: queryBuilder.query || query,
+    isManualQuery: isTemplate,
     isCustomCreatedMetric: selectedWidgetMetricData.query === MANUAL_INPUT_QUERY,
     groupName: selectedWidgetMetricData?.dashboardTitle
       ? {

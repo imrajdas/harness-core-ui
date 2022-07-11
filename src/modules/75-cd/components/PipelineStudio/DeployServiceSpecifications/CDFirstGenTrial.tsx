@@ -98,7 +98,7 @@ export const CDFirstGenTrial: React.FC<PropsInterface> = ({ selectedDeploymentTy
             </Button>
             <Text padding={{ top: 'xxxlarge' }}>
               {
-                <a href="https://ngdocs.harness.io/article/1fjmm4by22" rel="noreferrer" target="_blank">
+                <a href="https://docs.harness.io/article/1fjmm4by22" rel="noreferrer" target="_blank">
                   {getString('cd.cdSwitchToFirstGen.learnMoreAboutCD1stGen')}
                 </a>
               }

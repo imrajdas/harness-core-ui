@@ -7,7 +7,14 @@
 
 import React, { useContext, useEffect, useMemo, useState } from 'react'
 import { isEmpty, omit } from 'lodash-es'
-import { Container, Heading, Text, useConfirmationDialog } from '@wings-software/uicore'
+import {
+  Container,
+  getMultiTypeFromValue,
+  Heading,
+  MultiTypeInputType,
+  Text,
+  useConfirmationDialog
+} from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
 import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
@@ -45,13 +52,15 @@ export default function CloudMetricsHealthSource<T>(props: CloudMetricsHealthSou
     dashboardDetailMapper,
     formikProps,
     onChangeManualEditQuery,
-    serviceInstanceList
+    serviceInstanceList,
+    isTemplate,
+    expressions
   } = props
   const { getString } = useStrings()
   const { onPrevious } = useContext(SetupSourceTabsContext)
   const [shouldShowChart, setShouldShowChart] = useState<boolean>(false)
   const { projectIdentifier, orgIdentifier, accountId } = useParams<ProjectPathProps>()
-
+  const isConnectorRuntimeOrExpression = getMultiTypeFromValue(connectorRef) !== MultiTypeInputType.FIXED
   const sampleData = useMemo(() => {
     return transformSampleDataIntoHighchartOptions(selectedMetricInfo?.timeseriesData || [])
   }, [selectedMetricInfo?.timeseriesData])
@@ -76,6 +85,7 @@ export default function CloudMetricsHealthSource<T>(props: CloudMetricsHealthSou
       }
     }
   })
+
   const {
     sli = false,
     healthScore = false,
@@ -117,7 +127,7 @@ export default function CloudMetricsHealthSource<T>(props: CloudMetricsHealthSou
             <Heading level={3} color={Color.BLACK} className={css.sectionHeading}>
               {getString('cv.monitoringSources.gco.mapMetricsToServicesPage.querySpecifications')}
             </Heading>
-            {formikProps.values?.isManualQuery && (
+            {formikProps.values?.isManualQuery && !isTemplate && (
               <Container className={css.manualQueryWarning}>
                 <Text icon="warning-sign" iconProps={{ size: 14 }}>
                   {getString('cv.monitoringSources.prometheus.isManualQuery')}
@@ -144,11 +154,14 @@ export default function CloudMetricsHealthSource<T>(props: CloudMetricsHealthSou
                       labelNamesResponse={
                         { data: { data: serviceInstanceList } } as ReturnType<typeof useGetLabelNames>
                       }
+                      isTemplate={isTemplate}
+                      expressions={expressions}
                     />
                   </Container>
                 </Container>
                 <Container className={css.validationContainer}>
                   <QueryContent
+                    key={formikProps.values.identifier}
                     textAreaProps={{ readOnly: !selectedMetricInfo?.queryEditable }}
                     handleFetchRecords={async () => {
                       if (!shouldShowChart) {
@@ -164,6 +177,9 @@ export default function CloudMetricsHealthSource<T>(props: CloudMetricsHealthSou
                     query={selectedMetricInfo.query}
                     loading={!selectedMetricInfo}
                     textAreaName={FieldNames.QUERY}
+                    isTemplate={isTemplate}
+                    expressions={expressions}
+                    isConnectorRuntimeOrExpression={isConnectorRuntimeOrExpression}
                   />
                   <MetricsValidationChart
                     submitQueryText={'cv.monitoringSources.datadogLogs.submitQueryToSeeRecords'}

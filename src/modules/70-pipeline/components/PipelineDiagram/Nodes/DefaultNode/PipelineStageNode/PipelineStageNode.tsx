@@ -284,7 +284,7 @@ function PipelineStageNode(props: PipelineStageNodeProps): JSX.Element {
             }}
           >
             <Icon
-              size={18}
+              size={16}
               name={'looping'}
               {...(isSelectedNode() ? { color: Color.WHITE, className: defaultCss.primaryIcon, inverse: true } : {})}
             />

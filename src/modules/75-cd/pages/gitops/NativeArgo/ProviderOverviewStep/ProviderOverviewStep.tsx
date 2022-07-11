@@ -39,7 +39,7 @@ import { IdentifierSchema, NameSchema } from '@common/utils/Validation'
 import useRBACError from '@rbac/utils/useRBACError/useRBACError'
 import type { BaseProviderStepProps } from '../../types'
 import aboutHarnessAdapterIllustration from '../../images/aboutHarnessAdapterIllustration.svg'
-const aboutHarnessAdapterURL = `https://ngdocs.harness.io/article/ptlvh7c6z2-harness-argo-cd-git-ops-quickstart`
+const aboutHarnessAdapterURL = `https://docs.harness.io/article/ptlvh7c6z2-harness-argo-cd-git-ops-quickstart`
 import css from './ProviderOverviewStep.module.scss'
 
 export type ProviderOverviewStepProps = BaseProviderStepProps

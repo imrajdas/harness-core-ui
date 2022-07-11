@@ -150,8 +150,8 @@ function ArtifactListView({
                   )}
                 </div>
                 <div>
-                  <Text lineClamp={1} color={Color.GREY_500}>
-                    {getArtifactLocation(primaryArtifact)}
+                  <Text width={200} lineClamp={1} color={Color.GREY_500}>
+                    <span className={css.noWrap}>{getArtifactLocation(primaryArtifact)}</span>
                   </Text>
                 </div>
                 {!isReadonly && (

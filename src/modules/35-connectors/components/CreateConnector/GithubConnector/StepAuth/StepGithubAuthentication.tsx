@@ -226,51 +226,6 @@ const StepGithubAuthentication: React.FC<StepProps<StepGithubAuthenticationProps
       showError(getString('connectors.oAuth.failed'))
     }, [])
 
-    const handleOAuthServerEvent = (event: MessageEvent): void => {
-      if (oAuthStatus === Status.IN_PROGRESS) {
-        if (event.origin !== getBackendServerUrl() && !isEnvironmentAllowedForOAuth()) {
-          markOAuthAsFailed()
-          return
-        }
-        if (!event || !event.data) {
-          markOAuthAsFailed()
-          return
-        }
-        const { accessTokenRef, refreshTokenRef, status, errorMessage } = event.data
-        // valid oauth event from server will always have some value
-        if (accessTokenRef && refreshTokenRef && status && errorMessage) {
-          // safeguard against backend server sending multiple oauth events
-          if (!oAuthSecretIntercepted.current) {
-            if (
-              accessTokenRef !== OAUTH_PLACEHOLDER_VALUE &&
-              (status as string).toLowerCase() === Status.SUCCESS.toLowerCase()
-            ) {
-              setOAuthStatus(Status.SUCCESS)
-              oAuthSecretIntercepted.current = true
-
-              // update formik
-              const formValuesCopy = { ...formikRef.current?.values }
-              let updatedFormValues = set(
-                formValuesCopy,
-                'oAuthAccessTokenRef',
-                `${ConnectorSecretScope[Scope.ACCOUNT]}${accessTokenRef}`
-              )
-              if (refreshTokenRef !== OAUTH_PLACEHOLDER_VALUE) {
-                updatedFormValues = set(
-                  updatedFormValues,
-                  'oAuthRefreshTokenRef',
-                  `${ConnectorSecretScope[Scope.ACCOUNT]}${refreshTokenRef}`
-                )
-              }
-              formikRef.current?.setValues(updatedFormValues)
-            } else if (errorMessage !== OAUTH_PLACEHOLDER_VALUE) {
-              markOAuthAsFailed()
-            }
-          }
-        }
-      }
-    }
-
     const handleOAuthLinking = useCallback(async () => {
       setTimeout(() => {
         if (oAuthStatus !== Status.SUCCESS) {
@@ -297,13 +252,61 @@ const StepGithubAuthentication: React.FC<StepProps<StepGithubAuthenticationProps
       }
     }, [isExistingOAuthConnectionHealthy, accountId])
 
+    const handleOAuthServerEvent = useCallback(
+      (event: MessageEvent): void => {
+        if (oAuthStatus === Status.IN_PROGRESS) {
+          if (event.origin !== getBackendServerUrl() && !isEnvironmentAllowedForOAuth()) {
+            markOAuthAsFailed()
+            return
+          }
+          if (!event || !event.data) {
+            markOAuthAsFailed()
+            return
+          }
+          const { accessTokenRef, refreshTokenRef, status, errorMessage } = event.data
+          // valid oauth event from server will always have some value
+          if (accessTokenRef && refreshTokenRef && status && errorMessage) {
+            // safeguard against backend server sending multiple oauth events
+            if (!oAuthSecretIntercepted.current) {
+              if (
+                accessTokenRef !== OAUTH_PLACEHOLDER_VALUE &&
+                (status as string).toLowerCase() === Status.SUCCESS.toLowerCase()
+              ) {
+                setOAuthStatus(Status.SUCCESS)
+                oAuthSecretIntercepted.current = true
+
+                // update formik
+                const formValuesCopy = { ...formikRef.current?.values }
+                let updatedFormValues = set(
+                  formValuesCopy,
+                  'oAuthAccessTokenRef',
+                  `${ConnectorSecretScope[Scope.ACCOUNT]}${accessTokenRef}`
+                )
+                if (refreshTokenRef !== OAUTH_PLACEHOLDER_VALUE) {
+                  updatedFormValues = set(
+                    updatedFormValues,
+                    'oAuthRefreshTokenRef',
+                    `${ConnectorSecretScope[Scope.ACCOUNT]}${refreshTokenRef}`
+                  )
+                }
+                formikRef.current?.setValues(updatedFormValues)
+              } else if (errorMessage !== OAUTH_PLACEHOLDER_VALUE) {
+                markOAuthAsFailed()
+              }
+            }
+          }
+        }
+      },
+      [formikRef.current?.values, markOAuthAsFailed, oAuthStatus, handleOAuthLinking]
+    )
+
     useEffect(() => {
       window.addEventListener('message', handleOAuthServerEvent)
 
       return () => {
         window.removeEventListener('message', handleOAuthServerEvent)
       }
-    }, [])
+    }, [handleOAuthServerEvent])
 
     useEffect(() => {
       if (isGithubConnectorOAuthBased) {

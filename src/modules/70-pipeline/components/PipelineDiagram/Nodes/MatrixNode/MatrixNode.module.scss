@@ -159,6 +159,9 @@
   }
 
   .stepGroupBody {
+    &.hasMoreChild {
+      margin-bottom: 20px;
+    }
     padding: 0 var(--spacing-xlarge) 0 var(--spacing-xxlarge);
     padding-bottom: 0 !important;
 
@@ -281,7 +284,7 @@
   }
 }
 .matrixBorderWrapper {
-  padding-top: 20px !important;
+  padding-top: 10px !important;
   border-top: 1px solid var(--grey-200);
   width: 100% !important;
   justify-content: space-between;

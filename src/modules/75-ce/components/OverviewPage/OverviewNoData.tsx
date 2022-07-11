@@ -59,7 +59,7 @@ const NoData = ({ onConnectorCreateClick }: { onConnectorCreateClick: () => void
               </Layout.Vertical>
               <Layout.Vertical>
                 <img src={CCMDocsImage} height={75} />
-                <a href="http://ngdocs.harness.io/" target="_blank" rel="noreferrer" className={css.ngDocs}>
+                <a href="http://docs.harness.io/" target="_blank" rel="noreferrer" className={css.ngDocs}>
                   {getString('ce.overview.noData.ngDocs')}
                 </a>
               </Layout.Vertical>

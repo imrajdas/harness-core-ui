@@ -194,7 +194,7 @@ export function DiamondNodeWidget(props: any): JSX.Element {
               }}
             >
               <Icon
-                size={18}
+                size={16}
                 name={'looping'}
                 inverse={isSelected}
                 color={isSelected ? Color.WHITE : Color.PRIMARY_7}

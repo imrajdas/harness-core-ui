@@ -22,9 +22,6 @@ describe('<ExecutionSecurityView /> tests', () => {
         }
       }
     })
-    mockImport('@sto/STOApp', {
-      RemotePipelineSecurityView: () => <div /> // eslint-disable-line react/display-name
-    })
 
     const { container } = render(
       <TestWrapper>
@@ -37,9 +34,6 @@ describe('<ExecutionSecurityView /> tests', () => {
   test('Should render null when pipeline execution context is null', () => {
     mockImport('@pipeline/context/ExecutionContext', {
       useExecutionContext: jest.fn()
-    })
-    mockImport('@sto/STOApp', {
-      RemotePipelineSecurityView: () => <div /> // eslint-disable-line react/display-name
     })
 
     const { container } = render(

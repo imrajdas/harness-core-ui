@@ -7,13 +7,13 @@
 
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Formik } from '@harness/uicore'
+import { Formik, RUNTIME_INPUT_VALUE } from '@harness/uicore'
 import { TestWrapper } from '@common/utils/testUtils'
 import MonitoredServiceInputsetVariables from '../MonitoredServiceInputsetVariables'
 
 const variablesMock = [
-  { name: 'variable 1', type: 'String', value: '<+input>' },
-  { name: 'variable 2', type: 'String', value: '<+input>' }
+  { name: 'variable 1', type: 'String', value: RUNTIME_INPUT_VALUE },
+  { name: 'variable 2', type: 'String', value: RUNTIME_INPUT_VALUE }
 ]
 describe('Validate MonitoredServiceInputsetVariables  ', () => {
   test('should render MonitoredServiceInputsetVariables with variables', () => {

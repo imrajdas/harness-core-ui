@@ -525,7 +525,7 @@ notifications:
   newNotificationRule: New Notification Rule
   notificationName: Notification Name
   deleteNotification: Delete notfication {{ name }}
-  configureAlertConditions: Configure the alert conditions for which you want to be notified.
+  configureAlertConditions: Configure the conditions for which you want to be notified
   serviceHealth: Changes and Service Health
   serviceHealthDescription: Focuses on changes to a service's code, configuration, behaviour, deployment and infrastructure.
   sloDescription: Focuses on SLO target and error budget changes on a given SLO.

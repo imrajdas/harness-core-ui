@@ -13,70 +13,74 @@ exports[`<TemplateResourceRenderer /> Tests snapshot test 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 40%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-            data-testid="CI_Stage_Template"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 40%;"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              data-testid="CI_Stage_Template"
             >
-              <span
-                class="bp3-popover-wrapper"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
                 <span
-                  class="bp3-popover-target Text--targetClass"
+                  class="bp3-popover-wrapper"
                 >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                    tabindex="0"
+                  <span
+                    class="bp3-popover-target Text--targetClass"
                   >
-                    CI Stage Template 2
-                  </p>
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      tabindex="0"
+                    >
+                      CI Stage Template 2
+                    </p>
+                  </span>
                 </span>
-              </span>
-            </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-            >
-              idLabel
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <button
-            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-            type="button"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="remove-minus"
-            >
-              <svg
-                fill="none"
-                height="16"
-                viewBox="0 0 14 14"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
               >
-                <path
-                  d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
-                  fill="#B0B1C4"
-                />
-                <path
-                  d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
-                  fill="#B0B1C4"
-                />
-              </svg>
-            </span>
-          </button>
+                idLabel
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <button
+              class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+              type="button"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="remove-minus"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  viewBox="0 0 14 14"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
+                    fill="#B0B1C4"
+                  />
+                  <path
+                    d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
+                    fill="#B0B1C4"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
       <div
@@ -84,70 +88,74 @@ exports[`<TemplateResourceRenderer /> Tests snapshot test 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 40%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-            data-testid="new_step_name"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 40%;"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              data-testid="new_step_name"
             >
-              <span
-                class="bp3-popover-wrapper"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
                 <span
-                  class="bp3-popover-target Text--targetClass"
+                  class="bp3-popover-wrapper"
                 >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                    tabindex="0"
+                  <span
+                    class="bp3-popover-target Text--targetClass"
                   >
-                    New Step Name
-                  </p>
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      tabindex="0"
+                    >
+                      New Step Name
+                    </p>
+                  </span>
                 </span>
-              </span>
-            </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-            >
-              idLabel
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <button
-            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-            type="button"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="remove-minus"
-            >
-              <svg
-                fill="none"
-                height="16"
-                viewBox="0 0 14 14"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
               >
-                <path
-                  d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
-                  fill="#B0B1C4"
-                />
-                <path
-                  d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
-                  fill="#B0B1C4"
-                />
-              </svg>
-            </span>
-          </button>
+                idLabel
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <button
+              class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+              type="button"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="remove-minus"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  viewBox="0 0 14 14"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
+                    fill="#B0B1C4"
+                  />
+                  <path
+                    d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
+                    fill="#B0B1C4"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
       <div
@@ -155,70 +163,74 @@ exports[`<TemplateResourceRenderer /> Tests snapshot test 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 40%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-            data-testid="CI_Stage"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 40%;"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              data-testid="CI_Stage"
             >
-              <span
-                class="bp3-popover-wrapper"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
                 <span
-                  class="bp3-popover-target Text--targetClass"
+                  class="bp3-popover-wrapper"
                 >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                    tabindex="0"
+                  <span
+                    class="bp3-popover-target Text--targetClass"
                   >
-                    CI Stage
-                  </p>
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      tabindex="0"
+                    >
+                      CI Stage
+                    </p>
+                  </span>
                 </span>
-              </span>
-            </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-            >
-              idLabel
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <button
-            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-            type="button"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="remove-minus"
-            >
-              <svg
-                fill="none"
-                height="16"
-                viewBox="0 0 14 14"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
               >
-                <path
-                  d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
-                  fill="#B0B1C4"
-                />
-                <path
-                  d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
-                  fill="#B0B1C4"
-                />
-              </svg>
-            </span>
-          </button>
+                idLabel
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <button
+              class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+              type="button"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="remove-minus"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  viewBox="0 0 14 14"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
+                    fill="#B0B1C4"
+                  />
+                  <path
+                    d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
+                    fill="#B0B1C4"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
       <div
@@ -226,70 +238,74 @@ exports[`<TemplateResourceRenderer /> Tests snapshot test 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 40%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-            data-testid="CD_Stage"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 40%;"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              data-testid="CD_Stage"
             >
-              <span
-                class="bp3-popover-wrapper"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
                 <span
-                  class="bp3-popover-target Text--targetClass"
+                  class="bp3-popover-wrapper"
                 >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                    tabindex="0"
+                  <span
+                    class="bp3-popover-target Text--targetClass"
                   >
-                    CD Stage
-                  </p>
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      tabindex="0"
+                    >
+                      CD Stage
+                    </p>
+                  </span>
                 </span>
-              </span>
-            </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-            >
-              idLabel
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <button
-            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-            type="button"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="remove-minus"
-            >
-              <svg
-                fill="none"
-                height="16"
-                viewBox="0 0 14 14"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
               >
-                <path
-                  d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
-                  fill="#B0B1C4"
-                />
-                <path
-                  d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
-                  fill="#B0B1C4"
-                />
-              </svg>
-            </span>
-          </button>
+                idLabel
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <button
+              class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+              type="button"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="remove-minus"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  viewBox="0 0 14 14"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
+                    fill="#B0B1C4"
+                  />
+                  <path
+                    d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
+                    fill="#B0B1C4"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
       <div
@@ -297,70 +313,74 @@ exports[`<TemplateResourceRenderer /> Tests snapshot test 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 40%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-            data-testid="templatetest2"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 40%;"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              data-testid="templatetest2"
             >
-              <span
-                class="bp3-popover-wrapper"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
                 <span
-                  class="bp3-popover-target Text--targetClass"
+                  class="bp3-popover-wrapper"
                 >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                    tabindex="0"
+                  <span
+                    class="bp3-popover-target Text--targetClass"
                   >
-                    template-test2
-                  </p>
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      tabindex="0"
+                    >
+                      template-test2
+                    </p>
+                  </span>
                 </span>
-              </span>
-            </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-            >
-              idLabel
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <button
-            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-            type="button"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="remove-minus"
-            >
-              <svg
-                fill="none"
-                height="16"
-                viewBox="0 0 14 14"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
               >
-                <path
-                  d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
-                  fill="#B0B1C4"
-                />
-                <path
-                  d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
-                  fill="#B0B1C4"
-                />
-              </svg>
-            </span>
-          </button>
+                idLabel
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <button
+              class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+              type="button"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="remove-minus"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  viewBox="0 0 14 14"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
+                    fill="#B0B1C4"
+                  />
+                  <path
+                    d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
+                    fill="#B0B1C4"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
       <div
@@ -368,70 +388,74 @@ exports[`<TemplateResourceRenderer /> Tests snapshot test 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 40%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-            data-testid="Echo_Template"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 40%;"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+              data-testid="Echo_Template"
             >
-              <span
-                class="bp3-popover-wrapper"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
                 <span
-                  class="bp3-popover-target Text--targetClass"
+                  class="bp3-popover-wrapper"
                 >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                    tabindex="0"
+                  <span
+                    class="bp3-popover-target Text--targetClass"
                   >
-                    Echo Template
-                  </p>
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      tabindex="0"
+                    >
+                      Echo Template
+                    </p>
+                  </span>
                 </span>
-              </span>
-            </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-            >
-              idLabel
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <button
-            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-            type="button"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="remove-minus"
-            >
-              <svg
-                fill="none"
-                height="16"
-                viewBox="0 0 14 14"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
               >
-                <path
-                  d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
-                  fill="#B0B1C4"
-                />
-                <path
-                  d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
-                  fill="#B0B1C4"
-                />
-              </svg>
-            </span>
-          </button>
+                idLabel
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <button
+              class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+              type="button"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="remove-minus"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  viewBox="0 0 14 14"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 0c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.14-7-7 3.14-7 7-7zm0 12.916A5.922 5.922 0 0012.916 7 5.922 5.922 0 007 1.084 5.922 5.922 0 001.084 7 5.922 5.922 0 007 12.916z"
+                    fill="#B0B1C4"
+                  />
+                  <path
+                    d="M4.29 6.408h5.422a.542.542 0 010 1.085H4.29a.542.542 0 010-1.085z"
+                    fill="#B0B1C4"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

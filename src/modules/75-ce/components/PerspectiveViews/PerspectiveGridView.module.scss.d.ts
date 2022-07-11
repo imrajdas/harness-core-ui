@@ -9,6 +9,7 @@
 declare const styles: {
   readonly cardClass: string
   readonly cardContent: string
+  readonly folderName: string
   readonly mainGridContainer: string
   readonly ribbonTopLeft: string
   readonly sampleRibbon: string

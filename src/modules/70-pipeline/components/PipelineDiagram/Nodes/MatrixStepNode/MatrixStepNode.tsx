@@ -9,13 +9,14 @@ import * as React from 'react'
 import cx from 'classnames'
 import { Icon, Layout, Text, Button, ButtonVariation } from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
-import { defaultTo, get } from 'lodash-es'
+import { defaultTo, get, lowerCase } from 'lodash-es'
 import { Event, DiagramDrag, DiagramType } from '@pipeline/components/Diagram'
 import { STATIC_SERVICE_GROUP_NAME } from '@pipeline/utils/executionUtils'
 import { useStrings } from 'framework/strings'
+import { useDeepCompareEffect } from '@common/hooks'
 import { BaseReactComponentProps, NodeType, PipelineGraphState } from '../../types'
 import { getPositionOfAddIcon } from '../utils'
-import { useNodeDimensionContext } from '../NodeDimensionStore'
+import { Dimensions, useNodeDimensionContext } from '../NodeDimensionStore'
 import { NodeStatusIndicator } from '../NodeStatusIndicator'
 import css from './MatrixStepNode.module.scss'
 import defaultCss from '../DefaultNode/DefaultNode.module.scss'
@@ -30,35 +31,54 @@ const COLLAPSED_MATRIX_NODE_LENGTH = 8
 const MAX_ALLOWED_MATRIX__COLLAPSED_NODES = 4
 const DEFAULT_MATRIX_PARALLELISM = 1
 
+const getHeight = (nodeHeight: number, maxChildLength: number, parallelism: number, showAllNodes: boolean): number => {
+  if (parallelism === 0) {
+    // parallel case + 20 (nodeGap except last child)
+    return maxChildLength * nodeHeight + 20 * (maxChildLength - 1)
+  } else if (!showAllNodes && maxChildLength < parallelism) {
+    // collapsed mode, single row
+    return nodeHeight + 20
+  } else {
+    return (
+      (Math.floor(maxChildLength / parallelism) + Math.ceil((maxChildLength % parallelism) / parallelism)) *
+        nodeHeight +
+      20
+    )
+  }
+}
 export const getCalculatedStepNodeStyles = (
   data: PipelineGraphState[],
   parallelism: number,
-  showAllNodes?: boolean
+  showAllNodes?: boolean,
+  childrenDimensions?: Dimensions
 ): LayoutStyles => {
-  const nodeWidth = 170 //data?.[0]?.nodeType === 'Approval' ? 170 : 200
-  const nodeHeight = 130 //data?.[0]?.nodeType === 'Approval' ? 130 : 100
+  let nodeWidth = 145
+  let nodeHeight = 124
   parallelism = !parallelism ? 0 : (parallelism === 1 ? data.length : parallelism) || DEFAULT_MATRIX_PARALLELISM
+
+  const maxChildrenDimension = {
+    height: 0,
+    width: 0
+  }
+  data.forEach(nodeData => {
+    const dimen = childrenDimensions?.[defaultTo((nodeData as any)?.step?.data?.id, (nodeData as any)?.step?.uuid)]
+    maxChildrenDimension.height = Math.max(maxChildrenDimension.height, dimen?.height || 0)
+    maxChildrenDimension.width = Math.max(maxChildrenDimension.width, dimen?.width || 0)
+  })
+  nodeHeight = maxChildrenDimension?.height > 0 ? maxChildrenDimension?.height + 100 : nodeHeight
+  nodeWidth = maxChildrenDimension?.width > 0 ? maxChildrenDimension?.width + 180 : nodeWidth
 
   if (showAllNodes) {
     const maxChildLength = defaultTo(data.length, 0)
-    const finalHeight =
-      parallelism === 0
-        ? maxChildLength * nodeHeight
-        : (Math.floor(maxChildLength / parallelism) + Math.ceil((maxChildLength % parallelism) / parallelism)) *
-          nodeHeight
+    const finalHeight = getHeight(nodeHeight, maxChildLength, parallelism, true)
     const finalWidth = nodeWidth * (parallelism === 0 ? 1 : Math.min(parallelism, (data || []).length))
-    return { height: finalHeight + 60, width: finalWidth - 40 } // 80 is link gap that we dont need for last stepgroup node
+    return { height: finalHeight, width: finalWidth }
   } else {
     const updatedParallelism = Math.min(parallelism, MAX_ALLOWED_MATRIX__COLLAPSED_NODES)
     const maxChildLength = Math.min(data.length, COLLAPSED_MATRIX_NODE_LENGTH)
-    const finalHeight =
-      parallelism === 0
-        ? maxChildLength * nodeHeight
-        : (Math.floor(maxChildLength / updatedParallelism) +
-            Math.ceil((maxChildLength % updatedParallelism) / updatedParallelism)) *
-          nodeHeight
+    const finalHeight = getHeight(nodeHeight, maxChildLength, updatedParallelism, false)
     const finalWidth = nodeWidth * (parallelism === 0 ? 1 : Math.min(updatedParallelism, (data || []).length))
-    return { height: finalHeight + 60, width: finalWidth - 40 } // 80 is
+    return { height: finalHeight, width: finalWidth }
   }
 }
 
@@ -77,8 +97,9 @@ export function MatrixStepNode(props: any): JSX.Element {
   const nodeType = defaultTo(props?.data?.nodeType, props?.data?.step?.data?.nodeType)
 
   const isNestedStepGroup = Boolean(get(props, 'data.step.data.isNestedGroup'))
+  const hasChildrenToBeCollapsed = stepGroupData.length > COLLAPSED_MATRIX_NODE_LENGTH
 
-  const { updateDimensions } = useNodeDimensionContext()
+  const { updateDimensions, childrenDimensions } = useNodeDimensionContext()
   React.useEffect(() => {
     props?.updateGraphLinks?.()
   }, [isNodeCollapsed])
@@ -93,9 +114,17 @@ export function MatrixStepNode(props: any): JSX.Element {
 
   React.useLayoutEffect(() => {
     if (stepGroupData?.length) {
-      setLayoutStyles(getCalculatedStepNodeStyles(stepGroupData, maxParallelism, showAllNodes))
+      setLayoutStyles(getCalculatedStepNodeStyles(stepGroupData, maxParallelism, showAllNodes, childrenDimensions))
+    } else {
+      setNodeCollapsed(true)
     }
   }, [stepGroupData, isNodeCollapsed, props?.isNodeCollapsed, showAllNodes])
+
+  useDeepCompareEffect(() => {
+    if (stepGroupData?.length) {
+      setLayoutStyles(getCalculatedStepNodeStyles(stepGroupData, maxParallelism, showAllNodes, childrenDimensions))
+    }
+  }, [childrenDimensions])
 
   return (
     <>
@@ -217,7 +246,8 @@ export function MatrixStepNode(props: any): JSX.Element {
           </div>
           <div
             className={cx(css.collapsedMatrixWrapper, {
-              [css.isNodeCollapsed]: isNodeCollapsed
+              [css.isNodeCollapsed]: isNodeCollapsed,
+              [css.nestedStepGroup]: lowerCase(stepGroupData?.[0]?.step?.type) === lowerCase(NodeType.StepGroupNode)
             })}
           >
             {isNodeCollapsed && DefaultNode ? (
@@ -228,15 +258,12 @@ export function MatrixStepNode(props: any): JSX.Element {
                 {...props}
                 icon="looping"
                 showMarkers={false}
-                name={`[+] ${stepGroupData.length} Stages`} //matrix collapsed node
+                name={`[+] ${stepGroupData.length} Steps`} //matrix collapsed node
               />
             ) : (
               <>
                 <div
-                  className={cx(
-                    css.stepGroupBody
-                    // { [css.multiParallelism]: props?.data?.maxParallelism > 1 }
-                  )}
+                  className={cx(css.stepGroupBody, { [css.hasMoreChild]: hasChildrenToBeCollapsed })}
                   style={layoutStyles}
                 >
                   <div style={{ display: 'flex', flexWrap: 'wrap', columnGap: '80px', rowGap: '20px' }}>
@@ -258,7 +285,7 @@ export function MatrixStepNode(props: any): JSX.Element {
                               key={node.data?.identifier}
                               getNode={props.getNode}
                               fireEvent={props.fireEvent}
-                              getDefaultNode={props.getDxefaultNode}
+                              getDefaultNode={props.getDefaultNode}
                               className={cx(css.graphNode, node.className)}
                               isSelected={
                                 node?.selectedNode && node.selectedNode === (node.data?.id || node.data?.uuid)
@@ -307,20 +334,26 @@ export function MatrixStepNode(props: any): JSX.Element {
                     withoutCurrentColor={true}
                   />
                 )}
-                {stepGroupData.length > COLLAPSED_MATRIX_NODE_LENGTH && (
+                {hasChildrenToBeCollapsed && (
                   <Layout.Horizontal className={css.matrixFooter}>
                     <Layout.Horizontal className={css.matrixBorderWrapper}>
                       <Layout.Horizontal margin={0} className={css.showNodes}>
-                        <>
-                          <Text padding={0}>{`${
-                            !showAllNodes
-                              ? Math.min(stepGroupData.length, COLLAPSED_MATRIX_NODE_LENGTH)
-                              : stepGroupData.length
-                          }/ ${stepGroupData.length}`}</Text>
-                          <Text className={css.showNodeText} padding={0} onClick={() => setShowAllNodes(!showAllNodes)}>
-                            {`${!showAllNodes ? getString('showAll') : getString('common.hideAll')}`}
-                          </Text>
-                        </>
+                        {hasChildrenToBeCollapsed && (
+                          <>
+                            <Text padding={0}>{`${
+                              !showAllNodes
+                                ? Math.min(stepGroupData.length, COLLAPSED_MATRIX_NODE_LENGTH)
+                                : stepGroupData.length
+                            }/ ${stepGroupData.length}`}</Text>
+                            <Text
+                              className={css.showNodeText}
+                              padding={0}
+                              onClick={() => setShowAllNodes(!showAllNodes)}
+                            >
+                              {`${!showAllNodes ? getString('showAll') : getString('common.hideAll')}`}
+                            </Text>
+                          </>
+                        )}
                       </Layout.Horizontal>
 
                       <Text font="normal" className={css.concurrencyLabel}>

@@ -27,7 +27,14 @@ import { ResourceType } from '@rbac/interfaces/ResourceType'
 import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { ExecutionStatus, isExecutionIgnoreFailed, isExecutionNotStarted } from '@pipeline/utils/statusHelpers'
 import executionFactory from '@pipeline/factories/ExecutionFactory'
-import { hasCDStage, hasCIStage, hasSTOStage, StageType } from '@pipeline/utils/stageHelpers'
+import {
+  hasCDStage,
+  hasCIStage,
+  hasOverviewDetail,
+  hasServiceDetail,
+  hasSTOStage,
+  StageType
+} from '@pipeline/utils/stageHelpers'
 import { mapTriggerTypeToStringID } from '@pipeline/utils/triggerUtils'
 import GitPopover from '@pipeline/components/GitPopover/GitPopover'
 import { CardVariant } from '@pipeline/utils/constants'
@@ -36,6 +43,7 @@ import type { ExecutionCardInfoProps } from '@pipeline/factories/ExecutionFactor
 
 import { useAppStore } from 'framework/AppStore/AppStoreContext'
 import GitRemoteDetails from '@common/components/GitRemoteDetails/GitRemoteDetails'
+import { DashboardSelected, ServiceExecutionsCard } from '../ServiceExecutionsCard/ServiceExecutionsCard'
 import MiniExecutionGraph from './MiniExecutionGraph/MiniExecutionGraph'
 import { useExecutionCompareContext } from '../ExecutionCompareYaml/ExecutionCompareContext'
 import css from './ExecutionCard.module.scss'
@@ -130,6 +138,8 @@ export default function ExecutionCard(props: ExecutionCardProps): React.ReactEle
   const { getString } = useStrings()
   const SECURITY = useFeatureFlag(FeatureFlag.SECURITY)
   const HAS_CD = hasCDStage(pipelineExecution)
+  const IS_SERVICEDETAIL = hasServiceDetail(pipelineExecution)
+  const IS_OVERVIEWPAGE = hasOverviewDetail(pipelineExecution)
   const HAS_CI = hasCIStage(pipelineExecution)
   const HAS_STO = hasSTOStage(pipelineExecution)
   const cdInfo = executionFactory.getCardInfo(StageType.DEPLOY)
@@ -319,7 +329,7 @@ export default function ExecutionCard(props: ExecutionCardProps): React.ReactEle
                   })}
                 </div>
               ) : null}
-              {HAS_CD && cdInfo ? (
+              {HAS_CD && cdInfo && !(IS_SERVICEDETAIL || IS_OVERVIEWPAGE) ? (
                 <div className={css.moduleData}>
                   <Icon name={cdInfo.icon} size={20} className={css.moduleIcon} />
                   {React.createElement<ExecutionCardInfoProps>(cdInfo.component, {
@@ -328,6 +338,15 @@ export default function ExecutionCard(props: ExecutionCardProps): React.ReactEle
                     startingNodeId: defaultTo(pipelineExecution?.startingNodeId, ''),
                     variant
                   })}
+                </div>
+              ) : null}
+              {(IS_SERVICEDETAIL || IS_OVERVIEWPAGE) && cdInfo ? (
+                <div style={{ position: 'relative' }}>
+                  <ServiceExecutionsCard
+                    envIdentifiers={pipelineExecution?.moduleInfo?.cd?.envIdentifiers as string[]}
+                    serviceIdentifiers={pipelineExecution?.moduleInfo?.cd?.serviceIdentifiers as string[]}
+                    caller={IS_SERVICEDETAIL ? DashboardSelected.SERVICEDETAIL : DashboardSelected.OVERVIEW}
+                  />
                 </div>
               ) : null}
               {SECURITY && HAS_STO && stoInfo ? (

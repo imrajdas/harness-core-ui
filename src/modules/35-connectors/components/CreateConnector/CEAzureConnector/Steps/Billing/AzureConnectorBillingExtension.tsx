@@ -94,7 +94,7 @@ const AzureConnectorBillingExtension: React.FC = () => {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://ngdocs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure"
+              href="https://docs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure"
             >
               - {getString('connectors.ceAzure.billing.extension.docs')}
             </a>

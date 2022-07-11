@@ -104,6 +104,14 @@ export function hasCDStage(pipelineExecution?: PipelineExecutionSummary): boolea
   return pipelineExecution?.modules?.includes('cd') || !isEmpty(pipelineExecution?.moduleInfo?.cd)
 }
 
+export function hasServiceDetail(pipelineExecution?: PipelineExecutionSummary): boolean {
+  return pipelineExecution?.modules?.includes('serviceDetail') || false
+}
+
+export function hasOverviewDetail(pipelineExecution?: PipelineExecutionSummary): boolean {
+  return pipelineExecution?.modules?.includes('overviewPage') || false
+}
+
 export function hasCIStage(pipelineExecution?: PipelineExecutionSummary): boolean {
   return pipelineExecution?.modules?.includes('ci') || !isEmpty(pipelineExecution?.moduleInfo?.ci)
 }

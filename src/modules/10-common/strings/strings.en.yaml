@@ -350,14 +350,13 @@ git:
   gitLabUrlPlaceholderSSH: 'git@gitlab.com:account/'
   bitbucketUrlPlaceholder: 'https://www.bitbucket.com/account/'
   bitbucketPlaceholderSSH: 'git@bitbucket.com:account/'
-  azureReposUrlPlaceholder: 'https://dev.azure.com/<organisationName>'
-  azureReposUrlPlaceholderRepoHttp: 'https://dev.azure.com/<organisationName>/<projectName>/<repositoryName>'
-  azureReposPlaceholderSSH: 'git@ssh.dev.azure.com:v3/<organisationName>'
-  azureReposPlaceholderRepoSSH: 'git@ssh.dev.azure.com:v3/<organisationName>/<projectName>/<repositoryName>'
+  azureReposUrlPlaceholder: 'https://dev.azure.com/<organizationName>/<projectName>'
+  azureReposUrlPlaceholderRepoHttp: 'https://dev.azure.com/<organizationName>/<projectName>/_git/<repositoryName>'
+  azureReposPlaceholderSSH: 'git@ssh.dev.azure.com:v3/<organizationName>'
+  azureReposPlaceholderRepoSSH: 'git@ssh.dev.azure.com:v3/<organizationName>/<projectName>/<repositoryName>'
   enableAPIAccess: 'Enable API access (recommended)'
   APIAccessDescription: 'API Access is required for using “Git Experience”, for creation of Git based triggers, Webhooks management and updating Git statuses'
-  testRepositoryDescription: Please provide a repository to test the credentials. This is required just for checking connectivity. The connector will still be created at account level.
-  testProjectAndRepositoryDescription: Please provide a project and a repository to test the credentials. This is required just for checking connectivity. The connector will still be created at account level.
+  testRepositoryDescription: Please provide a repository to test the credentials. This is required just for checking connectivity. The connector will still be created at {{scope}} level.
   APIAuthentication: 'API Authentication'
   gitHubApp: 'GitHub App'
   installationId: 'GitHub Installation Id'
@@ -368,7 +367,6 @@ git:
   addUserCredentialLabel: Update in user profile
   saveResourceLabel: 'Save {{resource}} to Git'
   selectRepoLabel: Repository Display Name
-  projectNamePlaceholder: 'Example: MyProject'
   filePath: File Path
   folderPath: Folder Path
   commitMessage: Commit message

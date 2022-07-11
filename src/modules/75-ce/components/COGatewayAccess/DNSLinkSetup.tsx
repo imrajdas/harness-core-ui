@@ -25,6 +25,10 @@ interface DNSLinkSetupProps {
   activeStepDetails?: { count?: number; tabId?: string } | null
   serverNames: string[]
   setServerNames: (val: string[]) => void
+  domainsToOverlap: string[]
+  setDomainsToOverlap: (domains: string[]) => void
+  overrideRoute53: boolean
+  setOverrideRoute53: (flag: boolean) => void
 }
 
 const DNSLinkSetup: React.FC<DNSLinkSetupProps> = props => {
@@ -42,7 +46,6 @@ const DNSLinkSetup: React.FC<DNSLinkSetupProps> = props => {
 
       <Formik<DNSLinkSetupFormVal>
         initialValues={{
-          usingCustomDomain: Utils.getConditionalResult(!_isEmpty(allCustomDomains), 'yes', 'no'),
           customURL: allCustomDomains.join(','),
           publicallyAccessible: _defaultTo(accessDetails.dnsLink.public as string, 'yes'),
           dnsProvider: customDomainProviderDetails
@@ -67,7 +70,6 @@ const DNSLinkSetup: React.FC<DNSLinkSetupProps> = props => {
               /((https?):\/\/)?(www.)?[a-z0-9-]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#-]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
               'Enter a valid URL'
             )
-            .required()
         })}
       >
         {formik => (
@@ -91,6 +93,11 @@ const DNSLinkSetup: React.FC<DNSLinkSetupProps> = props => {
                 setGatewayDetails={props.setGatewayDetails}
                 setHelpTextSections={props.setHelpTextSections}
                 serverNames={props.serverNames}
+                overrideRoute53={props.overrideRoute53}
+                setOverrideRoute53={props.setOverrideRoute53}
+                domainsToOverlap={props.domainsToOverlap}
+                setDomainsToOverlap={props.setDomainsToOverlap}
+                allCustomDomains={allCustomDomains}
               />
             </Layout.Vertical>
           </FormikForm>

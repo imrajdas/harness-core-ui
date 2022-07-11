@@ -8,7 +8,15 @@
 import React, { useMemo, useContext, useEffect, useState } from 'react'
 import type { CellProps } from 'react-table'
 import { Classes } from '@blueprintjs/core'
-import { Container, NoDataCard, PageError, Text, Utils } from '@wings-software/uicore'
+import {
+  Container,
+  getMultiTypeFromValue,
+  MultiTypeInputType,
+  NoDataCard,
+  PageError,
+  Text,
+  Utils
+} from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
 import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
@@ -58,6 +66,9 @@ export default function MetricsDashboardList<T>(props: MetricsDashboardListProps
   const { error, loading, data: dashboardList, refetch: refetchData } = dashboardsRequest
   const { pageIndex = -1, pageItemCount = 0, totalPages = 0, pageSize = 0 } = dashboardList?.data || {}
 
+  const connectorIdentifier = (sourceData?.connectorRef?.value || sourceData?.connectorRef) as string
+  const isConnectorRuntimeOrExpression = getMultiTypeFromValue(connectorIdentifier) !== MultiTypeInputType.FIXED
+
   const dashboardItems: TableDashboardItem[] = useMemo(() => {
     if (!dashboardList?.data?.content) {
       return []
@@ -74,7 +85,7 @@ export default function MetricsDashboardList<T>(props: MetricsDashboardListProps
       accountId,
       projectIdentifier,
       orgIdentifier,
-      connectorIdentifier: (sourceData?.connectorRef as string) || '',
+      connectorIdentifier: sourceData?.connectorRef?.value || (sourceData?.connectorRef as string) || '',
       pageSize: TOTAL_ITEMS_PER_PAGE,
       offset: pageOffset,
       tracingId: Utils.randomId(),
@@ -83,13 +94,17 @@ export default function MetricsDashboardList<T>(props: MetricsDashboardListProps
   }, [filter, pageOffset, accountId, projectIdentifier, orgIdentifier, sourceData?.connectorRef])
 
   useEffect(() => {
-    refetchData({
-      queryParams: queryParams
-    })
+    if (!isConnectorRuntimeOrExpression) {
+      refetchData({
+        queryParams: queryParams
+      })
+    }
   }, [filter, refetchData, queryParams])
 
   useEffect(() => {
-    if (loading) {
+    if (isConnectorRuntimeOrExpression) {
+      setTableData([])
+    } else if (loading) {
       const loadingItems = Array<TableData>(TOTAL_ITEMS_PER_PAGE).fill(
         { selected: false, dashboard: { name: getString('loading') } },
         0,

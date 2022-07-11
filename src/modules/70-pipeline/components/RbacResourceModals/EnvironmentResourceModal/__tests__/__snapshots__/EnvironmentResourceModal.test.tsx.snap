@@ -57,53 +57,57 @@ exports[`Service Resource Modal Body test initializes ok  1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 60%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
-              data-testid="stagingInfra"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
               >
-                stagingInfra
-              </p>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              />
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
             <div
-              class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 60%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+                data-testid="stagingInfra"
               >
-                PreProduction
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  stagingInfra
+                </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                />
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
+            >
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+              >
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  PreProduction
+                </p>
+              </div>
             </div>
           </div>
         </div>

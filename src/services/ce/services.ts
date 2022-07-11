@@ -61,6 +61,7 @@ export const FetchAllPerspectivesDocument = gql`
         reportScheduledConfigured
         dataSources
         folderId
+        folderName
         groupBy {
           fieldId
           fieldName
@@ -1242,6 +1243,7 @@ export type FetchAllPerspectivesQuery = {
       reportScheduledConfigured: boolean
       dataSources: Array<ViewFieldIdentifier | null> | null
       folderId: string | null
+      folderName: string | null
       groupBy: {
         __typename?: 'QLCEViewField'
         fieldId: string
@@ -2743,6 +2745,7 @@ export type QlceView = {
   createdBy: Maybe<Scalars['String']>
   dataSources: Maybe<Array<Maybe<ViewFieldIdentifier>>>
   folderId: Maybe<Scalars['String']>
+  folderName: Maybe<Scalars['String']>
   groupBy: Maybe<QlceViewField>
   id: Maybe<Scalars['String']>
   lastUpdatedAt: Maybe<Scalars['Long']>

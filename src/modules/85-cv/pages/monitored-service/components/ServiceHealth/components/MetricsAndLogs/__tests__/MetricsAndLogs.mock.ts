@@ -13,7 +13,8 @@ export const mockedHealthSourcesData = {
       {
         identifier: 'GCO_Health_source',
         name: 'GCO Health source',
-        type: 'STACKDRIVER_LOG'
+        type: 'STACKDRIVER_LOG',
+        verificationType: 'LOG'
       },
       {
         identifier: 'Appd_Health_source',
@@ -24,7 +25,7 @@ export const mockedHealthSourcesData = {
         identifier: 'service_prod/custommetric',
         name: 'custommetric',
         type: 'CUSTOM_HEALTH_METRIC',
-        verificationType: 'TIME_SERIES'
+        verificationType: 'LOG'
       }
     ]
   }
@@ -47,7 +48,7 @@ export const healthSourceMock = {
       identifier: 'service_prod/custommetric',
       name: 'custommetric',
       type: 'CUSTOM_HEALTH_METRIC',
-      verificationType: 'TIME_SERIES'
+      verificationType: 'LOG'
     }
   ],
   responseMessages: []

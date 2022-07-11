@@ -9,7 +9,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import cx from 'classnames'
 import { getMultiTypeFromValue, MultiTypeInputType, FormikForm, FormInput, SelectOption } from '@wings-software/uicore'
-import { cloneDeep, get, isArray, isEmpty, set } from 'lodash-es'
+import { cloneDeep, get, isArray, isEmpty } from 'lodash-es'
 import { FieldArray } from 'formik'
 import { PopoverInteractionKind } from '@blueprintjs/core'
 import { useStrings } from 'framework/strings'
@@ -21,7 +21,7 @@ import { FormMultiTypeDurationField } from '@common/components/MultiTypeDuration
 import { JobDetails, useGetJobDetailsForJenkins } from 'services/cd-ng'
 import { MultiTypeFieldSelector } from '@common/components/MultiTypeFieldSelector/MultiTypeFieldSelector'
 import type { SubmenuSelectOption } from './types'
-import { resetForm, useGetJobParametersForJenkins } from './helper'
+import { resetForm } from './helper'
 import css from '@pipeline/components/PipelineSteps/Steps/Steps.module.scss'
 import stepCss from './JenkinsStep.module.scss'
 
@@ -64,7 +64,12 @@ function JenkinsStepInputSet(formContentProps: any): JSX.Element {
       }
     })
   }
-  const { refetch: refetchJobs, data: jobsResponse } = useGetJobDetailsForJenkins({
+  const {
+    refetch: refetchJobs,
+    data: jobsResponse,
+    loading: fetchingJobs,
+    error: fetchingJobsError
+  } = useGetJobDetailsForJenkins({
     lazy: true,
     queryParams: {
       ...commonParams,
@@ -72,10 +77,11 @@ function JenkinsStepInputSet(formContentProps: any): JSX.Element {
     }
   })
 
-  const { refetch: refetchJobParameters } = useGetJobParametersForJenkins({
-    lazy: true,
-    jobName: ''
-  })
+  // To be uncommented when we support runtime jobParameters
+  // const { refetch: refetchJobParameters, data: jobParameterResponse } = useGetJobParametersForJenkins({
+  //   lazy: true,
+  //   jobName: ''
+  // })
 
   // useEffect(() => {
   //   if (jobParameterResponse?.data) {
@@ -96,25 +102,14 @@ function JenkinsStepInputSet(formContentProps: any): JSX.Element {
   // }, [jobParameterResponse])
 
   useEffect(() => {
-    if (typeof get(formik, `values.${prefix}spec.jobName`) === 'string' && jobsResponse?.data?.jobDetails?.length) {
-      const targetjob = jobsResponse?.data?.jobDetails?.find(job => job.url === formik.values?.spec?.jobName)
-      if (targetjob) {
-        const jobObj = {
-          label: targetjob?.jobName || '',
-          value: targetjob?.url || '',
-          submenuItems: [],
-          hasSubItems: targetjob?.folder
-        }
-        set(formik, `values.${prefix}spec.jobName`, jobObj)
-      }
-    }
     if (lastOpenedJob.current) {
       setJobDetails((prevState: SubmenuSelectOption[]) => {
-        const parentJob = prevState.find(obj => obj.value === lastOpenedJob.current)
+        const clonedJobDetails = cloneDeep(prevState)
+        const parentJob = clonedJobDetails.find(obj => obj.label === lastOpenedJob.current)
         if (parentJob) {
           parentJob.submenuItems = [...getJobItems(jobsResponse?.data?.jobDetails || [])]
         }
-        return prevState
+        return clonedJobDetails
       })
     } else {
       const jobs = jobsResponse?.data?.jobDetails?.map(job => {
@@ -130,13 +125,46 @@ function JenkinsStepInputSet(formContentProps: any): JSX.Element {
   }, [jobsResponse])
 
   useEffect(() => {
-    refetchJobs({
-      queryParams: {
-        ...commonParams,
-        connectorRef: connectorRef.toString()
+    const jobName = get(formik, `values.${prefix}spec.jobName`)
+    if (jobName?.split('/').length > 1 && jobDetails.length) {
+      const parentJobName = jobName?.split('/')[0]
+      lastOpenedJob.current = parentJobName
+      const parentJob = jobDetails?.find(job => job.label === parentJobName)
+      if (!parentJob?.submenuItems?.length) {
+        refetchJobs({
+          queryParams: {
+            ...commonParams,
+            connectorRef: connectorRef?.toString(),
+            parentJobName
+          }
+        })
       }
-    })
+    }
+  }, [jobDetails])
+
+  useEffect(() => {
+    if (getMultiTypeFromValue(connectorRef) === MultiTypeInputType.FIXED) {
+      refetchJobs({
+        queryParams: {
+          ...commonParams,
+          connectorRef: connectorRef.toString()
+        }
+      })
+    }
   }, [connectorRef])
+
+  const getJobDetailsValue = (): SubmenuSelectOption | undefined => {
+    const jobName = get(formik, `values.${prefix}spec.jobName`)
+    if (jobName?.split('/').length > 1) {
+      const parentJobName = jobName?.split('/')[0]
+      const parentJob = jobDetails?.find(job => job.label === parentJobName)
+      if (parentJob?.submenuItems?.length) {
+        const targetChildJob = parentJob.submenuItems?.find(job => job.label === jobName)
+        return targetChildJob as SubmenuSelectOption
+      }
+    }
+    return jobDetails.find(job => job.label === get(formik, `values.${prefix}spec.jobName`)) as SubmenuSelectOption
+  }
 
   return (
     <>
@@ -159,7 +187,7 @@ function JenkinsStepInputSet(formContentProps: any): JSX.Element {
         {getMultiTypeFromValue(template?.spec?.connectorRef) === MultiTypeInputType.RUNTIME ? (
           <FormMultiTypeConnectorField
             name={`${prefix}spec.connectorRef`}
-            label={getString('pipeline.jiraApprovalStep.connectorRef')}
+            label={getString('connectors.jenkins.jenkinsConnectorLabel')}
             selected={(initialValues?.spec?.connectorRef as string) || ''}
             placeholder={getString('connectors.selectConnector')}
             accountIdentifier={accountId}
@@ -187,31 +215,38 @@ function JenkinsStepInputSet(formContentProps: any): JSX.Element {
             <FormInput.SelectWithSubmenuTypeInput
               label={'Job Name'}
               name={`${prefix}spec.jobName`}
-              value={jobDetails.find(job => job.label === get(formik, `values.${prefix}spec.jobName`))}
+              value={getJobDetailsValue()}
               selectItems={jobDetails}
+              placeholder={
+                connectorRef && getMultiTypeFromValue(connectorRef) === MultiTypeInputType.FIXED
+                  ? fetchingJobs
+                    ? 'Fetching jobs...'
+                    : fetchingJobsError?.message
+                    ? fetchingJobsError?.message
+                    : getString('select')
+                  : getString('select')
+              }
               selectWithSubmenuTypeInputProps={{
+                expressions,
+                allowableTypes,
                 selectWithSubmenuProps: {
+                  loading: fetchingJobs,
                   items: jobDetails,
                   interactionKind: PopoverInteractionKind.CLICK,
                   allowCreatingNewItems: true,
-                  onChange: (primaryValue, secondaryValue) => {
-                    const newJobName = secondaryValue ? secondaryValue : primaryValue
-                    const clonedFormik = cloneDeep(formik.values)
-                    set(clonedFormik, `${prefix}spec.jobName`, newJobName.label)
-                    formik.setValues({
-                      ...clonedFormik
-                    })
-                    refetchJobParameters({
-                      pathParams: { jobName: encodeURIComponent(newJobName.label) },
-                      queryParams: {
-                        ...commonParams,
-                        connectorRef: connectorRef.toString()
-                      }
-                    })
-                    resetForm(formik, 'jobName', prefix)
+                  onChange: (primaryValue, secondaryValue, type) => {
+                    const newJobName =
+                      type === MultiTypeInputType.FIXED && primaryValue && secondaryValue
+                        ? secondaryValue
+                        : primaryValue || ''
+
+                    formik.setFieldValue(
+                      `${prefix}spec.jobName`,
+                      type === MultiTypeInputType.FIXED ? newJobName.label : newJobName
+                    )
                   },
                   onOpening: (item: SelectOption) => {
-                    lastOpenedJob.current = item.value
+                    lastOpenedJob.current = item.label
                     refetchJobs({
                       queryParams: {
                         ...commonParams,
@@ -226,9 +261,7 @@ function JenkinsStepInputSet(formContentProps: any): JSX.Element {
           </div>
         ) : null}
 
-        {(isArray(template?.spec?.jobParameter) && template?.spec?.jobParameter) ||
-        (get(formik, `values.${prefix}spec.jobParameter`) &&
-          get(formik, `values.${prefix}spec.jobParameter`).length) ? (
+        {isArray(template?.spec?.jobParameter) && template?.spec?.jobParameter ? (
           <div className={css.formGroup}>
             <MultiTypeFieldSelector
               name={`${prefix}spec.jobParameter`}
@@ -247,7 +280,7 @@ function JenkinsStepInputSet(formContentProps: any): JSX.Element {
                         <span className={css.label}>Type</span>
                         <span className={css.label}>Value</span>
                       </div>
-                      {(get(formik, `values.${prefix}spec.jobParameter`) || [])?.map((type: any, i: number) => {
+                      {template?.spec?.jobParameter?.map((type: any, i: number) => {
                         return (
                           <div className={stepCss.jobParameter} key={type.value}>
                             <FormInput.Text

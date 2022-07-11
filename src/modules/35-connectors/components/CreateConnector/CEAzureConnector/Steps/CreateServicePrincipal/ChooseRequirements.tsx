@@ -76,7 +76,7 @@ const useSelectedCards = (featuresEnabled: ICard['value'][]) => {
         <>
           {getString('connectors.ceAzure.chooseRequirements.optimization.footer1')}{' '}
           <a
-            href="https://ngdocs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure#step_4_create_service_principal_and_assign_permissions"
+            href="https://docs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure#step_4_create_service_principal_and_assign_permissions"
             target="_blank"
             rel="noreferrer"
             onClick={e => e.stopPropagation()}

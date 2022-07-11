@@ -47,10 +47,12 @@ import { CFCreateStack } from './CloudFormation/CreateStack/CreateStack'
 import { CreatePr } from './CreatePrStep/CreatePrStep'
 import { MergePR } from './MergePrStep/MergePrStep'
 import { AzureWebAppRollback } from './AzureWebAppRollback/AzureWebAppRollback'
+import { CommandScriptsStep } from './CommandScripts/CommandScriptsStep'
 import { AzureSlotDeployment } from './AzureSlotDeployment/AzureSlotDeployment'
 import { AzureTrafficShift } from './AzureTrafficShift/AzureTrafficShift'
 import { AzureSwapSlot } from './AzureWebAppSwapSlot/AzureWebAppSwapSlot'
 
+factory.registerStep(new CommandScriptsStep())
 factory.registerStep(new HttpStep())
 factory.registerStep(new K8RolloutDeployStep())
 factory.registerStep(new K8sRollingRollbackStep())

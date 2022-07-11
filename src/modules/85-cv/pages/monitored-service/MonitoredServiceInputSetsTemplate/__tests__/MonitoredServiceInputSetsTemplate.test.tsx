@@ -14,6 +14,7 @@ import * as cvServices from 'services/cv'
 import MonitoredServiceInputSetsTemplate from '../MonitoredServiceInputSetsTemplate'
 import { pathList, spec, templateYamlData } from './MonitoredServiceInputSetsTemplate.mock'
 import { getLabelByName, getNestedRuntimeInputs } from '../MonitoredServiceInputSetsTemplate.utils'
+import * as InputSetUtils from '../MonitoredServiceInputSetsTemplate.utils'
 
 jest.mock('services/template-ng', () => ({
   ...(jest.requireActual('services/template-ng') as any),
@@ -90,6 +91,7 @@ describe('Test MonitoredServiceInputSetsTemplate', () => {
     expect(container).toMatchSnapshot()
   })
   test('should render with ms inputset', async () => {
+    jest.spyOn(InputSetUtils, 'validateInputSet').mockReturnValue({})
     const { container, getByText } = render(
       <TestWrapper>
         <MonitoredServiceInputSetsTemplate />
@@ -109,6 +111,7 @@ describe('Test MonitoredServiceInputSetsTemplate', () => {
         message: 'monitored service creation failed'
       }
     })
+    jest.spyOn(InputSetUtils, 'validateInputSet').mockReturnValue({})
     jest.spyOn(cvServices, 'useSaveMonitoredServiceFromYaml').mockReturnValue({
       mutate: refetchSaveTemplate,
       cancel: jest.fn(),

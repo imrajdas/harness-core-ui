@@ -373,71 +373,75 @@ exports[`Git Sync - entity tab rendering summary view of a gitSyncRepo  1`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--horizontal StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
-                    data-icon="pipeline-ng"
+                  <div
+                    class="Layout--horizontal StyledProps--main"
                   >
-                    <svg
-                      height="16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
+                      data-icon="pipeline-ng"
                     >
-                      <g
-                        fill="#25A6F7"
+                      <svg
+                        height="16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          d="M17.857 2.705h-3.672a2.85 2.85 0 00-5.614.714 2.85 2.85 0 005.614.714h3.672c.395 0 .714.32.714.715v6.428c0 .395-.32.714-.714.714h-6.786a.714.714 0 100 1.429h6.786c1.184 0 2.143-.96 2.143-2.143V4.848c0-1.184-.96-2.143-2.143-2.143zM11.43 4.848a1.429 1.429 0 110-2.858 1.429 1.429 0 010 2.858z"
-                        />
-                        <path
-                          d="M17.143 14.848c-1.28 0-2.352.848-2.715 2.01H7.143a.711.711 0 01-.709-.685 2.85 2.85 0 00-.72-5.611 2.844 2.844 0 00-2.46 1.428H2.143a.714.714 0 01-.714-.714V4.848c0-.395.32-.715.714-.715h4.643a.714.714 0 000-1.428H2.143C.959 2.705 0 3.665 0 4.848v6.428c0 1.184.96 2.143 2.143 2.143h.714a2.85 2.85 0 002.147 2.757 2.14 2.14 0 002.139 2.11h7.203a2.857 2.857 0 102.797-3.438zM4.286 13.419a1.429 1.429 0 112.858 0 1.429 1.429 0 01-2.858 0zm12.857 5.714a1.429 1.429 0 110-2.858 1.429 1.429 0 010 2.858z"
-                        />
-                      </g>
-                    </svg>
-                  </span>
-                  <span
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                        <g
+                          fill="#25A6F7"
+                        >
+                          <path
+                            d="M17.857 2.705h-3.672a2.85 2.85 0 00-5.614.714 2.85 2.85 0 005.614.714h3.672c.395 0 .714.32.714.715v6.428c0 .395-.32.714-.714.714h-6.786a.714.714 0 100 1.429h6.786c1.184 0 2.143-.96 2.143-2.143V4.848c0-1.184-.96-2.143-2.143-2.143zM11.43 4.848a1.429 1.429 0 110-2.858 1.429 1.429 0 010 2.858z"
+                          />
+                          <path
+                            d="M17.143 14.848c-1.28 0-2.352.848-2.715 2.01H7.143a.711.711 0 01-.709-.685 2.85 2.85 0 00-.72-5.611 2.844 2.844 0 00-2.46 1.428H2.143a.714.714 0 01-.714-.714V4.848c0-.395.32-.715.714-.715h4.643a.714.714 0 000-1.428H2.143C.959 2.705 0 3.665 0 4.848v6.428c0 1.184.96 2.143 2.143 2.143h.714a2.85 2.85 0 002.147 2.757 2.14 2.14 0 002.139 2.11h7.203a2.857 2.857 0 102.797-3.438zM4.286 13.419a1.429 1.429 0 112.858 0 1.429 1.429 0 01-2.858 0zm12.857 5.714a1.429 1.429 0 110-2.858 1.429 1.429 0 010 2.858z"
+                          />
+                        </g>
+                      </svg>
+                    </span>
+                    <span
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                      style="--text-line-clamp: 1;"
+                    >
+                      pipelineOne
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     pipelineOne
-                  </span>
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
-              >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  pipelineOne
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 50%;"
-              >
-                <a
-                  href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/pipelineOne.yaml"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
-                    style="--text-line-clamp: 1;"
-                  >
-                    https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/pipelineOne.yaml
                   </p>
-                </a>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 50%;"
+                >
+                  <a
+                    href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/pipelineOne.yaml"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
+                      style="--text-line-clamp: 1;"
+                    >
+                      https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/pipelineOne.yaml
+                    </p>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -512,77 +516,81 @@ exports[`Git Sync - entity tab rendering summary view of a gitSyncRepo  1`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--horizontal StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
-                    data-icon="connectors-icon"
+                  <div
+                    class="Layout--horizontal StyledProps--main"
                   >
-                    <svg
-                      fill="none"
-                      height="16"
-                      viewBox="0 0 53 70"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
+                      data-icon="connectors-icon"
                     >
-                      <path
-                        d="M9 56.5c-3 .5-7.5-2-7-2m7 2c15 0 12-25.5 12-40l5 4-6.5-19-9 19 6-4s-.628 37-7.5 40z"
-                        stroke="#445EE9"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <path
-                        d="M47 58.996c-6.5-9.5-18-11.5-33.5-3 20-6.605 30.717 4.66 30.717 4.66h-8L52 68.496l-.783-16-4.217 6.5z"
-                        stroke="#445EE9"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
-                    style="--text-line-clamp: 1;"
-                  >
-                    Connector One
-                  </span>
+                      <svg
+                        fill="none"
+                        height="16"
+                        viewBox="0 0 53 70"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 56.5c-3 .5-7.5-2-7-2m7 2c15 0 12-25.5 12-40l5 4-6.5-19-9 19 6-4s-.628 37-7.5 40z"
+                          stroke="#445EE9"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M47 58.996c-6.5-9.5-18-11.5-33.5-3 20-6.605 30.717 4.66 30.717 4.66h-8L52 68.496l-.783-16-4.217 6.5z"
+                          stroke="#445EE9"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                      style="--text-line-clamp: 1;"
+                    >
+                      Connector One
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
-              >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  ConnectorOne
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 50%;"
-              >
-                <a
-                  href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/abc.yaml"
-                  rel="noopener noreferrer"
-                  target="_blank"
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
                 >
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
-                    https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/abc.yaml
+                    ConnectorOne
                   </p>
-                </a>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 50%;"
+                >
+                  <a
+                    href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/abc.yaml"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
+                      style="--text-line-clamp: 1;"
+                    >
+                      https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/abc.yaml
+                    </p>
+                  </a>
+                </div>
               </div>
             </div>
             <div
@@ -590,77 +598,81 @@ exports[`Git Sync - entity tab rendering summary view of a gitSyncRepo  1`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--horizontal StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
-                    data-icon="connectors-icon"
+                  <div
+                    class="Layout--horizontal StyledProps--main"
                   >
-                    <svg
-                      fill="none"
-                      height="16"
-                      viewBox="0 0 53 70"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
+                      data-icon="connectors-icon"
                     >
-                      <path
-                        d="M9 56.5c-3 .5-7.5-2-7-2m7 2c15 0 12-25.5 12-40l5 4-6.5-19-9 19 6-4s-.628 37-7.5 40z"
-                        stroke="#445EE9"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                      <path
-                        d="M47 58.996c-6.5-9.5-18-11.5-33.5-3 20-6.605 30.717 4.66 30.717 4.66h-8L52 68.496l-.783-16-4.217 6.5z"
-                        stroke="#445EE9"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                      />
-                    </svg>
-                  </span>
-                  <span
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                      <svg
+                        fill="none"
+                        height="16"
+                        viewBox="0 0 53 70"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M9 56.5c-3 .5-7.5-2-7-2m7 2c15 0 12-25.5 12-40l5 4-6.5-19-9 19 6-4s-.628 37-7.5 40z"
+                          stroke="#445EE9"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                        <path
+                          d="M47 58.996c-6.5-9.5-18-11.5-33.5-3 20-6.605 30.717 4.66 30.717 4.66h-8L52 68.496l-.783-16-4.217 6.5z"
+                          stroke="#445EE9"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                      style="--text-line-clamp: 1;"
+                    >
+                      dailyTestOne
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     dailyTestOne
-                  </span>
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
-              >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  dailyTestOne
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 50%;"
-              >
-                <a
-                  href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/dailyTestOne.yaml"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
-                    style="--text-line-clamp: 1;"
-                  >
-                    https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/dailyTestOne.yaml
                   </p>
-                </a>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 50%;"
+                >
+                  <a
+                    href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/dailyTestOne.yaml"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
+                      style="--text-line-clamp: 1;"
+                    >
+                      https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/dailyTestOne.yaml
+                    </p>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -741,104 +753,108 @@ exports[`Git Sync - entity tab rendering summary view of a gitSyncRepo  1`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--horizontal StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
-                    data-icon="cf-main"
+                  <div
+                    class="Layout--horizontal StyledProps--main"
                   >
-                    <svg
-                      height="16"
-                      viewBox="0 0 32 32"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
+                      data-icon="cf-main"
                     >
-                      <path
-                        d="M10.632 2.08A5.19 5.19 0 004.62 6.29L2.08 20.697a5.19 5.19 0 004.21 6.012l7.464 1.316a.2.2 0 00.207-.298L6.882 15.656c-.296-.469-.292-1.382.05-1.6.08-.05.313-.259.313-.259l.398-.436.066-.072c.37-.406.704-.773 1.76-1.302l.227-.079c1.548-.484 2.41-.449 3.27-.414.862.035 1.724.07 3.274-.414 1.272-.397 2.43-1.178 3.074-1.667a.622.622 0 01.9.15l4.596 7.362a.53.53 0 01-.101.696 8.694 8.694 0 01-2.834 1.538c-1.549.484-2.432.463-3.316.442-.884-.021-1.768-.042-3.318.442-1.314.41-1.868.948-2.07 1.204-.048.061-.07.21-.032.279.4.724 2.295 4.06 3.794 6.693a.998.998 0 00.695.49l3.07.541a5.19 5.19 0 006.012-4.21l2.54-14.408a5.19 5.19 0 00-4.21-6.012L10.633 2.08z"
-                        fill="url(#cf-main_svg__a)"
-                      />
-                      <path
-                        d="M16.646 13.074c-1.303.34-2.093.316-2.882.29-.79-.024-1.58-.049-2.881.291-.744.216-1.178.592-1.587 1.072a.197.197 0 00-.018.23l2.482 4.069c.064.106.209.13.307.055.374-.283 1.28-.9 2.42-1.198 1.469-.383 2.348-.375 3.273-.366.717.007 1.462.014 2.53-.16a4.454 4.454 0 001.629-.635.347.347 0 00.094-.488L19.472 12.3a.421.421 0 00-.56-.128 9.57 9.57 0 01-2.266.902z"
-                        fill="url(#cf-main_svg__b)"
-                      />
-                      <defs>
-                        <lineargradient
-                          gradientUnits="userSpaceOnUse"
-                          id="cf-main_svg__a"
-                          x1="6.837"
-                          x2="23.78"
-                          y1="2"
-                          y2="28.227"
-                        >
-                          <stop
-                            stop-color="#FFC100"
-                          />
-                          <stop
-                            offset="1"
-                            stop-color="#E66B35"
-                          />
-                        </lineargradient>
-                        <lineargradient
-                          gradientUnits="userSpaceOnUse"
-                          id="cf-main_svg__b"
-                          x1="6.837"
-                          x2="23.78"
-                          y1="2"
-                          y2="28.227"
-                        >
-                          <stop
-                            stop-color="#FFC100"
-                          />
-                          <stop
-                            offset="1"
-                            stop-color="#E66B35"
-                          />
-                        </lineargradient>
-                      </defs>
-                    </svg>
-                  </span>
-                  <span
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                      <svg
+                        height="16"
+                        viewBox="0 0 32 32"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.632 2.08A5.19 5.19 0 004.62 6.29L2.08 20.697a5.19 5.19 0 004.21 6.012l7.464 1.316a.2.2 0 00.207-.298L6.882 15.656c-.296-.469-.292-1.382.05-1.6.08-.05.313-.259.313-.259l.398-.436.066-.072c.37-.406.704-.773 1.76-1.302l.227-.079c1.548-.484 2.41-.449 3.27-.414.862.035 1.724.07 3.274-.414 1.272-.397 2.43-1.178 3.074-1.667a.622.622 0 01.9.15l4.596 7.362a.53.53 0 01-.101.696 8.694 8.694 0 01-2.834 1.538c-1.549.484-2.432.463-3.316.442-.884-.021-1.768-.042-3.318.442-1.314.41-1.868.948-2.07 1.204-.048.061-.07.21-.032.279.4.724 2.295 4.06 3.794 6.693a.998.998 0 00.695.49l3.07.541a5.19 5.19 0 006.012-4.21l2.54-14.408a5.19 5.19 0 00-4.21-6.012L10.633 2.08z"
+                          fill="url(#cf-main_svg__a)"
+                        />
+                        <path
+                          d="M16.646 13.074c-1.303.34-2.093.316-2.882.29-.79-.024-1.58-.049-2.881.291-.744.216-1.178.592-1.587 1.072a.197.197 0 00-.018.23l2.482 4.069c.064.106.209.13.307.055.374-.283 1.28-.9 2.42-1.198 1.469-.383 2.348-.375 3.273-.366.717.007 1.462.014 2.53-.16a4.454 4.454 0 001.629-.635.347.347 0 00.094-.488L19.472 12.3a.421.421 0 00-.56-.128 9.57 9.57 0 01-2.266.902z"
+                          fill="url(#cf-main_svg__b)"
+                        />
+                        <defs>
+                          <lineargradient
+                            gradientUnits="userSpaceOnUse"
+                            id="cf-main_svg__a"
+                            x1="6.837"
+                            x2="23.78"
+                            y1="2"
+                            y2="28.227"
+                          >
+                            <stop
+                              stop-color="#FFC100"
+                            />
+                            <stop
+                              offset="1"
+                              stop-color="#E66B35"
+                            />
+                          </lineargradient>
+                          <lineargradient
+                            gradientUnits="userSpaceOnUse"
+                            id="cf-main_svg__b"
+                            x1="6.837"
+                            x2="23.78"
+                            y1="2"
+                            y2="28.227"
+                          >
+                            <stop
+                              stop-color="#FFC100"
+                            />
+                            <stop
+                              offset="1"
+                              stop-color="#E66B35"
+                            />
+                          </lineargradient>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                      style="--text-line-clamp: 1;"
+                    >
+                      featureFlags
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     featureFlags
-                  </span>
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
-              >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  featureFlags
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 50%;"
-              >
-                <a
-                  href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/featureflags.yaml"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
-                    style="--text-line-clamp: 1;"
-                  >
-                    https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/featureflags.yaml
                   </p>
-                </a>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 50%;"
+                >
+                  <a
+                    href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/featureflags.yaml"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
+                      style="--text-line-clamp: 1;"
+                    >
+                      https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/featureflags.yaml
+                    </p>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -926,71 +942,75 @@ exports[`Git Sync - entity tab rendering summary view of a gitSyncRepo  2`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--horizontal StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
-                    data-icon="pipeline-ng"
+                  <div
+                    class="Layout--horizontal StyledProps--main"
                   >
-                    <svg
-                      height="16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
+                      data-icon="pipeline-ng"
                     >
-                      <g
-                        fill="#25A6F7"
+                      <svg
+                        height="16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path
-                          d="M17.857 2.705h-3.672a2.85 2.85 0 00-5.614.714 2.85 2.85 0 005.614.714h3.672c.395 0 .714.32.714.715v6.428c0 .395-.32.714-.714.714h-6.786a.714.714 0 100 1.429h6.786c1.184 0 2.143-.96 2.143-2.143V4.848c0-1.184-.96-2.143-2.143-2.143zM11.43 4.848a1.429 1.429 0 110-2.858 1.429 1.429 0 010 2.858z"
-                        />
-                        <path
-                          d="M17.143 14.848c-1.28 0-2.352.848-2.715 2.01H7.143a.711.711 0 01-.709-.685 2.85 2.85 0 00-.72-5.611 2.844 2.844 0 00-2.46 1.428H2.143a.714.714 0 01-.714-.714V4.848c0-.395.32-.715.714-.715h4.643a.714.714 0 000-1.428H2.143C.959 2.705 0 3.665 0 4.848v6.428c0 1.184.96 2.143 2.143 2.143h.714a2.85 2.85 0 002.147 2.757 2.14 2.14 0 002.139 2.11h7.203a2.857 2.857 0 102.797-3.438zM4.286 13.419a1.429 1.429 0 112.858 0 1.429 1.429 0 01-2.858 0zm12.857 5.714a1.429 1.429 0 110-2.858 1.429 1.429 0 010 2.858z"
-                        />
-                      </g>
-                    </svg>
-                  </span>
-                  <span
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                        <g
+                          fill="#25A6F7"
+                        >
+                          <path
+                            d="M17.857 2.705h-3.672a2.85 2.85 0 00-5.614.714 2.85 2.85 0 005.614.714h3.672c.395 0 .714.32.714.715v6.428c0 .395-.32.714-.714.714h-6.786a.714.714 0 100 1.429h6.786c1.184 0 2.143-.96 2.143-2.143V4.848c0-1.184-.96-2.143-2.143-2.143zM11.43 4.848a1.429 1.429 0 110-2.858 1.429 1.429 0 010 2.858z"
+                          />
+                          <path
+                            d="M17.143 14.848c-1.28 0-2.352.848-2.715 2.01H7.143a.711.711 0 01-.709-.685 2.85 2.85 0 00-.72-5.611 2.844 2.844 0 00-2.46 1.428H2.143a.714.714 0 01-.714-.714V4.848c0-.395.32-.715.714-.715h4.643a.714.714 0 000-1.428H2.143C.959 2.705 0 3.665 0 4.848v6.428c0 1.184.96 2.143 2.143 2.143h.714a2.85 2.85 0 002.147 2.757 2.14 2.14 0 002.139 2.11h7.203a2.857 2.857 0 102.797-3.438zM4.286 13.419a1.429 1.429 0 112.858 0 1.429 1.429 0 01-2.858 0zm12.857 5.714a1.429 1.429 0 110-2.858 1.429 1.429 0 010 2.858z"
+                          />
+                        </g>
+                      </svg>
+                    </span>
+                    <span
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                      style="--text-line-clamp: 1;"
+                    >
+                      pipelineOne
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     pipelineOne
-                  </span>
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
-              >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  pipelineOne
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 50%;"
-              >
-                <a
-                  href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/pipelineOne.yaml"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
-                    style="--text-line-clamp: 1;"
-                  >
-                    https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/pipelineOne.yaml
                   </p>
-                </a>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 50%;"
+                >
+                  <a
+                    href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/pipelineOne.yaml"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
+                      style="--text-line-clamp: 1;"
+                    >
+                      https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/pipelineOne.yaml
+                    </p>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -1200,104 +1220,108 @@ exports[`Git Sync - entity tab rendering summary view of a gitSyncRepo  2`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--horizontal StyledProps--main"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
-                    data-icon="cf-main"
+                  <div
+                    class="Layout--horizontal StyledProps--main"
                   >
-                    <svg
-                      height="16"
-                      viewBox="0 0 32 32"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main StyledProps--inline StyledProps--color"
+                      data-icon="cf-main"
                     >
-                      <path
-                        d="M10.632 2.08A5.19 5.19 0 004.62 6.29L2.08 20.697a5.19 5.19 0 004.21 6.012l7.464 1.316a.2.2 0 00.207-.298L6.882 15.656c-.296-.469-.292-1.382.05-1.6.08-.05.313-.259.313-.259l.398-.436.066-.072c.37-.406.704-.773 1.76-1.302l.227-.079c1.548-.484 2.41-.449 3.27-.414.862.035 1.724.07 3.274-.414 1.272-.397 2.43-1.178 3.074-1.667a.622.622 0 01.9.15l4.596 7.362a.53.53 0 01-.101.696 8.694 8.694 0 01-2.834 1.538c-1.549.484-2.432.463-3.316.442-.884-.021-1.768-.042-3.318.442-1.314.41-1.868.948-2.07 1.204-.048.061-.07.21-.032.279.4.724 2.295 4.06 3.794 6.693a.998.998 0 00.695.49l3.07.541a5.19 5.19 0 006.012-4.21l2.54-14.408a5.19 5.19 0 00-4.21-6.012L10.633 2.08z"
-                        fill="url(#cf-main_svg__a)"
-                      />
-                      <path
-                        d="M16.646 13.074c-1.303.34-2.093.316-2.882.29-.79-.024-1.58-.049-2.881.291-.744.216-1.178.592-1.587 1.072a.197.197 0 00-.018.23l2.482 4.069c.064.106.209.13.307.055.374-.283 1.28-.9 2.42-1.198 1.469-.383 2.348-.375 3.273-.366.717.007 1.462.014 2.53-.16a4.454 4.454 0 001.629-.635.347.347 0 00.094-.488L19.472 12.3a.421.421 0 00-.56-.128 9.57 9.57 0 01-2.266.902z"
-                        fill="url(#cf-main_svg__b)"
-                      />
-                      <defs>
-                        <lineargradient
-                          gradientUnits="userSpaceOnUse"
-                          id="cf-main_svg__a"
-                          x1="6.837"
-                          x2="23.78"
-                          y1="2"
-                          y2="28.227"
-                        >
-                          <stop
-                            stop-color="#FFC100"
-                          />
-                          <stop
-                            offset="1"
-                            stop-color="#E66B35"
-                          />
-                        </lineargradient>
-                        <lineargradient
-                          gradientUnits="userSpaceOnUse"
-                          id="cf-main_svg__b"
-                          x1="6.837"
-                          x2="23.78"
-                          y1="2"
-                          y2="28.227"
-                        >
-                          <stop
-                            stop-color="#FFC100"
-                          />
-                          <stop
-                            offset="1"
-                            stop-color="#E66B35"
-                          />
-                        </lineargradient>
-                      </defs>
-                    </svg>
-                  </span>
-                  <span
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                      <svg
+                        height="16"
+                        viewBox="0 0 32 32"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M10.632 2.08A5.19 5.19 0 004.62 6.29L2.08 20.697a5.19 5.19 0 004.21 6.012l7.464 1.316a.2.2 0 00.207-.298L6.882 15.656c-.296-.469-.292-1.382.05-1.6.08-.05.313-.259.313-.259l.398-.436.066-.072c.37-.406.704-.773 1.76-1.302l.227-.079c1.548-.484 2.41-.449 3.27-.414.862.035 1.724.07 3.274-.414 1.272-.397 2.43-1.178 3.074-1.667a.622.622 0 01.9.15l4.596 7.362a.53.53 0 01-.101.696 8.694 8.694 0 01-2.834 1.538c-1.549.484-2.432.463-3.316.442-.884-.021-1.768-.042-3.318.442-1.314.41-1.868.948-2.07 1.204-.048.061-.07.21-.032.279.4.724 2.295 4.06 3.794 6.693a.998.998 0 00.695.49l3.07.541a5.19 5.19 0 006.012-4.21l2.54-14.408a5.19 5.19 0 00-4.21-6.012L10.633 2.08z"
+                          fill="url(#cf-main_svg__a)"
+                        />
+                        <path
+                          d="M16.646 13.074c-1.303.34-2.093.316-2.882.29-.79-.024-1.58-.049-2.881.291-.744.216-1.178.592-1.587 1.072a.197.197 0 00-.018.23l2.482 4.069c.064.106.209.13.307.055.374-.283 1.28-.9 2.42-1.198 1.469-.383 2.348-.375 3.273-.366.717.007 1.462.014 2.53-.16a4.454 4.454 0 001.629-.635.347.347 0 00.094-.488L19.472 12.3a.421.421 0 00-.56-.128 9.57 9.57 0 01-2.266.902z"
+                          fill="url(#cf-main_svg__b)"
+                        />
+                        <defs>
+                          <lineargradient
+                            gradientUnits="userSpaceOnUse"
+                            id="cf-main_svg__a"
+                            x1="6.837"
+                            x2="23.78"
+                            y1="2"
+                            y2="28.227"
+                          >
+                            <stop
+                              stop-color="#FFC100"
+                            />
+                            <stop
+                              offset="1"
+                              stop-color="#E66B35"
+                            />
+                          </lineargradient>
+                          <lineargradient
+                            gradientUnits="userSpaceOnUse"
+                            id="cf-main_svg__b"
+                            x1="6.837"
+                            x2="23.78"
+                            y1="2"
+                            y2="28.227"
+                          >
+                            <stop
+                              stop-color="#FFC100"
+                            />
+                            <stop
+                              offset="1"
+                              stop-color="#E66B35"
+                            />
+                          </lineargradient>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--padding-left-small StyledProps--inline"
+                      style="--text-line-clamp: 1;"
+                    >
+                      featureFlags
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
                     style="--text-line-clamp: 1;"
                   >
                     featureFlags
-                  </span>
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
-              >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  featureFlags
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 50%;"
-              >
-                <a
-                  href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/featureflags.yaml"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
-                    style="--text-line-clamp: 1;"
-                  >
-                    https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/featureflags.yaml
                   </p>
-                </a>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 50%;"
+                >
+                  <a
+                    href="https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/featureflags.yaml"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-primary7"
+                      style="--text-line-clamp: 1;"
+                    >
+                      https://github.com/wings-software/sunnykesh-gitSync/blob/gitSync/second/.harness/featureflags.yaml
+                    </p>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -122,6 +122,7 @@ queueStep:
   queuedExecutions: Queued Executions
   queuedByResourceKey: 'Queued by Resource Key:'
 jenkinsStep:
+  addJobParameters: Add Job Parameter
   validations:
     jobName: Jobname is a required field
   jobNamePlaceholder: Select Job Name
@@ -300,8 +301,6 @@ manifestType:
   kustomizePathHelperText: Enter the path from the root of the Source Provider repo to the folder containing kustomization.yaml
   helmCommandFlags: By Default, Harness versions ConfigMaps and Secrets that are deployed into the Kubernetes Cluster.
   helmCommandFlagLabel: Helm Command Flags (optional)
-  helmCommandType: Command Type
-  helmCommandTypePlaceholder: Enter Command Type
   helmVersionRequired: 'Helm Version is required'
   commandFlagRequired: 'Command Flag is required'
   folderPathRequired: Folder Path is required
@@ -483,7 +482,7 @@ execution:
     abortTitle: Abort Execution?
 resourceConstraints:
   title: Resource Constraint
-  infoText: 'You have {{executioncount}} {{executiontext}} in queue that have to complete before your execution begins. Only one execution on a {{infraEntityText}} is allowed at a time.'
+  infoText: You have {{executioncount}} Pipeline {{executiontext}} queued for this {{infraEntityText}}. Only one execution on the same {{infraEntityText}} is allowed at a time.
   currentlyExecuting: ' ( currently executing )'
   yourPipeline: ' ( your execution )'
   k8sNamespaceText: K8s namespace
@@ -552,6 +551,10 @@ duration: Duration
 and: '{{ $.common.andCaps }}'
 gitDetails: git details
 runtimeInputs: Runtime Inputs
+jenkinsBuild: Jenkins Builds
+enterBuildRegex: Enter Build Regex
+buildRegex: Build Regex
+selectJenkinsBuildsPlaceholder: Select Jenkins Build
 releaseRepo: Release Repo
 addReleaseRepo: + Add Release Repo Manifest
 releaseRepoStore: Release Repo Store
@@ -739,6 +742,7 @@ infraSpecifications:
     macos: MacOS
 imagePathLabel: Image Path
 artifactPathLabel: Artifact Path
+selectArtifactPathPlaceholder: Select or Enter an Artifact Path (Optional)
 artifactPathFilterLabel: Artifact Path Filter
 artifactsSelection:
   repositoryPort: Repository Port
@@ -935,7 +939,7 @@ executionStrategy:
   strategies:
     rolling:
       description: All pods/instances in a single environment are incrementally replaced with a new service version without downtime.
-      learnMoreLink: https://ngdocs.harness.io/article/0zsf97lo3c-deployment-concepts#rolling_deployment
+      learnMoreLink: https://docs.harness.io/article/0zsf97lo3c-deployment-concepts#rolling_deployment
       steps:
         step1:
           description: Test the new version.
@@ -945,7 +949,7 @@ executionStrategy:
           description: Replace new version.
     blueGreen:
       description: 'Two identical environments for staging and production traffic run simultaneously with different versions of the service. Deployment of a new service version is first done to the staging environment. Once the new version is verified, network traffic is switched between the two environments. The staging environment is now the production environment.'
-      learnMoreLink: https://ngdocs.harness.io/article/0zsf97lo3c-deployment-concepts#blue_green_deployment
+      learnMoreLink: https://docs.harness.io/article/0zsf97lo3c-deployment-concepts#blue_green_deployment
       steps:
         step1:
           description: Maintain two identical fleets of servers.
@@ -955,7 +959,7 @@ executionStrategy:
           description: After verification, switch the load balancer to point to the newly-deployed fleet.
     canary:
       description: 'Harness performs a two phase deployment: Phase 1 adds new pods/instances with the new service version to a single environment. Phase 2 performs a Rolling Update in the same environment.'
-      learnMoreLink: https://ngdocs.harness.io/article/0zsf97lo3c-deployment-concepts#canary_deployment
+      learnMoreLink: https://docs.harness.io/article/0zsf97lo3c-deployment-concepts#canary_deployment
       steps:
         step1:
           title: 'Canary deployment:'
@@ -970,7 +974,7 @@ executionStrategy:
       actualName: '{{$.common.default}}'
       displayName: Blank Canvas
       description: A blank slate for custom processes. You can use any combination of steps. Only recommended for advanced users.
-      learnMoreLink: https://ngdocs.harness.io/article/0zsf97lo3c-deployment-concepts#basic_deployment
+      learnMoreLink: https://docs.harness.io/article/0zsf97lo3c-deployment-concepts#basic_deployment
     basic:
       description: In a Basic deployment, all nodes within a single environment are replaced at the same time with new nodes containing the new service/artifact version.Basic deployments are useful for development, learning Harness, and any non-mission critical workflows.
     common:
@@ -1032,6 +1036,7 @@ noApprovalInstanceCreated: Approval instance not created, no details to display
 approvalTypeRequired: Approval type is required
 executionList:
   servicesDeployedText: 'Services deployed ({{size}})'
+  artifactDeployedText: 'Artifacts deployed ({{size}})'
   EnvironmentsText: 'Environments ({{size}})'
 replacedExpressions: Replaced Expressions
 expressionRequired: Expression value is required.
@@ -1161,6 +1166,10 @@ OverviewEmptyStates:
 importSuccessMessage: '{{resourceType}} has been imported successfully'
 MatrixNode:
   maxConcurrency: 'Max Concurrency:'
+fieldLabels:
+  commandType: Command Type
+fieldPlaceholders:
+  commandType: Enter Command Type
 traffic: Traffic
 viewPipeline: View Pipeline
 codeSource: 'Code Source'

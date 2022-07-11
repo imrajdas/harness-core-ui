@@ -2216,404 +2216,408 @@ exports[`CD Pipeline Page List render list view 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 35%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 35%;"
             >
-              <span
-                class="pipelineIcons spaceBetween"
-              >
-                <span
-                  class="bp3-icon StyledProps--main StyledProps--padding-left-xsmall"
-                  data-icon="cd-main"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 32 32"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
-                      fill="url(#cd-main_svg__a)"
-                      fill-rule="evenodd"
-                    />
-                    <defs>
-                      <lineargradient
-                        gradientUnits="userSpaceOnUse"
-                        id="cd-main_svg__a"
-                        x1="6.774"
-                        x2="21.5"
-                        y1="2"
-                        y2="30"
-                      >
-                        <stop
-                          stop-color="#62F91F"
-                        />
-                        <stop
-                          offset="1"
-                          stop-color="#45BD35"
-                        />
-                      </lineargradient>
-                    </defs>
-                  </svg>
-                </span>
-                <span
-                  class="bp3-icon StyledProps--main StyledProps--padding-left-xsmall"
-                  data-icon="ci-main"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 32 32"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M29 16a13.02 13.02 0 01-.854 4.6.387.387 0 01-.637.13l-3.99-3.94a.534.534 0 01-.085-.628c.432-.827.649-1.773.649-2.762.056-3.222-2.6-5.878-5.879-5.878-1.04 0-1.994.26-2.823.706a.53.53 0 01-.623-.08l-3.551-3.504a.48.48 0 01.154-.794A12.79 12.79 0 0116 3c7.178 0 13 5.822 13 13zM8.476 5.42a.582.582 0 01.746.072l4.035 4.035c.179.178.194.46.054.67a5.829 5.829 0 00-.985 3.26 5.934 5.934 0 005.935 5.934 5.829 5.829 0 003.26-.985.531.531 0 01.67.054l4.367 4.368a.582.582 0 01.065.756C24.225 26.86 20.4 29 16 29 8.822 29 3 23.178 3 16c0-4.403 2.144-8.231 5.476-10.58zm9.785 11.71a3.932 3.932 0 003.956-3.956 3.932 3.932 0 00-3.956-3.957 3.932 3.932 0 00-3.957 3.957 3.932 3.932 0 003.957 3.956z"
-                      fill="url(#ci-main_svg__a)"
-                      fill-rule="evenodd"
-                    />
-                    <defs>
-                      <lineargradient
-                        gradientUnits="userSpaceOnUse"
-                        id="ci-main_svg__a"
-                        x1="-5.398"
-                        x2="11.398"
-                        y1="11.398"
-                        y2="37.398"
-                      >
-                        <stop
-                          stop-color="#73DFE7"
-                        />
-                        <stop
-                          offset="1"
-                          stop-color="#0095F7"
-                        />
-                      </lineargradient>
-                    </defs>
-                  </svg>
-                </span>
-              </span>
               <div
-                class="pipelineInfo"
+                class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
               >
+                <span
+                  class="pipelineIcons spaceBetween"
+                >
+                  <span
+                    class="bp3-icon StyledProps--main StyledProps--padding-left-xsmall"
+                    data-icon="cd-main"
+                  >
+                    <svg
+                      height="16"
+                      viewBox="0 0 32 32"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
+                        fill="url(#cd-main_svg__a)"
+                        fill-rule="evenodd"
+                      />
+                      <defs>
+                        <lineargradient
+                          gradientUnits="userSpaceOnUse"
+                          id="cd-main_svg__a"
+                          x1="6.774"
+                          x2="21.5"
+                          y1="2"
+                          y2="30"
+                        >
+                          <stop
+                            stop-color="#62F91F"
+                          />
+                          <stop
+                            offset="1"
+                            stop-color="#45BD35"
+                          />
+                        </lineargradient>
+                      </defs>
+                    </svg>
+                  </span>
+                  <span
+                    class="bp3-icon StyledProps--main StyledProps--padding-left-xsmall"
+                    data-icon="ci-main"
+                  >
+                    <svg
+                      height="16"
+                      viewBox="0 0 32 32"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M29 16a13.02 13.02 0 01-.854 4.6.387.387 0 01-.637.13l-3.99-3.94a.534.534 0 01-.085-.628c.432-.827.649-1.773.649-2.762.056-3.222-2.6-5.878-5.879-5.878-1.04 0-1.994.26-2.823.706a.53.53 0 01-.623-.08l-3.551-3.504a.48.48 0 01.154-.794A12.79 12.79 0 0116 3c7.178 0 13 5.822 13 13zM8.476 5.42a.582.582 0 01.746.072l4.035 4.035c.179.178.194.46.054.67a5.829 5.829 0 00-.985 3.26 5.934 5.934 0 005.935 5.934 5.829 5.829 0 003.26-.985.531.531 0 01.67.054l4.367 4.368a.582.582 0 01.065.756C24.225 26.86 20.4 29 16 29 8.822 29 3 23.178 3 16c0-4.403 2.144-8.231 5.476-10.58zm9.785 11.71a3.932 3.932 0 003.956-3.956 3.932 3.932 0 00-3.956-3.957 3.932 3.932 0 00-3.957 3.957 3.932 3.932 0 003.957 3.956z"
+                        fill="url(#ci-main_svg__a)"
+                        fill-rule="evenodd"
+                      />
+                      <defs>
+                        <lineargradient
+                          gradientUnits="userSpaceOnUse"
+                          id="ci-main_svg__a"
+                          x1="-5.398"
+                          x2="11.398"
+                          y1="11.398"
+                          y2="37.398"
+                        >
+                          <stop
+                            stop-color="#73DFE7"
+                          />
+                          <stop
+                            offset="1"
+                            stop-color="#0095F7"
+                          />
+                        </lineargradient>
+                      </defs>
+                    </svg>
+                  </span>
+                </span>
                 <div
-                  class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
+                  class="pipelineInfo"
                 >
                   <div
-                    class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-                    data-testid="pipeline1"
+                    class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
                   >
                     <div
-                      class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                      class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                      data-testid="pipeline1"
                     >
-                      <span
-                        class="bp3-popover-wrapper"
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
                       >
                         <span
-                          class="bp3-popover-target Text--targetClass"
+                          class="bp3-popover-wrapper"
                         >
-                          <p
-                            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-grey800"
-                            tabindex="0"
+                          <span
+                            class="bp3-popover-target Text--targetClass"
                           >
-                            pipeline1
-                          </p>
+                            <p
+                              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-grey800"
+                              tabindex="0"
+                            >
+                              pipeline1
+                            </p>
+                          </span>
                         </span>
-                      </span>
+                      </div>
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
+                      >
+                        idLabel
+                      </p>
                     </div>
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
-                    >
-                      idLabel
-                    </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
-              style="align-items: center;"
-            >
-              <div>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-grey600"
-                  style="--text-line-clamp: 2;"
-                >
-                  executionsText
-                </p>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-primary7 StyledProps--font-small"
-                  style="max-width: 100px; --text-line-clamp: 2;"
-                >
-                  (
-                  pipeline.lastSevenDays
-                  )
-                </p>
-              </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-medium"
-              >
-                1
-              </p>
-              <span
-                class="activityChart"
-              >
-                <div
-                  class="StyledProps--font StyledProps--main SparkChart--main"
-                  role="spark-chart"
-                >
-                  <div
-                    class="container vertical rounded"
-                  >
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 50%;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 50%; bottom: 50%;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
-              style="align-items: center;"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                style="align-items: center;"
               >
-                <p
-                  class="StyledProps--font StyledProps--main"
-                  style="display: flex; align-items: center;"
-                >
-                  1612888596211
-                  <span
-                    class="bp3-icon bp3-icon-full-circle StyledProps--main Text--icon StyledProps--padding-left-medium StyledProps--color StyledProps--color-red800"
-                    icon="full-circle"
+                <div>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-grey600"
+                    style="--text-line-clamp: 2;"
                   >
-                    <svg
-                      data-icon="full-circle"
-                      height="8"
-                      viewBox="0 0 16 16"
-                      width="8"
-                    >
-                      <desc>
-                        full-circle
-                      </desc>
-                      <path
-                        d="M8 0a8 8 0 100 16A8 8 0 108 0z"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
+                    executionsText
+                  </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-primary7 StyledProps--font-small"
+                    style="max-width: 100px; --text-line-clamp: 2;"
+                  >
+                    (
+                    pipeline.lastSevenDays
+                    )
+                  </p>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-medium"
+                >
+                  1
                 </p>
+                <span
+                  class="activityChart"
+                >
+                  <div
+                    class="StyledProps--font StyledProps--main SparkChart--main"
+                    role="spark-chart"
+                  >
+                    <div
+                      class="container vertical rounded"
+                    >
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 50%;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 50%; bottom: 50%;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </span>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 10%;"
-          >
-            <button
-              class="bp3-button Button--button StyledProps--font StyledProps--main runPipelineListBtn StyledProps--intent-success Button--withLeftIcon Button--variation Button--variation-secondary Button--size Button--small"
-              type="button"
-            >
-              <span
-                class="bp3-icon StyledProps--main StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-success"
-                data-icon="command-start"
-              >
-                <svg
-                  height="9"
-                  viewBox="0 0 8 10"
-                  width="9"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 5c0-.3-.1-.5-.3-.6L1 .1C.9.1.8 0 .7 0 .3 0 0 .3 0 .7v8.6c0 .4.3.7.7.7.1 0 .2-.1.3-.1l6.7-4.3c.2-.1.3-.3.3-.6z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              <span
-                class="bp3-button-text"
-              >
-                runPipelineText
-              </span>
-            </button>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
             <div
-              class="Layout--horizontal StyledProps--main"
-              style="justify-content: flex-end;"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
+                style="align-items: center;"
               >
-                <span
-                  class="bp3-popover-target"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
                 >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    type="button"
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                    style="display: flex; align-items: center;"
                   >
+                    1612888596211
                     <span
-                      class="bp3-icon bp3-icon-more StyledProps--main"
-                      icon="more"
+                      class="bp3-icon bp3-icon-full-circle StyledProps--main Text--icon StyledProps--padding-left-medium StyledProps--color StyledProps--color-red800"
+                      icon="full-circle"
                     >
                       <svg
-                        data-icon="more"
-                        height="16"
+                        data-icon="full-circle"
+                        height="8"
                         viewBox="0 0 16 16"
-                        width="16"
+                        width="8"
                       >
                         <desc>
-                          more
+                          full-circle
                         </desc>
                         <path
-                          d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                          d="M8 0a8 8 0 100 16A8 8 0 108 0z"
                           fill-rule="evenodd"
                         />
                       </svg>
                     </span>
-                  </button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 10%;"
+            >
+              <button
+                class="bp3-button Button--button StyledProps--font StyledProps--main runPipelineListBtn StyledProps--intent-success Button--withLeftIcon Button--variation Button--variation-secondary Button--size Button--small"
+                type="button"
+              >
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-success"
+                  data-icon="command-start"
+                >
+                  <svg
+                    height="9"
+                    viewBox="0 0 8 10"
+                    width="9"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 5c0-.3-.1-.5-.3-.6L1 .1C.9.1.8 0 .7 0 .3 0 0 .3 0 .7v8.6c0 .4.3.7.7.7.1 0 .2-.1.3-.1l6.7-4.3c.2-.1.3-.3.3-.6z"
+                      fill="#4d5969"
+                    />
+                  </svg>
                 </span>
-              </span>
+                <span
+                  class="bp3-button-text"
+                >
+                  runPipelineText
+                </span>
+              </button>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+                style="justify-content: flex-end;"
+              >
+                <span
+                  class="bp3-popover-wrapper bp3-dark"
+                >
+                  <span
+                    class="bp3-popover-target"
+                  >
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      type="button"
+                    >
+                      <span
+                        class="bp3-icon bp3-icon-more StyledProps--main"
+                        icon="more"
+                      >
+                        <svg
+                          data-icon="more"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          width="16"
+                        >
+                          <desc>
+                            more
+                          </desc>
+                          <path
+                            d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -2622,368 +2626,372 @@ exports[`CD Pipeline Page List render list view 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 35%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 35%;"
             >
-              <span
-                class="pipelineIcons center"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
               >
                 <span
-                  class="bp3-icon StyledProps--main StyledProps--padding-left-xsmall"
-                  data-icon="cd-main"
+                  class="pipelineIcons center"
                 >
-                  <svg
-                    height="16"
-                    viewBox="0 0 32 32"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="bp3-icon StyledProps--main StyledProps--padding-left-xsmall"
+                    data-icon="cd-main"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
-                      fill="url(#cd-main_svg__a)"
-                      fill-rule="evenodd"
-                    />
-                    <defs>
-                      <lineargradient
-                        gradientUnits="userSpaceOnUse"
-                        id="cd-main_svg__a"
-                        x1="6.774"
-                        x2="21.5"
-                        y1="2"
-                        y2="30"
-                      >
-                        <stop
-                          stop-color="#62F91F"
-                        />
-                        <stop
-                          offset="1"
-                          stop-color="#45BD35"
-                        />
-                      </lineargradient>
-                    </defs>
-                  </svg>
+                    <svg
+                      height="16"
+                      viewBox="0 0 32 32"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
+                        fill="url(#cd-main_svg__a)"
+                        fill-rule="evenodd"
+                      />
+                      <defs>
+                        <lineargradient
+                          gradientUnits="userSpaceOnUse"
+                          id="cd-main_svg__a"
+                          x1="6.774"
+                          x2="21.5"
+                          y1="2"
+                          y2="30"
+                        >
+                          <stop
+                            stop-color="#62F91F"
+                          />
+                          <stop
+                            offset="1"
+                            stop-color="#45BD35"
+                          />
+                        </lineargradient>
+                      </defs>
+                    </svg>
+                  </span>
                 </span>
-              </span>
-              <div
-                class="pipelineInfo"
-              >
                 <div
-                  class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
+                  class="pipelineInfo"
                 >
                   <div
-                    class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-                    data-testid="First_pipeline"
+                    class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
                   >
                     <div
-                      class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                      class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                      data-testid="First_pipeline"
                     >
-                      <span
-                        class="bp3-popover-wrapper"
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
                       >
                         <span
-                          class="bp3-popover-target Text--targetClass"
+                          class="bp3-popover-wrapper"
                         >
-                          <p
-                            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-grey800"
-                            tabindex="0"
+                          <span
+                            class="bp3-popover-target Text--targetClass"
                           >
-                            First pipeline
-                          </p>
+                            <p
+                              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-grey800"
+                              tabindex="0"
+                            >
+                              First pipeline
+                            </p>
+                          </span>
                         </span>
-                      </span>
+                      </div>
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
+                      >
+                        idLabel
+                      </p>
                     </div>
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
-                    >
-                      idLabel
-                    </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
-              style="align-items: center;"
-            >
-              <div>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-grey600"
-                  style="--text-line-clamp: 2;"
-                >
-                  executionsText
-                </p>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-primary7 StyledProps--font-small"
-                  style="max-width: 100px; --text-line-clamp: 2;"
-                >
-                  (
-                  pipeline.lastSevenDays
-                  )
-                </p>
-              </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-medium"
-              >
-                9
-              </p>
-              <span
-                class="activityChart"
-              >
-                <div
-                  class="StyledProps--font StyledProps--main SparkChart--main"
-                  role="spark-chart"
-                >
-                  <div
-                    class="container vertical rounded"
-                  >
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 14.285714285714285%;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 14.285714285714285%; bottom: 14.285714285714285%;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 50%;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 50%; bottom: 50%;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
-              style="align-items: center;"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                style="align-items: center;"
               >
-                <p
-                  class="StyledProps--font StyledProps--main"
-                  style="display: flex; align-items: center;"
-                >
-                  1612867219333
-                  <span
-                    class="bp3-icon bp3-icon-full-circle StyledProps--main Text--icon StyledProps--padding-left-medium StyledProps--color StyledProps--color-green800"
-                    icon="full-circle"
+                <div>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-grey600"
+                    style="--text-line-clamp: 2;"
                   >
-                    <svg
-                      data-icon="full-circle"
-                      height="8"
-                      viewBox="0 0 16 16"
-                      width="8"
-                    >
-                      <desc>
-                        full-circle
-                      </desc>
-                      <path
-                        d="M8 0a8 8 0 100 16A8 8 0 108 0z"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
+                    executionsText
+                  </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-primary7 StyledProps--font-small"
+                    style="max-width: 100px; --text-line-clamp: 2;"
+                  >
+                    (
+                    pipeline.lastSevenDays
+                    )
+                  </p>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-medium"
+                >
+                  9
                 </p>
+                <span
+                  class="activityChart"
+                >
+                  <div
+                    class="StyledProps--font StyledProps--main SparkChart--main"
+                    role="spark-chart"
+                  >
+                    <div
+                      class="container vertical rounded"
+                    >
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 14.285714285714285%;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 14.285714285714285%; bottom: 14.285714285714285%;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 50%;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 50%; bottom: 50%;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </span>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 10%;"
-          >
-            <button
-              class="bp3-button Button--button StyledProps--font StyledProps--main runPipelineListBtn StyledProps--intent-success Button--withLeftIcon Button--variation Button--variation-secondary Button--size Button--small"
-              type="button"
-            >
-              <span
-                class="bp3-icon StyledProps--main StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-success"
-                data-icon="command-start"
-              >
-                <svg
-                  height="9"
-                  viewBox="0 0 8 10"
-                  width="9"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 5c0-.3-.1-.5-.3-.6L1 .1C.9.1.8 0 .7 0 .3 0 0 .3 0 .7v8.6c0 .4.3.7.7.7.1 0 .2-.1.3-.1l6.7-4.3c.2-.1.3-.3.3-.6z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              <span
-                class="bp3-button-text"
-              >
-                runPipelineText
-              </span>
-            </button>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
             <div
-              class="Layout--horizontal StyledProps--main"
-              style="justify-content: flex-end;"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
+                style="align-items: center;"
               >
-                <span
-                  class="bp3-popover-target"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
                 >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    type="button"
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                    style="display: flex; align-items: center;"
                   >
+                    1612867219333
                     <span
-                      class="bp3-icon bp3-icon-more StyledProps--main"
-                      icon="more"
+                      class="bp3-icon bp3-icon-full-circle StyledProps--main Text--icon StyledProps--padding-left-medium StyledProps--color StyledProps--color-green800"
+                      icon="full-circle"
                     >
                       <svg
-                        data-icon="more"
-                        height="16"
+                        data-icon="full-circle"
+                        height="8"
                         viewBox="0 0 16 16"
-                        width="16"
+                        width="8"
                       >
                         <desc>
-                          more
+                          full-circle
                         </desc>
                         <path
-                          d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                          d="M8 0a8 8 0 100 16A8 8 0 108 0z"
                           fill-rule="evenodd"
                         />
                       </svg>
                     </span>
-                  </button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 10%;"
+            >
+              <button
+                class="bp3-button Button--button StyledProps--font StyledProps--main runPipelineListBtn StyledProps--intent-success Button--withLeftIcon Button--variation Button--variation-secondary Button--size Button--small"
+                type="button"
+              >
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-success"
+                  data-icon="command-start"
+                >
+                  <svg
+                    height="9"
+                    viewBox="0 0 8 10"
+                    width="9"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 5c0-.3-.1-.5-.3-.6L1 .1C.9.1.8 0 .7 0 .3 0 0 .3 0 .7v8.6c0 .4.3.7.7.7.1 0 .2-.1.3-.1l6.7-4.3c.2-.1.3-.3.3-.6z"
+                      fill="#4d5969"
+                    />
+                  </svg>
                 </span>
-              </span>
+                <span
+                  class="bp3-button-text"
+                >
+                  runPipelineText
+                </span>
+              </button>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+                style="justify-content: flex-end;"
+              >
+                <span
+                  class="bp3-popover-wrapper bp3-dark"
+                >
+                  <span
+                    class="bp3-popover-target"
+                  >
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      type="button"
+                    >
+                      <span
+                        class="bp3-icon bp3-icon-more StyledProps--main"
+                        icon="more"
+                      >
+                        <svg
+                          data-icon="more"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          width="16"
+                        >
+                          <desc>
+                            more
+                          </desc>
+                          <path
+                            d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -2992,368 +3000,372 @@ exports[`CD Pipeline Page List render list view 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 35%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 35%;"
             >
-              <span
-                class="pipelineIcons center"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
               >
                 <span
-                  class="bp3-icon StyledProps--main StyledProps--padding-left-xsmall"
-                  data-icon="cd-main"
+                  class="pipelineIcons center"
                 >
-                  <svg
-                    height="16"
-                    viewBox="0 0 32 32"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="bp3-icon StyledProps--main StyledProps--padding-left-xsmall"
+                    data-icon="cd-main"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
-                      fill="url(#cd-main_svg__a)"
-                      fill-rule="evenodd"
-                    />
-                    <defs>
-                      <lineargradient
-                        gradientUnits="userSpaceOnUse"
-                        id="cd-main_svg__a"
-                        x1="6.774"
-                        x2="21.5"
-                        y1="2"
-                        y2="30"
-                      >
-                        <stop
-                          stop-color="#62F91F"
-                        />
-                        <stop
-                          offset="1"
-                          stop-color="#45BD35"
-                        />
-                      </lineargradient>
-                    </defs>
-                  </svg>
+                    <svg
+                      height="16"
+                      viewBox="0 0 32 32"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
+                        fill="url(#cd-main_svg__a)"
+                        fill-rule="evenodd"
+                      />
+                      <defs>
+                        <lineargradient
+                          gradientUnits="userSpaceOnUse"
+                          id="cd-main_svg__a"
+                          x1="6.774"
+                          x2="21.5"
+                          y1="2"
+                          y2="30"
+                        >
+                          <stop
+                            stop-color="#62F91F"
+                          />
+                          <stop
+                            offset="1"
+                            stop-color="#45BD35"
+                          />
+                        </lineargradient>
+                      </defs>
+                    </svg>
+                  </span>
                 </span>
-              </span>
-              <div
-                class="pipelineInfo"
-              >
                 <div
-                  class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
+                  class="pipelineInfo"
                 >
                   <div
-                    class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-                    data-testid="Second_Pipeline"
+                    class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
                   >
                     <div
-                      class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                      class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                      data-testid="Second_Pipeline"
                     >
-                      <span
-                        class="bp3-popover-wrapper"
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
                       >
                         <span
-                          class="bp3-popover-target Text--targetClass"
+                          class="bp3-popover-wrapper"
                         >
-                          <p
-                            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-grey800"
-                            tabindex="0"
+                          <span
+                            class="bp3-popover-target Text--targetClass"
                           >
-                            Second Pipeline
-                          </p>
+                            <p
+                              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-grey800"
+                              tabindex="0"
+                            >
+                              Second Pipeline
+                            </p>
+                          </span>
                         </span>
-                      </span>
+                      </div>
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
+                      >
+                        idLabel
+                      </p>
                     </div>
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
-                    >
-                      idLabel
-                    </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
-              style="align-items: center;"
-            >
-              <div>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-grey600"
-                  style="--text-line-clamp: 2;"
-                >
-                  executionsText
-                </p>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-primary7 StyledProps--font-small"
-                  style="max-width: 100px; --text-line-clamp: 2;"
-                >
-                  (
-                  pipeline.lastSevenDays
-                  )
-                </p>
-              </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-medium"
-              >
-                1
-              </p>
-              <span
-                class="activityChart"
-              >
-                <div
-                  class="StyledProps--font StyledProps--main SparkChart--main"
-                  role="spark-chart"
-                >
-                  <div
-                    class="container vertical rounded"
-                  >
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 50%;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 50%; bottom: 50%;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                    <div
-                      class="progress-bar"
-                      role="spark"
-                    >
-                      <div
-                        class="progress-track"
-                      >
-                        <div
-                          class="progress-fill"
-                          style="height: 2px;"
-                        />
-                        <div
-                          class="progress-fill"
-                          style="height: 0%; bottom: 2px;"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </span>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
-              style="align-items: center;"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                style="align-items: center;"
               >
-                <p
-                  class="StyledProps--font StyledProps--main"
-                  style="display: flex; align-items: center;"
-                >
-                  1612787988402
-                  <span
-                    class="bp3-icon bp3-icon-full-circle StyledProps--main Text--icon StyledProps--padding-left-medium StyledProps--color StyledProps--color-red800"
-                    icon="full-circle"
+                <div>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-grey600"
+                    style="--text-line-clamp: 2;"
                   >
-                    <svg
-                      data-icon="full-circle"
-                      height="8"
-                      viewBox="0 0 16 16"
-                      width="8"
-                    >
-                      <desc>
-                        full-circle
-                      </desc>
-                      <path
-                        d="M8 0a8 8 0 100 16A8 8 0 108 0z"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
+                    executionsText
+                  </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main clickable StyledProps--color StyledProps--color-primary7 StyledProps--font-small"
+                    style="max-width: 100px; --text-line-clamp: 2;"
+                  >
+                    (
+                    pipeline.lastSevenDays
+                    )
+                  </p>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-medium"
+                >
+                  1
                 </p>
+                <span
+                  class="activityChart"
+                >
+                  <div
+                    class="StyledProps--font StyledProps--main SparkChart--main"
+                    role="spark-chart"
+                  >
+                    <div
+                      class="container vertical rounded"
+                    >
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 50%;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 50%; bottom: 50%;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="progress-bar"
+                        role="spark"
+                      >
+                        <div
+                          class="progress-track"
+                        >
+                          <div
+                            class="progress-fill"
+                            style="height: 2px;"
+                          />
+                          <div
+                            class="progress-fill"
+                            style="height: 0%; bottom: 2px;"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </span>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 10%;"
-          >
-            <button
-              class="bp3-button Button--button StyledProps--font StyledProps--main runPipelineListBtn StyledProps--intent-success Button--withLeftIcon Button--variation Button--variation-secondary Button--size Button--small"
-              type="button"
-            >
-              <span
-                class="bp3-icon StyledProps--main StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-success"
-                data-icon="command-start"
-              >
-                <svg
-                  height="9"
-                  viewBox="0 0 8 10"
-                  width="9"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8 5c0-.3-.1-.5-.3-.6L1 .1C.9.1.8 0 .7 0 .3 0 0 .3 0 .7v8.6c0 .4.3.7.7.7.1 0 .2-.1.3-.1l6.7-4.3c.2-.1.3-.3.3-.6z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              <span
-                class="bp3-button-text"
-              >
-                runPipelineText
-              </span>
-            </button>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
             <div
-              class="Layout--horizontal StyledProps--main"
-              style="justify-content: flex-end;"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-large StyledProps--main"
+                style="align-items: center;"
               >
-                <span
-                  class="bp3-popover-target"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
                 >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    type="button"
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                    style="display: flex; align-items: center;"
                   >
+                    1612787988402
                     <span
-                      class="bp3-icon bp3-icon-more StyledProps--main"
-                      icon="more"
+                      class="bp3-icon bp3-icon-full-circle StyledProps--main Text--icon StyledProps--padding-left-medium StyledProps--color StyledProps--color-red800"
+                      icon="full-circle"
                     >
                       <svg
-                        data-icon="more"
-                        height="16"
+                        data-icon="full-circle"
+                        height="8"
                         viewBox="0 0 16 16"
-                        width="16"
+                        width="8"
                       >
                         <desc>
-                          more
+                          full-circle
                         </desc>
                         <path
-                          d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                          d="M8 0a8 8 0 100 16A8 8 0 108 0z"
                           fill-rule="evenodd"
                         />
                       </svg>
                     </span>
-                  </button>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 10%;"
+            >
+              <button
+                class="bp3-button Button--button StyledProps--font StyledProps--main runPipelineListBtn StyledProps--intent-success Button--withLeftIcon Button--variation Button--variation-secondary Button--size Button--small"
+                type="button"
+              >
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-success"
+                  data-icon="command-start"
+                >
+                  <svg
+                    height="9"
+                    viewBox="0 0 8 10"
+                    width="9"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 5c0-.3-.1-.5-.3-.6L1 .1C.9.1.8 0 .7 0 .3 0 0 .3 0 .7v8.6c0 .4.3.7.7.7.1 0 .2-.1.3-.1l6.7-4.3c.2-.1.3-.3.3-.6z"
+                      fill="#4d5969"
+                    />
+                  </svg>
                 </span>
-              </span>
+                <span
+                  class="bp3-button-text"
+                >
+                  runPipelineText
+                </span>
+              </button>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <div
+                class="Layout--horizontal StyledProps--main"
+                style="justify-content: flex-end;"
+              >
+                <span
+                  class="bp3-popover-wrapper bp3-dark"
+                >
+                  <span
+                    class="bp3-popover-target"
+                  >
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      type="button"
+                    >
+                      <span
+                        class="bp3-icon bp3-icon-more StyledProps--main"
+                        icon="more"
+                      >
+                        <svg
+                          data-icon="more"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          width="16"
+                        >
+                          <desc>
+                            more
+                          </desc>
+                          <path
+                            d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
+                </span>
+              </div>
             </div>
           </div>
         </div>

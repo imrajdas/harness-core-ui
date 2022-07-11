@@ -39,6 +39,7 @@ export interface Routing {
   custom_domain_providers?: { [key: string]: any }
   container_svc?: ContainerSvc
   database?: RDSDatabase
+  override_dns_record?: boolean
 }
 
 interface ServiceOpts {

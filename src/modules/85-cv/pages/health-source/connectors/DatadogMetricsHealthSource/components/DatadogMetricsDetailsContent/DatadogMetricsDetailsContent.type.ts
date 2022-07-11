@@ -21,6 +21,9 @@ export interface DatadogMetricsDetailsContentProps {
   activeMetrics: string[] | undefined
   activeMetricsLoading?: boolean
   metricTagsLoading?: boolean
-  fetchActiveMetrics: ((query?: string | undefined) => void) & Cancelable
-  fetchMetricTags: ((query?: string | undefined) => void) & Cancelable
+  fetchActiveMetrics?: ((query?: string | undefined) => void) & Cancelable
+  fetchMetricTags?: ((query?: string | undefined) => void) & Cancelable
+  isTemplate?: boolean
+  expressions?: string[]
+  isConnectorRuntimeOrExpression?: boolean
 }

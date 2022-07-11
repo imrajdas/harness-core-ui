@@ -33,7 +33,7 @@ import {
   Failure
 } from 'services/cd-ng'
 import { GitAuthTypes } from '@connectors/pages/connectors/utils/ConnectorHelper'
-import { String, useStrings, UseStringsReturn } from 'framework/strings'
+import { String, useStrings } from 'framework/strings'
 import { GitUrlType, GitConnectionType, saveCurrentStepData } from '@connectors/pages/connectors/utils/ConnectorUtils'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { Connectors } from '@connectors/constants'
@@ -57,7 +57,6 @@ interface DetailsStepInterface {
   connectionType: string
   url: string
   validationRepo?: string
-  validationProject?: string
 }
 
 /**
@@ -80,38 +79,6 @@ const getTooltipAnchorForHeading = (connectorType: ConnectorInfoDTO['type']): st
   return 'connectorDetailsTooltip'
 }
 
-const isForAzureRepo = (type: ConnectorInfoDTO['type'], urlType: string): boolean => {
-  return type == Connectors.AZURE_REPO && urlType == GitUrlType.ACCOUNT
-}
-
-const getHelpTextForTestingCredentials = (
-  getString: UseStringsReturn['getString'],
-  type: ConnectorInfoDTO['type'],
-  urlType: string
-): string => {
-  return isForAzureRepo(type, urlType)
-    ? getString('common.git.testProjectAndRepositoryDescription')
-    : getString('common.git.testRepositoryDescription')
-}
-
-const ProjectName: React.FC<Pick<ConnectorDetailsStepProps, 'type'> & { urlType: string }> = props => {
-  const { getString } = useStrings()
-
-  if (isForAzureRepo(props.type, props.urlType)) {
-    return (
-      <FormInput.Text
-        name="validationProject"
-        className={css.formElm}
-        label={<Text font={{ variation: FontVariation.FORM_LABEL }}>{getString('projectCard.projectName')}</Text>}
-        placeholder={getString('common.git.projectNamePlaceholder')}
-        tooltipProps={{ dataTooltipId: `${props.type.toLocaleLowerCase()}DetailsStepForm_projectName` }}
-      />
-    )
-  }
-
-  return null
-}
-
 /**
  * Function to GitDetailsStep
  */
@@ -124,16 +91,25 @@ const GitDetailsStep: React.FC<StepProps<ConnectorConfigDTO> & ConnectorDetailsS
   const isEdit = props.isEditMode || prevStepData?.isEdit
   const { getString } = useStrings()
 
-  const urlTypeOptions: IOptionProps[] = [
-    {
-      label: getString('account'),
-      value: GitUrlType.ACCOUNT
-    },
-    {
-      label: getString('repository'),
-      value: GitUrlType.REPO
-    }
-  ]
+  const getUrlTypeOptions = (connectorType: ConnectorInfoDTO['type']): IOptionProps[] => {
+    return [
+      ...[
+        connectorType === Connectors.AZURE_REPO
+          ? {
+              label: getString('projectLabel'),
+              value: GitUrlType.PROJECT
+            }
+          : {
+              label: getString('account'),
+              value: GitUrlType.ACCOUNT
+            }
+      ],
+      {
+        label: getString('repository'),
+        value: GitUrlType.REPO
+      }
+    ]
+  }
 
   const connectionTypeOptions: IOptionProps[] = [
     {
@@ -168,7 +144,7 @@ const GitDetailsStep: React.FC<StepProps<ConnectorConfigDTO> & ConnectorDetailsS
           ? getString('common.git.bitbucketAccountUrl')
           : getString('common.git.bitbucketRepoUrl')
       case Connectors.AZURE_REPO:
-        return urlType === GitUrlType.ACCOUNT
+        return urlType === GitUrlType.PROJECT
           ? getString('common.git.azureReposProjectUrl')
           : getString('common.git.azureReposRepoUrl')
       default:
@@ -200,11 +176,11 @@ const GitDetailsStep: React.FC<StepProps<ConnectorConfigDTO> & ConnectorDetailsS
           : getString('common.git.bitbucketPlaceholderSSH')
       case Connectors.AZURE_REPO:
         if (connectionType === GitConnectionType.HTTP) {
-          return urlType == GitUrlType.ACCOUNT
+          return urlType == GitUrlType.PROJECT
             ? getString('common.git.azureReposUrlPlaceholder')
             : getString('common.git.azureReposUrlPlaceholderRepoHttp')
         }
-        return urlType == GitUrlType.ACCOUNT
+        return urlType == GitUrlType.PROJECT
           ? getString('common.git.azureReposPlaceholderSSH')
           : getString('common.git.azureReposPlaceholderRepoSSH')
       default:
@@ -271,7 +247,6 @@ const GitDetailsStep: React.FC<StepProps<ConnectorConfigDTO> & ConnectorDetailsS
           props.type === Connectors.GIT ? props.connectorInfo?.spec?.connectionType : props.connectorInfo?.spec?.type,
         url: props.connectorInfo?.spec?.url,
         validationRepo: props.connectorInfo?.spec?.validationRepo,
-        validationProject: props.connectorInfo?.spec?.validationProject || '',
         connectionType:
           props.type === Connectors.GIT
             ? props.connectorInfo?.spec?.type
@@ -279,7 +254,7 @@ const GitDetailsStep: React.FC<StepProps<ConnectorConfigDTO> & ConnectorDetailsS
       }
     } else {
       return {
-        urlType: GitUrlType.ACCOUNT,
+        urlType: props.type === Connectors.AZURE_REPO ? GitUrlType.PROJECT : GitUrlType.ACCOUNT,
         connectionType: GitConnectionType.HTTP,
         url: ''
       }
@@ -332,22 +307,7 @@ const GitDetailsStep: React.FC<StepProps<ConnectorConfigDTO> & ConnectorDetailsS
             .when('urlType', {
               is: 'Account',
               then: Yup.string().required(getString('common.validation.testRepoIsRequired'))
-            }),
-          validationProject: Yup.string().test(
-            'isValidValidationProject',
-            getString('common.validation.validationProjectIsRequired'),
-            function (_validationProject) {
-              if (props.type !== Connectors.AZURE_REPO) {
-                return true
-              }
-              if (this.parent.urlType !== 'Account') {
-                return true
-              }
-              const _trimmedProject = _validationProject?.trim() || ''
-              if (!_trimmedProject) return false
-              return true
-            }
-          )
+            })
         })}
         initialValues={{
           ...getInitialValues(),
@@ -375,7 +335,7 @@ const GitDetailsStep: React.FC<StepProps<ConnectorConfigDTO> & ConnectorDetailsS
                       style={{ fontSize: 'normal' }}
                       radioGroup={{ inline: true }}
                       name="urlType"
-                      items={urlTypeOptions}
+                      items={getUrlTypeOptions(props.type)}
                     />
                   </Layout.Vertical>
                   <Layout.Vertical spacing="xsmall">
@@ -414,15 +374,18 @@ const GitDetailsStep: React.FC<StepProps<ConnectorConfigDTO> & ConnectorDetailsS
                   )}
                   tooltipProps={{ dataTooltipId: `${props.type.toLocaleLowerCase()}DetailsStepForm_url` }}
                 />
-                {formikProps.values.urlType === 'Account' && (
+
+                {(formikProps.values.urlType === GitUrlType.ACCOUNT ||
+                  formikProps.values.urlType === GitUrlType.PROJECT) && (
                   <Container>
                     <Text
                       font={{ variation: FontVariation.BODY }}
                       className={cx(commonCss.bottomMargin5, commonCss.topMargin1)}
                     >
-                      {getHelpTextForTestingCredentials(getString, props.type, formikProps.values.urlType)}
+                      {getString('common.git.testRepositoryDescription', {
+                        scope: formikProps.values.urlType.toLocaleLowerCase()
+                      })}
                     </Text>
-                    <ProjectName type={props.type} urlType={formikProps.values.urlType} />
                     <FormInput.Text
                       name="validationRepo"
                       className={css.formElm}

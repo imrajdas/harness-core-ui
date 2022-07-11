@@ -22,7 +22,7 @@
       margin: 0;
     }
     .bp3-tab[aria-selected='true'] {
-      color: black !important;
+      color: var(--grey-1000) !important;
     }
     .bp3-tab[aria-selected='false'] {
       color: var(--grey-800);
@@ -31,7 +31,7 @@
       justify-content: center !important;
       position: relative !important;
       top: auto;
-      background: white !important;
+      background: var(--grey-0) !important;
       border-bottom: none !important;
       margin-bottom: var(--spacing-small);
     }
@@ -117,6 +117,10 @@
     margin-left: 5px;
     vertical-align: middle;
   }
+  .overlappingDomainsInfo {
+    padding: var(--spacing-small);
+    background: var(--blue-50);
+  }
 }
 
 .publicAccessibleCheckboxContainer {
@@ -127,7 +131,7 @@
 .loadBalancerDnsConfigDialog {
   --form-width: 50%;
   .configHeading {
-    color: #1c1c28 !important;
+    color: var(--grey-800) !important;
     margin-bottom: var(--spacing-large) !important;
   }
   .configInfo {
@@ -150,7 +154,7 @@
   }
   .othersHelpTextContainer {
     padding: var(--spacing-xlarge) !important;
-    background: rgba(#d8d8d8, 0.16);
+    background: rgba(216, 216, 216, 0.16);
     flex-basis: var(--form-width);
     flex-grow: 0;
     flex-shrink: 0;
@@ -256,7 +260,7 @@
 
 .rowItem {
   padding: var(--spacing-large) !important;
-  background: white !important;
+  background: var(--grey-0) !important;
   box-shadow: 0px 1px 5px 1px var(--grey-250);
   border-radius: 8px;
   // margin-bottom: var(--spacing-large);

@@ -198,7 +198,7 @@ describe('Test Azure Infrastructure Spec behavior', () => {
     expect(onUpdateHandler).toHaveBeenCalledWith(getInitialValues())
   })
 
-  test('Should not call onUpdate if invalid values entered - inputset', async () => {
+  test('Should show errors if invalid values entered - inputset', async () => {
     const onUpdateHandler = jest.fn()
     const { container } = render(
       <TestStepWidget
@@ -215,7 +215,7 @@ describe('Test Azure Infrastructure Spec behavior', () => {
       fireEvent.click(getByText(container, 'Submit'))
     })
 
-    expect(onUpdateHandler).not.toHaveBeenCalled()
+    expect(container).toMatchSnapshot('errors')
   })
 
   test('Should call onUpdate if valid values entered - edit view', async () => {

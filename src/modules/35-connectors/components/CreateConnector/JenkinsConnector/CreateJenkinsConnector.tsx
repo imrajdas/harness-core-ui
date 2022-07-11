@@ -8,7 +8,6 @@
 import React from 'react'
 import { StepWizard } from '@wings-software/uicore'
 import { pick } from 'lodash-es'
-import { Color } from '@harness/design-system'
 import ConnectorDetailsStep from '@connectors/components/CreateConnector/commonSteps/ConnectorDetailsStep'
 import VerifyOutOfClusterDelegate from '@connectors/common/VerifyOutOfClusterDelegate/VerifyOutOfClusterDelegate'
 import { Connectors, CONNECTOR_CREDENTIALS_STEP_IDENTIFIER, TESTCONNECTION_STEP_INDEX } from '@connectors/constants'
@@ -39,7 +38,7 @@ const CreateJenkinsConnector: React.FC<CreateJenkinsConnectorProps> = props => {
     <>
       <StepWizard
         icon={getConnectorIconByType(Connectors.JENKINS)}
-        iconProps={{ size: 37, color: Color.WHITE }}
+        iconProps={{ size: 37 }}
         title={getString(getConnectorTitleIdByType(Connectors.JENKINS))}
       >
         <ConnectorDetailsStep

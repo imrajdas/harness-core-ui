@@ -54,13 +54,6 @@ const DashboardTags: React.FC<DashboardTagProps> = ({ dashboard }) => {
             </section>
           )
         }
-        if (tag === 'CG_CD') {
-          return (
-            <section key={`tag-${tag.toLowerCase()}-${dashboard.id}`} className={moduleTagCss.cgCdTag}>
-              {getString('dashboards.modules.cgDeployments')}
-            </section>
-          )
-        }
         return <></>
       })}
       {dashboard?.description &&

@@ -15,6 +15,7 @@ declare const styles: {
   readonly hoverName: string
   readonly iconGroup: string
   readonly inComplete: string
+  readonly loopingStrategy: string
   readonly secondaryIcon: string
   readonly selected: string
   readonly template: string

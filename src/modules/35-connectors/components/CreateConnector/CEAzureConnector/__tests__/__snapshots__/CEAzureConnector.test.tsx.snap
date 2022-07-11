@@ -217,7 +217,7 @@ exports[`Create Azure connector Wizard should render create new billing exports 
                   >
                     connectors.ceAzure.billing.instructions.i2
                     <a
-                      href="https://ngdocs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure#step_2_azure_billing_exports"
+                      href="https://docs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure#step_2_azure_billing_exports"
                       rel="noreferrer"
                       target="_blank"
                     >
@@ -1674,7 +1674,7 @@ exports[`Create Azure connector Wizard should render feature cards, render servi
                               connectors.ceAzure.chooseRequirements.optimization.footer1
                                
                               <a
-                                href="https://ngdocs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure#step_4_create_service_principal_and_assign_permissions"
+                                href="https://docs.harness.io/article/v682mz6qfd-set-up-cost-visibility-for-azure#step_4_create_service_principal_and_assign_permissions"
                                 rel="noreferrer"
                                 target="_blank"
                               >

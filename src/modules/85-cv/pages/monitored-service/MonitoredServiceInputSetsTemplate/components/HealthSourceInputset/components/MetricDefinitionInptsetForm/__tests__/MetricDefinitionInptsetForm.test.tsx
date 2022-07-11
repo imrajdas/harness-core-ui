@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { render } from '@testing-library/react'
-import { Formik } from '@harness/uicore'
+import { Formik, RUNTIME_INPUT_VALUE } from '@harness/uicore'
 import * as formik from 'formik'
 import { TestWrapper } from '@common/utils/testUtils'
 import MetricDefinitionInptsetForm from '../MetricDefinitionInptsetForm'
@@ -28,7 +28,7 @@ const metricDefinitions = [
         thresholdTypes: ['ACT_WHEN_HIGHER']
       },
       liveMonitoring: { enabled: false },
-      deploymentVerification: { enabled: true, serviceInstanceMetricPath: '<+input>' }
+      deploymentVerification: { enabled: true, serviceInstanceMetricPath: RUNTIME_INPUT_VALUE }
     }
   },
   {
@@ -46,7 +46,7 @@ const metricDefinitions = [
         thresholdTypes: ['ACT_WHEN_HIGHER']
       },
       liveMonitoring: { enabled: false },
-      deploymentVerification: { enabled: true, serviceInstanceMetricPath: '<+input>' }
+      deploymentVerification: { enabled: true, serviceInstanceMetricPath: RUNTIME_INPUT_VALUE }
     }
   }
 ]

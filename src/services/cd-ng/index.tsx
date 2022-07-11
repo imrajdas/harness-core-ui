@@ -201,6 +201,7 @@ export interface AccessControlCheckError {
     | 'USER_HAS_NO_PERMISSIONS'
     | 'USER_NOT_AUTHORIZED'
     | 'USER_ALREADY_PRESENT'
+    | 'EMAIL_ERROR'
     | 'INVALID_USAGE_RESTRICTION'
     | 'USAGE_RESTRICTION_ERROR'
     | 'STATE_EXECUTION_INSTANCE_NOT_FOUND'
@@ -1153,9 +1154,8 @@ export type AzureRepoConnector = ConnectorConfigDTO & {
   apiAccess?: AzureRepoApiAccess
   authentication: AzureRepoAuthentication
   delegateSelectors?: string[]
-  type: 'Account' | 'Repo'
+  type: 'Project' | 'Repo'
   url: string
-  validationProject?: string
   validationRepo?: string
 }
 
@@ -1178,6 +1178,16 @@ export type AzureRepoSCMDTO = SourceCodeManagerDTO & {
 
 export type AzureRepoSshCredentials = AzureRepoCredentialsDTO & {
   sshKeyRef: string
+}
+
+export type AzureRepoStore = StoreConfig & {
+  branch?: string
+  commitId?: string
+  connectorRef: string
+  folderPath?: string
+  gitFetchType: 'Branch' | 'Commit'
+  paths?: string[]
+  repoName?: string
 }
 
 export type AzureRepoTokenSpec = AzureRepoApiAccessSpecDTO & {
@@ -1228,6 +1238,28 @@ export type AzureWebAppInfrastructure = Infrastructure & {
   subscriptionId: string
   targetSlot?: string
   webApp: string
+}
+
+export type AzureWebAppInfrastructureDetails = InfrastructureDetails & {
+  deploymentSlot?: string
+  resourceGroup?: string
+  subscriptionId?: string
+  webApp?: string
+}
+
+export type AzureWebAppInstanceInfoDTO = InstanceInfoDTO & {
+  appName: string
+  appServicePlanId?: string
+  deploySlot: string
+  deploySlotId?: string
+  hostName?: string
+  instanceId?: string
+  instanceIp?: string
+  instanceName?: string
+  instanceState?: string
+  instanceType?: string
+  resourceGroup: string
+  subscriptionId: string
 }
 
 export interface AzureWebAppNamesDTO {
@@ -1291,7 +1323,7 @@ export type BitbucketConnector = ConnectorConfigDTO & {
   apiAccess?: BitbucketApiAccess
   authentication: BitbucketAuthentication
   delegateSelectors?: string[]
-  type: 'Account' | 'Repo'
+  type: 'Account' | 'Repo' | 'Project'
   url: string
   validationRepo?: string
 }
@@ -2604,6 +2636,7 @@ export interface EntityDetail {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -2760,6 +2793,12 @@ export interface Environment {
 
 export interface EnvironmentDeploymentInfo {
   environmentInfoByServiceId?: EnvironmentInfoByServiceId[]
+}
+
+export interface EnvironmentDeploymentsInfo {
+  envId?: string
+  envName?: string
+  envType?: string
 }
 
 export interface EnvironmentFilterProperties {
@@ -3085,6 +3124,7 @@ export interface Error {
     | 'USER_HAS_NO_PERMISSIONS'
     | 'USER_NOT_AUTHORIZED'
     | 'USER_ALREADY_PRESENT'
+    | 'EMAIL_ERROR'
     | 'INVALID_USAGE_RESTRICTION'
     | 'USAGE_RESTRICTION_ERROR'
     | 'STATE_EXECUTION_INSTANCE_NOT_FOUND'
@@ -3292,6 +3332,7 @@ export interface ExecutionElementConfig {
 export interface ExecutionStatusInfo {
   author?: AuthorInfo
   endTs?: number
+  environmentInfoList?: EnvironmentDeploymentsInfo[]
   gitInfo?: GitInfo
   pipelineIdentifier?: string
   pipelineName?: string
@@ -3488,6 +3529,7 @@ export interface Failure {
     | 'USER_HAS_NO_PERMISSIONS'
     | 'USER_NOT_AUTHORIZED'
     | 'USER_ALREADY_PRESENT'
+    | 'EMAIL_ERROR'
     | 'INVALID_USAGE_RESTRICTION'
     | 'USAGE_RESTRICTION_ERROR'
     | 'STATE_EXECUTION_INSTANCE_NOT_FOUND'
@@ -3980,6 +4022,10 @@ export type FileNodeDTO = FileStoreNodeDTO & {
   tags?: NGTag[]
 }
 
+export interface FilePaths {
+  buildDetails?: BuildDetails
+}
+
 export interface FileStoreNodeDTO {
   identifier: string
   lastModifiedAt?: number
@@ -4175,7 +4221,7 @@ export interface GitBranchesResponseDTO {
 
 export type GitConfigDTO = ConnectorConfigDTO & {
   branchName?: string
-  connectionType: 'Account' | 'Repo'
+  connectionType: 'Account' | 'Repo' | 'Project'
   delegateSelectors?: string[]
   executeOnDelegate?: boolean
   spec: GitAuthenticationDTO
@@ -4198,6 +4244,7 @@ export interface GitEntityBranchFilterSummaryProperties {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -4295,6 +4342,7 @@ export interface GitEntityFilterProperties {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -4425,6 +4473,7 @@ export interface GitFullSyncEntityInfoDTO {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -4530,6 +4579,7 @@ export interface GitFullSyncEntityInfoFilterKeys {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -4713,6 +4763,7 @@ export interface GitSyncEntityDTO {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -4812,6 +4863,7 @@ export interface GitSyncEntityListDTO {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -4928,6 +4980,7 @@ export interface GitSyncErrorDTO {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -5072,7 +5125,7 @@ export type GithubConnector = ConnectorConfigDTO & {
   authentication: GithubAuthentication
   delegateSelectors?: string[]
   executeOnDelegate?: boolean
-  type: 'Account' | 'Repo'
+  type: 'Account' | 'Repo' | 'Project'
   url: string
   validationRepo?: string
 }
@@ -5130,7 +5183,7 @@ export type GithubUsernameToken = GithubHttpCredentialsSpecDTO & {
 
 export interface GitlabApiAccess {
   spec?: GitlabApiAccessSpecDTO
-  type: 'Token'
+  type: 'Token' | 'OAuth'
 }
 
 export interface GitlabApiAccessSpecDTO {
@@ -5146,7 +5199,7 @@ export type GitlabConnector = ConnectorConfigDTO & {
   apiAccess?: GitlabApiAccess
   authentication: GitlabAuthentication
   delegateSelectors?: string[]
-  type: 'Account' | 'Repo'
+  type: 'Account' | 'Repo' | 'Project'
   url: string
   validationRepo?: string
 }
@@ -5157,7 +5210,7 @@ export interface GitlabCredentialsDTO {
 
 export type GitlabHttpCredentials = GitlabCredentialsDTO & {
   spec: GitlabHttpCredentialsSpecDTO
-  type: 'UsernamePassword' | 'UsernameToken' | 'Kerberos'
+  type: 'UsernamePassword' | 'UsernameToken' | 'Kerberos' | 'OAuth'
 }
 
 export interface GitlabHttpCredentialsSpecDTO {
@@ -5166,6 +5219,11 @@ export interface GitlabHttpCredentialsSpecDTO {
 
 export type GitlabKerberos = GitlabHttpCredentialsSpecDTO & {
   kerberosKeyRef: string
+}
+
+export type GitlabOauth = GitlabHttpCredentialsSpecDTO & {
+  refreshTokenRef: string
+  tokenRef: string
 }
 
 export type GitlabSCMDTO = SourceCodeManagerDTO & {
@@ -5555,6 +5613,23 @@ export type InlineTerraformVarFileSpec = TerraformVarFileSpec & {
   content?: string
 }
 
+export interface InputSetError {
+  fieldName?: string
+  identifierOfErrorSource?: string
+  message?: string
+}
+
+export interface InputSetErrorResponse {
+  errors?: InputSetError[]
+}
+
+export type InputSetErrorWrapper = ErrorMetadataDTO & {
+  errorPipelineYaml?: string
+  uuidToErrorResponseMap?: {
+    [key: string]: InputSetErrorResponse
+  }
+}
+
 export type InputSetReference = EntityReference & {
   isDefault?: boolean
   pipelineIdentifier?: string
@@ -5651,6 +5726,18 @@ export interface ItemParams {
   lookupKey?: string
   priceId?: string
   quantity?: number
+}
+
+export type JenkinsArtifactConfig = ArtifactConfig & {
+  artifactPath?: string
+  build?: string
+  connectorRef: string
+  jobName: string
+}
+
+export type JenkinsArtifactSummary = ArtifactSummary & {
+  build?: string
+  jobName?: string
 }
 
 export interface JenkinsAuthCredentialsDTO {
@@ -6717,6 +6804,12 @@ export interface OrganizationResponse {
   organization: Organization
 }
 
+export type OverlayInputSetErrorWrapper = ErrorMetadataDTO & {
+  invalidReferences?: {
+    [key: string]: string
+  }
+}
+
 export interface Page {
   content?: { [key: string]: any }[]
   empty?: boolean
@@ -7284,6 +7377,9 @@ export type PercentageInstanceSelection = InstanceSelectionBase & {
 
 export interface PermissionCheck {
   permission?: string
+  resourceAttributes?: {
+    [key: string]: string
+  }
   resourceIdentifier?: string
   resourceScope?: ResourceScope
   resourceType?: string
@@ -7468,6 +7564,7 @@ export interface ReferencedByDTO {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -7621,6 +7718,10 @@ export interface ResourceDTO {
     | 'PERSPECTIVE_REPORT'
     | 'COST_CATEGORY'
     | 'SMTP'
+    | 'PERSPECTIVE_FOLDER'
+    | 'AUTOSTOPPING_RULE'
+    | 'AUTOSTOPPING_LB'
+    | 'AUTOSTOPPING_STARTSTOP'
 }
 
 export interface ResourceGroup {
@@ -8303,6 +8404,7 @@ export interface ResponseListEntityType {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -8448,6 +8550,13 @@ export interface ResponseListFeatureRestrictionMetadataDTO {
   status?: 'SUCCESS' | 'FAILURE' | 'ERROR'
 }
 
+export interface ResponseListFilePaths {
+  correlationId?: string
+  data?: FilePaths[]
+  metaData?: { [key: string]: any }
+  status?: 'SUCCESS' | 'FAILURE' | 'ERROR'
+}
+
 export interface ResponseListGitRepositoryResponseDTO {
   correlationId?: string
   data?: GitRepositoryResponseDTO[]
@@ -8563,6 +8672,20 @@ export interface ResponseListServiceNowTicketTypeDTO {
 export interface ResponseListServiceResponse {
   correlationId?: string
   data?: ServiceResponse[]
+  metaData?: { [key: string]: any }
+  status?: 'SUCCESS' | 'FAILURE' | 'ERROR'
+}
+
+export interface ResponseListSettingResponseDTO {
+  correlationId?: string
+  data?: SettingResponseDTO[]
+  metaData?: { [key: string]: any }
+  status?: 'SUCCESS' | 'FAILURE' | 'ERROR'
+}
+
+export interface ResponseListSettingUpdateResponseDTO {
+  correlationId?: string
+  data?: SettingUpdateResponseDTO[]
   metaData?: { [key: string]: any }
   status?: 'SUCCESS' | 'FAILURE' | 'ERROR'
 }
@@ -8818,6 +8941,7 @@ export interface ResponseMessage {
     | 'USER_HAS_NO_PERMISSIONS'
     | 'USER_NOT_AUTHORIZED'
     | 'USER_ALREADY_PRESENT'
+    | 'EMAIL_ERROR'
     | 'INVALID_USAGE_RESTRICTION'
     | 'USAGE_RESTRICTION_ERROR'
     | 'STATE_EXECUTION_INSTANCE_NOT_FOUND'
@@ -9554,6 +9678,13 @@ export interface ResponseSetString {
   status?: 'SUCCESS' | 'FAILURE' | 'ERROR'
 }
 
+export interface ResponseSettingValueResponseDTO {
+  correlationId?: string
+  data?: SettingValueResponseDTO
+  metaData?: { [key: string]: any }
+  status?: 'SUCCESS' | 'FAILURE' | 'ERROR'
+}
+
 export interface ResponseSetupStatus {
   correlationId?: string
   data?:
@@ -9991,6 +10122,11 @@ export interface RoleResponse {
   scope: Scope
 }
 
+export type S3ArtifactSummary = ArtifactSummary & {
+  bucketName?: string
+  filePath?: string
+}
+
 export type S3StoreConfig = StoreConfig & {
   bucketName?: string
   connectorRef?: string
@@ -10266,7 +10402,7 @@ export interface ScopingRuleDetailsNg {
 }
 
 export type ScriptCommandUnitSpec = CommandUnitBaseSpec & {
-  shell: 'Bash'
+  shell: 'Bash' | 'PowerShell'
   source: ShellScriptSourceWrapper
   tailFiles?: TailFilePattern[]
   workingDirectory?: string
@@ -10777,6 +10913,45 @@ export interface ServicesDashboardInfo {
   serviceDashboardInfoList?: ServiceDashboardInfo[]
 }
 
+export interface SettingDTO {
+  allowOverrides: boolean
+  allowedValues?: string[]
+  category: 'CD' | 'CI' | 'CCM' | 'CV' | 'CORE'
+  defaultValue?: string
+  identifier: string
+  name: string
+  orgIdentifier?: string
+  projectIdentifier?: string
+  settingSource?: 'ACCOUNT' | 'ORG' | 'PROJECT' | 'DEFAULT'
+  value?: string
+  valueType: 'String' | 'Boolean' | 'Number'
+}
+
+export interface SettingRequestDTO {
+  allowOverrides: boolean
+  identifier?: string
+  updateType: 'UPDATE' | 'RESTORE'
+  value?: string
+}
+
+export interface SettingResponseDTO {
+  lastModifiedAt?: number
+  setting: SettingDTO
+}
+
+export interface SettingUpdateResponseDTO {
+  errorMessage?: string
+  identifier?: string
+  lastModifiedAt?: number
+  setting: SettingDTO
+  updateStatus?: boolean
+}
+
+export interface SettingValueResponseDTO {
+  value: string
+  valueType: 'String' | 'Boolean' | 'Number'
+}
+
 export interface SetupUsageDetail {
   [key: string]: any
 }
@@ -11027,7 +11202,7 @@ export interface StepGroupElementConfig {
   delegateSelectors?: string[]
   failureStrategies?: FailureStrategyConfig[]
   identifier: string
-  name?: string
+  name: string
   steps: ExecutionWrapperConfig[]
   when?: StepWhenCondition
 }
@@ -11066,6 +11241,7 @@ export interface StoreConfigWrapper {
     | 'InheritFromManifest'
     | 'Harness'
     | 'OciHelmChart'
+    | 'AzureRepo'
 }
 
 export interface StoreConfigWrapperParameters {
@@ -11156,7 +11332,7 @@ export interface TechStack {
 export type TemplateFilterProperties = FilterProperties & {
   childTypes?: string[]
   description?: string
-  templateEntityTypes?: ('Step' | 'Stage' | 'Pipeline' | 'MonitoredService')[]
+  templateEntityTypes?: ('Step' | 'Stage' | 'Pipeline' | 'MonitoredService' | 'Script')[]
   templateIdentifiers?: string[]
   templateNames?: string[]
 }
@@ -11911,7 +12087,7 @@ export type GetBuildDetailsForAcrArtifactWithYamlBodyRequestBody = string
 
 export type GetBuildDetailsForArtifactoryArtifactWithYamlBodyRequestBody = string
 
-export type ProcessPollingResultNgBodyRequestBody = string[]
+export type UnsubscribeBodyRequestBody = string[]
 
 export type UpdateWhitelistedDomainsBodyRequestBody = string[]
 
@@ -12398,6 +12574,7 @@ export interface ListActivitiesQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -12489,6 +12666,7 @@ export interface ListActivitiesQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -12684,6 +12862,7 @@ export interface GetActivitiesSummaryQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -12775,6 +12954,7 @@ export interface GetActivitiesSummaryQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -15745,7 +15925,7 @@ export interface GetBuildsForJenkinsQueryParams {
   accountIdentifier: string
   orgIdentifier: string
   projectIdentifier: string
-  artifactPaths: string[]
+  artifactPath?: string
   branch?: string
   repoIdentifier?: string
   getDefaultFromOtherRepo?: boolean
@@ -18347,6 +18527,60 @@ export const getV2BucketListForS3Promise = (
   getUsingFetch<ResponseListBucketResponse, Failure | Error, GetV2BucketListForS3QueryParams, void>(
     getConfig('ng/api'),
     `/buckets/s3/getBucketsV2`,
+    props,
+    signal
+  )
+
+export interface GetFilePathsForS3QueryParams {
+  region?: string
+  connectorRef: string
+  bucketName: string
+  filePathRegex?: string
+  accountIdentifier: string
+  orgIdentifier?: string
+  projectIdentifier?: string
+}
+
+export type GetFilePathsForS3Props = Omit<
+  GetProps<ResponseListFilePaths, Failure | Error, GetFilePathsForS3QueryParams, void>,
+  'path'
+>
+
+/**
+ * Gets s3 file paths
+ */
+export const GetFilePathsForS3 = (props: GetFilePathsForS3Props) => (
+  <Get<ResponseListFilePaths, Failure | Error, GetFilePathsForS3QueryParams, void>
+    path={`/buckets/s3/getFilePaths`}
+    base={getConfig('ng/api')}
+    {...props}
+  />
+)
+
+export type UseGetFilePathsForS3Props = Omit<
+  UseGetProps<ResponseListFilePaths, Failure | Error, GetFilePathsForS3QueryParams, void>,
+  'path'
+>
+
+/**
+ * Gets s3 file paths
+ */
+export const useGetFilePathsForS3 = (props: UseGetFilePathsForS3Props) =>
+  useGet<ResponseListFilePaths, Failure | Error, GetFilePathsForS3QueryParams, void>(`/buckets/s3/getFilePaths`, {
+    base: getConfig('ng/api'),
+    ...props
+  })
+
+/**
+ * Gets s3 file paths
+ */
+export const getFilePathsForS3Promise = (
+  props: GetUsingFetchProps<ResponseListFilePaths, Failure | Error, GetFilePathsForS3QueryParams, void>,
+  signal?: RequestInit['signal']
+) =>
+  getUsingFetch<ResponseListFilePaths, Failure | Error, GetFilePathsForS3QueryParams, void>(
+    getConfig('ng/api'),
+    `/buckets/s3/getFilePaths`,
     props,
     signal
   )
@@ -22604,6 +22838,7 @@ export interface ListReferredByEntitiesQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -22750,6 +22985,7 @@ export interface ListAllEntityUsageByFqnQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -25645,6 +25881,7 @@ export interface GetReferencedByQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -26999,6 +27236,7 @@ export interface ListGitSyncEntitiesByTypePathParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -27158,6 +27396,7 @@ export const listGitSyncEntitiesByTypePromise = (
       | 'Pipelines'
       | 'PipelineSteps'
       | 'Http'
+      | 'Email'
       | 'JiraCreate'
       | 'JiraUpdate'
       | 'JiraApproval'
@@ -31806,6 +32045,7 @@ export interface GetStepYamlSchemaQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -32025,6 +32265,7 @@ export interface GetEntityYamlSchemaQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'
@@ -32555,7 +32796,7 @@ export type ProcessPollingResultNgProps = Omit<
     void,
     Failure | Error,
     ProcessPollingResultNgQueryParams,
-    ProcessPollingResultNgBodyRequestBody,
+    UnsubscribeBodyRequestBody,
     ProcessPollingResultNgPathParams
   >,
   'path' | 'verb'
@@ -32567,7 +32808,7 @@ export const ProcessPollingResultNg = ({ perpetualTaskId, ...props }: ProcessPol
     void,
     Failure | Error,
     ProcessPollingResultNgQueryParams,
-    ProcessPollingResultNgBodyRequestBody,
+    UnsubscribeBodyRequestBody,
     ProcessPollingResultNgPathParams
   >
     verb="POST"
@@ -32582,7 +32823,7 @@ export type UseProcessPollingResultNgProps = Omit<
     void,
     Failure | Error,
     ProcessPollingResultNgQueryParams,
-    ProcessPollingResultNgBodyRequestBody,
+    UnsubscribeBodyRequestBody,
     ProcessPollingResultNgPathParams
   >,
   'path' | 'verb'
@@ -32594,7 +32835,7 @@ export const useProcessPollingResultNg = ({ perpetualTaskId, ...props }: UseProc
     void,
     Failure | Error,
     ProcessPollingResultNgQueryParams,
-    ProcessPollingResultNgBodyRequestBody,
+    UnsubscribeBodyRequestBody,
     ProcessPollingResultNgPathParams
   >(
     'POST',
@@ -32610,7 +32851,7 @@ export const processPollingResultNgPromise = (
     void,
     Failure | Error,
     ProcessPollingResultNgQueryParams,
-    ProcessPollingResultNgBodyRequestBody,
+    UnsubscribeBodyRequestBody,
     ProcessPollingResultNgPathParams
   > & { perpetualTaskId: string },
   signal?: RequestInit['signal']
@@ -32619,17 +32860,17 @@ export const processPollingResultNgPromise = (
     void,
     Failure | Error,
     ProcessPollingResultNgQueryParams,
-    ProcessPollingResultNgBodyRequestBody,
+    UnsubscribeBodyRequestBody,
     ProcessPollingResultNgPathParams
   >('POST', getConfig('ng/api'), `/polling/delegate-response/${perpetualTaskId}`, props, signal)
 
 export type SubscribeProps = Omit<
-  MutateProps<ResponsePollingResponseDTO, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>,
+  MutateProps<ResponsePollingResponseDTO, Failure | Error, void, UnsubscribeBodyRequestBody, void>,
   'path' | 'verb'
 >
 
 export const Subscribe = (props: SubscribeProps) => (
-  <Mutate<ResponsePollingResponseDTO, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>
+  <Mutate<ResponsePollingResponseDTO, Failure | Error, void, UnsubscribeBodyRequestBody, void>
     verb="POST"
     path={`/polling/subscribe`}
     base={getConfig('ng/api')}
@@ -32638,28 +32879,22 @@ export const Subscribe = (props: SubscribeProps) => (
 )
 
 export type UseSubscribeProps = Omit<
-  UseMutateProps<ResponsePollingResponseDTO, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>,
+  UseMutateProps<ResponsePollingResponseDTO, Failure | Error, void, UnsubscribeBodyRequestBody, void>,
   'path' | 'verb'
 >
 
 export const useSubscribe = (props: UseSubscribeProps) =>
-  useMutate<ResponsePollingResponseDTO, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>(
+  useMutate<ResponsePollingResponseDTO, Failure | Error, void, UnsubscribeBodyRequestBody, void>(
     'POST',
     `/polling/subscribe`,
     { base: getConfig('ng/api'), ...props }
   )
 
 export const subscribePromise = (
-  props: MutateUsingFetchProps<
-    ResponsePollingResponseDTO,
-    Failure | Error,
-    void,
-    ProcessPollingResultNgBodyRequestBody,
-    void
-  >,
+  props: MutateUsingFetchProps<ResponsePollingResponseDTO, Failure | Error, void, UnsubscribeBodyRequestBody, void>,
   signal?: RequestInit['signal']
 ) =>
-  mutateUsingFetch<ResponsePollingResponseDTO, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>(
+  mutateUsingFetch<ResponsePollingResponseDTO, Failure | Error, void, UnsubscribeBodyRequestBody, void>(
     'POST',
     getConfig('ng/api'),
     `/polling/subscribe`,
@@ -32668,12 +32903,12 @@ export const subscribePromise = (
   )
 
 export type UnsubscribeProps = Omit<
-  MutateProps<boolean, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>,
+  MutateProps<boolean, Failure | Error, void, UnsubscribeBodyRequestBody, void>,
   'path' | 'verb'
 >
 
 export const Unsubscribe = (props: UnsubscribeProps) => (
-  <Mutate<boolean, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>
+  <Mutate<boolean, Failure | Error, void, UnsubscribeBodyRequestBody, void>
     verb="POST"
     path={`/polling/unsubscribe`}
     base={getConfig('ng/api')}
@@ -32682,22 +32917,21 @@ export const Unsubscribe = (props: UnsubscribeProps) => (
 )
 
 export type UseUnsubscribeProps = Omit<
-  UseMutateProps<boolean, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>,
+  UseMutateProps<boolean, Failure | Error, void, UnsubscribeBodyRequestBody, void>,
   'path' | 'verb'
 >
 
 export const useUnsubscribe = (props: UseUnsubscribeProps) =>
-  useMutate<boolean, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>(
-    'POST',
-    `/polling/unsubscribe`,
-    { base: getConfig('ng/api'), ...props }
-  )
+  useMutate<boolean, Failure | Error, void, UnsubscribeBodyRequestBody, void>('POST', `/polling/unsubscribe`, {
+    base: getConfig('ng/api'),
+    ...props
+  })
 
 export const unsubscribePromise = (
-  props: MutateUsingFetchProps<boolean, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>,
+  props: MutateUsingFetchProps<boolean, Failure | Error, void, UnsubscribeBodyRequestBody, void>,
   signal?: RequestInit['signal']
 ) =>
-  mutateUsingFetch<boolean, Failure | Error, void, ProcessPollingResultNgBodyRequestBody, void>(
+  mutateUsingFetch<boolean, Failure | Error, void, UnsubscribeBodyRequestBody, void>(
     'POST',
     getConfig('ng/api'),
     `/polling/unsubscribe`,
@@ -36533,6 +36767,200 @@ export const getServiceV2Promise = (
     props,
     signal
   )
+
+export interface GetSettingsListQueryParams {
+  accountIdentifier: string
+  orgIdentifier?: string
+  projectIdentifier?: string
+  category?: 'CD' | 'CI' | 'CCM' | 'CV' | 'CORE'
+}
+
+export type GetSettingsListProps = Omit<
+  GetProps<ResponseListSettingResponseDTO, Failure | Error, GetSettingsListQueryParams, void>,
+  'path'
+>
+
+/**
+ * Get list of settings
+ */
+export const GetSettingsList = (props: GetSettingsListProps) => (
+  <Get<ResponseListSettingResponseDTO, Failure | Error, GetSettingsListQueryParams, void>
+    path={`/settings`}
+    base={getConfig('ng/api')}
+    {...props}
+  />
+)
+
+export type UseGetSettingsListProps = Omit<
+  UseGetProps<ResponseListSettingResponseDTO, Failure | Error, GetSettingsListQueryParams, void>,
+  'path'
+>
+
+/**
+ * Get list of settings
+ */
+export const useGetSettingsList = (props: UseGetSettingsListProps) =>
+  useGet<ResponseListSettingResponseDTO, Failure | Error, GetSettingsListQueryParams, void>(`/settings`, {
+    base: getConfig('ng/api'),
+    ...props
+  })
+
+/**
+ * Get list of settings
+ */
+export const getSettingsListPromise = (
+  props: GetUsingFetchProps<ResponseListSettingResponseDTO, Failure | Error, GetSettingsListQueryParams, void>,
+  signal?: RequestInit['signal']
+) =>
+  getUsingFetch<ResponseListSettingResponseDTO, Failure | Error, GetSettingsListQueryParams, void>(
+    getConfig('ng/api'),
+    `/settings`,
+    props,
+    signal
+  )
+
+export interface UpdateSettingValueQueryParams {
+  accountIdentifier: string
+  orgIdentifier?: string
+  projectIdentifier?: string
+}
+
+export type UpdateSettingValueProps = Omit<
+  MutateProps<
+    ResponseListSettingUpdateResponseDTO,
+    Failure | Error,
+    UpdateSettingValueQueryParams,
+    SettingRequestDTO[],
+    void
+  >,
+  'path' | 'verb'
+>
+
+/**
+ * Updates the settings
+ */
+export const UpdateSettingValue = (props: UpdateSettingValueProps) => (
+  <Mutate<
+    ResponseListSettingUpdateResponseDTO,
+    Failure | Error,
+    UpdateSettingValueQueryParams,
+    SettingRequestDTO[],
+    void
+  >
+    verb="PUT"
+    path={`/settings`}
+    base={getConfig('ng/api')}
+    {...props}
+  />
+)
+
+export type UseUpdateSettingValueProps = Omit<
+  UseMutateProps<
+    ResponseListSettingUpdateResponseDTO,
+    Failure | Error,
+    UpdateSettingValueQueryParams,
+    SettingRequestDTO[],
+    void
+  >,
+  'path' | 'verb'
+>
+
+/**
+ * Updates the settings
+ */
+export const useUpdateSettingValue = (props: UseUpdateSettingValueProps) =>
+  useMutate<
+    ResponseListSettingUpdateResponseDTO,
+    Failure | Error,
+    UpdateSettingValueQueryParams,
+    SettingRequestDTO[],
+    void
+  >('PUT', `/settings`, { base: getConfig('ng/api'), ...props })
+
+/**
+ * Updates the settings
+ */
+export const updateSettingValuePromise = (
+  props: MutateUsingFetchProps<
+    ResponseListSettingUpdateResponseDTO,
+    Failure | Error,
+    UpdateSettingValueQueryParams,
+    SettingRequestDTO[],
+    void
+  >,
+  signal?: RequestInit['signal']
+) =>
+  mutateUsingFetch<
+    ResponseListSettingUpdateResponseDTO,
+    Failure | Error,
+    UpdateSettingValueQueryParams,
+    SettingRequestDTO[],
+    void
+  >('PUT', getConfig('ng/api'), `/settings`, props, signal)
+
+export interface GetSettingValueQueryParams {
+  accountIdentifier: string
+  orgIdentifier?: string
+  projectIdentifier?: string
+}
+
+export interface GetSettingValuePathParams {
+  identifier: string
+}
+
+export type GetSettingValueProps = Omit<
+  GetProps<ResponseSettingValueResponseDTO, Failure | Error, GetSettingValueQueryParams, GetSettingValuePathParams>,
+  'path'
+> &
+  GetSettingValuePathParams
+
+/**
+ * Resolves and gets a setting value by Identifier
+ */
+export const GetSettingValue = ({ identifier, ...props }: GetSettingValueProps) => (
+  <Get<ResponseSettingValueResponseDTO, Failure | Error, GetSettingValueQueryParams, GetSettingValuePathParams>
+    path={`/settings/${identifier}`}
+    base={getConfig('ng/api')}
+    {...props}
+  />
+)
+
+export type UseGetSettingValueProps = Omit<
+  UseGetProps<ResponseSettingValueResponseDTO, Failure | Error, GetSettingValueQueryParams, GetSettingValuePathParams>,
+  'path'
+> &
+  GetSettingValuePathParams
+
+/**
+ * Resolves and gets a setting value by Identifier
+ */
+export const useGetSettingValue = ({ identifier, ...props }: UseGetSettingValueProps) =>
+  useGet<ResponseSettingValueResponseDTO, Failure | Error, GetSettingValueQueryParams, GetSettingValuePathParams>(
+    (paramsInPath: GetSettingValuePathParams) => `/settings/${paramsInPath.identifier}`,
+    { base: getConfig('ng/api'), pathParams: { identifier }, ...props }
+  )
+
+/**
+ * Resolves and gets a setting value by Identifier
+ */
+export const getSettingValuePromise = (
+  {
+    identifier,
+    ...props
+  }: GetUsingFetchProps<
+    ResponseSettingValueResponseDTO,
+    Failure | Error,
+    GetSettingValueQueryParams,
+    GetSettingValuePathParams
+  > & { identifier: string },
+  signal?: RequestInit['signal']
+) =>
+  getUsingFetch<
+    ResponseSettingValueResponseDTO,
+    Failure | Error,
+    GetSettingValueQueryParams,
+    GetSettingValuePathParams
+  >(getConfig('ng/api'), `/settings/${identifier}`, props, signal)
 
 export interface SignupQueryParams {
   captchaToken?: string
@@ -43293,6 +43721,7 @@ export interface GetYamlSchemaQueryParams {
     | 'Pipelines'
     | 'PipelineSteps'
     | 'Http'
+    | 'Email'
     | 'JiraCreate'
     | 'JiraUpdate'
     | 'JiraApproval'

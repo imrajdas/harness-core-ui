@@ -14,6 +14,7 @@ export const ApprovalStatus: Record<ApprovalStatusType, ApprovalStatusType> = {
   APPROVED: 'APPROVED',
   REJECTED: 'REJECTED',
   FAILED: 'FAILED',
+  ABORTED: 'ABORTED',
   EXPIRED: 'EXPIRED'
 }
 

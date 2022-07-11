@@ -35,6 +35,7 @@ import { HealthSourceTypes } from '@cv/pages/health-source/types'
 import { FormMultiTypeConnectorField } from '@connectors/components/ConnectorReferenceField/FormMultiTypeConnectorField'
 import { AllMultiTypeInputTypesForStep } from '@ci/components/PipelineSteps/CIStep/StepUtils'
 import { FormConnectorReferenceField } from '@connectors/components/ConnectorReferenceField/FormConnectorReferenceField'
+import { healthSourceTypeMapping } from '@cv/pages/monitored-service/MonitoredServiceInputSetsTemplate/MonitoredServiceInputSetsTemplate.utils'
 import { ConnectorRefFieldName, HEALTHSOURCE_LIST } from './DefineHealthSource.constant'
 import {
   getFeatureOption,
@@ -110,13 +111,13 @@ function DefineHealthSource(props: DefineHealthSourceProps): JSX.Element {
             </Text>
           }
           placeholder={getString('cv.healthSource.connectors.selectConnector', {
-            sourceType: formik?.values?.sourceType
+            sourceType: healthSourceTypeMapping(formik?.values?.sourceType)
           })}
           accountIdentifier={accountId}
           projectIdentifier={projectIdentifier}
           orgIdentifier={orgIdentifier}
           width={400}
-          type={formik?.values?.sourceType}
+          type={healthSourceTypeMapping(formik?.values?.sourceType)}
           multiTypeProps={{ expressions, allowableTypes: AllMultiTypeInputTypesForStep }}
           onChange={(value: any) => {
             const connectorValue =

@@ -65,6 +65,10 @@ describe('Validate HealthSourceInputset', () => {
             sourceType={'AppDynamics'}
             templateRefData={templateRefData}
             isReadOnlyInputSet={true}
+            healthSourcesWithRuntimeList={[
+              'AppD_default_metrics_runtime_connector',
+              'Appd_with_custom_and_runtime_connector'
+            ]}
           />
         </Formik>
       </TestWrapper>
@@ -77,6 +81,10 @@ describe('Validate HealthSourceInputset', () => {
             sourceType={'AppDynamics'}
             templateRefData={templateRefData}
             isReadOnlyInputSet={false}
+            healthSourcesWithRuntimeList={[
+              'AppD_default_metrics_runtime_connector',
+              'Appd_with_custom_and_runtime_connector'
+            ]}
           />
         </Formik>
       </TestWrapper>
@@ -97,7 +105,12 @@ describe('Validate HealthSourceInputset', () => {
     )
     const { container } = render(
       <TestWrapper>
-        <HealthSourceInputset sourceType={''} templateRefData={templateRefData} isReadOnlyInputSet={true} />
+        <HealthSourceInputset
+          sourceType={''}
+          templateRefData={templateRefData}
+          isReadOnlyInputSet={true}
+          healthSourcesWithRuntimeList={[]}
+        />
       </TestWrapper>
     )
     expect(container).toMatchSnapshot()
@@ -120,7 +133,12 @@ describe('Validate HealthSourceInputset', () => {
     )
     const { container, getByText } = render(
       <TestWrapper>
-        <HealthSourceInputset sourceType={'AppDynamics'} templateRefData={templateRefData} isReadOnlyInputSet={true} />
+        <HealthSourceInputset
+          sourceType={'AppDynamics'}
+          templateRefData={templateRefData}
+          isReadOnlyInputSet={true}
+          healthSourcesWithRuntimeList={[]}
+        />
       </TestWrapper>
     )
     expect(getByText('api call failed')).toBeInTheDocument()
@@ -140,7 +158,12 @@ describe('Validate HealthSourceInputset', () => {
     )
     const { container } = render(
       <TestWrapper>
-        <HealthSourceInputset sourceType={'AppDynamics'} templateRefData={templateRefData} isReadOnlyInputSet={true} />
+        <HealthSourceInputset
+          sourceType={'AppDynamics'}
+          templateRefData={templateRefData}
+          isReadOnlyInputSet={true}
+          healthSourcesWithRuntimeList={[]}
+        />
       </TestWrapper>
     )
     expect(container).toMatchSnapshot()

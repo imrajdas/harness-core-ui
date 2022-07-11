@@ -208,8 +208,9 @@ export interface HarnessFileStoreFormData {
 export interface CustomManifestManifestDataType {
   identifier: string
   extractionScript: string
-  valuesPaths: Array<any> | string
-  skipResourceVersioning: boolean
   filePath: string
   delegateSelectors: Array<string> | string
+  valuesPaths?: Array<{ path: string }> | string
+  paramsPaths?: Array<{ path: string }> | string
+  skipResourceVersioning?: boolean
 }

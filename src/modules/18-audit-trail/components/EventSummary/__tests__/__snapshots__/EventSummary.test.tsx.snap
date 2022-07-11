@@ -125,86 +125,90 @@ exports[`Event summary test render 1`] = `
             role="row"
           >
             <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 25%;"
+              class="TableV2--cells"
             >
               <div
-                class="Layout--horizontal StyledProps--main StyledProps--padding-right-xlarge StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 25%;"
               >
                 <div
-                  class="avatar Avatar--Avatar Avatar--contentStyle"
+                  class="Layout--horizontal StyledProps--main StyledProps--padding-right-xlarge StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
                 >
-                  <span
-                    class="bp3-popover-wrapper Avatar--avatarPopOver"
+                  <div
+                    class="avatar Avatar--Avatar Avatar--contentStyle"
                   >
                     <span
-                      class="bp3-popover-target"
+                      class="bp3-popover-wrapper Avatar--avatarPopOver"
                     >
-                      <div
-                        class="Avatar--AvatarInner"
-                        style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
-                        tabindex="0"
+                      <span
+                        class="bp3-popover-target"
                       >
-                        N
-                      </div>
+                        <div
+                          class="Avatar--AvatarInner"
+                          style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
+                          tabindex="0"
+                        >
+                          N
+                        </div>
+                      </span>
                     </span>
-                  </span>
+                  </div>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
+                    style="--text-line-clamp: 1;"
+                  >
+                    nataraja@harness.io
+                  </p>
                 </div>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  nataraja@harness.io
-                </p>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 25%;"
-            >
               <div
-                class="Layout--horizontal StyledProps--main StyledProps--padding-right-xlarge"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 25%;"
               >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
+                <div
+                  class="Layout--horizontal StyledProps--main StyledProps--padding-right-xlarge"
                 >
-                  auditTrail.actions.login
-                </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
+                    style="--text-line-clamp: 1;"
+                  >
+                    auditTrail.actions.login
+                  </p>
+                </div>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 25%;"
-            >
               <div
-                class="Layout--horizontal StyledProps--main StyledProps--padding-right-xlarge"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 25%;"
               >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
+                <div
+                  class="Layout--horizontal StyledProps--main StyledProps--padding-right-xlarge"
                 >
-                  USER
-                </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
+                    style="--text-line-clamp: 1;"
+                  >
+                    USER
+                  </p>
+                </div>
               </div>
-            </div>
-            <div
-              class="TableV2--cell"
-              role="cell"
-              style="width: 25%;"
-            >
               <div
-                class="Layout--horizontal StyledProps--main StyledProps--padding-right-xlarge"
+                class="TableV2--cell"
+                role="cell"
+                style="width: 25%;"
               >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
+                <div
+                  class="Layout--horizontal StyledProps--main StyledProps--padding-right-xlarge"
                 >
-                  nataraja@harness.io
-                </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
+                    style="--text-line-clamp: 1;"
+                  >
+                    nataraja@harness.io
+                  </p>
+                </div>
               </div>
             </div>
           </div>

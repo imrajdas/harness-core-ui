@@ -7,7 +7,7 @@ describe('useModuleLicenses tests', () => {
     jest.resetAllMocks()
   })
   describe('useAnyEnterpriseLicense tests', () => {
-    test('should return true when one license is enterprise and active', () => {
+    test('should return true when one license is enterprise', () => {
       jest.spyOn(licenseStoreContextMock, 'useLicenseStore').mockReturnValue({
         licenseInformation: {
           CI: { edition: 'ENTERPRISE', status: 'ACTIVE' },
@@ -18,18 +18,7 @@ describe('useModuleLicenses tests', () => {
       expect(useAnyEnterpriseLicense()).toBe(true)
     })
 
-    test('should return false when enterprise license has exprired (trial)', () => {
-      jest.spyOn(licenseStoreContextMock, 'useLicenseStore').mockReturnValue({
-        licenseInformation: {
-          CI: { edition: 'ENTERPRISE', status: 'EXPIRED' },
-          CD: { edition: 'FREE', status: 'ACTIVE' }
-        }
-      } as any)
-
-      expect(useAnyEnterpriseLicense()).toBe(false)
-    })
-
-    test('should return false when no licenses are enterprise or active', () => {
+    test('should return false when no licenses are enterprise', () => {
       jest.spyOn(licenseStoreContextMock, 'useLicenseStore').mockReturnValue({
         licenseInformation: {
           CI: { edition: 'FREE', status: 'ACTIVE' },
@@ -42,7 +31,7 @@ describe('useModuleLicenses tests', () => {
   })
 
   describe('useCurrentEnterpriseLicense tests', () => {
-    test('should return true when current license is enterprise and active', () => {
+    test('should return true when current license is enterprise', () => {
       jest.spyOn(moduleMock, 'useModuleInfo').mockReturnValue({
         module: 'cd'
       })
@@ -55,20 +44,7 @@ describe('useModuleLicenses tests', () => {
       expect(useCurrentEnterpriseLicense()).toBe(true)
     })
 
-    test('should return false when current license is enterprise but not active', () => {
-      jest.spyOn(moduleMock, 'useModuleInfo').mockReturnValue({
-        module: 'cd'
-      })
-      jest.spyOn(licenseStoreContextMock, 'useLicenseStore').mockReturnValue({
-        licenseInformation: {
-          CD: { edition: 'ENTERPRISE', status: 'EXPIRED' }
-        }
-      } as any)
-
-      expect(useCurrentEnterpriseLicense()).toBe(false)
-    })
-
-    test('should return false when current licenses is not enterprise and active', () => {
+    test('should return false when current licenses is not enterprise', () => {
       jest.spyOn(moduleMock, 'useModuleInfo').mockReturnValue({
         module: 'cd'
       })

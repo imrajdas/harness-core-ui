@@ -2492,6 +2492,45 @@
         }
       }
     },
+    "/accounts/{account_id}/autostopping/rules/validate_custom_domain": {
+      "post": {
+        "parameters": [
+          {
+            "name": "account_id",
+            "required": true,
+            "in": "path",
+            "type": "string"
+          },
+          {
+            "name": "accountIdentifier",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ValidateCustomDomainsBody"
+            }
+          }
+        ],
+        "tags": ["validateCustomDomains"],
+        "summary": "Validates custom domains against route53 entries",
+        "description": "Validates custom domains against route53 entries",
+        "operationId": "validateCustomDomains",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/RulesMetadataResponse"
+            }
+          }
+        }
+      }
+    },
     "/app_id": {
       "get": {
         "tags": ["appId"],
@@ -2525,6 +2564,56 @@
         },
         "with_resources": {
           "type": "boolean"
+        }
+      }
+    },
+    "ValidateCustomDomainsBody": {
+      "type": "object",
+      "properties": {
+        "custom_domain_providers": {
+          "type": "object",
+          "properties": {
+            "route53": {
+              "type": "object",
+              "properties": {
+                "hosted_zone_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "custom_domains": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "cloud_account_id": {
+          "type": "string"
+        },
+        "access_point_id": {
+          "type": "string"
+        },
+        "exclude_list": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ValidateCustomDomainsResponse": {
+      "type": "object",
+      "properties": {
+        "response": {
+          "type": "object",
+          "patternProperties": {
+            "*": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
         }
       }
     },
@@ -3460,6 +3549,9 @@
         "database": {
           "type": "object",
           "$ref": "#/definitions/RDSDatabase"
+        },
+        "override_dns_record": {
+          "type": "boolean"
         }
       }
     },

@@ -5,6 +5,8 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
+import { RUNTIME_INPUT_VALUE } from '@harness/uicore'
+
 export const spec = {
   applicationName: '<+input>',
   tierName: '<+input>',
@@ -21,7 +23,7 @@ export const spec = {
       analysis: {
         riskProfile: { category: 'Performance', metricType: 'RESP_TIME', thresholdTypes: ['ACT_WHEN_HIGHER'] },
         liveMonitoring: { enabled: false },
-        deploymentVerification: { enabled: true, serviceInstanceMetricPath: '<+input>' }
+        deploymentVerification: { enabled: true, serviceInstanceMetricPath: RUNTIME_INPUT_VALUE }
       }
     }
   ],

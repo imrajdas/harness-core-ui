@@ -56,9 +56,9 @@
 
   .collapsedMatrixWrapper {
     padding: var(--spacing-large) var(--spacing-small) var(--spacing-large) var(--spacing-small);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    &.nestedStepGroup {
+      margin-top: 40px;
+    }
   }
   .isNodeCollapsed {
     padding: var(--spacing-xxlarge) !important;
@@ -178,6 +178,9 @@
   }
 
   .stepGroupBody {
+    &.hasMoreChild {
+      margin-bottom: 20px;
+    }
     padding: 0 var(--spacing-xlarge) 0 var(--spacing-xxlarge);
     padding-bottom: 0 !important;
     // margin-right: -60px !important; // negative margin to compensate the gap 80px on last node in grid
@@ -301,7 +304,7 @@
   }
 }
 .matrixBorderWrapper {
-  padding-top: 20px !important;
+  padding-top: 10px !important;
   border-top: 1px solid var(--grey-200);
   width: 100% !important;
   justify-content: space-between;

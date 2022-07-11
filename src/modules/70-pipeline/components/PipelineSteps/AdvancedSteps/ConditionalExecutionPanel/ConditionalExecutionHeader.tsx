@@ -12,7 +12,7 @@ import { useStrings } from 'framework/strings'
 import type { StepMode as Modes } from '@pipeline/utils/stepUtils'
 import { ModeEntityNameMap } from './ConditionalExecutionPanelUtils'
 
-const DOCUMENT_URL = 'https://ngdocs.harness.io/article/i36ibenkq2-step-skip-condition-settings'
+const DOCUMENT_URL = 'https://docs.harness.io/article/i36ibenkq2-step-skip-condition-settings'
 
 export interface ConditionalExecutionStatusProps {
   mode: Modes

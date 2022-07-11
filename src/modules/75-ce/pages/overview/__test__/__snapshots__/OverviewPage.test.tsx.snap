@@ -820,7 +820,7 @@ exports[`test cases for Overview Page should render NoData page when cluster and
                 />
                 <a
                   class="ngDocs"
-                  href="http://ngdocs.harness.io/"
+                  href="http://docs.harness.io/"
                   rel="noreferrer"
                   target="_blank"
                 >

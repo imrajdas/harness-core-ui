@@ -21,10 +21,10 @@ exports[`DeployServiceDefinition Changing the deployment type when the stage con
         deploymentTypeText
       </div>
       <div
-        class="Layout--horizontal StyledProps--main StyledProps--margin-top-medium"
+        class="Layout--vertical StyledProps--main StyledProps--margin-top-medium"
       >
         <div
-          class="Layout--vertical StyledProps--main StyledProps--padding-right-huge"
+          class="Layout--vertical StyledProps--main StyledProps--padding-right-huge StyledProps--margin-bottom-large"
         >
           <div
             class="tabSubHeading ng-tooltip-native"
@@ -137,7 +137,7 @@ exports[`DeployServiceDefinition Changing the deployment type when the stage con
           </div>
         </div>
         <div
-          class="Layout--vertical StyledProps--main StyledProps--border StyledProps--border-left StyledProps--padding-left-huge"
+          class="Layout--vertical StyledProps--main comingSoonLayout StyledProps--padding-left-huge StyledProps--padding-bottom-large StyledProps--padding-top-large StyledProps--border"
         >
           <div
             class="Layout--horizontal StyledProps--main"
@@ -838,10 +838,10 @@ exports[`DeployServiceDefinition checking on the gitops with other stage data sh
         deploymentTypeText
       </div>
       <div
-        class="Layout--horizontal StyledProps--main StyledProps--margin-top-medium"
+        class="Layout--vertical StyledProps--main StyledProps--margin-top-medium"
       >
         <div
-          class="Layout--vertical StyledProps--main StyledProps--padding-right-huge"
+          class="Layout--vertical StyledProps--main StyledProps--padding-right-huge StyledProps--margin-bottom-large"
         >
           <div
             class="tabSubHeading ng-tooltip-native"
@@ -954,7 +954,7 @@ exports[`DeployServiceDefinition checking on the gitops with other stage data sh
           </div>
         </div>
         <div
-          class="Layout--vertical StyledProps--main StyledProps--border StyledProps--border-left StyledProps--padding-left-huge"
+          class="Layout--vertical StyledProps--main comingSoonLayout StyledProps--padding-left-huge StyledProps--padding-bottom-large StyledProps--padding-top-large StyledProps--border"
         >
           <div
             class="Layout--horizontal StyledProps--main"
@@ -1655,10 +1655,10 @@ exports[`DeployServiceDefinition should render DeployServiceDefinition and switc
         deploymentTypeText
       </div>
       <div
-        class="Layout--horizontal StyledProps--main StyledProps--margin-top-medium"
+        class="Layout--vertical StyledProps--main StyledProps--margin-top-medium"
       >
         <div
-          class="Layout--vertical StyledProps--main StyledProps--padding-right-huge"
+          class="Layout--vertical StyledProps--main StyledProps--padding-right-huge StyledProps--margin-bottom-large"
         >
           <div
             class="tabSubHeading ng-tooltip-native"
@@ -1771,7 +1771,7 @@ exports[`DeployServiceDefinition should render DeployServiceDefinition and switc
           </div>
         </div>
         <div
-          class="Layout--vertical StyledProps--main StyledProps--border StyledProps--border-left StyledProps--padding-left-huge"
+          class="Layout--vertical StyledProps--main comingSoonLayout StyledProps--padding-left-huge StyledProps--padding-bottom-large StyledProps--padding-top-large StyledProps--border"
         >
           <div
             class="Layout--horizontal StyledProps--main"

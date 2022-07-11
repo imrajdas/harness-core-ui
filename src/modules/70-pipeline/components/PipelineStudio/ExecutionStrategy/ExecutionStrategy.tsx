@@ -365,7 +365,7 @@ function ExecutionStrategyRef(
                     <>
                       <Steps strategy={selectedStrategy} />
 
-                      <Layout.Horizontal margin={{ top: 'medium' }}>
+                      <Layout.Horizontal margin={{ top: 'medium', bottom: 'large' }}>
                         <Container className={css.enableVerificationDetail}>
                           <Text font={{ variation: FontVariation.H4 }}>
                             {getString('pipeline.enableVerificationTitle')}

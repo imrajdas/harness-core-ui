@@ -50,4 +50,6 @@ export interface CloudMetricsHealthSourceProps<T> {
   formikProps: FormikProps<DatadogMetricInfo>
   onChangeManualEditQuery?: (enabled: boolean) => void
   serviceInstanceList?: string[]
+  isTemplate?: boolean
+  expressions?: string[]
 }

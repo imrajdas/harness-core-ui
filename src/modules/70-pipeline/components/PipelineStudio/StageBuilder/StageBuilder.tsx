@@ -24,7 +24,7 @@ import { useValidationErrors } from '@pipeline/components/PipelineStudio/Pipline
 import HoverCard from '@pipeline/components/HoverCard/HoverCard'
 import { StepMode as Modes } from '@pipeline/utils/stepUtils'
 import ConditionalExecutionTooltip from '@pipeline/components/ConditionalExecutionToolTip/ConditionalExecutionTooltip'
-import { useGlobalEventListener, useQueryParams } from '@common/hooks'
+import { useGlobalEventListener } from '@common/hooks'
 import type { StageElementWrapper } from '@pipeline/utils/pipelineTypes'
 import { StageType } from '@pipeline/utils/stageHelpers'
 import { getPipelineGraphData } from '@pipeline/components/PipelineDiagram/PipelineGraph/PipelineGraphUtils'
@@ -69,7 +69,6 @@ import { StageList } from './views/StageList'
 import { SplitViewTypes } from '../PipelineContext/PipelineActions'
 import { usePipelineContext } from '../PipelineContext/PipelineContext'
 import { getNodeListenersOld, getLinkListernersOld } from './StageBuildOldUtils'
-import type { PipelineSelectionState } from '../PipelineQueryParamState/usePipelineQueryParam'
 import css from './StageBuilder.module.scss'
 
 const diagram = new DiagramFactory('graph')
@@ -227,7 +226,6 @@ function StageBuilder(): JSX.Element {
     getStageFromPipeline,
     setSelection
   } = usePipelineContext()
-  const { sectionId } = useQueryParams<PipelineSelectionState>()
 
   // NOTE: we are using ref as setSelection is getting cached somewhere
   const setSelectionRef = React.useRef(setSelection)
@@ -628,8 +626,7 @@ function StageBuilder(): JSX.Element {
     updateMoveStageDetails,
     confirmMoveStage,
     stageMap,
-    newPipelineStudioEnabled,
-    sectionId
+    newPipelineStudioEnabled
   )
 
   const resetPipelineStages = (stages: StageElementWrapperConfig[]): void => {

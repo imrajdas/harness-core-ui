@@ -23,6 +23,9 @@ export interface QueryContentProps {
   mandatoryFields?: any[]
   staleRecordsWarning?: string
   textAreaPlaceholder?: string
+  isTemplate?: boolean
+  expressions?: string[]
+  isConnectorRuntimeOrExpression?: boolean
 }
 
 export interface QueryViewerProps {

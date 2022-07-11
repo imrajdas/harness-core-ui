@@ -92,7 +92,7 @@ describe('ResourceCenter', () => {
       await waitFor(() => {
         expect(releaseNote).toHaveAttribute(
           'href',
-          'https://ngdocs.harness.io/article/7zkchy5lhj-harness-saa-s-release-notes-2022'
+          'https://docs.harness.io/article/7zkchy5lhj-harness-saa-s-release-notes-2022'
         )
       })
     })
@@ -108,7 +108,7 @@ describe('ResourceCenter', () => {
       await waitFor(() => {
         expect(releaseNote).toHaveAttribute(
           'href',
-          'https://ngdocs.harness.io/article/556wy85kbo-harness-on-prem-release-notes'
+          'https://docs.harness.io/article/556wy85kbo-harness-on-prem-release-notes'
         )
       })
     })
@@ -125,7 +125,7 @@ describe('ResourceCenter', () => {
       await waitFor(() => {
         expect(releaseNote).toHaveAttribute(
           'href',
-          'https://ngdocs.harness.io/article/556wy85kbo-harness-on-prem-release-notes'
+          'https://docs.harness.io/article/556wy85kbo-harness-on-prem-release-notes'
         )
       })
     })

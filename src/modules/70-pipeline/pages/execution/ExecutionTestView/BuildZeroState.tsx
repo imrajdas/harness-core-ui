@@ -16,7 +16,7 @@ interface BuildZeroStateProps {
   isLoading?: boolean
 }
 
-const viewTests = 'https://ngdocs.harness.io/article/sof7n3qjap-viewing-tests'
+const viewTests = 'https://docs.harness.io/article/sof7n3qjap-viewing-tests'
 const harnessDocs = 'https://docs.harness.io'
 
 export function BuildZeroState(props: BuildZeroStateProps): React.ReactElement {

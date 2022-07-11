@@ -323,12 +323,15 @@ function ManifestListView({
   const getLastSteps = useCallback((): Array<React.ReactElement<StepProps<ConnectorConfigDTO>>> => {
     const arr: Array<React.ReactElement<StepProps<ConnectorConfigDTO>>> = []
     let manifestDetailStep = null
+    const isGitTypeStores = [
+      ManifestStoreMap.Git,
+      ManifestStoreMap.Github,
+      ManifestStoreMap.GitLab,
+      ManifestStoreMap.Bitbucket
+    ].includes(manifestStore as ManifestStores)
 
     switch (true) {
-      case selectedManifest === ManifestDataType.HelmChart &&
-        [ManifestStoreMap.Git, ManifestStoreMap.Github, ManifestStoreMap.GitLab, ManifestStoreMap.Bitbucket].includes(
-          manifestStore as ManifestStores
-        ):
+      case selectedManifest === ManifestDataType.HelmChart && isGitTypeStores:
         manifestDetailStep = <HelmWithGIT {...lastStepProps()} />
         break
       case selectedManifest === ManifestDataType.HelmChart && manifestStore === ManifestStoreMap.Http:
@@ -343,16 +346,16 @@ function ManifestListView({
       case selectedManifest === ManifestDataType.HelmChart && manifestStore === ManifestStoreMap.Gcs:
         manifestDetailStep = <HelmWithGcs {...lastStepProps()} />
         break
-      case selectedManifest === ManifestDataType.OpenshiftTemplate:
+      case selectedManifest === ManifestDataType.OpenshiftTemplate && isGitTypeStores:
         manifestDetailStep = <OpenShiftTemplateWithGit {...lastStepProps()} />
         break
       case selectedManifest === ManifestDataType.Kustomize:
         manifestDetailStep = <KustomizeWithGIT {...lastStepProps()} />
         break
-      case selectedManifest === ManifestDataType.OpenshiftParam:
+      case selectedManifest === ManifestDataType.OpenshiftParam && isGitTypeStores:
         manifestDetailStep = <OpenShiftParamWithGit {...lastStepProps()} />
         break
-      case selectedManifest === ManifestDataType.KustomizePatches:
+      case selectedManifest === ManifestDataType.KustomizePatches && isGitTypeStores:
         manifestDetailStep = <KustomizePatchDetails {...lastStepProps()} />
         break
       case selectedManifest === ManifestDataType.ServerlessAwsLambda:
@@ -376,9 +379,7 @@ function ManifestListView({
         manifestDetailStep = <CustomRemoteManifest {...lastStepProps()} />
         break
       case [ManifestDataType.K8sManifest, ManifestDataType.Values].includes(selectedManifest as ManifestTypes) &&
-        [ManifestStoreMap.Git, ManifestStoreMap.Github, ManifestStoreMap.GitLab, ManifestStoreMap.Bitbucket].includes(
-          manifestStore as ManifestStores
-        ):
+        isGitTypeStores:
       default:
         manifestDetailStep = <K8sValuesManifest {...lastStepProps()} />
         break

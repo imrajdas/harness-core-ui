@@ -816,44 +816,48 @@ exports[`ECS Service Selector Modal should fill in region and cluster and displa
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
+                  class="TableV2--cells"
                 >
-                  <label
-                    class="bp3-control bp3-radio StyledProps--font Radio--radio radioBtn StyledProps--main"
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
                   >
-                    <input
-                      type="radio"
-                    />
-                    <span
-                      class="bp3-control-indicator"
-                    />
-                  </label>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 40%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 1;"
+                    <label
+                      class="bp3-control bp3-radio StyledProps--font Radio--radio radioBtn StyledProps--main"
+                    >
+                      <input
+                        type="radio"
+                      />
+                      <span
+                        class="bp3-control-indicator"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 40%;"
                   >
-                    dummy-service
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 50%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 1;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 1;"
+                    >
+                      dummy-service
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 50%;"
                   >
-                    dummy-service-id
-                  </p>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 1;"
+                    >
+                      dummy-service-id
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

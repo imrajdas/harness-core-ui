@@ -13,7 +13,8 @@ import {
   getMultiTypeFromValue,
   MultiTypeInput,
   Label,
-  FormError
+  FormError,
+  RUNTIME_INPUT_VALUE
 } from '@wings-software/uicore'
 import { useStrings } from 'framework/strings'
 import { getPlaceholder, getTypeOfInput, setAppDynamicsTier } from '../../AppDHealthSource.utils'
@@ -84,7 +85,7 @@ export default function AppDynamicsTier({
           const selectedItem = item as string | SelectOption
           const selectedValue = typeof selectedItem === 'string' ? selectedItem : selectedItem?.label?.toString()
           setAppDTierCustomField(selectedValue as string)
-          if (!(formikValues?.appdApplication === '<+input>' || formikValues?.appDTier === '<+input>')) {
+          if (!(formikValues?.appdApplication === RUNTIME_INPUT_VALUE || formikValues?.appDTier === '<+input>')) {
             await onValidate(formikValues?.appdApplication, selectedValue, formikValues.metricData)
           }
         }}
@@ -99,7 +100,7 @@ export default function AppDynamicsTier({
       value={setAppDynamicsTier(tierLoading, formikValues?.appDTier, tierOptions) as SelectOption}
       onChange={async item => {
         setAppDTierCustomField(item.label)
-        if (!(formikValues?.appdApplication === '<+input>' || formikValues?.appDTier === '<+input>')) {
+        if (!(formikValues?.appdApplication === RUNTIME_INPUT_VALUE || formikValues?.appDTier === '<+input>')) {
           await onValidate(formikValues.appdApplication, item.label as string, formikValues.metricData)
         }
       }}

@@ -69,83 +69,87 @@ exports[`<TemplateResourceModal /> Tests snapshot test 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 40%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-              data-testid="CI_Stage_Template"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 40%;"
+            >
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                data-testid="CI_Stage_Template"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target Text--targetClass"
+                    >
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                        tabindex="0"
+                      >
+                        CI Stage Template 2
+                      </p>
+                    </span>
+                  </span>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  idLabel
+                </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                <span
-                  class="bp3-popover-wrapper"
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
                 >
-                  <span
-                    class="bp3-popover-target Text--targetClass"
-                  >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                      tabindex="0"
-                    >
-                      CI Stage Template 2
-                    </p>
-                  </span>
-                </span>
+                  Stage
+                </p>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                idLabel
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                Stage
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
-            >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-              >
-                project
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  project
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -154,83 +158,87 @@ exports[`<TemplateResourceModal /> Tests snapshot test 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 40%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-              data-testid="new_step_name"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 40%;"
+            >
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                data-testid="new_step_name"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target Text--targetClass"
+                    >
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                        tabindex="0"
+                      >
+                        New Step Name
+                      </p>
+                    </span>
+                  </span>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  idLabel
+                </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                <span
-                  class="bp3-popover-wrapper"
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
                 >
-                  <span
-                    class="bp3-popover-target Text--targetClass"
-                  >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                      tabindex="0"
-                    >
-                      New Step Name
-                    </p>
-                  </span>
-                </span>
+                  Step
+                </p>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                idLabel
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                Step
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
-            >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-              >
-                project
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  project
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -239,83 +247,87 @@ exports[`<TemplateResourceModal /> Tests snapshot test 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 40%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-              data-testid="CI_Stage"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 40%;"
+            >
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                data-testid="CI_Stage"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target Text--targetClass"
+                    >
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                        tabindex="0"
+                      >
+                        CI Stage
+                      </p>
+                    </span>
+                  </span>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  idLabel
+                </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                <span
-                  class="bp3-popover-wrapper"
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
                 >
-                  <span
-                    class="bp3-popover-target Text--targetClass"
-                  >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                      tabindex="0"
-                    >
-                      CI Stage
-                    </p>
-                  </span>
-                </span>
+                  Stage
+                </p>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                idLabel
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                Stage
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
-            >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-              >
-                project
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  project
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -324,83 +336,87 @@ exports[`<TemplateResourceModal /> Tests snapshot test 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 40%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-              data-testid="CD_Stage"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 40%;"
+            >
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                data-testid="CD_Stage"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target Text--targetClass"
+                    >
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                        tabindex="0"
+                      >
+                        CD Stage
+                      </p>
+                    </span>
+                  </span>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  idLabel
+                </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                <span
-                  class="bp3-popover-wrapper"
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
                 >
-                  <span
-                    class="bp3-popover-target Text--targetClass"
-                  >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                      tabindex="0"
-                    >
-                      CD Stage
-                    </p>
-                  </span>
-                </span>
+                  Stage
+                </p>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                idLabel
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                Stage
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
-            >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-              >
-                project
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  project
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -409,83 +425,87 @@ exports[`<TemplateResourceModal /> Tests snapshot test 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 40%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-              data-testid="templatetest2"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 40%;"
+            >
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                data-testid="templatetest2"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target Text--targetClass"
+                    >
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                        tabindex="0"
+                      >
+                        template-test2
+                      </p>
+                    </span>
+                  </span>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  idLabel
+                </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                <span
-                  class="bp3-popover-wrapper"
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
                 >
-                  <span
-                    class="bp3-popover-target Text--targetClass"
-                  >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                      tabindex="0"
-                    >
-                      template-test2
-                    </p>
-                  </span>
-                </span>
+                  Step
+                </p>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                idLabel
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                Step
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
-            >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-              >
-                project
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  project
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -494,83 +514,87 @@ exports[`<TemplateResourceModal /> Tests snapshot test 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 40%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
-              data-testid="Echo_Template"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 40%;"
+            >
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                data-testid="Echo_Template"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                >
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target Text--targetClass"
+                    >
+                      <p
+                        class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                        tabindex="0"
+                      >
+                        Echo Template
+                      </p>
+                    </span>
+                  </span>
+                </div>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                >
+                  idLabel
+                </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                <span
-                  class="bp3-popover-wrapper"
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
                 >
-                  <span
-                    class="bp3-popover-target Text--targetClass"
-                  >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                      tabindex="0"
-                    >
-                      Echo Template
-                    </p>
-                  </span>
-                </span>
+                  Step
+                </p>
               </div>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
-              >
-                idLabel
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+              <div
+                class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
               >
-                Step
-              </p>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
-            >
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-              >
-                project
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
+                >
+                  project
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -45,176 +45,333 @@ exports[`Connector Resource Modal Body test initializes ok  1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 95%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <span
-                class="bp3-icon StyledProps--main"
-                data-icon="service-aws"
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
               >
-                <svg
-                  height="30"
-                  viewBox="0 0 14 10"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 95%;"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              >
+                <span
+                  class="bp3-icon StyledProps--main"
+                  data-icon="service-aws"
                 >
-                  <path
-                    d="M4 3.9v.4c0 .1.1.2.1.3v.1c0 .1 0 .1-.1.1l-.1.2h-.1s-.1 0-.1-.1c-.1.1-.2 0-.2-.1s-.1-.2-.1-.3c-.4.5-.9.7-1.4.7-.4 0-.7-.1-.9-.3S.7 4.3.7 4c0-.4.1-.7.4-.9s.6-.4 1.1-.4h.5c.2 0 .3.1.5.1v-.3c0-.3-.1-.6-.2-.7-.1-.2-.3-.2-.7-.2-.2 0-.3 0-.5.1-.2 0-.3.1-.5.2 0 0-.1 0-.2.1H1v-.5-.2l.1-.1c.3-.1.4-.1.6-.2.3 0 .5-.1.8-.1.5 0 .9.1 1.2.4s.3.6.3 1.1zm-1.8.7c.2 0 .3 0 .5-.1.1-.1.3-.2.4-.3s.1-.2.1-.3V3.3c-.1 0-.2 0-.3-.1h-.4c-.3 0-.5.1-.7.2s-.3.3-.3.5.1.4.2.5.3.2.5.2zm3.6.5h-.2s-.1-.1-.1-.2l-1-3.6v-.2c0-.1 0-.1.1-.1H5.2s.1.1.1.2l.8 3 .7-3c0-.1 0-.1.1-.2h.8s.1.1.1.2l.7 3 .8-3c0-.1 0-.1.1-.2H10c.1 0 .1 0 .1.1v.2L8.8 4.8c0 .1 0 .2-.1.2h-.5c-.1.1-.2.1-.2 0 0 0-.1-.1-.1-.2l-.7-2.9-.7 2.9c0 .1 0 .1-.1.2h-.2zm5.9.1c-.2 0-.5 0-.7-.1s-.4-.1-.5-.2c-.1 0-.1-.1-.1-.1v-.4c0-.1 0-.1.1-.1h.2c.2.1.3.1.5.2.2 0 .4.1.5.1.3 0 .5 0 .7-.1.1-.1.2-.3.2-.4s0-.2-.1-.3-.2-.2-.5-.2l-.7-.2c-.3-.1-.6-.3-.7-.5s-.2-.4-.2-.7c0-.2 0-.3.1-.5.1-.1.2-.3.3-.4s.3-.2.5-.2c.2-.1.4-.1.6-.1h.6c.1 0 .2 0 .3.1.1 0 .1 0 .2.1.1 0 .1.1.1.1V1.6c0 .1 0 .1-.1.1s-.1 0-.2-.1c-.3-.1-.6-.2-.9-.2s-.5 0-.6.1-.2.2-.2.4c0 .1 0 .2.1.3s.3.2.5.2l.6.2c.3.1.6.2.7.4s.2.4.2.6 0 .4-.1.5c-.1.2-.2.3-.3.4-.1.5-.3.5-.5.6s-.4.1-.6.1z"
-                    fill="#252f3e"
-                  />
-                  <g
-                    fill="#f90"
+                  <svg
+                    height="30"
+                    viewBox="0 0 14 10"
+                    width="30"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M12.5 7.4C11 8.5 8.9 9.1 7 9.1c-2.6 0-5-1-6.7-2.6-.1-.1 0-.3.2-.2 1.9 1.1 4.3 1.8 6.7 1.8 1.8 0 3.5-.4 5.1-1.1.2-.1.5.2.2.4z"
+                      d="M4 3.9v.4c0 .1.1.2.1.3v.1c0 .1 0 .1-.1.1l-.1.2h-.1s-.1 0-.1-.1c-.1.1-.2 0-.2-.1s-.1-.2-.1-.3c-.4.5-.9.7-1.4.7-.4 0-.7-.1-.9-.3S.7 4.3.7 4c0-.4.1-.7.4-.9s.6-.4 1.1-.4h.5c.2 0 .3.1.5.1v-.3c0-.3-.1-.6-.2-.7-.1-.2-.3-.2-.7-.2-.2 0-.3 0-.5.1-.2 0-.3.1-.5.2 0 0-.1 0-.2.1H1v-.5-.2l.1-.1c.3-.1.4-.1.6-.2.3 0 .5-.1.8-.1.5 0 .9.1 1.2.4s.3.6.3 1.1zm-1.8.7c.2 0 .3 0 .5-.1.1-.1.3-.2.4-.3s.1-.2.1-.3V3.3c-.1 0-.2 0-.3-.1h-.4c-.3 0-.5.1-.7.2s-.3.3-.3.5.1.4.2.5.3.2.5.2zm3.6.5h-.2s-.1-.1-.1-.2l-1-3.6v-.2c0-.1 0-.1.1-.1H5.2s.1.1.1.2l.8 3 .7-3c0-.1 0-.1.1-.2h.8s.1.1.1.2l.7 3 .8-3c0-.1 0-.1.1-.2H10c.1 0 .1 0 .1.1v.2L8.8 4.8c0 .1 0 .2-.1.2h-.5c-.1.1-.2.1-.2 0 0 0-.1-.1-.1-.2l-.7-2.9-.7 2.9c0 .1 0 .1-.1.2h-.2zm5.9.1c-.2 0-.5 0-.7-.1s-.4-.1-.5-.2c-.1 0-.1-.1-.1-.1v-.4c0-.1 0-.1.1-.1h.2c.2.1.3.1.5.2.2 0 .4.1.5.1.3 0 .5 0 .7-.1.1-.1.2-.3.2-.4s0-.2-.1-.3-.2-.2-.5-.2l-.7-.2c-.3-.1-.6-.3-.7-.5s-.2-.4-.2-.7c0-.2 0-.3.1-.5.1-.1.2-.3.3-.4s.3-.2.5-.2c.2-.1.4-.1.6-.1h.6c.1 0 .2 0 .3.1.1 0 .1 0 .2.1.1 0 .1.1.1.1V1.6c0 .1 0 .1-.1.1s-.1 0-.2-.1c-.3-.1-.6-.2-.9-.2s-.5 0-.6.1-.2.2-.2.4c0 .1 0 .2.1.3s.3.2.5.2l.6.2c.3.1.6.2.7.4s.2.4.2.6 0 .4-.1.5c-.1.2-.2.3-.3.4-.1.5-.3.5-.5.6s-.4.1-.6.1z"
+                      fill="#252f3e"
+                    />
+                    <g
+                      fill="#f90"
+                    >
+                      <path
+                        d="M12.5 7.4C11 8.5 8.9 9.1 7 9.1c-2.6 0-5-1-6.7-2.6-.1-.1 0-.3.2-.2 1.9 1.1 4.3 1.8 6.7 1.8 1.8 0 3.5-.4 5.1-1.1.2-.1.5.2.2.4z"
+                      />
+                      <path
+                        d="M13.1 6.7c-.2-.2-1.3-.1-1.7-.1-.1 0-.2-.1 0-.2.9-.6 2.3-.4 2.4-.2.2.2 0 1.6-.8 2.3-.1.1-.2 0-.2-.1.1-.5.5-1.5.3-1.7z"
+                      />
+                    </g>
+                  </svg>
+                </span>
+                <div
+                  class="wrapper"
+                >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  >
+                    <div
+                      class="name"
+                      color="black"
+                      title="AWS"
+                    >
+                      AWS
+                    </div>
+                  </div>
+                  <div
+                    class="identifier"
+                    title="AWSX"
+                  >
+                    common.ID: AWSX
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="TableV2--row TableV2--card TableV2--clickable"
+          role="row"
+        >
+          <div
+            class="TableV2--cells"
+          >
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 95%;"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              >
+                <span
+                  class="bp3-icon StyledProps--main"
+                  data-icon="service-github"
+                >
+                  <svg
+                    height="30"
+                    viewBox="0 0 14 14"
+                    width="30"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.6 6.4l-6-6C7.3.1 6.7.1 6.4.4L5.1 1.6l1.6 1.6c.4-.1.8 0 1.1.3s.4.7.2 1.1l1.5 1.5c.4-.1.8 0 1.1.2.4.4.4 1.1 0 1.5s-1.1.4-1.5 0c-.3-.3-.3-.7-.2-1.1L7.5 5.3V9c.1 0 .2.1.3.2.4.4.4 1.1 0 1.5s-1.1.4-1.5 0-.4-1.1 0-1.5c.1-.1.2-.2.3-.2V5.2c-.1-.1-.2-.1-.3-.2-.3-.4-.4-.8-.2-1.2L4.5 2.3.4 6.4c-.3.3-.3.9 0 1.2l6 6c.3.3.9.3 1.2 0l6-6c.3-.3.3-.9 0-1.2z"
+                      fill="#f42534"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="wrapper"
+                >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  >
+                    <div
+                      class="name"
+                      color="black"
+                      title="Git CTR"
+                    >
+                      Git CTR
+                    </div>
+                    <span
+                      class="bp3-popover-wrapper"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                          tabindex="0"
+                        >
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="main-tags"
+                          >
+                            <svg
+                              height="15"
+                              viewBox="0 0 14 14"
+                              width="15"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                                fill="#4d5969"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main"
+                          >
+                            1
+                          </p>
+                        </div>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    class="identifier"
+                    title="Git_CTR"
+                  >
+                    common.ID: Git_CTR
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="TableV2--row TableV2--card TableV2--clickable"
+          role="row"
+        >
+          <div
+            class="TableV2--cells"
+          >
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 95%;"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              >
+                <span
+                  class="bp3-icon StyledProps--main"
+                  data-icon="service-github"
+                >
+                  <svg
+                    height="30"
+                    viewBox="0 0 14 14"
+                    width="30"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.6 6.4l-6-6C7.3.1 6.7.1 6.4.4L5.1 1.6l1.6 1.6c.4-.1.8 0 1.1.3s.4.7.2 1.1l1.5 1.5c.4-.1.8 0 1.1.2.4.4.4 1.1 0 1.5s-1.1.4-1.5 0c-.3-.3-.3-.7-.2-1.1L7.5 5.3V9c.1 0 .2.1.3.2.4.4.4 1.1 0 1.5s-1.1.4-1.5 0-.4-1.1 0-1.5c.1-.1.2-.2.3-.2V5.2c-.1-.1-.2-.1-.3-.2-.3-.4-.4-.8-.2-1.2L4.5 2.3.4 6.4c-.3.3-.3.9 0 1.2l6 6c.3.3.9.3 1.2 0l6-6c.3-.3.3-.9 0-1.2z"
+                      fill="#f42534"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="wrapper"
+                >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  >
+                    <div
+                      class="name"
+                      color="black"
+                      title="Sample"
+                    >
+                      Sample
+                    </div>
+                  </div>
+                  <div
+                    class="identifier"
+                    title="SampleX"
+                  >
+                    common.ID: SampleX
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="TableV2--row TableV2--card TableV2--clickable"
+          role="row"
+        >
+          <div
+            class="TableV2--cells"
+          >
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 95%;"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              >
+                <span
+                  class="bp3-icon StyledProps--main"
+                  data-icon="service-dockerhub"
+                >
+                  <svg
+                    height="30"
+                    viewBox="0 0 14 10"
+                    width="30"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.8 3.3h1.3v1.3H5.8zM7.2 3.3h1.3v1.3H7.2zM4.3 3.3h1.3v1.3H4.3zM2.9 3.3h1.3v1.3H2.9zM1.4 3.3h1.3v1.3H1.4zM5.8 1.9h1.3v1.3H5.8zM5.8.4h1.3v1.3H5.8zM4.3 1.9h1.3v1.3H4.3zM2.9 1.9h1.3v1.3H2.9z"
                     />
                     <path
-                      d="M13.1 6.7c-.2-.2-1.3-.1-1.7-.1-.1 0-.2-.1 0-.2.9-.6 2.3-.4 2.4-.2.2.2 0 1.6-.8 2.3-.1.1-.2 0-.2-.1.1-.5.5-1.5.3-1.7z"
+                      d="M.8 7.7c-.1-.2-.2-.3-.3-.4l-.1-.2c0-.1-.1-.2-.1-.4v-.2C.1 6.1 0 5.7 0 5.2v-.4h9.5c.7 0 1.4-.2 1.7-.5-.2-.2-.4-.6-.4-1 0-.5.1-1 .3-1.3l.1-.1.1.1c.3.2.9.8.9 1.6.3-.1.5-.1.8-.1.4 0 .7.1.9.2h.1v.1c-.3.6-1 .9-1.8.9h-.3c-1.2 3-3.7 4.6-7.3 4.6-.6 0-1.2-.1-1.8-.3-.7-.2-1.3-.6-1.8-1.1zm4.4 1.4c-.9-.4-1.3-.9-1.6-1.5-.4.1-.7.1-1.2.2H1.2C2 8.6 3 9.1 4.8 9.1zm-1-2.4c-.2 0-.3.2-.3.3 0 .2.2.3.3.3.2 0 .3-.2.3-.3s-.1-.3-.3-.3z"
                     />
-                  </g>
-                </svg>
-              </span>
-              <div
-                class="wrapper"
-              >
+                    <path
+                      d="M4.2 6.8s.1 0 0 0c.1 0 .1.1 0 0 .1.2.1.2.2.2 0 0 .1 0 .1-.1V7c0 .1-.1.3-.3.3S4 7.2 4 7c0-.1.1-.2.2-.2"
+                    />
+                  </svg>
+                </span>
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  class="wrapper"
                 >
                   <div
-                    class="name"
-                    color="black"
-                    title="AWS"
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                   >
-                    AWS
-                  </div>
-                </div>
-                <div
-                  class="identifier"
-                  title="AWSX"
-                >
-                  common.ID: AWSX
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--row TableV2--card TableV2--clickable"
-          role="row"
-        >
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 95%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-            >
-              <span
-                class="bp3-icon StyledProps--main"
-                data-icon="service-github"
-              >
-                <svg
-                  height="30"
-                  viewBox="0 0 14 14"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13.6 6.4l-6-6C7.3.1 6.7.1 6.4.4L5.1 1.6l1.6 1.6c.4-.1.8 0 1.1.3s.4.7.2 1.1l1.5 1.5c.4-.1.8 0 1.1.2.4.4.4 1.1 0 1.5s-1.1.4-1.5 0c-.3-.3-.3-.7-.2-1.1L7.5 5.3V9c.1 0 .2.1.3.2.4.4.4 1.1 0 1.5s-1.1.4-1.5 0-.4-1.1 0-1.5c.1-.1.2-.2.3-.2V5.2c-.1-.1-.2-.1-.3-.2-.3-.4-.4-.8-.2-1.2L4.5 2.3.4 6.4c-.3.3-.3.9 0 1.2l6 6c.3.3.9.3 1.2 0l6-6c.3-.3.3-.9 0-1.2z"
-                    fill="#f42534"
-                  />
-                </svg>
-              </span>
-              <div
-                class="wrapper"
-              >
-                <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                >
-                  <div
-                    class="name"
-                    color="black"
-                    title="Git CTR"
-                  >
-                    Git CTR
-                  </div>
-                  <span
-                    class="bp3-popover-wrapper"
-                  >
-                    <span
-                      class="bp3-popover-target"
+                    <div
+                      class="name"
+                      color="black"
+                      title="XYZDocker"
                     >
-                      <div
-                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                        tabindex="0"
-                      >
-                        <span
-                          class="bp3-icon StyledProps--main"
-                          data-icon="main-tags"
-                        >
-                          <svg
-                            height="15"
-                            viewBox="0 0 14 14"
-                            width="15"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                              fill="#4d5969"
-                            />
-                          </svg>
-                        </span>
-                        <p
-                          class="StyledProps--font StyledProps--main"
-                        >
-                          1
-                        </p>
-                      </div>
-                    </span>
-                  </span>
-                </div>
-                <div
-                  class="identifier"
-                  title="Git_CTR"
-                >
-                  common.ID: Git_CTR
+                      XYZDocker
+                    </div>
+                  </div>
+                  <div
+                    class="identifier"
+                    title="XYZDockerX"
+                  >
+                    common.ID: XYZDockerX
+                  </div>
                 </div>
               </div>
             </div>
@@ -225,402 +382,273 @@ exports[`Connector Resource Modal Body test initializes ok  1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 95%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <span
-                class="bp3-icon StyledProps--main"
-                data-icon="service-github"
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
               >
-                <svg
-                  height="30"
-                  viewBox="0 0 14 14"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13.6 6.4l-6-6C7.3.1 6.7.1 6.4.4L5.1 1.6l1.6 1.6c.4-.1.8 0 1.1.3s.4.7.2 1.1l1.5 1.5c.4-.1.8 0 1.1.2.4.4.4 1.1 0 1.5s-1.1.4-1.5 0c-.3-.3-.3-.7-.2-1.1L7.5 5.3V9c.1 0 .2.1.3.2.4.4.4 1.1 0 1.5s-1.1.4-1.5 0-.4-1.1 0-1.5c.1-.1.2-.2.3-.2V5.2c-.1-.1-.2-.1-.3-.2-.3-.4-.4-.8-.2-1.2L4.5 2.3.4 6.4c-.3.3-.3.9 0 1.2l6 6c.3.3.9.3 1.2 0l6-6c.3-.3.3-.9 0-1.2z"
-                    fill="#f42534"
-                  />
-                </svg>
-              </span>
-              <div
-                class="wrapper"
-              >
-                <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                >
-                  <div
-                    class="name"
-                    color="black"
-                    title="Sample"
-                  >
-                    Sample
-                  </div>
-                </div>
-                <div
-                  class="identifier"
-                  title="SampleX"
-                >
-                  common.ID: SampleX
-                </div>
-              </div>
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
             </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--row TableV2--card TableV2--clickable"
-          role="row"
-        >
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 95%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 95%;"
             >
-              <span
-                class="bp3-icon StyledProps--main"
-                data-icon="service-dockerhub"
-              >
-                <svg
-                  height="30"
-                  viewBox="0 0 14 10"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5.8 3.3h1.3v1.3H5.8zM7.2 3.3h1.3v1.3H7.2zM4.3 3.3h1.3v1.3H4.3zM2.9 3.3h1.3v1.3H2.9zM1.4 3.3h1.3v1.3H1.4zM5.8 1.9h1.3v1.3H5.8zM5.8.4h1.3v1.3H5.8zM4.3 1.9h1.3v1.3H4.3zM2.9 1.9h1.3v1.3H2.9z"
-                  />
-                  <path
-                    d="M.8 7.7c-.1-.2-.2-.3-.3-.4l-.1-.2c0-.1-.1-.2-.1-.4v-.2C.1 6.1 0 5.7 0 5.2v-.4h9.5c.7 0 1.4-.2 1.7-.5-.2-.2-.4-.6-.4-1 0-.5.1-1 .3-1.3l.1-.1.1.1c.3.2.9.8.9 1.6.3-.1.5-.1.8-.1.4 0 .7.1.9.2h.1v.1c-.3.6-1 .9-1.8.9h-.3c-1.2 3-3.7 4.6-7.3 4.6-.6 0-1.2-.1-1.8-.3-.7-.2-1.3-.6-1.8-1.1zm4.4 1.4c-.9-.4-1.3-.9-1.6-1.5-.4.1-.7.1-1.2.2H1.2C2 8.6 3 9.1 4.8 9.1zm-1-2.4c-.2 0-.3.2-.3.3 0 .2.2.3.3.3.2 0 .3-.2.3-.3s-.1-.3-.3-.3z"
-                  />
-                  <path
-                    d="M4.2 6.8s.1 0 0 0c.1 0 .1.1 0 0 .1.2.1.2.2.2 0 0 .1 0 .1-.1V7c0 .1-.1.3-.3.3S4 7.2 4 7c0-.1.1-.2.2-.2"
-                  />
-                </svg>
-              </span>
               <div
-                class="wrapper"
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
               >
+                <span
+                  class="bp3-icon StyledProps--main"
+                  data-icon="service-dockerhub"
+                >
+                  <svg
+                    height="30"
+                    viewBox="0 0 14 10"
+                    width="30"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.8 3.3h1.3v1.3H5.8zM7.2 3.3h1.3v1.3H7.2zM4.3 3.3h1.3v1.3H4.3zM2.9 3.3h1.3v1.3H2.9zM1.4 3.3h1.3v1.3H1.4zM5.8 1.9h1.3v1.3H5.8zM5.8.4h1.3v1.3H5.8zM4.3 1.9h1.3v1.3H4.3zM2.9 1.9h1.3v1.3H2.9z"
+                    />
+                    <path
+                      d="M.8 7.7c-.1-.2-.2-.3-.3-.4l-.1-.2c0-.1-.1-.2-.1-.4v-.2C.1 6.1 0 5.7 0 5.2v-.4h9.5c.7 0 1.4-.2 1.7-.5-.2-.2-.4-.6-.4-1 0-.5.1-1 .3-1.3l.1-.1.1.1c.3.2.9.8.9 1.6.3-.1.5-.1.8-.1.4 0 .7.1.9.2h.1v.1c-.3.6-1 .9-1.8.9h-.3c-1.2 3-3.7 4.6-7.3 4.6-.6 0-1.2-.1-1.8-.3-.7-.2-1.3-.6-1.8-1.1zm4.4 1.4c-.9-.4-1.3-.9-1.6-1.5-.4.1-.7.1-1.2.2H1.2C2 8.6 3 9.1 4.8 9.1zm-1-2.4c-.2 0-.3.2-.3.3 0 .2.2.3.3.3.2 0 .3-.2.3-.3s-.1-.3-.3-.3z"
+                    />
+                    <path
+                      d="M4.2 6.8s.1 0 0 0c.1 0 .1.1 0 0 .1.2.1.2.2.2 0 0 .1 0 .1-.1V7c0 .1-.1.3-.3.3S4 7.2 4 7c0-.1.1-.2.2-.2"
+                    />
+                  </svg>
+                </span>
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  class="wrapper"
                 >
                   <div
-                    class="name"
-                    color="black"
-                    title="XYZDocker"
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                   >
-                    XYZDocker
-                  </div>
-                </div>
-                <div
-                  class="identifier"
-                  title="XYZDockerX"
-                >
-                  common.ID: XYZDockerX
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--row TableV2--card TableV2--clickable"
-          role="row"
-        >
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 95%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-            >
-              <span
-                class="bp3-icon StyledProps--main"
-                data-icon="service-dockerhub"
-              >
-                <svg
-                  height="30"
-                  viewBox="0 0 14 10"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M5.8 3.3h1.3v1.3H5.8zM7.2 3.3h1.3v1.3H7.2zM4.3 3.3h1.3v1.3H4.3zM2.9 3.3h1.3v1.3H2.9zM1.4 3.3h1.3v1.3H1.4zM5.8 1.9h1.3v1.3H5.8zM5.8.4h1.3v1.3H5.8zM4.3 1.9h1.3v1.3H4.3zM2.9 1.9h1.3v1.3H2.9z"
-                  />
-                  <path
-                    d="M.8 7.7c-.1-.2-.2-.3-.3-.4l-.1-.2c0-.1-.1-.2-.1-.4v-.2C.1 6.1 0 5.7 0 5.2v-.4h9.5c.7 0 1.4-.2 1.7-.5-.2-.2-.4-.6-.4-1 0-.5.1-1 .3-1.3l.1-.1.1.1c.3.2.9.8.9 1.6.3-.1.5-.1.8-.1.4 0 .7.1.9.2h.1v.1c-.3.6-1 .9-1.8.9h-.3c-1.2 3-3.7 4.6-7.3 4.6-.6 0-1.2-.1-1.8-.3-.7-.2-1.3-.6-1.8-1.1zm4.4 1.4c-.9-.4-1.3-.9-1.6-1.5-.4.1-.7.1-1.2.2H1.2C2 8.6 3 9.1 4.8 9.1zm-1-2.4c-.2 0-.3.2-.3.3 0 .2.2.3.3.3.2 0 .3-.2.3-.3s-.1-.3-.3-.3z"
-                  />
-                  <path
-                    d="M4.2 6.8s.1 0 0 0c.1 0 .1.1 0 0 .1.2.1.2.2.2 0 0 .1 0 .1-.1V7c0 .1-.1.3-.3.3S4 7.2 4 7c0-.1.1-.2.2-.2"
-                  />
-                </svg>
-              </span>
-              <div
-                class="wrapper"
-              >
-                <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                >
-                  <div
-                    class="name"
-                    color="black"
-                    title="Docker CTR"
-                  >
-                    Docker CTR
-                  </div>
-                </div>
-                <div
-                  class="identifier"
-                  title="DockerCTRX"
-                >
-                  common.ID: DockerCTRX
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--row TableV2--card TableV2--clickable"
-          role="row"
-        >
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 95%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-            >
-              <span
-                class="bp3-icon StyledProps--main"
-                data-icon="service-nexus"
-              >
-                <svg
-                  height="30"
-                  viewBox="0 0 14 14"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13.5 3.1c.2.2.3.4.3.7-.1.4-.3.5-.7.5H1c-.2 0-.3 0-.5-.1-.3-.2-.4-.5-.3-.8.1-.2.3-.4.5-.4.3 0 .6-.1.9-.1h1.3c3.3.1 6.7 0 10 .1.3-.1.5-.1.6.1z"
-                    fill="#346898"
-                  />
-                  <path
-                    d="M13.8 10.3v.2c0 .4-.4.6-.8.6H.9c-.3 0-.5-.1-.7-.4-.1-.2-.1-.5 0-.7.2-.2.5-.4.8-.3H13.2c.3 0 .5.2.6.6zM13.8 8.1c0 .3-.1.5-.3.7-.1.1-.3.1-.4.1H.9c-.3 0-.7-.2-.7-.4-.1-.4-.1-.7.3-.9.1-.1.2-.1.3-.1.3.1.5 0 .8 0H13c.2 0 .5 0 .7.2 0 .1.1.2.1.4z"
-                    fill="#040608"
-                  />
-                  <path
-                    d="M13.4 5.3c.3.2.4.4.4.7s-.3.6-.7.6h-12c-.2 0-.5.1-.7-.1-.4-.2-.4-1 .2-1.2H13c.1 0 .3-.1.4 0z"
-                    fill="#346898"
-                  />
-                  <path
-                    d="M13.8 12.5v.2c-.1.4-.3.5-.8.5H.8c-.3 0-.5-.2-.6-.4s0-.6.2-.8.4-.2.7-.2h12c.4.2.6.3.7.7z"
-                    fill="#040608"
-                  />
-                  <path
-                    d="M13.5 1.9c-.3.1-.5.1-.7.1H.9c-.5 0-.7-.3-.7-.7C.2 1 .5.7.8.7H13.1c.3 0 .5.1.6.3s.1.4 0 .7l-.2.2z"
-                    fill="#346898"
-                  />
-                </svg>
-              </span>
-              <div
-                class="wrapper"
-              >
-                <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                >
-                  <div
-                    class="name"
-                    color="black"
-                    title="NexusConnector"
-                  >
-                    NexusConnector
-                  </div>
-                </div>
-                <div
-                  class="identifier"
-                  title="Nexus_Connector"
-                >
-                  common.ID: Nexus_Connector
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--row TableV2--card TableV2--clickable"
-          role="row"
-        >
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
-            <label
-              class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
-            >
-              <input
-                type="checkbox"
-              />
-              <span
-                class="bp3-control-indicator"
-              />
-            </label>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 95%;"
-          >
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-            >
-              <span
-                class="bp3-icon StyledProps--main"
-                data-icon="service-kubernetes"
-              >
-                <svg
-                  height="30"
-                  viewBox="0 0 14 14"
-                  width="30"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 .4c-.1 0-.2 0-.3.1L2 2.7c-.2.1-.4.3-.5.6l-1.2 5c-.1.2 0 .5.1.7l.1.1 3.2 4c.2.2.4.3.7.3h5.2c.3 0 .5-.1.7-.3l3.2-4c.2-.2.2-.5.2-.7l-1.2-5c-.1-.3-.2-.5-.5-.6L7.3.6c0-.1-.2-.2-.3-.2z"
-                    fill="#326ce5"
-                  />
-                  <path
-                    d="M7 2.1c-.2 0-.3.1-.3.3v.9c0 .1-.1.1-.1.1v.1c-.2 0-.3 0-.5.1-.7.2-1.4.5-1.8 1l-.1-.1H4c-.1-.1-.2-.2-.4-.3L3.4 4h-.1c-.1 0-.1-.1-.2-.1s-.2 0-.2.1c-.1.1-.1.3.1.4h.1c.1.1.2.1.2.1.2.1.3.2.4.3 0 0 .1.1.1.2l.1.1c-.5.7-.7 1.6-.6 2.5h-.1l-.1.1c-.1 0-.3.1-.5.1h-.4c-.2 0-.3.2-.2.3 0 .1.2.2.4.2h.1c.1 0 .2-.1.3-.1.2-.1.3-.1.5-.1.1 0 .1 0 .2.1h.1c.3.9.9 1.6 1.6 2l-.1.1v.2c-.1.1-.1.3-.3.5-.1.1-.1.1-.1.2v.1c-.1.2 0 .3.1.4s.3 0 .4-.2v-.1c0-.1.1-.2.1-.3.1-.2.1-.4.2-.5 0 0 .1 0 .1-.1l.1-.1c.6.2 1.4.3 2.1.2.2 0 .3-.1.5-.1l.1.1s.1 0 .1.1c.1.1.1.3.2.5 0 .1 0 .2.1.3v.1c.1.2.2.2.4.2.1-.1.2-.2.1-.4v-.1c0-.1-.1-.1-.1-.2-.1-.2-.2-.3-.2-.4V10.4c.8-.5 1.3-1.2 1.6-2h.1s.1-.1.2-.1.3.1.5.1c.1 0 .2.1.3.1h.1c.2 0 .3-.1.4-.2 0-.1-.1-.3-.2-.3h-.4c-.2 0-.4 0-.5-.1-.1 0-.1-.1-.1-.1h-.1c.1-.4 0-.9-.1-1.3s-.3-.9-.5-1.2l.1-.1c0-.1 0-.1.1-.2s.2-.2.4-.3c.1 0 .2-.1.2-.1h.1c.1-.1.2-.3.1-.4s-.3-.1-.4 0h-.1l-.2.2c-.1.1-.3.3-.4.3H10l-.1.1c-.6-.6-1.4-1-2.3-1.1v-.1l-.1-.1V3v-.4c-.2-.3-.3-.5-.5-.5zm-.3 2.2l-.1 1.5c0 .1-.1.2-.2.2h-.1l-1.2-.9c.4-.4.8-.6 1.4-.8zm.7 0c.6.1 1.2.4 1.7.8l-1.2.8c-.1.1-.3.1-.3 0l-.1-.1zM4.6 5.7l1.1 1c.1.1.1.2 0 .3l-.1.1-1.4.4c-.1-.7 0-1.3.4-1.8zm4.9 0c.2.3.3.6.4.9s.1.6.1.9l-1.4-.4c-.1 0-.2-.2-.2-.3s0-.1.1-.1zm-2.7 1h.4l.3.3-.1.4-.4.2-.4-.2-.1-.4zm1.4 1.2c.1 0 .1 0 0 0l1.5.2c-.2.6-.6 1.1-1.2 1.5l-.6-1.4c.1-.1.1-.2.3-.3zm-2.4 0c.1 0 .2.1.2.2v.2l-.6 1.4c-.5-.3-.9-.8-1.2-1.5zm1.2.6l.2.1.7 1.3c-.1 0-.2.1-.3.1-.5.1-1.1.1-1.6-.1l.7-1.3c.2 0 .2-.1.3-.1z"
-                    fill="#fff"
-                    stroke="#fff"
-                    stroke-width="0.25"
-                  />
-                </svg>
-              </span>
-              <div
-                class="wrapper"
-              >
-                <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                >
-                  <div
-                    class="name"
-                    color="black"
-                    title="KubernetesCTR"
-                  >
-                    KubernetesCTR
-                  </div>
-                  <span
-                    class="bp3-popover-wrapper"
-                  >
-                    <span
-                      class="bp3-popover-target"
+                    <div
+                      class="name"
+                      color="black"
+                      title="Docker CTR"
                     >
-                      <div
-                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                        tabindex="0"
-                      >
-                        <span
-                          class="bp3-icon StyledProps--main"
-                          data-icon="main-tags"
-                        >
-                          <svg
-                            height="15"
-                            viewBox="0 0 14 14"
-                            width="15"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                              fill="#4d5969"
-                            />
-                          </svg>
-                        </span>
-                        <p
-                          class="StyledProps--font StyledProps--main"
-                        >
-                          2
-                        </p>
-                      </div>
-                    </span>
-                  </span>
+                      Docker CTR
+                    </div>
+                  </div>
+                  <div
+                    class="identifier"
+                    title="DockerCTRX"
+                  >
+                    common.ID: DockerCTRX
+                  </div>
                 </div>
-                <div
-                  class="identifier"
-                  title="Kubernetes CTRX"
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="TableV2--row TableV2--card TableV2--clickable"
+          role="row"
+        >
+          <div
+            class="TableV2--cells"
+          >
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 95%;"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              >
+                <span
+                  class="bp3-icon StyledProps--main"
+                  data-icon="service-nexus"
                 >
-                  common.ID: Kubernetes CTRX
+                  <svg
+                    height="30"
+                    viewBox="0 0 14 14"
+                    width="30"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.5 3.1c.2.2.3.4.3.7-.1.4-.3.5-.7.5H1c-.2 0-.3 0-.5-.1-.3-.2-.4-.5-.3-.8.1-.2.3-.4.5-.4.3 0 .6-.1.9-.1h1.3c3.3.1 6.7 0 10 .1.3-.1.5-.1.6.1z"
+                      fill="#346898"
+                    />
+                    <path
+                      d="M13.8 10.3v.2c0 .4-.4.6-.8.6H.9c-.3 0-.5-.1-.7-.4-.1-.2-.1-.5 0-.7.2-.2.5-.4.8-.3H13.2c.3 0 .5.2.6.6zM13.8 8.1c0 .3-.1.5-.3.7-.1.1-.3.1-.4.1H.9c-.3 0-.7-.2-.7-.4-.1-.4-.1-.7.3-.9.1-.1.2-.1.3-.1.3.1.5 0 .8 0H13c.2 0 .5 0 .7.2 0 .1.1.2.1.4z"
+                      fill="#040608"
+                    />
+                    <path
+                      d="M13.4 5.3c.3.2.4.4.4.7s-.3.6-.7.6h-12c-.2 0-.5.1-.7-.1-.4-.2-.4-1 .2-1.2H13c.1 0 .3-.1.4 0z"
+                      fill="#346898"
+                    />
+                    <path
+                      d="M13.8 12.5v.2c-.1.4-.3.5-.8.5H.8c-.3 0-.5-.2-.6-.4s0-.6.2-.8.4-.2.7-.2h12c.4.2.6.3.7.7z"
+                      fill="#040608"
+                    />
+                    <path
+                      d="M13.5 1.9c-.3.1-.5.1-.7.1H.9c-.5 0-.7-.3-.7-.7C.2 1 .5.7.8.7H13.1c.3 0 .5.1.6.3s.1.4 0 .7l-.2.2z"
+                      fill="#346898"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="wrapper"
+                >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  >
+                    <div
+                      class="name"
+                      color="black"
+                      title="NexusConnector"
+                    >
+                      NexusConnector
+                    </div>
+                  </div>
+                  <div
+                    class="identifier"
+                    title="Nexus_Connector"
+                  >
+                    common.ID: Nexus_Connector
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="TableV2--row TableV2--card TableV2--clickable"
+          role="row"
+        >
+          <div
+            class="TableV2--cells"
+          >
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
+            >
+              <label
+                class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox checkBox StyledProps--main"
+              >
+                <input
+                  type="checkbox"
+                />
+                <span
+                  class="bp3-control-indicator"
+                />
+              </label>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 95%;"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+              >
+                <span
+                  class="bp3-icon StyledProps--main"
+                  data-icon="service-kubernetes"
+                >
+                  <svg
+                    height="30"
+                    viewBox="0 0 14 14"
+                    width="30"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7 .4c-.1 0-.2 0-.3.1L2 2.7c-.2.1-.4.3-.5.6l-1.2 5c-.1.2 0 .5.1.7l.1.1 3.2 4c.2.2.4.3.7.3h5.2c.3 0 .5-.1.7-.3l3.2-4c.2-.2.2-.5.2-.7l-1.2-5c-.1-.3-.2-.5-.5-.6L7.3.6c0-.1-.2-.2-.3-.2z"
+                      fill="#326ce5"
+                    />
+                    <path
+                      d="M7 2.1c-.2 0-.3.1-.3.3v.9c0 .1-.1.1-.1.1v.1c-.2 0-.3 0-.5.1-.7.2-1.4.5-1.8 1l-.1-.1H4c-.1-.1-.2-.2-.4-.3L3.4 4h-.1c-.1 0-.1-.1-.2-.1s-.2 0-.2.1c-.1.1-.1.3.1.4h.1c.1.1.2.1.2.1.2.1.3.2.4.3 0 0 .1.1.1.2l.1.1c-.5.7-.7 1.6-.6 2.5h-.1l-.1.1c-.1 0-.3.1-.5.1h-.4c-.2 0-.3.2-.2.3 0 .1.2.2.4.2h.1c.1 0 .2-.1.3-.1.2-.1.3-.1.5-.1.1 0 .1 0 .2.1h.1c.3.9.9 1.6 1.6 2l-.1.1v.2c-.1.1-.1.3-.3.5-.1.1-.1.1-.1.2v.1c-.1.2 0 .3.1.4s.3 0 .4-.2v-.1c0-.1.1-.2.1-.3.1-.2.1-.4.2-.5 0 0 .1 0 .1-.1l.1-.1c.6.2 1.4.3 2.1.2.2 0 .3-.1.5-.1l.1.1s.1 0 .1.1c.1.1.1.3.2.5 0 .1 0 .2.1.3v.1c.1.2.2.2.4.2.1-.1.2-.2.1-.4v-.1c0-.1-.1-.1-.1-.2-.1-.2-.2-.3-.2-.4V10.4c.8-.5 1.3-1.2 1.6-2h.1s.1-.1.2-.1.3.1.5.1c.1 0 .2.1.3.1h.1c.2 0 .3-.1.4-.2 0-.1-.1-.3-.2-.3h-.4c-.2 0-.4 0-.5-.1-.1 0-.1-.1-.1-.1h-.1c.1-.4 0-.9-.1-1.3s-.3-.9-.5-1.2l.1-.1c0-.1 0-.1.1-.2s.2-.2.4-.3c.1 0 .2-.1.2-.1h.1c.1-.1.2-.3.1-.4s-.3-.1-.4 0h-.1l-.2.2c-.1.1-.3.3-.4.3H10l-.1.1c-.6-.6-1.4-1-2.3-1.1v-.1l-.1-.1V3v-.4c-.2-.3-.3-.5-.5-.5zm-.3 2.2l-.1 1.5c0 .1-.1.2-.2.2h-.1l-1.2-.9c.4-.4.8-.6 1.4-.8zm.7 0c.6.1 1.2.4 1.7.8l-1.2.8c-.1.1-.3.1-.3 0l-.1-.1zM4.6 5.7l1.1 1c.1.1.1.2 0 .3l-.1.1-1.4.4c-.1-.7 0-1.3.4-1.8zm4.9 0c.2.3.3.6.4.9s.1.6.1.9l-1.4-.4c-.1 0-.2-.2-.2-.3s0-.1.1-.1zm-2.7 1h.4l.3.3-.1.4-.4.2-.4-.2-.1-.4zm1.4 1.2c.1 0 .1 0 0 0l1.5.2c-.2.6-.6 1.1-1.2 1.5l-.6-1.4c.1-.1.1-.2.3-.3zm-2.4 0c.1 0 .2.1.2.2v.2l-.6 1.4c-.5-.3-.9-.8-1.2-1.5zm1.2.6l.2.1.7 1.3c-.1 0-.2.1-.3.1-.5.1-1.1.1-1.6-.1l.7-1.3c.2 0 .2-.1.3-.1z"
+                      fill="#fff"
+                      stroke="#fff"
+                      stroke-width="0.25"
+                    />
+                  </svg>
+                </span>
+                <div
+                  class="wrapper"
+                >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  >
+                    <div
+                      class="name"
+                      color="black"
+                      title="KubernetesCTR"
+                    >
+                      KubernetesCTR
+                    </div>
+                    <span
+                      class="bp3-popover-wrapper"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                          tabindex="0"
+                        >
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="main-tags"
+                          >
+                            <svg
+                              height="15"
+                              viewBox="0 0 14 14"
+                              width="15"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                                fill="#4d5969"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main"
+                          >
+                            2
+                          </p>
+                        </div>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    class="identifier"
+                    title="Kubernetes CTRX"
+                  >
+                    common.ID: Kubernetes CTRX
+                  </div>
                 </div>
               </div>
             </div>

@@ -18,8 +18,7 @@ const DEFAULT_FILTER: MappedDashboardTagOptions = {
   CE: false,
   CD: false,
   CI: false,
-  CF: false,
-  CG_CD: false
+  CF: false
 }
 
 const renderComponent = (props: Partial<ModuleTagsFilterProps> = {}): RenderResult =>
@@ -90,8 +89,7 @@ describe('ModuleTagsFilter', () => {
       CE: true,
       CI: true,
       CD: false,
-      CF: false,
-      CG_CD: false
+      CF: false
     }
     renderComponent({ selectedFilter })
 

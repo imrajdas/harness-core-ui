@@ -213,151 +213,155 @@ exports[`UsersPage Test Switch to Pending Users 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
               <div
-                class="Avatar--Avatar Avatar--contentStyle"
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
               >
-                <span
-                  class="bp3-popover-wrapper Avatar--avatarPopOver"
+                <div
+                  class="Avatar--Avatar Avatar--contentStyle"
                 >
                   <span
-                    class="bp3-popover-target"
+                    class="bp3-popover-wrapper Avatar--avatarPopOver"
                   >
-                    <div
-                      class="Avatar--AvatarInner"
-                      style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
-                      tabindex="0"
+                    <span
+                      class="bp3-popover-target"
                     >
-                      A
-                    </div>
+                      <div
+                        class="Avatar--AvatarInner"
+                        style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
+                        tabindex="0"
+                      >
+                        A
+                      </div>
+                    </span>
+                  </span>
+                </div>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main"
+                  style="--text-line-clamp: 1;"
+                >
+                  Admin_123_123
+                </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 35%;"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              >
+                <span
+                  class="bp3-tag harnesstag"
+                >
+                  <span
+                    class="bp3-text-overflow-ellipsis bp3-fill"
+                  >
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/access-control/roles/_account_viewer"
+                    >
+                      Account Viewer
+                    </a>
+                     - 
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/access-control/resource-groups/New_123"
+                    >
+                      New 123
+                    </a>
                   </span>
                 </span>
               </div>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main"
-                style="--text-line-clamp: 1;"
-              >
-                Admin_123_123
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 35%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 15%;"
             >
               <span
-                class="bp3-tag harnesstag"
+                class="bp3-tag bp3-round invitation"
               >
                 <span
                   class="bp3-text-overflow-ellipsis bp3-fill"
                 >
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/access-control/roles/_account_viewer"
-                  >
-                    Account Viewer
-                  </a>
-                   - 
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/access-control/resource-groups/New_123"
-                  >
-                    New 123
-                  </a>
+                  rbac.usersPage.pendingInvitation
                 </span>
               </span>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 15%;"
-          >
-            <span
-              class="bp3-tag bp3-round invitation"
-            >
-              <span
-                class="bp3-text-overflow-ellipsis bp3-fill"
-              >
-                rbac.usersPage.pendingInvitation
-              </span>
-            </span>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
             <div
-              class="Layout--horizontal StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main"
+              <div
+                class="Layout--horizontal StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
               >
-                admin@harness.io
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main"
+                >
+                  admin@harness.io
+                </p>
+              </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
             <div
-              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
               >
                 <span
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper bp3-dark"
                 >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    data-testid="menu-id1"
-                    type="button"
+                  <span
+                    class="bp3-popover-target"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="Options"
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      data-testid="menu-id1"
+                      type="button"
                     >
-                      <svg
-                        fill="currentColor"
-                        height="16"
-                        viewBox="0 0 4 16"
-                        width="16"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="Options"
                       >
-                        <circle
-                          cx="2"
-                          cy="2"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="8"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="14"
-                          r="1.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
+                        <svg
+                          fill="currentColor"
+                          height="16"
+                          viewBox="0 0 4 16"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="2"
+                            cy="2"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="8"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="14"
+                            r="1.5"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>
@@ -366,151 +370,155 @@ exports[`UsersPage Test Switch to Pending Users 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 25%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 25%;"
             >
               <div
-                class="Avatar--Avatar Avatar--contentStyle"
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
               >
-                <span
-                  class="bp3-popover-wrapper Avatar--avatarPopOver"
+                <div
+                  class="Avatar--Avatar Avatar--contentStyle"
                 >
                   <span
-                    class="bp3-popover-target"
+                    class="bp3-popover-wrapper Avatar--avatarPopOver"
                   >
-                    <div
-                      class="Avatar--AvatarInner"
-                      style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
-                      tabindex="0"
+                    <span
+                      class="bp3-popover-target"
                     >
-                      D
-                    </div>
+                      <div
+                        class="Avatar--AvatarInner"
+                        style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
+                        tabindex="0"
+                      >
+                        D
+                      </div>
+                    </span>
+                  </span>
+                </div>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main"
+                  style="--text-line-clamp: 1;"
+                >
+                  default
+                </p>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 35%;"
+            >
+              <div
+                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              >
+                <span
+                  class="bp3-tag customtag"
+                >
+                  <span
+                    class="bp3-text-overflow-ellipsis bp3-fill"
+                  >
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/access-control/roles/New_Role"
+                    >
+                      New Role
+                    </a>
+                     - 
+                    <a
+                      class="link"
+                      href="/account/testAcc/settings/access-control/resource-groups/New_123"
+                    >
+                      New 123
+                    </a>
                   </span>
                 </span>
               </div>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main"
-                style="--text-line-clamp: 1;"
-              >
-                default
-              </p>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 35%;"
-          >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 15%;"
             >
               <span
-                class="bp3-tag customtag"
+                class="bp3-tag bp3-round invitation"
               >
                 <span
                   class="bp3-text-overflow-ellipsis bp3-fill"
                 >
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/access-control/roles/New_Role"
-                  >
-                    New Role
-                  </a>
-                   - 
-                  <a
-                    class="link"
-                    href="/account/testAcc/settings/access-control/resource-groups/New_123"
-                  >
-                    New 123
-                  </a>
+                  rbac.usersPage.pendingInvitation
                 </span>
               </span>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 15%;"
-          >
-            <span
-              class="bp3-tag bp3-round invitation"
-            >
-              <span
-                class="bp3-text-overflow-ellipsis bp3-fill"
-              >
-                rbac.usersPage.pendingInvitation
-              </span>
-            </span>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 20%;"
-          >
             <div
-              class="Layout--horizontal StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 20%;"
             >
-              <p
-                class="StyledProps--font StyledProps--main"
+              <div
+                class="Layout--horizontal StyledProps--main overflow StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-small"
               >
-                default@harness.io
-              </p>
+                <p
+                  class="StyledProps--font StyledProps--main"
+                >
+                  default@harness.io
+                </p>
+              </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 5%;"
-          >
             <div
-              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 5%;"
             >
-              <span
-                class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
               >
                 <span
-                  class="bp3-popover-target"
+                  class="bp3-popover-wrapper bp3-dark"
                 >
-                  <button
-                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                    data-testid="menu-id2"
-                    type="button"
+                  <span
+                    class="bp3-popover-target"
                   >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="Options"
+                    <button
+                      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                      data-testid="menu-id2"
+                      type="button"
                     >
-                      <svg
-                        fill="currentColor"
-                        height="16"
-                        viewBox="0 0 4 16"
-                        width="16"
-                        xmlns="http://www.w3.org/2000/svg"
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="Options"
                       >
-                        <circle
-                          cx="2"
-                          cy="2"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="8"
-                          r="1.5"
-                        />
-                        <circle
-                          cx="2"
-                          cy="14"
-                          r="1.5"
-                        />
-                      </svg>
-                    </span>
-                  </button>
+                        <svg
+                          fill="currentColor"
+                          height="16"
+                          viewBox="0 0 4 16"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle
+                            cx="2"
+                            cy="2"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="8"
+                            r="1.5"
+                          />
+                          <circle
+                            cx="2"
+                            cy="14"
+                            r="1.5"
+                          />
+                        </svg>
+                      </span>
+                    </button>
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>

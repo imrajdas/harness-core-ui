@@ -129,6 +129,7 @@ export const StageTemplateDiagram = (): JSX.Element => {
       defaultSelected: false,
       draggable: false,
       canDelete: false,
+      loopingStrategyEnabled: !!stage?.strategy,
       conditionalExecutionEnabled: stage.when
         ? stage.when?.pipelineStatus !== 'Success' || !!stage.when?.condition?.trim()
         : false,

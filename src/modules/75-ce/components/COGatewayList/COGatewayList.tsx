@@ -734,7 +734,7 @@ const RulesTableContainer: React.FC<RulesTableContainerProps> = ({
     rules,
     onRuleUpdate: ({ updatedService, index }) => {
       const updatedRules = [...rules]
-      const updatedIndex = pageProps.pageIndex * TOTAL_ITEMS_PER_PAGE + index
+      const updatedIndex = (pageProps.pageIndex - 1) * TOTAL_ITEMS_PER_PAGE + index
       updatedRules.splice(updatedIndex, 1, updatedService)
       setRules(updatedRules)
     }

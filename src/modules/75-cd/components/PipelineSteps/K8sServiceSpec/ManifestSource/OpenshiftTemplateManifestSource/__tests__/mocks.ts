@@ -24,6 +24,43 @@ export const manifests = [
         skipResourceVersioning: '<+input>'
       }
     }
+  },
+  {
+    manifest: {
+      identifier: 'OpenShift',
+      type: 'OpenshiftTemplate',
+      spec: {
+        paramsPaths: ['params-path'],
+        store: {
+          type: 'Github',
+          spec: {
+            connectorRef: '<+input>',
+            gitFetchType: 'Branch',
+            paths: ['./'],
+            repoName: '<+input>',
+            branch: 'branch'
+          }
+        },
+        skipResourceVersioning: '<+input>'
+      }
+    }
+  },
+  {
+    manifest: {
+      identifier: 'manifestIdentifier',
+      type: 'OpenshiftTemplate',
+      spec: {
+        store: {
+          type: 'CustomeRemote',
+          spec: {
+            filePath: 'file-path',
+            extractionScript: 'script',
+            delegateSelectors: ['delegate-selector']
+          }
+        },
+        skipResourceVersioning: false
+      }
+    }
   }
 ]
 
@@ -45,6 +82,42 @@ export const template = {
             }
           },
           skipResourceVersioning: '<+input>'
+        }
+      }
+    },
+    {
+      manifest: {
+        identifier: 'OpenShift',
+        type: 'OpenshiftTemplate',
+        spec: {
+          paramsPaths: ['params-path'],
+          store: {
+            type: 'Github',
+            spec: {
+              connectorRef: '<+input>',
+              gitFetchType: 'Branch',
+              paths: ['./'],
+              repoName: '<+input>',
+              branch: 'branch'
+            }
+          },
+          skipResourceVersioning: '<+input>'
+        }
+      }
+    },
+    {
+      manifest: {
+        identifier: 'ident',
+        type: 'K8sManifest',
+        spec: {
+          store: {
+            type: 'CustomeRemote',
+            spec: {
+              filePath: '<+input>',
+              extractionScript: 'script',
+              delegateSelectors: ['delegate-selector']
+            }
+          }
         }
       }
     }

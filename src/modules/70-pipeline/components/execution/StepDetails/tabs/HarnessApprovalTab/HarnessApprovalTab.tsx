@@ -10,6 +10,7 @@ import { Button, FormInput, Layout, TextInput, Text } from '@wings-software/uico
 import { Formik } from 'formik'
 import cx from 'classnames'
 import { Color } from '@harness/design-system'
+import { useParams } from 'react-router-dom'
 import {
   useAddHarnessApprovalActivity,
   ApprovalInstanceResponse,
@@ -21,6 +22,7 @@ import { String, useStrings } from 'framework/strings'
 import { Duration } from '@common/exports'
 import { isApprovalWaiting } from '@pipeline/utils/approvalUtils'
 import { StepDetails } from '@pipeline/components/execution/StepDetails/common/StepDetails/StepDetails'
+import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import { HarnessApprover } from './HarnessApprover/HarnessApprover'
 import css from './HarnessApprovalTab.module.scss'
 
@@ -41,8 +43,11 @@ export interface HarnessApprovalTabProps {
 
 export function HarnessApprovalTab(props: HarnessApprovalTabProps): React.ReactElement {
   const { approvalData, approvalInstanceId, isWaiting, updateState, authData } = props
-
-  const { mutate: submitApproval, loading: submitting } = useAddHarnessApprovalActivity({ approvalInstanceId })
+  const { accountId } = useParams<AccountPathProps>()
+  const { mutate: submitApproval, loading: submitting } = useAddHarnessApprovalActivity({
+    approvalInstanceId,
+    queryParams: { accountIdentifier: accountId }
+  })
   const action = React.useRef<HarnessApprovalActivityRequest['action']>('APPROVE')
   const isCurrentUserAuthorized = !!authData?.data?.authorized
   const currentUserUnAuthorizedReason = authData?.data?.reason

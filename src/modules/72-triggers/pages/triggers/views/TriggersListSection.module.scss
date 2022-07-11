@@ -19,9 +19,6 @@
 
 .table {
   margin: var(--spacing-xlarge);
-  [role='row'] {
-    align-items: center;
-  }
   .tags {
     margin-left: var(--spacing-3) !important;
   }

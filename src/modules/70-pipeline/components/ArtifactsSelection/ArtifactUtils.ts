@@ -14,6 +14,7 @@ import {
   ArtifactTagHelperText,
   ArtifactType,
   ImagePathTypes,
+  JenkinsArtifactType,
   RepositoryPortOrServer,
   TagTypes
 } from './ArtifactInterface'
@@ -221,7 +222,6 @@ export const getArtifactFormData = (
   if (selectedArtifact !== (initialValues as any)?.type || !specValues) {
     return defaultArtifactInitialValues(selectedArtifact)
   }
-
   const values = getTagValues(specValues, isServerlessDeploymentTypeSelected)
 
   if (isSideCar && initialValues?.identifier) {
@@ -230,8 +230,34 @@ export const getArtifactFormData = (
   return values
 }
 
+export const getJenkinsFormData = (
+  initialValues: JenkinsArtifactType,
+  selectedArtifact: ArtifactType,
+  isSideCar: boolean
+): JenkinsArtifactType => {
+  const specValues = get(initialValues, 'spec', null)
+
+  if (selectedArtifact !== (initialValues as any)?.type || !specValues) {
+    return defaultArtifactInitialValues(selectedArtifact)
+  }
+
+  if (isSideCar && initialValues?.identifier) {
+    merge(initialValues, { identifier: initialValues?.identifier })
+  }
+  return initialValues
+}
+
 export const defaultArtifactInitialValues = (selectedArtifact: ArtifactType): any => {
   switch (selectedArtifact) {
+    case ENABLED_ARTIFACT_TYPES.Jenkins:
+      return {
+        identifier: '',
+        spec: {
+          jobName: '',
+          artifactPath: '',
+          build: RUNTIME_INPUT_VALUE
+        }
+      }
     case ENABLED_ARTIFACT_TYPES.Nexus3Registry:
       return {
         identifier: '',

@@ -206,100 +206,104 @@ exports[`UserGroupDetails Test render data 1`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 45%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 45%;"
                 >
                   <div
-                    class="Avatar--Avatar Avatar--contentStyle"
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                  >
+                    <div
+                      class="Avatar--Avatar Avatar--contentStyle"
+                    >
+                      <span
+                        class="bp3-popover-wrapper Avatar--avatarPopOver"
+                      >
+                        <span
+                          class="bp3-popover-target"
+                        >
+                          <div
+                            class="Avatar--AvatarInner"
+                            style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
+                            tabindex="0"
+                          >
+                            R
+                          </div>
+                        </span>
+                      </span>
+                    </div>
+                    <p
+                      class="StyledProps--font StyledProps--main"
+                    >
+                      rbac1
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 50%;"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                  >
+                    rbac1@harness.io
+                  </p>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 5%;"
+                >
+                  <div
+                    class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
                   >
                     <span
-                      class="bp3-popover-wrapper Avatar--avatarPopOver"
+                      class="bp3-popover-wrapper bp3-dark"
                     >
                       <span
                         class="bp3-popover-target"
                       >
-                        <div
-                          class="Avatar--AvatarInner"
-                          style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
-                          tabindex="0"
+                        <button
+                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                          data-testid="menu-rbac2"
+                          type="button"
                         >
-                          R
-                        </div>
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="Options"
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="16"
+                              viewBox="0 0 4 16"
+                              width="16"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle
+                                cx="2"
+                                cy="2"
+                                r="1.5"
+                              />
+                              <circle
+                                cx="2"
+                                cy="8"
+                                r="1.5"
+                              />
+                              <circle
+                                cx="2"
+                                cy="14"
+                                r="1.5"
+                              />
+                            </svg>
+                          </span>
+                        </button>
                       </span>
                     </span>
                   </div>
-                  <p
-                    class="StyledProps--font StyledProps--main"
-                  >
-                    rbac1
-                  </p>
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 50%;"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main"
-                >
-                  rbac1@harness.io
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 5%;"
-              >
-                <div
-                  class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
-                >
-                  <span
-                    class="bp3-popover-wrapper bp3-dark"
-                  >
-                    <span
-                      class="bp3-popover-target"
-                    >
-                      <button
-                        class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                        data-testid="menu-rbac2"
-                        type="button"
-                      >
-                        <span
-                          class="bp3-icon StyledProps--main"
-                          data-icon="Options"
-                        >
-                          <svg
-                            fill="currentColor"
-                            height="16"
-                            viewBox="0 0 4 16"
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <circle
-                              cx="2"
-                              cy="2"
-                              r="1.5"
-                            />
-                            <circle
-                              cx="2"
-                              cy="8"
-                              r="1.5"
-                            />
-                            <circle
-                              cx="2"
-                              cy="14"
-                              r="1.5"
-                            />
-                          </svg>
-                        </span>
-                      </button>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -308,100 +312,104 @@ exports[`UserGroupDetails Test render data 1`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 45%;"
+                class="TableV2--cells"
               >
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 45%;"
                 >
                   <div
-                    class="Avatar--Avatar Avatar--contentStyle"
+                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                  >
+                    <div
+                      class="Avatar--Avatar Avatar--contentStyle"
+                    >
+                      <span
+                        class="bp3-popover-wrapper Avatar--avatarPopOver"
+                      >
+                        <span
+                          class="bp3-popover-target"
+                        >
+                          <div
+                            class="Avatar--AvatarInner"
+                            style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
+                            tabindex="0"
+                          >
+                            R
+                          </div>
+                        </span>
+                      </span>
+                    </div>
+                    <p
+                      class="StyledProps--font StyledProps--main"
+                    >
+                      rbac2
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 50%;"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                  >
+                    rbac2@harness.io
+                  </p>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 5%;"
+                >
+                  <div
+                    class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
                   >
                     <span
-                      class="bp3-popover-wrapper Avatar--avatarPopOver"
+                      class="bp3-popover-wrapper bp3-dark"
                     >
                       <span
                         class="bp3-popover-target"
                       >
-                        <div
-                          class="Avatar--AvatarInner"
-                          style="border-radius: 100%; line-height: 26px; width: 32px; height: 32px; font-size: 10px;"
-                          tabindex="0"
+                        <button
+                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                          data-testid="menu-rbac2"
+                          type="button"
                         >
-                          R
-                        </div>
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="Options"
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="16"
+                              viewBox="0 0 4 16"
+                              width="16"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <circle
+                                cx="2"
+                                cy="2"
+                                r="1.5"
+                              />
+                              <circle
+                                cx="2"
+                                cy="8"
+                                r="1.5"
+                              />
+                              <circle
+                                cx="2"
+                                cy="14"
+                                r="1.5"
+                              />
+                            </svg>
+                          </span>
+                        </button>
                       </span>
                     </span>
                   </div>
-                  <p
-                    class="StyledProps--font StyledProps--main"
-                  >
-                    rbac2
-                  </p>
-                </div>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 50%;"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main"
-                >
-                  rbac2@harness.io
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 5%;"
-              >
-                <div
-                  class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-flex-end"
-                >
-                  <span
-                    class="bp3-popover-wrapper bp3-dark"
-                  >
-                    <span
-                      class="bp3-popover-target"
-                    >
-                      <button
-                        class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                        data-testid="menu-rbac2"
-                        type="button"
-                      >
-                        <span
-                          class="bp3-icon StyledProps--main"
-                          data-icon="Options"
-                        >
-                          <svg
-                            fill="currentColor"
-                            height="16"
-                            viewBox="0 0 4 16"
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <circle
-                              cx="2"
-                              cy="2"
-                              r="1.5"
-                            />
-                            <circle
-                              cx="2"
-                              cy="8"
-                              r="1.5"
-                            />
-                            <circle
-                              cx="2"
-                              cy="14"
-                              r="1.5"
-                            />
-                          </svg>
-                        </span>
-                      </button>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -597,49 +605,53 @@ exports[`UserGroupDetails Test render data 1`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
+                class="TableV2--cells"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
-                  style="display: flex; align-items: center;"
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-                    data-icon="nav-organization"
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                    style="display: flex; align-items: center;"
                   >
-                    <svg
-                      height="16"
-                      viewBox="0 0 16 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
+                      data-icon="nav-organization"
                     >
-                      <path
-                        d="M0 0h16v16H0z"
-                        opacity="0.01"
-                      />
-                      <path
-                        clip-rule="evenodd"
-                        d="M12.5 8.5v1.533h2c.267 0 .5.234.5.5V14.5c0 .267-.233.5-.5.5h-5a.513.513 0 01-.5-.5v-3.967c0-.266.233-.5.5-.5h2V8.5h-7v1.533h2c.267 0 .5.234.5.5V14.5c0 .267-.233.5-.5.5h-5a.513.513 0 01-.5-.5v-3.967c0-.266.233-.5.5-.5h2V8.5h-1A.513.513 0 012 8c0-.267.233-.5.5-.5h5V5.967h-2a.513.513 0 01-.5-.5V1.5c0-.267.233-.5.5-.5h5c.267 0 .5.233.5.5v3.967c0 .266-.233.5-.5.5h-2V7.5h5c.267 0 .5.233.5.5s-.233.5-.5.5h-1zM10 2H6v2.967h4V2zM6 14H2v-2.967h4V14zm4 0h4v-2.967h-4V14z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  orgLabel
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 75%;"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                      <svg
+                        height="16"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 0h16v16H0z"
+                          opacity="0.01"
+                        />
+                        <path
+                          clip-rule="evenodd"
+                          d="M12.5 8.5v1.533h2c.267 0 .5.234.5.5V14.5c0 .267-.233.5-.5.5h-5a.513.513 0 01-.5-.5v-3.967c0-.266.233-.5.5-.5h2V8.5h-7v1.533h2c.267 0 .5.234.5.5V14.5c0 .267-.233.5-.5.5h-5a.513.513 0 01-.5-.5v-3.967c0-.266.233-.5.5-.5h2V8.5h-1A.513.513 0 012 8c0-.267.233-.5.5-.5h5V5.967h-2a.513.513 0 01-.5-.5V1.5c0-.267.233-.5.5-.5h5c.267 0 .5.233.5.5v3.967c0 .266-.233.5-.5.5h-2V7.5h5c.267 0 .5.233.5.5s-.233.5-.5.5h-1zM10 2H6v2.967h4V2zM6 14H2v-2.967h4V14zm4 0h4v-2.967h-4V14z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    orgLabel
+                  </p>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 75%;"
                 >
-                  checking org
-                </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                  >
+                    checking org
+                  </p>
+                </div>
               </div>
             </div>
             <div
@@ -647,50 +659,54 @@ exports[`UserGroupDetails Test render data 1`] = `
               role="row"
             >
               <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 25%;"
+                class="TableV2--cells"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
-                  style="display: flex; align-items: center;"
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 25%;"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-                    data-icon="nav-project"
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                    style="display: flex; align-items: center;"
                   >
-                    <svg
-                      height="16"
-                      viewBox="0 0 16 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
+                      data-icon="nav-project"
                     >
-                      <path
-                        clip-rule="evenodd"
-                        d="M8.163 1.126a.5.5 0 00-.5 0L2.056 4.36a.5.5 0 00-.25.433v6.234a.5.5 0 00.248.432l5.87 3.415a.5.5 0 00.501 0l5.631-3.259a.5.5 0 00.25-.433V7.478a.5.5 0 00-1 0v3.417l-4.625 2.677.035-5.07 5.34-3.091a.5.5 0 000-.865l-5.894-3.42zM7.717 8.5l-.035 5.077-4.875-2.837V5.66l4.91 2.84zm.502-.865l-4.913-2.84 4.606-2.659 4.897 2.842-4.59 2.657zm-3.864-.068a.5.5 0 10-.5.866l2.165 1.25a.5.5 0 10.5-.866l-2.165-1.25z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                  projectLabel
-                </p>
-              </div>
-              <div
-                class="TableV2--cell"
-                role="cell"
-                style="width: 75%;"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                      <svg
+                        height="16"
+                        viewBox="0 0 16 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M8.163 1.126a.5.5 0 00-.5 0L2.056 4.36a.5.5 0 00-.25.433v6.234a.5.5 0 00.248.432l5.87 3.415a.5.5 0 00.501 0l5.631-3.259a.5.5 0 00.25-.433V7.478a.5.5 0 00-1 0v3.417l-4.625 2.677.035-5.07 5.34-3.091a.5.5 0 000-.865l-5.894-3.42zM7.717 8.5l-.035 5.077-4.875-2.837V5.66l4.91 2.84zm.502-.865l-4.913-2.84 4.606-2.659 4.897 2.842-4.59 2.657zm-3.864-.068a.5.5 0 10-.5.866l2.165 1.25a.5.5 0 10.5-.866l-2.165-1.25z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                    projectLabel
+                  </p>
+                </div>
+                <div
+                  class="TableV2--cell"
+                  role="cell"
+                  style="width: 75%;"
                 >
-                  testing
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--padding-top-xsmall StyledProps--color StyledProps--color-grey600"
-                >
-                  rbac.inheritedScope.projectOrg
-                </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black"
+                  >
+                    testing
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--padding-top-xsmall StyledProps--color StyledProps--color-grey600"
+                  >
+                    rbac.inheritedScope.projectOrg
+                  </p>
+                </div>
               </div>
             </div>
           </div>

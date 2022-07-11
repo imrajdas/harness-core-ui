@@ -25,7 +25,7 @@ exports[`CITrialHomePage snapshot test should call button event when click 1`] =
         </p>
         <a
           class="learnMore"
-          href="https://ngdocs.harness.io/category/zgffarnh1m-ci-category"
+          href="https://docs.harness.io/category/zgffarnh1m-ci-category"
           rel="noreferrer"
           target="_blank"
         >
@@ -116,7 +116,7 @@ exports[`CITrialHomePage snapshot test should render properly 1`] = `
         </p>
         <a
           class="learnMore"
-          href="https://ngdocs.harness.io/category/zgffarnh1m-ci-category"
+          href="https://docs.harness.io/category/zgffarnh1m-ci-category"
           rel="noreferrer"
           target="_blank"
         >

@@ -40,12 +40,6 @@ export default function DatadogLogsMapToService(props: DatadogLogsMapToServicePr
   const connectorIdentifier = sourceData?.connectorRef?.value || (sourceData.connectorRef as string)
   const isConnectorRuntimeOrExpression = getMultiTypeFromValue(connectorIdentifier) !== MultiTypeInputType.FIXED
 
-  React.useEffect(() => {
-    if (isConnectorRuntimeOrExpression) {
-      formikProps.setFieldValue('query', '<+input>')
-    }
-  }, [isConnectorRuntimeOrExpression])
-
   const { data: indexes } = useGetDatadogLogIndexes({
     queryParams: {
       projectIdentifier,
@@ -134,7 +128,10 @@ export default function DatadogLogsMapToService(props: DatadogLogsMapToServicePr
                       name={MapDatadogLogsFieldNames.INDEXES}
                       selectItems={logIndexesOptions}
                       multiSelectTypeInputProps={{
-                        expressions
+                        expressions,
+                        allowableTypes: isConnectorRuntimeOrExpression
+                          ? [MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
+                          : [MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
                       }}
                     />
                   ) : (
@@ -153,7 +150,10 @@ export default function DatadogLogsMapToService(props: DatadogLogsMapToServicePr
                       name={MapDatadogLogsFieldNames.SERVICE_INSTANCE_IDENTIFIER_TAG}
                       selectItems={hostIdentifierKeysOptions}
                       multiTypeInputProps={{
-                        expressions
+                        expressions,
+                        allowableTypes: isConnectorRuntimeOrExpression
+                          ? [MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
+                          : [MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
                       }}
                     />
                   ) : (

@@ -471,17 +471,19 @@ describe('ArtifactsSelection tests', () => {
     const portal = document.getElementsByClassName('bp3-dialog')[0]
     const artifactLabel = await waitFor(() => findByText(portal as HTMLElement, 'connectors.specifyArtifactRepoType'))
     expect(artifactLabel).toBeDefined()
-    // Artifactory and ECR should be rendered
-    const artifactory = await container.querySelector('input[value="ArtifactoryRegistry"]')
-    expect(artifactory).toBeDefined()
-    const ecr = await container.querySelector('input[value="Ecr"]')
-    expect(ecr).toBeDefined()
-    // Nexus, ACR and Custom should not be rendered
-    const nexus = await container.querySelector('input[value="Nexus3Registry"]')
+    // Artifactory, ECR should be rendered
+    const artifactory = await portal.querySelector('input[value="ArtifactoryRegistry"]')
+    expect(artifactory).not.toBeNull()
+    const ecr = await portal.querySelector('input[value="Ecr"]')
+    expect(ecr).not.toBeNull()
+    // Nexus, ACR, AmazonS3, Custom should NOT be rendered
+    const amazonS3 = await portal.querySelector('input[value="AmazonS3"]')
+    expect(amazonS3).toBeNull()
+    const nexus = await portal.querySelector('input[value="Nexus3Registry"]')
     expect(nexus).toBeNull()
-    const acr = await container.querySelector('input[value="Acr"]')
+    const acr = await portal.querySelector('input[value="Acr"]')
     expect(acr).toBeNull()
-    const custom = await container.querySelector('input[value="CustomArtifact"]')
+    const custom = await portal.querySelector('input[value="CustomArtifact"]')
     expect(custom).toBeNull()
   })
 
@@ -511,21 +513,23 @@ describe('ArtifactsSelection tests', () => {
     const portal = document.getElementsByClassName('bp3-dialog')[0]
     const artifactLabel = await waitFor(() => findByText(portal as HTMLElement, 'connectors.specifyArtifactRepoType'))
     expect(artifactLabel).toBeDefined()
-    // Artifactory and ECR should be rendered
-    const artifactory = await container.querySelector('input[value="ArtifactoryRegistry"]')
-    expect(artifactory).toBeDefined()
-    const ecr = await container.querySelector('input[value="Ecr"]')
-    expect(ecr).toBeDefined()
-    // Nexus, ACR and Custom should not be rendered
-    const nexus = await container.querySelector('input[value="Nexus3Registry"]')
+    // Artifactory, ECR should be rendered
+    const artifactory = await portal.querySelector('input[value="ArtifactoryRegistry"]')
+    expect(artifactory).not.toBeNull()
+    const ecr = await portal.querySelector('input[value="Ecr"]')
+    expect(ecr).not.toBeNull()
+    // Nexus, ACR, AmazonS3, Custom should NOT be rendered
+    const amazonS3 = await portal.querySelector('input[value="AmazonS3"]')
+    expect(amazonS3).toBeNull()
+    const nexus = await portal.querySelector('input[value="Nexus3Registry"]')
     expect(nexus).toBeNull()
-    const acr = await container.querySelector('input[value="Acr"]')
+    const acr = await portal.querySelector('input[value="Acr"]')
     expect(acr).toBeNull()
-    const custom = await container.querySelector('input[value="CustomArtifact"]')
+    const custom = await portal.querySelector('input[value="CustomArtifact"]')
     expect(custom).toBeNull()
   })
 
-  test('clicking on Create Artifactory Connector should open create dialog properly', async () => {
+  test('clicking on Create Artifactory Connector should show create view when deployment type is ServerlessAwsLambda', async () => {
     const context = {
       ...pipelineContextWithoutArtifactsMock,
       getStageFromPipeline: jest.fn(() => {

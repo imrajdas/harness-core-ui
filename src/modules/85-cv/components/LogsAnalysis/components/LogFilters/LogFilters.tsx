@@ -12,6 +12,7 @@ import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { HealthSourceMultiSelectDropDown } from '@cv/components/ExecutionVerification/components/HealthSourcesMultiSelectDropdown/HealthSourceMultiSelectDropDown'
 import { useStrings } from 'framework/strings'
 import { useGetAllHealthSourcesForMonitoredServiceIdentifier } from 'services/cv'
+import { VerificationType } from '@cv/components/HealthSourceDropDown/HealthSourceDropDown.constants'
 import type { LogFiltersProps } from './LogFilters.types'
 import type { EventTypeFullName } from '../../../ExecutionVerification/components/LogAnalysisContainer/LogAnalysis.constants'
 import { getClusterTypes } from '../../../ExecutionVerification/components/LogAnalysisContainer/LogAnalysis.utils'
@@ -40,6 +41,7 @@ const LogFilters: React.FC<LogFiltersProps> = ({
       <Layout.Horizontal className={css.filterContainer}>
         <HealthSourceMultiSelectDropDown
           data={data}
+          verificationType={VerificationType.LOG}
           error={error}
           loading={loading}
           onChange={onHealthSouceChange}

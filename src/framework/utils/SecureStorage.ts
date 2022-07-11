@@ -5,8 +5,6 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-const PREFERENCES_TOP_LEVEL_KEY = 'preferences'
-
 export function encode(arg: unknown): string | undefined {
   if (typeof arg != 'undefined') return btoa(encodeURIComponent(JSON.stringify(arg)))
 }
@@ -16,6 +14,8 @@ export function decode<T = unknown>(arg: string): T {
 }
 
 export default class SecureStorage {
+  public static exceptions: string[] = []
+
   public static set(key: string, value: unknown): void {
     const str = encode(value)
     if (str) localStorage.setItem(key, str)
@@ -26,11 +26,13 @@ export default class SecureStorage {
     if (str) return decode<T>(str)
   }
 
+  public static registerCleanupException(key: string): void {
+    SecureStorage.exceptions.push(key)
+  }
+
   public static clear(): void {
     // clear localStorage, except fields to persist across user-sessions:
-    const storage: Record<string, string> = {
-      [PREFERENCES_TOP_LEVEL_KEY]: localStorage.getItem(PREFERENCES_TOP_LEVEL_KEY) || ''
-    }
+    const storage: [string, string][] = SecureStorage.exceptions.map(key => [key, localStorage.getItem(key) || ''])
 
     localStorage.clear()
 
@@ -38,7 +40,7 @@ export default class SecureStorage {
        so we are clearing this from our end - because by default sessionStorage behavior doesn't care for login/logout events */
     sessionStorage.clear()
 
-    Object.entries(storage).forEach(([key, val]) => {
+    storage.forEach(([key, val]) => {
       localStorage.setItem(key, val)
     })
   }

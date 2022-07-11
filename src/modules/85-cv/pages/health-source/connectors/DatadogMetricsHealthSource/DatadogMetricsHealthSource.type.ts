@@ -40,6 +40,7 @@ export interface DatadogMetricInfo {
   healthScore?: boolean
   isNew?: boolean
   serviceInstance?: string
+  isConnectorRuntimeOrExpression?: boolean
 }
 
 export interface DatadogMetricSetupSource {
@@ -49,10 +50,12 @@ export interface DatadogMetricSetupSource {
   healthSourceIdentifier: string
   healthSourceName: string
   product: SelectOption
-  connectorRef?: string
+  connectorRef?: string | { value: string }
 }
 
 export interface DatadogMetricsHealthSourceProps {
   data: any
   onSubmit: (formdata: DatadogMetricSetupSource, UpdatedHealthSource: UpdatedHealthSource) => Promise<void>
+  isTemplate?: boolean
+  expressions?: string[]
 }

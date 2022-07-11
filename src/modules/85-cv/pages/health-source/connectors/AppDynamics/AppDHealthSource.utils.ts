@@ -7,7 +7,7 @@
 
 import { cloneDeep, isEmpty } from 'lodash-es'
 import type { FormikProps } from 'formik'
-import { getMultiTypeFromValue, MultiTypeInputType } from '@harness/uicore'
+import { getMultiTypeFromValue, MultiTypeInputType, RUNTIME_INPUT_VALUE } from '@harness/uicore'
 import type { StringKeys } from 'framework/strings'
 import type { StringsMap } from 'framework/strings/StringsContext'
 import type {
@@ -611,7 +611,7 @@ export const getPlaceholder = (
 ): string => (loading ? getString('loading') : getString(placeholderText))
 
 export const showValidation = (appdApplication?: string, appDTier?: string): boolean =>
-  Boolean(appDTier) && Boolean(appdApplication) && !(appdApplication === '<+input>' || appDTier === '<+input>')
+  Boolean(appDTier) && Boolean(appdApplication) && !(appdApplication === RUNTIME_INPUT_VALUE || appDTier === '<+input>')
 
 export const getTypeOfInput = (value: SelectOption | string) => {
   const selectedItem = typeof value === 'string' ? value : value?.label
@@ -648,7 +648,7 @@ export const setCustomFieldAndValidation = (
   const updatedNonCustomValue = {
     ...nonCustomFeilds,
     appdApplication: value,
-    appDTier: getTypeOfInput(value) !== MultiTypeInputType.FIXED ? '<+input>' : ''
+    appDTier: getTypeOfInput(value) !== MultiTypeInputType.FIXED ? RUNTIME_INPUT_VALUE : ''
   }
   setNonCustomFeilds(updatedNonCustomValue)
   if (validate) {

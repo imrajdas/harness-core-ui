@@ -27,7 +27,7 @@ const CDTrialHomePage: React.FC = () => {
     description: getString('cd.cdTrialHomePage.startTrial.description'),
     learnMore: {
       description: getString('cd.learnMore'),
-      url: 'https://ngdocs.harness.io/category/c9j6jejsws-cd-quickstarts'
+      url: 'https://docs.harness.io/category/c9j6jejsws-cd-quickstarts'
     },
     startBtn: {
       description: startBtnDescription

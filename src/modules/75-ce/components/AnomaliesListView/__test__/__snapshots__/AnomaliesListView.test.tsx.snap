@@ -150,155 +150,159 @@ exports[`test case for anomalies detection overview page should be able to rende
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
-            >
-              03/03/2022
-            </p>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
-            >
-              since 6 days
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-          >
-            
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
-          >
-            ce.anomalyDetection.trend
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 35%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main"
-            style="align-items: center;"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="gcp"
-            >
-              <svg
-                height="24"
-                viewBox="0 0 1667 1341"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill="none"
-                >
-                  <path
-                    d="M1058.1 369.2h50.8l144.8-144.8 7.1-61.5C991.3-75 580-49.3 342.1 220.2 276 295 228.1 384.1 201.9 480.5c16.1-6.6 34-7.7 50.8-3l289.6-47.8s14.7-24.4 22.4-22.9c128.8-141.5 345.6-158 494.4-37.6h-1z"
-                    fill="#EA4335"
-                  />
-                  <path
-                    d="M1460 480.5c-33.3-122.6-101.6-232.8-196.6-317l-203.2 203.2c85.8 70.1 134.7 175.8 132.6 286.6v36.1c99.9 0 180.9 81 180.9 180.9s-81 180.9-180.9 180.9H831l-36.1 36.6v217l36.1 36.1h361.8c259.8 2 472.1-207 474.1-466.8 1.2-157.8-76.5-305.4-206.9-393.6z"
-                    fill="#4285F4"
-                  />
-                  <path
-                    d="M468.7 1338.6h361.8V1049H468.7c-25.8 0-51.2-5.6-74.7-16.3l-50.8 15.8-145.8 144.8-12.7 50.8c81.7 61.8 181.5 95 284 94.5z"
-                    fill="#34A853"
-                  />
-                  <path
-                    d="M468.7 399.196C208.8 400.7-.5 612.6.992 872.5 1.9 1017.6 69.6 1154.2 184.7 1242.6l209.8-209.8c-91-41.1-131.5-148.3-90.4-239.3 41.1-91 148.3-131.5 239.3-90.4 40.1 18.1 72.2 50.3 90.4 90.4l209.8-209.8c-89.2-116.8-228-185.1-374.9-184.504z"
-                    fill="#FBBC05"
-                  />
-                </g>
-              </svg>
-            </span>
             <div
               class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
             >
-              <a
-                href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%7B%22field%22%3A%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D%2C%22operator%22%3A%22IN%22%2C%22type%22%3A%22VIEW_ID_CONDITION%22%2C%22values%22%3A%5B%22Cloud%20CDN%22%5D%7D%2C%7B%22field%22%3A%7B%22fieldId%22%3A%22gcpProjectId%22%2C%22fieldName%22%3A%22Project%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D%2C%22operator%22%3A%22IN%22%2C%22type%22%3A%22VIEW_ID_CONDITION%22%2C%22values%22%3A%5B%22projectId%22%5D%7D%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
-              >
-                <span
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
-                  style="max-width: 200px; --text-line-clamp: 1;"
-                >
-                  project/product
-                </span>
-              </a>
               <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
               >
-                gcpProjectId/gcpProduct
+                03/03/2022
+              </p>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
+              >
+                since 6 days
               </p>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <span
-            class="bp3-popover-wrapper bp3-dark"
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+            >
+              
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
+            >
+              ce.anomalyDetection.trend
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 35%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
+              style="align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="gcp"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 1667 1341"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                  >
+                    <path
+                      d="M1058.1 369.2h50.8l144.8-144.8 7.1-61.5C991.3-75 580-49.3 342.1 220.2 276 295 228.1 384.1 201.9 480.5c16.1-6.6 34-7.7 50.8-3l289.6-47.8s14.7-24.4 22.4-22.9c128.8-141.5 345.6-158 494.4-37.6h-1z"
+                      fill="#EA4335"
+                    />
+                    <path
+                      d="M1460 480.5c-33.3-122.6-101.6-232.8-196.6-317l-203.2 203.2c85.8 70.1 134.7 175.8 132.6 286.6v36.1c99.9 0 180.9 81 180.9 180.9s-81 180.9-180.9 180.9H831l-36.1 36.6v217l36.1 36.1h361.8c259.8 2 472.1-207 474.1-466.8 1.2-157.8-76.5-305.4-206.9-393.6z"
+                      fill="#4285F4"
+                    />
+                    <path
+                      d="M468.7 1338.6h361.8V1049H468.7c-25.8 0-51.2-5.6-74.7-16.3l-50.8 15.8-145.8 144.8-12.7 50.8c81.7 61.8 181.5 95 284 94.5z"
+                      fill="#34A853"
+                    />
+                    <path
+                      d="M468.7 399.196C208.8 400.7-.5 612.6.992 872.5 1.9 1017.6 69.6 1154.2 184.7 1242.6l209.8-209.8c-91-41.1-131.5-148.3-90.4-239.3 41.1-91 148.3-131.5 239.3-90.4 40.1 18.1 72.2 50.3 90.4 90.4l209.8-209.8c-89.2-116.8-228-185.1-374.9-184.504z"
+                      fill="#FBBC05"
+                    />
+                  </g>
+                </svg>
+              </span>
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+              >
+                <a
+                  href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%7B%22field%22%3A%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D%2C%22operator%22%3A%22IN%22%2C%22type%22%3A%22VIEW_ID_CONDITION%22%2C%22values%22%3A%5B%22Cloud%20CDN%22%5D%7D%2C%7B%22field%22%3A%7B%22fieldId%22%3A%22gcpProjectId%22%2C%22fieldName%22%3A%22Project%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D%2C%22operator%22%3A%22IN%22%2C%22type%22%3A%22VIEW_ID_CONDITION%22%2C%22values%22%3A%5B%22projectId%22%5D%7D%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
+                >
+                  <span
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
+                    style="max-width: 200px; --text-line-clamp: 1;"
+                  >
+                    project/product
+                  </span>
+                </a>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                >
+                  gcpProjectId/gcpProduct
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
             <span
-              class="bp3-popover-target"
+              class="bp3-popover-wrapper bp3-dark"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                type="button"
+              <span
+                class="bp3-popover-target"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Options"
+                <button
+                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                  type="button"
                 >
-                  <svg
-                    fill="currentColor"
-                    height="16"
-                    viewBox="0 0 4 16"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="bp3-icon StyledProps--main"
+                    data-icon="Options"
                   >
-                    <circle
-                      cx="2"
-                      cy="2"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="8"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="14"
-                      r="1.5"
-                    />
-                  </svg>
-                </span>
-              </button>
+                    <svg
+                      fill="currentColor"
+                      height="16"
+                      viewBox="0 0 4 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="8"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="14"
+                        r="1.5"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
       <div
@@ -306,145 +310,149 @@ exports[`test case for anomalies detection overview page should be able to rende
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
-            >
-              03/03/2022
-            </p>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
-            >
-              since 6 days
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-          >
-            
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
-          >
-            ce.anomalyDetection.trend
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 35%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main"
-            style="align-items: center;"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="service-kubernetes"
-            >
-              <svg
-                height="24"
-                viewBox="0 0 14 14"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7 .4c-.1 0-.2 0-.3.1L2 2.7c-.2.1-.4.3-.5.6l-1.2 5c-.1.2 0 .5.1.7l.1.1 3.2 4c.2.2.4.3.7.3h5.2c.3 0 .5-.1.7-.3l3.2-4c.2-.2.2-.5.2-.7l-1.2-5c-.1-.3-.2-.5-.5-.6L7.3.6c0-.1-.2-.2-.3-.2z"
-                  fill="#326ce5"
-                />
-                <path
-                  d="M7 2.1c-.2 0-.3.1-.3.3v.9c0 .1-.1.1-.1.1v.1c-.2 0-.3 0-.5.1-.7.2-1.4.5-1.8 1l-.1-.1H4c-.1-.1-.2-.2-.4-.3L3.4 4h-.1c-.1 0-.1-.1-.2-.1s-.2 0-.2.1c-.1.1-.1.3.1.4h.1c.1.1.2.1.2.1.2.1.3.2.4.3 0 0 .1.1.1.2l.1.1c-.5.7-.7 1.6-.6 2.5h-.1l-.1.1c-.1 0-.3.1-.5.1h-.4c-.2 0-.3.2-.2.3 0 .1.2.2.4.2h.1c.1 0 .2-.1.3-.1.2-.1.3-.1.5-.1.1 0 .1 0 .2.1h.1c.3.9.9 1.6 1.6 2l-.1.1v.2c-.1.1-.1.3-.3.5-.1.1-.1.1-.1.2v.1c-.1.2 0 .3.1.4s.3 0 .4-.2v-.1c0-.1.1-.2.1-.3.1-.2.1-.4.2-.5 0 0 .1 0 .1-.1l.1-.1c.6.2 1.4.3 2.1.2.2 0 .3-.1.5-.1l.1.1s.1 0 .1.1c.1.1.1.3.2.5 0 .1 0 .2.1.3v.1c.1.2.2.2.4.2.1-.1.2-.2.1-.4v-.1c0-.1-.1-.1-.1-.2-.1-.2-.2-.3-.2-.4V10.4c.8-.5 1.3-1.2 1.6-2h.1s.1-.1.2-.1.3.1.5.1c.1 0 .2.1.3.1h.1c.2 0 .3-.1.4-.2 0-.1-.1-.3-.2-.3h-.4c-.2 0-.4 0-.5-.1-.1 0-.1-.1-.1-.1h-.1c.1-.4 0-.9-.1-1.3s-.3-.9-.5-1.2l.1-.1c0-.1 0-.1.1-.2s.2-.2.4-.3c.1 0 .2-.1.2-.1h.1c.1-.1.2-.3.1-.4s-.3-.1-.4 0h-.1l-.2.2c-.1.1-.3.3-.4.3H10l-.1.1c-.6-.6-1.4-1-2.3-1.1v-.1l-.1-.1V3v-.4c-.2-.3-.3-.5-.5-.5zm-.3 2.2l-.1 1.5c0 .1-.1.2-.2.2h-.1l-1.2-.9c.4-.4.8-.6 1.4-.8zm.7 0c.6.1 1.2.4 1.7.8l-1.2.8c-.1.1-.3.1-.3 0l-.1-.1zM4.6 5.7l1.1 1c.1.1.1.2 0 .3l-.1.1-1.4.4c-.1-.7 0-1.3.4-1.8zm4.9 0c.2.3.3.6.4.9s.1.6.1.9l-1.4-.4c-.1 0-.2-.2-.2-.3s0-.1.1-.1zm-2.7 1h.4l.3.3-.1.4-.4.2-.4-.2-.1-.4zm1.4 1.2c.1 0 .1 0 0 0l1.5.2c-.2.6-.6 1.1-1.2 1.5l-.6-1.4c.1-.1.1-.2.3-.3zm-2.4 0c.1 0 .2.1.2.2v.2l-.6 1.4c-.5-.3-.9-.8-1.2-1.5zm1.2.6l.2.1.7 1.3c-.1 0-.2.1-.3.1-.5.1-1.1.1-1.6-.1l.7-1.3c.2 0 .2-.1.3-.1z"
-                  fill="#fff"
-                  stroke="#fff"
-                  stroke-width="0.25"
-                />
-              </svg>
-            </span>
             <div
               class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
             >
-              <a
-                href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22CLUSTER%22%2C%22identifierName%22%3A%22CLUSTER%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
-              >
-                <span
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
-                  style="max-width: 200px; --text-line-clamp: 1;"
-                >
-                  project/product
-                </span>
-              </a>
               <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
               >
-                gcpProjectId/gcpProduct
+                03/03/2022
+              </p>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
+              >
+                since 6 days
               </p>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <span
-            class="bp3-popover-wrapper bp3-dark"
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+            >
+              
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
+            >
+              ce.anomalyDetection.trend
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 35%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
+              style="align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="service-kubernetes"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 14 14"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 .4c-.1 0-.2 0-.3.1L2 2.7c-.2.1-.4.3-.5.6l-1.2 5c-.1.2 0 .5.1.7l.1.1 3.2 4c.2.2.4.3.7.3h5.2c.3 0 .5-.1.7-.3l3.2-4c.2-.2.2-.5.2-.7l-1.2-5c-.1-.3-.2-.5-.5-.6L7.3.6c0-.1-.2-.2-.3-.2z"
+                    fill="#326ce5"
+                  />
+                  <path
+                    d="M7 2.1c-.2 0-.3.1-.3.3v.9c0 .1-.1.1-.1.1v.1c-.2 0-.3 0-.5.1-.7.2-1.4.5-1.8 1l-.1-.1H4c-.1-.1-.2-.2-.4-.3L3.4 4h-.1c-.1 0-.1-.1-.2-.1s-.2 0-.2.1c-.1.1-.1.3.1.4h.1c.1.1.2.1.2.1.2.1.3.2.4.3 0 0 .1.1.1.2l.1.1c-.5.7-.7 1.6-.6 2.5h-.1l-.1.1c-.1 0-.3.1-.5.1h-.4c-.2 0-.3.2-.2.3 0 .1.2.2.4.2h.1c.1 0 .2-.1.3-.1.2-.1.3-.1.5-.1.1 0 .1 0 .2.1h.1c.3.9.9 1.6 1.6 2l-.1.1v.2c-.1.1-.1.3-.3.5-.1.1-.1.1-.1.2v.1c-.1.2 0 .3.1.4s.3 0 .4-.2v-.1c0-.1.1-.2.1-.3.1-.2.1-.4.2-.5 0 0 .1 0 .1-.1l.1-.1c.6.2 1.4.3 2.1.2.2 0 .3-.1.5-.1l.1.1s.1 0 .1.1c.1.1.1.3.2.5 0 .1 0 .2.1.3v.1c.1.2.2.2.4.2.1-.1.2-.2.1-.4v-.1c0-.1-.1-.1-.1-.2-.1-.2-.2-.3-.2-.4V10.4c.8-.5 1.3-1.2 1.6-2h.1s.1-.1.2-.1.3.1.5.1c.1 0 .2.1.3.1h.1c.2 0 .3-.1.4-.2 0-.1-.1-.3-.2-.3h-.4c-.2 0-.4 0-.5-.1-.1 0-.1-.1-.1-.1h-.1c.1-.4 0-.9-.1-1.3s-.3-.9-.5-1.2l.1-.1c0-.1 0-.1.1-.2s.2-.2.4-.3c.1 0 .2-.1.2-.1h.1c.1-.1.2-.3.1-.4s-.3-.1-.4 0h-.1l-.2.2c-.1.1-.3.3-.4.3H10l-.1.1c-.6-.6-1.4-1-2.3-1.1v-.1l-.1-.1V3v-.4c-.2-.3-.3-.5-.5-.5zm-.3 2.2l-.1 1.5c0 .1-.1.2-.2.2h-.1l-1.2-.9c.4-.4.8-.6 1.4-.8zm.7 0c.6.1 1.2.4 1.7.8l-1.2.8c-.1.1-.3.1-.3 0l-.1-.1zM4.6 5.7l1.1 1c.1.1.1.2 0 .3l-.1.1-1.4.4c-.1-.7 0-1.3.4-1.8zm4.9 0c.2.3.3.6.4.9s.1.6.1.9l-1.4-.4c-.1 0-.2-.2-.2-.3s0-.1.1-.1zm-2.7 1h.4l.3.3-.1.4-.4.2-.4-.2-.1-.4zm1.4 1.2c.1 0 .1 0 0 0l1.5.2c-.2.6-.6 1.1-1.2 1.5l-.6-1.4c.1-.1.1-.2.3-.3zm-2.4 0c.1 0 .2.1.2.2v.2l-.6 1.4c-.5-.3-.9-.8-1.2-1.5zm1.2.6l.2.1.7 1.3c-.1 0-.2.1-.3.1-.5.1-1.1.1-1.6-.1l.7-1.3c.2 0 .2-.1.3-.1z"
+                    fill="#fff"
+                    stroke="#fff"
+                    stroke-width="0.25"
+                  />
+                </svg>
+              </span>
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+              >
+                <a
+                  href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22CLUSTER%22%2C%22identifierName%22%3A%22CLUSTER%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
+                >
+                  <span
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
+                    style="max-width: 200px; --text-line-clamp: 1;"
+                  >
+                    project/product
+                  </span>
+                </a>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                >
+                  gcpProjectId/gcpProduct
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
             <span
-              class="bp3-popover-target"
+              class="bp3-popover-wrapper bp3-dark"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                type="button"
+              <span
+                class="bp3-popover-target"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Options"
+                <button
+                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                  type="button"
                 >
-                  <svg
-                    fill="currentColor"
-                    height="16"
-                    viewBox="0 0 4 16"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="bp3-icon StyledProps--main"
+                    data-icon="Options"
                   >
-                    <circle
-                      cx="2"
-                      cy="2"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="8"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="14"
-                      r="1.5"
-                    />
-                  </svg>
-                </span>
-              </button>
+                    <svg
+                      fill="currentColor"
+                      height="16"
+                      viewBox="0 0 4 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="8"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="14"
+                        r="1.5"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
       <div
@@ -452,149 +460,153 @@ exports[`test case for anomalies detection overview page should be able to rende
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
-            >
-              03/03/2022
-            </p>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
-            >
-              since 6 days
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-          >
-            
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
-          >
-            ce.anomalyDetection.trend
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 35%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main"
-            style="align-items: center;"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="service-aws"
-            >
-              <svg
-                height="24"
-                viewBox="0 0 14 10"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 3.9v.4c0 .1.1.2.1.3v.1c0 .1 0 .1-.1.1l-.1.2h-.1s-.1 0-.1-.1c-.1.1-.2 0-.2-.1s-.1-.2-.1-.3c-.4.5-.9.7-1.4.7-.4 0-.7-.1-.9-.3S.7 4.3.7 4c0-.4.1-.7.4-.9s.6-.4 1.1-.4h.5c.2 0 .3.1.5.1v-.3c0-.3-.1-.6-.2-.7-.1-.2-.3-.2-.7-.2-.2 0-.3 0-.5.1-.2 0-.3.1-.5.2 0 0-.1 0-.2.1H1v-.5-.2l.1-.1c.3-.1.4-.1.6-.2.3 0 .5-.1.8-.1.5 0 .9.1 1.2.4s.3.6.3 1.1zm-1.8.7c.2 0 .3 0 .5-.1.1-.1.3-.2.4-.3s.1-.2.1-.3V3.3c-.1 0-.2 0-.3-.1h-.4c-.3 0-.5.1-.7.2s-.3.3-.3.5.1.4.2.5.3.2.5.2zm3.6.5h-.2s-.1-.1-.1-.2l-1-3.6v-.2c0-.1 0-.1.1-.1H5.2s.1.1.1.2l.8 3 .7-3c0-.1 0-.1.1-.2h.8s.1.1.1.2l.7 3 .8-3c0-.1 0-.1.1-.2H10c.1 0 .1 0 .1.1v.2L8.8 4.8c0 .1 0 .2-.1.2h-.5c-.1.1-.2.1-.2 0 0 0-.1-.1-.1-.2l-.7-2.9-.7 2.9c0 .1 0 .1-.1.2h-.2zm5.9.1c-.2 0-.5 0-.7-.1s-.4-.1-.5-.2c-.1 0-.1-.1-.1-.1v-.4c0-.1 0-.1.1-.1h.2c.2.1.3.1.5.2.2 0 .4.1.5.1.3 0 .5 0 .7-.1.1-.1.2-.3.2-.4s0-.2-.1-.3-.2-.2-.5-.2l-.7-.2c-.3-.1-.6-.3-.7-.5s-.2-.4-.2-.7c0-.2 0-.3.1-.5.1-.1.2-.3.3-.4s.3-.2.5-.2c.2-.1.4-.1.6-.1h.6c.1 0 .2 0 .3.1.1 0 .1 0 .2.1.1 0 .1.1.1.1V1.6c0 .1 0 .1-.1.1s-.1 0-.2-.1c-.3-.1-.6-.2-.9-.2s-.5 0-.6.1-.2.2-.2.4c0 .1 0 .2.1.3s.3.2.5.2l.6.2c.3.1.6.2.7.4s.2.4.2.6 0 .4-.1.5c-.1.2-.2.3-.3.4-.1.5-.3.5-.5.6s-.4.1-.6.1z"
-                  fill="#252f3e"
-                />
-                <g
-                  fill="#f90"
-                >
-                  <path
-                    d="M12.5 7.4C11 8.5 8.9 9.1 7 9.1c-2.6 0-5-1-6.7-2.6-.1-.1 0-.3.2-.2 1.9 1.1 4.3 1.8 6.7 1.8 1.8 0 3.5-.4 5.1-1.1.2-.1.5.2.2.4z"
-                  />
-                  <path
-                    d="M13.1 6.7c-.2-.2-1.3-.1-1.7-.1-.1 0-.2-.1 0-.2.9-.6 2.3-.4 2.4-.2.2.2 0 1.6-.8 2.3-.1.1-.2 0-.2-.1.1-.5.5-1.5.3-1.7z"
-                  />
-                </g>
-              </svg>
-            </span>
             <div
               class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
             >
-              <a
-                href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22AWS%22%2C%22identifierName%22%3A%22AWS%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
-              >
-                <span
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
-                  style="max-width: 200px; --text-line-clamp: 1;"
-                >
-                  project/product
-                </span>
-              </a>
               <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
               >
-                gcpProjectId/gcpProduct
+                03/03/2022
+              </p>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
+              >
+                since 6 days
               </p>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <span
-            class="bp3-popover-wrapper bp3-dark"
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+            >
+              
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
+            >
+              ce.anomalyDetection.trend
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 35%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
+              style="align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="service-aws"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 14 10"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 3.9v.4c0 .1.1.2.1.3v.1c0 .1 0 .1-.1.1l-.1.2h-.1s-.1 0-.1-.1c-.1.1-.2 0-.2-.1s-.1-.2-.1-.3c-.4.5-.9.7-1.4.7-.4 0-.7-.1-.9-.3S.7 4.3.7 4c0-.4.1-.7.4-.9s.6-.4 1.1-.4h.5c.2 0 .3.1.5.1v-.3c0-.3-.1-.6-.2-.7-.1-.2-.3-.2-.7-.2-.2 0-.3 0-.5.1-.2 0-.3.1-.5.2 0 0-.1 0-.2.1H1v-.5-.2l.1-.1c.3-.1.4-.1.6-.2.3 0 .5-.1.8-.1.5 0 .9.1 1.2.4s.3.6.3 1.1zm-1.8.7c.2 0 .3 0 .5-.1.1-.1.3-.2.4-.3s.1-.2.1-.3V3.3c-.1 0-.2 0-.3-.1h-.4c-.3 0-.5.1-.7.2s-.3.3-.3.5.1.4.2.5.3.2.5.2zm3.6.5h-.2s-.1-.1-.1-.2l-1-3.6v-.2c0-.1 0-.1.1-.1H5.2s.1.1.1.2l.8 3 .7-3c0-.1 0-.1.1-.2h.8s.1.1.1.2l.7 3 .8-3c0-.1 0-.1.1-.2H10c.1 0 .1 0 .1.1v.2L8.8 4.8c0 .1 0 .2-.1.2h-.5c-.1.1-.2.1-.2 0 0 0-.1-.1-.1-.2l-.7-2.9-.7 2.9c0 .1 0 .1-.1.2h-.2zm5.9.1c-.2 0-.5 0-.7-.1s-.4-.1-.5-.2c-.1 0-.1-.1-.1-.1v-.4c0-.1 0-.1.1-.1h.2c.2.1.3.1.5.2.2 0 .4.1.5.1.3 0 .5 0 .7-.1.1-.1.2-.3.2-.4s0-.2-.1-.3-.2-.2-.5-.2l-.7-.2c-.3-.1-.6-.3-.7-.5s-.2-.4-.2-.7c0-.2 0-.3.1-.5.1-.1.2-.3.3-.4s.3-.2.5-.2c.2-.1.4-.1.6-.1h.6c.1 0 .2 0 .3.1.1 0 .1 0 .2.1.1 0 .1.1.1.1V1.6c0 .1 0 .1-.1.1s-.1 0-.2-.1c-.3-.1-.6-.2-.9-.2s-.5 0-.6.1-.2.2-.2.4c0 .1 0 .2.1.3s.3.2.5.2l.6.2c.3.1.6.2.7.4s.2.4.2.6 0 .4-.1.5c-.1.2-.2.3-.3.4-.1.5-.3.5-.5.6s-.4.1-.6.1z"
+                    fill="#252f3e"
+                  />
+                  <g
+                    fill="#f90"
+                  >
+                    <path
+                      d="M12.5 7.4C11 8.5 8.9 9.1 7 9.1c-2.6 0-5-1-6.7-2.6-.1-.1 0-.3.2-.2 1.9 1.1 4.3 1.8 6.7 1.8 1.8 0 3.5-.4 5.1-1.1.2-.1.5.2.2.4z"
+                    />
+                    <path
+                      d="M13.1 6.7c-.2-.2-1.3-.1-1.7-.1-.1 0-.2-.1 0-.2.9-.6 2.3-.4 2.4-.2.2.2 0 1.6-.8 2.3-.1.1-.2 0-.2-.1.1-.5.5-1.5.3-1.7z"
+                    />
+                  </g>
+                </svg>
+              </span>
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+              >
+                <a
+                  href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22AWS%22%2C%22identifierName%22%3A%22AWS%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
+                >
+                  <span
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
+                    style="max-width: 200px; --text-line-clamp: 1;"
+                  >
+                    project/product
+                  </span>
+                </a>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                >
+                  gcpProjectId/gcpProduct
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
             <span
-              class="bp3-popover-target"
+              class="bp3-popover-wrapper bp3-dark"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                type="button"
+              <span
+                class="bp3-popover-target"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Options"
+                <button
+                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                  type="button"
                 >
-                  <svg
-                    fill="currentColor"
-                    height="16"
-                    viewBox="0 0 4 16"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="bp3-icon StyledProps--main"
+                    data-icon="Options"
                   >
-                    <circle
-                      cx="2"
-                      cy="2"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="8"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="14"
-                      r="1.5"
-                    />
-                  </svg>
-                </span>
-              </button>
+                    <svg
+                      fill="currentColor"
+                      height="16"
+                      viewBox="0 0 4 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="8"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="14"
+                        r="1.5"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
       <div
@@ -602,142 +614,146 @@ exports[`test case for anomalies detection overview page should be able to rende
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
-            >
-              03/03/2022
-            </p>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
-            >
-              since 6 days
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-          >
-            
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
-          >
-            ce.anomalyDetection.trend
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 35%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main"
-            style="align-items: center;"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="service-azure"
-            >
-              <svg
-                height="24"
-                viewBox="0 0 14 12"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill="#2075b7"
-                >
-                  <path
-                    d="M14 11.3H3.5c2.1-.4 4.2-.7 6.3-1.1 0-.1 0-.1-.1-.1-1.1-1.4-2.2-2.7-3.2-3.9-.1-.1-.1-.2 0-.2.4-1.1.8-2.1 1.1-3.2.2-.5.4-1 .5-1.5 0 0 0-.1.1-.1C10.1 4.6 12 7.9 14 11.3zM7.7.5c-.2.4-.4.7-.5 1.1-1 2.1-1.9 4.1-2.9 6.2-.3.7-.7 1.4-1 2.2 0 .1-.1.1-.2.1H.2c-.2 0-.2 0-.1-.1 1.1-2 2.3-3.9 3.4-5.9 0-.1.1-.2.2-.3C5 2.8 6.3 1.7 7.6.6c0 0 0-.1.1-.1z"
-                  />
-                </g>
-              </svg>
-            </span>
             <div
               class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
             >
-              <a
-                href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22AZURE%22%2C%22identifierName%22%3A%22AZURE%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
-              >
-                <span
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
-                  style="max-width: 200px; --text-line-clamp: 1;"
-                >
-                  project/product
-                </span>
-              </a>
               <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
               >
-                gcpProjectId/gcpProduct
+                03/03/2022
+              </p>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
+              >
+                since 6 days
               </p>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <span
-            class="bp3-popover-wrapper bp3-dark"
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+            >
+              
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
+            >
+              ce.anomalyDetection.trend
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 35%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
+              style="align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="service-azure"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 14 12"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="#2075b7"
+                  >
+                    <path
+                      d="M14 11.3H3.5c2.1-.4 4.2-.7 6.3-1.1 0-.1 0-.1-.1-.1-1.1-1.4-2.2-2.7-3.2-3.9-.1-.1-.1-.2 0-.2.4-1.1.8-2.1 1.1-3.2.2-.5.4-1 .5-1.5 0 0 0-.1.1-.1C10.1 4.6 12 7.9 14 11.3zM7.7.5c-.2.4-.4.7-.5 1.1-1 2.1-1.9 4.1-2.9 6.2-.3.7-.7 1.4-1 2.2 0 .1-.1.1-.2.1H.2c-.2 0-.2 0-.1-.1 1.1-2 2.3-3.9 3.4-5.9 0-.1.1-.2.2-.3C5 2.8 6.3 1.7 7.6.6c0 0 0-.1.1-.1z"
+                    />
+                  </g>
+                </svg>
+              </span>
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+              >
+                <a
+                  href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22AZURE%22%2C%22identifierName%22%3A%22AZURE%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
+                >
+                  <span
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
+                    style="max-width: 200px; --text-line-clamp: 1;"
+                  >
+                    project/product
+                  </span>
+                </a>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                >
+                  gcpProjectId/gcpProduct
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
             <span
-              class="bp3-popover-target"
+              class="bp3-popover-wrapper bp3-dark"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                type="button"
+              <span
+                class="bp3-popover-target"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Options"
+                <button
+                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                  type="button"
                 >
-                  <svg
-                    fill="currentColor"
-                    height="16"
-                    viewBox="0 0 4 16"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="bp3-icon StyledProps--main"
+                    data-icon="Options"
                   >
-                    <circle
-                      cx="2"
-                      cy="2"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="8"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="14"
-                      r="1.5"
-                    />
-                  </svg>
-                </span>
-              </button>
+                    <svg
+                      fill="currentColor"
+                      height="16"
+                      viewBox="0 0 4 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="8"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="14"
+                        r="1.5"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>
@@ -895,247 +911,251 @@ exports[`test case for anomalies detection overview page should be able to rende
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
-            >
-              03/03/2022
-            </p>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
-            >
-              since 6 days
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-          >
-            
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
-          >
-            ce.anomalyDetection.trend
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 35%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main"
-            style="align-items: center;"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="gcp"
-            >
-              <svg
-                height="24"
-                viewBox="0 0 1667 1341"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill="none"
-                >
-                  <path
-                    d="M1058.1 369.2h50.8l144.8-144.8 7.1-61.5C991.3-75 580-49.3 342.1 220.2 276 295 228.1 384.1 201.9 480.5c16.1-6.6 34-7.7 50.8-3l289.6-47.8s14.7-24.4 22.4-22.9c128.8-141.5 345.6-158 494.4-37.6h-1z"
-                    fill="#EA4335"
-                  />
-                  <path
-                    d="M1460 480.5c-33.3-122.6-101.6-232.8-196.6-317l-203.2 203.2c85.8 70.1 134.7 175.8 132.6 286.6v36.1c99.9 0 180.9 81 180.9 180.9s-81 180.9-180.9 180.9H831l-36.1 36.6v217l36.1 36.1h361.8c259.8 2 472.1-207 474.1-466.8 1.2-157.8-76.5-305.4-206.9-393.6z"
-                    fill="#4285F4"
-                  />
-                  <path
-                    d="M468.7 1338.6h361.8V1049H468.7c-25.8 0-51.2-5.6-74.7-16.3l-50.8 15.8-145.8 144.8-12.7 50.8c81.7 61.8 181.5 95 284 94.5z"
-                    fill="#34A853"
-                  />
-                  <path
-                    d="M468.7 399.196C208.8 400.7-.5 612.6.992 872.5 1.9 1017.6 69.6 1154.2 184.7 1242.6l209.8-209.8c-91-41.1-131.5-148.3-90.4-239.3 41.1-91 148.3-131.5 239.3-90.4 40.1 18.1 72.2 50.3 90.4 90.4l209.8-209.8c-89.2-116.8-228-185.1-374.9-184.504z"
-                    fill="#FBBC05"
-                  />
-                </g>
-              </svg>
-            </span>
             <div
               class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
             >
-              <a
-                href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%7B%22field%22%3A%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D%2C%22operator%22%3A%22IN%22%2C%22type%22%3A%22VIEW_ID_CONDITION%22%2C%22values%22%3A%5B%22Cloud%20CDN%22%5D%7D%2C%7B%22field%22%3A%7B%22fieldId%22%3A%22gcpProjectId%22%2C%22fieldName%22%3A%22Project%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D%2C%22operator%22%3A%22IN%22%2C%22type%22%3A%22VIEW_ID_CONDITION%22%2C%22values%22%3A%5B%22projectId%22%5D%7D%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
-              >
-                <span
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
-                  style="max-width: 200px; --text-line-clamp: 1;"
-                >
-                  project/product
-                </span>
-              </a>
               <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
               >
-                gcpProjectId/gcpProduct
+                03/03/2022
+              </p>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
+              >
+                since 6 days
               </p>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <span
-            class="bp3-popover-wrapper bp3-dark"
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+            >
+              
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
+            >
+              ce.anomalyDetection.trend
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 35%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
+              style="align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="gcp"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 1667 1341"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                  >
+                    <path
+                      d="M1058.1 369.2h50.8l144.8-144.8 7.1-61.5C991.3-75 580-49.3 342.1 220.2 276 295 228.1 384.1 201.9 480.5c16.1-6.6 34-7.7 50.8-3l289.6-47.8s14.7-24.4 22.4-22.9c128.8-141.5 345.6-158 494.4-37.6h-1z"
+                      fill="#EA4335"
+                    />
+                    <path
+                      d="M1460 480.5c-33.3-122.6-101.6-232.8-196.6-317l-203.2 203.2c85.8 70.1 134.7 175.8 132.6 286.6v36.1c99.9 0 180.9 81 180.9 180.9s-81 180.9-180.9 180.9H831l-36.1 36.6v217l36.1 36.1h361.8c259.8 2 472.1-207 474.1-466.8 1.2-157.8-76.5-305.4-206.9-393.6z"
+                      fill="#4285F4"
+                    />
+                    <path
+                      d="M468.7 1338.6h361.8V1049H468.7c-25.8 0-51.2-5.6-74.7-16.3l-50.8 15.8-145.8 144.8-12.7 50.8c81.7 61.8 181.5 95 284 94.5z"
+                      fill="#34A853"
+                    />
+                    <path
+                      d="M468.7 399.196C208.8 400.7-.5 612.6.992 872.5 1.9 1017.6 69.6 1154.2 184.7 1242.6l209.8-209.8c-91-41.1-131.5-148.3-90.4-239.3 41.1-91 148.3-131.5 239.3-90.4 40.1 18.1 72.2 50.3 90.4 90.4l209.8-209.8c-89.2-116.8-228-185.1-374.9-184.504z"
+                      fill="#FBBC05"
+                    />
+                  </g>
+                </svg>
+              </span>
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+              >
+                <a
+                  href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%7B%22field%22%3A%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D%2C%22operator%22%3A%22IN%22%2C%22type%22%3A%22VIEW_ID_CONDITION%22%2C%22values%22%3A%5B%22Cloud%20CDN%22%5D%7D%2C%7B%22field%22%3A%7B%22fieldId%22%3A%22gcpProjectId%22%2C%22fieldName%22%3A%22Project%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D%2C%22operator%22%3A%22IN%22%2C%22type%22%3A%22VIEW_ID_CONDITION%22%2C%22values%22%3A%5B%22projectId%22%5D%7D%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22GCP%22%2C%22identifierName%22%3A%22GCP%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
+                >
+                  <span
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
+                    style="max-width: 200px; --text-line-clamp: 1;"
+                  >
+                    project/product
+                  </span>
+                </a>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                >
+                  gcpProjectId/gcpProduct
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
             <span
-              class="bp3-popover-target bp3-popover-open"
+              class="bp3-popover-wrapper bp3-dark"
             >
-              <button
-                class="bp3-button bp3-disabled bp3-loading bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                disabled=""
-                tabindex="-1"
-                type="button"
+              <span
+                class="bp3-popover-target bp3-popover-open"
               >
-                <div
-                  class="bp3-spinner bp3-button-spinner"
+                <button
+                  class="bp3-button bp3-disabled bp3-loading bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                  disabled=""
+                  tabindex="-1"
+                  type="button"
                 >
                   <div
-                    class="bp3-spinner-animation"
+                    class="bp3-spinner bp3-button-spinner"
+                  >
+                    <div
+                      class="bp3-spinner-animation"
+                    >
+                      <svg
+                        height="20"
+                        stroke-width="16.00"
+                        viewBox="-3.00 -3.00 106.00 106.00"
+                        width="20"
+                      >
+                        <path
+                          class="bp3-spinner-track"
+                          d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                        />
+                        <path
+                          class="bp3-spinner-head"
+                          d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                          pathLength="280"
+                          stroke-dasharray="280 280"
+                          stroke-dashoffset="210"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <span
+                    class="bp3-icon StyledProps--main"
+                    data-icon="Options"
                   >
                     <svg
-                      height="20"
-                      stroke-width="16.00"
-                      viewBox="-3.00 -3.00 106.00 106.00"
-                      width="20"
+                      fill="currentColor"
+                      height="16"
+                      viewBox="0 0 4 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        class="bp3-spinner-track"
-                        d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="1.5"
                       />
-                      <path
-                        class="bp3-spinner-head"
-                        d="M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90"
-                        pathLength="280"
-                        stroke-dasharray="280 280"
-                        stroke-dashoffset="210"
+                      <circle
+                        cx="2"
+                        cy="8"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="14"
+                        r="1.5"
                       />
                     </svg>
-                  </div>
-                </div>
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Options"
-                >
-                  <svg
-                    fill="currentColor"
-                    height="16"
-                    viewBox="0 0 4 16"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      cx="2"
-                      cy="2"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="8"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="14"
-                      r="1.5"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
-            <div
-              class="bp3-overlay bp3-overlay-open bp3-overlay-inline"
-            >
+                  </span>
+                </button>
+              </span>
               <div
-                class="bp3-transition-container bp3-popover-appear bp3-popover-appear-active"
-                style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+                class="bp3-overlay bp3-overlay-open bp3-overlay-inline"
               >
                 <div
-                  class="bp3-popover"
+                  class="bp3-transition-container bp3-popover-appear bp3-popover-appear-active"
+                  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
                 >
                   <div
-                    class="bp3-popover-arrow"
+                    class="bp3-popover"
                   >
-                    <svg
-                      style="transform: rotate(0deg);"
-                      viewBox="0 0 30 30"
+                    <div
+                      class="bp3-popover-arrow"
                     >
-                      <path
-                        class="bp3-popover-arrow-border"
-                        d="M8.11 6.302c1.015-.936 1.887-2.922 1.887-4.297v26c0-1.378-.868-3.357-1.888-4.297L.925 17.09c-1.237-1.14-1.233-3.034 0-4.17L8.11 6.302z"
-                      />
-                      <path
-                        class="bp3-popover-arrow-fill"
-                        d="M8.787 7.036c1.22-1.125 2.21-3.376 2.21-5.03V0v30-2.005c0-1.654-.983-3.9-2.21-5.03l-7.183-6.616c-.81-.746-.802-1.96 0-2.7l7.183-6.614z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="bp3-popover-content"
-                  >
-                    <ul
-                      class="bp3-menu"
+                      <svg
+                        style="transform: rotate(0deg);"
+                        viewBox="0 0 30 30"
+                      >
+                        <path
+                          class="bp3-popover-arrow-border"
+                          d="M8.11 6.302c1.015-.936 1.887-2.922 1.887-4.297v26c0-1.378-.868-3.357-1.888-4.297L.925 17.09c-1.237-1.14-1.233-3.034 0-4.17L8.11 6.302z"
+                        />
+                        <path
+                          class="bp3-popover-arrow-fill"
+                          d="M8.787 7.036c1.22-1.125 2.21-3.376 2.21-5.03V0v30-2.005c0-1.654-.983-3.9-2.21-5.03l-7.183-6.616c-.81-.746-.802-1.96 0-2.7l7.183-6.614z"
+                        />
+                      </svg>
+                    </div>
+                    <div
+                      class="bp3-popover-content"
                     >
-                      <li
-                        class=""
+                      <ul
+                        class="bp3-menu"
                       >
-                        <a
-                          class="bp3-menu-item bp3-popover-dismiss"
+                        <li
+                          class=""
                         >
-                          <div
-                            class="bp3-text-overflow-ellipsis bp3-fill"
+                          <a
+                            class="bp3-menu-item bp3-popover-dismiss"
                           >
-                            ce.anomalyDetection.tableMenu.whitelistResource
-                          </div>
-                        </a>
-                      </li>
-                      <li
-                        class=""
-                      >
-                        <a
-                          class="bp3-menu-item bp3-popover-dismiss"
+                            <div
+                              class="bp3-text-overflow-ellipsis bp3-fill"
+                            >
+                              ce.anomalyDetection.tableMenu.whitelistResource
+                            </div>
+                          </a>
+                        </li>
+                        <li
+                          class=""
                         >
-                          <div
-                            class="bp3-text-overflow-ellipsis bp3-fill"
+                          <a
+                            class="bp3-menu-item bp3-popover-dismiss"
                           >
-                            ce.anomalyDetection.tableMenu.falseAnomaly
-                          </div>
-                        </a>
-                      </li>
-                    </ul>
+                            <div
+                              class="bp3-text-overflow-ellipsis bp3-fill"
+                            >
+                              ce.anomalyDetection.tableMenu.falseAnomaly
+                            </div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </span>
+            </span>
+          </div>
         </div>
       </div>
       <div
@@ -1143,145 +1163,149 @@ exports[`test case for anomalies detection overview page should be able to rende
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
-            >
-              03/03/2022
-            </p>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
-            >
-              since 6 days
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-          >
-            
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
-          >
-            ce.anomalyDetection.trend
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 35%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main"
-            style="align-items: center;"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="service-kubernetes"
-            >
-              <svg
-                height="24"
-                viewBox="0 0 14 14"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7 .4c-.1 0-.2 0-.3.1L2 2.7c-.2.1-.4.3-.5.6l-1.2 5c-.1.2 0 .5.1.7l.1.1 3.2 4c.2.2.4.3.7.3h5.2c.3 0 .5-.1.7-.3l3.2-4c.2-.2.2-.5.2-.7l-1.2-5c-.1-.3-.2-.5-.5-.6L7.3.6c0-.1-.2-.2-.3-.2z"
-                  fill="#326ce5"
-                />
-                <path
-                  d="M7 2.1c-.2 0-.3.1-.3.3v.9c0 .1-.1.1-.1.1v.1c-.2 0-.3 0-.5.1-.7.2-1.4.5-1.8 1l-.1-.1H4c-.1-.1-.2-.2-.4-.3L3.4 4h-.1c-.1 0-.1-.1-.2-.1s-.2 0-.2.1c-.1.1-.1.3.1.4h.1c.1.1.2.1.2.1.2.1.3.2.4.3 0 0 .1.1.1.2l.1.1c-.5.7-.7 1.6-.6 2.5h-.1l-.1.1c-.1 0-.3.1-.5.1h-.4c-.2 0-.3.2-.2.3 0 .1.2.2.4.2h.1c.1 0 .2-.1.3-.1.2-.1.3-.1.5-.1.1 0 .1 0 .2.1h.1c.3.9.9 1.6 1.6 2l-.1.1v.2c-.1.1-.1.3-.3.5-.1.1-.1.1-.1.2v.1c-.1.2 0 .3.1.4s.3 0 .4-.2v-.1c0-.1.1-.2.1-.3.1-.2.1-.4.2-.5 0 0 .1 0 .1-.1l.1-.1c.6.2 1.4.3 2.1.2.2 0 .3-.1.5-.1l.1.1s.1 0 .1.1c.1.1.1.3.2.5 0 .1 0 .2.1.3v.1c.1.2.2.2.4.2.1-.1.2-.2.1-.4v-.1c0-.1-.1-.1-.1-.2-.1-.2-.2-.3-.2-.4V10.4c.8-.5 1.3-1.2 1.6-2h.1s.1-.1.2-.1.3.1.5.1c.1 0 .2.1.3.1h.1c.2 0 .3-.1.4-.2 0-.1-.1-.3-.2-.3h-.4c-.2 0-.4 0-.5-.1-.1 0-.1-.1-.1-.1h-.1c.1-.4 0-.9-.1-1.3s-.3-.9-.5-1.2l.1-.1c0-.1 0-.1.1-.2s.2-.2.4-.3c.1 0 .2-.1.2-.1h.1c.1-.1.2-.3.1-.4s-.3-.1-.4 0h-.1l-.2.2c-.1.1-.3.3-.4.3H10l-.1.1c-.6-.6-1.4-1-2.3-1.1v-.1l-.1-.1V3v-.4c-.2-.3-.3-.5-.5-.5zm-.3 2.2l-.1 1.5c0 .1-.1.2-.2.2h-.1l-1.2-.9c.4-.4.8-.6 1.4-.8zm.7 0c.6.1 1.2.4 1.7.8l-1.2.8c-.1.1-.3.1-.3 0l-.1-.1zM4.6 5.7l1.1 1c.1.1.1.2 0 .3l-.1.1-1.4.4c-.1-.7 0-1.3.4-1.8zm4.9 0c.2.3.3.6.4.9s.1.6.1.9l-1.4-.4c-.1 0-.2-.2-.2-.3s0-.1.1-.1zm-2.7 1h.4l.3.3-.1.4-.4.2-.4-.2-.1-.4zm1.4 1.2c.1 0 .1 0 0 0l1.5.2c-.2.6-.6 1.1-1.2 1.5l-.6-1.4c.1-.1.1-.2.3-.3zm-2.4 0c.1 0 .2.1.2.2v.2l-.6 1.4c-.5-.3-.9-.8-1.2-1.5zm1.2.6l.2.1.7 1.3c-.1 0-.2.1-.3.1-.5.1-1.1.1-1.6-.1l.7-1.3c.2 0 .2-.1.3-.1z"
-                  fill="#fff"
-                  stroke="#fff"
-                  stroke-width="0.25"
-                />
-              </svg>
-            </span>
             <div
               class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
             >
-              <a
-                href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22CLUSTER%22%2C%22identifierName%22%3A%22CLUSTER%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
-              >
-                <span
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
-                  style="max-width: 200px; --text-line-clamp: 1;"
-                >
-                  project/product
-                </span>
-              </a>
               <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
               >
-                gcpProjectId/gcpProduct
+                03/03/2022
+              </p>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
+              >
+                since 6 days
               </p>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <span
-            class="bp3-popover-wrapper bp3-dark"
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+            >
+              
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
+            >
+              ce.anomalyDetection.trend
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 35%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
+              style="align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="service-kubernetes"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 14 14"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7 .4c-.1 0-.2 0-.3.1L2 2.7c-.2.1-.4.3-.5.6l-1.2 5c-.1.2 0 .5.1.7l.1.1 3.2 4c.2.2.4.3.7.3h5.2c.3 0 .5-.1.7-.3l3.2-4c.2-.2.2-.5.2-.7l-1.2-5c-.1-.3-.2-.5-.5-.6L7.3.6c0-.1-.2-.2-.3-.2z"
+                    fill="#326ce5"
+                  />
+                  <path
+                    d="M7 2.1c-.2 0-.3.1-.3.3v.9c0 .1-.1.1-.1.1v.1c-.2 0-.3 0-.5.1-.7.2-1.4.5-1.8 1l-.1-.1H4c-.1-.1-.2-.2-.4-.3L3.4 4h-.1c-.1 0-.1-.1-.2-.1s-.2 0-.2.1c-.1.1-.1.3.1.4h.1c.1.1.2.1.2.1.2.1.3.2.4.3 0 0 .1.1.1.2l.1.1c-.5.7-.7 1.6-.6 2.5h-.1l-.1.1c-.1 0-.3.1-.5.1h-.4c-.2 0-.3.2-.2.3 0 .1.2.2.4.2h.1c.1 0 .2-.1.3-.1.2-.1.3-.1.5-.1.1 0 .1 0 .2.1h.1c.3.9.9 1.6 1.6 2l-.1.1v.2c-.1.1-.1.3-.3.5-.1.1-.1.1-.1.2v.1c-.1.2 0 .3.1.4s.3 0 .4-.2v-.1c0-.1.1-.2.1-.3.1-.2.1-.4.2-.5 0 0 .1 0 .1-.1l.1-.1c.6.2 1.4.3 2.1.2.2 0 .3-.1.5-.1l.1.1s.1 0 .1.1c.1.1.1.3.2.5 0 .1 0 .2.1.3v.1c.1.2.2.2.4.2.1-.1.2-.2.1-.4v-.1c0-.1-.1-.1-.1-.2-.1-.2-.2-.3-.2-.4V10.4c.8-.5 1.3-1.2 1.6-2h.1s.1-.1.2-.1.3.1.5.1c.1 0 .2.1.3.1h.1c.2 0 .3-.1.4-.2 0-.1-.1-.3-.2-.3h-.4c-.2 0-.4 0-.5-.1-.1 0-.1-.1-.1-.1h-.1c.1-.4 0-.9-.1-1.3s-.3-.9-.5-1.2l.1-.1c0-.1 0-.1.1-.2s.2-.2.4-.3c.1 0 .2-.1.2-.1h.1c.1-.1.2-.3.1-.4s-.3-.1-.4 0h-.1l-.2.2c-.1.1-.3.3-.4.3H10l-.1.1c-.6-.6-1.4-1-2.3-1.1v-.1l-.1-.1V3v-.4c-.2-.3-.3-.5-.5-.5zm-.3 2.2l-.1 1.5c0 .1-.1.2-.2.2h-.1l-1.2-.9c.4-.4.8-.6 1.4-.8zm.7 0c.6.1 1.2.4 1.7.8l-1.2.8c-.1.1-.3.1-.3 0l-.1-.1zM4.6 5.7l1.1 1c.1.1.1.2 0 .3l-.1.1-1.4.4c-.1-.7 0-1.3.4-1.8zm4.9 0c.2.3.3.6.4.9s.1.6.1.9l-1.4-.4c-.1 0-.2-.2-.2-.3s0-.1.1-.1zm-2.7 1h.4l.3.3-.1.4-.4.2-.4-.2-.1-.4zm1.4 1.2c.1 0 .1 0 0 0l1.5.2c-.2.6-.6 1.1-1.2 1.5l-.6-1.4c.1-.1.1-.2.3-.3zm-2.4 0c.1 0 .2.1.2.2v.2l-.6 1.4c-.5-.3-.9-.8-1.2-1.5zm1.2.6l.2.1.7 1.3c-.1 0-.2.1-.3.1-.5.1-1.1.1-1.6-.1l.7-1.3c.2 0 .2-.1.3-.1z"
+                    fill="#fff"
+                    stroke="#fff"
+                    stroke-width="0.25"
+                  />
+                </svg>
+              </span>
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+              >
+                <a
+                  href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22CLUSTER%22%2C%22identifierName%22%3A%22CLUSTER%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
+                >
+                  <span
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
+                    style="max-width: 200px; --text-line-clamp: 1;"
+                  >
+                    project/product
+                  </span>
+                </a>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                >
+                  gcpProjectId/gcpProduct
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
             <span
-              class="bp3-popover-target"
+              class="bp3-popover-wrapper bp3-dark"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                type="button"
+              <span
+                class="bp3-popover-target"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Options"
+                <button
+                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                  type="button"
                 >
-                  <svg
-                    fill="currentColor"
-                    height="16"
-                    viewBox="0 0 4 16"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="bp3-icon StyledProps--main"
+                    data-icon="Options"
                   >
-                    <circle
-                      cx="2"
-                      cy="2"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="8"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="14"
-                      r="1.5"
-                    />
-                  </svg>
-                </span>
-              </button>
+                    <svg
+                      fill="currentColor"
+                      height="16"
+                      viewBox="0 0 4 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="8"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="14"
+                        r="1.5"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
       <div
@@ -1289,149 +1313,153 @@ exports[`test case for anomalies detection overview page should be able to rende
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
-            >
-              03/03/2022
-            </p>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
-            >
-              since 6 days
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-          >
-            
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
-          >
-            ce.anomalyDetection.trend
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 35%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main"
-            style="align-items: center;"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="service-aws"
-            >
-              <svg
-                height="24"
-                viewBox="0 0 14 10"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 3.9v.4c0 .1.1.2.1.3v.1c0 .1 0 .1-.1.1l-.1.2h-.1s-.1 0-.1-.1c-.1.1-.2 0-.2-.1s-.1-.2-.1-.3c-.4.5-.9.7-1.4.7-.4 0-.7-.1-.9-.3S.7 4.3.7 4c0-.4.1-.7.4-.9s.6-.4 1.1-.4h.5c.2 0 .3.1.5.1v-.3c0-.3-.1-.6-.2-.7-.1-.2-.3-.2-.7-.2-.2 0-.3 0-.5.1-.2 0-.3.1-.5.2 0 0-.1 0-.2.1H1v-.5-.2l.1-.1c.3-.1.4-.1.6-.2.3 0 .5-.1.8-.1.5 0 .9.1 1.2.4s.3.6.3 1.1zm-1.8.7c.2 0 .3 0 .5-.1.1-.1.3-.2.4-.3s.1-.2.1-.3V3.3c-.1 0-.2 0-.3-.1h-.4c-.3 0-.5.1-.7.2s-.3.3-.3.5.1.4.2.5.3.2.5.2zm3.6.5h-.2s-.1-.1-.1-.2l-1-3.6v-.2c0-.1 0-.1.1-.1H5.2s.1.1.1.2l.8 3 .7-3c0-.1 0-.1.1-.2h.8s.1.1.1.2l.7 3 .8-3c0-.1 0-.1.1-.2H10c.1 0 .1 0 .1.1v.2L8.8 4.8c0 .1 0 .2-.1.2h-.5c-.1.1-.2.1-.2 0 0 0-.1-.1-.1-.2l-.7-2.9-.7 2.9c0 .1 0 .1-.1.2h-.2zm5.9.1c-.2 0-.5 0-.7-.1s-.4-.1-.5-.2c-.1 0-.1-.1-.1-.1v-.4c0-.1 0-.1.1-.1h.2c.2.1.3.1.5.2.2 0 .4.1.5.1.3 0 .5 0 .7-.1.1-.1.2-.3.2-.4s0-.2-.1-.3-.2-.2-.5-.2l-.7-.2c-.3-.1-.6-.3-.7-.5s-.2-.4-.2-.7c0-.2 0-.3.1-.5.1-.1.2-.3.3-.4s.3-.2.5-.2c.2-.1.4-.1.6-.1h.6c.1 0 .2 0 .3.1.1 0 .1 0 .2.1.1 0 .1.1.1.1V1.6c0 .1 0 .1-.1.1s-.1 0-.2-.1c-.3-.1-.6-.2-.9-.2s-.5 0-.6.1-.2.2-.2.4c0 .1 0 .2.1.3s.3.2.5.2l.6.2c.3.1.6.2.7.4s.2.4.2.6 0 .4-.1.5c-.1.2-.2.3-.3.4-.1.5-.3.5-.5.6s-.4.1-.6.1z"
-                  fill="#252f3e"
-                />
-                <g
-                  fill="#f90"
-                >
-                  <path
-                    d="M12.5 7.4C11 8.5 8.9 9.1 7 9.1c-2.6 0-5-1-6.7-2.6-.1-.1 0-.3.2-.2 1.9 1.1 4.3 1.8 6.7 1.8 1.8 0 3.5-.4 5.1-1.1.2-.1.5.2.2.4z"
-                  />
-                  <path
-                    d="M13.1 6.7c-.2-.2-1.3-.1-1.7-.1-.1 0-.2-.1 0-.2.9-.6 2.3-.4 2.4-.2.2.2 0 1.6-.8 2.3-.1.1-.2 0-.2-.1.1-.5.5-1.5.3-1.7z"
-                  />
-                </g>
-              </svg>
-            </span>
             <div
               class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
             >
-              <a
-                href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22AWS%22%2C%22identifierName%22%3A%22AWS%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
-              >
-                <span
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
-                  style="max-width: 200px; --text-line-clamp: 1;"
-                >
-                  project/product
-                </span>
-              </a>
               <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
               >
-                gcpProjectId/gcpProduct
+                03/03/2022
+              </p>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
+              >
+                since 6 days
               </p>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <span
-            class="bp3-popover-wrapper bp3-dark"
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+            >
+              
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
+            >
+              ce.anomalyDetection.trend
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 35%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
+              style="align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="service-aws"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 14 10"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 3.9v.4c0 .1.1.2.1.3v.1c0 .1 0 .1-.1.1l-.1.2h-.1s-.1 0-.1-.1c-.1.1-.2 0-.2-.1s-.1-.2-.1-.3c-.4.5-.9.7-1.4.7-.4 0-.7-.1-.9-.3S.7 4.3.7 4c0-.4.1-.7.4-.9s.6-.4 1.1-.4h.5c.2 0 .3.1.5.1v-.3c0-.3-.1-.6-.2-.7-.1-.2-.3-.2-.7-.2-.2 0-.3 0-.5.1-.2 0-.3.1-.5.2 0 0-.1 0-.2.1H1v-.5-.2l.1-.1c.3-.1.4-.1.6-.2.3 0 .5-.1.8-.1.5 0 .9.1 1.2.4s.3.6.3 1.1zm-1.8.7c.2 0 .3 0 .5-.1.1-.1.3-.2.4-.3s.1-.2.1-.3V3.3c-.1 0-.2 0-.3-.1h-.4c-.3 0-.5.1-.7.2s-.3.3-.3.5.1.4.2.5.3.2.5.2zm3.6.5h-.2s-.1-.1-.1-.2l-1-3.6v-.2c0-.1 0-.1.1-.1H5.2s.1.1.1.2l.8 3 .7-3c0-.1 0-.1.1-.2h.8s.1.1.1.2l.7 3 .8-3c0-.1 0-.1.1-.2H10c.1 0 .1 0 .1.1v.2L8.8 4.8c0 .1 0 .2-.1.2h-.5c-.1.1-.2.1-.2 0 0 0-.1-.1-.1-.2l-.7-2.9-.7 2.9c0 .1 0 .1-.1.2h-.2zm5.9.1c-.2 0-.5 0-.7-.1s-.4-.1-.5-.2c-.1 0-.1-.1-.1-.1v-.4c0-.1 0-.1.1-.1h.2c.2.1.3.1.5.2.2 0 .4.1.5.1.3 0 .5 0 .7-.1.1-.1.2-.3.2-.4s0-.2-.1-.3-.2-.2-.5-.2l-.7-.2c-.3-.1-.6-.3-.7-.5s-.2-.4-.2-.7c0-.2 0-.3.1-.5.1-.1.2-.3.3-.4s.3-.2.5-.2c.2-.1.4-.1.6-.1h.6c.1 0 .2 0 .3.1.1 0 .1 0 .2.1.1 0 .1.1.1.1V1.6c0 .1 0 .1-.1.1s-.1 0-.2-.1c-.3-.1-.6-.2-.9-.2s-.5 0-.6.1-.2.2-.2.4c0 .1 0 .2.1.3s.3.2.5.2l.6.2c.3.1.6.2.7.4s.2.4.2.6 0 .4-.1.5c-.1.2-.2.3-.3.4-.1.5-.3.5-.5.6s-.4.1-.6.1z"
+                    fill="#252f3e"
+                  />
+                  <g
+                    fill="#f90"
+                  >
+                    <path
+                      d="M12.5 7.4C11 8.5 8.9 9.1 7 9.1c-2.6 0-5-1-6.7-2.6-.1-.1 0-.3.2-.2 1.9 1.1 4.3 1.8 6.7 1.8 1.8 0 3.5-.4 5.1-1.1.2-.1.5.2.2.4z"
+                    />
+                    <path
+                      d="M13.1 6.7c-.2-.2-1.3-.1-1.7-.1-.1 0-.2-.1 0-.2.9-.6 2.3-.4 2.4-.2.2.2 0 1.6-.8 2.3-.1.1-.2 0-.2-.1.1-.5.5-1.5.3-1.7z"
+                    />
+                  </g>
+                </svg>
+              </span>
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+              >
+                <a
+                  href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22AWS%22%2C%22identifierName%22%3A%22AWS%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
+                >
+                  <span
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
+                    style="max-width: 200px; --text-line-clamp: 1;"
+                  >
+                    project/product
+                  </span>
+                </a>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                >
+                  gcpProjectId/gcpProduct
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
             <span
-              class="bp3-popover-target"
+              class="bp3-popover-wrapper bp3-dark"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                type="button"
+              <span
+                class="bp3-popover-target"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Options"
+                <button
+                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                  type="button"
                 >
-                  <svg
-                    fill="currentColor"
-                    height="16"
-                    viewBox="0 0 4 16"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="bp3-icon StyledProps--main"
+                    data-icon="Options"
                   >
-                    <circle
-                      cx="2"
-                      cy="2"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="8"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="14"
-                      r="1.5"
-                    />
-                  </svg>
-                </span>
-              </button>
+                    <svg
+                      fill="currentColor"
+                      height="16"
+                      viewBox="0 0 4 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="8"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="14"
+                        r="1.5"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
       <div
@@ -1439,142 +1467,146 @@ exports[`test case for anomalies detection overview page should be able to rende
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
-            >
-              03/03/2022
-            </p>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
-            >
-              since 6 days
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-          >
-            
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
-          >
-            ce.anomalyDetection.trend
-          </p>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 35%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main"
-            style="align-items: center;"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="service-azure"
-            >
-              <svg
-                height="24"
-                viewBox="0 0 14 12"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill="#2075b7"
-                >
-                  <path
-                    d="M14 11.3H3.5c2.1-.4 4.2-.7 6.3-1.1 0-.1 0-.1-.1-.1-1.1-1.4-2.2-2.7-3.2-3.9-.1-.1-.1-.2 0-.2.4-1.1.8-2.1 1.1-3.2.2-.5.4-1 .5-1.5 0 0 0-.1.1-.1C10.1 4.6 12 7.9 14 11.3zM7.7.5c-.2.4-.4.7-.5 1.1-1 2.1-1.9 4.1-2.9 6.2-.3.7-.7 1.4-1 2.2 0 .1-.1.1-.2.1H.2c-.2 0-.2 0-.1-.1 1.1-2 2.3-3.9 3.4-5.9 0-.1.1-.2.2-.3C5 2.8 6.3 1.7 7.6.6c0 0 0-.1.1-.1z"
-                  />
-                </g>
-              </svg>
-            </span>
             <div
               class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
             >
-              <a
-                href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22AZURE%22%2C%22identifierName%22%3A%22AZURE%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
-              >
-                <span
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
-                  style="max-width: 200px; --text-line-clamp: 1;"
-                >
-                  project/product
-                </span>
-              </a>
               <p
-                class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
               >
-                gcpProjectId/gcpProduct
+                03/03/2022
+              </p>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-variation-small"
+              >
+                since 6 days
               </p>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <span
-            class="bp3-popover-wrapper bp3-dark"
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+            >
+              
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font StyledProps--main StyledProps--font-variation-body StyledProps--color StyledProps--color-red600"
+            >
+              ce.anomalyDetection.trend
+            </p>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 35%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
+              style="align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="service-azure"
+              >
+                <svg
+                  height="24"
+                  viewBox="0 0 14 12"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="#2075b7"
+                  >
+                    <path
+                      d="M14 11.3H3.5c2.1-.4 4.2-.7 6.3-1.1 0-.1 0-.1-.1-.1-1.1-1.4-2.2-2.7-3.2-3.9-.1-.1-.1-.2 0-.2.4-1.1.8-2.1 1.1-3.2.2-.5.4-1 .5-1.5 0 0 0-.1.1-.1C10.1 4.6 12 7.9 14 11.3zM7.7.5c-.2.4-.4.7-.5 1.1-1 2.1-1.9 4.1-2.9 6.2-.3.7-.7 1.4-1 2.2 0 .1-.1.1-.2.1H.2c-.2 0-.2 0-.1-.1 1.1-2 2.3-3.9 3.4-5.9 0-.1.1-.2.2-.3C5 2.8 6.3 1.7 7.6.6c0 0 0-.1.1-.1z"
+                    />
+                  </g>
+                </svg>
+              </span>
+              <div
+                class="Layout--vertical Layout--layout-spacing-small StyledProps--main"
+              >
+                <a
+                  href="/account/undefined/ce/perspectives/undefined/name/undefined?filters=%5B%5D&groupBy=%7B%22fieldId%22%3A%22gcpProduct%22%2C%22fieldName%22%3A%22Product%22%2C%22identifier%22%3A%22AZURE%22%2C%22identifierName%22%3A%22AZURE%22%7D&timeRange=%7B%22to%22%3A%222022-03-09%22%2C%22from%22%3A%222022-03-03%22%7D"
+                >
+                  <span
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-variation-small StyledProps--inline StyledProps--color StyledProps--color-primary7"
+                    style="max-width: 200px; --text-line-clamp: 1;"
+                  >
+                    project/product
+                  </span>
+                </a>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-variation-small StyledProps--color StyledProps--color-grey600"
+                >
+                  gcpProjectId/gcpProduct
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
           >
             <span
-              class="bp3-popover-target"
+              class="bp3-popover-wrapper bp3-dark"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                type="button"
+              <span
+                class="bp3-popover-target"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Options"
+                <button
+                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                  type="button"
                 >
-                  <svg
-                    fill="currentColor"
-                    height="16"
-                    viewBox="0 0 4 16"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <span
+                    class="bp3-icon StyledProps--main"
+                    data-icon="Options"
                   >
-                    <circle
-                      cx="2"
-                      cy="2"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="8"
-                      r="1.5"
-                    />
-                    <circle
-                      cx="2"
-                      cy="14"
-                      r="1.5"
-                    />
-                  </svg>
-                </span>
-              </button>
+                    <svg
+                      fill="currentColor"
+                      height="16"
+                      viewBox="0 0 4 16"
+                      width="16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="2"
+                        cy="2"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="8"
+                        r="1.5"
+                      />
+                      <circle
+                        cx="2"
+                        cy="14"
+                        r="1.5"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>

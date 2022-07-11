@@ -9,8 +9,9 @@ import React from 'react'
 import { Color } from '@harness/design-system'
 import { FilterProps, TableFilters } from '@cf/components/TableFilters/TableFilters'
 import type { Features } from 'services/cf'
+import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
+import { FeatureFlag } from '@common/featureFlags'
 import { FeatureFlagStatus } from '../FlagStatus'
-
 export interface FlagTableFiltersProps {
   features: Features | null
   currentFilter: FilterProps | Record<string, any>
@@ -70,11 +71,13 @@ export const featureFlagFilters = (features: Features | null): Array<FilterProps
 ]
 
 export const FlagTableFilters: React.FC<FlagTableFiltersProps> = ({ features, currentFilter, updateTableFilter }) => {
-  return (
-    <TableFilters
-      filters={featureFlagFilters(features)}
-      currentFilter={currentFilter}
-      updateTableFilter={updateTableFilter}
-    />
-  )
+  const DISPLAY_ACTIVE_FILTER = useFeatureFlag(FeatureFlag.FFM_3938_STALE_FLAGS_ACTIVE_CARD_HIDE_SHOW)
+  let filters = featureFlagFilters(features)
+
+  // remove 'Active Flags' filter card if feature flag FFM_3938_STALE_FLAGS_ACTIVE_CARD_HIDE_SHOW is not enabled
+  if (!DISPLAY_ACTIVE_FILTER) {
+    filters = filters.filter(filter => filter.label !== 'cf.flagFilters.active')
+  }
+
+  return <TableFilters filters={filters} currentFilter={currentFilter} updateTableFilter={updateTableFilter} />
 }

@@ -27,7 +27,7 @@ export default function MetricDefinitionInptsetForm({
   const { getString } = useStrings()
   const { setFieldValue: onChange } = useFormikContext()
   return metricDefinitions?.map((item: any, idx: number) => {
-    const runtimeItems = getNestedRuntimeInputs(item, [], `${path}.metricDefinitions.${idx}`)
+    const runtimeItems = getNestedRuntimeInputs(item, [], `${path}.${idx}`)
     return (
       <div key={item?.metricName}>
         <Text font={'normal'} color={Color.BLACK} style={{ paddingBottom: spacingMedium }}>

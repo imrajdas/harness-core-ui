@@ -1,0 +1,86 @@
+/*
+ * Copyright 2022 Harness Inc. All rights reserved.
+ * Use of this source code is governed by the PolyForm Shield 1.0.0 license
+ * that can be found in the licenses directory at the root of this repository, also available at
+ * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
+ */
+
+.moduleIcon {
+  position: absolute;
+  left: 0;
+}
+
+.moduleData {
+  padding-left: var(--spacing-4) !important;
+}
+.cardSummary {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-3);
+  margin-left: 0 !important;
+  padding-top: var(--spacing-1);
+
+  .heading {
+    font-size: var(--font-size-small);
+    font-weight: bold;
+    color: var(--grey-600);
+  }
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex: 0 1 auto;
+
+  .services {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-small);
+    color: var(--grey-800);
+
+    .servicesIcon {
+      margin-right: var(--spacing-3) !important;
+    }
+
+    p {
+      color: var(--grey-800) !important;
+      font-size: var(--font-size-small) !important;
+    }
+  }
+
+  .serviceWrapper {
+    display: flex;
+    align-items: center;
+    &:not(:last-child):after {
+      content: ',';
+      margin-right: 0.33em;
+    }
+  }
+
+  .serviceName {
+    font-size: var(--font-size-small);
+    color: var(--grey-800);
+    cursor: pointer;
+  }
+
+  .count {
+    text-decoration: underline;
+    color: var(--primary-9);
+  }
+
+  .environments {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-small);
+    color: var(--grey-800);
+
+    .envIcon {
+      margin-right: var(--spacing-3) !important;
+    }
+
+    p {
+      color: var(--grey-800) !important;
+      font-size: var(--font-size-small) !important;
+    }
+  }
+}

@@ -322,82 +322,86 @@ exports[`AWS instance selection should render AWS instances selection modal with
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
+                  class="TableV2--cells"
                 >
-                  <label
-                    class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox StyledProps--main"
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
                   >
-                    <input
-                      type="checkbox"
-                    />
-                    <span
-                      class="bp3-control-indicator"
-                    />
-                  </label>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 35%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="overflow-wrap: anywhere; padding-right: 5px; --text-line-clamp: 3;"
+                    <label
+                      class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox StyledProps--main"
+                    >
+                      <input
+                        type="checkbox"
+                      />
+                      <span
+                        class="bp3-control-indicator"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 35%;"
                   >
-                    instance
-                     
-                    i-008
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="overflow-wrap: anywhere; padding-right: 5px; --text-line-clamp: 3;"
+                    >
+                      instance
+                       
+                      i-008
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    us-west-1
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      us-west-1
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 10%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 10%;"
                   >
-                    running
-                  </p>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      running
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1127,83 +1131,87 @@ exports[`Instance Selector Modal modal should retain the selected resource group
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
+                  class="TableV2--cells"
                 >
-                  <label
-                    class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox StyledProps--main"
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
                   >
-                    <input
-                      checked=""
-                      type="checkbox"
-                    />
-                    <span
-                      class="bp3-control-indicator"
-                    />
-                  </label>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 35%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="overflow-wrap: anywhere; padding-right: 5px; --text-line-clamp: 3;"
+                    <label
+                      class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox StyledProps--main"
+                    >
+                      <input
+                        checked=""
+                        type="checkbox"
+                      />
+                      <span
+                        class="bp3-control-indicator"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 35%;"
                   >
-                    instance
-                     
-                    i-008
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="overflow-wrap: anywhere; padding-right: 5px; --text-line-clamp: 3;"
+                    >
+                      instance
+                       
+                      i-008
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    us-west-1
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      us-west-1
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 10%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 10%;"
                   >
-                    running
-                  </p>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      running
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1729,82 +1737,86 @@ exports[`Instance Selector Modal search and select/unselect instances successful
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
+                  class="TableV2--cells"
                 >
-                  <label
-                    class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox StyledProps--main"
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
                   >
-                    <input
-                      type="checkbox"
-                    />
-                    <span
-                      class="bp3-control-indicator"
-                    />
-                  </label>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 35%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="overflow-wrap: anywhere; padding-right: 5px; --text-line-clamp: 3;"
+                    <label
+                      class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox StyledProps--main"
+                    >
+                      <input
+                        type="checkbox"
+                      />
+                      <span
+                        class="bp3-control-indicator"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 35%;"
                   >
-                    instance
-                     
-                    i-008
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="overflow-wrap: anywhere; padding-right: 5px; --text-line-clamp: 3;"
+                    >
+                      instance
+                       
+                      i-008
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    us-west-1
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      us-west-1
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 10%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 10%;"
                   >
-                    running
-                  </p>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      running
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2313,82 +2325,86 @@ exports[`Instance Selector Modal should show data 1`] = `
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
+                  class="TableV2--cells"
                 >
-                  <label
-                    class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox StyledProps--main"
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
                   >
-                    <input
-                      type="checkbox"
-                    />
-                    <span
-                      class="bp3-control-indicator"
-                    />
-                  </label>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 35%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="overflow-wrap: anywhere; padding-right: 5px; --text-line-clamp: 3;"
+                    <label
+                      class="bp3-control bp3-checkbox StyledProps--font Checkbox--checkbox StyledProps--main"
+                    >
+                      <input
+                        type="checkbox"
+                      />
+                      <span
+                        class="bp3-control-indicator"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 35%;"
                   >
-                    instance
-                     
-                    i-008
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="overflow-wrap: anywhere; padding-right: 5px; --text-line-clamp: 3;"
+                    >
+                      instance
+                       
+                      i-008
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    us-west-1
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      us-west-1
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 10%;"
-                >
-                  <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                    style="--text-line-clamp: 3;"
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 10%;"
                   >
-                    running
-                  </p>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                      style="--text-line-clamp: 3;"
+                    >
+                      running
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

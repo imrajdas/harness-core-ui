@@ -38,7 +38,7 @@ import type {
 } from '../PipelineSteps/Steps/CustomVariables/CustomVariableInputSet'
 import type { AbstractStepFactory } from '../AbstractSteps/AbstractStepFactory'
 import { StepType } from '../PipelineSteps/PipelineStepInterface'
-import { getStageFromPipeline } from '../PipelineStudio/StepUtil'
+import { getStageFromPipeline, getTemplatePath } from '../PipelineStudio/StepUtil'
 import { useVariablesExpression } from '../PipelineStudio/PiplineHooks/useVariablesExpression'
 import css from './PipelineInputSetForm.module.scss'
 import stepCss from '@pipeline/components/PipelineSteps/Steps/Steps.module.scss'
@@ -404,23 +404,27 @@ export function PipelineInputSetForm(props: Omit<PipelineInputSetFormProps, 'all
         accountPathProps,
         template: props.template
       }).then(data => {
-        if (data.length > 0) {
-          setTemplate(Object.assign(props.template, ...data))
-        }
+        setTemplate(Object.assign(props.template, ...data))
       })
     }
   }, [props?.template])
 
   function updateTemplate<T>(updatedData: T, path: string): void {
+    const templatePath = getTemplatePath(path, props.path as string)
     setTemplate(
       produce(template, draft => {
-        set(draft, path, updatedData)
+        set(draft, templatePath, updatedData)
       })
     )
   }
 
+  function getTemplate<T>(path: string): T | PipelineInfoConfig {
+    const templatePath = getTemplatePath(path, props.path as string)
+    return get(template, templatePath)
+  }
+
   return (
-    <RunPipelineFormContextProvider template={template} updateTemplate={updateTemplate}>
+    <RunPipelineFormContextProvider template={getTemplate} updateTemplate={updateTemplate}>
       <PipelineInputSetFormInternal
         {...props}
         template={template}

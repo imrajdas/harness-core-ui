@@ -19,6 +19,7 @@ declare const styles: {
   readonly cursor: string
   readonly firstnode: string
   readonly graphNode: string
+  readonly hasMoreChild: string
   readonly horizontalBar: string
   readonly isNodeCollapsed: string
   readonly marginBottom: string

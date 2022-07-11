@@ -213,8 +213,9 @@ if (!enableChaosUI) {
 if (!enableSTO) {
   // render a mock app when STO MF is disabled
   config.resolve.alias['sto/App'] = ChildAppError
+  config.resolve.alias['stoV2/App'] = ChildAppError
   config.resolve.alias['sto/PipelineSecurityView'] = ChildAppError
-  config.resolve.alias['sto/OverviewView'] = ChildAppError
+  config.resolve.alias['stoV2/PipelineSecurityView'] = ChildAppError
 }
 
 module.exports = config

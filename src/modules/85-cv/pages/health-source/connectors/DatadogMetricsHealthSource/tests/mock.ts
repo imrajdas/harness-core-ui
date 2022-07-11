@@ -169,6 +169,7 @@ export const EXPECTED_DATADOG_METRIC_INFO = {
   dashboardId: 'mock_dashboard_id',
   isNew: true,
   isCustomCreatedMetric: false,
+  isManualQuery: false,
   metricName: 'mock_metric_name',
   identifier: 'mock_metric_name',
   metric: 'datadog.agent.running',

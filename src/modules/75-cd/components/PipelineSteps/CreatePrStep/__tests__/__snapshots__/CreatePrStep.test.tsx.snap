@@ -185,7 +185,7 @@ exports[`Test CreatePRStep expand override config panel 1`] = `
       class="divider"
     />
     <div
-      class="Accordion--accordion accordion"
+      class="Accordion--accordion accordion overrideConfig"
     >
       <div
         class="Accordion--panel"
@@ -649,7 +649,7 @@ exports[`Test CreatePRStep should render edit view as edit step 1`] = `
       class="divider"
     />
     <div
-      class="Accordion--accordion accordion"
+      class="Accordion--accordion accordion overrideConfig"
     >
       <div
         class="Accordion--panel"
@@ -910,7 +910,7 @@ exports[`Test CreatePRStep should render edit view as edit step with runtime inp
       class="divider"
     />
     <div
-      class="Accordion--accordion accordion"
+      class="Accordion--accordion accordion overrideConfig"
     >
       <div
         class="Accordion--panel"
@@ -1332,7 +1332,7 @@ exports[`Test CreatePRStep should render edit view as new step 1`] = `
       class="divider"
     />
     <div
-      class="Accordion--accordion accordion"
+      class="Accordion--accordion accordion overrideConfig"
     >
       <div
         class="Accordion--panel"

@@ -291,7 +291,7 @@ targets:
   addTargets: + Add Target(s)
   noTargetFound: 'No target found in this environment. Click the button above to create target(s).'
   noSegmentFound: 'No target group found in this environment. Click the button above to create a target group.'
-  uploadHeadline: Please upload a CSV file according to our <a href="https://ngdocs.harness.io/article/dbk9uoaid3-add-targets#step_upload_a_list_of_targets" target="_blank" rel="noreferrer">template</a>.
+  uploadHeadline: Please upload a CSV file according to our <a href="https://docs.harness.io/article/dbk9uoaid3-add-targets#step_upload_a_list_of_targets" target="_blank" rel="noreferrer">template</a>.
   uploadHelp: 'Target CSV entry format: Name,Identifier'
   uploadYourFile: Click to upload your file
   uploadStats: <strong>Targets</strong> ({{ count }})
@@ -309,7 +309,7 @@ targetDetail:
   flagSetting: Flag Settings
   attribute: ATTRIBUTE
   attributes: Attributes ({{ counter }})
-  learnMore: To learn how to mark specific target attributes or information as private, read <a href="https://ngdocs.harness.io/category/vjolt35atg-feature-flags" target="_blank" rel="noreferrer">documentation</a>.
+  learnMore: To learn how to mark specific target attributes or information as private, read <a href="https://docs.harness.io/category/vjolt35atg-feature-flags" target="_blank" rel="noreferrer">documentation</a>.
   manuallyAdded: MANUALLY ADDED
   addToSegment: Add to {{count}} Target Groups
   autoAdded: AUTOMATICALLY ADDED THROUGH CONDITIONS
@@ -394,7 +394,7 @@ environments:
     keyType: 'Key Type'
     applicableLanguages: 'Applicable Languages:'
     noKeysFoundTitle: There are no SDK keys for this environment
-    noKeysFoundMessage: Create an <a href="https://ngdocs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_3_create_an_sdk_key" target="_blank" rel="noreferrer"> SDK key</a> for this environment so that your application can connect to our FF client. We support SDK keys for multiple programming languages.
+    noKeysFoundMessage: Create an <a href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_3_create_an_sdk_key" target="_blank" rel="noreferrer"> SDK key</a> for this environment so that your application can connect to our FF client. We support SDK keys for multiple programming languages.
     redactionWarning: Your secret will be redacted once you leave the page. Please make sure to copy and store your secret.
     lastUsed: 'Last Used'
 auditLogs:

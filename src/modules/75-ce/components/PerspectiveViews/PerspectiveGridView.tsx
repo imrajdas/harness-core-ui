@@ -17,6 +17,7 @@ import {
   CardBody,
   useConfirmationDialog
 } from '@wings-software/uicore'
+import { FontVariation, Color } from '@harness/design-system'
 import { Menu, Classes, Intent } from '@blueprintjs/core'
 import { defaultTo } from 'lodash-es'
 import routes from '@common/RouteDefinitions'
@@ -173,6 +174,18 @@ const PerpsectiveGridCard: (props: PerspectiveGridCardProps) => JSX.Element | nu
         {isDefaultPerspective && <Container className={css.sampleRibbon}></Container>}
 
         <Container height={23}>{isDefaultPerspective && <Icon name="harness" size={22} />}</Container>
+        {data?.folderName && (
+          <Text
+            font={{ variation: FontVariation.TINY_SEMI }}
+            color={Color.GREY_400}
+            lineClamp={1}
+            className={css.folderName}
+            icon={'main-folder'}
+            iconProps={{ color: Color.GREY_400, size: 10 }}
+          >
+            {data?.folderName}
+          </Text>
+        )}
         <Text font={{ weight: 'semi-bold' }} color="grey800" lineClamp={2}>
           {data?.name}
         </Text>

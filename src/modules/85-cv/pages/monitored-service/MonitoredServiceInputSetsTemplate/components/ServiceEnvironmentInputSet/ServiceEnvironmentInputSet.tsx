@@ -35,54 +35,59 @@ export default function ServiceEnvironmentInputSet({
   const { serviceOptions, setServiceOptions } = useGetHarnessServices()
   const { environmentOptions, setEnvironmentOptions } = useGetHarnessEnvironments()
   const environmentRefValue = environmentOptions?.find(item => item?.value === environmentValue)
+
   return (
     <Card className={css.cardStyle}>
       <Text font={'medium'} color={Color.BLACK} style={{ paddingBottom: spacingMedium }}>
         {getString('cv.monitoredServices.serviceAndEnvironment')}
       </Text>
-      <HarnessServiceAsFormField
-        customRenderProps={{
-          name: 'serviceRef',
-          label: getString('cv.healthSource.serviceLabel')
-        }}
-        serviceProps={{
-          disabled: isReadOnlyInputSet,
-          isMultiType: isReadOnlyInputSet,
-          item: serviceOptions?.find(item => item?.value === serviceValue) || serviceValue,
-          options: serviceOptions,
-          onSelect: selectedService => onChange('serviceRef', selectedService.value),
-          onNewCreated: newOption => {
-            if (newOption?.identifier && newOption.name) {
-              const newServiceOption = { label: newOption.name, value: newOption.identifier }
-              setServiceOptions([newServiceOption, ...serviceOptions])
-              onChange('serviceRef', newServiceOption.value)
-            }
-          }
-        }}
-      />
-      <HarnessEnvironmentAsFormField
-        customRenderProps={{
-          name: 'environmentRef',
-          label: getString('cv.healthSource.environmentLabel')
-        }}
-        isMultiSelectField={false}
-        environmentProps={
-          {
+      {serviceValue !== undefined && (
+        <HarnessServiceAsFormField
+          customRenderProps={{
+            name: 'serviceRef',
+            label: getString('cv.healthSource.serviceLabel')
+          }}
+          serviceProps={{
             disabled: isReadOnlyInputSet,
             isMultiType: isReadOnlyInputSet,
-            item: environmentRefValue || (environmentValue as SelectOption),
-            onSelect: (selectedEnv: SelectOption) => onChange('environmentRef', selectedEnv.value),
-            options: environmentOptions,
+            item: serviceOptions?.find(item => item?.value === serviceValue) || serviceValue,
+            options: serviceOptions,
+            onSelect: selectedService => onChange('serviceRef', selectedService.value),
             onNewCreated: newOption => {
               if (newOption?.identifier && newOption.name) {
-                const newEnvOption = { label: newOption.name, value: newOption.identifier }
-                setEnvironmentOptions([newEnvOption, ...environmentOptions])
-                onChange('environmentRef', newEnvOption.value)
+                const newServiceOption = { label: newOption.name, value: newOption.identifier }
+                setServiceOptions([newServiceOption, ...serviceOptions])
+                onChange('serviceRef', newServiceOption.value)
               }
             }
-          } as EnvironmentMultiSelectOrCreateProps | EnvironmentSelectOrCreateProps
-        }
-      />
+          }}
+        />
+      )}
+      {environmentValue !== undefined && (
+        <HarnessEnvironmentAsFormField
+          customRenderProps={{
+            name: 'environmentRef',
+            label: getString('cv.healthSource.environmentLabel')
+          }}
+          isMultiSelectField={false}
+          environmentProps={
+            {
+              disabled: isReadOnlyInputSet,
+              isMultiType: isReadOnlyInputSet,
+              item: environmentRefValue || (environmentValue as SelectOption),
+              onSelect: (selectedEnv: SelectOption) => onChange('environmentRef', selectedEnv.value),
+              options: environmentOptions,
+              onNewCreated: newOption => {
+                if (newOption?.identifier && newOption.name) {
+                  const newEnvOption = { label: newOption.name, value: newOption.identifier }
+                  setEnvironmentOptions([newEnvOption, ...environmentOptions])
+                  onChange('environmentRef', newEnvOption.value)
+                }
+              }
+            } as EnvironmentMultiSelectOrCreateProps | EnvironmentSelectOrCreateProps
+          }
+        />
+      )}
     </Card>
   )
 }

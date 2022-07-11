@@ -78,182 +78,186 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots 1`] =
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
-          >
-            <svg
-              fill="none"
-              height="64"
-              viewBox="0 0 8 64"
-              width="8"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.5 63.5L7.5 0.5H5C2.51472 0.5 0.5 2.51472 0.5 5L0.5 59C0.5 61.4853 2.51472 63.5 5 63.5H7.5Z"
-                fill="#EADEFF"
-                stroke="#E1D0FF"
-              />
-            </svg>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold"
-              style="color: rgb(89, 43, 170); letter-spacing: 2px;"
-            >
-              STEP
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 40%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
             <div
-              class="StyledProps--font StyledProps--main"
+              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
+            >
+              <svg
+                fill="none"
+                height="64"
+                viewBox="0 0 8 64"
+                width="8"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 63.5L7.5 0.5H5C2.51472 0.5 0.5 2.51472 0.5 5L0.5 59C0.5 61.4853 2.51472 63.5 5 63.5H7.5Z"
+                  fill="#EADEFF"
+                  stroke="#E1D0FF"
+                />
+              </svg>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold"
+                style="color: rgb(89, 43, 170); letter-spacing: 2px;"
+              >
+                STEP
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 40%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
             >
               <div
-                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                class="StyledProps--font StyledProps--main"
               >
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                  class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
                 >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      style="--text-line-clamp: 1;"
+                    >
+                      manju-test-template-qq-12344
+                    </p>
+                    <span
+                      class="bp3-popover-wrapper"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                          tabindex="0"
+                        >
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="main-tags"
+                          >
+                            <svg
+                              height="15"
+                              viewBox="0 0 14 14"
+                              width="15"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                                fill="#4d5969"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main"
+                          >
+                            5
+                          </p>
+                        </div>
+                      </span>
+                    </span>
+                  </div>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
                     style="--text-line-clamp: 1;"
                   >
-                    manju-test-template-qq-12344
+                    idLabel
                   </p>
-                  <span
-                    class="bp3-popover-wrapper"
-                  >
-                    <span
-                      class="bp3-popover-target"
-                    >
-                      <div
-                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                        tabindex="0"
-                      >
-                        <span
-                          class="bp3-icon StyledProps--main"
-                          data-icon="main-tags"
-                        >
-                          <svg
-                            height="15"
-                            viewBox="0 0 14 14"
-                            width="15"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                              fill="#4d5969"
-                            />
-                          </svg>
-                        </span>
-                        <p
-                          class="StyledProps--font StyledProps--main"
-                        >
-                          5
-                        </p>
-                      </div>
-                    </span>
-                  </span>
                 </div>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
-                  style="--text-line-clamp: 1;"
-                >
-                  idLabel
-                </p>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-weight-semi-bold"
-              style="--text-line-clamp: 1;"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
             >
-              v4
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-weight-semi-bold"
+                style="--text-line-clamp: 1;"
+              >
+                v4
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="Tag--main"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
             >
               <span
-                class="bp3-tag scopeLabel project"
+                class="Tag--main"
               >
                 <span
-                  class="bp3-text-overflow-ellipsis bp3-fill"
-                >
-                  PROJECT
-                </span>
-              </span>
-            </span>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main"
-            style="justify-content: flex-end;"
-          >
-            <span
-              class="bp3-popover-wrapper main"
-            >
-              <span
-                class="bp3-popover-target"
-              >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  type="button"
+                  class="bp3-tag scopeLabel project"
                 >
                   <span
-                    class="bp3-icon bp3-icon-more StyledProps--main"
-                    icon="more"
+                    class="bp3-text-overflow-ellipsis bp3-fill"
                   >
-                    <svg
-                      data-icon="more"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      width="16"
-                    >
-                      <desc>
-                        more
-                      </desc>
-                      <path
-                        d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
+                    PROJECT
                   </span>
-                </button>
+                </span>
               </span>
-            </span>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
+              style="justify-content: flex-end;"
+            >
+              <span
+                class="bp3-popover-wrapper main"
+              >
+                <span
+                  class="bp3-popover-target"
+                >
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    type="button"
+                  >
+                    <span
+                      class="bp3-icon bp3-icon-more StyledProps--main"
+                      icon="more"
+                    >
+                      <svg
+                        data-icon="more"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        width="16"
+                      >
+                        <desc>
+                          more
+                        </desc>
+                        <path
+                          d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -444,224 +448,228 @@ exports[`<TemplatesListView /> tests should match snapshot with three dots when 
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
-          >
-            <svg
-              fill="none"
-              height="64"
-              viewBox="0 0 8 64"
-              width="8"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.5 63.5L7.5 0.5H5C2.51472 0.5 0.5 2.51472 0.5 5L0.5 59C0.5 61.4853 2.51472 63.5 5 63.5H7.5Z"
-                fill="#EADEFF"
-                stroke="#E1D0FF"
-              />
-            </svg>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold"
-              style="color: rgb(89, 43, 170); letter-spacing: 2px;"
-            >
-              STEP
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 30%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
             <div
-              class="StyledProps--font StyledProps--main"
+              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
+            >
+              <svg
+                fill="none"
+                height="64"
+                viewBox="0 0 8 64"
+                width="8"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 63.5L7.5 0.5H5C2.51472 0.5 0.5 2.51472 0.5 5L0.5 59C0.5 61.4853 2.51472 63.5 5 63.5H7.5Z"
+                  fill="#EADEFF"
+                  stroke="#E1D0FF"
+                />
+              </svg>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold"
+                style="color: rgb(89, 43, 170); letter-spacing: 2px;"
+              >
+                STEP
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 30%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
             >
               <div
-                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                class="StyledProps--font StyledProps--main"
               >
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                  class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
                 >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      style="--text-line-clamp: 1;"
+                    >
+                      manju-test-template-qq-12344
+                    </p>
+                    <span
+                      class="bp3-popover-wrapper"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                          tabindex="0"
+                        >
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="main-tags"
+                          >
+                            <svg
+                              height="15"
+                              viewBox="0 0 14 14"
+                              width="15"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                                fill="#4d5969"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main"
+                          >
+                            5
+                          </p>
+                        </div>
+                      </span>
+                    </span>
+                  </div>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
                     style="--text-line-clamp: 1;"
                   >
-                    manju-test-template-qq-12344
+                    idLabel
                   </p>
+                </div>
+              </div>
+              <div
+                class="StyledProps--font StyledProps--main"
+              >
+                <span
+                  class="bp3-popover-wrapper bp3-dark"
+                >
                   <span
-                    class="bp3-popover-wrapper"
+                    class="bp3-popover-target"
                   >
                     <span
-                      class="bp3-popover-target"
+                      class="bp3-icon StyledProps--main badgeIcon StyledProps--intent-danger"
+                      data-icon="error-outline"
+                      data-testid="invalid-icon"
+                      tabindex="0"
                     >
-                      <div
-                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                        tabindex="0"
+                      <svg
+                        fill="none"
+                        height="20"
+                        viewBox="0 0 16 16"
+                        width="20"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <span
-                          class="bp3-icon StyledProps--main"
-                          data-icon="main-tags"
-                        >
-                          <svg
-                            height="15"
-                            viewBox="0 0 14 14"
-                            width="15"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                              fill="#4d5969"
-                            />
-                          </svg>
-                        </span>
-                        <p
-                          class="StyledProps--font StyledProps--main"
-                        >
-                          5
-                        </p>
-                      </div>
+                        <path
+                          d="M7.423 1.631a.667.667 0 011.154 0l6.543 11.333a.667.667 0 01-.577 1H1.457a.667.667 0 01-.577-1L7.423 1.631z"
+                          fill="#fff"
+                        />
+                        <path
+                          clip-rule="evenodd"
+                          d="M7.57 2.253a.5.5 0 01.869 0l5.993 10.5a.5.5 0 01-.434.747H2.011a.5.5 0 01-.434-.748L7.57 2.253zm.407 8.242c.422 0 .763.333.763.744a.754.754 0 01-.763.745.754.754 0 01-.763-.745c0-.411.341-.745.763-.745zm.5-1.498a.5.5 0 11-1 0V5.498a.5.5 0 111 0v3.499z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
                     </span>
                   </span>
-                </div>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
-                  style="--text-line-clamp: 1;"
-                >
-                  idLabel
-                </p>
+                </span>
               </div>
             </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 10%;"
+          >
             <div
-              class="StyledProps--font StyledProps--main"
+              class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+            >
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-weight-semi-bold"
+                style="--text-line-clamp: 1;"
+              >
+                v4
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 30%;"
+          />
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 10%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
             >
               <span
-                class="bp3-popover-wrapper bp3-dark"
+                class="Tag--main"
+              >
+                <span
+                  class="bp3-tag scopeLabel project"
+                >
+                  <span
+                    class="bp3-text-overflow-ellipsis bp3-fill"
+                  >
+                    PROJECT
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main"
+              style="justify-content: flex-end;"
+            >
+              <span
+                class="bp3-popover-wrapper main"
               >
                 <span
                   class="bp3-popover-target"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main badgeIcon StyledProps--intent-danger"
-                    data-icon="error-outline"
-                    data-testid="invalid-icon"
-                    tabindex="0"
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    type="button"
                   >
-                    <svg
-                      fill="none"
-                      height="20"
-                      viewBox="0 0 16 16"
-                      width="20"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon bp3-icon-more StyledProps--main"
+                      icon="more"
                     >
-                      <path
-                        d="M7.423 1.631a.667.667 0 011.154 0l6.543 11.333a.667.667 0 01-.577 1H1.457a.667.667 0 01-.577-1L7.423 1.631z"
-                        fill="#fff"
-                      />
-                      <path
-                        clip-rule="evenodd"
-                        d="M7.57 2.253a.5.5 0 01.869 0l5.993 10.5a.5.5 0 01-.434.747H2.011a.5.5 0 01-.434-.748L7.57 2.253zm.407 8.242c.422 0 .763.333.763.744a.754.754 0 01-.763.745.754.754 0 01-.763-.745c0-.411.341-.745.763-.745zm.5-1.498a.5.5 0 11-1 0V5.498a.5.5 0 111 0v3.499z"
-                        fill="currentColor"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
+                      <svg
+                        data-icon="more"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        width="16"
+                      >
+                        <desc>
+                          more
+                        </desc>
+                        <path
+                          d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </button>
                 </span>
               </span>
             </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 10%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-weight-semi-bold"
-              style="--text-line-clamp: 1;"
-            >
-              v4
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 30%;"
-        />
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 10%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
-          >
-            <span
-              class="Tag--main"
-            >
-              <span
-                class="bp3-tag scopeLabel project"
-              >
-                <span
-                  class="bp3-text-overflow-ellipsis bp3-fill"
-                >
-                  PROJECT
-                </span>
-              </span>
-            </span>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main"
-            style="justify-content: flex-end;"
-          >
-            <span
-              class="bp3-popover-wrapper main"
-            >
-              <span
-                class="bp3-popover-target"
-              >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  type="button"
-                >
-                  <span
-                    class="bp3-icon bp3-icon-more StyledProps--main"
-                    icon="more"
-                  >
-                    <svg
-                      data-icon="more"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      width="16"
-                    >
-                      <desc>
-                        more
-                      </desc>
-                      <path
-                        d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
-                        fill-rule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </span>
-            </span>
           </div>
         </div>
       </div>
@@ -828,139 +836,143 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots 1`
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
-          >
-            <svg
-              fill="none"
-              height="64"
-              viewBox="0 0 8 64"
-              width="8"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.5 63.5L7.5 0.5H5C2.51472 0.5 0.5 2.51472 0.5 5L0.5 59C0.5 61.4853 2.51472 63.5 5 63.5H7.5Z"
-                fill="#EADEFF"
-                stroke="#E1D0FF"
-              />
-            </svg>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold"
-              style="color: rgb(89, 43, 170); letter-spacing: 2px;"
-            >
-              STEP
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 45%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
             <div
-              class="StyledProps--font StyledProps--main"
+              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
+            >
+              <svg
+                fill="none"
+                height="64"
+                viewBox="0 0 8 64"
+                width="8"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 63.5L7.5 0.5H5C2.51472 0.5 0.5 2.51472 0.5 5L0.5 59C0.5 61.4853 2.51472 63.5 5 63.5H7.5Z"
+                  fill="#EADEFF"
+                  stroke="#E1D0FF"
+                />
+              </svg>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold"
+                style="color: rgb(89, 43, 170); letter-spacing: 2px;"
+              >
+                STEP
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 45%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
             >
               <div
-                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                class="StyledProps--font StyledProps--main"
               >
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                  class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
                 >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      style="--text-line-clamp: 1;"
+                    >
+                      manju-test-template-qq-12344
+                    </p>
+                    <span
+                      class="bp3-popover-wrapper"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                          tabindex="0"
+                        >
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="main-tags"
+                          >
+                            <svg
+                              height="15"
+                              viewBox="0 0 14 14"
+                              width="15"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                                fill="#4d5969"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main"
+                          >
+                            5
+                          </p>
+                        </div>
+                      </span>
+                    </span>
+                  </div>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
                     style="--text-line-clamp: 1;"
                   >
-                    manju-test-template-qq-12344
+                    idLabel
                   </p>
-                  <span
-                    class="bp3-popover-wrapper"
-                  >
-                    <span
-                      class="bp3-popover-target"
-                    >
-                      <div
-                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                        tabindex="0"
-                      >
-                        <span
-                          class="bp3-icon StyledProps--main"
-                          data-icon="main-tags"
-                        >
-                          <svg
-                            height="15"
-                            viewBox="0 0 14 14"
-                            width="15"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                              fill="#4d5969"
-                            />
-                          </svg>
-                        </span>
-                        <p
-                          class="StyledProps--font StyledProps--main"
-                        >
-                          5
-                        </p>
-                      </div>
-                    </span>
-                  </span>
                 </div>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
-                  style="--text-line-clamp: 1;"
-                >
-                  idLabel
-                </p>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-weight-semi-bold"
-              style="--text-line-clamp: 1;"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
             >
-              v4
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-weight-semi-bold"
+                style="--text-line-clamp: 1;"
+              >
+                v4
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="Tag--main"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
             >
               <span
-                class="bp3-tag scopeLabel project"
+                class="Tag--main"
               >
                 <span
-                  class="bp3-text-overflow-ellipsis bp3-fill"
+                  class="bp3-tag scopeLabel project"
                 >
-                  PROJECT
+                  <span
+                    class="bp3-text-overflow-ellipsis bp3-fill"
+                  >
+                    PROJECT
+                  </span>
                 </span>
               </span>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1127,139 +1139,143 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots an
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
-          >
-            <svg
-              fill="none"
-              height="64"
-              viewBox="0 0 8 64"
-              width="8"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.5 63.5L7.5 0.5H5C2.51472 0.5 0.5 2.51472 0.5 5L0.5 59C0.5 61.4853 2.51472 63.5 5 63.5H7.5Z"
-                fill="#EADEFF"
-                stroke="#E1D0FF"
-              />
-            </svg>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold"
-              style="color: rgb(89, 43, 170); letter-spacing: 2px;"
-            >
-              STEP
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 45%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
             <div
-              class="StyledProps--font StyledProps--main"
+              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
+            >
+              <svg
+                fill="none"
+                height="64"
+                viewBox="0 0 8 64"
+                width="8"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 63.5L7.5 0.5H5C2.51472 0.5 0.5 2.51472 0.5 5L0.5 59C0.5 61.4853 2.51472 63.5 5 63.5H7.5Z"
+                  fill="#EADEFF"
+                  stroke="#E1D0FF"
+                />
+              </svg>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold"
+                style="color: rgb(89, 43, 170); letter-spacing: 2px;"
+              >
+                STEP
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 45%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
             >
               <div
-                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                class="StyledProps--font StyledProps--main"
               >
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                  class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
                 >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      style="--text-line-clamp: 1;"
+                    >
+                      manju-test-template-qq-12344
+                    </p>
+                    <span
+                      class="bp3-popover-wrapper"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                          tabindex="0"
+                        >
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="main-tags"
+                          >
+                            <svg
+                              height="15"
+                              viewBox="0 0 14 14"
+                              width="15"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                                fill="#4d5969"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main"
+                          >
+                            5
+                          </p>
+                        </div>
+                      </span>
+                    </span>
+                  </div>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
                     style="--text-line-clamp: 1;"
                   >
-                    manju-test-template-qq-12344
+                    idLabel
                   </p>
-                  <span
-                    class="bp3-popover-wrapper"
-                  >
-                    <span
-                      class="bp3-popover-target"
-                    >
-                      <div
-                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                        tabindex="0"
-                      >
-                        <span
-                          class="bp3-icon StyledProps--main"
-                          data-icon="main-tags"
-                        >
-                          <svg
-                            height="15"
-                            viewBox="0 0 14 14"
-                            width="15"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                              fill="#4d5969"
-                            />
-                          </svg>
-                        </span>
-                        <p
-                          class="StyledProps--font StyledProps--main"
-                        >
-                          5
-                        </p>
-                      </div>
-                    </span>
-                  </span>
                 </div>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
-                  style="--text-line-clamp: 1;"
-                >
-                  idLabel
-                </p>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-weight-semi-bold"
-              style="--text-line-clamp: 1;"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
             >
-              v4
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-weight-semi-bold"
+                style="--text-line-clamp: 1;"
+              >
+                v4
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="Tag--main"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
             >
               <span
-                class="bp3-tag scopeLabel project"
+                class="Tag--main"
               >
                 <span
-                  class="bp3-text-overflow-ellipsis bp3-fill"
+                  class="bp3-tag scopeLabel project"
                 >
-                  PROJECT
+                  <span
+                    class="bp3-text-overflow-ellipsis bp3-fill"
+                  >
+                    PROJECT
+                  </span>
                 </span>
               </span>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1438,144 +1454,148 @@ exports[`<TemplatesListView /> tests should match snapshot without three dots wh
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
-          >
-            <svg
-              fill="none"
-              height="64"
-              viewBox="0 0 8 64"
-              width="8"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.5 63.5L7.5 0.5H5C2.51472 0.5 0.5 2.51472 0.5 5L0.5 59C0.5 61.4853 2.51472 63.5 5 63.5H7.5Z"
-                fill="#EADEFF"
-                stroke="#E1D0FF"
-              />
-            </svg>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold"
-              style="color: rgb(89, 43, 170); letter-spacing: 2px;"
-            >
-              STEP
-            </p>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 35%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
             <div
-              class="StyledProps--font StyledProps--main"
+              class="Layout--horizontal Layout--layout-spacing-large StyledProps--main templateColor StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start StyledProps--padding-right-medium"
+            >
+              <svg
+                fill="none"
+                height="64"
+                viewBox="0 0 8 64"
+                width="8"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M7.5 63.5L7.5 0.5H5C2.51472 0.5 0.5 2.51472 0.5 5L0.5 59C0.5 61.4853 2.51472 63.5 5 63.5H7.5Z"
+                  fill="#EADEFF"
+                  stroke="#E1D0FF"
+                />
+              </svg>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold"
+                style="color: rgb(89, 43, 170); letter-spacing: 2px;"
+              >
+                STEP
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 35%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-start StyledProps--padding-right-medium"
             >
               <div
-                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
+                class="StyledProps--font StyledProps--main"
               >
                 <div
-                  class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                  class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main"
                 >
+                  <div
+                    class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+                  >
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                      style="--text-line-clamp: 1;"
+                    >
+                      manju-test-template-qq-12344
+                    </p>
+                    <span
+                      class="bp3-popover-wrapper"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                          tabindex="0"
+                        >
+                          <span
+                            class="bp3-icon StyledProps--main"
+                            data-icon="main-tags"
+                          >
+                            <svg
+                              height="15"
+                              viewBox="0 0 14 14"
+                              width="15"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                                fill="#4d5969"
+                              />
+                            </svg>
+                          </span>
+                          <p
+                            class="StyledProps--font StyledProps--main"
+                          >
+                            5
+                          </p>
+                        </div>
+                      </span>
+                    </span>
+                  </div>
                   <p
-                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
                     style="--text-line-clamp: 1;"
                   >
-                    manju-test-template-qq-12344
+                    idLabel
                   </p>
-                  <span
-                    class="bp3-popover-wrapper"
-                  >
-                    <span
-                      class="bp3-popover-target"
-                    >
-                      <div
-                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                        tabindex="0"
-                      >
-                        <span
-                          class="bp3-icon StyledProps--main"
-                          data-icon="main-tags"
-                        >
-                          <svg
-                            height="15"
-                            viewBox="0 0 14 14"
-                            width="15"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                              fill="#4d5969"
-                            />
-                          </svg>
-                        </span>
-                        <p
-                          class="StyledProps--font StyledProps--main"
-                        >
-                          5
-                        </p>
-                      </div>
-                    </span>
-                  </span>
                 </div>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400 StyledProps--font-size-small"
-                  style="--text-line-clamp: 1;"
-                >
-                  idLabel
-                </p>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 10%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 10%;"
           >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-weight-semi-bold"
-              style="--text-line-clamp: 1;"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
             >
-              v4
-            </p>
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800 StyledProps--font-weight-semi-bold"
+                style="--text-line-clamp: 1;"
+              >
+                v4
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 30%;"
-        />
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 10%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 30%;"
+          />
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 10%;"
           >
-            <span
-              class="Tag--main"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--padding-right-medium"
             >
               <span
-                class="bp3-tag scopeLabel project"
+                class="Tag--main"
               >
                 <span
-                  class="bp3-text-overflow-ellipsis bp3-fill"
+                  class="bp3-tag scopeLabel project"
                 >
-                  PROJECT
+                  <span
+                    class="bp3-text-overflow-ellipsis bp3-fill"
+                  >
+                    PROJECT
+                  </span>
                 </span>
               </span>
-            </span>
+            </div>
           </div>
         </div>
       </div>

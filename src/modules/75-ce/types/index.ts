@@ -126,7 +126,6 @@ export enum CloudProvider {
 }
 
 export interface DNSLinkSetupFormVal {
-  usingCustomDomain: string
   customURL: string | undefined
   publicallyAccessible: string
   dnsProvider: string

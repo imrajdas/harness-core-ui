@@ -63,8 +63,6 @@ import { useTelemetry } from '@common/hooks/useTelemetry'
 import { PAGE_NAMES } from '@ce/TrackingEventsConstants'
 import { useDownloadPerspectiveGridAsCsv } from '@ce/components/PerspectiveGrid/useDownloadPerspectiveGridAsCsv'
 import { NGBreadcrumbs } from '@common/components/NGBreadcrumbs/NGBreadcrumbs'
-import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
-import { FeatureFlag } from '@common/featureFlags'
 import { useDocumentTitle } from '@common/hooks/useDocumentTitle'
 import { useDeepCompareEffect, useQueryParams, useUpdateQueryParams } from '@common/hooks'
 import type { PerspectiveQueryParams, TimeRangeFilterType } from '@ce/types'
@@ -177,7 +175,6 @@ const PerspectiveDetailsPage: React.FC = () => {
   const history = useHistory()
   const { perspectiveId, accountId, perspectiveName } = useParams<PerspectiveParams>()
   const { getString } = useStrings()
-  const isAnomaliesEnabled = useFeatureFlag(FeatureFlag.CCM_ANOMALY_DETECTION_NG)
   const { getRBACErrorMessage } = useRBACError()
   const { showError } = useToaster()
 
@@ -267,10 +264,8 @@ const PerspectiveDetailsPage: React.FC = () => {
         showError(getRBACErrorMessage(error))
       }
     }
-    if (isAnomaliesEnabled) {
-      fetchAnomaliesCount()
-    }
-  }, [isAnomaliesEnabled, timeRange.from, timeRange.to, filters, groupBy])
+    fetchAnomaliesCount()
+  }, [timeRange.from, timeRange.to, filters, groupBy])
 
   useDeepCompareEffect(() => {
     executePerspectiveGridQuery({

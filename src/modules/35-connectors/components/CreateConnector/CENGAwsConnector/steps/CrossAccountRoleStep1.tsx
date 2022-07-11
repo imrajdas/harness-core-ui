@@ -54,7 +54,7 @@ const useSelectedCards = (featuresEnabled: FeaturesString[]) => {
         <>
           {getString('connectors.ceAzure.chooseRequirements.optimization.footer1')}{' '}
           <a
-            href="https://ngdocs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#aws_ecs_and_resource_inventory_management"
+            href="https://docs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#aws_ecs_and_resource_inventory_management"
             target="_blank"
             rel="noreferrer"
             onClick={e => e.stopPropagation()}
@@ -81,7 +81,7 @@ const useSelectedCards = (featuresEnabled: FeaturesString[]) => {
         <>
           {getString('connectors.ceAzure.chooseRequirements.optimization.footer1')}{' '}
           <a
-            href="https://ngdocs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#aws_resource_optimization_using_auto_stopping_rules"
+            href="https://docs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws#aws_resource_optimization_using_auto_stopping_rules"
             target="_blank"
             rel="noreferrer"
             onClick={e => e.stopPropagation()}

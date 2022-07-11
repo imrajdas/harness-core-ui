@@ -22,12 +22,7 @@ const CommonProblems: React.FC<CommonProblemsProps> = props => {
   const { delegateType } = props
   const { getString } = useStrings()
   const troubleshootLink = (
-    <a
-      href="https://ngdocs.harness.io/"
-      target="_blank"
-      rel="noreferrer"
-      style={{ textAlign: 'end', fontSize: '13px' }}
-    >
+    <a href="https://docs.harness.io/" target="_blank" rel="noreferrer" style={{ textAlign: 'end', fontSize: '13px' }}>
       {getString('delegates.delegateNotInstalled.tabs.commonProblems.troubleshoot')}
     </a>
   )

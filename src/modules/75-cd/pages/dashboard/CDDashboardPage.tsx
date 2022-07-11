@@ -45,6 +45,7 @@ import PipelineModalListView from '@pipeline/components/PipelineModalListView/Pi
 
 import { TitleWithToolTipId } from '@common/components/Title/TitleWithToolTipId'
 import type { QueryParams } from '@pipeline/pages/pipeline-deployment-list/types'
+import { DashboardSelected } from '@pipeline/components/ServiceExecutionsCard/ServiceExecutionsCard'
 import DeploymentsHealthCards from './DeploymentsHealthCards'
 import DeploymentExecutionsChart from './DeploymentExecutionsChart'
 import WorkloadCard from './DeploymentCards/WorkloadCard'
@@ -95,9 +96,15 @@ export const validTimeFormat = (timeRange: TimeRangeSelectorProps): TimeRangeSel
 }
 
 /** TODO: fix types after BE merge */
-export function executionStatusInfoToExecutionSummary(info: ExecutionStatusInfo): PipelineExecutionSummary {
+export function executionStatusInfoToExecutionSummary(
+  info: ExecutionStatusInfo,
+  caller: string
+): PipelineExecutionSummary {
   const cd: CDPipelineModuleInfo = {
-    serviceIdentifiers: info.serviceInfoList?.map(({ serviceName }) => defaultTo(serviceName, '')).filter(svc => !!svc)
+    serviceIdentifiers: info.serviceInfoList?.map(item =>
+      item && caller === DashboardSelected.OVERVIEW ? item.serviceName : item.serviceTag
+    ) as string[],
+    envIdentifiers: info.environmentInfoList?.map(item => item.envName) as string[]
   }
 
   const branch = get(info, 'gitInfo.targetBranch')
@@ -128,6 +135,7 @@ export function executionStatusInfoToExecutionSummary(info: ExecutionStatusInfo)
       cd: cd as any,
       ci: (branch ? { ciExecutionInfoDTO, branch } : undefined) as any
     },
+    modules: [caller],
     executionTriggerInfo: {
       triggeredBy: {
         identifier: info.author?.name
@@ -270,7 +278,7 @@ export const CDDashboardPage: React.FC = () => {
                   <ExecutionCard
                     variant={CardVariant.Minimal}
                     key={d.planExecutionId}
-                    pipelineExecution={executionStatusInfoToExecutionSummary(d)}
+                    pipelineExecution={executionStatusInfoToExecutionSummary(d, DashboardSelected.OVERVIEW)}
                   />
                 ))}
               </CardRailView>
@@ -288,7 +296,7 @@ export const CDDashboardPage: React.FC = () => {
                   <ExecutionCard
                     variant={CardVariant.Minimal}
                     key={d.planExecutionId}
-                    pipelineExecution={executionStatusInfoToExecutionSummary(d)}
+                    pipelineExecution={executionStatusInfoToExecutionSummary(d, DashboardSelected.OVERVIEW)}
                   />
                 ))}
               </CardRailView>

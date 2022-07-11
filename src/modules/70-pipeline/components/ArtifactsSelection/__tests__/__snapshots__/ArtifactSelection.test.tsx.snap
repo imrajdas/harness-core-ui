@@ -203,9 +203,13 @@ exports[`ArtifactsSelection tests artifact list renders with proper payload 1`] 
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1;"
+                style="--text-line-clamp: 1; width: 200px;"
               >
-                &lt;+input&gt;
+                <span
+                  class="noWrap"
+                >
+                  &lt;+input&gt;
+                </span>
               </p>
             </div>
             <div
@@ -644,8 +648,12 @@ exports[`ArtifactsSelection tests delete artifact list works correctly 1`] = `
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1;"
-              />
+                style="--text-line-clamp: 1; width: 200px;"
+              >
+                <span
+                  class="noWrap"
+                />
+              </p>
             </div>
             <div
               class="Layout--horizontal StyledProps--main"
@@ -923,8 +931,12 @@ exports[`ArtifactsSelection tests edit artifact list works correctly 1`] = `
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1;"
-              />
+                style="--text-line-clamp: 1; width: 200px;"
+              >
+                <span
+                  class="noWrap"
+                />
+              </p>
             </div>
             <div
               class="Layout--horizontal StyledProps--main"
@@ -1202,8 +1214,12 @@ exports[`ArtifactsSelection tests renders Artifact Listview with connectors Data
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1;"
-              />
+                style="--text-line-clamp: 1; width: 200px;"
+              >
+                <span
+                  class="noWrap"
+                />
+              </p>
             </div>
             <div
               class="Layout--horizontal StyledProps--main"
@@ -1400,8 +1416,12 @@ exports[`ArtifactsSelection tests renders Artifact Listview without crashing 1`]
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1;"
-              />
+                style="--text-line-clamp: 1; width: 200px;"
+              >
+                <span
+                  class="noWrap"
+                />
+              </p>
             </div>
             <div
               class="Layout--horizontal StyledProps--main"
@@ -1558,9 +1578,13 @@ exports[`ArtifactsSelection tests renders add Artifact option without crashing 1
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1;"
+                style="--text-line-clamp: 1; width: 200px;"
               >
-                &lt;+input&gt;
+                <span
+                  class="noWrap"
+                >
+                  &lt;+input&gt;
+                </span>
               </p>
             </div>
             <div
@@ -2089,9 +2113,13 @@ exports[`ArtifactsSelection tests renders artifact when overrideSetIdentifier an
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1;"
+                style="--text-line-clamp: 1; width: 200px;"
               >
-                &lt;+input&gt;
+                <span
+                  class="noWrap"
+                >
+                  &lt;+input&gt;
+                </span>
               </p>
             </div>
             <div
@@ -2620,9 +2648,13 @@ exports[`ArtifactsSelection tests renders without crashing 1`] = `
             <div>
               <p
                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey500"
-                style="--text-line-clamp: 1;"
+                style="--text-line-clamp: 1; width: 200px;"
               >
-                &lt;+input&gt;
+                <span
+                  class="noWrap"
+                >
+                  &lt;+input&gt;
+                </span>
               </p>
             </div>
             <div

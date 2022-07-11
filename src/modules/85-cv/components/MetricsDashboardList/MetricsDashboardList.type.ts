@@ -17,6 +17,8 @@ export interface MetricsDashboardListProps<T> {
   tableTitle: StringKeys
   dashboardsRequest: UseGetReturn<any, any, any>
   noDataMessage?: string
+  isTemplate?: boolean
+  expressions?: string[]
 }
 
 export type TableDashboardItem = {

@@ -51,6 +51,15 @@
       top: 22px;
     }
   }
+  .jenkinsFieldContainer {
+    display: grid;
+    grid-template-columns: 500px 20px;
+    margin-top: var(--spacing-large);
+    div.configureOptions {
+      position: relative;
+      top: 22px;
+    }
+  }
   .connectorContainer {
     .addNewArtifact {
       margin-top: 25px;

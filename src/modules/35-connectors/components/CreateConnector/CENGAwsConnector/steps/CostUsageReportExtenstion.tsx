@@ -83,7 +83,7 @@ const CostUsageReportExtention: React.FC = () => {
         </li>
         <li>
           <a
-            href="https://ngdocs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws"
+            href="https://docs.harness.io/article/80vbt5jv0q-set-up-cost-visibility-for-aws"
             target="_blank"
             rel="noreferrer"
           >

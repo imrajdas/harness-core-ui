@@ -325,14 +325,12 @@ export interface StringsMap {
   'common.git.noUserLabel': string
   'common.git.onlyDefaultBranchFound': string
   'common.git.privateKey': string
-  'common.git.projectNamePlaceholder': string
   'common.git.remoteStoreLabel': string
   'common.git.saveResourceLabel': string
   'common.git.selectBranchPlaceholder': string
   'common.git.selectRepoLabel': string
   'common.git.selectRepositoryPlaceholder': string
   'common.git.startPRLabel': string
-  'common.git.testProjectAndRepositoryDescription': string
   'common.git.testRepository': string
   'common.git.testRepositoryDescription': string
   'common.git.urlType': string
@@ -2493,7 +2491,6 @@ export interface StringsMap {
   'dashboards.homePage.noTags': string
   'dashboards.homePage.removeTagFromFilter': string
   'dashboards.homePage.searchPlaceholder': string
-  'dashboards.modules.cgDeployments': string
   'dashboards.modules.harness': string
   'dashboards.resourceModal.folderDetail': string
   'dashboards.resourceModal.folders': string
@@ -2771,6 +2768,7 @@ export interface StringsMap {
   'pipeline.buildInfra.size': string
   'pipeline.buildInfra.tolerations': string
   'pipeline.buildInfra.volumes': string
+  'pipeline.buildRegex': string
   'pipeline.buildRepo': string
   'pipeline.cannotAddInputSetInvalidPipeline': string
   'pipeline.cannotAddTriggerInvalidPipeline': string
@@ -2873,6 +2871,7 @@ export interface StringsMap {
   'pipeline.enableVerificationHelpText': string
   'pipeline.enableVerificationOptions': string
   'pipeline.enableVerificationTitle': string
+  'pipeline.enterBuildRegex': string
   'pipeline.errorFramework.fixErrors': string
   'pipeline.errorFramework.fixStage': string
   'pipeline.errorFramework.fixStep': string
@@ -2938,6 +2937,7 @@ export interface StringsMap {
   'pipeline.executionFilters.labels.Waiting': string
   'pipeline.executionFrequency': string
   'pipeline.executionList.EnvironmentsText': string
+  'pipeline.executionList.artifactDeployedText': string
   'pipeline.executionList.servicesDeployedText': string
   'pipeline.executionStatus.Aborted': string
   'pipeline.executionStatus.Aborting': string
@@ -3045,6 +3045,8 @@ export interface StringsMap {
   'pipeline.featureRestriction.subscription90PercentLimit': string
   'pipeline.featureRestriction.subscriptionExceededLimit': string
   'pipeline.featureRestriction.unlimitedBuildsRequiredPlan': string
+  'pipeline.fieldLabels.commandType': string
+  'pipeline.fieldPlaceholders.commandType': string
   'pipeline.filters.builtTypePlaceholder': string
   'pipeline.filters.deploymentTypePlaceholder': string
   'pipeline.filters.environmentPlaceholder': string
@@ -3091,6 +3093,8 @@ export interface StringsMap {
   'pipeline.inputSets.removeInvalidFields': string
   'pipeline.inputSets.selectPlaceholder': string
   'pipeline.invalidRequest': string
+  'pipeline.jenkinsBuild': string
+  'pipeline.jenkinsStep.addJobParameters': string
   'pipeline.jenkinsStep.captureEnvironmentVariable': string
   'pipeline.jenkinsStep.jobNamePlaceholder': string
   'pipeline.jenkinsStep.jobParameter': string
@@ -3192,8 +3196,6 @@ export interface StringsMap {
   'pipeline.manifestType.gitFetchTypeLabel': string
   'pipeline.manifestType.helmCommandFlagLabel': string
   'pipeline.manifestType.helmCommandFlags': string
-  'pipeline.manifestType.helmCommandType': string
-  'pipeline.manifestType.helmCommandTypePlaceholder': string
   'pipeline.manifestType.helmSkipResourceVersion': string
   'pipeline.manifestType.helmVersionRequired': string
   'pipeline.manifestType.http.chartName': string
@@ -3363,6 +3365,8 @@ export interface StringsMap {
   'pipeline.savingInProgress': string
   'pipeline.scriptInputVariables': string
   'pipeline.scriptOutputVariables': string
+  'pipeline.selectArtifactPathPlaceholder': string
+  'pipeline.selectJenkinsBuildsPlaceholder': string
   'pipeline.selectOrCreateForm.description': string
   'pipeline.selectOrCreatePipeline.pipelineNameRequired': string
   'pipeline.selectOrCreatePipeline.selectAPipeline': string
@@ -4089,6 +4093,21 @@ export interface StringsMap {
   'cd.steps.azureInfraStep.resourceGroupPlaceholder': string
   'cd.steps.azureInfraStep.subscription': string
   'cd.steps.azureInfraStep.subscriptionPlaceholder': string
+  'cd.steps.commands.addCommand': string
+  'cd.steps.commands.destinationPath': string
+  'cd.steps.commands.destinationPathPlaceholder': string
+  'cd.steps.commands.editCommand': string
+  'cd.steps.commands.fileToTail': string
+  'cd.steps.commands.fileToTailPlaceholder': string
+  'cd.steps.commands.filesAndPatterns': string
+  'cd.steps.commands.patternToSearch': string
+  'cd.steps.commands.patternToSearchPlaceholder': string
+  'cd.steps.commands.runOnDelegate': string
+  'cd.steps.commands.runTheCommands': string
+  'cd.steps.commands.scriptTypePlaceholder': string
+  'cd.steps.commands.sourceTypeLabel': string
+  'cd.steps.commands.validation.destinationPathRequired': string
+  'cd.steps.commands.validation.sourceTypeRequired': string
   'cd.steps.common.clusterDetails': string
   'cd.steps.common.releaseNamePlaceholder': string
   'cd.steps.common.selectOrEnterClusterPlaceholder': string
@@ -4145,7 +4164,6 @@ export interface StringsMap {
   'ce.anomalyDetection.filters.groupByNoneLabel': string
   'ce.anomalyDetection.filters.groupByNonePlaceholder': string
   'ce.anomalyDetection.filters.groupByNoneValue': string
-  'ce.anomalyDetection.filters.groupByPerspectivePlaceholder': string
   'ce.anomalyDetection.filters.spendPlaceholder': string
   'ce.anomalyDetection.listFetchingError': string
   'ce.anomalyDetection.listFetchingErrorDesc': string
@@ -4459,10 +4477,12 @@ export interface StringsMap {
   'ce.co.autoStoppingRule.save': string
   'ce.co.autoStoppingRule.setupAccess.autogeneratedHelpText': string
   'ce.co.autoStoppingRule.setupAccess.chooseLbText': string
+  'ce.co.autoStoppingRule.setupAccess.customDomain.agreementText': string
   'ce.co.autoStoppingRule.setupAccess.customDomain.helpText': string
   'ce.co.autoStoppingRule.setupAccess.customDomain.mappingHeader': string
   'ce.co.autoStoppingRule.setupAccess.customDomain.mappingSubHeader': string
   'ce.co.autoStoppingRule.setupAccess.customDomain.noHostedZones': string
+  'ce.co.autoStoppingRule.setupAccess.customDomain.overrideCustomDomainsInfoText': string
   'ce.co.autoStoppingRule.setupAccess.erroredAccessPointSelectionText': string
   'ce.co.autoStoppingRule.setupAccess.helpText.bgTasks.info': string
   'ce.co.autoStoppingRule.setupAccess.helpText.dns.info': string
@@ -4876,6 +4896,7 @@ export interface StringsMap {
   'ce.perspectives.exportCSV': string
   'ce.perspectives.exportRowsUpto': string
   'ce.perspectives.filename': string
+  'ce.perspectives.folders.allPerspective': string
   'ce.perspectives.folders.createNewFolder': string
   'ce.perspectives.folders.createNewFolderHeading': string
   'ce.perspectives.folders.currentFolderLabel': string
@@ -6605,6 +6626,7 @@ export interface StringsMap {
   'stoSteps.noSecurityIssues': string
   'stoSteps.noSecurityTests': string
   'stoSteps.scans': string
+  'stoSteps.securityReview': string
   'stoSteps.securityStage.description': string
   'stoSteps.stepDescription.ZeroNorth': string
   'stoSteps.targets.testTargets': string

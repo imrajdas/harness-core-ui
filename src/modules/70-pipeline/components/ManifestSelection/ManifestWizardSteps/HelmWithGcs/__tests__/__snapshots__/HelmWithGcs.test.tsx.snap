@@ -718,7 +718,7 @@ exports[`helm with http tests expand advanced section 1`] = `
                                         class="Tooltip--acenter"
                                         data-tooltip-id="helmWithGcs_commandFlags[0].commandType"
                                       >
-                                        pipeline.manifestType.helmCommandType
+                                        pipeline.fieldLabels.commandType
                                       </span>
                                        
                                       <span
@@ -741,7 +741,7 @@ exports[`helm with http tests expand advanced section 1`] = `
                                               autocomplete="off"
                                               class="bp3-input"
                                               name="commandFlags[0].commandType"
-                                              placeholder="- pipeline.manifestType.helmCommandTypePlaceholder -"
+                                              placeholder="- pipeline.fieldPlaceholders.commandType -"
                                               style="padding-right: 0px;"
                                               type="text"
                                               value=""

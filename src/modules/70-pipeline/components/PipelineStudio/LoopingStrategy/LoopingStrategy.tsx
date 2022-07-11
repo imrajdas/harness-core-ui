@@ -42,8 +42,15 @@ export interface LoopingStrategyProps {
   onUpdateStrategy?: (strategy: StrategyConfig) => void
 }
 
-const DOCUMENT_URL = 'https://ngdocs.harness.io/article/i36ibenkq2-step-skip-condition-settings'
+const DOCUMENT_URL = 'https://docs.harness.io/article/i36ibenkq2-step-skip-condition-settings'
 const strategyEntries = Object.entries(AvailableStrategies) as [LoopingStrategyEnum, Strategy][]
+
+const yamlSanityConfig = {
+  removeEmptyObject: false,
+  removeEmptyString: false,
+  removeEmptyArray: false
+}
+const renderCustomHeader = (): null => null
 
 export function LoopingStrategy({
   strategy = {},
@@ -67,15 +74,20 @@ export function LoopingStrategy({
 
   const initialSelectedStrategy = Object.keys(defaultTo(strategy, {}))[0] as LoopingStrategyEnum
 
-  const onTextChange = (_formikProps: FormikProps<StrategyConfig>): void => {
-    try {
-      const newValues: StrategyConfig = parse(defaultTo(/* istanbul ignore next */ yamlHandler?.getLatestYaml(), ''))
-      // formikProps.setValues(newValues)
-      onUpdateStrategy(newValues)
-    } catch {
-      // this catch intentionally left empty
+  React.useEffect(() => {
+    const timer = window.setInterval(() => {
+      try {
+        const newValues: StrategyConfig = parse(defaultTo(/* istanbul ignore next */ yamlHandler?.getLatestYaml(), ''))
+        onUpdateStrategy(newValues)
+      } catch (_e) {
+        // this catch intentionally left empty
+      }
+    }, 1000)
+
+    return () => {
+      window.clearInterval(timer)
     }
-  }
+  }, [onUpdateStrategy, yamlHandler])
 
   const onChangeStrategy = (newStrategy: LoopingStrategyEnum, formikProps: FormikProps<StrategyConfig>): void => {
     const callback = (): void => {
@@ -121,8 +133,6 @@ export function LoopingStrategy({
     }
     closeToggleTypeConfirmation()
   }
-
-  const renderCustomHeader = (): null => null
 
   return (
     <React.Fragment>
@@ -219,12 +229,7 @@ export function LoopingStrategy({
                           schema={/* istanbul ignore next */ loopingStrategySchema?.data?.schema}
                           existingJSON={formikProps.values}
                           renderCustomHeader={renderCustomHeader}
-                          yamlSanityConfig={{
-                            removeEmptyObject: false,
-                            removeEmptyString: false,
-                            removeEmptyArray: false
-                          }}
-                          onChange={() => onTextChange(formikProps)}
+                          yamlSanityConfig={yamlSanityConfig}
                         />
                       </Container>
                     </Layout.Vertical>

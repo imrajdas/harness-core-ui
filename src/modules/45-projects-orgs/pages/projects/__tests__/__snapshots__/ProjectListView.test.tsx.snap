@@ -120,171 +120,137 @@ exports[`Project List render 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 30%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 30%;"
           >
             <div
-              class="colorbox"
-              style="background-color: rgb(230, 184, 0);"
-            />
-            <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                class="colorbox"
+                style="background-color: rgb(230, 184, 0);"
+              />
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
               >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
-                  style="--text-line-clamp: 1;"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                 >
-                  test
-                </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
+                    style="--text-line-clamp: 1;"
                   >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
+                    test
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          2
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
                     >
                       <span
                         class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
+                        data-icon="description"
+                        tabindex="0"
                       >
                         <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
+                          fill="none"
+                          height="18"
+                          width="18"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
+                          <g
+                            opacity="0.3"
+                          >
+                            <mask
+                              fill="#fff"
+                              id="description_svg__a"
+                            >
+                              <path
+                                d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
+                                fill-rule="evenodd"
+                              />
+                            </mask>
+                            <path
+                              d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
+                              fill="#6b6d85"
+                              mask="url(#description_svg__a)"
+                            />
+                          </g>
+                          <rect
+                            height="13.5"
+                            rx="1"
+                            stroke="#6b6d85"
+                            width="10.5"
+                            x="3.75"
+                            y="2.25"
                           />
                         </svg>
                       </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        2
-                      </p>
-                    </div>
-                  </span>
-                </span>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="description"
-                      tabindex="0"
-                    >
-                      <svg
-                        fill="none"
-                        height="18"
-                        width="18"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g
-                          opacity="0.3"
-                        >
-                          <mask
-                            fill="#fff"
-                            id="description_svg__a"
-                          >
-                            <path
-                              d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
-                              fill-rule="evenodd"
-                            />
-                          </mask>
-                          <path
-                            d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
-                            fill="#6b6d85"
-                            mask="url(#description_svg__a)"
-                          />
-                        </g>
-                        <rect
-                          height="13.5"
-                          rx="1"
-                          stroke="#6b6d85"
-                          width="10.5"
-                          x="3.75"
-                          y="2.25"
-                        />
-                      </svg>
                     </span>
                   </span>
-                </span>
-              </div>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
-                style="--text-line-clamp: 1;"
-              >
-                idLabel
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
-            style="--text-line-clamp: 1;"
-          />
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-          >
-            <div
-              class="AvatarGroup--stack"
-              style="--avatar-over-lap: -13px;"
-            >
-              <div
-                class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
-              >
-                <span
-                  class="bp3-popover-wrapper Avatar--avatarPopOver"
+                </div>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
+                  style="--text-line-clamp: 1;"
                 >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Avatar--AvatarInner"
-                      style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
-                      tabindex="0"
-                    >
-                      +
-                    </div>
-                  </span>
-                </span>
+                  idLabel
+                </p>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
+              style="--text-line-clamp: 1;"
+            />
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
             <div
               class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
@@ -314,109 +280,147 @@ exports[`Project List render 1`] = `
                 </div>
               </div>
             </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
-            >
-              projectsOrgs.noCollaborators
-            </p>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="cd-main"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
             >
-              <svg
-                height="20"
-                viewBox="0 0 32 32"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
-                  fill="url(#cd-main_svg__a)"
-                  fill-rule="evenodd"
-                />
-                <defs>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="cd-main_svg__a"
-                    x1="6.774"
-                    x2="21.5"
-                    y1="2"
-                    y2="30"
+                <div
+                  class="AvatarGroup--stack"
+                  style="--avatar-over-lap: -13px;"
+                >
+                  <div
+                    class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
                   >
-                    <stop
-                      stop-color="#62F91F"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#45BD35"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </span>
+                    <span
+                      class="bp3-popover-wrapper Avatar--avatarPopOver"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Avatar--AvatarInner"
+                          style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
+                          tabindex="0"
+                        >
+                          +
+                        </div>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
+              >
+                projectsOrgs.noCollaborators
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main layout"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-popover-wrapper bp3-dark"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
             >
               <span
-                class="bp3-popover-target"
+                class="bp3-icon StyledProps--main"
+                data-icon="cd-main"
               >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  data-testid="menu-testtestOrg"
-                  type="button"
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="Options"
-                  >
-                    <svg
-                      fill="currentColor"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <path
+                    clip-rule="evenodd"
+                    d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
+                    fill="url(#cd-main_svg__a)"
+                    fill-rule="evenodd"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="cd-main_svg__a"
+                      x1="6.774"
+                      x2="21.5"
+                      y1="2"
+                      y2="30"
                     >
-                      <circle
-                        cx="2"
-                        cy="2"
-                        r="1.5"
+                      <stop
+                        stop-color="#62F91F"
                       />
-                      <circle
-                        cx="2"
-                        cy="8"
-                        r="1.5"
+                      <stop
+                        offset="1"
+                        stop-color="#45BD35"
                       />
-                      <circle
-                        cx="2"
-                        cy="14"
-                        r="1.5"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                    </lineargradient>
+                  </defs>
+                </svg>
               </span>
-            </span>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main layout"
+            >
+              <span
+                class="bp3-popover-wrapper bp3-dark"
+              >
+                <span
+                  class="bp3-popover-target"
+                >
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    data-testid="menu-testtestOrg"
+                    type="button"
+                  >
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="Options"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="16"
+                        viewBox="0 0 4 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="2"
+                          cy="2"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="8"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="14"
+                          r="1.5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -425,171 +429,137 @@ exports[`Project List render 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 30%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 30%;"
           >
             <div
-              class="colorbox"
-              style="background-color: rgb(28, 28, 40);"
-            />
-            <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                class="colorbox"
+                style="background-color: rgb(28, 28, 40);"
+              />
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
               >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
-                  style="--text-line-clamp: 1;"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                 >
-                  Online Banking
-                </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
+                    style="--text-line-clamp: 1;"
                   >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
+                    Online Banking
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          2
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
                     >
                       <span
                         class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
+                        data-icon="description"
+                        tabindex="0"
                       >
                         <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
+                          fill="none"
+                          height="18"
+                          width="18"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
+                          <g
+                            opacity="0.3"
+                          >
+                            <mask
+                              fill="#fff"
+                              id="description_svg__a"
+                            >
+                              <path
+                                d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
+                                fill-rule="evenodd"
+                              />
+                            </mask>
+                            <path
+                              d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
+                              fill="#6b6d85"
+                              mask="url(#description_svg__a)"
+                            />
+                          </g>
+                          <rect
+                            height="13.5"
+                            rx="1"
+                            stroke="#6b6d85"
+                            width="10.5"
+                            x="3.75"
+                            y="2.25"
                           />
                         </svg>
                       </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        2
-                      </p>
-                    </div>
-                  </span>
-                </span>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="description"
-                      tabindex="0"
-                    >
-                      <svg
-                        fill="none"
-                        height="18"
-                        width="18"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g
-                          opacity="0.3"
-                        >
-                          <mask
-                            fill="#fff"
-                            id="description_svg__a"
-                          >
-                            <path
-                              d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
-                              fill-rule="evenodd"
-                            />
-                          </mask>
-                          <path
-                            d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
-                            fill="#6b6d85"
-                            mask="url(#description_svg__a)"
-                          />
-                        </g>
-                        <rect
-                          height="13.5"
-                          rx="1"
-                          stroke="#6b6d85"
-                          width="10.5"
-                          x="3.75"
-                          y="2.25"
-                        />
-                      </svg>
                     </span>
                   </span>
-                </span>
-              </div>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
-                style="--text-line-clamp: 1;"
-              >
-                idLabel
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
-            style="--text-line-clamp: 1;"
-          />
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-          >
-            <div
-              class="AvatarGroup--stack"
-              style="--avatar-over-lap: -13px;"
-            >
-              <div
-                class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
-              >
-                <span
-                  class="bp3-popover-wrapper Avatar--avatarPopOver"
+                </div>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
+                  style="--text-line-clamp: 1;"
                 >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Avatar--AvatarInner"
-                      style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
-                      tabindex="0"
-                    >
-                      +
-                    </div>
-                  </span>
-                </span>
+                  idLabel
+                </p>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
+              style="--text-line-clamp: 1;"
+            />
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
             <div
               class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
@@ -619,151 +589,189 @@ exports[`Project List render 1`] = `
                 </div>
               </div>
             </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
-            >
-              projectsOrgs.noCollaborators
-            </p>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="cd-main"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
             >
-              <svg
-                height="20"
-                viewBox="0 0 32 32"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
-                  fill="url(#cd-main_svg__a)"
-                  fill-rule="evenodd"
-                />
-                <defs>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="cd-main_svg__a"
-                    x1="6.774"
-                    x2="21.5"
-                    y1="2"
-                    y2="30"
+                <div
+                  class="AvatarGroup--stack"
+                  style="--avatar-over-lap: -13px;"
+                >
+                  <div
+                    class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
                   >
-                    <stop
-                      stop-color="#62F91F"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#45BD35"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </span>
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="cv-main"
-            >
-              <svg
-                height="20"
-                viewBox="0 0 32 32"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-popover-wrapper Avatar--avatarPopOver"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Avatar--AvatarInner"
+                          style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
+                          tabindex="0"
+                        >
+                          +
+                        </div>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M25.933 24.357A12.972 12.972 0 0116 28.969a12.972 12.972 0 01-9.933-4.612l6.025-3.834A5.976 5.976 0 0016 21.969a5.977 5.977 0 003.907-1.446l6.026 3.834zm1.066-1.455l-5.906-3.759a6.001 6.001 0 00-4.193-9.107V3C23.66 3.462 29 9.092 29 15.97a12.94 12.94 0 01-2 6.932zM15.1 3C8.34 3.462 3 9.092 3 15.97c0 2.548.733 4.925 2 6.932l5.907-3.759a6.001 6.001 0 014.192-9.107V3z"
-                  fill="url(#cv-main_svg__paint0_linear_20630_159361)"
-                  fill-rule="evenodd"
-                />
-                <path
-                  clip-rule="evenodd"
-                  d="M19.558 13.286a.9.9 0 01-.044 1.272l-4.286 4a.9.9 0 01-1.228 0l-1.714-1.6a.9.9 0 011.228-1.316l1.1 1.027 3.672-3.427a.9.9 0 011.272.044z"
-                  fill="#AE82FC"
-                  fill-rule="evenodd"
-                />
-                <defs>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="cv-main_svg__paint0_linear_20630_159361"
-                    x1="7.5"
-                    x2="20.926"
-                    y1="3"
-                    y2="28.987"
-                  >
-                    <stop
-                      stop-color="#BEA1FF"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#8A36FF"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </span>
+                projectsOrgs.noCollaborators
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main layout"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-popover-wrapper bp3-dark"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
             >
               <span
-                class="bp3-popover-target"
+                class="bp3-icon StyledProps--main"
+                data-icon="cd-main"
               >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  data-testid="menu-Online_BankingCisco_Meraki"
-                  type="button"
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="Options"
-                  >
-                    <svg
-                      fill="currentColor"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <path
+                    clip-rule="evenodd"
+                    d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
+                    fill="url(#cd-main_svg__a)"
+                    fill-rule="evenodd"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="cd-main_svg__a"
+                      x1="6.774"
+                      x2="21.5"
+                      y1="2"
+                      y2="30"
                     >
-                      <circle
-                        cx="2"
-                        cy="2"
-                        r="1.5"
+                      <stop
+                        stop-color="#62F91F"
                       />
-                      <circle
-                        cx="2"
-                        cy="8"
-                        r="1.5"
+                      <stop
+                        offset="1"
+                        stop-color="#45BD35"
                       />
-                      <circle
-                        cx="2"
-                        cy="14"
-                        r="1.5"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                    </lineargradient>
+                  </defs>
+                </svg>
               </span>
-            </span>
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="cv-main"
+              >
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M25.933 24.357A12.972 12.972 0 0116 28.969a12.972 12.972 0 01-9.933-4.612l6.025-3.834A5.976 5.976 0 0016 21.969a5.977 5.977 0 003.907-1.446l6.026 3.834zm1.066-1.455l-5.906-3.759a6.001 6.001 0 00-4.193-9.107V3C23.66 3.462 29 9.092 29 15.97a12.94 12.94 0 01-2 6.932zM15.1 3C8.34 3.462 3 9.092 3 15.97c0 2.548.733 4.925 2 6.932l5.907-3.759a6.001 6.001 0 014.192-9.107V3z"
+                    fill="url(#cv-main_svg__paint0_linear_20630_159361)"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M19.558 13.286a.9.9 0 01-.044 1.272l-4.286 4a.9.9 0 01-1.228 0l-1.714-1.6a.9.9 0 011.228-1.316l1.1 1.027 3.672-3.427a.9.9 0 011.272.044z"
+                    fill="#AE82FC"
+                    fill-rule="evenodd"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="cv-main_svg__paint0_linear_20630_159361"
+                      x1="7.5"
+                      x2="20.926"
+                      y1="3"
+                      y2="28.987"
+                    >
+                      <stop
+                        stop-color="#BEA1FF"
+                      />
+                      <stop
+                        offset="1"
+                        stop-color="#8A36FF"
+                      />
+                    </lineargradient>
+                  </defs>
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main layout"
+            >
+              <span
+                class="bp3-popover-wrapper bp3-dark"
+              >
+                <span
+                  class="bp3-popover-target"
+                >
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    data-testid="menu-Online_BankingCisco_Meraki"
+                    type="button"
+                  >
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="Options"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="16"
+                        viewBox="0 0 4 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="2"
+                          cy="2"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="8"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="14"
+                          r="1.5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -772,171 +780,137 @@ exports[`Project List render 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 30%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 30%;"
           >
             <div
-              class="colorbox"
-              style="background-color: rgb(255, 136, 0);"
-            />
-            <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                class="colorbox"
+                style="background-color: rgb(255, 136, 0);"
+              />
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
               >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
-                  style="--text-line-clamp: 1;"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                 >
-                  Portal
-                </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
+                    style="--text-line-clamp: 1;"
                   >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
+                    Portal
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          2
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
                     >
                       <span
                         class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
+                        data-icon="description"
+                        tabindex="0"
                       >
                         <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
+                          fill="none"
+                          height="18"
+                          width="18"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
+                          <g
+                            opacity="0.3"
+                          >
+                            <mask
+                              fill="#fff"
+                              id="description_svg__a"
+                            >
+                              <path
+                                d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
+                                fill-rule="evenodd"
+                              />
+                            </mask>
+                            <path
+                              d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
+                              fill="#6b6d85"
+                              mask="url(#description_svg__a)"
+                            />
+                          </g>
+                          <rect
+                            height="13.5"
+                            rx="1"
+                            stroke="#6b6d85"
+                            width="10.5"
+                            x="3.75"
+                            y="2.25"
                           />
                         </svg>
                       </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        2
-                      </p>
-                    </div>
-                  </span>
-                </span>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="description"
-                      tabindex="0"
-                    >
-                      <svg
-                        fill="none"
-                        height="18"
-                        width="18"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g
-                          opacity="0.3"
-                        >
-                          <mask
-                            fill="#fff"
-                            id="description_svg__a"
-                          >
-                            <path
-                              d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
-                              fill-rule="evenodd"
-                            />
-                          </mask>
-                          <path
-                            d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
-                            fill="#6b6d85"
-                            mask="url(#description_svg__a)"
-                          />
-                        </g>
-                        <rect
-                          height="13.5"
-                          rx="1"
-                          stroke="#6b6d85"
-                          width="10.5"
-                          x="3.75"
-                          y="2.25"
-                        />
-                      </svg>
                     </span>
                   </span>
-                </span>
-              </div>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
-                style="--text-line-clamp: 1;"
-              >
-                idLabel
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
-            style="--text-line-clamp: 1;"
-          />
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-          >
-            <div
-              class="AvatarGroup--stack"
-              style="--avatar-over-lap: -13px;"
-            >
-              <div
-                class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
-              >
-                <span
-                  class="bp3-popover-wrapper Avatar--avatarPopOver"
+                </div>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
+                  style="--text-line-clamp: 1;"
                 >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Avatar--AvatarInner"
-                      style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
-                      tabindex="0"
-                    >
-                      +
-                    </div>
-                  </span>
-                </span>
+                  idLabel
+                </p>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
+              style="--text-line-clamp: 1;"
+            />
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
             <div
               class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
@@ -966,115 +940,153 @@ exports[`Project List render 1`] = `
                 </div>
               </div>
             </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
-            >
-              projectsOrgs.noCollaborators
-            </p>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="cv-main"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
             >
-              <svg
-                height="20"
-                viewBox="0 0 32 32"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M25.933 24.357A12.972 12.972 0 0116 28.969a12.972 12.972 0 01-9.933-4.612l6.025-3.834A5.976 5.976 0 0016 21.969a5.977 5.977 0 003.907-1.446l6.026 3.834zm1.066-1.455l-5.906-3.759a6.001 6.001 0 00-4.193-9.107V3C23.66 3.462 29 9.092 29 15.97a12.94 12.94 0 01-2 6.932zM15.1 3C8.34 3.462 3 9.092 3 15.97c0 2.548.733 4.925 2 6.932l5.907-3.759a6.001 6.001 0 014.192-9.107V3z"
-                  fill="url(#cv-main_svg__paint0_linear_20630_159361)"
-                  fill-rule="evenodd"
-                />
-                <path
-                  clip-rule="evenodd"
-                  d="M19.558 13.286a.9.9 0 01-.044 1.272l-4.286 4a.9.9 0 01-1.228 0l-1.714-1.6a.9.9 0 011.228-1.316l1.1 1.027 3.672-3.427a.9.9 0 011.272.044z"
-                  fill="#AE82FC"
-                  fill-rule="evenodd"
-                />
-                <defs>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="cv-main_svg__paint0_linear_20630_159361"
-                    x1="7.5"
-                    x2="20.926"
-                    y1="3"
-                    y2="28.987"
+                <div
+                  class="AvatarGroup--stack"
+                  style="--avatar-over-lap: -13px;"
+                >
+                  <div
+                    class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
                   >
-                    <stop
-                      stop-color="#BEA1FF"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#8A36FF"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </span>
+                    <span
+                      class="bp3-popover-wrapper Avatar--avatarPopOver"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Avatar--AvatarInner"
+                          style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
+                          tabindex="0"
+                        >
+                          +
+                        </div>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
+              >
+                projectsOrgs.noCollaborators
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main layout"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-popover-wrapper bp3-dark"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
             >
               <span
-                class="bp3-popover-target"
+                class="bp3-icon StyledProps--main"
+                data-icon="cv-main"
               >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  data-testid="menu-PortalCisco_Meraki"
-                  type="button"
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="Options"
-                  >
-                    <svg
-                      fill="currentColor"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <path
+                    clip-rule="evenodd"
+                    d="M25.933 24.357A12.972 12.972 0 0116 28.969a12.972 12.972 0 01-9.933-4.612l6.025-3.834A5.976 5.976 0 0016 21.969a5.977 5.977 0 003.907-1.446l6.026 3.834zm1.066-1.455l-5.906-3.759a6.001 6.001 0 00-4.193-9.107V3C23.66 3.462 29 9.092 29 15.97a12.94 12.94 0 01-2 6.932zM15.1 3C8.34 3.462 3 9.092 3 15.97c0 2.548.733 4.925 2 6.932l5.907-3.759a6.001 6.001 0 014.192-9.107V3z"
+                    fill="url(#cv-main_svg__paint0_linear_20630_159361)"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M19.558 13.286a.9.9 0 01-.044 1.272l-4.286 4a.9.9 0 01-1.228 0l-1.714-1.6a.9.9 0 011.228-1.316l1.1 1.027 3.672-3.427a.9.9 0 011.272.044z"
+                    fill="#AE82FC"
+                    fill-rule="evenodd"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="cv-main_svg__paint0_linear_20630_159361"
+                      x1="7.5"
+                      x2="20.926"
+                      y1="3"
+                      y2="28.987"
                     >
-                      <circle
-                        cx="2"
-                        cy="2"
-                        r="1.5"
+                      <stop
+                        stop-color="#BEA1FF"
                       />
-                      <circle
-                        cx="2"
-                        cy="8"
-                        r="1.5"
+                      <stop
+                        offset="1"
+                        stop-color="#8A36FF"
                       />
-                      <circle
-                        cx="2"
-                        cy="14"
-                        r="1.5"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                    </lineargradient>
+                  </defs>
+                </svg>
               </span>
-            </span>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main layout"
+            >
+              <span
+                class="bp3-popover-wrapper bp3-dark"
+              >
+                <span
+                  class="bp3-popover-target"
+                >
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    data-testid="menu-PortalCisco_Meraki"
+                    type="button"
+                  >
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="Options"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="16"
+                        viewBox="0 0 4 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="2"
+                          cy="2"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="8"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="14"
+                          r="1.5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1083,91 +1095,57 @@ exports[`Project List render 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 30%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 30%;"
           >
             <div
-              class="colorbox"
-              style="background-color: rgb(230, 184, 0);"
-            />
-            <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                class="colorbox"
+                style="background-color: rgb(230, 184, 0);"
+              />
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
               >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                >
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
+                    style="--text-line-clamp: 1;"
+                  >
+                    Project 1
+                  </p>
+                  
+                </div>
                 <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
+                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
                   style="--text-line-clamp: 1;"
                 >
-                  Project 1
+                  idLabel
                 </p>
-                
               </div>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
-                style="--text-line-clamp: 1;"
-              >
-                idLabel
-              </p>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
-            style="--text-line-clamp: 1;"
-          />
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
           >
-            <div
-              class="AvatarGroup--stack"
-              style="--avatar-over-lap: -13px;"
-            >
-              <div
-                class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
-              >
-                <span
-                  class="bp3-popover-wrapper Avatar--avatarPopOver"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Avatar--AvatarInner"
-                      style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
-                      tabindex="0"
-                    >
-                      +
-                    </div>
-                  </span>
-                </span>
-              </div>
-            </div>
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
+              style="--text-line-clamp: 1;"
+            />
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
             <div
               class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
@@ -1197,80 +1175,118 @@ exports[`Project List render 1`] = `
                 </div>
               </div>
             </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
-            >
-              projectsOrgs.noCollaborators
-            </p>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey350 StyledProps--font-size-small"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
             >
-              <span>
-                moduleRenderer.start
-              </span>
-            </p>
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+              >
+                <div
+                  class="AvatarGroup--stack"
+                  style="--avatar-over-lap: -13px;"
+                >
+                  <div
+                    class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
+                  >
+                    <span
+                      class="bp3-popover-wrapper Avatar--avatarPopOver"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Avatar--AvatarInner"
+                          style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
+                          tabindex="0"
+                        >
+                          +
+                        </div>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
+              >
+                projectsOrgs.noCollaborators
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main layout"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-popover-wrapper bp3-dark"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey350 StyledProps--font-size-small"
+              >
+                <span>
+                  moduleRenderer.start
+                </span>
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main layout"
             >
               <span
-                class="bp3-popover-target"
+                class="bp3-popover-wrapper bp3-dark"
               >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  data-testid="menu-Project_1Cisco_Prime"
-                  type="button"
+                <span
+                  class="bp3-popover-target"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="Options"
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    data-testid="menu-Project_1Cisco_Prime"
+                    type="button"
                   >
-                    <svg
-                      fill="currentColor"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="Options"
                     >
-                      <circle
-                        cx="2"
-                        cy="2"
-                        r="1.5"
-                      />
-                      <circle
-                        cx="2"
-                        cy="8"
-                        r="1.5"
-                      />
-                      <circle
-                        cx="2"
-                        cy="14"
-                        r="1.5"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        fill="currentColor"
+                        height="16"
+                        viewBox="0 0 4 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="2"
+                          cy="2"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="8"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="14"
+                          r="1.5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
               </span>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1279,171 +1295,137 @@ exports[`Project List render 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 30%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 30%;"
           >
             <div
-              class="colorbox"
-              style="background-color: rgb(0, 79, 196);"
-            />
-            <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                class="colorbox"
+                style="background-color: rgb(0, 79, 196);"
+              />
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
               >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
-                  style="--text-line-clamp: 1;"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                 >
-                  Project Demo
-                </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
+                    style="--text-line-clamp: 1;"
                   >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
+                    Project Demo
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          2
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
                     >
                       <span
                         class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
+                        data-icon="description"
+                        tabindex="0"
                       >
                         <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
+                          fill="none"
+                          height="18"
+                          width="18"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
+                          <g
+                            opacity="0.3"
+                          >
+                            <mask
+                              fill="#fff"
+                              id="description_svg__a"
+                            >
+                              <path
+                                d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
+                                fill-rule="evenodd"
+                              />
+                            </mask>
+                            <path
+                              d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
+                              fill="#6b6d85"
+                              mask="url(#description_svg__a)"
+                            />
+                          </g>
+                          <rect
+                            height="13.5"
+                            rx="1"
+                            stroke="#6b6d85"
+                            width="10.5"
+                            x="3.75"
+                            y="2.25"
                           />
                         </svg>
                       </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        2
-                      </p>
-                    </div>
-                  </span>
-                </span>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="description"
-                      tabindex="0"
-                    >
-                      <svg
-                        fill="none"
-                        height="18"
-                        width="18"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g
-                          opacity="0.3"
-                        >
-                          <mask
-                            fill="#fff"
-                            id="description_svg__a"
-                          >
-                            <path
-                              d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
-                              fill-rule="evenodd"
-                            />
-                          </mask>
-                          <path
-                            d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
-                            fill="#6b6d85"
-                            mask="url(#description_svg__a)"
-                          />
-                        </g>
-                        <rect
-                          height="13.5"
-                          rx="1"
-                          stroke="#6b6d85"
-                          width="10.5"
-                          x="3.75"
-                          y="2.25"
-                        />
-                      </svg>
                     </span>
                   </span>
-                </span>
-              </div>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
-                style="--text-line-clamp: 1;"
-              >
-                idLabel
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
-            style="--text-line-clamp: 1;"
-          />
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-          >
-            <div
-              class="AvatarGroup--stack"
-              style="--avatar-over-lap: -13px;"
-            >
-              <div
-                class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
-              >
-                <span
-                  class="bp3-popover-wrapper Avatar--avatarPopOver"
+                </div>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
+                  style="--text-line-clamp: 1;"
                 >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Avatar--AvatarInner"
-                      style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
-                      tabindex="0"
-                    >
-                      +
-                    </div>
-                  </span>
-                </span>
+                  idLabel
+                </p>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
+              style="--text-line-clamp: 1;"
+            />
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
             <div
               class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
@@ -1473,80 +1455,118 @@ exports[`Project List render 1`] = `
                 </div>
               </div>
             </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
-            >
-              projectsOrgs.noCollaborators
-            </p>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey350 StyledProps--font-size-small"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
             >
-              <span>
-                moduleRenderer.start
-              </span>
-            </p>
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+              >
+                <div
+                  class="AvatarGroup--stack"
+                  style="--avatar-over-lap: -13px;"
+                >
+                  <div
+                    class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
+                  >
+                    <span
+                      class="bp3-popover-wrapper Avatar--avatarPopOver"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Avatar--AvatarInner"
+                          style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
+                          tabindex="0"
+                        >
+                          +
+                        </div>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
+              >
+                projectsOrgs.noCollaborators
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main layout"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-popover-wrapper bp3-dark"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+            >
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey350 StyledProps--font-size-small"
+              >
+                <span>
+                  moduleRenderer.start
+                </span>
+              </p>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main layout"
             >
               <span
-                class="bp3-popover-target"
+                class="bp3-popover-wrapper bp3-dark"
               >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  data-testid="menu-Project_DemoCisco_Prime"
-                  type="button"
+                <span
+                  class="bp3-popover-target"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="Options"
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    data-testid="menu-Project_DemoCisco_Prime"
+                    type="button"
                   >
-                    <svg
-                      fill="currentColor"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="Options"
                     >
-                      <circle
-                        cx="2"
-                        cy="2"
-                        r="1.5"
-                      />
-                      <circle
-                        cx="2"
-                        cy="8"
-                        r="1.5"
-                      />
-                      <circle
-                        cx="2"
-                        cy="14"
-                        r="1.5"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        fill="currentColor"
+                        height="16"
+                        viewBox="0 0 4 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="2"
+                          cy="2"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="8"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="14"
+                          r="1.5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
               </span>
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -1555,171 +1575,137 @@ exports[`Project List render 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 30%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 30%;"
           >
             <div
-              class="colorbox"
-              style="background-color: rgb(230, 122, 0);"
-            />
-            <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                class="colorbox"
+                style="background-color: rgb(230, 122, 0);"
+              />
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
               >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
-                  style="--text-line-clamp: 1;"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                 >
-                  Drone Data Supplier
-                </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
+                    style="--text-line-clamp: 1;"
                   >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
+                    Drone Data Supplier
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          2
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
                     >
                       <span
                         class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
+                        data-icon="description"
+                        tabindex="0"
                       >
                         <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
+                          fill="none"
+                          height="18"
+                          width="18"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
+                          <g
+                            opacity="0.3"
+                          >
+                            <mask
+                              fill="#fff"
+                              id="description_svg__a"
+                            >
+                              <path
+                                d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
+                                fill-rule="evenodd"
+                              />
+                            </mask>
+                            <path
+                              d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
+                              fill="#6b6d85"
+                              mask="url(#description_svg__a)"
+                            />
+                          </g>
+                          <rect
+                            height="13.5"
+                            rx="1"
+                            stroke="#6b6d85"
+                            width="10.5"
+                            x="3.75"
+                            y="2.25"
                           />
                         </svg>
                       </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        2
-                      </p>
-                    </div>
-                  </span>
-                </span>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="description"
-                      tabindex="0"
-                    >
-                      <svg
-                        fill="none"
-                        height="18"
-                        width="18"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g
-                          opacity="0.3"
-                        >
-                          <mask
-                            fill="#fff"
-                            id="description_svg__a"
-                          >
-                            <path
-                              d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
-                              fill-rule="evenodd"
-                            />
-                          </mask>
-                          <path
-                            d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
-                            fill="#6b6d85"
-                            mask="url(#description_svg__a)"
-                          />
-                        </g>
-                        <rect
-                          height="13.5"
-                          rx="1"
-                          stroke="#6b6d85"
-                          width="10.5"
-                          x="3.75"
-                          y="2.25"
-                        />
-                      </svg>
                     </span>
                   </span>
-                </span>
-              </div>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
-                style="--text-line-clamp: 1;"
-              >
-                idLabel
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
-            style="--text-line-clamp: 1;"
-          />
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-          >
-            <div
-              class="AvatarGroup--stack"
-              style="--avatar-over-lap: -13px;"
-            >
-              <div
-                class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
-              >
-                <span
-                  class="bp3-popover-wrapper Avatar--avatarPopOver"
+                </div>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
+                  style="--text-line-clamp: 1;"
                 >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Avatar--AvatarInner"
-                      style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
-                      tabindex="0"
-                    >
-                      +
-                    </div>
-                  </span>
-                </span>
+                  idLabel
+                </p>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
+              style="--text-line-clamp: 1;"
+            />
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
             <div
               class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
@@ -1749,275 +1735,313 @@ exports[`Project List render 1`] = `
                 </div>
               </div>
             </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
-            >
-              projectsOrgs.noCollaborators
-            </p>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="cd-main"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
             >
-              <svg
-                height="20"
-                viewBox="0 0 32 32"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
-                  fill="url(#cd-main_svg__a)"
-                  fill-rule="evenodd"
-                />
-                <defs>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="cd-main_svg__a"
-                    x1="6.774"
-                    x2="21.5"
-                    y1="2"
-                    y2="30"
+                <div
+                  class="AvatarGroup--stack"
+                  style="--avatar-over-lap: -13px;"
+                >
+                  <div
+                    class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
                   >
-                    <stop
-                      stop-color="#62F91F"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#45BD35"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </span>
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="ci-main"
-            >
-              <svg
-                height="20"
-                viewBox="0 0 32 32"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-popover-wrapper Avatar--avatarPopOver"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Avatar--AvatarInner"
+                          style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
+                          tabindex="0"
+                        >
+                          +
+                        </div>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M29 16a13.02 13.02 0 01-.854 4.6.387.387 0 01-.637.13l-3.99-3.94a.534.534 0 01-.085-.628c.432-.827.649-1.773.649-2.762.056-3.222-2.6-5.878-5.879-5.878-1.04 0-1.994.26-2.823.706a.53.53 0 01-.623-.08l-3.551-3.504a.48.48 0 01.154-.794A12.79 12.79 0 0116 3c7.178 0 13 5.822 13 13zM8.476 5.42a.582.582 0 01.746.072l4.035 4.035c.179.178.194.46.054.67a5.829 5.829 0 00-.985 3.26 5.934 5.934 0 005.935 5.934 5.829 5.829 0 003.26-.985.531.531 0 01.67.054l4.367 4.368a.582.582 0 01.065.756C24.225 26.86 20.4 29 16 29 8.822 29 3 23.178 3 16c0-4.403 2.144-8.231 5.476-10.58zm9.785 11.71a3.932 3.932 0 003.956-3.956 3.932 3.932 0 00-3.956-3.957 3.932 3.932 0 00-3.957 3.957 3.932 3.932 0 003.957 3.956z"
-                  fill="url(#ci-main_svg__a)"
-                  fill-rule="evenodd"
-                />
-                <defs>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="ci-main_svg__a"
-                    x1="-5.398"
-                    x2="11.398"
-                    y1="11.398"
-                    y2="37.398"
-                  >
-                    <stop
-                      stop-color="#73DFE7"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#0095F7"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </span>
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="cf-main"
-            >
-              <svg
-                height="20"
-                viewBox="0 0 32 32"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.632 2.08A5.19 5.19 0 004.62 6.29L2.08 20.697a5.19 5.19 0 004.21 6.012l7.464 1.316a.2.2 0 00.207-.298L6.882 15.656c-.296-.469-.292-1.382.05-1.6.08-.05.313-.259.313-.259l.398-.436.066-.072c.37-.406.704-.773 1.76-1.302l.227-.079c1.548-.484 2.41-.449 3.27-.414.862.035 1.724.07 3.274-.414 1.272-.397 2.43-1.178 3.074-1.667a.622.622 0 01.9.15l4.596 7.362a.53.53 0 01-.101.696 8.694 8.694 0 01-2.834 1.538c-1.549.484-2.432.463-3.316.442-.884-.021-1.768-.042-3.318.442-1.314.41-1.868.948-2.07 1.204-.048.061-.07.21-.032.279.4.724 2.295 4.06 3.794 6.693a.998.998 0 00.695.49l3.07.541a5.19 5.19 0 006.012-4.21l2.54-14.408a5.19 5.19 0 00-4.21-6.012L10.633 2.08z"
-                  fill="url(#cf-main_svg__a)"
-                />
-                <path
-                  d="M16.646 13.074c-1.303.34-2.093.316-2.882.29-.79-.024-1.58-.049-2.881.291-.744.216-1.178.592-1.587 1.072a.197.197 0 00-.018.23l2.482 4.069c.064.106.209.13.307.055.374-.283 1.28-.9 2.42-1.198 1.469-.383 2.348-.375 3.273-.366.717.007 1.462.014 2.53-.16a4.454 4.454 0 001.629-.635.347.347 0 00.094-.488L19.472 12.3a.421.421 0 00-.56-.128 9.57 9.57 0 01-2.266.902z"
-                  fill="url(#cf-main_svg__b)"
-                />
-                <defs>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="cf-main_svg__a"
-                    x1="6.837"
-                    x2="23.78"
-                    y1="2"
-                    y2="28.227"
-                  >
-                    <stop
-                      stop-color="#FFC100"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#E66B35"
-                    />
-                  </lineargradient>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="cf-main_svg__b"
-                    x1="6.837"
-                    x2="23.78"
-                    y1="2"
-                    y2="28.227"
-                  >
-                    <stop
-                      stop-color="#FFC100"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#E66B35"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </span>
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="ce-main"
-            >
-              <svg
-                height="20"
-                viewBox="0 0 32 32"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15.84 26.552a.5.5 0 00.5.5h8.343v-.005a6.579 6.579 0 00.284-13.13.548.548 0 01-.492-.429C23.563 9.21 19.761 6 15.21 6a9.473 9.473 0 00-9.474 9.473c0 .056-.039.103-.093.114a5.791 5.791 0 001.146 11.465h6.661a.5.5 0 00.5-.5v-1.568a.527.527 0 00-.436-.51c-1.04-.2-1.932-.63-2.542-1.244-.546-.55-.872-1.232-.973-2.032-.035-.277.194-.505.474-.504l1.113.005c.268.001.48.215.541.475.256 1.093 1.245 1.813 2.711 1.82.571.003 2.7-.264 2.707-1.736.006-1.177-1.542-1.623-3.006-1.984a38.2 38.2 0 01-.758-.193c-1.656-.44-3.407-.943-3.398-3.062.01-2.058 1.742-3.119 3.567-3.335V10.71a.5.5 0 01.5-.5h.887a.5.5 0 01.5.5v2.028c1.316.212 3.089.878 3.39 2.906.04.28-.19.512-.472.511l-1.12-.005c-.256-.001-.463-.2-.54-.445-.29-.926-1.2-1.488-2.532-1.494-.886-.005-2.17.466-2.176 1.54-.005.973.74 1.305 3.52 2.023l.369.094.148.036c1.06.256 3.232.78 3.221 3.11-.008 1.839-1.265 3.096-3.364 3.47a.526.526 0 00-.442.511v1.557z"
-                  fill="url(#ce-main_svg__a)"
-                />
-                <defs>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="ce-main_svg__a"
-                    x1="5.821"
-                    x2="19.271"
-                    y1="4.393"
-                    y2="33.469"
-                  >
-                    <stop
-                      stop-color="#00CFDE"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#05A660"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </span>
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="cv-main"
-            >
-              <svg
-                height="20"
-                viewBox="0 0 32 32"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M25.933 24.357A12.972 12.972 0 0116 28.969a12.972 12.972 0 01-9.933-4.612l6.025-3.834A5.976 5.976 0 0016 21.969a5.977 5.977 0 003.907-1.446l6.026 3.834zm1.066-1.455l-5.906-3.759a6.001 6.001 0 00-4.193-9.107V3C23.66 3.462 29 9.092 29 15.97a12.94 12.94 0 01-2 6.932zM15.1 3C8.34 3.462 3 9.092 3 15.97c0 2.548.733 4.925 2 6.932l5.907-3.759a6.001 6.001 0 014.192-9.107V3z"
-                  fill="url(#cv-main_svg__paint0_linear_20630_159361)"
-                  fill-rule="evenodd"
-                />
-                <path
-                  clip-rule="evenodd"
-                  d="M19.558 13.286a.9.9 0 01-.044 1.272l-4.286 4a.9.9 0 01-1.228 0l-1.714-1.6a.9.9 0 011.228-1.316l1.1 1.027 3.672-3.427a.9.9 0 011.272.044z"
-                  fill="#AE82FC"
-                  fill-rule="evenodd"
-                />
-                <defs>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="cv-main_svg__paint0_linear_20630_159361"
-                    x1="7.5"
-                    x2="20.926"
-                    y1="3"
-                    y2="28.987"
-                  >
-                    <stop
-                      stop-color="#BEA1FF"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#8A36FF"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </span>
+                projectsOrgs.noCollaborators
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main layout"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-popover-wrapper bp3-dark"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
             >
               <span
-                class="bp3-popover-target"
+                class="bp3-icon StyledProps--main"
+                data-icon="cd-main"
               >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  data-testid="menu-Drone_Data_SupplierHarness"
-                  type="button"
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="Options"
-                  >
-                    <svg
-                      fill="currentColor"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <path
+                    clip-rule="evenodd"
+                    d="M26.427 7.06A5.073 5.073 0 0129 11.52l-.077 8.934a5.073 5.073 0 01-2.537 4.35l-8.002 4.618a5.073 5.073 0 01-5.035.021l-7.776-4.402A5.073 5.073 0 013 20.583l.077-8.935a5.073 5.073 0 012.537-4.35l8.002-4.619a5.073 5.073 0 015.035-.02l7.776 4.402zm-2.83 6.938c-.42 1.586-2.029 2.538-3.601 2.141l-7.489-2.026a4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.925 4.835 4.835 0 00.479 3.664 4.757 4.757 0 002.905 2.251 4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.924l.26-1.047a.25.25 0 00-.177-.302l-1.258-.34a.25.25 0 00-.307.18l-.256 1.025c-.426 1.602-2.064 2.556-3.651 2.127-1.582-.428-2.523-2.073-2.1-3.67.421-1.586 2.03-2.538 3.602-2.142l7.489 2.027a4.696 4.696 0 003.62-.48 4.773 4.773 0 002.222-2.925 4.835 4.835 0 00-.479-3.664 4.757 4.757 0 00-2.905-2.251 4.696 4.696 0 00-3.62.48 4.773 4.773 0 00-2.222 2.924l-.247.828a.25.25 0 00.174.312l1.259.34a.25.25 0 00.304-.169l.248-.827c.426-1.602 2.064-2.557 3.651-2.127 1.582.428 2.523 2.073 2.1 3.67z"
+                    fill="url(#cd-main_svg__a)"
+                    fill-rule="evenodd"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="cd-main_svg__a"
+                      x1="6.774"
+                      x2="21.5"
+                      y1="2"
+                      y2="30"
                     >
-                      <circle
-                        cx="2"
-                        cy="2"
-                        r="1.5"
+                      <stop
+                        stop-color="#62F91F"
                       />
-                      <circle
-                        cx="2"
-                        cy="8"
-                        r="1.5"
+                      <stop
+                        offset="1"
+                        stop-color="#45BD35"
                       />
-                      <circle
-                        cx="2"
-                        cy="14"
-                        r="1.5"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                    </lineargradient>
+                  </defs>
+                </svg>
               </span>
-            </span>
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="ci-main"
+              >
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M29 16a13.02 13.02 0 01-.854 4.6.387.387 0 01-.637.13l-3.99-3.94a.534.534 0 01-.085-.628c.432-.827.649-1.773.649-2.762.056-3.222-2.6-5.878-5.879-5.878-1.04 0-1.994.26-2.823.706a.53.53 0 01-.623-.08l-3.551-3.504a.48.48 0 01.154-.794A12.79 12.79 0 0116 3c7.178 0 13 5.822 13 13zM8.476 5.42a.582.582 0 01.746.072l4.035 4.035c.179.178.194.46.054.67a5.829 5.829 0 00-.985 3.26 5.934 5.934 0 005.935 5.934 5.829 5.829 0 003.26-.985.531.531 0 01.67.054l4.367 4.368a.582.582 0 01.065.756C24.225 26.86 20.4 29 16 29 8.822 29 3 23.178 3 16c0-4.403 2.144-8.231 5.476-10.58zm9.785 11.71a3.932 3.932 0 003.956-3.956 3.932 3.932 0 00-3.956-3.957 3.932 3.932 0 00-3.957 3.957 3.932 3.932 0 003.957 3.956z"
+                    fill="url(#ci-main_svg__a)"
+                    fill-rule="evenodd"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="ci-main_svg__a"
+                      x1="-5.398"
+                      x2="11.398"
+                      y1="11.398"
+                      y2="37.398"
+                    >
+                      <stop
+                        stop-color="#73DFE7"
+                      />
+                      <stop
+                        offset="1"
+                        stop-color="#0095F7"
+                      />
+                    </lineargradient>
+                  </defs>
+                </svg>
+              </span>
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="cf-main"
+              >
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.632 2.08A5.19 5.19 0 004.62 6.29L2.08 20.697a5.19 5.19 0 004.21 6.012l7.464 1.316a.2.2 0 00.207-.298L6.882 15.656c-.296-.469-.292-1.382.05-1.6.08-.05.313-.259.313-.259l.398-.436.066-.072c.37-.406.704-.773 1.76-1.302l.227-.079c1.548-.484 2.41-.449 3.27-.414.862.035 1.724.07 3.274-.414 1.272-.397 2.43-1.178 3.074-1.667a.622.622 0 01.9.15l4.596 7.362a.53.53 0 01-.101.696 8.694 8.694 0 01-2.834 1.538c-1.549.484-2.432.463-3.316.442-.884-.021-1.768-.042-3.318.442-1.314.41-1.868.948-2.07 1.204-.048.061-.07.21-.032.279.4.724 2.295 4.06 3.794 6.693a.998.998 0 00.695.49l3.07.541a5.19 5.19 0 006.012-4.21l2.54-14.408a5.19 5.19 0 00-4.21-6.012L10.633 2.08z"
+                    fill="url(#cf-main_svg__a)"
+                  />
+                  <path
+                    d="M16.646 13.074c-1.303.34-2.093.316-2.882.29-.79-.024-1.58-.049-2.881.291-.744.216-1.178.592-1.587 1.072a.197.197 0 00-.018.23l2.482 4.069c.064.106.209.13.307.055.374-.283 1.28-.9 2.42-1.198 1.469-.383 2.348-.375 3.273-.366.717.007 1.462.014 2.53-.16a4.454 4.454 0 001.629-.635.347.347 0 00.094-.488L19.472 12.3a.421.421 0 00-.56-.128 9.57 9.57 0 01-2.266.902z"
+                    fill="url(#cf-main_svg__b)"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="cf-main_svg__a"
+                      x1="6.837"
+                      x2="23.78"
+                      y1="2"
+                      y2="28.227"
+                    >
+                      <stop
+                        stop-color="#FFC100"
+                      />
+                      <stop
+                        offset="1"
+                        stop-color="#E66B35"
+                      />
+                    </lineargradient>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="cf-main_svg__b"
+                      x1="6.837"
+                      x2="23.78"
+                      y1="2"
+                      y2="28.227"
+                    >
+                      <stop
+                        stop-color="#FFC100"
+                      />
+                      <stop
+                        offset="1"
+                        stop-color="#E66B35"
+                      />
+                    </lineargradient>
+                  </defs>
+                </svg>
+              </span>
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="ce-main"
+              >
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M15.84 26.552a.5.5 0 00.5.5h8.343v-.005a6.579 6.579 0 00.284-13.13.548.548 0 01-.492-.429C23.563 9.21 19.761 6 15.21 6a9.473 9.473 0 00-9.474 9.473c0 .056-.039.103-.093.114a5.791 5.791 0 001.146 11.465h6.661a.5.5 0 00.5-.5v-1.568a.527.527 0 00-.436-.51c-1.04-.2-1.932-.63-2.542-1.244-.546-.55-.872-1.232-.973-2.032-.035-.277.194-.505.474-.504l1.113.005c.268.001.48.215.541.475.256 1.093 1.245 1.813 2.711 1.82.571.003 2.7-.264 2.707-1.736.006-1.177-1.542-1.623-3.006-1.984a38.2 38.2 0 01-.758-.193c-1.656-.44-3.407-.943-3.398-3.062.01-2.058 1.742-3.119 3.567-3.335V10.71a.5.5 0 01.5-.5h.887a.5.5 0 01.5.5v2.028c1.316.212 3.089.878 3.39 2.906.04.28-.19.512-.472.511l-1.12-.005c-.256-.001-.463-.2-.54-.445-.29-.926-1.2-1.488-2.532-1.494-.886-.005-2.17.466-2.176 1.54-.005.973.74 1.305 3.52 2.023l.369.094.148.036c1.06.256 3.232.78 3.221 3.11-.008 1.839-1.265 3.096-3.364 3.47a.526.526 0 00-.442.511v1.557z"
+                    fill="url(#ce-main_svg__a)"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="ce-main_svg__a"
+                      x1="5.821"
+                      x2="19.271"
+                      y1="4.393"
+                      y2="33.469"
+                    >
+                      <stop
+                        stop-color="#00CFDE"
+                      />
+                      <stop
+                        offset="1"
+                        stop-color="#05A660"
+                      />
+                    </lineargradient>
+                  </defs>
+                </svg>
+              </span>
+              <span
+                class="bp3-icon StyledProps--main"
+                data-icon="cv-main"
+              >
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M25.933 24.357A12.972 12.972 0 0116 28.969a12.972 12.972 0 01-9.933-4.612l6.025-3.834A5.976 5.976 0 0016 21.969a5.977 5.977 0 003.907-1.446l6.026 3.834zm1.066-1.455l-5.906-3.759a6.001 6.001 0 00-4.193-9.107V3C23.66 3.462 29 9.092 29 15.97a12.94 12.94 0 01-2 6.932zM15.1 3C8.34 3.462 3 9.092 3 15.97c0 2.548.733 4.925 2 6.932l5.907-3.759a6.001 6.001 0 014.192-9.107V3z"
+                    fill="url(#cv-main_svg__paint0_linear_20630_159361)"
+                    fill-rule="evenodd"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M19.558 13.286a.9.9 0 01-.044 1.272l-4.286 4a.9.9 0 01-1.228 0l-1.714-1.6a.9.9 0 011.228-1.316l1.1 1.027 3.672-3.427a.9.9 0 011.272.044z"
+                    fill="#AE82FC"
+                    fill-rule="evenodd"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="cv-main_svg__paint0_linear_20630_159361"
+                      x1="7.5"
+                      x2="20.926"
+                      y1="3"
+                      y2="28.987"
+                    >
+                      <stop
+                        stop-color="#BEA1FF"
+                      />
+                      <stop
+                        offset="1"
+                        stop-color="#8A36FF"
+                      />
+                    </lineargradient>
+                  </defs>
+                </svg>
+              </span>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main layout"
+            >
+              <span
+                class="bp3-popover-wrapper bp3-dark"
+              >
+                <span
+                  class="bp3-popover-target"
+                >
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    data-testid="menu-Drone_Data_SupplierHarness"
+                    type="button"
+                  >
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="Options"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="16"
+                        viewBox="0 0 4 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="2"
+                          cy="2"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="8"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="14"
+                          r="1.5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -2026,171 +2050,137 @@ exports[`Project List render 1`] = `
         role="row"
       >
         <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 30%;"
+          class="TableV2--cells"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 30%;"
           >
             <div
-              class="colorbox"
-              style="background-color: rgb(230, 184, 0);"
-            />
-            <div
-              class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
             >
               <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                class="colorbox"
+                style="background-color: rgb(230, 184, 0);"
+              />
+              <div
+                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main verticalCenter StyledProps--padding-left-small"
               >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
-                  style="--text-line-clamp: 1;"
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
                 >
-                  Swagger
-                </p>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-black"
+                    style="--text-line-clamp: 1;"
                   >
-                    <div
-                      class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-                      tabindex="0"
+                    Swagger
+                  </p>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <div
+                        class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main"
+                          data-icon="main-tags"
+                        >
+                          <svg
+                            height="15"
+                            viewBox="0 0 14 14"
+                            width="15"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                        <p
+                          class="StyledProps--font StyledProps--main"
+                        >
+                          2
+                        </p>
+                      </div>
+                    </span>
+                  </span>
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target"
                     >
                       <span
                         class="bp3-icon StyledProps--main"
-                        data-icon="main-tags"
+                        data-icon="description"
+                        tabindex="0"
                       >
                         <svg
-                          height="15"
-                          viewBox="0 0 14 14"
-                          width="15"
+                          fill="none"
+                          height="18"
+                          width="18"
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path
-                            d="M7 0h-.2c-.2 0-.4.1-.6.3l-6 6c-.3.3-.3.8 0 1.1L2 9.1l4.6 4.6c.3.3.8.3 1.1 0l6-6c.2-.1.3-.3.3-.5v-.7-.3-1.3-2c0-.5-.4-1-1-1h-.9V1c0-.5-.4-1-1-1H7zm0 .6h4.2c.2 0 .4.2.4.4v.9h-1.1c-.3-.3-.5-.4-.8-.4s-.4.1-.6.3h-.5c-.2.1-.4.1-.6.3l-6 6s-.1.1-.1.2L.7 6.9c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1c0 .1.1.1.1.1zm1.9 1.8H13c.2 0 .4.2.4.4v4.3s0 .2-.1.2l-6 6c-.1.1-.2.1-.3 0L2.5 8.8c-.1-.1-.1-.2 0-.3l6-6s.1-.1.2-.1zm2.7.9c-.2 0-.5.1-.6.3-.4.4-.4.9 0 1.3s.9.4 1.3 0 .4-.9 0-1.3c-.3-.2-.5-.3-.7-.3zm0 .7c.1 0 .2 0 .2.1.1.1.1.3 0 .4s-.3.1-.4 0-.1-.3 0-.4c0-.1.1-.1.2-.1z"
-                            fill="#4d5969"
+                          <g
+                            opacity="0.3"
+                          >
+                            <mask
+                              fill="#fff"
+                              id="description_svg__a"
+                            >
+                              <path
+                                d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
+                                fill-rule="evenodd"
+                              />
+                            </mask>
+                            <path
+                              d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
+                              fill="#6b6d85"
+                              mask="url(#description_svg__a)"
+                            />
+                          </g>
+                          <rect
+                            height="13.5"
+                            rx="1"
+                            stroke="#6b6d85"
+                            width="10.5"
+                            x="3.75"
+                            y="2.25"
                           />
                         </svg>
                       </span>
-                      <p
-                        class="StyledProps--font StyledProps--main"
-                      >
-                        2
-                      </p>
-                    </div>
-                  </span>
-                </span>
-                <span
-                  class="bp3-popover-wrapper"
-                >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="description"
-                      tabindex="0"
-                    >
-                      <svg
-                        fill="none"
-                        height="18"
-                        width="18"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g
-                          opacity="0.3"
-                        >
-                          <mask
-                            fill="#fff"
-                            id="description_svg__a"
-                          >
-                            <path
-                              d="M6.75 6.625a.5.5 0 100 1h4.5a.5.5 0 100-1h-4.5zm-.5 2.75a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5zm0 2.25a.5.5 0 01.5-.5h4.5a.5.5 0 110 1h-4.5a.5.5 0 01-.5-.5z"
-                              fill-rule="evenodd"
-                            />
-                          </mask>
-                          <path
-                            d="M7.25 7.125a.5.5 0 01-.5.5v-2a1.5 1.5 0 00-1.5 1.5h2zm-.5-.5a.5.5 0 01.5.5h-2a1.5 1.5 0 001.5 1.5v-2zm4.5 0h-4.5v2h4.5v-2zm-.5.5a.5.5 0 01.5-.5v2a1.5 1.5 0 001.5-1.5h-2zm.5.5a.5.5 0 01-.5-.5h2a1.5 1.5 0 00-1.5-1.5v2zm-4.5 0h4.5v-2h-4.5v2zm0 .25a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2zm1.5.75a1.5 1.5 0 00-1.5 1.5h2a.5.5 0 01-.5.5v-2zm4.5 0h-4.5v2h4.5v-2zm1.5 1.5a1.5 1.5 0 00-1.5-1.5v2a.5.5 0 01-.5-.5h2zm-1.5 1.5a1.5 1.5 0 001.5-1.5h-2a.5.5 0 01.5-.5v2zm-4.5 0h4.5v-2h-4.5v2zm-1.5-1.5a1.5 1.5 0 001.5 1.5v-2a.5.5 0 01.5.5h-2z"
-                            fill="#6b6d85"
-                            mask="url(#description_svg__a)"
-                          />
-                        </g>
-                        <rect
-                          height="13.5"
-                          rx="1"
-                          stroke="#6b6d85"
-                          width="10.5"
-                          x="3.75"
-                          y="2.25"
-                        />
-                      </svg>
                     </span>
                   </span>
-                </span>
-              </div>
-              <p
-                class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
-                style="--text-line-clamp: 1;"
-              >
-                idLabel
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 20%;"
-        >
-          <p
-            class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
-            style="--text-line-clamp: 1;"
-          />
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-          >
-            <div
-              class="AvatarGroup--stack"
-              style="--avatar-over-lap: -13px;"
-            >
-              <div
-                class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
-              >
-                <span
-                  class="bp3-popover-wrapper Avatar--avatarPopOver"
+                </div>
+                <p
+                  class="StyledProps--font Text--lineclamp StyledProps--main project StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small"
+                  style="--text-line-clamp: 1;"
                 >
-                  <span
-                    class="bp3-popover-target"
-                  >
-                    <div
-                      class="Avatar--AvatarInner"
-                      style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
-                      tabindex="0"
-                    >
-                      +
-                    </div>
-                  </span>
-                </span>
+                  idLabel
+                </p>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 20%;"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main org StyledProps--color StyledProps--color-black"
+              style="--text-line-clamp: 1;"
+            />
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
             <div
               class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
@@ -2220,109 +2210,147 @@ exports[`Project List render 1`] = `
                 </div>
               </div>
             </div>
-            <p
-              class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
-            >
-              projectsOrgs.noCollaborators
-            </p>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 15%;"
-        >
           <div
-            class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="ci-main"
+            <div
+              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-inline"
             >
-              <svg
-                height="20"
-                viewBox="0 0 32 32"
-                width="20"
-                xmlns="http://www.w3.org/2000/svg"
+              <div
+                class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
               >
-                <path
-                  clip-rule="evenodd"
-                  d="M29 16a13.02 13.02 0 01-.854 4.6.387.387 0 01-.637.13l-3.99-3.94a.534.534 0 01-.085-.628c.432-.827.649-1.773.649-2.762.056-3.222-2.6-5.878-5.879-5.878-1.04 0-1.994.26-2.823.706a.53.53 0 01-.623-.08l-3.551-3.504a.48.48 0 01.154-.794A12.79 12.79 0 0116 3c7.178 0 13 5.822 13 13zM8.476 5.42a.582.582 0 01.746.072l4.035 4.035c.179.178.194.46.054.67a5.829 5.829 0 00-.985 3.26 5.934 5.934 0 005.935 5.934 5.829 5.829 0 003.26-.985.531.531 0 01.67.054l4.367 4.368a.582.582 0 01.065.756C24.225 26.86 20.4 29 16 29 8.822 29 3 23.178 3 16c0-4.403 2.144-8.231 5.476-10.58zm9.785 11.71a3.932 3.932 0 003.956-3.956 3.932 3.932 0 00-3.956-3.957 3.932 3.932 0 00-3.957 3.957 3.932 3.932 0 003.957 3.956z"
-                  fill="url(#ci-main_svg__a)"
-                  fill-rule="evenodd"
-                />
-                <defs>
-                  <lineargradient
-                    gradientUnits="userSpaceOnUse"
-                    id="ci-main_svg__a"
-                    x1="-5.398"
-                    x2="11.398"
-                    y1="11.398"
-                    y2="37.398"
+                <div
+                  class="AvatarGroup--stack"
+                  style="--avatar-over-lap: -13px;"
+                >
+                  <div
+                    class="AvatarGroup--stackAvatar Avatar--Avatar Avatar--contentStyle"
                   >
-                    <stop
-                      stop-color="#73DFE7"
-                    />
-                    <stop
-                      offset="1"
-                      stop-color="#0095F7"
-                    />
-                  </lineargradient>
-                </defs>
-              </svg>
-            </span>
+                    <span
+                      class="bp3-popover-wrapper Avatar--avatarPopOver"
+                    >
+                      <span
+                        class="bp3-popover-target"
+                      >
+                        <div
+                          class="Avatar--AvatarInner"
+                          style="border-radius: 100%; line-height: 25px; width: 32px; height: 32px; font-size: 20px; font-weight: 200;"
+                          tabindex="0"
+                        >
+                          +
+                        </div>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey350"
+              >
+                projectsOrgs.noCollaborators
+              </p>
+            </div>
           </div>
-        </div>
-        <div
-          class="TableV2--cell"
-          role="cell"
-          style="width: 5%;"
-        >
           <div
-            class="Layout--horizontal StyledProps--main layout"
+            class="TableV2--cell"
+            role="cell"
+            style="width: 15%;"
           >
-            <span
-              class="bp3-popover-wrapper bp3-dark"
+            <div
+              class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main"
             >
               <span
-                class="bp3-popover-target"
+                class="bp3-icon StyledProps--main"
+                data-icon="ci-main"
               >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  data-testid="menu-SwaggerHarness"
-                  type="button"
+                <svg
+                  height="20"
+                  viewBox="0 0 32 32"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="Options"
-                  >
-                    <svg
-                      fill="currentColor"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                  <path
+                    clip-rule="evenodd"
+                    d="M29 16a13.02 13.02 0 01-.854 4.6.387.387 0 01-.637.13l-3.99-3.94a.534.534 0 01-.085-.628c.432-.827.649-1.773.649-2.762.056-3.222-2.6-5.878-5.879-5.878-1.04 0-1.994.26-2.823.706a.53.53 0 01-.623-.08l-3.551-3.504a.48.48 0 01.154-.794A12.79 12.79 0 0116 3c7.178 0 13 5.822 13 13zM8.476 5.42a.582.582 0 01.746.072l4.035 4.035c.179.178.194.46.054.67a5.829 5.829 0 00-.985 3.26 5.934 5.934 0 005.935 5.934 5.829 5.829 0 003.26-.985.531.531 0 01.67.054l4.367 4.368a.582.582 0 01.065.756C24.225 26.86 20.4 29 16 29 8.822 29 3 23.178 3 16c0-4.403 2.144-8.231 5.476-10.58zm9.785 11.71a3.932 3.932 0 003.956-3.956 3.932 3.932 0 00-3.956-3.957 3.932 3.932 0 00-3.957 3.957 3.932 3.932 0 003.957 3.956z"
+                    fill="url(#ci-main_svg__a)"
+                    fill-rule="evenodd"
+                  />
+                  <defs>
+                    <lineargradient
+                      gradientUnits="userSpaceOnUse"
+                      id="ci-main_svg__a"
+                      x1="-5.398"
+                      x2="11.398"
+                      y1="11.398"
+                      y2="37.398"
                     >
-                      <circle
-                        cx="2"
-                        cy="2"
-                        r="1.5"
+                      <stop
+                        stop-color="#73DFE7"
                       />
-                      <circle
-                        cx="2"
-                        cy="8"
-                        r="1.5"
+                      <stop
+                        offset="1"
+                        stop-color="#0095F7"
                       />
-                      <circle
-                        cx="2"
-                        cy="14"
-                        r="1.5"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                    </lineargradient>
+                  </defs>
+                </svg>
               </span>
-            </span>
+            </div>
+          </div>
+          <div
+            class="TableV2--cell"
+            role="cell"
+            style="width: 5%;"
+          >
+            <div
+              class="Layout--horizontal StyledProps--main layout"
+            >
+              <span
+                class="bp3-popover-wrapper bp3-dark"
+              >
+                <span
+                  class="bp3-popover-target"
+                >
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    data-testid="menu-SwaggerHarness"
+                    type="button"
+                  >
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="Options"
+                    >
+                      <svg
+                        fill="currentColor"
+                        height="16"
+                        viewBox="0 0 4 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="2"
+                          cy="2"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="8"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="14"
+                          r="1.5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
+              </span>
+            </div>
           </div>
         </div>
       </div>

@@ -43,6 +43,7 @@ export type UpdateSelectedMetricsMap = {
   oldMetric: string
   mappedMetrics: Map<string, DatadogLogsInfo>
   formikProps: FormikProps<DatadogLogsInfo | undefined>
+  isConnectorRuntimeOrExpression?: boolean
 }
 
 export interface DatadogLogsQueryDefinition {

@@ -86,6 +86,7 @@ export class StepGroupStep extends PipelineStep<StepGroupElementConfig> {
 
   protected defaultValues: StepGroupElementConfig = {
     identifier: '',
+    name: '',
     steps: []
   }
 }

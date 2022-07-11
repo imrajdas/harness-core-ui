@@ -223,6 +223,22 @@ function PipelineStepNode(props: PipelineStepNodeProps): JSX.Element {
             </Text>
           </div>
         )}
+        {props.data?.loopingStrategyEnabled && (
+          <div className={defaultCss.loopingStrategy}>
+            <Text
+              tooltip={getString('pipeline.loopingStrategy.title')}
+              tooltipProps={{
+                isDark: true
+              }}
+            >
+              <Icon
+                size={16}
+                name={'looping'}
+                {...(isSelectedNode() ? { color: Color.WHITE, className: defaultCss.primaryIcon, inverse: true } : {})}
+              />
+            </Text>
+          </div>
+        )}
         {isTemplateNode && (
           <Icon
             {...(isSelectedNode()

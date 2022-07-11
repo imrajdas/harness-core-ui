@@ -6,7 +6,7 @@
  */
 
 import React, { useEffect, useMemo, useState } from 'react'
-import { isEmpty } from 'lodash-es'
+import { defaultTo, isEmpty } from 'lodash-es'
 import HighchartsReact from 'highcharts-react-official'
 import Highcharts from 'highcharts'
 import { IDrawerProps, Position, Drawer } from '@blueprintjs/core'
@@ -16,19 +16,17 @@ import {
   Text,
   Utils,
   useConfirmationDialog,
-  Button,
   MultiTypeInputType,
   getMultiTypeFromValue
 } from '@wings-software/uicore'
 import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 import { ResponseListPrometheusSampleData, useGetSampleData } from 'services/cv'
-import MultiTypeFieldSelector from '@common/components/MultiTypeFieldSelector/MultiTypeFieldSelector'
-import { ShellScriptMonacoField } from '@common/components/ShellScriptMonaco/ShellScriptMonaco'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { Records } from '@cv/components/Records/Records'
 import { QueryContent } from '@cv/components/QueryViewer/QueryViewer'
 import { getErrorMessage } from '@cv/utils/CommonUtils'
+import CVMultiTypeQuery from '@cv/components/CVMultiTypeQuery/CVMultiTypeQuery'
 import { transformPrometheusSampleData, createPrometheusQuery } from './PrometheusQueryViewer.utils'
 import {
   MapPrometheusQueryToService,
@@ -93,7 +91,7 @@ export function ChartAndRecords(props: ChartAndRecordsProps): JSX.Element {
         />
       </>
     )
-  } else if (!records?.length && isQueryRuntimeOrEpression) {
+  } else if (isQueryRuntimeOrEpression) {
     return (
       <Records
         fetchRecords={fetchData}
@@ -101,7 +99,7 @@ export function ChartAndRecords(props: ChartAndRecordsProps): JSX.Element {
         data={!query?.length ? null : records}
         error={error}
         query={query}
-        isQueryExecuted={isQueryExecuted}
+        isQueryExecuted={false}
         queryNotExecutedMessage={getString('cv.customHealthSource.chartRuntimeWarning')}
       />
     )
@@ -124,6 +122,8 @@ export function PrometheusQueryViewer(props: PrometheusQueryViewerProps): JSX.El
   const { getString } = useStrings()
   const { projectIdentifier, orgIdentifier, accountId } = useParams<ProjectPathProps>()
   const [isQueryExecuted, setIsQueryExecuted] = useState(false)
+  const isConnectorRuntimeOrExpression = getMultiTypeFromValue(connectorIdentifier) !== MultiTypeInputType.FIXED
+
   const query = useMemo(() => {
     if (values?.isManualQuery) {
       return values.query?.length ? values.query : ''
@@ -156,53 +156,38 @@ export function PrometheusQueryViewer(props: PrometheusQueryViewerProps): JSX.El
   })
   const isManualQuery = Boolean(values?.isManualQuery)
   const isQueryRuntimeOrEpression = getMultiTypeFromValue(query) !== MultiTypeInputType.FIXED
+
+  useEffect(() => {
+    if (isTemplate) {
+      onChange(PrometheusMonitoringSourceFieldNames.IS_MANUAL_QUERY, true)
+    }
+  }, [isTemplate, values?.isManualQuery, isConnectorRuntimeOrExpression])
+
   let content = (
     <>
       {isTemplate ? (
-        <MultiTypeFieldSelector
+        <CVMultiTypeQuery
+          key={values?.identifier}
           name={PrometheusMonitoringSourceFieldNames.QUERY}
-          label={getString('cv.query')}
-          defaultValueToReset=""
-          skipRenderValueInExpressionLabel
-          allowedTypes={[MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]}
-          expressionRender={() => {
-            return (
-              <ShellScriptMonacoField
-                name={PrometheusMonitoringSourceFieldNames.QUERY}
-                scriptType={'Bash'}
-                expressions={expressions}
-                editorOptions={{ lineNumbers: 'off' }}
-              />
-            )
-          }}
-        >
-          <ShellScriptMonacoField
-            name={PrometheusMonitoringSourceFieldNames.QUERY}
-            scriptType={'Bash'}
-            editorOptions={{ lineNumbers: 'off' }}
-          />
-          <Button
-            intent="primary"
-            text={getString('cv.monitoringSources.gcoLogs.fetchRecords')}
-            onClick={async () => {
-              cancel()
-              await refetch({
-                queryParams: {
-                  accountId,
-                  projectIdentifier,
-                  orgIdentifier,
-                  query: query || '',
-                  tracingId: Utils.randomId(),
-                  connectorIdentifier: connectorIdentifier as string
-                }
-              })
-              if (!isQueryExecuted) {
-                setIsQueryExecuted(true)
+          expressions={defaultTo(expressions, [])}
+          disableFetchButton={isConnectorRuntimeOrExpression || isEmpty(query)}
+          fetchRecords={async () => {
+            cancel()
+            await refetch({
+              queryParams: {
+                accountId,
+                projectIdentifier,
+                orgIdentifier,
+                query: query || '',
+                tracingId: Utils.randomId(),
+                connectorIdentifier: connectorIdentifier as string
               }
-            }}
-            disabled={isEmpty(query) || loading}
-          />
-        </MultiTypeFieldSelector>
+            })
+            if (!isQueryExecuted) {
+              setIsQueryExecuted(true)
+            }
+          }}
+        />
       ) : (
         <QueryContent
           handleFetchRecords={async () => {
@@ -249,10 +234,10 @@ export function PrometheusQueryViewer(props: PrometheusQueryViewerProps): JSX.El
         query={query}
         isQueryExecuted={isQueryExecuted}
         onChange={onChange}
-        data={data}
+        data={isQueryRuntimeOrEpression ? null : data}
         error={getErrorMessage(error)}
         loading={loading}
-        isQueryRuntimeOrEpression={isQueryRuntimeOrEpression}
+        isQueryRuntimeOrEpression={isQueryRuntimeOrEpression || isConnectorRuntimeOrExpression}
       />
     </>
   )

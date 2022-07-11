@@ -23,6 +23,10 @@ describe('Custom domain mapping', () => {
           setHelpTextSections={jest.fn()}
           setGatewayDetails={jest.fn()}
           gatewayDetails={initialGatewayDetails}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -45,6 +49,10 @@ describe('Custom domain mapping', () => {
           setHelpTextSections={jest.fn()}
           setGatewayDetails={jest.fn()}
           gatewayDetails={initialGatewayDetails}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )

@@ -104,7 +104,10 @@ jest.mock('services/lw', () => ({
     mutate: jest.fn(() => Promise.resolve({ response: mockedSecurityGroupResponse })),
     loading: false
   })),
-  useEditAccessPoint: jest.fn().mockImplementation(() => ({ mutate: Promise.resolve() }))
+  useEditAccessPoint: jest.fn().mockImplementation(() => ({ mutate: Promise.resolve() })),
+  useValidateCustomDomains: jest
+    .fn()
+    .mockImplementation(() => ({ mutate: jest.fn(() => Promise.resolve({ response: null })) }))
 }))
 
 describe('Use DNS for Setup', () => {
@@ -117,6 +120,10 @@ describe('Use DNS for Setup', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -132,6 +139,10 @@ describe('Use DNS for Setup', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -180,6 +191,10 @@ describe('Use DNS for Setup', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -228,6 +243,10 @@ describe('Use DNS for Setup', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -300,6 +319,10 @@ describe('Use DNS for Setup', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -322,6 +345,10 @@ describe('Use DNS for Setup', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -349,6 +376,10 @@ describe('Use DNS for Setup', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -386,6 +417,10 @@ describe('Azure DNS setup', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -420,6 +455,10 @@ describe('Resource Access url selector tests', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -454,6 +493,10 @@ describe('Resource Access url selector tests', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -478,6 +521,10 @@ describe('Resource Access url selector tests', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -503,6 +550,10 @@ describe('Load balancer advanced config', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -535,6 +586,10 @@ describe('Load balancer advanced config', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )
@@ -559,6 +614,10 @@ describe('Load balancer advanced config', () => {
           setHelpTextSections={jest.fn()}
           serverNames={[]}
           setServerNames={jest.fn()}
+          overrideRoute53={false}
+          setOverrideRoute53={jest.fn()}
+          domainsToOverlap={[]}
+          setDomainsToOverlap={jest.fn()}
         />
       </TestWrapper>
     )

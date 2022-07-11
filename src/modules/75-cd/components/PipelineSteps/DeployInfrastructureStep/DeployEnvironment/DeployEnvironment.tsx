@@ -114,7 +114,7 @@ function DeployEnvironment({
   const [environmentRefType, setEnvironmentRefType] = useState<MultiTypeInputType>(
     getMultiTypeFromValue(initialValues.environment?.environmentRef)
   )
-  const { template, updateTemplate } = useRunPipelineFormContext()
+  const { template: getTemplate, updateTemplate } = useRunPipelineFormContext()
 
   useEffect(() => {
     if (
@@ -179,7 +179,7 @@ function DeployEnvironment({
       !serviceOverrideInputsResponse?.data?.inputSetTemplateYaml &&
       path
     ) {
-      const updatedTemplate = produce(get(template, path), (draft: EnvironmentYamlV2) => {
+      const updatedTemplate = produce(getTemplate(path), (draft: EnvironmentYamlV2) => {
         if (draft) {
           delete draft.environmentInputs
           delete draft.serviceOverrideInputs

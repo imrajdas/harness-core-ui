@@ -59,7 +59,12 @@ export const getServiceObjectFromgatewayDetails = (
   const hasInstances = !_isEmpty(gatewayDetails.selectedInstances)
   const isK8sRule = Utils.isK8sRule(gatewayDetails)
   const isGcpProvider = Utils.isProviderGcp(gatewayDetails.provider)
+
+  /* Generating service routing obect from gatewayDetails routing */
   const routing: RoutingData = { ports: gatewayDetails.routing.ports, lb: undefined }
+  if ('override_dns_record' in gatewayDetails.routing) {
+    routing.override_dns_record = gatewayDetails.routing.override_dns_record
+  }
   let kind = GatewayKindType.INSTANCE
   if (isK8sRule) {
     // k8s rule check
@@ -98,8 +103,8 @@ export const getServiceObjectFromgatewayDetails = (
       scale_group: gatewayDetails.routing.instance.scale_group
     }
   }
-
   routing.custom_domain_providers = gatewayDetails.routing.custom_domain_providers
+
   const gateway: Service = {
     name: gatewayDetails.name,
     org_id: orgIdentifier,

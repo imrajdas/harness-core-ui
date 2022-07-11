@@ -33,6 +33,7 @@ import DetailsBreadcrumb from '@cv/pages/monitored-service/views/DetailsBreadcru
 import ServiceEnvironmentInputSet from './components/ServiceEnvironmentInputSet/ServiceEnvironmentInputSet'
 import HealthSourceInputset from './components/HealthSourceInputset/HealthSourceInputset'
 import MonitoredServiceInputsetVariables from './components/MonitoredServiceInputsetVariables/MonitoredServiceInputsetVariables'
+import { validateInputSet } from './MonitoredServiceInputSetsTemplate.utils'
 import css from './MonitoredServiceInputSetsTemplate.module.scss'
 
 export interface TemplateDataInterface {
@@ -108,9 +109,13 @@ export default function MonitoredServiceInputSetsTemplate({
     }
   })
 
-  const onSave = async (value: any) => {
-    monitoredServiceInputSet.serviceRef = value.serviceRef
-    monitoredServiceInputSet.environmentRef = value.environmentRef
+  const onSave = async (value: any): Promise<void> => {
+    if (monitoredServiceInputSet.serviceRef !== undefined) {
+      monitoredServiceInputSet.serviceRef = value.serviceRef
+    }
+    if (monitoredServiceInputSet.environmentRef !== undefined) {
+      monitoredServiceInputSet.environmentRef = value.environmentRef
+    }
     const populateSource = value.sources ? { sources: value.sources } : {}
     const populateVariables = value.variables ? { variables: value.variables } : {}
     const structure = {
@@ -141,6 +146,9 @@ export default function MonitoredServiceInputSetsTemplate({
   }
 
   let content = <></>
+  const healthSourcesWithRuntimeList = monitoredServiceInputSet?.sources?.healthSources?.map(
+    (healthSource: any) => healthSource.identifier
+  )
   if (loadingTemplateYaml) {
     content = <PageSpinner />
   } else if (errorTemplateYaml) {
@@ -176,14 +184,15 @@ export default function MonitoredServiceInputSetsTemplate({
         onSubmit={value => onSave(value)}
         initialValues={monitoredServiceInputSet}
         enableReinitialize
+        validate={value => validateInputSet(value, getString)}
       >
         {formik => {
           return (
             <Card>
               <Layout.Vertical>
                 <ServiceEnvironmentInputSet
-                  serviceValue={defaultTo(formik.values.serviceRef, '')}
-                  environmentValue={defaultTo(formik.values.environmentRef, '')}
+                  serviceValue={formik.values.serviceRef}
+                  environmentValue={formik.values.environmentRef}
                   onChange={formik.setFieldValue}
                   isReadOnlyInputSet={isReadOnlyInputSet}
                 />
@@ -191,6 +200,7 @@ export default function MonitoredServiceInputSetsTemplate({
                   templateRefData={templateRefData}
                   sourceType={formik?.values?.sourceType}
                   isReadOnlyInputSet={isReadOnlyInputSet}
+                  healthSourcesWithRuntimeList={healthSourcesWithRuntimeList}
                 />
                 <MonitoredServiceInputsetVariables monitoredServiceVariables={monitoredServiceInputSet?.variables} />
                 {!isReadOnlyInputSet && (

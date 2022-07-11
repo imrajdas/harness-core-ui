@@ -18,11 +18,11 @@ exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInpt
       >
         <label
           class="bp3-label"
-          for="sources.healthSources.0.spec.metricDefinitions.0.completeMetricPath"
+          for="sources.healthSources.0.spec.0.completeMetricPath"
         >
           <span
             class="Tooltip--acenter"
-            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.metricDefinitions.0.completeMetricPath"
+            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.0.completeMetricPath"
           >
             cv.healthSource.connectors.AppDynamics.metricPathType.text
           </span>
@@ -35,23 +35,18 @@ exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInpt
           class="bp3-form-content"
         >
           <div
-            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main"
           >
             <div
-              class="TextInput--main MultiTypeInput--input"
+              class="bp3-input-group MultiTypeInput--input"
             >
-              <div
-                class="bp3-input-group bp3-disabled"
-              >
-                <input
-                  class="bp3-input"
-                  disabled=""
-                  name="sources.healthSources.0.spec.metricDefinitions.0.completeMetricPath"
-                  placeholder="<+input>"
-                  type="text"
-                  value="<+input>"
-                />
-              </div>
+              <input
+                autocomplete="off"
+                class="bp3-input"
+                name="sources.healthSources.0.spec.0.completeMetricPath"
+                type="text"
+                value=""
+              />
             </div>
           </div>
         </div>
@@ -61,11 +56,11 @@ exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInpt
       >
         <label
           class="bp3-label"
-          for="sources.healthSources.0.spec.metricDefinitions.0.analysis.deploymentVerification.serviceInstanceMetricPath"
+          for="sources.healthSources.0.spec.0.analysis.deploymentVerification.serviceInstanceMetricPath"
         >
           <span
             class="Tooltip--acenter"
-            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.metricDefinitions.0.analysis.deploymentVerification.serviceInstanceMetricPath"
+            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.0.analysis.deploymentVerification.serviceInstanceMetricPath"
           >
             cv.healthSource.connectors.AppDynamics.serviceInstance
           </span>
@@ -78,23 +73,18 @@ exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInpt
           class="bp3-form-content"
         >
           <div
-            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main"
           >
             <div
-              class="TextInput--main MultiTypeInput--input"
+              class="bp3-input-group MultiTypeInput--input"
             >
-              <div
-                class="bp3-input-group bp3-disabled"
-              >
-                <input
-                  class="bp3-input"
-                  disabled=""
-                  name="sources.healthSources.0.spec.metricDefinitions.0.analysis.deploymentVerification.serviceInstanceMetricPath"
-                  placeholder="<+input>"
-                  type="text"
-                  value="<+input>"
-                />
-              </div>
+              <input
+                autocomplete="off"
+                class="bp3-input"
+                name="sources.healthSources.0.spec.0.analysis.deploymentVerification.serviceInstanceMetricPath"
+                type="text"
+                value=""
+              />
             </div>
           </div>
         </div>
@@ -113,11 +103,11 @@ exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInpt
       >
         <label
           class="bp3-label"
-          for="sources.healthSources.0.spec.metricDefinitions.1.completeMetricPath"
+          for="sources.healthSources.0.spec.1.completeMetricPath"
         >
           <span
             class="Tooltip--acenter"
-            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.metricDefinitions.1.completeMetricPath"
+            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.1.completeMetricPath"
           >
             cv.healthSource.connectors.AppDynamics.metricPathType.text
           </span>
@@ -130,23 +120,18 @@ exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInpt
           class="bp3-form-content"
         >
           <div
-            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main"
           >
             <div
-              class="TextInput--main MultiTypeInput--input"
+              class="bp3-input-group MultiTypeInput--input"
             >
-              <div
-                class="bp3-input-group bp3-disabled"
-              >
-                <input
-                  class="bp3-input"
-                  disabled=""
-                  name="sources.healthSources.0.spec.metricDefinitions.1.completeMetricPath"
-                  placeholder="<+input>"
-                  type="text"
-                  value="<+input>"
-                />
-              </div>
+              <input
+                autocomplete="off"
+                class="bp3-input"
+                name="sources.healthSources.0.spec.1.completeMetricPath"
+                type="text"
+                value=""
+              />
             </div>
           </div>
         </div>
@@ -156,11 +141,11 @@ exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInpt
       >
         <label
           class="bp3-label"
-          for="sources.healthSources.0.spec.metricDefinitions.1.analysis.deploymentVerification.serviceInstanceMetricPath"
+          for="sources.healthSources.0.spec.1.analysis.deploymentVerification.serviceInstanceMetricPath"
         >
           <span
             class="Tooltip--acenter"
-            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.metricDefinitions.1.analysis.deploymentVerification.serviceInstanceMetricPath"
+            data-tooltip-id="wrapperComponent_sources.healthSources.0.spec.1.analysis.deploymentVerification.serviceInstanceMetricPath"
           >
             cv.healthSource.connectors.AppDynamics.serviceInstance
           </span>
@@ -173,23 +158,18 @@ exports[`Validate MetricDefinitionInptsetForm should render MetricDefinitionInpt
           class="bp3-form-content"
         >
           <div
-            class="Layout--horizontal StyledProps--main MultiTypeInput--main MultiTypeInput--disabled"
+            class="Layout--horizontal StyledProps--main MultiTypeInput--main"
           >
             <div
-              class="TextInput--main MultiTypeInput--input"
+              class="bp3-input-group MultiTypeInput--input"
             >
-              <div
-                class="bp3-input-group bp3-disabled"
-              >
-                <input
-                  class="bp3-input"
-                  disabled=""
-                  name="sources.healthSources.0.spec.metricDefinitions.1.analysis.deploymentVerification.serviceInstanceMetricPath"
-                  placeholder="<+input>"
-                  type="text"
-                  value="<+input>"
-                />
-              </div>
+              <input
+                autocomplete="off"
+                class="bp3-input"
+                name="sources.healthSources.0.spec.1.analysis.deploymentVerification.serviceInstanceMetricPath"
+                type="text"
+                value=""
+              />
             </div>
           </div>
         </div>

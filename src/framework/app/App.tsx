@@ -10,13 +10,18 @@ import React, { useEffect, useState, Suspense } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { RestfulProvider } from 'restful-react'
 import { FocusStyleManager } from '@blueprintjs/core'
-import { TooltipContextProvider, PageSpinner, useToaster } from '@wings-software/uicore'
+import {
+  TooltipContextProvider,
+  PageSpinner,
+  useToaster,
+  MULTI_TYPE_INPUT_MENU_LEARN_MORE_STORAGE_KEY
+} from '@wings-software/uicore'
 import { tooltipDictionary } from '@wings-software/ng-tooltip'
 import { setAutoFreeze, enableMapSet } from 'immer'
 import SessionToken from 'framework/utils/SessionToken'
 
 import { AppStoreProvider } from 'framework/AppStore/AppStoreContext'
-import { PreferenceStoreProvider } from 'framework/PreferenceStore/PreferenceStoreContext'
+import { PreferenceStoreProvider, PREFERENCES_TOP_LEVEL_KEY } from 'framework/PreferenceStore/PreferenceStoreContext'
 
 import { LicenseStoreProvider } from 'framework/LicenseStore/LicenseStoreContext'
 // eslint-disable-next-line aliased-module-imports
@@ -42,7 +47,11 @@ import HelpPanelProvider from 'framework/utils/HelpPanelProvider'
 
 const RouteDestinations = React.lazy(() => import('modules/RouteDestinations'))
 
+const TOO_MANY_REQUESTS_MESSAGE = 'Too many requests received, please try again later'
+
 FocusStyleManager.onlyShowFocusOnTabs()
+SecureStorage.registerCleanupException(PREFERENCES_TOP_LEVEL_KEY)
+SecureStorage.registerCleanupException(MULTI_TYPE_INPUT_MENU_LEARN_MORE_STORAGE_KEY)
 
 // set up Immer
 setAutoFreeze(false)
@@ -174,6 +183,15 @@ export function AppWithAuthentication(props: AppProps): React.ReactElement {
                   })
                 }
               )
+            })
+          return
+        }
+        case 429: {
+          response
+            .clone()
+            .json()
+            .then(res => {
+              showError(res.message || TOO_MANY_REQUESTS_MESSAGE)
             })
         }
       }

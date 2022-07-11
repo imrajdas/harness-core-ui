@@ -20,7 +20,8 @@ import {
   TableV2,
   useConfirmationDialog
 } from '@wings-software/uicore'
-import { Classes, Menu, Position, Intent } from '@blueprintjs/core'
+import { Color } from '@harness/design-system'
+import { Classes, Menu, Position, Intent, PopoverInteractionKind } from '@blueprintjs/core'
 import { defaultTo } from 'lodash-es'
 import routes from '@common/RouteDefinitions'
 import { QlceView, ViewState, ViewType } from 'services/ce/services'
@@ -108,6 +109,7 @@ const PerspectiveListView: React.FC<PerspectiveListViewProps> = ({
   const NameCell: Renderer<CellProps<QlceView>> = cell => {
     const viewState = (cell as any).row?.original?.viewState
     const viewType = (cell as any).row?.original?.viewType
+    const folderName = (cell as any).row?.original?.folderName
     let iconName: IconName | undefined
     if (viewState === ViewState.Draft) {
       iconName = 'deployment-incomplete-new'
@@ -117,9 +119,22 @@ const PerspectiveListView: React.FC<PerspectiveListViewProps> = ({
     }
     return cell.value ? (
       <Container className={css.nameContainer}>
-        <Text icon={iconName} color="grey800">
+        <Text icon={iconName} inline color="grey800">
           {cell.value}
         </Text>
+        {folderName && (
+          <Popover
+            position={Position.TOP}
+            interactionKind={PopoverInteractionKind.HOVER}
+            content={
+              <Text padding={'medium'} background={Color.GREY_0} color={Color.GREY_600}>
+                {folderName}
+              </Text>
+            }
+          >
+            <Icon name={'main-folder'} color={Color.GREY_400} size={14} margin={{ left: 'small' }} />
+          </Popover>
+        )}
         {viewType === ViewType.Default && <Container className={css.sampleRibbon}></Container>}
       </Container>
     ) : null

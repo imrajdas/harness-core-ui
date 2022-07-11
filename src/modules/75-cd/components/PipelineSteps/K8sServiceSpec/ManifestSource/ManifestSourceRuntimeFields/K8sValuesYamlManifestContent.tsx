@@ -8,15 +8,20 @@
 import React from 'react'
 import cx from 'classnames'
 import { Layout } from '@harness/uicore'
+import { get } from 'lodash-es'
 import { StringKeys, useStrings } from 'framework/strings'
 import { useVariablesExpression } from '@pipeline/components/PipelineStudio/PiplineHooks/useVariablesExpression'
 import { FormMultiTypeCheckboxField } from '@common/components'
 import List from '@common/components/List/List'
 import type { ManifestSourceRenderProps } from '@cd/factory/ManifestSourceFactory/ManifestSourceBase'
+import { FileSelectList } from '@filestore/components/FileStoreList/FileStoreList'
+import { SELECT_FILES_TYPE } from '@filestore/utils/constants'
+import { ManifestStoreMap } from '@pipeline/components/ManifestSelection/Manifesthelper'
 import { isFieldRuntime } from '../../K8sServiceSpecHelper'
 import { isFieldfromTriggerTabDisabled } from '../ManifestSourceUtils'
 import ManifestGitStoreRuntimeFields from './ManifestGitStoreRuntimeFields'
 import CustomRemoteManifestRuntimeFields from './CustomRemoteManifestRuntimeFields'
+import ManifestCommonRuntimeFields from './ManifestCommonRuntimeFields'
 import css from '../../KubernetesManifests/KubernetesManifests.module.scss'
 
 interface K8sValuesYamlManifestRenderProps extends ManifestSourceRenderProps {
@@ -37,7 +42,7 @@ const K8sValuesYamlManifestContent = (props: K8sValuesYamlManifestRenderProps): 
   } = props
   const { getString } = useStrings()
   const { expressions } = useVariablesExpression()
-
+  const manifestStoreType = get(template, `${manifestPath}.spec.store.type`, null)
   const isFieldDisabled = (fieldName: string): boolean => {
     // /* instanbul ignore else */
     if (readonly) {
@@ -51,7 +56,6 @@ const K8sValuesYamlManifestContent = (props: K8sValuesYamlManifestRenderProps): 
       fromTrigger
     )
   }
-
   return (
     <Layout.Vertical
       data-name="manifest"
@@ -59,6 +63,7 @@ const K8sValuesYamlManifestContent = (props: K8sValuesYamlManifestRenderProps): 
       className={cx(css.inputWidth, css.layoutVerticalSpacing)}
     >
       <ManifestGitStoreRuntimeFields {...props} />
+      <ManifestCommonRuntimeFields {...props} />
       <CustomRemoteManifestRuntimeFields {...props} />
       {isFieldRuntime(`${manifestPath}.spec.store.spec.paths`, template) && (
         <div className={css.verticalSpacingInput}>
@@ -77,16 +82,31 @@ const K8sValuesYamlManifestContent = (props: K8sValuesYamlManifestRenderProps): 
 
       {isFieldRuntime(`${manifestPath}.spec.valuesPaths`, template) && (
         <div className={css.verticalSpacingInput}>
-          <List
-            labelClassName={css.listLabel}
-            label={getString('pipeline.manifestType.valuesYamlPath')}
-            name={`${path}.${manifestPath}.spec.valuesPaths`}
-            placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
-            disabled={isFieldDisabled(`${manifestPath}.spec.valuesPaths`)}
-            style={{ marginBottom: 'var(--spacing-small)' }}
-            expressions={expressions}
-            isNameOfArrayType
-          />
+          {manifestStoreType === ManifestStoreMap.Harness ? (
+            <FileSelectList
+              labelClassName={css.listLabel}
+              label={getString('pipeline.manifestType.valuesYamlPath')}
+              name={`${path}.${manifestPath}.spec.valuesPaths`}
+              placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+              disabled={isFieldDisabled(`${manifestPath}.spec.valuesPaths`)}
+              style={{ marginBottom: 'var(--spacing-small)' }}
+              expressions={expressions}
+              isNameOfArrayType
+              type={SELECT_FILES_TYPE.FILE_STORE}
+              formik={formik}
+            />
+          ) : (
+            <List
+              labelClassName={css.listLabel}
+              label={getString('pipeline.manifestType.valuesYamlPath')}
+              name={`${path}.${manifestPath}.spec.valuesPaths`}
+              placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+              disabled={isFieldDisabled(`${manifestPath}.spec.valuesPaths`)}
+              style={{ marginBottom: 'var(--spacing-small)' }}
+              expressions={expressions}
+              isNameOfArrayType
+            />
+          )}
         </div>
       )}
 

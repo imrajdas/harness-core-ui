@@ -408,7 +408,7 @@ describe('ServerlessAwsLambda as deployment type', () => {
     yamlValidations('stage1', 'region1')
   })
 
-  it(`runtime values to region, stage in infrastructure tab`, () => {
+  it.skip(`runtime values to region, stage in infrastructure tab`, () => {
     cy.visit(pipelineStudioRoute, { timeout: 30000 })
     cy.visitPageAssertion()
     cy.get(`div[data-testid="pipeline-studio"]`, {

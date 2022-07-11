@@ -150,135 +150,139 @@ exports[`Resource Groups Page render data 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-            >
-              <div
-                class="resourceGroupColor"
-                style="background-color: rgb(0, 99, 247);"
-              />
-              <div
-                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-left-small"
-              >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                  style="--text-line-clamp: 1;"
-                >
-                  ss33
-                </p>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
-                  style="--text-line-clamp: 1;"
-                >
-                  idLabel
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <div
-              class="Layout--vertical StyledProps--main StyledProps--padding-right-medium"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
+                <div
+                  class="resourceGroupColor"
+                  style="background-color: rgb(0, 99, 247);"
+                />
+                <div
+                  class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-left-small"
                 >
-                  resources
-                  :
-                </p>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  ORGANIZATION, SECRET_MANAGER
-                </p>
-              </div>
-              <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-                >
-                  common.scope
-                  :
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main"
-                >
-                  rbac.scopeItems.accountOnly
-                </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                    style="--text-line-clamp: 1;"
+                  >
+                    ss33
+                  </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
+                    style="--text-line-clamp: 1;"
+                  >
+                    idLabel
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 16%;"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-              style="--text-line-clamp: 1;"
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
             >
-              dummy date
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 4%;"
-          >
-            <span
-              class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="Layout--vertical StyledProps--main StyledProps--padding-right-medium"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
+                  >
+                    resources
+                    :
+                  </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
+                    style="--text-line-clamp: 1;"
+                  >
+                    ORGANIZATION, SECRET_MANAGER
+                  </p>
+                </div>
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+                  >
+                    common.scope
+                    :
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                  >
+                    rbac.scopeItems.accountOnly
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 16%;"
+            >
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                style="--text-line-clamp: 1;"
+              >
+                dummy date
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 4%;"
             >
               <span
-                class="bp3-popover-target"
+                class="bp3-popover-wrapper bp3-dark"
               >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  data-testid="resourceGroupDetailsEditMenuss33"
-                  type="button"
+                <span
+                  class="bp3-popover-target"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="Options"
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    data-testid="resourceGroupDetailsEditMenuss33"
+                    type="button"
                   >
-                    <svg
-                      fill="currentColor"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="Options"
                     >
-                      <circle
-                        cx="2"
-                        cy="2"
-                        r="1.5"
-                      />
-                      <circle
-                        cx="2"
-                        cy="8"
-                        r="1.5"
-                      />
-                      <circle
-                        cx="2"
-                        cy="14"
-                        r="1.5"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        fill="currentColor"
+                        height="16"
+                        viewBox="0 0 4 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="2"
+                          cy="2"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="8"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="14"
+                          r="1.5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
               </span>
-            </span>
+            </div>
           </div>
         </div>
         <div
@@ -286,135 +290,139 @@ exports[`Resource Groups Page render data 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-            >
-              <div
-                class="resourceGroupColor"
-                style="background-color: rgb(0, 99, 247);"
-              />
-              <div
-                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-left-small"
-              >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                  style="--text-line-clamp: 1;"
-                >
-                  starte
-                </p>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
-                  style="--text-line-clamp: 1;"
-                >
-                  idLabel
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <div
-              class="Layout--vertical StyledProps--main StyledProps--padding-right-medium"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
+                <div
+                  class="resourceGroupColor"
+                  style="background-color: rgb(0, 99, 247);"
+                />
+                <div
+                  class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-left-small"
                 >
-                  resources
-                  :
-                </p>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  ORGANIZATION, SECRET_MANAGER, PROJECT
-                </p>
-              </div>
-              <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-                >
-                  common.scope
-                  :
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main"
-                >
-                  rbac.scopeItems.accountOnly
-                </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                    style="--text-line-clamp: 1;"
+                  >
+                    starte
+                  </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
+                    style="--text-line-clamp: 1;"
+                  >
+                    idLabel
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 16%;"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-              style="--text-line-clamp: 1;"
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
             >
-              dummy date
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 4%;"
-          >
-            <span
-              class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="Layout--vertical StyledProps--main StyledProps--padding-right-medium"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
+                  >
+                    resources
+                    :
+                  </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
+                    style="--text-line-clamp: 1;"
+                  >
+                    ORGANIZATION, SECRET_MANAGER, PROJECT
+                  </p>
+                </div>
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+                  >
+                    common.scope
+                    :
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                  >
+                    rbac.scopeItems.accountOnly
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 16%;"
+            >
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                style="--text-line-clamp: 1;"
+              >
+                dummy date
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 4%;"
             >
               <span
-                class="bp3-popover-target"
+                class="bp3-popover-wrapper bp3-dark"
               >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  data-testid="resourceGroupDetailsEditMenustarte"
-                  type="button"
+                <span
+                  class="bp3-popover-target"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="Options"
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    data-testid="resourceGroupDetailsEditMenustarte"
+                    type="button"
                   >
-                    <svg
-                      fill="currentColor"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="Options"
                     >
-                      <circle
-                        cx="2"
-                        cy="2"
-                        r="1.5"
-                      />
-                      <circle
-                        cx="2"
-                        cy="8"
-                        r="1.5"
-                      />
-                      <circle
-                        cx="2"
-                        cy="14"
-                        r="1.5"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        fill="currentColor"
+                        height="16"
+                        viewBox="0 0 4 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="2"
+                          cy="2"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="8"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="14"
+                          r="1.5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
               </span>
-            </span>
+            </div>
           </div>
         </div>
         <div
@@ -422,135 +430,139 @@ exports[`Resource Groups Page render data 1`] = `
           role="row"
         >
           <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 30%;"
+            class="TableV2--cells"
           >
             <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-            >
-              <div
-                class="resourceGroupColor"
-                style="background-color: rgb(0, 99, 247);"
-              />
-              <div
-                class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-left-small"
-              >
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-                  style="--text-line-clamp: 1;"
-                >
-                  swarfdfds34343
-                </p>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
-                  style="--text-line-clamp: 1;"
-                >
-                  idLabel
-                </p>
-              </div>
-            </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 50%;"
-          >
-            <div
-              class="Layout--vertical StyledProps--main StyledProps--padding-right-medium"
+              class="TableV2--cell"
+              role="cell"
+              style="width: 30%;"
             >
               <div
                 class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
               >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
+                <div
+                  class="resourceGroupColor"
+                  style="background-color: rgb(0, 99, 247);"
+                />
+                <div
+                  class="Layout--vertical Layout--layout-spacing-xsmall StyledProps--main StyledProps--padding-left-small"
                 >
-                  resources
-                  :
-                </p>
-                <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main"
-                  style="--text-line-clamp: 1;"
-                >
-                  ORGANIZATION, PROJECT
-                </p>
-              </div>
-              <div
-                class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-              >
-                <p
-                  class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
-                >
-                  common.scope
-                  :
-                </p>
-                <p
-                  class="StyledProps--font StyledProps--main"
-                >
-                  rbac.scopeItems.accountOnly
-                </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                    style="--text-line-clamp: 1;"
+                  >
+                    swarfdfds34343
+                  </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey600 StyledProps--font-small"
+                    style="--text-line-clamp: 1;"
+                  >
+                    idLabel
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 16%;"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
-              style="--text-line-clamp: 1;"
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 50%;"
             >
-              dummy date
-            </p>
-          </div>
-          <div
-            class="TableV2--cell"
-            role="cell"
-            style="width: 4%;"
-          >
-            <span
-              class="bp3-popover-wrapper bp3-dark"
+              <div
+                class="Layout--vertical StyledProps--main StyledProps--padding-right-medium"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-black StyledProps--font-variation-body2"
+                  >
+                    resources
+                    :
+                  </p>
+                  <p
+                    class="StyledProps--font Text--lineclamp StyledProps--main"
+                    style="--text-line-clamp: 1;"
+                  >
+                    ORGANIZATION, PROJECT
+                  </p>
+                </div>
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--font-variation-body2 StyledProps--color StyledProps--color-black"
+                  >
+                    common.scope
+                    :
+                  </p>
+                  <p
+                    class="StyledProps--font StyledProps--main"
+                  >
+                    rbac.scopeItems.accountOnly
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 16%;"
+            >
+              <p
+                class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                style="--text-line-clamp: 1;"
+              >
+                dummy date
+              </p>
+            </div>
+            <div
+              class="TableV2--cell"
+              role="cell"
+              style="width: 4%;"
             >
               <span
-                class="bp3-popover-target"
+                class="bp3-popover-wrapper bp3-dark"
               >
-                <button
-                  class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                  data-testid="resourceGroupDetailsEditMenuswarfdfds34343"
-                  type="button"
+                <span
+                  class="bp3-popover-target"
                 >
-                  <span
-                    class="bp3-icon StyledProps--main"
-                    data-icon="Options"
+                  <button
+                    class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                    data-testid="resourceGroupDetailsEditMenuswarfdfds34343"
+                    type="button"
                   >
-                    <svg
-                      fill="currentColor"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      width="16"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <span
+                      class="bp3-icon StyledProps--main"
+                      data-icon="Options"
                     >
-                      <circle
-                        cx="2"
-                        cy="2"
-                        r="1.5"
-                      />
-                      <circle
-                        cx="2"
-                        cy="8"
-                        r="1.5"
-                      />
-                      <circle
-                        cx="2"
-                        cy="14"
-                        r="1.5"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        fill="currentColor"
+                        height="16"
+                        viewBox="0 0 4 16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="2"
+                          cy="2"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="8"
+                          r="1.5"
+                        />
+                        <circle
+                          cx="2"
+                          cy="14"
+                          r="1.5"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </span>
               </span>
-            </span>
+            </div>
           </div>
         </div>
       </div>

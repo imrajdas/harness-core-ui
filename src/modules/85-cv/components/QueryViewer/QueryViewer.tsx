@@ -8,11 +8,10 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import cx from 'classnames'
 import { Button, Container, FormInput, Layout, MultiTypeInputType, Text } from '@wings-software/uicore'
-import { isEmpty } from 'lodash-es'
+import { defaultTo, isEmpty } from 'lodash-es'
 import { useStrings } from 'framework/strings'
 import { MapGCPLogsToServiceFieldNames } from '@cv/pages/health-source/connectors/GCOLogsMonitoringSource/components/MapQueriesToHarnessService/constants'
-import MultiTypeFieldSelector from '@common/components/MultiTypeFieldSelector/MultiTypeFieldSelector'
-import { ShellScriptMonacoField } from '@common/components/ShellScriptMonaco/ShellScriptMonaco'
+import CVMultiTypeQuery from '../CVMultiTypeQuery/CVMultiTypeQuery'
 import type { QueryViewerProps, QueryContentProps } from './types'
 import { Records } from '../Records/Records'
 import { QueryViewDialog } from './components/QueryViewDialog'
@@ -31,7 +30,10 @@ export function QueryContent(props: QueryContentProps): JSX.Element {
     isAutoFetch = false,
     mandatoryFields = [],
     staleRecordsWarning,
-    textAreaPlaceholder
+    textAreaPlaceholder,
+    isTemplate,
+    expressions,
+    isConnectorRuntimeOrExpression
   } = props
   const { getString } = useStrings()
 
@@ -44,35 +46,58 @@ export function QueryContent(props: QueryContentProps): JSX.Element {
 
   return (
     <Container className={css.queryContainer}>
-      <Layout.Horizontal className={css.queryIcons} spacing="small">
-        {onEditQuery && (
-          <Button icon="Edit" iconProps={{ size: 12 }} className={css.action} onClick={() => onEditQuery()} />
-        )}
-        {onClickExpand && !isDialogOpen && (
-          <Button
-            icon="fullscreen"
-            iconProps={{ size: 12 }}
-            className={css.action}
-            onClick={() => onClickExpand?.(true)}
+      {isTemplate ? (
+        <>
+          <Layout.Horizontal className={css.queryIcons} spacing="small">
+            {onEditQuery && (
+              <Button icon="Edit" iconProps={{ size: 12 }} className={css.action} onClick={() => onEditQuery()} />
+            )}
+          </Layout.Horizontal>
+          <CVMultiTypeQuery
+            name={textAreaName || MapGCPLogsToServiceFieldNames.QUERY}
+            expressions={defaultTo(expressions, [])}
+            fetchRecords={handleFetchRecords}
+            disableFetchButton={isEmpty(query) || isConnectorRuntimeOrExpression || loading}
+            allowedTypes={
+              isConnectorRuntimeOrExpression
+                ? [MultiTypeInputType.EXPRESSION, MultiTypeInputType.RUNTIME]
+                : [MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
+            }
           />
-        )}
-      </Layout.Horizontal>
-      <FormInput.TextArea
-        name={textAreaName || MapGCPLogsToServiceFieldNames.QUERY}
-        textArea={textAreaProps}
-        className={cx(css.formQueryBox)}
-        placeholder={textAreaPlaceholder ?? ''}
-      />
-      {!isAutoFetch && (
-        <Layout.Horizontal spacing={'large'}>
-          <Button
-            intent="primary"
-            text={getString('cv.monitoringSources.gcoLogs.fetchRecords')}
-            onClick={handleFetchRecords}
-            disabled={isEmpty(query) || loading}
+        </>
+      ) : (
+        <>
+          <Layout.Horizontal className={css.queryIcons} spacing="small">
+            {onEditQuery && (
+              <Button icon="Edit" iconProps={{ size: 12 }} className={css.action} onClick={() => onEditQuery()} />
+            )}
+            {onClickExpand && !isDialogOpen && (
+              <Button
+                icon="fullscreen"
+                iconProps={{ size: 12 }}
+                className={css.action}
+                onClick={() => onClickExpand?.(true)}
+              />
+            )}
+          </Layout.Horizontal>
+          <FormInput.TextArea
+            name={textAreaName || MapGCPLogsToServiceFieldNames.QUERY}
+            textArea={textAreaProps}
+            className={cx(css.formQueryBox)}
+            placeholder={textAreaPlaceholder ?? ''}
           />
-          {staleRecordsWarning && <Text className={css.warningText}>{staleRecordsWarning}</Text>}
-        </Layout.Horizontal>
+          {!isAutoFetch && (
+            <Layout.Horizontal spacing={'large'}>
+              <Button
+                intent="primary"
+                text={getString('cv.monitoringSources.gcoLogs.fetchRecords')}
+                onClick={handleFetchRecords}
+                disabled={isEmpty(query) || loading}
+              />
+              {staleRecordsWarning && <Text className={css.warningText}>{staleRecordsWarning}</Text>}
+            </Layout.Horizontal>
+          )}
+        </>
       )}
     </Container>
   )
@@ -128,39 +153,17 @@ export function QueryViewer(props: QueryViewerProps): JSX.Element {
         </Text>
       )}
       {isTemplate ? (
-        <MultiTypeFieldSelector
+        <CVMultiTypeQuery
           name={MapGCPLogsToServiceFieldNames.QUERY}
-          label={getString('cv.query')}
-          defaultValueToReset=""
-          skipRenderValueInExpressionLabel
+          expressions={defaultTo(expressions, [])}
+          fetchRecords={handleFetchRecords}
+          disableFetchButton={isEmpty(query) || isConnectorRuntimeOrExpression || loading}
           allowedTypes={
             isConnectorRuntimeOrExpression
-              ? [MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
+              ? [MultiTypeInputType.EXPRESSION, MultiTypeInputType.RUNTIME]
               : [MultiTypeInputType.FIXED, MultiTypeInputType.RUNTIME, MultiTypeInputType.EXPRESSION]
           }
-          expressionRender={() => {
-            return (
-              <ShellScriptMonacoField
-                name={MapGCPLogsToServiceFieldNames.QUERY}
-                scriptType={'Bash'}
-                expressions={expressions}
-                editorOptions={{ lineNumbers: 'off' }}
-              />
-            )
-          }}
-        >
-          <ShellScriptMonacoField
-            name={MapGCPLogsToServiceFieldNames.QUERY}
-            scriptType={'Bash'}
-            editorOptions={{ lineNumbers: 'off' }}
-          />
-          <Button
-            intent="primary"
-            text={getString('cv.monitoringSources.gcoLogs.fetchRecords')}
-            onClick={handleFetchRecords}
-            disabled={isEmpty(query) || isConnectorRuntimeOrExpression || loading}
-          />
-        </MultiTypeFieldSelector>
+        />
       ) : (
         <QueryContent
           onClickExpand={setIsDialogOpen}

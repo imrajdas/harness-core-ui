@@ -41,7 +41,6 @@ import { SaveTemplateButton } from '@pipeline/components/PipelineStudio/SaveTemp
 import { useAddStepTemplate } from '@pipeline/hooks/useAddStepTemplate'
 import {
   getSelectedDeploymentType,
-  getServiceDefinitionType,
   isServerlessDeploymentType,
   ServiceDeploymentType,
   StageType
@@ -138,10 +137,6 @@ export default function DeployStageSetupShell(): JSX.Element {
 
     return debounceUpdateStage(stageData?.stage)
   }, [debounceUpdateStage, scope, selectedStage])
-
-  const serviceDefinitionType = useCallback((): GetExecutionStrategyYamlQueryParams['serviceDefinitionType'] => {
-    return getServiceDefinitionType(selectedStage, getStageFromPipeline, isNewServiceEnvEntity, NG_SVC_ENV_REDESIGN)
-  }, [getStageFromPipeline, NG_SVC_ENV_REDESIGN, selectedStage])
 
   React.useEffect(() => {
     const sectionId = (query as any).sectionId || ''
@@ -299,10 +294,6 @@ export default function DeployStageSetupShell(): JSX.Element {
 
   React.useEffect(() => {
     // if serviceDefinition not selected, redirect to SERVICE - preventing strategies drawer to be opened
-    if (!serviceDefinitionType()) {
-      setSelectedTabId(DeployTabs.SERVICE)
-      return
-    }
     if (selectedTabId === DeployTabs.EXECUTION) {
       /* istanbul ignore else */
       if (selectedStage?.stage && selectedStage?.stage.type === StageType.DEPLOY) {
@@ -347,10 +338,6 @@ export default function DeployStageSetupShell(): JSX.Element {
   }, [selectedStage, selectedTabId, selectedStageId, selectedDeploymentType, selectedSectionId])
 
   React.useEffect(() => {
-    if (!serviceDefinitionType()) {
-      setSelectedTabId(DeployTabs.SERVICE)
-      return
-    }
     validate()
   }, [JSON.stringify(selectedStage)])
 
