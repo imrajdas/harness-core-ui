@@ -12,6 +12,7 @@
   color: var(--grey-0);
   display: flex;
   height: 56px;
+  justify-content: space-between;
   margin: var(--spacing-medium) var(--spacing-xxlarge) 0 var(--spacing-medium);
   padding: 0 var(--spacing-xxlarge) 0 var(--spacing-large);
 }

@@ -10,7 +10,8 @@ import classnames from 'classnames'
 import { get } from 'lodash-es'
 // import { Spinner } from '@blueprintjs/core'
 import { useGetApprovalInstance, useGetHarnessApprovalInstanceAuthorization } from 'services/pipeline-ng'
-import { useStrings } from 'framework/strings'
+import { String, useStrings } from 'framework/strings'
+import { Button } from '@wings-software/uicore'
 import { useDeepCompareEffect } from '@common/hooks'
 import { DefaultConsoleViewStepDetails, logsRenderer } from '@pipeline/components/LogsContent/LogsContent'
 import type { ConsoleViewStepDetailProps, RenderLogsInterface } from '@pipeline/factories/ExecutionFactory/types'
@@ -73,6 +74,9 @@ export function HarnessApprovalLogsView(props: ConsoleViewStepDetailProps) {
     approveButtonNode = (
       <div className={css.approvalRow}>
         <div>{getString('pipeline.approvalStage.approvalStageLogsViewMessage')}</div>
+        <Button withoutBoxShadow intent="primary" onClick={() => {}} disabled={false}>
+          <String stringID="common.approve" />
+        </Button>
       </div>
     )
   }
