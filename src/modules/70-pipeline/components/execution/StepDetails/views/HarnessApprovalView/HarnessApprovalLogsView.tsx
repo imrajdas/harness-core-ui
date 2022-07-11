@@ -8,7 +8,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { get } from 'lodash-es'
-import { Spinner } from '@blueprintjs/core'
+// import { Spinner } from '@blueprintjs/core'
 import { useGetApprovalInstance, useGetHarnessApprovalInstanceAuthorization } from 'services/pipeline-ng'
 import { useStrings } from 'framework/strings'
 import { useDeepCompareEffect } from '@common/hooks'
@@ -58,11 +58,7 @@ export function HarnessApprovalLogsView(props: ConsoleViewStepDetailProps) {
   let approveButtonNode: React.ReactNode = null
 
   if (loadingApprovalData || loadingAuthData || !shouldFetchData) {
-    approveButtonNode = (
-      <div className={css.loadingContainer}>
-        <Spinner size={Spinner.SIZE_SMALL} />
-      </div>
-    )
+    approveButtonNode = null
   } else if (isWaitingAll && !isCurrentUserAuthorized) {
     approveButtonNode = (
       <div className={classnames(css.approvalRow, css.error)}>
@@ -75,7 +71,9 @@ export function HarnessApprovalLogsView(props: ConsoleViewStepDetailProps) {
     )
   } else if (isWaitingAll && isCurrentUserAuthorized) {
     approveButtonNode = (
-      <div className={css.approvalRow}>{getString('pipeline.approvalStage.approvalStageLogsViewMessage')}</div>
+      <div className={css.approvalRow}>
+        <div>{getString('pipeline.approvalStage.approvalStageLogsViewMessage')}</div>
+      </div>
     )
   }
 

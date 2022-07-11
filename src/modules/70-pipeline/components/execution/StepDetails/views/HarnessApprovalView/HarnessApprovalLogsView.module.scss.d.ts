@@ -9,6 +9,5 @@
 declare const styles: {
   readonly approvalRow: string
   readonly error: string
-  readonly loadingContainer: string
 }
 export default styles
