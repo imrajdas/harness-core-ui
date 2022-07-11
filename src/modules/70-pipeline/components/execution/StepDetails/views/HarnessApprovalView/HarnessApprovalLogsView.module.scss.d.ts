@@ -8,6 +8,8 @@
 // this is an auto-generated file, do not update this manually
 declare const styles: {
   readonly approvalRow: string
+  readonly approveRejectModal: string
   readonly error: string
+  readonly harnessApprovalLogsView: string
 }
 export default styles

@@ -8,15 +8,18 @@
 import React from 'react'
 import classnames from 'classnames'
 import { get } from 'lodash-es'
-// import { Spinner } from '@blueprintjs/core'
+import { useModalHook } from '@harness/use-modal'
+import { Button, Dialog, Layout } from '@wings-software/uicore'
 import { useGetApprovalInstance, useGetHarnessApprovalInstanceAuthorization } from 'services/pipeline-ng'
 import { String, useStrings } from 'framework/strings'
-import { Button } from '@wings-software/uicore'
 import { useDeepCompareEffect } from '@common/hooks'
 import { DefaultConsoleViewStepDetails, logsRenderer } from '@pipeline/components/LogsContent/LogsContent'
 import type { ConsoleViewStepDetailProps, RenderLogsInterface } from '@pipeline/factories/ExecutionFactory/types'
 import { isExecutionWaiting } from '@pipeline/utils/statusHelpers'
-import type { ApprovalData } from '@pipeline/components/execution/StepDetails/tabs/HarnessApprovalTab/HarnessApprovalTab'
+import {
+  ApprovalData,
+  HarnessApprovalTab
+} from '@pipeline/components/execution/StepDetails/tabs/HarnessApprovalTab/HarnessApprovalTab'
 import { isApprovalWaiting } from '@pipeline/utils/approvalUtils'
 import css from './HarnessApprovalLogsView.module.scss'
 
@@ -42,7 +45,7 @@ export function HarnessApprovalLogsView(props: ConsoleViewStepDetailProps) {
 
   const {
     data: authData,
-    // refetch: refetchAuthData,
+    refetch: refetchAuthData,
     loading: loadingAuthData
   } = useGetHarnessApprovalInstanceAuthorization({
     approvalInstanceId,
@@ -52,6 +55,40 @@ export function HarnessApprovalLogsView(props: ConsoleViewStepDetailProps) {
   const isCurrentUserAuthorized = !!authData?.data?.authorized
   const currentUserUnAuthorizedReason = authData?.data?.reason
 
+  const [showApproveRejectModal, hideApproveRejectModal] = useModalHook(
+    () => (
+      <Dialog
+        className={css.approveRejectModal}
+        onClose={hideApproveRejectModal}
+        isOpen={true}
+        enforceFocus={false}
+        title={
+          <>
+            <String stringID="pipeline.approvalStep.execution.inputsTitle" />
+          </>
+        }
+      >
+        <Layout.Vertical>
+          <HarnessApprovalTab
+            showBannerInfo={false}
+            showInputsHeader={false}
+            approvalInstanceId={approvalInstanceId}
+            approvalData={approvalData}
+            isWaiting={isWaiting}
+            authData={authData}
+            approvalBoxClassName={css.harnessApprovalLogsView}
+            updateState={updatedData => {
+              setApprovalData(updatedData)
+              refetchAuthData()
+              hideApproveRejectModal()
+            }}
+            stepParameters={step.stepParameters}
+          />
+        </Layout.Vertical>
+      </Dialog>
+    ),
+    [approvalInstanceId, approvalData, isWaiting, authData]
+  )
   useDeepCompareEffect(() => {
     setApprovalData(data?.data as ApprovalData)
   }, [data])
@@ -74,7 +111,7 @@ export function HarnessApprovalLogsView(props: ConsoleViewStepDetailProps) {
     approveButtonNode = (
       <div className={css.approvalRow}>
         <div>{getString('pipeline.approvalStage.approvalStageLogsViewMessage')}</div>
-        <Button withoutBoxShadow intent="primary" onClick={() => {}} disabled={false}>
+        <Button withoutBoxShadow intent="primary" onClick={showApproveRejectModal}>
           <String stringID="common.approve" />
         </Button>
       </div>

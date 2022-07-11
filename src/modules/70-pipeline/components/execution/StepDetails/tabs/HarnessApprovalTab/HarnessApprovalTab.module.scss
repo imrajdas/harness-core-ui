@@ -79,6 +79,7 @@
   }
 
   .actions {
+    margin-top: var(--spacing-xxlarge);
     :global(.bp3-button + .bp3-button) {
       margin-left: var(--spacing-small);
     }
