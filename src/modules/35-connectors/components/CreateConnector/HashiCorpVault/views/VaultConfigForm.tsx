@@ -146,7 +146,7 @@ const VaultConfigForm: React.FC<StepProps<StepDetailsProps> & ConnectorDetailsPr
           }),
           k8sAuthEndpoint: Yup.string().when('accessType', {
             is: HashiCorpVaultAccessTypes.K8s_AUTH,
-            then: Yup.string().trim().required(getString('connectors.hashiCorpVault.k8sAuthEndpointRequired'))
+            then: Yup.string().trim()
           }),
           vaultK8sAuthRole: Yup.string().when('accessType', {
             is: HashiCorpVaultAccessTypes.K8s_AUTH,

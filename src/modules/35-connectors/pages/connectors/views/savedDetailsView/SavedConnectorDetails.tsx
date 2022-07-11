@@ -426,7 +426,7 @@ const getVaultSchema = (
       value: data.readOnly
     },
     {
-      label: 'connectors.hashicorpVault.k8sAuthEndpoint',
+      label: 'connectors.hashiCorpVault.k8sAuthEndpoint',
       value: data.k8sAuthEndpoint
     },
     {

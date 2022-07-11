@@ -245,10 +245,9 @@ hashiCorpVault:
   sinkPath: Sink Path
   sinkPathIsRequired: Sink Path is required
   k8s_auth: 'Kubernetes Auth'
-  k8sAuthEndpoint: Kubernetes Auth Endpoint
+  k8sAuthEndpoint: Kubernetes Auth Endpoint (optional)
   vaultK8sAuthRole: Role Name
   serviceAccountTokenPath: Service Account Token Path
-  k8sAuthEndpointRequired: Kubernetes Auth Endpoint Required
   vaultK8sAuthRoleRequired: Role Required
   serviceAccountRequired: Service Account Token Path Required
   preventDefaultWhenReadOnly: Read only secret manager cannot be set as default

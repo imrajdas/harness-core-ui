@@ -11682,7 +11682,7 @@ export interface VaultCredentialDTO {
 }
 
 export type VaultK8sCredentialDTO = VaultCredentialDTO & {
-  k8sAuthEndpoint?: string
+  k8sAuthEndpoint: string
   serviceAccountTokenPath?: string
   vaultK8sAuthRole?: string
 }
