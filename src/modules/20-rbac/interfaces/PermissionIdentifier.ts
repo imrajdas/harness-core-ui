@@ -142,9 +142,9 @@ export enum PermissionIdentifier {
   VIEW_STO_SCAN = 'sto_scan_view',
   VIEW_STO_TESTTARGET = 'sto_testtarget_view',
   EDIT_STO_TESTTARGET = 'sto_testtarget_edit',
-  VIEW_STO_EXCEPTION = 'sto_exception_view',
-  CREATE_STO_EXCEPTION = 'sto_exception_create',
-  APPROVE_STO_EXCEPTION = 'sto_exception_approve',
+  VIEW_STO_EXEMPTION = 'sto_exemption_view',
+  CREATE_STO_EXEMPTION = 'sto_exemption_create',
+  APPROVE_STO_EXEMPTION = 'sto_exemption_approve',
 
   // CCM Permissions
   VIEW_CCM_OVERVIEW = 'ccm_overview_view',
@@ -159,5 +159,11 @@ export enum PermissionIdentifier {
   DELETE_CCM_BUDGET = 'ccm_budget_delete',
   VIEW_CCM_COST_CATEGORY = 'ccm_costCategory_view',
   EDIT_CCM_COST_CATEGORY = 'ccm_costCategory_edit',
-  DELETE_CCM_COST_CATEGORY = 'ccm_costCategory_delete'
+  DELETE_CCM_COST_CATEGORY = 'ccm_costCategory_delete',
+  VIEW_CCM_AUTOSTOPPING_RULE = 'ccm_autostoppingrule_view',
+  EDIT_CCM_AUTOSTOPPING_RULE = 'ccm_autostoppingrule_edit',
+  DELETE_CCM_AUTOSTOPPING_RULE = 'ccm_autostoppingrule_delete',
+  VIEW_CCM_LOADBALANCER = 'ccm_loadBalancer_view',
+  EDIT_CCM_LOADBALANCER = 'ccm_loadBalancer_edit',
+  DELETE_CCM_LOADBALANCER = 'ccm_loadBalancer_delete'
 }

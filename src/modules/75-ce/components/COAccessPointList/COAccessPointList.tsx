@@ -31,6 +31,10 @@ import { useStrings } from 'framework/strings'
 // import CreateAccessPointWizard from '../COGatewayAccess/CreateAccessPointWizard'
 import { NGBreadcrumbs } from '@common/components/NGBreadcrumbs/NGBreadcrumbs'
 import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
+import RbacButton from '@rbac/components/Button/Button'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
+import RbacMenuItem from '@rbac/components/MenuItem/MenuItem'
 import DeleteAccessPoint from '../COAccessPointDelete/DeleteAccessPoint'
 import { getRelativeTime } from '../COGatewayList/Utils'
 // import LoadBalancerDnsConfig from '../COGatewayAccess/LoadBalancerDnsConfig'
@@ -184,7 +188,7 @@ const RenderColumnMenu = (
         className={Classes.DARK}
         position={Position.BOTTOM_RIGHT}
       >
-        <Button
+        <RbacButton
           minimal
           icon="Options"
           onClick={e => {
@@ -192,9 +196,25 @@ const RenderColumnMenu = (
             setMenuOpen(true)
           }}
           data-testid={`menu-${columnId}`}
+          permission={{
+            permission: PermissionIdentifier.EDIT_CCM_LOADBALANCER,
+            resource: {
+              resourceType: ResourceType.LOADBALANCER
+            }
+          }}
         />
         <Menu style={{ minWidth: 'unset' }}>
-          <Menu.Item icon="edit" text="Edit" onClick={() => openEditAccessPointModal(row.original)} />
+          <RbacMenuItem
+            icon="edit"
+            text="Edit"
+            onClick={() => openEditAccessPointModal(row.original)}
+            permission={{
+              permission: PermissionIdentifier.EDIT_CCM_LOADBALANCER,
+              resource: {
+                resourceType: ResourceType.LOADBALANCER
+              }
+            }}
+          />
         </Menu>
       </Popover>
     </Layout.Horizontal>
@@ -257,12 +277,18 @@ const COLoadBalancerList: React.FC = () => {
       />
       <Layout.Horizontal padding="large">
         <Layout.Horizontal width="55%" spacing="medium">
-          <Button
+          <RbacButton
             intent="primary"
             text={getString('ce.co.accessPoint.new')}
             icon="plus"
             disabled={loading}
             onClick={() => openCreateAccessPointModal()}
+            permission={{
+              permission: PermissionIdentifier.EDIT_CCM_LOADBALANCER,
+              resource: {
+                resourceType: ResourceType.LOADBALANCER
+              }
+            }}
           />
           <DeleteAccessPoint accessPoints={selectedAccessPoints} accountId={accountId} refresh={refreshList} />
         </Layout.Horizontal>

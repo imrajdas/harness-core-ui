@@ -32,6 +32,9 @@ import { Utils } from '@ce/common/Utils'
 import type { AccountPathProps } from '@common/interfaces/RouteInterfaces'
 import { useGetConnector } from 'services/cd-ng'
 import { allProviders, ceConnectorTypes } from '@ce/constants'
+import { usePermission } from '@rbac/hooks/usePermission'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import COGatewayLogs from './COGatewayLogs'
 import COGatewayUsageTime from './COGatewayUsageTime'
 import {
@@ -153,6 +156,10 @@ const COGatewayAnalytics: React.FC<COGatewayAnalyticsProps> = props => {
   const { accountId } = useParams<AccountPathProps>()
   const { getString } = useStrings()
   const { showError } = useToaster()
+  const [canEdit, canDelete] = usePermission({
+    resource: { resourceType: ResourceType.AUTOSTOPPINGRULE },
+    permissions: [PermissionIdentifier.EDIT_CCM_AUTOSTOPPING_RULE, PermissionIdentifier.DELETE_CCM_AUTOSTOPPING_RULE]
+  })
 
   const isK8sRule = Utils.isK8sRule(props.service?.data as Service)
   const isEcsRule = !_isEmpty(props.service?.data.routing?.container_svc)
@@ -243,20 +250,24 @@ const COGatewayAnalytics: React.FC<COGatewayAnalyticsProps> = props => {
             </Layout.Horizontal>
             <Layout.Horizontal spacing="large" className={css.headerLayout}>
               <Layout.Horizontal flex spacing="large">
-                <Icon
-                  name="Edit"
-                  size={20}
-                  style={{ cursor: 'pointer' }}
-                  onClick={() => props.handleServiceEdit(props.service?.data as Service)}
-                  data-testid="editRuleIcon"
-                ></Icon>
-                <Icon
-                  name="main-trash"
-                  size={20}
-                  style={{ cursor: 'pointer' }}
-                  onClick={() => triggerDelete()}
-                  data-testid="deleteRuleIcon"
-                ></Icon>
+                {canEdit && (
+                  <Icon
+                    name="Edit"
+                    size={20}
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => props.handleServiceEdit(props.service?.data as Service)}
+                    data-testid="editRuleIcon"
+                  ></Icon>
+                )}
+                {canDelete && (
+                  <Icon
+                    name="main-trash"
+                    size={20}
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => triggerDelete()}
+                    data-testid="deleteRuleIcon"
+                  ></Icon>
+                )}
               </Layout.Horizontal>
             </Layout.Horizontal>
           </Layout.Horizontal>

@@ -60,6 +60,8 @@ import RbacButton from '@rbac/components/Button/Button'
 import { FeatureIdentifier } from 'framework/featureStore/FeatureIdentifier'
 import type { FeatureDetail } from 'framework/featureStore/featureStoreUtil'
 import { NGBreadcrumbs } from '@common/components/NGBreadcrumbs/NGBreadcrumbs'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 import { allProviders, ceConnectorTypes, ruleServiceStatusLabelMap, RulesMode } from '@ce/constants'
 import { Utils } from '@ce/common/Utils'
 import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
@@ -67,6 +69,7 @@ import { FeatureFlag } from '@common/featureFlags'
 import { useDeepCompareEffect, useQueryParams } from '@common/hooks'
 import type { orderType, serverSortProps, sortType } from '@common/components/Table/react-table-config'
 import { UNSAVED_FILTER } from '@common/components/Filter/utils/FilterUtils'
+import RbacMenuItem from '@rbac/components/MenuItem/MenuItem'
 import { useGetConnector } from 'services/cd-ng'
 import COGatewayAnalytics from './COGatewayAnalytics'
 import COGatewayCumulativeAnalytics from './COGatewayCumulativeAnalytics'
@@ -515,14 +518,54 @@ function RenderColumnMenu(
         />
         <Menu style={{ minWidth: 'unset' }}>
           {row.original.disabled ? (
-            <Menu.Item icon="play" text="Enable" onClick={handleToggleRuleClick} />
+            <RbacMenuItem
+              icon="play"
+              text="Enable"
+              onClick={handleToggleRuleClick}
+              permission={{
+                permission: PermissionIdentifier.EDIT_CCM_AUTOSTOPPING_RULE,
+                resource: {
+                  resourceType: ResourceType.AUTOSTOPPINGRULE
+                }
+              }}
+            />
           ) : (
-            <Menu.Item icon="disable" text="Disable" onClick={handleToggleRuleClick} />
+            <RbacMenuItem
+              icon="disable"
+              text="Disable"
+              onClick={handleToggleRuleClick}
+              permission={{
+                permission: PermissionIdentifier.EDIT_CCM_AUTOSTOPPING_RULE,
+                resource: {
+                  resourceType: ResourceType.AUTOSTOPPINGRULE
+                }
+              }}
+            />
           )}
           {row.original.status !== 'submitted' && (
-            <Menu.Item icon="edit" text="Edit" onClick={() => onEdit(row.original)} />
+            <RbacMenuItem
+              icon="edit"
+              text="Edit"
+              onClick={() => onEdit(row.original)}
+              permission={{
+                permission: PermissionIdentifier.EDIT_CCM_AUTOSTOPPING_RULE,
+                resource: {
+                  resourceType: ResourceType.AUTOSTOPPINGRULE
+                }
+              }}
+            />
           )}
-          <Menu.Item icon="trash" text="Delete" onClick={handleDeleteRuleClick} />
+          <RbacMenuItem
+            icon="trash"
+            text="Delete"
+            onClick={handleDeleteRuleClick}
+            permission={{
+              permission: PermissionIdentifier.DELETE_CCM_AUTOSTOPPING_RULE,
+              resource: {
+                resourceType: ResourceType.AUTOSTOPPINGRULE
+              }
+            }}
+          />
         </Menu>
       </Popover>
     </Layout.Horizontal>
@@ -589,6 +632,12 @@ const EmptyListPage: React.FC<EmptyListPageProps> = () => {
           featuresProps={{
             featuresRequest: {
               featureNames: [FeatureIdentifier.RESTRICTED_AUTOSTOPPING_RULE_CREATION]
+            }
+          }}
+          permission={{
+            permission: PermissionIdentifier.EDIT_CCM_AUTOSTOPPING_RULE,
+            resource: {
+              resourceType: ResourceType.AUTOSTOPPINGRULE
             }
           }}
           onClick={() => {
@@ -1206,6 +1255,12 @@ const COGatewayList: React.FC = () => {
               featuresProps={{
                 featuresRequest: {
                   featureNames: [FeatureIdentifier.RESTRICTED_AUTOSTOPPING_RULE_CREATION]
+                }
+              }}
+              permission={{
+                permission: PermissionIdentifier.EDIT_CCM_AUTOSTOPPING_RULE,
+                resource: {
+                  resourceType: ResourceType.AUTOSTOPPINGRULE
                 }
               }}
               onClick={() => {

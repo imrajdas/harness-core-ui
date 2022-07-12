@@ -118,6 +118,28 @@ RbacFactory.registerResourceTypeHandler(ResourceType.CCM_COST_CATEGORY, {
   }
 })
 
+RbacFactory.registerResourceTypeHandler(ResourceType.AUTOSTOPPINGRULE, {
+  icon: 'ccm-solid',
+  label: 'ce.co.breadCrumb.rules',
+  category: ResourceCategory.CLOUD_COSTS,
+  permissionLabels: {
+    [PermissionIdentifier.VIEW_CCM_AUTOSTOPPING_RULE]: <LocaleString stringID="rbac.permissionLabels.view" />,
+    [PermissionIdentifier.EDIT_CCM_AUTOSTOPPING_RULE]: <LocaleString stringID="rbac.permissionLabels.createEdit" />,
+    [PermissionIdentifier.DELETE_CCM_AUTOSTOPPING_RULE]: <LocaleString stringID="delete" />
+  }
+})
+
+RbacFactory.registerResourceTypeHandler(ResourceType.LOADBALANCER, {
+  icon: 'ccm-solid',
+  label: 'ce.co.accessPoint.loadbalancer',
+  category: ResourceCategory.CLOUD_COSTS,
+  permissionLabels: {
+    [PermissionIdentifier.VIEW_CCM_LOADBALANCER]: <LocaleString stringID="rbac.permissionLabels.view" />,
+    [PermissionIdentifier.EDIT_CCM_LOADBALANCER]: <LocaleString stringID="rbac.permissionLabels.createEdit" />,
+    [PermissionIdentifier.DELETE_CCM_LOADBALANCER]: <LocaleString stringID="delete" />
+  }
+})
+
 featureFactory.registerFeaturesByModule('ce', {
   features: [FeatureIdentifier.PERSPECTIVES],
   renderMessage: (_, getString, additionalLicenseProps, usageAndLimitInfo) => {

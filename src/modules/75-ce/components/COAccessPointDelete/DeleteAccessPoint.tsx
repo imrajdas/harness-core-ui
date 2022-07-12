@@ -12,6 +12,9 @@ import type { AccessPoint } from 'services/lw'
 import { useToaster } from '@common/exports'
 import { useStrings } from 'framework/strings'
 import { useDeleteAccessPoints, DeleteAccessPointPayload } from 'services/lw'
+import RbacButton from '@rbac/components/Button/Button'
+import { ResourceType } from '@rbac/interfaces/ResourceType'
+import { PermissionIdentifier } from '@rbac/interfaces/PermissionIdentifier'
 
 const modalPropsLight: IDialogProps = {
   isOpen: true,
@@ -111,7 +114,18 @@ const DeleteAccessPoint = (props: DeleteAccessPointProps) => {
   }
   return (
     <>
-      <Button intent="primary" icon="trash" text={getString('delete')} onClick={() => showModal()} />
+      <RbacButton
+        intent="primary"
+        icon="trash"
+        text={getString('delete')}
+        onClick={() => showModal()}
+        permission={{
+          permission: PermissionIdentifier.DELETE_CCM_LOADBALANCER,
+          resource: {
+            resourceType: ResourceType.LOADBALANCER
+          }
+        }}
+      />
       {modalState && <DeleteConfirmation />}
     </>
   )
