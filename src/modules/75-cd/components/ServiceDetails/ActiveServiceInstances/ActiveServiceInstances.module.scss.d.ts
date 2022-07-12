@@ -13,6 +13,7 @@ declare const styles: {
   readonly activeServiceInstancesEmpty: string
   readonly activeServiceInstancesHeader: string
   readonly countBadge: string
+  readonly deploymentsEmpty: string
   readonly envContainer: string
   readonly environmentRow: string
   readonly hex: string

@@ -97,7 +97,11 @@ export const ActiveServiceInstances: React.FC = () => {
               </>
             }
           />
-          <Tab id={ServiceDetailTabs.DEPLOYMENT} title={getString('deploymentsText')} panel={<Deployments />} />
+          <Tab
+            id={ServiceDetailTabs.DEPLOYMENT}
+            title={getString('pipeline.dashboards.activeDeployments')}
+            panel={<Deployments />}
+          />
         </Tabs>
       </Layout.Vertical>
     </Card>

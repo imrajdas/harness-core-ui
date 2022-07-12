@@ -120,14 +120,14 @@ export const DeploymentsV2 = (
     const component = (() => {
       if (loading) {
         return (
-          <Container data-test="ActiveServiceInstancesLoader" height="360px">
+          <Container data-test="deploymentsLoader" height="360px">
             <PageSpinner />
           </Container>
         )
       }
       if (error) {
         return (
-          <Container data-test="ActiveServiceInstancesError" height="360px">
+          <Container data-test="deploymentsError" height="360px">
             <PageError onClick={() => refetch?.()} />
           </Container>
         )
@@ -136,13 +136,13 @@ export const DeploymentsV2 = (
         <Layout.Vertical
           height="360px"
           flex={{ align: 'center-center' }}
-          data-test="ActiveServiceInstancesEmpty"
-          className={css.activeServiceInstancesEmpty}
+          data-test="deploymentsEmpty"
+          className={css.deploymentsEmpty}
         >
           <Container margin={{ bottom: 'medium' }}>
             <img width="50" height="50" src={MostActiveServicesEmptyState} style={{ alignSelf: 'center' }} />
           </Container>
-          <Text color={Color.GREY_400}>{getString('cd.serviceDashboard.noActiveServiceInstances')}</Text>
+          <Text color={Color.GREY_400}>{getString('pipeline.dashboards.noActiveDeployments')}</Text>
         </Layout.Vertical>
       )
     })()

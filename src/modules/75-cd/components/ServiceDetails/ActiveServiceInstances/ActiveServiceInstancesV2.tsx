@@ -139,7 +139,7 @@ export const ActiveServiceInstancesV2: React.FC = () => {
           />
           <Tab
             id={ServiceDetailTabs.DEPLOYMENT}
-            title={getString('deploymentsText')}
+            title={getString('pipeline.dashboards.activeDeployments')}
             panel={
               <>
                 {moreDetails()}

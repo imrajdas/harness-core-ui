@@ -138,3 +138,7 @@
   text-overflow: ellipsis;
   cursor: pointer;
 }
+
+.deploymentsEmpty {
+  flex-shrink: 1 !important;
+}

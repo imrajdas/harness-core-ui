@@ -47,7 +47,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
             role="tab"
             tabindex="0"
           >
-            deploymentsText
+            pipeline.dashboards.activeDeployments
           </div>
         </div>
         <div
@@ -459,7 +459,7 @@ exports[`ActiveServiceInstancesContent should render error 1`] = `
             role="tab"
             tabindex="0"
           >
-            deploymentsText
+            pipeline.dashboards.activeDeployments
           </div>
         </div>
         <div
@@ -640,7 +640,7 @@ exports[`ActiveServiceInstancesContent should render loading 1`] = `
             role="tab"
             tabindex="0"
           >
-            deploymentsText
+            pipeline.dashboards.activeDeployments
           </div>
         </div>
         <div
@@ -852,7 +852,7 @@ exports[`ActiveServiceInstancesContent should render no data 1`] = `
             role="tab"
             tabindex="0"
           >
-            deploymentsText
+            pipeline.dashboards.activeDeployments
           </div>
         </div>
         <div

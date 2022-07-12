@@ -376,3 +376,96 @@ describe('ActiveInstance Tab states', () => {
     expect(getByText('cd.serviceDashboard.noActiveServiceInstances')).toBeTruthy()
   })
 })
+
+describe('DeploymentViewV2', () => {
+  test('initial render with SummaryTable view', async () => {
+    jest.spyOn(cdngServices, 'useGetActiveServiceInstances').mockImplementation(() => {
+      return { loading: false, error: false, data: noData, refetch: jest.fn() } as any
+    })
+    jest.spyOn(cdngServices, 'useGetActiveServiceDeployments').mockImplementation(() => {
+      return { loading: false, error: false, data: mockData, refetch: jest.fn() } as any
+    })
+    const { getByText, getAllByText, getAllByRole } = render(
+      <TestWrapper>
+        <ActiveServiceInstancesV2 />
+      </TestWrapper>
+    )
+    const deploymentsTab = getAllByRole('tab')[1]
+    expect(deploymentsTab).toBeDefined()
+    userEvent.click(deploymentsTab)
+
+    const moreDetails = getByText('cd.serviceDashboard.moreDetails')
+    expect(moreDetails).toBeTruthy()
+    userEvent.click(moreDetails)
+    // expect(container).toMatchSnapshot()
+    const moreDetailDailog = findDialogContainer()
+    expect(moreDetailDailog).toBeTruthy()
+
+    const artifactName = getAllByText('artifact-1')
+    expect(artifactName).toBeDefined()
+
+    userEvent.click(artifactName[1])
+
+    expect(getByText('cd.serviceDashboard.deploymentDetails')).toBeTruthy()
+  })
+  test('loading true', async () => {
+    jest.spyOn(cdngServices, 'useGetActiveServiceInstances').mockImplementation(() => {
+      return { loading: false, error: false, data: noData, refetch: jest.fn() } as any
+    })
+    jest.spyOn(cdngServices, 'useGetActiveServiceDeployments').mockImplementation(() => {
+      return { loading: true, error: false, data: mockData, refetch: jest.fn() } as any
+    })
+    const { getByText } = render(
+      <TestWrapper>
+        <ActiveServiceInstancesV2 />
+      </TestWrapper>
+    )
+    expect(getByText('Loading, please wait...')).toBeTruthy()
+  })
+  test('error true', async () => {
+    jest.spyOn(cdngServices, 'useGetActiveServiceInstances').mockImplementation(() => {
+      return { loading: false, error: false, data: noData, refetch: jest.fn() } as any
+    })
+    jest.spyOn(cdngServices, 'useGetActiveServiceDeployments').mockImplementation(() => {
+      return { loading: false, error: true, data: mockData, refetch: jest.fn() } as any
+    })
+    const { getByText } = render(
+      <TestWrapper>
+        <ActiveServiceInstancesV2 />
+      </TestWrapper>
+    )
+    expect(getByText('Retry')).toBeTruthy()
+    userEvent.click(getByText('Retry'))
+  })
+  test('when both are empty and switch to deployment tab', async () => {
+    jest.spyOn(cdngServices, 'useGetEnvArtifactDetailsByServiceId').mockImplementation(() => {
+      return {
+        mutate: () => Promise.resolve({ loading: false, data: [] })
+      } as any
+    })
+    jest.spyOn(cdngServices, 'useGetActiveServiceInstances').mockImplementation(() => {
+      return {
+        loading: false,
+        error: false,
+        data: noData,
+        refetch: jest.fn()
+      } as any
+    })
+    jest.spyOn(cdngServices, 'useGetActiveServiceDeployments').mockImplementation(() => {
+      return { loading: false, error: false, data: noData, refetch: jest.fn() } as any
+    })
+    const { getByText, getAllByRole } = render(
+      <TestWrapper>
+        <ActiveServiceInstancesV2 />
+      </TestWrapper>
+    )
+    //activeInstance tab should open
+    expect(getByText('cd.serviceDashboard.noActiveServiceInstances')).toBeTruthy()
+
+    const deploymentsTab = getAllByRole('tab')[1]
+    expect(deploymentsTab).toBeDefined()
+    userEvent.click(deploymentsTab)
+
+    expect(getByText('pipeline.dashboards.noActiveDeployments')).toBeTruthy()
+  })
+})
