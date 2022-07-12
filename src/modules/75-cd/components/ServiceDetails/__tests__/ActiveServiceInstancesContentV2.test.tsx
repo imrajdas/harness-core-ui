@@ -71,11 +71,11 @@ const mockData = {
         ]
       },
       {
-        artifactVersion: 'artifact-2',
+        artifactVersion: 'perl',
         instanceGroupedByEnvironmentList: [
           {
             envId: 'env-3',
-            envName: 'env-3',
+            envName: 'NewEnv',
             instanceGroupedByInfraList: [
               {
                 infraIdentifier: 'infra-5',
@@ -142,6 +142,9 @@ jest.spyOn(cdngServices, 'useGetInstanceGrowthTrend').mockImplementation(() => {
     refetch: jest.fn()
   } as any
 })
+jest.spyOn(cdngServices, 'useGetActiveServiceDeployments').mockImplementation(() => {
+  return { loading: false, error: false, data: mockData, refetch: jest.fn() } as any
+})
 describe('ActiveServiceInstancesContent', () => {
   jest.spyOn(cdngServices, 'useGetEnvArtifactDetailsByServiceId').mockImplementation(() => {
     return {
@@ -161,6 +164,9 @@ describe('ActiveServiceInstancesContent', () => {
   })
   test('should render error', () => {
     jest.spyOn(cdngServices, 'useGetActiveServiceInstances').mockImplementation(() => {
+      return { loading: false, error: true, data: noData, refetch: jest.fn() } as any
+    })
+    jest.spyOn(cdngServices, 'useGetActiveServiceDeployments').mockImplementation(() => {
       return { loading: false, error: true, data: noData, refetch: jest.fn() } as any
     })
     const { container, getByText } = render(
@@ -322,6 +328,9 @@ describe('ActiveInstance Tab states', () => {
         refetch: jest.fn()
       } as any
     })
+    jest.spyOn(cdngServices, 'useGetActiveServiceDeployments').mockImplementation(() => {
+      return { loading: false, error: false, data: mockData, refetch: jest.fn() } as any
+    })
     const { getByText } = render(
       <TestWrapper>
         <ActiveServiceInstancesV2 />
@@ -354,6 +363,9 @@ describe('ActiveInstance Tab states', () => {
         data: noData,
         refetch: jest.fn()
       } as any
+    })
+    jest.spyOn(cdngServices, 'useGetActiveServiceDeployments').mockImplementation(() => {
+      return { loading: false, error: false, data: noData, refetch: jest.fn() } as any
     })
     const { getByText } = render(
       <TestWrapper>

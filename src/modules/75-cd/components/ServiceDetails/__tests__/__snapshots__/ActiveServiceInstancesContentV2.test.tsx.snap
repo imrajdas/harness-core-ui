@@ -10,7 +10,47 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
     <h4
       class="bp3-heading"
     >
-      cd.serviceDashboard.instancesDetails
+      <div
+        class="Layout--horizontal StyledProps--main StyledProps--padding-bottom-large StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-space-between"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900 StyledProps--font-variation-h4 StyledProps--font-weight-semi-bold"
+        >
+          cd.serviceDashboard.instancesDetails
+        </p>
+        <div
+          class="bp3-input-group ui-search-box ExpandingSearchInput--main searchIconStyle  ExpandingSearchInput--alwaysExpanded ExpandingSearchInput--light"
+          data-name=""
+        >
+          <span
+            class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
+            data-icon="thinner-search"
+          >
+            <svg
+              fill="none"
+              height="14"
+              viewBox="0 0 16 16"
+              width="14"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <input
+            class="bp3-input  ExpandingSearchInput--filter"
+            dir="auto"
+            placeholder="search"
+            style="padding-right: 38px;"
+            type="search"
+            value=""
+          />
+        </div>
+      </div>
     </h4>
   </div>
   <span
@@ -147,7 +187,7 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                         >
                           <p
                             class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                            style="--text-line-clamp: 1;"
+                            style="max-width: 200px; --text-line-clamp: 1;"
                           >
                             artifact-1
                           </p>
@@ -189,7 +229,7 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="--text-line-clamp: 1;"
+                                style="max-width: 120px; --text-line-clamp: 1;"
                               >
                                 infra-1
                               </p>
@@ -360,7 +400,7 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="--text-line-clamp: 1;"
+                                style="max-width: 120px; --text-line-clamp: 1;"
                               >
                                 infra-2
                               </p>
@@ -485,7 +525,7 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="--text-line-clamp: 1;"
+                                style="max-width: 120px; --text-line-clamp: 1;"
                               >
                                 infra-3
                               </p>
@@ -579,7 +619,7 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="--text-line-clamp: 1;"
+                                style="max-width: 120px; --text-line-clamp: 1;"
                               >
                                 infra-4
                               </p>
@@ -727,9 +767,9 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                         >
                           <p
                             class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                            style="--text-line-clamp: 1;"
+                            style="max-width: 200px; --text-line-clamp: 1;"
                           >
-                            artifact-2
+                            perl
                           </p>
                         </div>
                         <div
@@ -750,7 +790,7 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                                   class="StyledProps--font Text--lineclamp StyledProps--main environmentRow StyledProps--font-size-small StyledProps--color StyledProps--color-white"
                                   style="--text-line-clamp: 1;"
                                 >
-                                  env-3
+                                  NewEnv
                                 </p>
                               </div>
                             </div>
@@ -769,7 +809,7 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="--text-line-clamp: 1;"
+                                style="max-width: 120px; --text-line-clamp: 1;"
                               >
                                 infra-5
                               </p>
@@ -863,7 +903,7 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="--text-line-clamp: 1;"
+                                style="max-width: 120px; --text-line-clamp: 1;"
                               >
                                 infra-6
                               </p>
@@ -988,7 +1028,7 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="--text-line-clamp: 1;"
+                                style="max-width: 120px; --text-line-clamp: 1;"
                               >
                                 infra-7
                               </p>
@@ -1082,7 +1122,7 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="--text-line-clamp: 1;"
+                                style="max-width: 120px; --text-line-clamp: 1;"
                               >
                                 infra-8
                               </p>
@@ -1181,7 +1221,47 @@ exports[`ActiveInstance Details Dialog Open details dialog 1`] = `
     <h4
       class="bp3-heading"
     >
-      cd.serviceDashboard.instancesDetails
+      <div
+        class="Layout--horizontal StyledProps--main StyledProps--padding-bottom-large StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-space-between"
+      >
+        <p
+          class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey900 StyledProps--font-variation-h4 StyledProps--font-weight-semi-bold"
+        >
+          cd.serviceDashboard.instancesDetails
+        </p>
+        <div
+          class="bp3-input-group ui-search-box ExpandingSearchInput--main searchIconStyle  ExpandingSearchInput--alwaysExpanded ExpandingSearchInput--light"
+          data-name=""
+        >
+          <span
+            class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
+            data-icon="thinner-search"
+          >
+            <svg
+              fill="none"
+              height="14"
+              viewBox="0 0 16 16"
+              width="14"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <input
+            class="bp3-input  ExpandingSearchInput--filter"
+            dir="auto"
+            placeholder="search"
+            style="padding-right: 38px;"
+            type="search"
+            value=""
+          />
+        </div>
+      </div>
     </h4>
   </div>
   <span
@@ -1301,7 +1381,7 @@ exports[`ActiveInstance Details Dialog Open details dialog 1`] = `
                       >
                         <p
                           class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                          style="--text-line-clamp: 1;"
+                          style="max-width: 200px; --text-line-clamp: 1;"
                         >
                           artifact-1
                         </p>
@@ -1350,7 +1430,7 @@ exports[`ActiveInstance Details Dialog Open details dialog 1`] = `
                           >
                             <p
                               class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                              style="--text-line-clamp: 1;"
+                              style="max-width: 120px; --text-line-clamp: 1;"
                             >
                               infra-1
                             </p>
@@ -1566,9 +1646,9 @@ exports[`ActiveInstance Details Dialog Open details dialog 1`] = `
                       >
                         <p
                           class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                          style="--text-line-clamp: 1;"
+                          style="max-width: 200px; --text-line-clamp: 1;"
                         >
-                          artifact-2
+                          perl
                         </p>
                       </div>
                       <div
@@ -1589,7 +1669,7 @@ exports[`ActiveInstance Details Dialog Open details dialog 1`] = `
                                 class="StyledProps--font Text--lineclamp StyledProps--main environmentRow StyledProps--font-size-small StyledProps--color StyledProps--color-white"
                                 style="--text-line-clamp: 1;"
                               >
-                                env-3
+                                NewEnv
                               </p>
                             </div>
                             <p
@@ -1615,7 +1695,7 @@ exports[`ActiveInstance Details Dialog Open details dialog 1`] = `
                           >
                             <p
                               class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                              style="--text-line-clamp: 1;"
+                              style="max-width: 120px; --text-line-clamp: 1;"
                             >
                               infra-5
                             </p>
@@ -1831,222 +1911,51 @@ exports[`ActiveInstance Tab states change tab to deployments 1`] = `
         >
           <div
             class="StyledProps--font StyledProps--main"
+            data-test="ActiveServiceInstancesError"
+            style="height: 360px;"
           >
             <div
-              class="TableV2--table deploymentTab"
+              class="StyledProps--font StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+              style="width: 100%; height: 100%;"
             >
               <div
-                class="TableV2--header"
-                role="row"
+                class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
+                style="align-items: center; width: 500px;"
               >
-                <div
-                  class="TableV2--cell"
-                  colspan="1"
-                  role="columnheader"
-                  style="width: 35%;"
+                <span
+                  class="bp3-icon bp3-icon-error StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="error"
                 >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
+                  <svg
+                    data-icon="error"
+                    height="32"
+                    viewBox="0 0 20 20"
+                    width="32"
                   >
-                    cd.serviceDashboard.headers.environment
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  colspan="1"
-                  role="columnheader"
-                  style="width: 65%;"
+                    <desc>
+                      error
+                    </desc>
+                    <path
+                      d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm1 16H9v-2h2v2zm0-3H9V4h2v9z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-align-center StyledProps--color StyledProps--color-red500"
                 >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
-                  >
-                    cd.serviceDashboard.headers.artifactVersion
-                  </p>
-                </div>
-              </div>
-              <div
-                class="TableV2--body"
-              >
-                <div
-                  class="TableV2--row TableV2--card"
-                  role="row"
+                  We cannot perform your request at the moment. Please try again.
+                </p>
+                <button
+                  class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--variation Button--variation-primary"
+                  type="button"
                 >
-                  <div
-                    class="TableV2--cells"
+                  <span
+                    class="bp3-button-text"
                   >
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 35%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main envName"
-                      >
-                        <p
-                          class="StyledProps--font Text--lineclamp StyledProps--main envNameText StyledProps--color StyledProps--color-white"
-                          style="--text-line-clamp: 1;"
-                        >
-                          NewEnv
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 65%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main paddedContainer"
-                      >
-                        <div
-                          class="StyledProps--font StyledProps--main StyledProps--padding-right-xsmall"
-                        >
-                          <p
-                            class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
-                            style="--text-line-clamp: 1;"
-                          >
-                            perl
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="TableV2--row TableV2--card"
-                  role="row"
-                >
-                  <div
-                    class="TableV2--cells"
-                  >
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 35%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main envName"
-                      >
-                        <p
-                          class="StyledProps--font Text--lineclamp StyledProps--main envNameText StyledProps--color StyledProps--color-white"
-                          style="--text-line-clamp: 1;"
-                        >
-                          PreProDEnv
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 65%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main paddedContainer"
-                      >
-                        <div
-                          class="StyledProps--font StyledProps--main StyledProps--padding-right-xsmall"
-                        >
-                          <p
-                            class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
-                            style="--text-line-clamp: 1;"
-                          >
-                            stable
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="TableV2--row TableV2--card"
-                  role="row"
-                >
-                  <div
-                    class="TableV2--cells"
-                  >
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 35%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main envName"
-                      >
-                        <p
-                          class="StyledProps--font Text--lineclamp StyledProps--main envNameText StyledProps--color StyledProps--color-white"
-                          style="--text-line-clamp: 1;"
-                        >
-                          PreQa
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 65%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main paddedContainer"
-                      >
-                        <div
-                          class="StyledProps--font StyledProps--main StyledProps--padding-right-xsmall"
-                        >
-                          <p
-                            class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
-                            style="--text-line-clamp: 1;"
-                          >
-                            stable
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="TableV2--row TableV2--card"
-                  role="row"
-                >
-                  <div
-                    class="TableV2--cells"
-                  >
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 35%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main envName"
-                      >
-                        <p
-                          class="StyledProps--font Text--lineclamp StyledProps--main envNameText StyledProps--color StyledProps--color-white"
-                          style="--text-line-clamp: 1;"
-                        >
-                          env
-                        </p>
-                      </div>
-                    </div>
-                    <div
-                      class="TableV2--cell"
-                      role="cell"
-                      style="width: 65%;"
-                    >
-                      <div
-                        class="StyledProps--font StyledProps--main paddedContainer"
-                      >
-                        <div
-                          class="StyledProps--font StyledProps--main StyledProps--padding-right-xsmall"
-                        >
-                          <p
-                            class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey800"
-                            style="--text-line-clamp: 1;"
-                          >
-                            stable
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                    Retry
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -2274,7 +2183,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     >
                       <p
                         class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                        style="--text-line-clamp: 1;"
+                        style="max-width: 200px; --text-line-clamp: 1;"
                       >
                         artifact-1
                       </p>
@@ -2562,9 +2471,9 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     >
                       <p
                         class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                        style="--text-line-clamp: 1;"
+                        style="max-width: 200px; --text-line-clamp: 1;"
                       >
-                        artifact-2
+                        perl
                       </p>
                     </div>
                     <div
@@ -2585,7 +2494,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                               class="StyledProps--font Text--lineclamp StyledProps--main environmentRow StyledProps--font-size-small StyledProps--color StyledProps--color-white"
                               style="--text-line-clamp: 1;"
                             >
-                              env-3
+                              NewEnv
                             </p>
                           </div>
                         </div>
@@ -2917,11 +2826,6 @@ exports[`ActiveServiceInstancesContent should render error 1`] = `
               class="Layout--horizontal StyledProps--main"
             />
           </div>
-          <p
-            class="StyledProps--font StyledProps--main moreDetails StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-primary7"
-          >
-            cd.serviceDashboard.moreDetails
-          </p>
           <div
             class="StyledProps--font StyledProps--main"
             data-test="ActiveServiceInstancesError"
@@ -3103,11 +3007,6 @@ exports[`ActiveServiceInstancesContent should render loading 1`] = `
               class="Layout--horizontal StyledProps--main"
             />
           </div>
-          <p
-            class="StyledProps--font StyledProps--main moreDetails StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-primary7"
-          >
-            cd.serviceDashboard.moreDetails
-          </p>
           <div
             class="StyledProps--font StyledProps--main"
             data-test="ActiveServiceInstancesLoader"
@@ -3320,11 +3219,6 @@ exports[`ActiveServiceInstancesContent should render no data 1`] = `
               class="Layout--horizontal StyledProps--main"
             />
           </div>
-          <p
-            class="StyledProps--font StyledProps--main moreDetails StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-primary7"
-          >
-            cd.serviceDashboard.moreDetails
-          </p>
           <div
             class="Layout--vertical StyledProps--main activeServiceInstancesEmpty StyledProps--flex StyledProps--flex-align-center-center"
             data-test="ActiveServiceInstancesEmpty"
