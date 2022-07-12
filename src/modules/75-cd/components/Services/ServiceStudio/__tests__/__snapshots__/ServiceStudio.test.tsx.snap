@@ -252,7 +252,7 @@ exports[`ServiceStudio should render ServiceStudio 1`] = `
                             role="tab"
                             tabindex="0"
                           >
-                            deploymentsText
+                            pipeline.dashboards.activeDeployments
                           </div>
                         </div>
                         <div
