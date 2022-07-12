@@ -84,19 +84,19 @@ export const DeploymentsV2 = (
   const columns = useMemo(() => {
     const columnsArray = [
       {
-        Header: getString('cd.artifactVersion'),
+        Header: getString('cd.serviceDashboard.headers.artifactVersion'),
         id: 'artifact',
         width: columnsProperties.artifacts.width[tableType],
         Cell: RenderArtifactVersion
       },
       {
-        Header: getString('environment'),
+        Header: getString('cd.serviceDashboard.headers.environment'),
         id: 'env',
         width: columnsProperties.envs.width[tableType],
         Cell: RenderEnvironment
       },
       {
-        Header: getString('common.clusters'),
+        Header: getString('cd.serviceDashboard.headers.infras'),
         id: 'infra',
         width: columnsProperties.infras.width[tableType],
         Cell: tableType == TableType.PREVIEW ? RenderInfraCount : RenderInfra
@@ -105,7 +105,7 @@ export const DeploymentsV2 = (
 
     if (tableType != TableType.PREVIEW) {
       columnsArray.push({
-        Header: getString('cd.pipelineExecution'),
+        Header: getString('cd.serviceDashboard.headers.pipelineExecution'),
         id: 'pipeline',
         width: columnsProperties.pipelines.width[tableType],
         Cell: RenderPipelineExecution

@@ -13,15 +13,14 @@ import { useStrings } from 'framework/strings'
 import {
   GetEnvArtifactDetailsByServiceIdQueryParams,
   GetEnvBuildInstanceCountQueryParams,
-  useGetActiveServiceInstances,
-  useGetEnvArtifactDetailsByServiceId
+  useGetActiveServiceDeployments,
+  useGetActiveServiceInstances
 } from 'services/cd-ng'
 import type { ProjectPathProps, ServicePathProps } from '@common/interfaces/RouteInterfaces'
 import { ActiveServiceInstancesHeader } from './ActiveServiceInstancesHeader'
 import { ActiveServiceInstancesContentV2, TableType } from './ActiveServiceInstancesContentV2'
 import { DeploymentsV2 } from '../DeploymentView/DeploymentViewV2'
 import InstancesDetailsDialog from './InstancesDetails/InstancesDetailsDialog'
-// import { activeResponse } from './mockApi'
 import css from './ActiveServiceInstances.module.scss'
 
 export enum ServiceDetailTabs {
@@ -48,11 +47,6 @@ export const ActiveServiceInstancesV2: React.FC = () => {
     refetch: activeInstanceRefetch
   } = useGetActiveServiceInstances({ queryParams })
 
-  // const activeInstanceData = activeResponse
-  // const activeInstanceLoading = false
-  // const activeInstanceError = false
-  // const activeInstanceRefetch = false
-
   const queryParamsDeployments: GetEnvArtifactDetailsByServiceIdQueryParams = {
     accountIdentifier: accountId,
     orgIdentifier,
@@ -65,7 +59,7 @@ export const ActiveServiceInstancesV2: React.FC = () => {
     loading: deploymentLoading,
     error: deploymentError,
     refetch: deploymentRefetch
-  } = useGetEnvArtifactDetailsByServiceId({
+  } = useGetActiveServiceDeployments({
     queryParams: queryParamsDeployments
   })
 
@@ -73,8 +67,8 @@ export const ActiveServiceInstancesV2: React.FC = () => {
     return Boolean(
       activeInstanceData &&
         deploymentData &&
-        !(activeInstanceData.data?.instanceGroupedByArtifactList || []).length &&
-        (deploymentData.data?.environmentInfoByServiceId || []).length
+        !(activeInstanceData?.data?.instanceGroupedByArtifactList || []).length &&
+        (deploymentData?.data?.instanceGroupedByArtifactList || []).length
     )
   }
 
@@ -93,6 +87,10 @@ export const ActiveServiceInstancesV2: React.FC = () => {
   }
 
   const moreDetails = () => {
+    const dailogData =
+      defaultTab === ServiceDetailTabs.ACTIVE
+        ? activeInstanceData?.data?.instanceGroupedByArtifactList
+        : deploymentData?.data?.instanceGroupedByArtifactList
     return (
       <>
         <Text
@@ -104,7 +102,7 @@ export const ActiveServiceInstancesV2: React.FC = () => {
           {getString('cd.serviceDashboard.moreDetails')}
         </Text>
         <InstancesDetailsDialog
-          data={activeInstanceData?.data?.instanceGroupedByArtifactList}
+          data={dailogData}
           isOpen={isDetailsDialogOpen}
           setIsOpen={setIsDetailsDialogOpen}
           isActiveInstance={defaultTab === ServiceDetailTabs.ACTIVE}
@@ -143,9 +141,9 @@ export const ActiveServiceInstancesV2: React.FC = () => {
                 <DeploymentsV2
                   tableType={TableType.PREVIEW}
                   loading={deploymentLoading}
-                  data={activeInstanceData?.data?.instanceGroupedByArtifactList}
-                  error={deploymentError as any} //tododeploymenttab
-                  refetch={deploymentRefetch as any}
+                  data={deploymentData?.data?.instanceGroupedByArtifactList}
+                  error={deploymentError}
+                  refetch={deploymentRefetch}
                 />
               </>
             }
