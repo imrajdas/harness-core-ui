@@ -91,6 +91,11 @@ export const ActiveServiceInstancesV2: React.FC = () => {
       defaultTab === ServiceDetailTabs.ACTIVE
         ? activeInstanceData?.data?.instanceGroupedByArtifactList
         : deploymentData?.data?.instanceGroupedByArtifactList
+
+    if (activeInstanceLoading || activeInstanceError || (dailogData || []).length == 0) {
+      return
+    }
+
     return (
       <>
         <Text
