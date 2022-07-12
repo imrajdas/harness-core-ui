@@ -592,6 +592,7 @@ export interface StringsMap {
   'common.removeThisVariable': string
   'common.repo_provider.awscodecommit': string
   'common.repo_provider.azureDev': string
+  'common.repo_provider.azureRepo': string
   'common.repo_provider.bitbucketLabel': string
   'common.repo_provider.codecommit': string
   'common.repo_provider.customLabel': string
@@ -2311,7 +2312,6 @@ export interface StringsMap {
   'connectors.title.awsSecretManager': string
   'connectors.title.azure': string
   'connectors.title.azureKeyVault': string
-  'connectors.title.azureRepo': string
   'connectors.title.azureRepoConnector': string
   'connectors.title.bitbucketConnector': string
   'connectors.title.ceAws': string
