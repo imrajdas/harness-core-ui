@@ -264,95 +264,24 @@ exports[`test cases for Perspective details Page should be able to render and sw
               class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
               style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              Default Folder
+            </p>
           </div>
         </li>
         <li
@@ -395,95 +324,24 @@ exports[`test cases for Perspective details Page should be able to render and sw
               class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
               style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              Move here
+            </p>
           </div>
         </li>
         <li
@@ -526,95 +384,54 @@ exports[`test cases for Perspective details Page should be able to render and sw
               class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
               style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              Test123
+            </p>
+          </div>
+        </li>
+        <li
+          class="link"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
+              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              adfnlajdgblj
+            </p>
           </div>
         </li>
         <li
@@ -657,95 +474,54 @@ exports[`test cases for Perspective details Page should be able to render and sw
               class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
               style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              sv-test-folder-2
+            </p>
+          </div>
+        </li>
+        <li
+          class="link"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
+              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              test1123
+            </p>
           </div>
         </li>
         <li
@@ -776,98 +552,6 @@ exports[`test cases for Perspective details Page should be able to render and sw
               </span>
               testSahil
             </p>
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
           </div>
         </li>
       </ul>
@@ -917,687 +601,6 @@ exports[`test cases for Perspective details Page should be able to render and sw
         />
         <div
           class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-        >
-          <div
-            class="StyledProps--font StyledProps--main quickFilter disabledMode StyledProps--padding-small"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="harness"
-            >
-              <svg
-                height="16"
-                viewBox="0 0 25 25"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M22.974 8.186L16.708 1.88a7.023 7.023 0 00-2.59-1.572C11.98-.409 9.858.154 8.135 1.88L1.868 8.186a7.081 7.081 0 00-1.562 2.606c-.713 2.153-.153 4.289 1.562 6.023l6.266 6.306a7.113 7.113 0 002.589 1.58 5.663 5.663 0 001.808.308c1.503 0 2.946-.64 4.177-1.88l6.266-6.305a7.08 7.08 0 001.562-2.606c.713-2.162.153-4.298-1.562-6.032zm-10.07-4.477c.706.213 1.232.7 1.274.735l1.851 1.862-3.608 3.631-3.608-3.63 1.859-1.872c.5-.496 1.197-1.034 2.233-.726zm-9.219 8.305c.212-.71.696-1.24.73-1.282l1.85-1.863 3.609 3.632-3.608 3.63-1.86-1.87c-.492-.504-1.027-1.214-.721-2.247zm8.252 9.279c-.705-.214-1.231-.701-1.273-.735l-1.851-1.863 3.608-3.631 3.608 3.631-1.86 1.871c-.5.496-1.205 1.034-2.232.726zm9.22-8.305c-.212.709-.696 1.239-.73 1.281l-1.851 1.863-3.608-3.631 3.608-3.632 1.86 1.872c.492.504 1.027 1.204.72 2.247z"
-                  fill="#4facdf"
-                />
-              </svg>
-            </span>
-            <p
-              class="StyledProps--font StyledProps--main count StyledProps--padding-left-small StyledProps--padding-right-small StyledProps--margin-left-xsmall StyledProps--font-variation-form-label StyledProps--color StyledProps--color-grey600 StyledProps--background-white"
-            >
-              0
-            </p>
-          </div>
-          <div
-            class="StyledProps--font StyledProps--main quickFilter StyledProps--padding-small"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="app-kubernetes"
-            >
-              <svg
-                height="16"
-                viewBox="0 0 32 30"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill="none"
-                >
-                  <path
-                    d="M15.94.023c-.228 0-.457 0-.685.229L4.512 5.28c-.457.229-.915.686-1.143 1.372L.626 18.08c-.229.457 0 1.143.229 1.6l.228.229 7.314 9.143c.458.457.915.685 1.6.685h11.886c.686 0 1.143-.228 1.6-.685l7.314-9.143c.458-.457.458-1.143.458-1.6L28.512 6.88c-.229-.685-.457-1.143-1.143-1.371L16.626.48c0-.228-.457-.457-.686-.457z"
-                    fill="#326CE5"
-                  />
-                  <path
-                    d="M15.94 3.909c-.457 0-.685.228-.685.686v2.057c0 .228-.229.228-.229.228v.229c-.457 0-.686 0-1.143.228-1.6.458-3.2 1.143-4.114 2.286l-.229-.228h-.457c-.228-.23-.457-.458-.914-.686l-.457-.457h-.229c-.228 0-.228-.229-.457-.229s-.457 0-.457.229c-.229.228-.229.685.228.914h.23c.228.229.456.229.456.229.457.228.686.457.914.685 0 0 .23.229.23.457l.228.229c-1.143 1.6-1.6 3.657-1.372 5.714h-.228l-.229.229c-.229 0-.686.228-1.143.228H4.97c-.457 0-.686.458-.457.686 0 .229.457.457.914.457h.229c.228 0 .457-.228.685-.228.457-.229.686-.229 1.143-.229.229 0 .229 0 .457.229h.229c.686 2.057 2.057 3.657 3.657 4.571l-.229.229v.457c-.228.228-.228.686-.685 1.143-.229.228-.229.228-.229.457v.228c-.228.458 0 .686.229.915.228.228.685 0 .914-.457v-.23c0-.228.229-.456.229-.685.228-.457.228-.914.457-1.143 0 0 .228 0 .228-.228l.229-.229c1.371.457 3.2.686 4.8.457.457 0 .686-.228 1.143-.228l.228.228s.229 0 .229.229c.228.229.228.686.457 1.143 0 .228 0 .457.229.686v.228c.228.457.457.457.914.457.228-.228.457-.457.228-.914v-.229c0-.228-.228-.228-.228-.457-.229-.457-.457-.685-.457-.914v-.686c1.828-1.143 2.971-2.743 3.657-4.571h.228s.23-.229.458-.229.685.229 1.142.229c.23 0 .458.228.686.228h.229c.457 0 .685-.228.914-.457 0-.228-.229-.685-.457-.685h-.914c-.458 0-.915 0-1.143-.23-.229 0-.229-.228-.229-.228h-.228c.228-.914 0-2.057-.229-2.971-.229-.914-.686-2.057-1.143-2.743l.229-.228c0-.23 0-.23.228-.458.229-.228.457-.457.915-.685.228 0 .457-.229.457-.229h.228c.229-.228.457-.686.229-.914-.229-.229-.686-.229-.914 0h-.229l-.457.457c-.229.229-.686.686-.914.686h-.458l-.228.228a8.778 8.778 0 00-5.257-2.514v-.229l-.229-.228V5.052c-.457-.686-.686-1.143-1.143-1.143zm-.685 5.028l-.229 3.429a.492.492 0 01-.457.457h-.229l-2.743-2.057c.915-.914 1.83-1.371 3.2-1.829h.458zm1.6 0c1.371.229 2.742.915 3.885 1.829l-2.743 1.829c-.228.228-.685.228-.685 0l-.229-.23-.228-3.428zm-6.4 3.2l2.514 2.286c.228.229.228.457 0 .686l-.229.228-3.2.915c-.228-1.6 0-2.972.915-4.115zm11.2 0c.457.686.685 1.372.914 2.058.228.685.228 1.37.228 2.057l-3.2-.915c-.228 0-.457-.457-.457-.685 0-.229 0-.229.229-.229l2.286-2.286zm-6.172 2.286h.914l.686.686-.228.914-.915.457-.914-.457-.229-.914.686-.686zm3.2 2.743c.229 0 .229 0 0 0l3.429.457c-.457 1.372-1.372 2.514-2.743 3.429l-1.372-3.2c.23-.229.23-.457.686-.686h0zm-5.486 0c.23 0 .458.229.458.457v.457l-1.372 3.2c-1.143-.685-2.057-1.828-2.743-3.428l3.657-.686zm2.743 1.371h.229l.228.229 1.6 2.971c-.228 0-.457.229-.685.229-1.143.229-2.515.229-3.657-.229l1.6-2.971c.457 0 .457-.229.685-.229h0z"
-                    fill="#FFF"
-                    stroke="#FFF"
-                    stroke-width="0.25"
-                  />
-                </g>
-              </svg>
-            </span>
-            <p
-              class="StyledProps--font StyledProps--main count StyledProps--padding-left-small StyledProps--padding-right-small StyledProps--margin-left-xsmall StyledProps--font-variation-form-label StyledProps--color StyledProps--color-grey600 StyledProps--background-white"
-            >
-              1
-            </p>
-          </div>
-          <div
-            class="StyledProps--font StyledProps--main quickFilter StyledProps--padding-small"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="service-aws"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-          <div
-            class="StyledProps--font StyledProps--main quickFilter disabledMode StyledProps--padding-small"
-          >
-            <span
-              class="bp3-icon StyledProps--main"
-              data-icon="service-azure"
-            >
-              <svg
-                height="16"
-                viewBox="0 0 14 12"
-                width="16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g
-                  fill="#2075b7"
-                >
-                  <path
-                    d="M14 11.3H3.5c2.1-.4 4.2-.7 6.3-1.1 0-.1 0-.1-.1-.1-1.1-1.4-2.2-2.7-3.2-3.9-.1-.1-.1-.2 0-.2.4-1.1.8-2.1 1.1-3.2.2-.5.4-1 .5-1.5 0 0 0-.1.1-.1C10.1 4.6 12 7.9 14 11.3zM7.7.5c-.2.4-.4.7-.5 1.1-1 2.1-1.9 4.1-2.9 6.2-.3.7-.7 1.4-1 2.2 0 .1-.1.1-.2.1H.2c-.2 0-.2 0-.1-.1 1.1-2 2.3-3.9 3.4-5.9 0-.1.1-.2.2-.3C5 2.8 6.3 1.7 7.6.6c0 0 0-.1.1-.1z"
-                  />
-                </g>
-              </svg>
-            </span>
-            <p
-              class="StyledProps--font StyledProps--main count StyledProps--padding-left-small StyledProps--padding-right-small StyledProps--margin-left-xsmall StyledProps--font-variation-form-label StyledProps--color StyledProps--color-grey600 StyledProps--background-white"
-            >
-              0
-            </p>
-          </div>
-        </div>
-        <div
-          class="bp3-input-group ui-search-box ExpandingSearchInput--main search   ExpandingSearchInput--light"
-          data-name=""
-        >
-          <span
-            class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
-            data-icon="thinner-search"
-          >
-            <svg
-              fill="none"
-              height="14"
-              viewBox="0 0 16 16"
-              width="14"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-            <span
-              class="bp3-icon bp3-icon-list StyledProps--main"
-              icon="list"
-            >
-              <svg
-                data-icon="list"
-                height="16"
-                viewBox="0 0 16 16"
-                width="16"
-              >
-                <desc>
-                  list
-                </desc>
-                <path
-                  d="M1 3h14c.55 0 1-.45 1-1s-.45-1-1-1H1c-.55 0-1 .45-1 1s.45 1 1 1zm14 10H1c-.55 0-1 .45-1 1s.45 1 1 1h14c.55 0 1-.45 1-1s-.45-1-1-1zm0-4H1c-.55 0-1 .45-1 1s.45 1 1 1h14c.55 0 1-.45 1-1s-.45-1-1-1zm0-4H1c-.55 0-1 .45-1 1s.45 1 1 1h14c.55 0 1-.45 1-1s-.45-1-1-1z"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-      </div>
-      <div
-        class="StyledProps--font StyledProps--main PageBody--pageBody"
-        data-name="page-body"
-      >
-        <div
-          class="StyledProps--font StyledProps--main StyledProps--padding-right-xxxlarge StyledProps--padding-left-xxxlarge StyledProps--padding-bottom-large StyledProps--padding-top-large"
-        >
-          <div
-            class="TableV2--table"
-          >
-            <div
-              class="TableV2--header"
-              role="row"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-        </li>
-        <li
-          class="link"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body StyledProps--color StyledProps--color-grey700"
-              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
-            >
-              <span
-                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-                data-icon="main-folder"
-              >
-                <svg
-                  height="16"
-                  viewBox="0 0 14 11"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              test1123
-            </p>
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-        </li>
-        <li
-          class="link"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body StyledProps--color StyledProps--color-grey700"
-              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
-            >
-              <span
-                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-                data-icon="main-folder"
-              >
-                <svg
-                  height="16"
-                  viewBox="0 0 14 11"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              testSahil
-            </p>
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`test cases for Perspective details Page should be able to render the details page 1`] = `
-<div>
-  <div
-    class="Layout--horizontal StyledProps--main PageHeader--container PageHeader--standard StyledProps--flex StyledProps--padding-left-xlarge StyledProps--padding-right-xlarge StyledProps--background-white"
-  >
-    <div
-      class="Layout--vertical StyledProps--main"
-    >
-      <div
-        class="PageHeader--breadcrumbsDiv"
-      >
-        <div
-          class="Layout--horizontal StyledProps--main Breadcrumbs--breadcrumbs StyledProps--flex StyledProps--flex-align-center-center StyledProps--flex-justifyContent-flex-start"
         >
           <div
             class="StyledProps--font StyledProps--main quickFilter disabledMode StyledProps--padding-small"
@@ -1972,431 +975,188 @@ exports[`test cases for Perspective details Page should be able to render the de
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 30%;"
+                  class="TableV2--cells"
                 >
                   <div
-                    class="StyledProps--font StyledProps--main nameContainer"
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 30%;"
                   >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                    >
-                      name4
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <div
-                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    style="align-items: center;"
-                  >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="service-aws"
-                    >
-                      <svg
-                        height="22"
-                        viewBox="0 0 14 10"
-                        width="22"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M4 3.9v.4c0 .1.1.2.1.3v.1c0 .1 0 .1-.1.1l-.1.2h-.1s-.1 0-.1-.1c-.1.1-.2 0-.2-.1s-.1-.2-.1-.3c-.4.5-.9.7-1.4.7-.4 0-.7-.1-.9-.3S.7 4.3.7 4c0-.4.1-.7.4-.9s.6-.4 1.1-.4h.5c.2 0 .3.1.5.1v-.3c0-.3-.1-.6-.2-.7-.1-.2-.3-.2-.7-.2-.2 0-.3 0-.5.1-.2 0-.3.1-.5.2 0 0-.1 0-.2.1H1v-.5-.2l.1-.1c.3-.1.4-.1.6-.2.3 0 .5-.1.8-.1.5 0 .9.1 1.2.4s.3.6.3 1.1zm-1.8.7c.2 0 .3 0 .5-.1.1-.1.3-.2.4-.3s.1-.2.1-.3V3.3c-.1 0-.2 0-.3-.1h-.4c-.3 0-.5.1-.7.2s-.3.3-.3.5.1.4.2.5.3.2.5.2zm3.6.5h-.2s-.1-.1-.1-.2l-1-3.6v-.2c0-.1 0-.1.1-.1H5.2s.1.1.1.2l.8 3 .7-3c0-.1 0-.1.1-.2h.8s.1.1.1.2l.7 3 .8-3c0-.1 0-.1.1-.2H10c.1 0 .1 0 .1.1v.2L8.8 4.8c0 .1 0 .2-.1.2h-.5c-.1.1-.2.1-.2 0 0 0-.1-.1-.1-.2l-.7-2.9-.7 2.9c0 .1 0 .1-.1.2h-.2zm5.9.1c-.2 0-.5 0-.7-.1s-.4-.1-.5-.2c-.1 0-.1-.1-.1-.1v-.4c0-.1 0-.1.1-.1h.2c.2.1.3.1.5.2.2 0 .4.1.5.1.3 0 .5 0 .7-.1.1-.1.2-.3.2-.4s0-.2-.1-.3-.2-.2-.5-.2l-.7-.2c-.3-.1-.6-.3-.7-.5s-.2-.4-.2-.7c0-.2 0-.3.1-.5.1-.1.2-.3.3-.4s.3-.2.5-.2c.2-.1.4-.1.6-.1h.6c.1 0 .2 0 .3.1.1 0 .1 0 .2.1.1 0 .1.1.1.1V1.6c0 .1 0 .1-.1.1s-.1 0-.2-.1c-.3-.1-.6-.2-.9-.2s-.5 0-.6.1-.2.2-.2.4c0 .1 0 .2.1.3s.3.2.5.2l.6.2c.3.1.6.2.7.4s.2.4.2.6 0 .4-.1.5c-.1.2-.2.3-.3.4-.1.5-.3.5-.5.6s-.4.1-.6.1z"
-                          fill="#252f3e"
-                        />
-                        <g
-                          fill="#f90"
-                        >
-                          <path
-                            d="M12.5 7.4C11 8.5 8.9 9.1 7 9.1c-2.6 0-5-1-6.7-2.6-.1-.1 0-.3.2-.2 1.9 1.1 4.3 1.8 6.7 1.8 1.8 0 3.5-.4 5.1-1.1.2-.1.5.2.2.4z"
-                          />
-                          <path
-                            d="M13.1 6.7c-.2-.2-1.3-.1-1.7-.1-.1 0-.2-.1 0-.2.9-.6 2.3-.4 2.4-.2.2.2 0 1.6-.8 2.3-.1.1-.2 0-.2-.1.1-.5.5-1.5.3-1.7z"
-                          />
-                        </g>
-                      </svg>
-                    </span>
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="pipeline-custom"
-                    >
-                      <svg
-                        height="22"
-                        viewBox="0 0 23 23"
-                        width="22"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M18.491 20.516H2.476V4.356h10.231v-.898H1.587v17.956H19.38V10.192h-.89v10.324zm2.66-16.762l-1.887-1.905a.884.884 0 00-1.257 0L6.502 13.457c.039-.039-.26.282-.412.598l-1.94 4.597c-.05.15.032.231.183.181l4.742-1.81c.31-.126.582-.402.573-.392L21.152 5.022a.899.899 0 000-1.268zM5.638 17.344l1.494-3.253 1.888 1.905-3.382 1.348zm4.01-1.982L7.76 13.457l9.172-9.255 1.888 1.905-9.172 9.255zM19.45 5.47l-1.89-1.905 1.075-1.084 1.888 1.905L19.45 5.47z"
-                          fill="#F80"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="gcp"
-                    >
-                      <svg
-                        height="22"
-                        viewBox="0 0 1667 1341"
-                        width="22"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g
-                          fill="none"
-                        >
-                          <path
-                            d="M1058.1 369.2h50.8l144.8-144.8 7.1-61.5C991.3-75 580-49.3 342.1 220.2 276 295 228.1 384.1 201.9 480.5c16.1-6.6 34-7.7 50.8-3l289.6-47.8s14.7-24.4 22.4-22.9c128.8-141.5 345.6-158 494.4-37.6h-1z"
-                            fill="#EA4335"
-                          />
-                          <path
-                            d="M1460 480.5c-33.3-122.6-101.6-232.8-196.6-317l-203.2 203.2c85.8 70.1 134.7 175.8 132.6 286.6v36.1c99.9 0 180.9 81 180.9 180.9s-81 180.9-180.9 180.9H831l-36.1 36.6v217l36.1 36.1h361.8c259.8 2 472.1-207 474.1-466.8 1.2-157.8-76.5-305.4-206.9-393.6z"
-                            fill="#4285F4"
-                          />
-                          <path
-                            d="M468.7 1338.6h361.8V1049H468.7c-25.8 0-51.2-5.6-74.7-16.3l-50.8 15.8-145.8 144.8-12.7 50.8c81.7 61.8 181.5 95 284 94.5z"
-                            fill="#34A853"
-                          />
-                          <path
-                            d="M468.7 399.196C208.8 400.7-.5 612.6.992 872.5 1.9 1017.6 69.6 1154.2 184.7 1242.6l209.8-209.8c-91-41.1-131.5-148.3-90.4-239.3 41.1-91 148.3-131.5 239.3-90.4 40.1 18.1 72.2 50.3 90.4 90.4l209.8-209.8c-89.2-116.8-228-185.1-374.9-184.504z"
-                            fill="#FBBC05"
-                          />
-                        </g>
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 20%;"
-                >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                  >
-                    $195.79
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font StyledProps--main"
-                  >
-                    projectsOrgs.landingDashboard.last30Days
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  July 13, 2021 8:30 AM
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
-                >
-                  <div
-                    class="Layout--horizontal StyledProps--main"
-                  >
-                    <span
-                      class="bp3-popover-wrapper bp3-dark"
+                    <div
+                      class="StyledProps--font StyledProps--main nameContainer"
                     >
                       <span
-                        class="bp3-popover-target"
+                        class="StyledProps--font StyledProps--main StyledProps--inline StyledProps--color StyledProps--color-grey800"
                       >
-                        <button
-                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                          data-testid="menu-id1"
-                          type="button"
-                        >
-                          <span
-                            class="bp3-icon StyledProps--main"
-                            data-icon="Options"
-                          >
-                            <svg
-                              fill="none"
-                              height="16"
-                              viewBox="0 0 4 16"
-                              width="16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                clip-rule="evenodd"
-                                d="M2 12.5a1 1 0 100 2 1 1 0 000-2zm-2 1a2 2 0 114 0 2 2 0 01-4 0zm2-12a1 1 0 100 2 1 1 0 000-2zm-2 1a2 2 0 114 0 2 2 0 01-4 0zM2 7a1 1 0 100 2 1 1 0 000-2zM0 8a2 2 0 114 0 2 2 0 01-4 0z"
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                              />
-                            </svg>
-                          </span>
-                        </button>
+                        name4
                       </span>
-                    </span>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div
-                class="TableV2--row TableV2--card TableV2--clickable"
-                role="row"
-              >
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 30%;"
-                >
                   <div
-                    class="StyledProps--font StyledProps--main nameContainer"
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
                   >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                    >
-                      name3
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <div
-                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    style="align-items: center;"
-                  />
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 20%;"
-                >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                  >
-                    $290,426.14
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font StyledProps--main"
-                  >
-                    ce.perspectives.timeRangeConstants.lastMonth
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  July 13, 2021 8:30 AM
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
-                >
-                  <div
-                    class="Layout--horizontal StyledProps--main"
-                  >
-                    <span
-                      class="bp3-popover-wrapper bp3-dark"
+                    <div
+                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                      style="align-items: center;"
                     >
                       <span
-                        class="bp3-popover-target"
+                        class="bp3-icon StyledProps--main"
+                        data-icon="service-aws"
                       >
-                        <button
-                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                          data-testid="menu-Yv-id2-rzZvBA"
-                          type="button"
+                        <svg
+                          height="22"
+                          viewBox="0 0 14 10"
+                          width="22"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <span
-                            class="bp3-icon StyledProps--main"
-                            data-icon="Options"
+                          <path
+                            d="M4 3.9v.4c0 .1.1.2.1.3v.1c0 .1 0 .1-.1.1l-.1.2h-.1s-.1 0-.1-.1c-.1.1-.2 0-.2-.1s-.1-.2-.1-.3c-.4.5-.9.7-1.4.7-.4 0-.7-.1-.9-.3S.7 4.3.7 4c0-.4.1-.7.4-.9s.6-.4 1.1-.4h.5c.2 0 .3.1.5.1v-.3c0-.3-.1-.6-.2-.7-.1-.2-.3-.2-.7-.2-.2 0-.3 0-.5.1-.2 0-.3.1-.5.2 0 0-.1 0-.2.1H1v-.5-.2l.1-.1c.3-.1.4-.1.6-.2.3 0 .5-.1.8-.1.5 0 .9.1 1.2.4s.3.6.3 1.1zm-1.8.7c.2 0 .3 0 .5-.1.1-.1.3-.2.4-.3s.1-.2.1-.3V3.3c-.1 0-.2 0-.3-.1h-.4c-.3 0-.5.1-.7.2s-.3.3-.3.5.1.4.2.5.3.2.5.2zm3.6.5h-.2s-.1-.1-.1-.2l-1-3.6v-.2c0-.1 0-.1.1-.1H5.2s.1.1.1.2l.8 3 .7-3c0-.1 0-.1.1-.2h.8s.1.1.1.2l.7 3 .8-3c0-.1 0-.1.1-.2H10c.1 0 .1 0 .1.1v.2L8.8 4.8c0 .1 0 .2-.1.2h-.5c-.1.1-.2.1-.2 0 0 0-.1-.1-.1-.2l-.7-2.9-.7 2.9c0 .1 0 .1-.1.2h-.2zm5.9.1c-.2 0-.5 0-.7-.1s-.4-.1-.5-.2c-.1 0-.1-.1-.1-.1v-.4c0-.1 0-.1.1-.1h.2c.2.1.3.1.5.2.2 0 .4.1.5.1.3 0 .5 0 .7-.1.1-.1.2-.3.2-.4s0-.2-.1-.3-.2-.2-.5-.2l-.7-.2c-.3-.1-.6-.3-.7-.5s-.2-.4-.2-.7c0-.2 0-.3.1-.5.1-.1.2-.3.3-.4s.3-.2.5-.2c.2-.1.4-.1.6-.1h.6c.1 0 .2 0 .3.1.1 0 .1 0 .2.1.1 0 .1.1.1.1V1.6c0 .1 0 .1-.1.1s-.1 0-.2-.1c-.3-.1-.6-.2-.9-.2s-.5 0-.6.1-.2.2-.2.4c0 .1 0 .2.1.3s.3.2.5.2l.6.2c.3.1.6.2.7.4s.2.4.2.6 0 .4-.1.5c-.1.2-.2.3-.3.4-.1.5-.3.5-.5.6s-.4.1-.6.1z"
+                            fill="#252f3e"
+                          />
+                          <g
+                            fill="#f90"
                           >
-                            <svg
-                              fill="none"
-                              height="16"
-                              viewBox="0 0 4 16"
-                              width="16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                clip-rule="evenodd"
-                                d="M2 12.5a1 1 0 100 2 1 1 0 000-2zm-2 1a2 2 0 114 0 2 2 0 01-4 0zm2-12a1 1 0 100 2 1 1 0 000-2zm-2 1a2 2 0 114 0 2 2 0 01-4 0zM2 7a1 1 0 100 2 1 1 0 000-2zM0 8a2 2 0 114 0 2 2 0 01-4 0z"
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                      </span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="TableV2--row TableV2--card TableV2--clickable"
-                role="row"
-              >
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 30%;"
-                >
-                  <div
-                    class="StyledProps--font StyledProps--main nameContainer"
-                  >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                    >
-                      name2
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <div
-                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    style="align-items: center;"
-                  >
-                    <span
-                      class="bp3-icon StyledProps--main"
-                      data-icon="blue-black-cluster"
-                    >
-                      <svg
-                        height="22"
-                        width="22"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <defs>
-                          <radialgradient
-                            cx="50%"
-                            cy="50%"
-                            fx="50%"
-                            fy="50%"
-                            gradientTransform="matrix(0 -1 .91882 0 .04 1)"
-                            id="blue-black-cluster_svg__a"
-                            r="100%"
-                          >
-                            <stop
-                              offset="0%"
-                              stop-color="#28ACFF"
+                            <path
+                              d="M12.5 7.4C11 8.5 8.9 9.1 7 9.1c-2.6 0-5-1-6.7-2.6-.1-.1 0-.3.2-.2 1.9 1.1 4.3 1.8 6.7 1.8 1.8 0 3.5-.4 5.1-1.1.2-.1.5.2.2.4z"
                             />
-                            <stop
-                              offset="100%"
-                              stop-color="#289FEA"
+                            <path
+                              d="M13.1 6.7c-.2-.2-1.3-.1-1.7-.1-.1 0-.2-.1 0-.2.9-.6 2.3-.4 2.4-.2.2.2 0 1.6-.8 2.3-.1.1-.2 0-.2-.1.1-.5.5-1.5.3-1.7z"
                             />
-                          </radialgradient>
-                        </defs>
-                        <g
-                          fill="none"
-                          fill-rule="evenodd"
+                          </g>
+                        </svg>
+                      </span>
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="pipeline-custom"
+                      >
+                        <svg
+                          height="22"
+                          viewBox="0 0 23 23"
+                          width="22"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M16.732 9.378l3.987 2.114v4.152l-3.987 2.115-3.986-2.115v-4.152l3.986-2.114zm4.764 7.754l3.987 2.114v4.152l-3.987 2.115-3.986-2.115v-4.152l3.986-2.114zm-10.017-.103l3.987 2.115v4.151l-3.987 2.115-3.987-2.115v-4.151l3.987-2.115zm15.377-7.651l3.987 2.114v4.152l-3.987 2.115-3.987-2.115v-4.152l3.987-2.114z"
-                            stroke="#4B4B4B"
-                            stroke-width="1.102"
+                            d="M18.491 20.516H2.476V4.356h10.231v-.898H1.587v17.956H19.38V10.192h-.89v10.324zm2.66-16.762l-1.887-1.905a.884.884 0 00-1.257 0L6.502 13.457c.039-.039-.26.282-.412.598l-1.94 4.597c-.05.15.032.231.183.181l4.742-1.81c.31-.126.582-.402.573-.392L21.152 5.022a.899.899 0 000-1.268zM5.638 17.344l1.494-3.253 1.888 1.905-3.382 1.348zm4.01-1.982L7.76 13.457l9.172-9.255 1.888 1.905-9.172 9.255zM19.45 5.47l-1.89-1.905 1.075-1.084 1.888 1.905L19.45 5.47z"
+                            fill="#F80"
                           />
-                          <path
-                            d="M5.609 7.754l4.537 2.407v4.814L5.61 17.382l-4.54-2.407v-4.814z"
-                            fill="url(#blue-black-cluster_svg__a)"
-                            transform="translate(1 1)"
-                          />
-                          <path
-                            d="M22.092 1.624l3.987 2.114V7.89l-3.987 2.115-3.987-2.115V3.738l3.987-2.114zm-10.124 0l3.987 2.114V7.89l-3.987 2.115L7.982 7.89V3.738l3.986-2.114z"
-                            stroke="#4B4B4B"
-                            stroke-width="1.102"
-                          />
-                        </g>
-                      </svg>
-                    </span>
+                        </svg>
+                      </span>
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="gcp"
+                      >
+                        <svg
+                          height="22"
+                          viewBox="0 0 1667 1341"
+                          width="22"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g
+                            fill="none"
+                          >
+                            <path
+                              d="M1058.1 369.2h50.8l144.8-144.8 7.1-61.5C991.3-75 580-49.3 342.1 220.2 276 295 228.1 384.1 201.9 480.5c16.1-6.6 34-7.7 50.8-3l289.6-47.8s14.7-24.4 22.4-22.9c128.8-141.5 345.6-158 494.4-37.6h-1z"
+                              fill="#EA4335"
+                            />
+                            <path
+                              d="M1460 480.5c-33.3-122.6-101.6-232.8-196.6-317l-203.2 203.2c85.8 70.1 134.7 175.8 132.6 286.6v36.1c99.9 0 180.9 81 180.9 180.9s-81 180.9-180.9 180.9H831l-36.1 36.6v217l36.1 36.1h361.8c259.8 2 472.1-207 474.1-466.8 1.2-157.8-76.5-305.4-206.9-393.6z"
+                              fill="#4285F4"
+                            />
+                            <path
+                              d="M468.7 1338.6h361.8V1049H468.7c-25.8 0-51.2-5.6-74.7-16.3l-50.8 15.8-145.8 144.8-12.7 50.8c81.7 61.8 181.5 95 284 94.5z"
+                              fill="#34A853"
+                            />
+                            <path
+                              d="M468.7 399.196C208.8 400.7-.5 612.6.992 872.5 1.9 1017.6 69.6 1154.2 184.7 1242.6l209.8-209.8c-91-41.1-131.5-148.3-90.4-239.3 41.1-91 148.3-131.5 239.3-90.4 40.1 18.1 72.2 50.3 90.4 90.4l209.8-209.8c-89.2-116.8-228-185.1-374.9-184.504z"
+                              fill="#FBBC05"
+                            />
+                          </g>
+                        </svg>
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 20%;"
-                >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                  >
-                    $0.00
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font StyledProps--main"
-                  >
-                    ce.perspectives.timeRangeConstants.last7Days
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  July 13, 2021 8:30 AM
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
-                >
                   <div
-                    class="Layout--horizontal StyledProps--main"
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 20%;"
                   >
-                    <span
-                      class="bp3-popover-wrapper bp3-dark"
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
+                    >
+                      $195.79
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    <p
+                      class="StyledProps--font StyledProps--main"
+                    >
+                      projectsOrgs.landingDashboard.last30Days
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    July 13, 2021 8:30 AM
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
+                  >
+                    <div
+                      class="Layout--horizontal StyledProps--main"
                     >
                       <span
-                        class="bp3-popover-target"
+                        class="bp3-popover-wrapper bp3-dark"
                       >
-                        <button
-                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                          data-testid="menu-id3"
-                          type="button"
+                        <span
+                          class="bp3-popover-target"
                         >
-                          <span
-                            class="bp3-icon StyledProps--main"
-                            data-icon="Options"
+                          <button
+                            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                            data-testid="menu-id1"
+                            type="button"
                           >
-                            <svg
-                              fill="none"
-                              height="16"
-                              viewBox="0 0 4 16"
-                              width="16"
-                              xmlns="http://www.w3.org/2000/svg"
+                            <span
+                              class="bp3-icon StyledProps--main"
+                              data-icon="Options"
                             >
-                              <path
-                                clip-rule="evenodd"
-                                d="M2 12.5a1 1 0 100 2 1 1 0 000-2zm-2 1a2 2 0 114 0 2 2 0 01-4 0zm2-12a1 1 0 100 2 1 1 0 000-2zm-2 1a2 2 0 114 0 2 2 0 01-4 0zM2 7a1 1 0 100 2 1 1 0 000-2zM0 8a2 2 0 114 0 2 2 0 01-4 0z"
+                              <svg
                                 fill="currentColor"
-                                fill-rule="evenodd"
-                              />
-                            </svg>
-                          </span>
-                        </button>
+                                height="16"
+                                viewBox="0 0 4 16"
+                                width="16"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="2"
+                                  cy="2"
+                                  r="1.5"
+                                />
+                                <circle
+                                  cx="2"
+                                  cy="8"
+                                  r="1.5"
+                                />
+                                <circle
+                                  cx="2"
+                                  cy="14"
+                                  r="1.5"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                        </span>
                       </span>
-                    </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2405,100 +1165,395 @@ exports[`test cases for Perspective details Page should be able to render the de
                 role="row"
               >
                 <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 30%;"
+                  class="TableV2--cells"
                 >
                   <div
-                    class="StyledProps--font StyledProps--main nameContainer"
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 30%;"
                   >
-                    <p
-                      class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-                    >
-                      name1
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <div
-                    class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
-                    style="align-items: center;"
-                  />
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 20%;"
-                >
-                  <p
-                    class="StyledProps--font StyledProps--main StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                  >
-                    $62,736.23
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  <p
-                    class="StyledProps--font StyledProps--main"
-                  >
-                    ce.perspectives.timeRangeConstants.last7Days
-                  </p>
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 15%;"
-                >
-                  July 13, 2021 8:30 AM
-                </div>
-                <div
-                  class="TableV2--cell"
-                  role="cell"
-                  style="width: 5%;"
-                >
-                  <div
-                    class="Layout--horizontal StyledProps--main"
-                  >
-                    <span
-                      class="bp3-popover-wrapper bp3-dark"
+                    <div
+                      class="StyledProps--font StyledProps--main nameContainer"
                     >
                       <span
-                        class="bp3-popover-target"
+                        class="StyledProps--font StyledProps--main StyledProps--inline StyledProps--color StyledProps--color-grey800"
                       >
-                        <button
-                          class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-                          data-testid="menu-id4"
-                          type="button"
-                        >
-                          <span
-                            class="bp3-icon StyledProps--main"
-                            data-icon="Options"
-                          >
-                            <svg
-                              fill="none"
-                              height="16"
-                              viewBox="0 0 4 16"
-                              width="16"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                clip-rule="evenodd"
-                                d="M2 12.5a1 1 0 100 2 1 1 0 000-2zm-2 1a2 2 0 114 0 2 2 0 01-4 0zm2-12a1 1 0 100 2 1 1 0 000-2zm-2 1a2 2 0 114 0 2 2 0 01-4 0zM2 7a1 1 0 100 2 1 1 0 000-2zM0 8a2 2 0 114 0 2 2 0 01-4 0z"
-                                fill="currentColor"
-                                fill-rule="evenodd"
-                              />
-                            </svg>
-                          </span>
-                        </button>
+                        name3
                       </span>
-                    </span>
+                    </div>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    <div
+                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                      style="align-items: center;"
+                    />
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 20%;"
+                  >
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
+                    >
+                      $290,426.14
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    <p
+                      class="StyledProps--font StyledProps--main"
+                    >
+                      ce.perspectives.timeRangeConstants.lastMonth
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    July 13, 2021 8:30 AM
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
+                  >
+                    <div
+                      class="Layout--horizontal StyledProps--main"
+                    >
+                      <span
+                        class="bp3-popover-wrapper bp3-dark"
+                      >
+                        <span
+                          class="bp3-popover-target"
+                        >
+                          <button
+                            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                            data-testid="menu-Yv-id2-rzZvBA"
+                            type="button"
+                          >
+                            <span
+                              class="bp3-icon StyledProps--main"
+                              data-icon="Options"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="16"
+                                viewBox="0 0 4 16"
+                                width="16"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="2"
+                                  cy="2"
+                                  r="1.5"
+                                />
+                                <circle
+                                  cx="2"
+                                  cy="8"
+                                  r="1.5"
+                                />
+                                <circle
+                                  cx="2"
+                                  cy="14"
+                                  r="1.5"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="TableV2--row TableV2--card TableV2--clickable"
+                role="row"
+              >
+                <div
+                  class="TableV2--cells"
+                >
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 30%;"
+                  >
+                    <div
+                      class="StyledProps--font StyledProps--main nameContainer"
+                    >
+                      <span
+                        class="StyledProps--font StyledProps--main StyledProps--inline StyledProps--color StyledProps--color-grey800"
+                      >
+                        name2
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    <div
+                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                      style="align-items: center;"
+                    >
+                      <span
+                        class="bp3-icon StyledProps--main"
+                        data-icon="blue-black-cluster"
+                      >
+                        <svg
+                          height="22"
+                          width="22"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <defs>
+                            <radialgradient
+                              cx="50%"
+                              cy="50%"
+                              fx="50%"
+                              fy="50%"
+                              gradientTransform="matrix(0 -1 .91882 0 .04 1)"
+                              id="blue-black-cluster_svg__a"
+                              r="100%"
+                            >
+                              <stop
+                                offset="0%"
+                                stop-color="#28ACFF"
+                              />
+                              <stop
+                                offset="100%"
+                                stop-color="#289FEA"
+                              />
+                            </radialgradient>
+                          </defs>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                          >
+                            <path
+                              d="M16.732 9.378l3.987 2.114v4.152l-3.987 2.115-3.986-2.115v-4.152l3.986-2.114zm4.764 7.754l3.987 2.114v4.152l-3.987 2.115-3.986-2.115v-4.152l3.986-2.114zm-10.017-.103l3.987 2.115v4.151l-3.987 2.115-3.987-2.115v-4.151l3.987-2.115zm15.377-7.651l3.987 2.114v4.152l-3.987 2.115-3.987-2.115v-4.152l3.987-2.114z"
+                              stroke="#4B4B4B"
+                              stroke-width="1.102"
+                            />
+                            <path
+                              d="M5.609 7.754l4.537 2.407v4.814L5.61 17.382l-4.54-2.407v-4.814z"
+                              fill="url(#blue-black-cluster_svg__a)"
+                              transform="translate(1 1)"
+                            />
+                            <path
+                              d="M22.092 1.624l3.987 2.114V7.89l-3.987 2.115-3.987-2.115V3.738l3.987-2.114zm-10.124 0l3.987 2.114V7.89l-3.987 2.115L7.982 7.89V3.738l3.986-2.114z"
+                              stroke="#4B4B4B"
+                              stroke-width="1.102"
+                            />
+                          </g>
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 20%;"
+                  >
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
+                    >
+                      $0.00
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    <p
+                      class="StyledProps--font StyledProps--main"
+                    >
+                      ce.perspectives.timeRangeConstants.last7Days
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    July 13, 2021 8:30 AM
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
+                  >
+                    <div
+                      class="Layout--horizontal StyledProps--main"
+                    >
+                      <span
+                        class="bp3-popover-wrapper bp3-dark"
+                      >
+                        <span
+                          class="bp3-popover-target"
+                        >
+                          <button
+                            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                            data-testid="menu-id3"
+                            type="button"
+                          >
+                            <span
+                              class="bp3-icon StyledProps--main"
+                              data-icon="Options"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="16"
+                                viewBox="0 0 4 16"
+                                width="16"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="2"
+                                  cy="2"
+                                  r="1.5"
+                                />
+                                <circle
+                                  cx="2"
+                                  cy="8"
+                                  r="1.5"
+                                />
+                                <circle
+                                  cx="2"
+                                  cy="14"
+                                  r="1.5"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="TableV2--row TableV2--card TableV2--clickable"
+                role="row"
+              >
+                <div
+                  class="TableV2--cells"
+                >
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 30%;"
+                  >
+                    <div
+                      class="StyledProps--font StyledProps--main nameContainer"
+                    >
+                      <span
+                        class="StyledProps--font StyledProps--main StyledProps--inline StyledProps--color StyledProps--color-grey800"
+                      >
+                        name1
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    <div
+                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                      style="align-items: center;"
+                    />
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 20%;"
+                  >
+                    <p
+                      class="StyledProps--font StyledProps--main StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
+                    >
+                      $62,736.23
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    <p
+                      class="StyledProps--font StyledProps--main"
+                    >
+                      ce.perspectives.timeRangeConstants.last7Days
+                    </p>
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 15%;"
+                  >
+                    July 13, 2021 8:30 AM
+                  </div>
+                  <div
+                    class="TableV2--cell"
+                    role="cell"
+                    style="width: 5%;"
+                  >
+                    <div
+                      class="Layout--horizontal StyledProps--main"
+                    >
+                      <span
+                        class="bp3-popover-wrapper bp3-dark"
+                      >
+                        <span
+                          class="bp3-popover-target"
+                        >
+                          <button
+                            class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                            data-testid="menu-id4"
+                            type="button"
+                          >
+                            <span
+                              class="bp3-icon StyledProps--main"
+                              data-icon="Options"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="16"
+                                viewBox="0 0 4 16"
+                                width="16"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="2"
+                                  cy="2"
+                                  r="1.5"
+                                />
+                                <circle
+                                  cx="2"
+                                  cy="8"
+                                  r="1.5"
+                                />
+                                <circle
+                                  cx="2"
+                                  cy="14"
+                                  r="1.5"
+                                />
+                              </svg>
+                            </span>
+                          </button>
+                        </span>
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2599,47 +1654,17 @@ exports[`test cases for Perspective details Page should be able to render the de
         class="foldersList"
       >
         <li
-          class="link active"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body StyledProps--color StyledProps--color-grey700"
-              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
-            >
-              <span
-                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-                data-icon="main-folder-open"
-              >
-                <svg
-                  height="16"
-                  viewBox="0 0 14 10"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14 4.4c0-.3-.3-.6-.7-.6H3.5c-.3 0-.6.2-.7.4l-2.1 5v.2c0 .3.3.6.7.6h9.8c.3 0 .6-.2.7-.4l2.1-5v-.2zM2.1 3.5c.1-.2.4-.4.7-.4h9.8V1.9c0-.3-.3-.6-.7-.6h-6L4.7.2C4.6.1 4.4 0 4.2 0H.7C.3 0 0 .3 0 .6v7.7z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              Default Folder
-            </p>
-          </div>
-        </li>
-        <li
           class="link"
         >
           <div
             class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
           >
             <p
-              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body StyledProps--color StyledProps--color-grey700"
+              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
               style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
             >
               <span
-                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
                 data-icon="harness-with-color"
               >
                 <svg
@@ -2657,714 +1682,6 @@ exports[`test cases for Perspective details Page should be able to render the de
               </span>
               Out of the box Folder
             </p>
-          </div>
-        </li>
-      </ul>
-      <div
-        class="StyledProps--font StyledProps--main customFoldersNav"
-      >
-        <p
-          class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey700 StyledProps--font-variation-body StyledProps--border StyledProps--border-bottom StyledProps--padding-bottom-xsmall"
-        >
-          ce.perspectives.folders.customFolders
-        </p>
-        <div
-          class="bp3-input-group ui-search-box ExpandingSearchInput--main searchInput ExpandingSearchInput--flip  ExpandingSearchInput--light"
-          data-name=""
-        >
-          <span
-            class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
-            data-icon="thinner-search"
-          >
-            <svg
-              fill="none"
-              height="14"
-              viewBox="0 0 16 16"
-              width="14"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </span>
-          <input
-            class="bp3-input  ExpandingSearchInput--filter"
-            dir="auto"
-            placeholder="search"
-            style="padding-right: 0px;"
-            type="search"
-            value=""
-          />
-        </div>
-        <button
-          class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--withLeftIcon Button--variation Button--variation-link"
-          style="justify-content: flex-start; padding-left: 0px;"
-          type="button"
-        >
-          <span
-            class="bp3-icon bp3-icon-plus StyledProps--main StyledProps--padding-right-xsmall"
-            icon="plus"
-          >
-            <svg
-              data-icon="plus"
-              height="16"
-              viewBox="0 0 16 16"
-              width="16"
-            >
-              <desc>
-                plus
-              </desc>
-              <path
-                d="M13 7H9V3c0-.55-.45-1-1-1s-1 .45-1 1v4H3c-.55 0-1 .45-1 1s.45 1 1 1h4v4c0 .55.45 1 1 1s1-.45 1-1V9h4c.55 0 1-.45 1-1s-.45-1-1-1z"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </span>
-          <span
-            class="bp3-button-text"
-          >
-            ce.perspectives.folders.newFolder
-          </span>
-        </button>
-      </div>
-      <ul
-        class="foldersList"
-      >
-        <li
-          class="link"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body StyledProps--color StyledProps--color-grey700"
-              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
-            >
-              <span
-                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-                data-icon="main-folder"
-              >
-                <svg
-                  height="16"
-                  viewBox="0 0 14 11"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              Abhijeet-Test
-            </p>
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-        </li>
-        <li
-          class="link"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body StyledProps--color StyledProps--color-grey700"
-              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
-            >
-              <span
-                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-                data-icon="main-folder"
-              >
-                <svg
-                  height="16"
-                  viewBox="0 0 14 11"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              Default Folder
-            </p>
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-        </li>
-        <li
-          class="link"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body StyledProps--color StyledProps--color-grey700"
-              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
-            >
-              <span
-                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-                data-icon="main-folder"
-              >
-                <svg
-                  height="16"
-                  viewBox="0 0 14 11"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              Move here
-            </p>
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-        </li>
-        <li
-          class="link"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body StyledProps--color StyledProps--color-grey700"
-              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
-            >
-              <span
-                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-                data-icon="main-folder"
-              >
-                <svg
-                  height="16"
-                  viewBox="0 0 14 11"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              Test
-            </p>
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="Text--withDocsTooltip"
-        data-tooltip-id="ccmPerspectives"
-      >
-        <p
-          class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey800"
-          style="font-size: 20px; font-weight: bold;"
-        >
-          ce.perspectives.sideNavText
-        </p>
-      </div>
-    </div>
-  </div>
-  <div
-    class="Layout--horizontal StyledProps--main bodyWrapper"
-  >
-    <div
-      class="Layout--vertical Layout--layout-spacing-small StyledProps--main sidenavWrapper"
-    >
-      <ul
-        class="foldersList"
-      >
-        <li
-          class="link"
-        >
-          <div
-            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
-          >
-            <p
-              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
-              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
-            >
-              <span
-                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small"
-                data-icon="main-folder"
-              >
-                <svg
-                  height="16"
-                  viewBox="0 0 14 11"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
-                    fill="#4d5969"
-                  />
-                </svg>
-              </span>
-              Test123
-            </p>
-            <div
-              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center"
-            >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
-                >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
           </div>
         </li>
         <li
@@ -3483,95 +1800,24 @@ exports[`test cases for Perspective details Page should be able to render the de
               class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
               style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              Abhijeet-Test
+            </p>
           </div>
         </li>
         <li
@@ -3614,95 +1860,24 @@ exports[`test cases for Perspective details Page should be able to render the de
               class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
               style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              Default Folder
+            </p>
           </div>
         </li>
         <li
@@ -3745,95 +1920,24 @@ exports[`test cases for Perspective details Page should be able to render the de
               class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
               style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
-                >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              Test
+            </p>
           </div>
         </li>
         <li
@@ -3876,95 +1980,54 @@ exports[`test cases for Perspective details Page should be able to render the de
               class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
               style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              adfnlajdgblj
+            </p>
+          </div>
+        </li>
+        <li
+          class="link"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
+              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              sv-test-folder-1
+            </p>
           </div>
         </li>
         <li
@@ -4007,95 +2070,54 @@ exports[`test cases for Perspective details Page should be able to render the de
               class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
               style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
             >
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="editFolder"
-                style="margin-right: -18px;"
-                type="button"
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="14"
-                    viewBox="0 0 16 16"
-                    width="14"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="deleteFolder"
-                style="margin-right: -18px;"
-                type="button"
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              test1123
+            </p>
+          </div>
+        </li>
+        <li
+          class="link"
+        >
+          <div
+            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-space-between"
+          >
+            <p
+              class="StyledProps--font Text--lineclamp StyledProps--main sidenavText StyledProps--font-variation-body"
+              style="max-width: 200px; --text-line-clamp: 1; display: flex; align-items: center;"
+            >
+              <span
+                class="bp3-icon StyledProps--main Text--icon StyledProps--padding-right-small StyledProps--color StyledProps--color-grey600"
+                data-icon="main-folder"
               >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-trash"
+                <svg
+                  height="16"
+                  viewBox="0 0 14 11"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    height="16"
-                    viewBox="0 0 16 20"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M1.143 8.48a1.2 1.2 0 011.189-1.36h10.649a1.2 1.2 0 011.194 1.321l-1.039 10.208a1.2 1.2 0 01-1.193 1.079H3.716a1.2 1.2 0 01-1.189-1.04L1.143 8.48zm11.837-.16H2.332l1.385 10.207h8.226L12.98 8.32zM5.916 1.594a.6.6 0 01.719-.452l4.224.965a.6.6 0 01.452.719L11 4.179l3.86.882a.6.6 0 01-.267 1.17L1.535 3.248a.6.6 0 11.267-1.17l3.805.87.309-1.354zm.86 1.62l3.056.698.175-.768-3.055-.698-.175.768z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M8 10.808a.5.5 0 01.5.5v5a.5.5 0 01-1 0v-5a.5.5 0 01.5-.5zm-2.761.012a.5.5 0 01.541.454l.436 4.981a.5.5 0 11-.996.087l-.436-4.98a.5.5 0 01.455-.542zM10.762 10.82a.5.5 0 01.455.541l-.436 4.981a.5.5 0 11-.996-.087l.435-4.98a.5.5 0 01.542-.455z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
-                    />
-                  </svg>
-                </span>
-              </button>
-              <button
-                class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main StyledProps--intent-primary Button--with-current-color Button--without-shadow Button--withLeftIcon"
-                data-testid="pinFolder"
-                style="margin-right: -18px;"
-                type="button"
-              >
-                <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="main-pin"
-                >
-                  <svg
-                    fill="none"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    width="16"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.722 2l-3.92 5.293a16.042 16.042 0 00-3.333 0c-1.411.157-2.287 1.503-2.548 2.156l8.43 8.43c.587-.654 1.803-2.118 1.96-2.745.156-.627.065-2.614 0-3.529l5.488-3.724L15.722 2zM11.48 15.53l-2.157-2.155L3.05 22l8.43-6.47z"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </div>
+                  <path
+                    d="M0 10.3c0 .4.3.7.7.7h12.6c.4 0 .7-.3.7-.7V3.4H0zm13.3-8.9H6.6L5.4.2C5.3.1 5.1 0 4.9 0H.7C.3 0 0 .3 0 .7v2.1h14v-.7c0-.4-.3-.7-.7-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+              testSahil
+            </p>
           </div>
         </li>
       </ul>
