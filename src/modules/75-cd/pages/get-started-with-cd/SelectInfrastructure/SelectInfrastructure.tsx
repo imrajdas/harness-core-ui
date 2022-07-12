@@ -17,12 +17,27 @@ import {
   FormikForm as Form,
   Accordion,
   FormInput,
-  FormError
+  FormError,
+  useToaster,
+  PageSpinner,
+  getErrorInfoFromErrorObject
 } from '@harness/uicore'
-import type { FormikContextType } from 'formik'
-import { get } from 'lodash-es'
+import type { FormikContextType, FormikProps } from 'formik'
+import { get, set } from 'lodash-es'
+import produce from 'immer'
+import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 
+import {
+  InfrastructureRequestDTO,
+  InfrastructureRequestDTORequestBody,
+  ServiceRequestDTO,
+  useCreateEnvironmentV2,
+  useCreateInfrastructure
+} from 'services/cd-ng'
+import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
+import useRBACError from '@rbac/utils/useRBACError/useRBACError'
+import { yamlStringify } from '@common/utils/YamlHelperMethods'
 import { InfrastructureTypes, InfrastructureType } from '../DeployProvisioningWizard/Constants'
 import {
   SelectAuthenticationMethod,
@@ -30,6 +45,7 @@ import {
   SelectAuthenticationMethodRef
 } from './SelectAuthenticationMethod'
 import { useCDOnboardingContext } from '../CDOnboardingStore'
+import { cleanEnvironmentDataUtil, getUniqueEntityIdentifier, newEnvironmentState } from '../cdOnboardingUtils'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectInfrastructureRef {
@@ -42,6 +58,7 @@ export interface SelectInfrastructureRef {
   validate?: () => boolean
   showValidationErrors?: () => void
   authValues?: SelectAuthenticationMethodInterface
+  submitForm?: FormikProps<SelectInfrastructureInterface>['submitForm']
 }
 export interface SelectInfrastructureInterface {
   infraType: string
@@ -53,6 +70,7 @@ export interface SelectInfrastructureInterface {
 interface SelectInfrastructureProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
+  onSuccess?: () => void
 }
 
 export type SelectInfrastructureForwardRef =
@@ -66,6 +84,8 @@ const SelectInfrastructureRef = (
 ): React.ReactElement => {
   const { getString } = useStrings()
   const {
+    saveEnvironmentData,
+    saveInfrastructureData,
     state: { environment: environmentData, infrastructure: infrastructureData }
   } = useCDOnboardingContext()
   const [disableBtn, setDisableBtn] = useState<boolean>(false)
@@ -74,10 +94,18 @@ const SelectInfrastructureRef = (
   )
   const formikRef = useRef<FormikContextType<SelectInfrastructureInterface>>()
   const selectAuthenticationMethodRef = React.useRef<SelectAuthenticationMethodRef | null>(null)
+  const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
+  const { getRBACErrorMessage } = useRBACError()
   // useEffect(() => {
   //   if (infrastructureType) enableNextBtn()
   //   else disableNextBtn()
   // })
+
+  const { loading: createEnvLoading, mutate: createEnvironment } = useCreateEnvironmentV2({
+    queryParams: {
+      accountIdentifier: accountId
+    }
+  })
 
   const openSetUpDelegateAccordion = (): boolean | undefined => {
     return selectAuthenticationMethodRef?.current?.validate()
@@ -94,14 +122,20 @@ const SelectInfrastructureRef = (
     if (values) {
       forwardRef.current = {
         values,
-        setFieldTouched: setFieldTouched
+        setFieldTouched: setFieldTouched,
         // authValues: selectAuthenticationMethodRef?.current?.values
         // validate: validateInfraSetup
+        submitForm: formikRef?.current?.submitForm
       }
     }
   }
 
-  console.log('FDD---', formikRef?.current?.values)
+  const { mutate: createInfrastructure } = useCreateInfrastructure({
+    queryParams: {
+      accountIdentifier: accountId
+    }
+  })
+
   useEffect(() => {
     if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
       setForwardRef({
@@ -111,7 +145,109 @@ const SelectInfrastructureRef = (
     }
   }, [formikRef?.current, formikRef?.current?.values, formikRef?.current?.setFieldTouched])
 
+  const { showSuccess, showError, clear } = useToaster()
+  const handleSubmit = async (values: SelectInfrastructureInterface): Promise<SelectInfrastructureInterface> => {
+    const { envId, infraId, infraType, namespace } = values || {}
+    if (!infraType) {
+      showError(getString('common.validation.fieldIsRequired', { name: 'Infrastructure Type' }))
+    } else if (!envId) {
+      showError(getString('fieldRequired', { field: 'Environment' }))
+    } else if (!infraId) {
+      showError(getString('common.validation.fieldIsRequired', { name: 'Infrastructure' }))
+    } else if (!namespace) {
+      showError(getString('common.validation.fieldIsRequired', { name: 'Namespace' }))
+    }
+    const environmentIdentifier = getUniqueEntityIdentifier(envId as string)
+    const updatedContextEnvironment = produce(newEnvironmentState.environment, draft => {
+      set(draft, 'name', envId)
+      set(
+        draft,
+        'identifier',
+        // isEnvironmentNameUpdated ?
+        environmentIdentifier
+        // : get(environmentData, 'identifier')
+      )
+    })
+    try {
+      selectAuthenticationMethodRef?.current?.submitForm?.()?.then(async (authValues: any) => {
+        const cleanEnvironmentData = cleanEnvironmentDataUtil(updatedContextEnvironment as ServiceRequestDTO)
+
+        const response = await createEnvironment({ ...cleanEnvironmentData, orgIdentifier, projectIdentifier })
+        if (response.status === 'SUCCESS') {
+          clear()
+          showSuccess(getString('cd.environmentCreated'))
+          envId &&
+            saveEnvironmentData({
+              environment: updatedContextEnvironment,
+              environmentResponse: response
+            })
+          const infraIdentifier = getUniqueEntityIdentifier(envId as string)
+          const updatedContextInfra = produce(newEnvironmentState.infrastructure, draft => {
+            set(draft, 'name', infraId)
+            set(draft, 'identifier', getUniqueEntityIdentifier(infraId))
+            set(draft, 'type', infraType)
+            set(draft, 'environmentRef', envId)
+            set(draft, 'infrastructureDefinition.spec.namespace', namespace)
+            set(draft, 'infrastructureDefinition.spec.connectorRef', authValues?.identifier)
+          })
+          saveInfrastructureData({
+            infrastructure: { ...updatedContextInfra }
+          })
+          const body: InfrastructureRequestDTORequestBody = {
+            name: infraId,
+            identifier: infraIdentifier,
+            description: '',
+            tags: {},
+            orgIdentifier,
+            projectIdentifier,
+            type: infraType as InfrastructureRequestDTO['type'],
+            environmentRef: environmentIdentifier
+          }
+
+          createInfrastructure({
+            ...body,
+            yaml: yamlStringify({
+              infrastructureDefinition: {
+                ...body,
+                spec: get(infrastructureData, 'infrastructureDefinition.spec'),
+                allowSimultaneousDeployments: false
+              }
+            })
+          })
+            .then(infraResponse => {
+              if (infraResponse.status === 'SUCCESS') {
+                showSuccess(
+                  getString('cd.infrastructure.created', {
+                    identifier: infraResponse.data?.infrastructure?.identifier
+                  })
+                )
+              } else {
+                throw infraResponse
+              }
+              props?.onSuccess?.()
+            })
+            .catch(e => {
+              showError(getErrorInfoFromErrorObject(e))
+            })
+
+          return Promise.resolve(values)
+        } else {
+          throw response
+        }
+      })
+    } catch (error: any) {
+      showError(getRBACErrorMessage(error))
+      return Promise.resolve({} as SelectInfrastructureInterface)
+    }
+    return Promise.resolve({} as SelectInfrastructureInterface)
+  }
+
   const borderBottom = <div className={css.repoborderBottom} />
+
+  if (createEnvLoading) {
+    return <PageSpinner />
+  }
+
   return (
     <Layout.Vertical width="80%">
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
@@ -123,7 +259,7 @@ const SelectInfrastructureRef = (
           namespace: get(infrastructureData, 'infrastructureDefinition.spec.namespace') || ''
         }}
         formName="cdInfrastructure"
-        onSubmit={(values: SelectInfrastructureInterface) => Promise.resolve(values)}
+        onSubmit={handleSubmit}
       >
         {formikProps => {
           formikRef.current = formikProps
@@ -204,6 +340,9 @@ const SelectInfrastructureRef = (
                     details={
                       <SelectAuthenticationMethod
                         ref={selectAuthenticationMethodRef}
+                        onSuccess={data => {
+                          return data
+                        }}
                         disableNextBtn={() => setDisableBtn(true)}
                         enableNextBtn={() => setDisableBtn(disableBtn)}
                       ></SelectAuthenticationMethod>

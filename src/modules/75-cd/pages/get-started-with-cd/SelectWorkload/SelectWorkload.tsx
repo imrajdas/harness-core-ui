@@ -18,12 +18,19 @@ import {
   Formik,
   FormikForm as Form,
   FormError,
-  FormInput
+  FormInput,
+  PageSpinner,
+  useToaster
 } from '@harness/uicore'
-import type { FormikContextType } from 'formik'
-import { get } from 'lodash-es'
+import type { FormikContextType, FormikProps } from 'formik'
+import { get, isEmpty, set } from 'lodash-es'
+import produce from 'immer'
+import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 
+import { NGServiceConfig, ServiceRequestDTO, useCreateServiceV2 } from 'services/cd-ng'
+import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
+import useRBACError from '@rbac/utils/useRBACError/useRBACError'
 import {
   WorkloadType,
   deploymentTypes,
@@ -32,6 +39,7 @@ import {
 } from '../DeployProvisioningWizard/Constants'
 
 import { useCDOnboardingContext } from '../CDOnboardingStore'
+import { cleanServiceDataUtil, getUniqueEntityIdentifier, newServiceState } from '../cdOnboardingUtils'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
 export interface SelectWorkloadRef {
@@ -39,6 +47,7 @@ export interface SelectWorkloadRef {
   setFieldTouched(field: keyof SelectWorkloadInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
   validate?: () => boolean
   showValidationErrors?: () => void
+  submitForm?: FormikProps<SelectWorkloadInterface>['submitForm']
 }
 export interface SelectWorkloadInterface {
   workloadType?: WorkloadType
@@ -48,6 +57,7 @@ export interface SelectWorkloadInterface {
 interface SelectWorkloadProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
+  onSuccess: () => void
 }
 
 export type SelectWorkloadForwardRef =
@@ -57,9 +67,10 @@ export type SelectWorkloadForwardRef =
 
 const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloadForwardRef): React.ReactElement => {
   const { getString } = useStrings()
-  const { disableNextBtn, enableNextBtn } = props
+  const { disableNextBtn, enableNextBtn, onSuccess } = props
   const {
-    state: { service: serviceData }
+    state: { service: serviceData },
+    saveServiceData
   } = useCDOnboardingContext()
   const [workloadType, setWorkloadType] = useState<WorkloadType | undefined>(
     WorkloadProviders.find((item: WorkloadType) => item.value === serviceData?.data?.workload)
@@ -68,16 +79,31 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
     deploymentTypes.find(item => item.value === serviceData?.serviceDefinition?.type)
   )
 
+  const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
+
+  const { loading: createLoading, mutate: createService } = useCreateServiceV2({
+    queryParams: {
+      accountIdentifier: accountId
+    }
+  })
   const formikRef = useRef<FormikContextType<SelectWorkloadInterface>>()
 
-  // const validateWorkloadSetup = React.useCallback((): boolean => {
-  //   const { serviceRef } = formikRef.current?.values || {}
+  const { showSuccess, showError, clear } = useToaster()
+  const { getRBACErrorMessage } = useRBACError()
 
-  //   if (serviceRef) {
-  //     return !!serviceRef
-  //   }
-  //   return false
-  // }, [])
+  const validateWorkloadSetup = React.useCallback((): boolean => {
+    const { serviceRef } = formikRef.current?.values || {}
+
+    if (serviceRef) {
+      return !!serviceRef
+    } else if (workloadType) {
+      return !!workloadType
+    } else if (serviceDeploymentType) {
+      return !!serviceDeploymentType
+    }
+    return false
+  }, [formikRef.current])
+
   const setForwardRef = ({ values, setFieldTouched }: Omit<SelectWorkloadRef, 'validate'>): void => {
     if (!forwardRef) {
       return
@@ -89,12 +115,12 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
     if (values) {
       forwardRef.current = {
         values,
-        setFieldTouched: setFieldTouched
-        // validate: validateWorkloadSetup
+        setFieldTouched: setFieldTouched,
+        validate: validateWorkloadSetup,
+        submitForm: formikRef?.current?.submitForm
       }
     }
   }
-
   useEffect(() => {
     if (formikRef.current?.values?.workloadType && formikRef?.current?.values?.serviceDeploymentType) {
       enableNextBtn()
@@ -112,6 +138,47 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
     }
   }, [formikRef?.current?.values, formikRef?.current?.setFieldTouched])
 
+  if (createLoading) {
+    return <PageSpinner />
+  }
+
+  const handleSubmit = async (values: SelectWorkloadInterface): Promise<SelectWorkloadInterface> => {
+    const { serviceRef } = values || {}
+    const isServiceNameUpdated =
+      isEmpty(get(serviceData, 'serviceDefinition.type')) || get(serviceData, 'name') !== serviceRef
+    const updatedContextService = produce(newServiceState as NGServiceConfig, draft => {
+      set(draft, 'service.name', serviceRef)
+      set(
+        draft,
+        'service.identifier',
+        isServiceNameUpdated ? getUniqueEntityIdentifier(serviceRef as string) : get(serviceData, 'identifier')
+      )
+      set(draft, 'service.data.workload', workloadType)
+      set(draft, 'service.serviceDefinition.type', serviceDeploymentType?.value)
+    })
+
+    const cleanServiceData = cleanServiceDataUtil(updatedContextService.service as ServiceRequestDTO)
+    saveServiceData({ service: updatedContextService.service })
+    if (isServiceNameUpdated) {
+      try {
+        const response = await createService({ ...cleanServiceData, orgIdentifier, projectIdentifier })
+        if (response.status === 'SUCCESS') {
+          serviceRef && saveServiceData({ serviceResponse: response })
+          clear()
+          showSuccess(getString('cd.serviceCreated'))
+          onSuccess()
+          return Promise.resolve(values)
+        } else {
+          throw response
+        }
+      } catch (error: any) {
+        showError(getRBACErrorMessage(error))
+        return Promise.resolve(error)
+      }
+    }
+    return Promise.resolve({} as SelectWorkloadInterface)
+  }
+
   return (
     <Layout.Vertical width="70%">
       <Text font={{ variation: FontVariation.H4 }}>{getString('cd.getStartedWithCD.workloadDeploy')}</Text>
@@ -122,7 +189,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
           serviceRef: get(serviceData, 'name') || ''
         }}
         formName="cdWorkload-provider"
-        onSubmit={(values: SelectWorkloadInterface) => Promise.resolve(values)}
+        onSubmit={handleSubmit}
       >
         {formikProps => {
           formikRef.current = formikProps

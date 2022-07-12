@@ -21,7 +21,8 @@ import {
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Form, FormikContextType, FormikProps } from 'formik'
 import { useParams } from 'react-router-dom'
-import { defaultTo } from 'lodash-es'
+import { defaultTo, set } from 'lodash-es'
+import produce from 'immer'
 import { useStrings } from 'framework/strings'
 import TextReference, { TextReferenceInterface, ValueType } from '@secrets/components/TextReference/TextReference'
 import type { SecretReferenceInterface } from '@secrets/utils/SecretField'
@@ -40,6 +41,8 @@ import type { ResponseConnectorResponse, ResponseMessage } from 'services/cd-ng'
 import useCreateEditConnector, { BuildPayloadProps } from '@connectors/hooks/useCreateEditConnector'
 import VerifyOutOfClusterDelegate from '@connectors/common/VerifyOutOfClusterDelegate/VerifyOutOfClusterDelegate'
 import { CLIENT_KEY_ALGO_OPTIONS } from '../DeployProvisioningWizard/Constants'
+import { getUniqueEntityIdentifier } from '../cdOnboardingUtils'
+import { useCDOnboardingContext } from '../CDOnboardingStore'
 import commonStyles from '@connectors/components/CreateConnector/commonSteps/ConnectorCommonStyles.module.scss'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 
@@ -51,6 +54,7 @@ export interface SelectAuthenticationMethodRef {
   values: SelectAuthenticationMethodInterface
   validate: () => boolean
   connectorResponse?: ResponseConnectorResponse
+  submitForm?: FormikProps<SelectAuthenticationMethodInterface>['submitForm']
 }
 
 export type SelectAuthMethodForwardRef =
@@ -61,8 +65,8 @@ export type SelectAuthMethodForwardRef =
 export interface SelectAuthenticationMethodInterface {
   connectorName: string
   delegateType: string
-  authType?: string
   masterUrl: string
+  authType?: string
   username: TextReferenceInterface | void
   password: SecretReferenceInterface | void
   serviceAccountToken: SecretReferenceInterface | void
@@ -79,27 +83,6 @@ export interface SelectAuthenticationMethodInterface {
   clientKeyCACertificate: SecretReferenceInterface | void
 }
 
-const defaultInitialFormData: SelectAuthenticationMethodInterface = {
-  authType: AuthTypes.USER_PASSWORD,
-  delegateType: '',
-  masterUrl: '',
-  username: undefined,
-  password: undefined,
-  serviceAccountToken: undefined,
-  oidcIssuerUrl: '',
-  oidcUsername: undefined,
-  oidcPassword: undefined,
-  oidcCleintId: undefined,
-  oidcCleintSecret: undefined,
-  oidcScopes: '',
-  clientKey: undefined,
-  clientKeyCertificate: undefined,
-  clientKeyPassphrase: undefined,
-  clientKeyAlgo: '',
-  clientKeyCACertificate: undefined,
-  connectorName: ''
-}
-
 interface AuthOptionInterface {
   label: string
   value: string
@@ -109,6 +92,8 @@ interface SelectAuthenticationMethodProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
   authValues?: SelectAuthenticationMethodInterface
+
+  onSuccess?: (value: any) => void
 }
 
 const SelectAuthenticationMethodRef = (
@@ -174,63 +159,31 @@ const SelectAuthenticationMethodRef = (
   const [testConnectionStatus, setTestConnectionStatus] = useState<TestStatus>(TestStatus.NOT_INITIATED)
   const [testConnectionErrors, setTestConnectionErrors] = useState<ResponseMessage[]>()
 
-  // const authStepData: any = {
-  //   name: formikRef.current?.values?.connectorName || '',
-  //   description: '',
-  //   projectIdentifier: projectIdentifier,
-  //   orgIdentifier: orgIdentifier,
-  //   identifier: formikRef.current?.values?.connectorName || '',
-  //   type: Connectors.KUBERNETES_CLUSTER,
-  //   delegateType: formikRef.current?.values?.delegateType,
-  //   masterUrl: formikRef.current?.values?.masterUrl,
-  //   authType: formikRef.current?.values?.authType,
-  //   password: {
-  //     referenceString: formikRef.current?.values?.password?.referenceString
-  //   },
-  //   username: {
-  //     value: formikRef.current?.values?.username?.value,
-  //     type: ValueType.TEXT
-  //   },
-  //   usernameRef: {
-  //     value: formikRef.current?.values?.username?.value,
-  //     type: ValueType.ENCRYPTED
-  //   },
-  //   serviceAccountToken: {
-  //     referenceString: formikRef.current?.values?.serviceAccountToken?.referenceString
-  //   },
-  //   clientKeyCACertificate: {
-  //     referenceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
-  //   },
-  //   oidcIssuerUrl: formikRef.current?.values?.oidcIssuerUrl,
-  //   oidcScopes: formikRef.current?.values?.oidcScopes,
-  //   oidcUsername: {
-  //     type: ValueType.TEXT,
-  //     value: formikRef.current?.values?.oidcUsername?.value
-  //   },
-  //   oidcUsernameRef: {
-  //     type: ValueType.ENCRYPTED,
-  //     value: formikRef.current?.values?.oidcUsername?.value
-  //   },
-  //   oidcPassword: {
-  //     referenceString: formikRef.current?.values?.oidcPassword?.referenceString
-  //   },
-  //   oidcCleintId: {
-  //     referenceString: formikRef.current?.values?.oidcCleintId?.referenceString
-  //   },
-  //   oidcSecretRef: {
-  //     referenceString: formikRef.current?.values?.oidcCleintSecret?.referenceString
-  //   },
-  //   clientKey: {
-  //     referenceString: formikRef.current?.values?.clientKey?.referenceString
-  //   },
-  //   clientKeyCertificate: {
-  //     referenceString: formikRef.current?.values?.clientKeyCACertificate?.referenceString
-  //   },
-  //   clientKeyPassphrase: {
-  //     referenceString: formikRef.current?.values?.clientKeyPassphrase?.referenceString
-  //   },
-  //   clientKeyAlgo: formikRef?.current?.values?.clientKeyAlgo
-  // }
+  const {
+    saveEnvironmentData,
+    state: { environment: environmentData }
+  } = useCDOnboardingContext()
+
+  const defaultInitialFormData: SelectAuthenticationMethodInterface = {
+    authType: AuthTypes.USER_PASSWORD,
+    delegateType: '',
+    masterUrl: '',
+    username: undefined,
+    password: undefined,
+    serviceAccountToken: undefined,
+    oidcIssuerUrl: '',
+    oidcUsername: undefined,
+    oidcPassword: undefined,
+    oidcCleintId: undefined,
+    oidcCleintSecret: undefined,
+    oidcScopes: '',
+    clientKey: undefined,
+    clientKeyCertificate: undefined,
+    clientKeyPassphrase: undefined,
+    clientKeyAlgo: '',
+    clientKeyCACertificate: undefined,
+    connectorName: ''
+  }
 
   const afterSuccessHandler = (response: ResponseConnectorResponse): void => {
     if (response?.status === 'SUCCESS') {
@@ -280,7 +233,7 @@ const SelectAuthenticationMethodRef = (
                 if (validateAuthMethodSetup()) {
                   setTestConnectionStatus(TestStatus.IN_PROGRESS)
                   setTestConnectionErrors([])
-                  formikRef.current?.submitForm()
+                  // formikRef.current?.submitForm()
                 }
               }}
             />
@@ -341,7 +294,8 @@ const SelectAuthenticationMethodRef = (
       forwardRef.current = {
         values,
         connectorResponse,
-        validate: validateAuthMethodSetup
+        validate: validateAuthMethodSetup,
+        submitForm: formikRef?.current?.submitForm
       }
     }
   }
@@ -467,6 +421,31 @@ const SelectAuthenticationMethodRef = (
     }
   }, [])
 
+  const handleSubmit = async (
+    values: SelectAuthenticationMethodInterface
+  ): Promise<SelectAuthenticationMethodInterface> => {
+    const connectorData = {
+      ...values,
+      name: values.connectorName,
+      identifier: getUniqueEntityIdentifier(values.connectorName),
+      projectIdentifier: projectIdentifier,
+      orgIdentifier: orgIdentifier,
+      delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors
+    }
+    onInitiate({
+      connectorFormData: connectorData,
+      buildPayload: buildKubPayload
+    })
+
+    const updatedContextService = produce(environmentData as any, (draft: any) => {
+      set(draft, 'data.authValue', connectorData)
+    })
+
+    saveEnvironmentData({ environment: updatedContextService })
+    const data = _props?.onSuccess?.(connectorData) || {}
+    return Promise.resolve(data as any)
+  }
+
   return (
     <Layout.Vertical width="70%">
       <Formik<SelectAuthenticationMethodInterface>
@@ -475,22 +454,7 @@ const SelectAuthenticationMethodRef = (
           connectorName: defaultTo(authValues?.connectorName, '')
         }}
         formName="infraAuthentication"
-        onSubmit={(values: SelectAuthenticationMethodInterface) => {
-          const connectorData = {
-            ...values,
-            name: values.connectorName,
-            identifier: values.connectorName,
-            projectIdentifier: projectIdentifier,
-            orgIdentifier: orgIdentifier,
-            delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors
-          }
-          onInitiate({
-            connectorFormData: connectorData,
-            buildPayload: buildKubPayload
-          })
-
-          return Promise.resolve(values)
-        }}
+        onSubmit={handleSubmit}
       >
         {formikProps => {
           formikRef.current = formikProps

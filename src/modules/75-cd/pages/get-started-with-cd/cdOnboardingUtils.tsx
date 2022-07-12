@@ -14,8 +14,8 @@ const DEFAULT_STAGE_TYPE = 'Deployment'
 
 export const newServiceState = {
   service: {
-    name: 'new_service',
-    identifier: 'new_service',
+    name: 'sample_service',
+    identifier: 'sample_service',
     description: '',
     tags: {},
     serviceDefinition: {
@@ -28,8 +28,8 @@ export const newServiceState = {
 
 export const newEnvironmentState = {
   environment: {
-    name: 'new_environment',
-    identifier: 'new_environment',
+    name: 'sample_environment',
+    identifier: 'sample_environment',
     description: '',
     tags: {},
     type: 'PreProduction' as 'PreProduction' | 'Production'
@@ -130,6 +130,7 @@ export const cleanEnvironmentDataUtil = (values: EnvironmentResponseDTO): Enviro
   const newId = values.identifier?.toString().trim()
   const newName = values.name?.toString().trim()
   const newType = values.type?.toString().trim()
+
   return {
     name: newName,
     identifier: newId,
@@ -139,4 +140,9 @@ export const cleanEnvironmentDataUtil = (values: EnvironmentResponseDTO): Enviro
     tags: values.tags,
     type: newType as 'PreProduction' | 'Production'
   }
+}
+
+export const getUniqueEntityIdentifier = (entity = ''): string => {
+  const UNIQUE_PIPELINE_ID = new Date().getTime().toString()
+  return `${entity.replace(/-/g, '_')}_${UNIQUE_PIPELINE_ID}`
 }

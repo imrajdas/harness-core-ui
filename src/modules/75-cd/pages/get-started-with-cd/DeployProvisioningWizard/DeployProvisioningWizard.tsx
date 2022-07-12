@@ -8,37 +8,17 @@
 
 import React, { useState } from 'react'
 
-import {
-  Container,
-  Button,
-  ButtonVariation,
-  Layout,
-  MultiStepProgressIndicator,
-  PageSpinner,
-  useToaster
-} from '@harness/uicore'
-import produce from 'immer'
-import { cloneDeep, defaultTo, get, isEmpty, omit, set } from 'lodash-es'
+import { Container, Button, ButtonVariation, Layout, MultiStepProgressIndicator, PageSpinner } from '@harness/uicore'
+import { get } from 'lodash-es'
 import { useHistory, useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
 
-import {
-  ManifestConfigWrapper,
-  NGServiceConfig,
-  ServiceRequestDTO,
-  useCreateEnvironmentV2,
-  useCreateServiceV2,
-  UserRepoResponse,
-  useUpdateServiceV2
-} from 'services/cd-ng'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
-import useRBACError from '@rbac/utils/useRBACError/useRBACError'
-import { GitRepoName, ManifestDataType } from '@pipeline/components/ManifestSelection/Manifesthelper'
-import type { ManifestTypes } from '@pipeline/components/ManifestSelection/ManifestInterface'
 import { yamlStringify } from '@common/utils/YamlHelperMethods'
 import { createPipelineV2Promise, ResponsePipelineSaveResponse } from 'services/pipeline-ng'
 import { Status } from '@common/utils/Constants'
 import routes from '@common/RouteDefinitions'
+import type { UserRepoResponse } from 'services/cd-ng'
 import {
   WizardStep,
   StepStatus,
@@ -51,19 +31,12 @@ import { SelectWorkload, SelectWorkloadRef } from '../SelectWorkload/SelectWorkl
 import { SelectInfrastructure, SelectInfrastructureRef } from '../SelectInfrastructure/SelectInfrastructure'
 import { SelectArtifact, SelectArtifactRef } from '../SelectArtifact/SelectArtifact'
 import { useCDOnboardingContext } from '../CDOnboardingStore'
-import {
-  cleanServiceDataUtil,
-  cleanEnvironmentDataUtil,
-  newEnvironmentState,
-  newServiceState,
-  DEFAULT_PIPELINE_PAYLOAD
-} from '../cdOnboardingUtils'
+import { DEFAULT_PIPELINE_PAYLOAD, getUniqueEntityIdentifier } from '../cdOnboardingUtils'
 import css from './DeployProvisioningWizard.module.scss'
 
 export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> = props => {
   const { lastConfiguredWizardStepId = DeployProvisiongWizardStepId.SelectWorkload } = props
   const { getString } = useStrings()
-  const { getRBACErrorMessage } = useRBACError()
   const [disableBtn, setDisableBtn] = useState<boolean>(false)
 
   const [currentWizardStepId, setCurrentWizardStepId] =
@@ -86,15 +59,11 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
   )
   const history = useHistory()
   const {
-    saveServiceData,
-    saveEnvironmentData,
-    saveInfrastructureData,
-    state: { service: serviceData, environment: environmentData, infrastructure: infrastructureData }
+    state: { service: serviceData }
   } = useCDOnboardingContext()
 
   const constructPipelinePayload = React.useCallback(
     (repository: UserRepoResponse): string | undefined => {
-      const UNIQUE_PIPELINE_ID = new Date().getTime().toString()
       const { name: repoName, namespace } = repository
       if (
         !repoName ||
@@ -106,9 +75,9 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
 
       const payload = DEFAULT_PIPELINE_PAYLOAD
       payload.pipeline.name = `${getString('buildText')} ${repoName}`
-      payload.pipeline.identifier = `${getString('pipelineSteps.deploy.create.deployStageName')}_${(
-        repoName || ''
-      ).replace(/-/g, '_')}_${UNIQUE_PIPELINE_ID}` // pipeline identifier cannot have spaces
+      payload.pipeline.identifier = `${getString(
+        'pipelineSteps.deploy.create.deployStageName'
+      )}_${getUniqueEntityIdentifier(repoName)}` // pipeline identifier cannot have spaces
       payload.pipeline.projectIdentifier = projectIdentifier
       payload.pipeline.orgIdentifier = orgIdentifier
       // payload.pipeline.stages[0].stage.type = orgIdentifier
@@ -168,33 +137,6 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       })
     }
   }, [])
-  const { loading: createLoading, mutate: createService } = useCreateServiceV2({
-    queryParams: {
-      accountIdentifier: accountId
-    }
-  })
-  const { mutate: updateService } = useUpdateServiceV2({
-    queryParams: {
-      accountIdentifier: accountId
-    },
-    requestOptions: {
-      headers: {
-        'content-type': 'application/yaml'
-      }
-    }
-  })
-
-  const { loading: createEnvLoading, mutate: createEnvironment } = useCreateEnvironmentV2({
-    queryParams: {
-      accountIdentifier: accountId
-    }
-  })
-
-  const { showSuccess, showError, clear } = useToaster()
-
-  const getUniqueServiceRef = (serviceRef: string): string => {
-    return `${serviceRef}_${new Date().getTime().toString()}`
-  }
 
   const WizardSteps: Map<DeployProvisiongWizardStepId, WizardStep> = new Map([
     [
@@ -203,64 +145,24 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
         stepRender: (
           <SelectWorkload
             ref={selectWorkloadRef}
+            onSuccess={() => {
+              setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectArtifact)
+              updateStepStatus([DeployProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
+              updateStepStatus([DeployProvisiongWizardStepId.SelectArtifact], StepStatus.InProgress)
+              updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
+              updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.ToDo)
+            }}
             disableNextBtn={() => setDisableBtn(true)}
             enableNextBtn={() => setDisableBtn(false)}
           />
         ),
         onClickNext: async () => {
-          const {
-            values,
-            setFieldTouched
-            //  validate
-          } = selectWorkloadRef.current || {}
-          const { workloadType, serviceDeploymentType, serviceRef } = values || {}
-          if (!workloadType) {
-            setFieldTouched?.('workloadType', true)
-            return
+          const { submitForm } = selectWorkloadRef.current || {}
+          try {
+            submitForm?.()
+          } catch (_e) {
+            // catch any errors and do nothing
           }
-          if (!serviceDeploymentType) {
-            setFieldTouched?.('serviceDeploymentType', true)
-            return
-          }
-
-          const isServiceNameUpdated =
-            isEmpty(get(serviceData, 'serviceDefinition.type')) || get(serviceData, 'name') !== serviceRef
-          const updatedContextService = produce(newServiceState as NGServiceConfig, draft => {
-            set(draft, 'service.name', serviceRef)
-            set(
-              draft,
-              'service.identifier',
-              isServiceNameUpdated ? getUniqueServiceRef(serviceRef as string) : get(serviceData, 'identifier')
-            )
-            set(draft, 'service.data.workload', workloadType)
-            set(draft, 'service.serviceDefinition.type', serviceDeploymentType)
-          })
-
-          const cleanServiceData = cleanServiceDataUtil(updatedContextService.service as ServiceRequestDTO)
-
-          if (isServiceNameUpdated) {
-            try {
-              const response = await createService({ ...cleanServiceData, orgIdentifier, projectIdentifier })
-              if (response.status === 'SUCCESS') {
-                serviceRef && saveServiceData({ service: updatedContextService.service, serviceResponse: response })
-                clear()
-                showSuccess(getString('cd.serviceCreated'))
-              } else {
-                throw response
-              }
-            } catch (error: any) {
-              showError(getRBACErrorMessage(error))
-            }
-          }
-
-          // if (validate?.()) {
-          setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectArtifact)
-          updateStepStatus([DeployProvisiongWizardStepId.SelectWorkload], StepStatus.Success)
-          updateStepStatus([DeployProvisiongWizardStepId.SelectArtifact], StepStatus.InProgress)
-          updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
-          updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.ToDo)
-
-          // }
         },
         stepFooterLabel: 'cd.getStartedWithCD.configureRepo'
       }
@@ -271,6 +173,15 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
         stepRender: (
           <SelectArtifact
             ref={selectArtifactRef}
+            onSuccess={() => {
+              setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectInfrastructure)
+              updateStepStatus(
+                [DeployProvisiongWizardStepId.SelectWorkload, DeployProvisiongWizardStepId.SelectArtifact],
+                StepStatus.Success
+              )
+              updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.InProgress)
+              updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.ToDo)
+            }}
             // showError={showError}
             // validatedConnectorRef={selectGitProviderRef.current?.validatedConnector?.identifier}
             disableNextBtn={() => setDisableBtn(true)}
@@ -282,91 +193,13 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
           updateStepStatus([DeployProvisiongWizardStepId.SelectArtifact], StepStatus.ToDo)
         },
         onClickNext: async () => {
-          const { values, gitValues, manifestValues, repoValues, connectorResponse, setFieldTouched } =
-            selectArtifactRef.current || {}
-          const { artifactType } = values || {}
-          if (!artifactType) {
-            setFieldTouched?.('artifactType', true)
-            return
-          }
-          const selectedManifest = ManifestDataType.K8sManifest as ManifestTypes
-          const connectionType = GitRepoName.Account
-          const manifestObj: ManifestConfigWrapper = {
-            manifest: {
-              identifier: defaultTo(manifestValues?.identifier, ''),
-              type: selectedManifest, // fixed for initial designs
-              spec: {
-                store: {
-                  type: gitValues?.gitProvider?.type,
-                  spec: {
-                    connectorRef: connectorResponse?.data?.connectorResponseDTO?.connector?.identifier,
-                    gitFetchType: manifestValues?.gitFetchType,
-                    paths:
-                      typeof manifestValues?.paths === 'string'
-                        ? manifestValues?.paths
-                        : manifestValues?.paths?.map((path: { path: string }) => path.path)
-                  }
-                },
-                valuesPaths:
-                  typeof manifestValues?.valuesPaths === 'string'
-                    ? manifestValues?.valuesPaths
-                    : manifestValues?.valuesPaths?.map((path: { path: string }) => path.path)
-              }
-            }
-          }
-          if (connectionType === GitRepoName.Account) {
-            set(manifestObj, 'manifest.spec.store.spec.repoName', repoValues?.name)
-          }
-
-          if (manifestObj?.manifest?.spec?.store) {
-            if (manifestValues?.gitFetchType === 'Branch') {
-              set(manifestObj, 'manifest.spec.store.spec.branch', manifestValues?.branch)
-            } else if (manifestValues?.gitFetchType === 'Commit') {
-              set(manifestObj, 'manifest.spec.store.spec.commitId', manifestValues?.commitId)
-            }
-          }
-
-          if (selectedManifest === ManifestDataType.K8sManifest) {
-            set(manifestObj, 'manifest.spec.skipResourceVersioning', false)
-          }
-
-          const updatedContextService = produce(serviceData as NGServiceConfig, draft => {
-            set(draft, 'serviceDefinition.spec.manifests[0]', manifestObj)
-            set(draft, 'data.artifactType', artifactType)
-            set(draft, 'data.gitValues', gitValues)
-            set(draft, 'data.manifestValues', manifestValues)
-            set(draft, 'data.repoValues', repoValues)
-          })
-
-          saveServiceData({ service: updatedContextService })
-
-          const serviceBody = { service: { ...omit(cloneDeep(updatedContextService), 'data') } }
-          const body = {
-            ...omit(cloneDeep(serviceBody.service), 'serviceDefinition', 'gitOpsEnabled'),
-            projectIdentifier,
-            orgIdentifier,
-            yaml: yamlStringify({ ...serviceBody })
-          }
+          const { submitForm } = selectArtifactRef.current || {}
 
           try {
-            const response = await updateService(body)
-            if (response.status !== 'SUCCESS') {
-              //   showSuccess(getString('common.serviceCreated'))
-              //   // fetchPipeline({ forceFetch: true, forceUpdate: true })
-              // } else {
-              throw response
-            }
-          } catch (e: any) {
-            showError(e?.data?.message || e?.message || getString('commonError'))
+            submitForm?.()
+          } catch (_e) {
+            // catch any errors and do nothing
           }
-
-          setCurrentWizardStepId(DeployProvisiongWizardStepId.SelectInfrastructure)
-          updateStepStatus(
-            [DeployProvisiongWizardStepId.SelectWorkload, DeployProvisiongWizardStepId.SelectArtifact],
-            StepStatus.Success
-          )
-          updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.InProgress)
-          updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.ToDo)
         },
 
         stepFooterLabel: 'cd.getStartedWithCD.manifestFile'
@@ -377,6 +210,18 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       {
         stepRender: (
           <SelectInfrastructure
+            onSuccess={() => {
+              setupPipeline()
+              updateStepStatus(
+                [
+                  DeployProvisiongWizardStepId.SelectWorkload,
+                  DeployProvisiongWizardStepId.SelectArtifact,
+                  DeployProvisiongWizardStepId.SelectInfrastructure
+                ],
+                StepStatus.Success
+              )
+              updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.InProgress)
+            }}
             ref={selectInfrastructureRef}
             disableNextBtn={() => setDisableBtn(true)}
             enableNextBtn={() => setDisableBtn(false)}
@@ -387,67 +232,19 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
           updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.ToDo)
         },
         onClickNext: async () => {
-          const { values, setFieldTouched, authValues } = selectInfrastructureRef.current || {}
-          const { infraType, envId, infraId, namespace } = values || {}
-          if (!infraType) {
-            setFieldTouched?.('infraType', true)
-            return
-          }
-
-          // const isEnvironmentNameUpdated =
-          // isEmpty(get(environmentData, 'type')) || get(environmentData, 'name') !== envId
-
-          const updatedContextEnvironment = produce(newEnvironmentState.environment, draft => {
-            set(draft, 'name', envId)
-            set(
-              draft,
-              'identifier',
-              // isEnvironmentNameUpdated ?
-              getUniqueServiceRef(envId as string)
-              // : get(environmentData, 'identifier')
-            )
-          })
-
-          const cleanEnvironmentData = cleanEnvironmentDataUtil(updatedContextEnvironment as ServiceRequestDTO)
-          // if (isEnvironmentNameUpdated) {
-          try {
-            const response = await createEnvironment({ ...cleanEnvironmentData, orgIdentifier, projectIdentifier })
-            if (response.status === 'SUCCESS') {
-              envId &&
-                saveEnvironmentData({
-                  environment: updatedContextEnvironment,
-                  environmentResponse: response
-                })
-              const updatedContextInfra = produce(newEnvironmentState.infrastructure, draft => {
-                set(draft, 'type', infraType)
-                set(draft, 'name', infraId)
-                set(draft, 'environmentRef', envId)
-                set(draft, 'infrastructureDefinition.spec.namespace', namespace)
-              })
-              saveInfrastructureData({
-                infrastructure: { ...updatedContextInfra }
-              })
-              setupPipeline()
-              clear()
-              showSuccess(getString('cd.environmentCreated'))
-            } else {
-              throw response
-            }
-          } catch (error: any) {
-            showError(getRBACErrorMessage(error))
-          }
+          // const { values, setFieldTouched, authValues } = selectInfrastructureRef.current || {}
+          // const { infraType, envId, infraId, namespace } = values || {}
+          // if (!infraType) {
+          //   setFieldTouched?.('infraType', true)
+          //   return
           // }
+          const { submitForm } = selectInfrastructureRef.current || {}
 
-          // setCurrentWizardStepId(DeployProvisiongWizardStepId.CreatePipeline)
-          updateStepStatus(
-            [
-              DeployProvisiongWizardStepId.SelectWorkload,
-              DeployProvisiongWizardStepId.SelectArtifact,
-              DeployProvisiongWizardStepId.SelectInfrastructure
-            ],
-            StepStatus.Success
-          )
-          updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.InProgress)
+          try {
+            submitForm?.()
+          } catch (_e) {
+            // catch any errors and do nothing
+          }
         },
         stepFooterLabel: 'common.createPipeline'
       }
@@ -465,10 +262,6 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
     }
   } else {
     buttonLabel = getString('next')
-  }
-
-  if (createLoading || createEnvLoading) {
-    return <PageSpinner />
   }
 
   return stepRender ? (

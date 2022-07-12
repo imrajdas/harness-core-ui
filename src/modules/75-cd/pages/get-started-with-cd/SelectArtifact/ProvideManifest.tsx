@@ -5,20 +5,22 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import { FormError, FormInput, Layout, MultiTypeInputType } from '@harness/uicore'
-import { Form, Formik, FormikContextType } from 'formik'
+import { FormError, FormInput, Layout, MultiTypeInputType, Formik } from '@harness/uicore'
+import { Form, FormikContextType, FormikProps } from 'formik'
 import React, { useEffect, useRef } from 'react'
-import { get } from 'lodash-es'
+import { defaultTo, get, set } from 'lodash-es'
 import { v4 as nameSpace, v5 as uuid } from 'uuid'
 import { useStrings } from 'framework/strings'
 import DragnDropPaths from '@pipeline/components/ManifestSelection/DragnDropPaths'
-import type { K8sValuesManifestDataType } from '@pipeline/components/ManifestSelection/ManifestInterface'
-import type { ManifestConfig } from 'services/cd-ng'
+import type { K8sValuesManifestDataType, ManifestTypes } from '@pipeline/components/ManifestSelection/ManifestInterface'
+import type { ManifestConfig, ManifestConfigWrapper } from 'services/cd-ng'
+import { ManifestDataType } from '@pipeline/components/ManifestSelection/Manifesthelper'
 import { gitFetchTypeList, GitFetchTypes } from '../DeployProvisioningWizard/Constants'
 // import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
 export interface ProvideManifestRef {
   values: ProvideManifestInterface
   validate: () => boolean
+  submitForm?: FormikProps<ProvideManifestInterface>['submitForm']
 }
 export interface ProvideManifestInterface {
   identifier?: string
@@ -33,6 +35,7 @@ interface ProvideManifestProps {
   initialValues: ManifestConfig
   disableNextBtn: () => void
   enableNextBtn: () => void
+  onSuccess?: (value: ManifestConfigWrapper) => void
 }
 
 export type ProvideManifestForwardRef =
@@ -44,7 +47,8 @@ const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideMani
   const { getString } = useStrings()
   const {
     // disableNextBtn, enableNextBtn,
-    initialValues
+    initialValues,
+    onSuccess
   } = props
   const formikRef = useRef<FormikContextType<ProvideManifestInterface>>()
 
@@ -65,7 +69,8 @@ const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideMani
     if (values) {
       forwardRef.current = {
         values,
-        validate: validateProvideManifestDetails
+        validate: validateProvideManifestDetails,
+        submitForm: formikRef?.current?.submitForm
       }
     }
   }
@@ -107,11 +112,48 @@ const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideMani
     }
   }, [])
 
+  const handleSubmit = (values: ProvideManifestInterface): Promise<ProvideManifestInterface> => {
+    const { branch, commitId, gitFetchType, identifier, paths, valuesPaths } = values
+
+    const selectedManifest = ManifestDataType.K8sManifest as ManifestTypes
+
+    const manifestObj: ManifestConfigWrapper = {
+      manifest: {
+        identifier: defaultTo(identifier, ''),
+        type: selectedManifest, // fixed for initial designs
+        spec: {
+          store: {
+            spec: {
+              gitFetchType: gitFetchType,
+              paths: typeof paths === 'string' ? paths : paths?.map((path: { path: string }) => path.path)
+            }
+          },
+          valuesPaths:
+            typeof valuesPaths === 'string' ? valuesPaths : valuesPaths?.map((path: { path: string }) => path.path)
+        }
+      }
+    }
+    if (manifestObj?.manifest?.spec?.store) {
+      if (gitFetchType === 'Branch') {
+        set(manifestObj, 'manifest.spec.store.spec.branch', branch)
+      } else if (gitFetchType === 'Commit') {
+        set(manifestObj, 'manifest.spec.store.spec.commitId', commitId)
+      }
+    }
+
+    if (selectedManifest === ManifestDataType.K8sManifest) {
+      set(manifestObj, 'manifest.spec.skipResourceVersioning', false)
+    }
+    const data = onSuccess?.(manifestObj) || {}
+    return Promise.resolve(data as any)
+  }
+
   return (
     <Layout.Vertical width="70%">
       <Formik<ProvideManifestInterface>
         initialValues={getInitialValues()}
-        onSubmit={(values: ProvideManifestInterface) => Promise.resolve(values)}
+        formName="onboardingManifestForm"
+        onSubmit={handleSubmit}
       >
         {formikProps => {
           formikRef.current = formikProps

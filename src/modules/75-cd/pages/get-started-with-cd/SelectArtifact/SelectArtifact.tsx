@@ -16,13 +16,25 @@ import {
   Formik,
   FormikForm as Form,
   Accordion,
-  FormError
+  FormError,
+  useToaster
 } from '@harness/uicore'
-import type { FormikContextType } from 'formik'
+import type { FormikContextType, FormikProps } from 'formik'
 // import cx from 'classnames'
-import { get } from 'lodash-es'
+import { cloneDeep, get, omit, set } from 'lodash-es'
+import produce from 'immer'
+import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
-import type { ResponseScmConnectorResponse, UserRepoResponse } from 'services/cd-ng'
+import {
+  ManifestConfigWrapper,
+  NGServiceConfig,
+  ResponseScmConnectorResponse,
+  UserRepoResponse,
+  useUpdateServiceV2
+} from 'services/cd-ng'
+import { GitRepoName } from '@pipeline/components/ManifestSelection/Manifesthelper'
+import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
+import { yamlStringify } from '@common/utils/YamlHelperMethods'
 import type { SelectGitProviderInterface, SelectGitProviderRef } from './SelectGitProvider'
 import type { ProvideManifestInterface } from './ProvideManifest'
 import { ArtifactProviders, ArtifactType, Hosting } from '../DeployProvisioningWizard/Constants'
@@ -43,6 +55,7 @@ export interface SelectArtifactRef {
   setFieldTouched(field: keyof SelectArtifactInterface & string, isTouched?: boolean, shouldValidate?: boolean): void
   validate?: () => boolean
   showValidationErrors?: () => void
+  submitForm?: FormikProps<SelectArtifactInterface>['submitForm']
 }
 export interface SelectArtifactInterface {
   artifactType?: ArtifactType
@@ -51,6 +64,7 @@ export interface SelectArtifactInterface {
 interface SelectArtifactProps {
   disableNextBtn: () => void
   enableNextBtn: () => void
+  onSuccess?: () => void
 }
 
 export type SelectArtifactForwardRef =
@@ -62,7 +76,8 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
   const { getString } = useStrings()
   const { disableNextBtn, enableNextBtn } = props
   const {
-    state: { service: serviceData }
+    state: { service: serviceData },
+    saveServiceData
   } = useCDOnboardingContext()
 
   const [artifactType, setArtifactType] = useState<ArtifactType | undefined>(
@@ -73,6 +88,19 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
   const selectGitProviderRef = React.useRef<SelectGitProviderRef | null>(null)
   const selectRepositoryRef = React.useRef<SelectRepositoryRef | null>(null)
   const provideManifestRef = React.useRef<ProvideManifestRef | null>(null)
+
+  const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
+
+  const { mutate: updateService } = useUpdateServiceV2({
+    queryParams: {
+      accountIdentifier: accountId
+    },
+    requestOptions: {
+      headers: {
+        'content-type': 'application/yaml'
+      }
+    }
+  })
 
   const setForwardRef = ({
     values,
@@ -92,7 +120,8 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
         gitValues: selectGitProviderRef?.current?.values,
         repoValues: selectRepositoryRef?.current?.repository,
         manifestValues: provideManifestRef?.current?.values,
-        setFieldTouched: setFieldTouched
+        setFieldTouched: setFieldTouched,
+        submitForm: formikRef?.current?.submitForm
       }
     }
   }
@@ -138,6 +167,68 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
   //   }
   // }, [selectGitProviderRef?.current?.values, selectRepositoryRef?.current?.repository, validateProvide()])
 
+  const { showError } = useToaster()
+  const handleSubmit = async (values: SelectArtifactInterface): Promise<SelectArtifactInterface> => {
+    const gitValues = selectGitProviderRef?.current?.values
+    const repoValues = selectRepositoryRef?.current?.repository
+    const manifestValues = provideManifestRef?.current?.values
+    try {
+      provideManifestRef?.current?.submitForm?.().then(async (manifestObj: any) => {
+        const connectionType = GitRepoName.Account
+        // setting default value
+
+        const updatedManifestObj = produce(manifestObj, (draft: any) => {
+          if (connectionType === GitRepoName.Account) {
+            set(draft, 'manifest.spec.store.spec.repoName', repoValues?.name)
+          }
+        })
+        const updatedContextService = produce(serviceData as NGServiceConfig, draft => {
+          set(draft, 'serviceDefinition.spec.manifests[0]', updatedManifestObj)
+          set(draft, 'data.artifactType', values?.artifactType)
+          set(draft, 'data.gitValues', gitValues)
+          set(draft, 'data.manifestValues', manifestValues)
+          set(draft, 'data.repoValues', repoValues)
+        })
+        saveServiceData({ service: updatedContextService })
+
+        const serviceBody = { service: { ...omit(cloneDeep(updatedContextService), 'data') } }
+        const body = {
+          ...omit(cloneDeep(serviceBody.service), 'serviceDefinition', 'gitOpsEnabled'),
+          projectIdentifier,
+          orgIdentifier,
+          yaml: yamlStringify({ ...serviceBody })
+        }
+
+        const response = await updateService(body)
+        if (response.status === 'SUCCESS') {
+          saveServiceData({ serviceResponse: response })
+        } else {
+          throw response
+        }
+        props?.onSuccess?.()
+        return Promise.resolve(values)
+      })
+    } catch (e: any) {
+      showError(e?.data?.message || e?.message || getString('commonError'))
+      return Promise.resolve({} as SelectArtifactInterface)
+    }
+    return Promise.resolve({} as SelectArtifactInterface)
+  }
+
+  const getManifestDetails = (manifestObj: ManifestConfigWrapper): ManifestConfigWrapper => {
+    const { values, connectorResponse } = selectGitProviderRef?.current || {}
+    // const { repository } = selectRepositoryRef?.current || {}
+    // const connectionType = GitRepoName.Account
+    // selectGitProviderRef?.current?.connectorResponse,
+    set(manifestObj, 'manifest.spec.store.type', values?.gitProvider?.type)
+    set(
+      manifestObj,
+      'manifest.spec.store.spec.connectorRef',
+      connectorResponse?.data?.connectorResponseDTO?.connector?.identifier
+    )
+    return manifestObj
+  }
+
   const isActiveAccordion: boolean = artifactType ? true : false
   return (
     <Layout.Vertical width="80%">
@@ -147,7 +238,7 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
         initialValues={{
           artifactType: get(serviceData, 'data.artifactType') || undefined
         }}
-        onSubmit={(values: SelectArtifactInterface) => Promise.resolve(values)}
+        onSubmit={handleSubmit}
       >
         {formikProps => {
           formikRef.current = formikProps
@@ -267,6 +358,7 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
                     details={
                       <ProvideManifest
                         ref={provideManifestRef}
+                        onSuccess={getManifestDetails}
                         initialValues={get(serviceData, 'serviceDefinition.spec.manifests[0].manifest', {})}
                         disableNextBtn={() => setDisableBtn(true)}
                         enableNextBtn={() => setDisableBtn(disableBtn)}
