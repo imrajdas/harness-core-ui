@@ -26,6 +26,7 @@ export const GitSourceProviders: Record<string, { value: string; iconName: IconN
   GITHUB: { value: 'Github', iconName: 'github' },
   GITLAB: { value: 'Gitlab', iconName: 'service-gotlab' },
   BITBUCKET: { value: 'Bitbucket', iconName: 'bitbucket-selected' },
+  AZURE_REPO: { value: 'Azure_Repo', iconName: 'service-azure' },
   AWS_CODECOMMIT: { value: 'AwsCodeCommit', iconName: 'service-aws-code-deploy' },
   CUSTOM: { value: 'Custom', iconName: 'build' }
 }
@@ -92,6 +93,11 @@ const triggerDrawerMap = (getString: (key: StringKeys) => string): AddDrawerMapI
           itemLabel: getString('common.repo_provider.bitbucketLabel'),
           value: GitSourceProviders.BITBUCKET.value,
           iconName: GitSourceProviders.BITBUCKET.iconName
+        },
+        {
+          itemLabel: getString('connectors.title.azureRepo'),
+          value: GitSourceProviders.AZURE_REPO.value,
+          iconName: GitSourceProviders.AZURE_REPO.iconName
         },
         {
           itemLabel: getString('common.repo_provider.awscodecommit'),

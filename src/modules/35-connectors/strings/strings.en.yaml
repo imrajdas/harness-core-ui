@@ -112,6 +112,7 @@ title:
   ceAws: 'AWS Connector '
   gcpKms: GCP Key Management Service
   azure: 'Azure Cloud Provider'
+  azureRepo: 'Azure Repo'
   harnessImageConnectorRef: 'Override Image Connector'
 placeholder:
   harnessImageConnectorRef: 'Select Image Connector'
