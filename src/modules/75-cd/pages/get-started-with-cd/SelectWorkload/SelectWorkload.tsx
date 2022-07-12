@@ -176,7 +176,9 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
         return Promise.resolve(error)
       }
     }
+
     onSuccess()
+
     return Promise.resolve({} as SelectWorkloadInterface)
   }
 

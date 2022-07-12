@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import { FormError, FormInput, Layout, MultiTypeInputType, Formik } from '@harness/uicore'
+import { FormError, FormInput, Layout, MultiTypeInputType } from '@harness/uicore'
 import { Form, FormikContextType, FormikProps } from 'formik'
 import React, { useEffect, useRef } from 'react'
 import { defaultTo, get, set } from 'lodash-es'

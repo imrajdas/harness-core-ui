@@ -36,6 +36,8 @@ import {
 import { GitRepoName, ManifestDataType } from '@pipeline/components/ManifestSelection/Manifesthelper'
 import type { ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { yamlStringify } from '@common/utils/YamlHelperMethods'
+import type { ManifestTypes } from '@pipeline/components/ManifestSelection/ManifestInterface'
+import { TestStatus } from '@common/components/TestConnectionWidget/TestConnectionWidget'
 import type { SelectGitProviderInterface, SelectGitProviderRef } from './SelectGitProvider'
 import type { ProvideManifestInterface } from './ProvideManifest'
 import { ArtifactProviders, ArtifactType, Hosting } from '../DeployProvisioningWizard/Constants'
@@ -125,7 +127,6 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
     if (values) {
       forwardRef.current = {
         values,
-        connectorResponse: selectGitProviderRef?.current?.connectorResponse,
         gitValues: selectGitProviderRef?.current?.values,
         repoValues: selectRepositoryRef?.current?.repository,
         manifestValues: provideManifestRef?.current?.values,
