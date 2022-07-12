@@ -8,6 +8,7 @@
 import type { IconName } from '@wings-software/uicore'
 // temporary mock data
 import { parse } from 'yaml'
+import type { ConnectorInfoDTO } from 'services/cd-ng'
 import type { AddDrawerMapInterface } from '@common/components/AddDrawer/AddDrawer'
 import type { StringKeys } from 'framework/strings'
 import {
@@ -22,7 +23,10 @@ import {
 } from '@pipeline/components/ArtifactsSelection/ArtifactHelper'
 import { TriggerTypes, AWS_CODECOMMIT, AwsCodeCommit } from './TriggersWizardPageUtils'
 
-export const GitSourceProviders: Record<string, { value: string; iconName: IconName }> = {
+export const GitSourceProviders: Record<
+  string,
+  { value: ConnectorInfoDTO['type'] | 'AwsCodeCommit' | 'Custom'; iconName: IconName }
+> = {
   GITHUB: { value: 'Github', iconName: 'github' },
   GITLAB: { value: 'Gitlab', iconName: 'service-gotlab' },
   BITBUCKET: { value: 'Bitbucket', iconName: 'bitbucket-selected' },

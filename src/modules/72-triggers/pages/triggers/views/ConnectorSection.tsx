@@ -64,19 +64,16 @@ export const ConnectorSection: React.FC<ConnectorSectionInterface> = ({ formikPr
     }
   })
 
-  const getSourceRepo = useCallback(
-    (repo: string): string => {
-      switch (repo) {
-        case GitSourceProviders.AWS_CODECOMMIT.value:
-          return AWS_CODECOMMIT
-        case GitSourceProviders.AZURE_REPO.value:
-          return AZURE_REPO
-        default:
-          return repo
-      }
-    },
-    [sourceRepo]
-  )
+  const getSourceRepo = useCallback((repoProvider: ConnectorConfigDTO['type']): string => {
+    switch (repoProvider) {
+      case GitSourceProviders.AWS_CODECOMMIT.value:
+        return AWS_CODECOMMIT
+      case GitSourceProviders.AZURE_REPO.value:
+        return AZURE_REPO
+      default:
+        return repoProvider
+    }
+  }, [])
 
   const connectorUrl = connectorRef?.connector?.spec?.url
   const constructRepoUrl = `${connectorUrl}${connectorUrl?.endsWith('/') ? '' : '/'}`
