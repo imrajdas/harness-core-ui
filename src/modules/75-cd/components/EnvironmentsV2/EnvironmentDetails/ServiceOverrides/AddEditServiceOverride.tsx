@@ -8,7 +8,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import type { FormikProps } from 'formik'
-import { defaultTo, get, isEqual } from 'lodash-es'
+import { defaultTo, get, isEmpty, isEqual } from 'lodash-es'
 import { parse } from 'yaml'
 
 import {
@@ -211,7 +211,7 @@ export default function AddEditServiceOverride({
     const { name, type, value } = defaultTo(formikRef.current?.values.variableOverride, {})
     const { variableOverride: { name: newName, type: newType, value: newValue } = {} } = values
 
-    if (name === newName && type === newType && value === newValue) {
+    if ((name === newName && type === newType && value === newValue) || isEmpty(newName) || isEmpty(newValue)) {
       setIsModified(false)
     } else {
       setIsModified(true)
@@ -314,7 +314,13 @@ export default function AddEditServiceOverride({
 
   const handleYamlChange = useCallback((): void => {
     const parsedYaml = parse(defaultTo(yamlHandler?.getLatestYaml(), '{}'))
-    if (isEqual(existingJSON, parsedYaml)) {
+    const anyVariableNameEmpty = parsedYaml.serviceOverrides.variables?.find((serviceVariable: any) =>
+      isEmpty(serviceVariable.name)
+    )
+    const anyVariableValueEmpty = parsedYaml.serviceOverrides.variables?.find((serviceVariable: any) =>
+      isEmpty(serviceVariable.value)
+    )
+    if (isEqual(existingJSON, parsedYaml) || anyVariableNameEmpty || anyVariableValueEmpty) {
       setIsModified(false)
     } else {
       setIsModified(true)
