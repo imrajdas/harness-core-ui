@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import React from 'react'
+import React, { useCallback } from 'react'
 import { FormInput, Text, TextInput, HarnessDocTooltip } from '@wings-software/uicore'
 import { Color, FontVariation } from '@harness/design-system'
 import { useParams } from 'react-router-dom'
@@ -20,7 +20,7 @@ import { Scope } from '@common/interfaces/SecretsInterface'
 import useCreateConnectorModal from '@connectors/modals/ConnectorModal/useCreateConnectorModal'
 import type { GitQueryParams } from '@common/interfaces/RouteInterfaces'
 import { useQueryParams } from '@common/hooks'
-import { AWS_CODECOMMIT } from '../utils/TriggersWizardPageUtils'
+import { AWS_CODECOMMIT, AZURE_REPO } from '../utils/TriggersWizardPageUtils'
 import { GitSourceProviders } from '../utils/TriggersListUtils'
 import css from './ConnectorSection.module.scss'
 interface ConnectorSectionInterface {
@@ -63,9 +63,24 @@ export const ConnectorSection: React.FC<ConnectorSectionInterface> = ({ formikPr
       }
     }
   })
+
+  const getSourceRepo = useCallback(
+    (repo: string): string => {
+      switch (repo) {
+        case GitSourceProviders.AWS_CODECOMMIT.value:
+          return AWS_CODECOMMIT
+        case GitSourceProviders.AZURE_REPO.value:
+          return AZURE_REPO
+        default:
+          return repo
+      }
+    },
+    [sourceRepo]
+  )
+
   const connectorUrl = connectorRef?.connector?.spec?.url
   const constructRepoUrl = `${connectorUrl}${connectorUrl?.endsWith('/') ? '' : '/'}`
-  const updatedSourceRepo = sourceRepo === GitSourceProviders.AWS_CODECOMMIT.value ? AWS_CODECOMMIT : sourceRepo
+  const updatedSourceRepo = getSourceRepo(sourceRepo)
   const renderRepoUrl = (): JSX.Element | null => {
     const connectorURLType = connectorRef?.connector?.spec?.type
     if (connectorURLType === connectorUrlType.REPO) {

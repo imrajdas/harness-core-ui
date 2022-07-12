@@ -36,6 +36,7 @@ export const CUSTOM = 'Custom'
 export const AWS_CODECOMMIT = 'AWS_CODECOMMIT'
 export const AwsCodeCommit = 'AwsCodeCommit'
 export const PRIMARY_ARTIFACT = 'primary'
+export const AZURE_REPO = 'AZURE_REPO'
 
 export const eventTypes = {
   PUSH: 'Push',
