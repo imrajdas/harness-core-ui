@@ -854,7 +854,8 @@ const SelectGitProviderRef = (
                           { [css.githubIcon]: item.icon === 'github' },
                           { [css.gitlabIcon]: item.icon === 'gitlab' },
                           { [css.bitbucketIcon]: item.icon === 'bitbucket-blue' },
-                          { [css.genericGitIcon]: item.icon === 'service-github' }
+                          { [css.genericGitIcon]: item.icon === 'service-github' },
+                          { [css.azureRepoIcon]: item.icon === 'service-azure' }
                         )}
                       />
                       <Text font={{ variation: FontVariation.SMALL_SEMI }} padding={{ top: 'small' }}>

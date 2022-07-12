@@ -8,6 +8,7 @@
 // this is an auto-generated file, do not update this manually
 declare const styles: {
   readonly authMethodBtn: string
+  readonly azureRepoIcon: string
   readonly bitbucketIcon: string
   readonly borderBottom: string
   readonly card: string
