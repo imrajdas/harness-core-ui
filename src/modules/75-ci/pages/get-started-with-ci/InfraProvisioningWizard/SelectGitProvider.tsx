@@ -130,7 +130,9 @@ const SelectGitProviderRef = (
 
   //#region OAuth validation and integration
   const disableOAuthForGitProvider = useMemo(() => {
-    return gitProvider?.type && [Connectors.GITLAB, Connectors.BITBUCKET].includes(gitProvider.type)
+    return (
+      gitProvider?.type && [Connectors.GITLAB, Connectors.BITBUCKET, Connectors.AZURE_REPO].includes(gitProvider.type)
+    )
   }, [gitProvider?.type])
 
   const markOAuthAsFailed = useCallback(() => {
@@ -314,6 +316,7 @@ const SelectGitProviderRef = (
       } as SecretTextSpecDTO
     }
     switch (gitProvider?.type) {
+      case Connectors.AZURE_REPO:
       case Connectors.GITHUB:
         return set(secretPayload, 'spec.value', formikRef.current?.values.accessToken)
       case Connectors.BITBUCKET:
@@ -328,6 +331,10 @@ const SelectGitProviderRef = (
   const getGitUrl = React.useCallback((): string => {
     let url = ''
     switch (gitProvider?.type) {
+      // TODO update correct git provider url for azure repo
+      case Connectors.AZURE_REPO:
+        url = getString('ci.getStartedWithCI.gitProviderURLs.github')
+        break
       case Connectors.GITHUB:
         url = getString('ci.getStartedWithCI.gitProviderURLs.github')
         break
@@ -360,6 +367,7 @@ const SelectGitProviderRef = (
       }
       let updatedConnectorPayload: ConnectorInfoDTO
       switch (gitProvider?.type) {
+        case Connectors.AZURE_REPO:
         case Connectors.GITLAB:
         case Connectors.GITHUB:
           updatedConnectorPayload = set(commonConnectorPayload, 'spec.authentication.spec.type', 'UsernameToken')
@@ -520,10 +528,11 @@ const SelectGitProviderRef = (
 
   const permissionsForSelectedGitProvider = GitProviderPermissions.filter(
     (providerPermissions: GitProviderPermission) => providerPermissions.type === gitProvider?.type
-  )[0]
+  )?.[0]
 
   const getButtonLabel = React.useCallback((): string => {
     switch (gitProvider?.type) {
+      case Connectors.AZURE_REPO:
       case Connectors.GITHUB:
         return getString('ci.getStartedWithCI.accessTokenLabel')
       case Connectors.BITBUCKET:
@@ -571,6 +580,7 @@ const SelectGitProviderRef = (
         tooltipId: 'url'
       })
       switch (gitProvider?.type) {
+        case Connectors.AZURE_REPO:
         case Connectors.GITHUB:
           return (
             <Layout.Vertical width="100%">
@@ -630,7 +640,7 @@ const SelectGitProviderRef = (
       setFieldTouched?.('gitAuthenticationMethod', true)
       return
     }
-    if (gitProvider?.type === Connectors.GITHUB) {
+    if (gitProvider?.type && [Connectors.GITHUB, Connectors.AZURE_REPO].includes(gitProvider.type)) {
       setFieldTouched?.('accessToken', !accessToken)
       if (selectedHosting === Hosting.OnPrem) {
         setFieldTouched?.('accessToken', !accessToken)
@@ -654,6 +664,7 @@ const SelectGitProviderRef = (
     const { accessToken, accessKey, applicationPassword, username, url } = formikRef.current?.values || {}
     if (selectedHosting === Hosting.SaaS) {
       switch (gitProvider?.type) {
+        case Connectors.AZURE_REPO:
         case Connectors.GITHUB:
           return authMethod === GitAuthenticationMethod.AccessToken && !!accessToken
         case Connectors.GITLAB:
@@ -668,6 +679,7 @@ const SelectGitProviderRef = (
       }
     } else if (selectedHosting === Hosting.OnPrem) {
       switch (gitProvider?.type) {
+        case Connectors.AZURE_REPO:
         case Connectors.GITHUB:
           return !!accessToken && !!url
           break
@@ -689,7 +701,8 @@ const SelectGitProviderRef = (
     if (gitProvider?.type) {
       if (selectedHosting === Hosting.SaaS) {
         return (
-          (gitProvider.type === Connectors.GITHUB && authMethod === GitAuthenticationMethod.AccessToken) ||
+          ([Connectors.GITHUB, Connectors.AZURE_REPO].includes(gitProvider.type) &&
+            authMethod === GitAuthenticationMethod.AccessToken) ||
           (gitProvider.type === Connectors.GITLAB && authMethod === GitAuthenticationMethod.AccessKey) ||
           (gitProvider.type === Connectors.BITBUCKET &&
             authMethod === GitAuthenticationMethod.UserNameAndApplicationPassword)
@@ -709,6 +722,7 @@ const SelectGitProviderRef = (
   const getInitialValues = React.useCallback((): Record<string, string> => {
     let initialValues = {}
     switch (gitProvider?.type) {
+      case Connectors.AZURE_REPO:
       case Connectors.GITHUB:
         initialValues = { accessToken: '' }
         break
@@ -734,6 +748,7 @@ const SelectGitProviderRef = (
     })
     let baseSchema
     switch (gitProvider?.type) {
+      case Connectors.AZURE_REPO:
       case Connectors.GITHUB:
         baseSchema = Yup.object()
           .shape({
@@ -781,6 +796,7 @@ const SelectGitProviderRef = (
 
   const resetFormFields = React.useCallback((): void => {
     switch (gitProvider?.type) {
+      case Connectors.AZURE_REPO:
       case Connectors.GITHUB:
         resetField('accessToken')
         return

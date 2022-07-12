@@ -124,7 +124,8 @@ export const AllSaaSGitProviders: GitProvider[] = [
     type: Connectors.GITHUB
   },
   { icon: 'gitlab', label: 'common.repo_provider.gitlabLabel', type: Connectors.GITLAB },
-  { icon: 'bitbucket-blue', label: 'pipeline.manifestType.bitBucketLabel', type: Connectors.BITBUCKET }
+  { icon: 'bitbucket-blue', label: 'pipeline.manifestType.bitBucketLabel', type: Connectors.BITBUCKET },
+  { icon: 'service-azure', label: 'common.repo_provider.azureRepo', type: Connectors.AZURE_REPO }
 ]
 
 export const AllOnPremGitProviders: GitProvider[] = [
@@ -145,6 +146,8 @@ export interface GitProviderPermission {
 }
 
 export const GitProviderPermissions: GitProviderPermission[] = [
+  // TODO update correct permissions for azure repo
+  { type: Connectors.AZURE_REPO, permissions: ['repo', 'admin:repo_hook', 'user'] },
   { type: Connectors.GITHUB, permissions: ['repo', 'admin:repo_hook', 'user'] },
   { type: Connectors.BITBUCKET, permissions: ['Issues:read', 'Webhooks:read and write', 'Pull requests:write'] },
   { type: Connectors.GITLAB, permissions: ['api', 'read_repository', 'write_repository'] }
@@ -152,6 +155,7 @@ export const GitProviderPermissions: GitProviderPermission[] = [
 
 export const GitProviderTypeToAuthenticationMethodMapping: Map<ConnectorInfoDTO['type'], GitAuthenticationMethod> =
   new Map([
+    [Connectors.AZURE_REPO, GitAuthenticationMethod.AccessToken],
     [Connectors.GITHUB, GitAuthenticationMethod.AccessToken],
     [Connectors.GITLAB, GitAuthenticationMethod.AccessKey],
     [Connectors.BITBUCKET, GitAuthenticationMethod.UserNameAndApplicationPassword]
@@ -235,6 +239,8 @@ export const GitHubPRTriggerActions: GithubPRSpec['actions'] = ['Reopen', 'Synch
 export const GitlabPRTriggerActions: GitlabPRSpec['actions'] = ['Reopen', 'Sync', 'Open']
 
 export const AccessTokenPermissionsDocLinks: Map<ConnectorInfoDTO['type'], string> = new Map([
+  // TODO update correct doc link for azure repo
+  [Connectors.AZURE_REPO, 'https://docs.harness.io/article/'],
   [Connectors.GITHUB, 'https://docs.harness.io/article/jd77qvieuw#step_3_credentials'],
   [Connectors.GITLAB, 'https://docs.harness.io/article/5abnoghjgo#password_personal_access_token'],
   [Connectors.BITBUCKET, 'https://docs.harness.io/article/iz5tucdwyu#personal_access_token']
