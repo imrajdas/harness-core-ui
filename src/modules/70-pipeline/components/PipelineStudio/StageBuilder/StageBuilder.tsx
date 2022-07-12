@@ -10,6 +10,7 @@ import { Layout, useToaster, useConfirmationDialog } from '@wings-software/uicor
 import { Intent } from '@harness/design-system'
 import cx from 'classnames'
 import { cloneDeep, debounce, isNil, isEmpty } from 'lodash-es'
+import { useQueryParams } from '@common/hooks'
 import type { NodeModelListener, LinkModelListener } from '@projectstorm/react-diagrams-core'
 import SplitPane from 'react-split-pane'
 import produce from 'immer'
@@ -71,6 +72,7 @@ import { SplitViewTypes } from '../PipelineContext/PipelineActions'
 import { usePipelineContext } from '../PipelineContext/PipelineContext'
 import { getNodeListenersOld, getLinkListernersOld } from './StageBuildOldUtils'
 import css from './StageBuilder.module.scss'
+import type { PipelineSelectionState } from '../PipelineQueryParamState/usePipelineQueryParam'
 
 const diagram = new DiagramFactory('graph')
 
