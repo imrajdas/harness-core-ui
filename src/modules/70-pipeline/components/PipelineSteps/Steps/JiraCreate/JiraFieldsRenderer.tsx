@@ -5,7 +5,7 @@
  * https://polyformproject.org/wp-content/uploads/2020/05/PolyForm-Free-Trial-1.0.0.txt.
  */
 
-import React, { useCallback } from 'react'
+import React from 'react'
 import cx from 'classnames'
 import { isEmpty } from 'lodash-es'
 import { Button, FormInput, Layout } from '@wings-software/uicore'
@@ -32,6 +32,27 @@ interface MappedComponentInterface {
   index: number
 }
 
+export const shouldShowTextField = (selectedField: JiraFieldNG) => {
+  if (
+    selectedField.schema.type === 'string' ||
+    selectedField.schema.type === 'date' ||
+    selectedField.schema.type === 'datetime' ||
+    selectedField.schema.type === 'number'
+  ) {
+    return true
+  }
+  if (isEmpty(selectedField.allowedValues) && selectedField.schema.type === 'option' && selectedField.schema.array) {
+    return true
+  }
+  return false
+}
+
+export const shouldShowMultiSelectField = (selectedField: JiraFieldNG) =>
+  selectedField.allowedValues && selectedField.schema.type === 'option' && selectedField.schema.array
+
+export const shouldShowMultiTypeField = (selectedField: JiraFieldNG) =>
+  selectedField.allowedValues && selectedField.schema.type === 'option'
+
 function GetMappedFieldComponent({
   selectedField,
   props,
@@ -39,34 +60,11 @@ function GetMappedFieldComponent({
   index,
   renderRequiredFields
 }: MappedComponentInterface) {
-  const showTextField = useCallback(() => {
-    if (
-      selectedField.schema.type === 'string' ||
-      selectedField.schema.type === 'date' ||
-      selectedField.schema.type === 'datetime' ||
-      selectedField.schema.type === 'number'
-    ) {
-      return true
-    }
-    if (isEmpty(selectedField.allowedValues) && selectedField.schema.type === 'option' && selectedField.schema.array) {
-      return true
-    }
-    return false
-  }, [selectedField])
-
-  const showMultiSelectField = useCallback(() => {
-    return selectedField.allowedValues && selectedField.schema.type === 'option' && selectedField.schema.array
-  }, [selectedField])
-
-  const showMultiTypeField = useCallback(() => {
-    return selectedField.allowedValues && selectedField.schema.type === 'option'
-  }, [selectedField])
-
   const formikFieldPath = renderRequiredFields
     ? `spec.selectedRequiredFields[${index}].value`
     : `spec.selectedOptionalFields[${index}].value`
 
-  if (showTextField()) {
+  if (shouldShowTextField(selectedField)) {
     return (
       <FormInput.MultiTextInput
         label={selectedField.name}
@@ -79,7 +77,7 @@ function GetMappedFieldComponent({
         }}
       />
     )
-  } else if (showMultiSelectField()) {
+  } else if (shouldShowMultiSelectField(selectedField)) {
     return (
       <FormInput.MultiSelectTypeInput
         selectItems={setAllowedValuesOptions(selectedField.allowedValues)}
@@ -93,7 +91,7 @@ function GetMappedFieldComponent({
         }}
       />
     )
-  } else if (showMultiTypeField()) {
+  } else if (shouldShowMultiTypeField(selectedField)) {
     return (
       <FormInput.MultiTypeInput
         selectItems={setAllowedValuesOptions(selectedField.allowedValues)}

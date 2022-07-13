@@ -110,6 +110,10 @@ describe('Unit tests for InputWithDynamicModalForJson component', () => {
     const pathSelected = 'series.0.expression'
     const expectedJSONPath = '$.series.[*].expression'
     expect(formatJSONPath(pathSelected)).toEqual(expectedJSONPath)
+
+    // verify if path has double digit numbers
+    const multiDigitpathSelected = 'series.10.expression'
+    expect(formatJSONPath(multiDigitpathSelected)).toEqual(expectedJSONPath)
   })
 
   test('Verify if formatJSONPath method returns correct jsonPath if last element is a number', () => {

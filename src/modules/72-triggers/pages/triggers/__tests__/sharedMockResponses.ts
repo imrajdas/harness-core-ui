@@ -736,6 +736,25 @@ export const GetTriggerListForTargetResponse: UseGetReturnData<ResponsePageNGTri
           yaml: 'trigger:\n    name: H1\n    identifier: H1\n    enabled: true\n    tags: {}\n    orgIdentifier: default\n    projectIdentifier: trigger\n    pipelineIdentifier: pipeline\n    source:\n        type: Manifest\n        spec:\n            stageIdentifier: stage1\n            manifestRef: m1\n            type: HelmChart\n            spec:\n                store:\n                    type: Http\n                    spec:\n                        connectorRef: test\n                chartName: c1\n                chartVersion: <+trigger.manifest.version>\n                helmVersion: V2\n                skipResourceVersioning: false\n                eventConditions: []\n    inputYaml: |\n        pipeline:\n            identifier: pipeline\n            stages:\n                - stage:\n                      identifier: stage1\n                      type: Deployment\n                      spec:\n                          serviceConfig:\n                              serviceDefinition:\n                                  type: Kubernetes\n                                  spec:\n                                      manifests:\n                                          - identifier: m1\n                                            type: HelmChart\n                                            spec:\n                                                store:\n                                                    type: Http\n                                                    spec:\n                                                        connectorRef: test\n                                                chartName: c1\n                                                chartVersion: <+trigger.manifest.version>\n                                                helmVersion: V2\n                                                skipResourceVersioning: false\n',
           webhookUrl: '',
           enabled: true
+        },
+        {
+          name: 'webhookAutoRegistrationFailed',
+          identifier: 'webhookautoregistrationfailed',
+          type: 'Webhook',
+          triggerStatus: {
+            webhookAutoRegistrationStatus: {
+              registrationResult: 'FAILED',
+              detailedMessage: 'Failed to register webhook with error: error'
+            }
+          },
+          buildDetails: {
+            buildType: 'io.harness.ngtriggers.beans.source.artifact.HelmManifestSpec'
+          },
+          tags: {},
+          executions: [0, 0, 0, 0, 0, 0, 0],
+          yaml: 'trigger:\n    name: H1\n    identifier: H1\n    enabled: true\n    tags: {}\n    orgIdentifier: default\n    projectIdentifier: trigger\n    pipelineIdentifier: pipeline\n    source:\n        type: Manifest\n        spec:\n            stageIdentifier: stage1\n            manifestRef: m1\n            type: HelmChart\n            spec:\n                store:\n                    type: Http\n                    spec:\n                        connectorRef: test\n                chartName: c1\n                chartVersion: <+trigger.manifest.version>\n                helmVersion: V2\n                skipResourceVersioning: false\n                eventConditions: []\n    inputYaml: |\n        pipeline:\n            identifier: pipeline\n            stages:\n                - stage:\n                      identifier: stage1\n                      type: Deployment\n                      spec:\n                          serviceConfig:\n                              serviceDefinition:\n                                  type: Kubernetes\n                                  spec:\n                                      manifests:\n                                          - identifier: m1\n                                            type: HelmChart\n                                            spec:\n                                                store:\n                                                    type: Http\n                                                    spec:\n                                                        connectorRef: test\n                                                chartName: c1\n                                                chartVersion: <+trigger.manifest.version>\n                                                helmVersion: V2\n                                                skipResourceVersioning: false\n',
+          webhookUrl: '',
+          enabled: true
         }
       ],
       pageIndex: 0,

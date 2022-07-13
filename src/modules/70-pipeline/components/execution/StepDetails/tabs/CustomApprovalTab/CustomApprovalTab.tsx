@@ -26,6 +26,7 @@ export function CustomApprovalTab(props: CustomApprovalTabProps): React.ReactEle
   const wasRejected =
     !isWaiting && (approvalData?.status === ApprovalStatus.REJECTED || approvalData?.status === ApprovalStatus.EXPIRED)
   const wasFailed = !isWaiting && approvalData?.status === ApprovalStatus.FAILED
+  const wasAborted = !isWaiting && approvalData?.status === ApprovalStatus.ABORTED
 
   return (
     <>
@@ -70,6 +71,12 @@ export function CustomApprovalTab(props: CustomApprovalTabProps): React.ReactEle
               {approvalData?.status === ApprovalStatus.EXPIRED ? (
                 <String stringID="pipeline.customApprovalStep.execution.wasExpired" />
               ) : null}
+            </div>
+          ) : null}
+
+          {wasAborted ? (
+            <div className={css.customApprovalTicket}>
+              <String stringID="pipeline.customApprovalStep.execution.wasAborted" />
             </div>
           ) : null}
         </div>

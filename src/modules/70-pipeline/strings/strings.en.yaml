@@ -175,6 +175,7 @@ jiraCreateStep:
   selectFieldListHelp: Select your project and issue type to list available fields to choose from.
   fetchingFields: Fetching your fields
   fieldsSelectorPlaceholder: Your fields will be populated here
+  unsupportedRequiredFieldsError: "Changes can't be saved as unsupported fields are present - {{ fields }}"
   selectProject: Select Project
   validations:
     summary: Summary is required
@@ -265,6 +266,7 @@ customApprovalStep:
     wasApproved: 'Approval Criteria was met for Custom Shell Script Approval'
     wasRejected: 'Rejection Criteria was met for Custom Shell Script Approval'
     wasExpired: 'Custom Shell Script Approval expired'
+    wasAborted: 'Custom Shell Script Approval aborted'
     customApprovalTicket: 'Custom Shell Script Approval Pending Approval'
     conditions:
       equals: '{{ key }} equals'

@@ -43,6 +43,8 @@ triggerCouldNotBeSavedContent: Do you want to continue?
 triggerCouldNotBeSavedGenericError: Failed to save Trigger.
 updateTriggerDetails: 'Your trigger has been overwritten because you have updated your pipeline. You may go to Pipeline Input and update your trigger.'
 retryTriggerSave: The inputset you selected was not found in the default branch in your repository. You can continue to save your Trigger with an error.
+error:
+  webhookRegistrationFailed: Webhook Registration Failed
 validation:
   triggerName: 'Trigger Name is required.'
   identifier: '{{$.validation.identifierRequired}}'

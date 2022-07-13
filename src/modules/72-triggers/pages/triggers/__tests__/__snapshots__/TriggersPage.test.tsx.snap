@@ -1777,6 +1777,230 @@ exports[`TriggersPage Triggers tests Renders/snapshots Initial Render - Shows Tr
               </div>
             </div>
           </div>
+          <div
+            class="TableV2--row TableV2--card TableV2--clickable"
+            role="row"
+          >
+            <div
+              class="TableV2--cells"
+            >
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 25%;"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  data-testid="webhookautoregistrationfailed"
+                >
+                  <span
+                    class="bp3-icon StyledProps--main"
+                    data-icon="yaml-builder-trigger"
+                  >
+                    <svg
+                      height="26"
+                      viewBox="0 0 14 16"
+                      width="26"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12.378 6.154L3.226.329A2.034 2.034 0 001.084.282 2.171 2.171 0 000 2.189v11.597C0 15 .947 15.993 2.112 16h.009c.364 0 .743-.118 1.097-.341a.636.636 0 00.201-.858.593.593 0 00-.83-.207.907.907 0 01-.471.158c-.44-.002-.91-.391-.91-.966V2.19c0-.344.174-.65.465-.818a.872.872 0 01.919.02l9.152 5.825a.926.926 0 01.432.8c0 .334-.16.625-.436.8L5.123 13a.636.636 0 00-.2.857.593.593 0 00.83.207L12.37 9.88a2.186 2.186 0 001.014-1.861 2.186 2.186 0 00-1.006-1.865z"
+                        fill="#22272D"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    class="Layout--vertical StyledProps--main StyledProps--padding-left-small"
+                  >
+                    <div
+                      class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                      data-testid="webhookautoregistrationfailed"
+                    >
+                      <p
+                        class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"
+                        style="--text-line-clamp: 1; width: 300px;"
+                      >
+                        webhookAutoRegistrationFailed
+                      </p>
+                    </div>
+                    <p
+                      class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-grey400"
+                      style="--text-line-clamp: 1; width: 300px;"
+                    >
+                      idLabel
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 15%;"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  data-testid="webhookautoregistrationfailed"
+                >
+                  <span
+                    class="bp3-popover-wrapper"
+                  >
+                    <span
+                      class="bp3-popover-target Text--targetClass"
+                    >
+                      <span
+                        class="StyledProps--font StyledProps--main StyledProps--inline"
+                        style="display: inline-flex; align-items: center;"
+                        tabindex="0"
+                      >
+                        <span
+                          class="bp3-icon bp3-icon-warning-sign StyledProps--main Text--icon StyledProps--padding-right-xsmall StyledProps--color StyledProps--color-red500"
+                          icon="warning-sign"
+                        >
+                          <svg
+                            data-icon="warning-sign"
+                            height="12"
+                            viewBox="0 0 16 16"
+                            width="12"
+                          >
+                            <desc>
+                              warning-sign
+                            </desc>
+                            <path
+                              d="M15.84 13.5l.01-.01-7-12-.01.01c-.17-.3-.48-.5-.85-.5s-.67.2-.85.5l-.01-.01-7 12 .01.01c-.09.15-.15.31-.15.5 0 .55.45 1 1 1h14c.55 0 1-.45 1-1 0-.19-.06-.35-.15-.5zm-6.85-.51h-2v-2h2v2zm0-3h-2v-5h2v5z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                        triggers.error.webhookRegistrationFailed
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 20%;"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-xsmall StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                  style="justify-content: flex-start;"
+                >
+                  <span
+                    class="activityChart"
+                  />
+                  <div
+                    class="StyledProps--font StyledProps--main"
+                    style="text-align: start;"
+                  >
+                    <span>
+                      triggers.activityActivation
+                    </span>
+                    <p
+                      class="StyledProps--font StyledProps--main"
+                    >
+                      triggers.activityDays
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 15%;"
+              >
+                <div
+                  class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+                  data-testid="webhookautoregistrationfailed"
+                  style="justify-content: flex-start;"
+                >
+                  <div
+                    class="activityStatement"
+                  />
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 10%;"
+              >
+                <div
+                  class="textCentered"
+                >
+                  <p
+                    class="StyledProps--font StyledProps--main StyledProps--color StyledProps--color-grey400"
+                  >
+                    na
+                  </p>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 10%;"
+              >
+                <div
+                  class="textCentered"
+                >
+                  <label
+                    class="bp3-control bp3-switch StyledProps--font Switch--switch StyledProps--main"
+                  >
+                    <input
+                      checked=""
+                      type="checkbox"
+                    />
+                    <span
+                      class="bp3-control-indicator"
+                    />
+                    
+                  </label>
+                </div>
+              </div>
+              <div
+                class="TableV2--cell"
+                role="cell"
+                style="width: 5%;"
+              >
+                <div
+                  class="Layout--horizontal StyledProps--main"
+                  style="justify-content: flex-end;"
+                >
+                  <span
+                    class="bp3-popover-wrapper bp3-dark"
+                  >
+                    <span
+                      class="bp3-popover-target"
+                    >
+                      <button
+                        class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main actionButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+                        type="button"
+                      >
+                        <span
+                          class="bp3-icon bp3-icon-more StyledProps--main"
+                          icon="more"
+                        >
+                          <svg
+                            data-icon="more"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            width="16"
+                          >
+                            <desc>
+                              more
+                            </desc>
+                            <path
+                              d="M2 6.03a2 2 0 100 4 2 2 0 100-4zM14 6.03a2 2 0 100 4 2 2 0 100-4zM8 6.03a2 2 0 100 4 2 2 0 100-4z"
+                              fill-rule="evenodd"
+                            />
+                          </svg>
+                        </span>
+                      </button>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

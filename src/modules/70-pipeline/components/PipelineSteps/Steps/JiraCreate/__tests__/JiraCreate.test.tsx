@@ -209,7 +209,7 @@ describe('Jira Create tests', () => {
     const queryByNameAttribute = (name: string): HTMLElement | null => queryByAttribute('name', container, name)
     fireEvent.change(queryByNameAttribute('name')!, { target: { value: 'jira createe step' } })
     expect(queryByDisplayValue('1d')).toBeTruthy()
-    expect(queryByDisplayValue('pid1')).toBeTruthy()
+    expect(queryByDisplayValue('p1')).toBeTruthy()
     expect(queryByDisplayValue('itd1')).toBeTruthy()
 
     fireEvent.click(getByText('common.optionalConfig'))

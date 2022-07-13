@@ -2829,6 +2829,7 @@ export interface StringsMap {
   'pipeline.customApprovalStep.execution.conditions.not_equals': string
   'pipeline.customApprovalStep.execution.conditions.not_in': string
   'pipeline.customApprovalStep.execution.customApprovalTicket': string
+  'pipeline.customApprovalStep.execution.wasAborted': string
   'pipeline.customApprovalStep.execution.wasApproved': string
   'pipeline.customApprovalStep.execution.wasExpired': string
   'pipeline.customApprovalStep.execution.wasRejected': string
@@ -3150,6 +3151,7 @@ export interface StringsMap {
   'pipeline.jiraCreateStep.selectFromFieldList': string
   'pipeline.jiraCreateStep.selectProject': string
   'pipeline.jiraCreateStep.summaryPlaceholder': string
+  'pipeline.jiraCreateStep.unsupportedRequiredFieldsError': string
   'pipeline.jiraCreateStep.validations.summary': string
   'pipeline.jiraUpdateStep.fetchingStatus': string
   'pipeline.jiraUpdateStep.projectIssueTypeDisclaimer': string
@@ -3737,6 +3739,7 @@ export interface StringsMap {
   'triggers.createTrigger': string
   'triggers.cronLabel': string
   'triggers.deleteTrigger': string
+  'triggers.error.webhookRegistrationFailed': string
   'triggers.inputSetIsRequired': string
   'triggers.lastActivationAt': string
   'triggers.lastActivationDetails': string

@@ -21,9 +21,11 @@ export const resetForm = (formik: FormikProps<JiraCreateData>, parent: string) =
   if (parent === 'projectKey') {
     formik.setFieldValue('spec.issueType', '')
     formik.setFieldValue('spec.fields', [])
+    formik.setFieldValue('spec.selectedRequiredFields', [])
   }
   if (parent === 'issueType') {
     formik.setFieldValue('spec.fields', [])
+    formik.setFieldValue('spec.selectedRequiredFields', [])
   }
 }
 

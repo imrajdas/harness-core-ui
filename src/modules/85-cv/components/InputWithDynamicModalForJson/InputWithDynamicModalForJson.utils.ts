@@ -5,9 +5,12 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
+import { max } from 'lodash-es'
 import { isNumeric } from '@cv/utils/CommonUtils'
 import type { UseStringsReturn } from 'framework/strings'
 import type { NoRecordForm } from './InputWithDynamicModalForJson.types'
+
+export const MAX_ARRAY_LENGTH = 10000
 
 export function validate(value: NoRecordForm, getString: UseStringsReturn['getString']): { [key: string]: string } {
   const errors: { [key: string]: string } = {}
@@ -43,5 +46,7 @@ export const getJSONPathIfLastElementIsNum = (selectedValuePathElements: string[
 }
 
 export const replaceAllNum = (path: string): string => {
-  return path.replace(/\d/g, '[*]')
+  const maxNumericValueInPath = Number(max(path.split('.').filter(item => isNumeric(item)))) || MAX_ARRAY_LENGTH
+  const matchNumber = new RegExp(`\\d{1,${maxNumericValueInPath}}`, 'g')
+  return path.replace(matchNumber, '[*]')
 }
