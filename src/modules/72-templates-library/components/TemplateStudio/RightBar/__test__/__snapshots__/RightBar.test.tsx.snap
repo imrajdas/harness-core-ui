@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RightBar renders correctly 1`] = `
+exports[`RightBar should match snapshot 1`] = `
 <div>
   <div
     class="rightBar"

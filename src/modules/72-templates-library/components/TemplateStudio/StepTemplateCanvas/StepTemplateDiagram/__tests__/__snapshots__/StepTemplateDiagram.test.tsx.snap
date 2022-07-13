@@ -1,41 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<StepTemplateDiagram /> tests should match snapshot when step type is not set 1`] = `
-<div>
-  <div
-    class="StyledProps--font StyledProps--main container StyledProps--background-form StyledProps--padding-left-huge StyledProps--padding-right-huge"
-    style="width: 100%;"
-  >
-    <div
-      class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--flex StyledProps--flex-justifyContent-center StyledProps--flex-alignItems-flex-start"
-      style="height: 100%;"
-    >
-      <p
-        class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey600"
-      >
-        stepType
-      </p>
-      <div
-        class="StyledProps--font StyledProps--main"
-      >
-        <div
-          class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
-        >
-          <div
-            class="step-popover-mock"
-          />
-          <p
-            class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey600"
-          >
-            
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`<StepTemplateDiagram /> tests should match snapshot when step type is set 1`] = `
 <div>
   <div
@@ -56,17 +20,18 @@ exports[`<StepTemplateDiagram /> tests should match snapshot when step type is s
       >
         <div
           class="Layout--horizontal Layout--layout-spacing-medium StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+          data-testid="change-step"
         >
           <div
             class="step-popover-mock"
           >
-            Manual Approval
-            HarnessApproval
+            HTTP Step
+            Http
           </div>
           <p
             class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey600"
           >
-            Manual Approval
+            HTTP Step
           </p>
         </div>
       </div>

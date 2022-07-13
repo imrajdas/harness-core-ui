@@ -5,113 +5,15 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-$right-bar-width: 65px;
-$top-offset: 110px;
-
-.main {
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-
-  :global(.bp3-drawer-header) {
-    margin: 0 var(--spacing-large);
-    padding: var(--spacing-medium) 0 !important;
-    box-shadow: none;
-    border-bottom: 1px solid var(--grey-300);
-  }
-  .step-config {
-    display: flex;
-    justify-content: space-between;
-
-    .apply-changes,
-    .discard {
-      font-size: var(--font-size-xsmall) !important;
-      height: 23px !important;
-      padding: var(--spacing-2) var(--spacing-3) !important;
-      min-height: 23px !important;
-      margin-left: var(--spacing-3);
-    }
-    .apply-changes {
-      border: 1px solid var(--primary-6) !important;
-    }
-  }
-
-  .title {
-    display: flex;
-    align-items: center;
-
-    :global(.bp3-icon) {
-      margin-right: var(--spacing-small);
-
-      &[data-icon='conditional-skip'] path {
-        fill: currentColor !important;
-      }
-    }
-  }
-
-  &.almostFullScreen {
-    top: $top-offset;
-    right: $right-bar-width;
-    &.showRighDrawer {
-      transform: translateX(-65px);
-    }
-    &.fullScreen {
-      top: 0;
-      right: 0;
-    }
-    overflow: initial;
-    box-shadow: none;
-
-    :global(.bp3-drawer-header) {
-      margin: 0 !important;
-      padding: var(--spacing-medium) var(--spacing-large) !important;
-    }
-  }
-}
-
-:global {
-  .bp3-popover-content p {
-    white-space: break-spaces !important;
-  }
-  .bp3-overlay.bp3-overlay-inline {
-    overflow-x: hidden;
-  }
-}
-
-.almostFullScreenPortal {
-  &::before {
-    content: '';
-    position: fixed;
-    display: block;
+.studioDrawer {
+  .closeButton:global(.bp3-button.bp3-minimal) {
+    position: absolute;
+    right: 100%;
     top: 0;
-    right: 0;
-    width: $right-bar-width;
-    height: $top-offset;
-    // background-color: rgba(16, 22, 26, 0.7);
-    z-index: 20;
-    user-select: none;
+    background: var(--primary-5) !important;
+    opacity: 0.5;
+    color: var(--white) !important;
+    border-radius: 4px 0 0 4px !important;
+    padding: 0 !important;
   }
-
-  :global {
-    .bp3-overlay,
-    .bp3-overlay-backdrop {
-      right: $right-bar-width;
-    }
-  }
-}
-
-.almostFullScreenCloseBtn:global(.bp3-button.bp3-minimal) {
-  position: absolute;
-  right: 100%;
-  top: 0;
-  background: var(--primary-5) !important;
-  opacity: 0.5;
-  color: var(--white) !important;
-  border-radius: 4px 0 0 4px !important;
-  padding: 0 !important;
-}
-
-.templateInputsContainer {
-  max-height: calc(100vh - 77px);
-  overflow: scroll;
 }

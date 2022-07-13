@@ -20,7 +20,7 @@ import Feedback from './Feedback'
 import { getMenuItems } from './ResourceCenterUtil'
 import css from './ResourceCenter.module.scss'
 
-const CommunitySubmitTicket: React.FC = () => {
+export const CommunitySubmitTicket: React.FC = () => {
   const { getString } = useStrings()
 
   const tooltip = (

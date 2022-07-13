@@ -825,10 +825,17 @@ scope: '{{ $.delegate.Scope }}'
 community: Community
 resourceCenter:
   title: 'RESOURCE CENTER'
+  productUpdates:
+    title: Product Updates
+    whatsnew: 'What’s New'
+    earlyAcess: Early Access
   ticketmenu:
+    title: 'Contact us'
     tickets: 'My tickets'
     ticketsDesc: 'View and manage your tickets'
     submitDesc: 'Get help from our expert system'
+    submitTicket: Submit a ticket
+    viewTicket: View my ticket
   bottomlayout:
     desc: Other useful resources
     docs: Docs
@@ -920,3 +927,4 @@ state: State
 nameOnCard: Name on card
 cardNumber: Card number
 perDeveloper: per developer
+triggerName: Trigger Name

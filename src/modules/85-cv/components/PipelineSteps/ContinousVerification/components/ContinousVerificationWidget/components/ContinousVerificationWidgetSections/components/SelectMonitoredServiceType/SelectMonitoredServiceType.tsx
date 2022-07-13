@@ -34,7 +34,7 @@ import {
 import stepCss from '@pipeline/components/PipelineSteps/Steps/Steps.module.scss'
 import css from './SelectMonitoredServiceType.module.scss'
 
-interface SelectMonitoredServiceTypeProps {
+export interface SelectMonitoredServiceTypeProps {
   formik: FormikProps<ContinousVerificationData>
   allowableTypes: MultiTypeInputType[]
 }

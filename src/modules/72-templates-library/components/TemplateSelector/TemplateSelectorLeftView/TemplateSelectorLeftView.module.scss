@@ -13,7 +13,15 @@
   .searchBox {
     flex-grow: 1;
   }
-  :global(.DropDown--dropdownButton) {
-    background-color: var(--white) !important;
+  .mainContainer {
+    overflow: auto;
+    position: relative;
+    :global(.DropDown--dropdownButton) {
+      background-color: var(--white) !important;
+    }
+    .templatesContainer {
+      flex-grow: 1;
+      position: relative;
+    }
   }
 }

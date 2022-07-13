@@ -26,8 +26,28 @@ exports[`<ExecutionLogView /> tests snapshot test 1`] = `
                 <div
                   class="statusHeatMapCell"
                   data-id="google_1"
-                  data-status="running"
-                />
+                  data-primary-state="running"
+                >
+                  <span
+                    class="bp3-icon bp3-icon-circle StyledProps--main StyledProps--color StyledProps--color-primary7"
+                    icon="circle"
+                  >
+                    <svg
+                      data-icon="circle"
+                      height="12"
+                      viewBox="0 0 16 16"
+                      width="12"
+                    >
+                      <desc>
+                        circle
+                      </desc>
+                      <path
+                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </span>
             </span>
             <span
@@ -39,8 +59,28 @@ exports[`<ExecutionLogView /> tests snapshot test 1`] = `
                 <div
                   class="statusHeatMapCell"
                   data-id="google_2"
-                  data-status="running"
-                />
+                  data-primary-state="running"
+                >
+                  <span
+                    class="bp3-icon bp3-icon-circle StyledProps--main StyledProps--color StyledProps--color-primary7"
+                    icon="circle"
+                  >
+                    <svg
+                      data-icon="circle"
+                      height="12"
+                      viewBox="0 0 16 16"
+                      width="12"
+                    >
+                      <desc>
+                        circle
+                      </desc>
+                      <path
+                        d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6z"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </span>
             </span>
             <span
@@ -52,7 +92,7 @@ exports[`<ExecutionLogView /> tests snapshot test 1`] = `
                 <div
                   class="statusHeatMapCell"
                   data-id="qa stage"
-                  data-status="notstarted"
+                  data-primary-state="default"
                 />
               </span>
             </span>
@@ -65,7 +105,7 @@ exports[`<ExecutionLogView /> tests snapshot test 1`] = `
                 <div
                   class="statusHeatMapCell"
                   data-id="Random"
-                  data-status="notstarted"
+                  data-primary-state="default"
                 />
               </span>
             </span>

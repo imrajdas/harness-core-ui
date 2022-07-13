@@ -72,7 +72,7 @@ export const deploymentTypeInfraTypeMap = {
   ServerlessGoogleFunctions: InfraDeploymentType.ServerlessGoogleFunctions,
   AmazonSAM: InfraDeploymentType.AmazonSAM,
   AzureFunctions: InfraDeploymentType.AzureFunctions,
-  AzureWebApps: InfraDeploymentType.AzureWebApps
+  AzureWebApp: InfraDeploymentType.AzureWebApp
 }
 
 type InfraTypes =

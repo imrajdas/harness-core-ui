@@ -8,6 +8,8 @@
 // this is an auto-generated file, do not update this manually
 declare const styles: {
   readonly container: string
+  readonly mainContainer: string
   readonly searchBox: string
+  readonly templatesContainer: string
 }
 export default styles

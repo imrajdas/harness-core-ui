@@ -116,7 +116,7 @@ exports[`DetailPageCard tests Render text content type 1`] = `
             class="StyledProps--font StyledProps--main"
             style="font-size: 12px;"
           >
-            triggers.triggerConfigurationPanel.triggerName
+            common.triggerName
           </p>
           <p
             class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"

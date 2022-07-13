@@ -115,7 +115,7 @@ export const allowedArtifactTypes: Record<ServiceDefinition['type'], Array<Artif
   ],
   Ssh: [],
   WinRm: [],
-  AzureWebApps: []
+  AzureWebApp: []
 }
 
 export const tagOptions: IOptionProps[] = [

@@ -38,6 +38,7 @@ import StartNodeStage from '@pipeline/components/PipelineDiagram/Nodes/StartNode
 import DiagramLoader from '@pipeline/components/DiagramLoader/DiagramLoader'
 import { useFeatureFlag } from '@common/hooks/useFeatureFlag'
 import { FeatureFlag } from '@common/featureFlags'
+import type { DeploymentStageConfig } from 'services/cd-ng'
 import {
   CanvasWidget,
   createEngine,
@@ -62,7 +63,8 @@ import {
   getNodeEventListerner,
   MoveDirection,
   MoveStageDetailsType,
-  moveStage
+  moveStage,
+  getFlattenedStages
 } from './StageBuilderUtil'
 import { useStageBuilderCanvasState } from './useStageBuilderCanvasState'
 import { StageList } from './views/StageList'
@@ -245,11 +247,30 @@ function StageBuilder(): JSX.Element {
 
   const [deleteId, setDeleteId] = React.useState<string | undefined>(undefined)
   const { showSuccess, showError } = useToaster()
+
+  let deletionContentText = `${getString('stageConfirmationText', {
+    name: getStageFromPipeline(deleteId || '').stage?.stage?.name || deleteId,
+    id: deleteId
+  })} `
+
+  if (deleteId) {
+    const propagatingStages = getFlattenedStages(pipeline)
+      .stages?.filter(
+        currentStage =>
+          (currentStage.stage?.spec as DeploymentStageConfig)?.serviceConfig?.useFromStage?.stage === deleteId
+      )
+      ?.reduce((prev, next) => {
+        return prev ? `${prev}, ${next.stage?.name}` : next.stage?.name || ''
+      }, '')
+
+    if (propagatingStages)
+      deletionContentText = getString('pipeline.parentStageDeleteWarning', {
+        propagatingStages
+      })
+  }
+
   const { openDialog: confirmDeleteStage } = useConfirmationDialog({
-    contentText: `${getString('stageConfirmationText', {
-      name: getStageFromPipeline(deleteId || '').stage?.stage?.name || deleteId,
-      id: deleteId
-    })} `,
+    contentText: deletionContentText,
     titleText: getString('deletePipelineStage'),
     confirmButtonText: getString('delete'),
     cancelButtonText: getString('cancel'),

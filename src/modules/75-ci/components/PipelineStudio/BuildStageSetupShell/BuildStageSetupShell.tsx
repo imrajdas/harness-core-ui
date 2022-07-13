@@ -44,6 +44,7 @@ import type {
   VmPoolYaml
 } from 'services/ci'
 import { FeatureFlag } from '@common/featureFlags'
+import { useQueryParams } from '@common/hooks'
 import { SaveTemplateButton } from '@pipeline/components/PipelineStudio/SaveTemplateButton/SaveTemplateButton'
 import { useAddStepTemplate } from '@pipeline/hooks/useAddStepTemplate'
 import { isContextTypeNotStageTemplate } from '@pipeline/components/PipelineStudio/PipelineUtils'
@@ -73,6 +74,8 @@ interface BuildStageSetupShellProps {
   moduleIcon?: IconName
 }
 
+const TabsOrder = [BuildTabs.OVERVIEW, BuildTabs.INFRASTRUCTURE, BuildTabs.EXECUTION, BuildTabs.ADVANCED]
+
 const BuildStageSetupShell: React.FC<BuildStageSetupShellProps> = ({ moduleIcon }) => {
   const icon = moduleIcon ? moduleIcon : 'ci-main'
   const { getString } = useStrings()
@@ -92,7 +95,7 @@ const BuildStageSetupShell: React.FC<BuildStageSetupShellProps> = ({ moduleIcon 
       originalPipeline,
       pipelineView: { isSplitViewOpen },
       pipelineView,
-      selectionState: { selectedStageId = '', selectedStepId },
+      selectionState: { selectedStageId = '', selectedStepId, selectedSectionId },
       templateTypes
     },
     contextType,
@@ -103,9 +106,11 @@ const BuildStageSetupShell: React.FC<BuildStageSetupShellProps> = ({ moduleIcon 
     updateStage,
     setSelectedStepId,
     getStagePathFromPipeline,
-    updatePipeline
+    updatePipeline,
+    setSelectedSectionId
   } = pipelineContext
 
+  const query = useQueryParams()
   const stagePath = getStagePathFromPipeline(selectedStageId || '', 'pipeline.stages')
   const [stageData, setStageData] = React.useState<BuildStageElementConfig | undefined>()
   const poolName =
@@ -186,6 +191,7 @@ const BuildStageSetupShell: React.FC<BuildStageSetupShellProps> = ({ moduleIcon 
   const handleTabChange = (data: BuildTabs) => {
     checkErrorsForTab(selectedTabId).then(_ => {
       setSelectedTabId(data)
+      setSelectedSectionId(data)
     })
   }
 
@@ -204,6 +210,15 @@ const BuildStageSetupShell: React.FC<BuildStageSetupShellProps> = ({ moduleIcon 
   const originalStage = getStageFromPipeline<BuildStageElementConfig>(selectedStageId, originalPipeline).stage
   const infraHasWarning = !filledUpStages.infra
   const executionHasWarning = !filledUpStages.execution
+
+  React.useEffect(() => {
+    const sectionId = (query as any).sectionId || ''
+    if (sectionId && TabsOrder.includes(sectionId)) {
+      setSelectedTabId(sectionId)
+    } else {
+      setSelectedSectionId(BuildTabs.OVERVIEW)
+    }
+  }, [selectedSectionId])
 
   // NOTE: set empty arrays, required by ExecutionGraph
   const selectedStageClone = cloneDeep(selectedStage)

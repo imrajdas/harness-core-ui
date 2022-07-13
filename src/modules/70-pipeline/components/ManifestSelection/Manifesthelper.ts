@@ -110,7 +110,7 @@ export const allowedManifestTypes: Record<string, Array<ManifestTypes>> = {
   ServerlessAwsLambda: [ManifestDataType.ServerlessAwsLambda],
   Ssh: [],
   WinRm: [],
-  AzureWebApps: []
+  AzureWebApp: []
 }
 
 export const manifestStoreTypes: Array<ManifestStores> = [

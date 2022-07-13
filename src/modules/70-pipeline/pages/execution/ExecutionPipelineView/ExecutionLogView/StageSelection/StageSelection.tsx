@@ -120,7 +120,7 @@ export function StageSelection(): React.ReactElement {
           <StatusHeatMap
             data={stages}
             getId={i => defaultTo(i.nodeIdentifier, '')}
-            getStatus={i => defaultTo(i.status, '')}
+            getStatus={i => i.status as ExecutionStatus}
           />
         </div>
         <TemplateString

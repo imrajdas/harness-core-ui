@@ -10,14 +10,14 @@ import cx from 'classnames'
 import { Collapse, Container, Dialog, Layout, Text } from '@wings-software/uicore'
 import { FontVariation } from '@harness/design-system'
 import { useStrings } from 'framework/strings'
-import type { EnvBuildIdAndInstanceCountInfo } from 'services/cd-ng'
-import { ActiveServiceInstancesContent } from '../ActiveServiceInstancesContent'
+import type { InstanceGroupedByArtifact } from 'services/cd-ng'
+import { ActiveServiceInstancesContentV2, TableType } from '../ActiveServiceInstancesContentV2'
 import css from './InstancesDetailsDialog.module.scss'
 
 export interface InstancesDetailsDialogProps {
   isOpen: boolean
   setIsOpen: Dispatch<SetStateAction<boolean>>
-  data?: EnvBuildIdAndInstanceCountInfo[]
+  data?: InstanceGroupedByArtifact[]
 }
 
 export default function InstancesDetailsDialog(props: InstancesDetailsDialogProps): React.ReactElement {
@@ -28,19 +28,27 @@ export default function InstancesDetailsDialog(props: InstancesDetailsDialogProp
     const headersArray = [
       {
         label: ' ',
-        flexGrow: 5
+        flexGrow: 4
       },
       {
-        label: getString('environment'),
-        flexGrow: 25
+        label: getString('cd.serviceDashboard.headers.artifactVersion'),
+        flexGrow: 18
       },
       {
-        label: getString('cd.artifactVersion'),
-        flexGrow: 25
+        label: getString('cd.serviceDashboard.headers.environment'),
+        flexGrow: 16
       },
       {
-        label: getString('common.instanceLabel'),
-        flexGrow: 55
+        label: getString('cd.serviceDashboard.headers.infrastructures'),
+        flexGrow: 16
+      },
+      {
+        label: getString('cd.serviceDashboard.headers.instances'),
+        flexGrow: 32
+      },
+      {
+        label: getString('cd.serviceDashboard.headers.pipelineExecution'),
+        flexGrow: 24
       }
     ]
 
@@ -71,23 +79,12 @@ export default function InstancesDetailsDialog(props: InstancesDetailsDialogProp
               key={index}
               collapseClassName={css.collapse}
               collapseHeaderClassName={css.collapseHeader}
-              heading={
-                <ActiveServiceInstancesContent
-                  data={[dataItem]}
-                  columnsWidth={['25%', '25%', '5%', '45%']}
-                  hideHeaders={true}
-                  shortTable={true}
-                />
-              }
+              heading={<ActiveServiceInstancesContentV2 tableType={TableType.SUMMARY} data={[dataItem]} />}
               expandedHeading={<>{/* empty element on purpose */}</>}
               collapsedIcon={'main-chevron-right'}
               expandedIcon={'main-chevron-down'}
             >
-              <ActiveServiceInstancesContent
-                data={[dataItem]}
-                columnsWidth={['25%', '25%', '5%', '45%']}
-                hideHeaders={true}
-              />
+              <ActiveServiceInstancesContentV2 tableType={TableType.FULL} data={[dataItem]} />
             </Collapse>
           )
         })}

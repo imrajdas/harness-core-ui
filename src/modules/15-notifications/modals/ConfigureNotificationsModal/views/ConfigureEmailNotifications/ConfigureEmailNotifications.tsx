@@ -24,7 +24,7 @@ import { Popover, Spinner } from '@blueprintjs/core'
 import { useParams } from 'react-router-dom'
 import cx from 'classnames'
 import { isEmpty } from 'lodash-es'
-import { EmailSchema } from '@common/utils/Validation'
+import { EmailSchema, EmailSchemaWithoutRequired } from '@common/utils/Validation'
 import { useToaster } from '@common/components'
 import UserGroupsInput from '@common/components/UserGroupsInput/UserGroupsInput'
 import type { EmailNotificationConfiguration } from '@notifications/interfaces/Notifications'
@@ -186,7 +186,8 @@ const ConfigureEmailNotifications: React.FC<ConfigureEmailNotificationsProps> = 
           validationSchema={Yup.object().shape({
             emailIds: Yup.string().when('userGroups', {
               is: val => isEmpty(val),
-              then: EmailSchema({ allowMultiple: true, emailSeparator: ',' })
+              then: EmailSchema({ allowMultiple: true, emailSeparator: ',' }),
+              otherwise: EmailSchemaWithoutRequired({ allowMultiple: true, emailSeparator: ',' })
             })
           })}
           initialValues={{

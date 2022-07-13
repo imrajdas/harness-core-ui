@@ -8,18 +8,23 @@
 import React from 'react'
 import { Container, Layout, Pagination } from '@wings-software/uicore'
 import { defaultTo, isEqual } from 'lodash-es'
+import { v4 as uuid } from 'uuid'
 import { TemplateCard } from '@templates-library/components/TemplateCard/TemplateCard'
 import type { TemplateSummaryResponse } from 'services/template-ng'
 import type { TemplatesViewProps } from '@templates-library/pages/TemplatesPage/views/TemplatesView/TemplatesView'
+import { getScopeBasedTemplateRef } from '@pipeline/utils/templateUtils'
 import css from './TemplatesGridView.module.scss'
 
 export const TemplatesGridView: React.FC<TemplatesViewProps> = (props): JSX.Element => {
   const { data, selectedTemplate, gotoPage, onSelect, onPreview, onOpenEdit, onOpenSettings, onDelete } = props
 
+  const key = React.useMemo(() => uuid(), [data.content])
+
   return (
     <Layout.Vertical height={'100%'}>
       <Container className={css.gridLayout}>
         <Layout.Masonry
+          key={key}
           center
           gutter={25}
           items={defaultTo(data.content, [])}
@@ -34,7 +39,7 @@ export const TemplatesGridView: React.FC<TemplatesViewProps> = (props): JSX.Elem
               onDelete={onDelete}
             />
           )}
-          keyOf={(item: TemplateSummaryResponse) => item.identifier}
+          keyOf={(item: TemplateSummaryResponse) => getScopeBasedTemplateRef(item)}
         />
       </Container>
       <Pagination

@@ -24,35 +24,24 @@ export interface ReleaseRepoListViewProps {
 }
 
 export const RepoStoreIcons: Record<string, IconName> = {
-  Git: 'service-github',
   Github: 'github',
-  GitLab: 'service-gotlab',
-  Bitbucket: 'bitbucket',
+
   AzureRepo: 'service-azure'
 }
 
 export type ReleaseRepoManifestStores = 'Git' | 'Github' | 'GitLab' | 'Bitbucket' | 'AzureRepo'
 
 export const ReleaseRepoManifestStoreMap: { [key: string]: ReleaseRepoManifestStores } = {
-  Git: 'Git',
   Github: 'Github',
-  GitLab: 'GitLab',
-  Bitbucket: 'Bitbucket',
   AzureRepo: 'AzureRepo'
 }
 
 export const releaseRepoManifestStoreTypes: Array<ReleaseRepoManifestStores> = [
-  ReleaseRepoManifestStoreMap.Git,
   ReleaseRepoManifestStoreMap.Github,
-  ReleaseRepoManifestStoreMap.GitLab,
-  ReleaseRepoManifestStoreMap.Bitbucket,
   ReleaseRepoManifestStoreMap.AzureRepo
 ]
 
 export const ReleaseRepoManifestToConnectorMap: Record<ReleaseRepoManifestStores | string, ConnectorInfoDTO['type']> = {
-  Git: Connectors.GIT,
   Github: Connectors.GITHUB,
-  GitLab: Connectors.GITLAB,
-  Bitbucket: Connectors.BITBUCKET,
   AzureRepo: Connectors.AZURE_REPO
 }

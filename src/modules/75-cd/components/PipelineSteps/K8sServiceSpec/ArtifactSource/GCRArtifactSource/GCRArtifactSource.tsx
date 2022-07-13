@@ -25,7 +25,6 @@ import {
   getFinalQueryParamValue,
   getFqnPath,
   getImagePath,
-  getYamlData,
   isArtifactSourceRuntime,
   isFieldfromTriggerTabDisabled,
   isNewServiceEnvEntity,
@@ -86,7 +85,7 @@ const Content = (props: GCRRenderContent): JSX.Element => {
     refetch: refetchTags,
     error: fetchTagsError
   } = useMutateAsGet(useGetBuildDetailsForGcrWithYaml, {
-    body: yamlStringify(getYamlData(formik?.values)),
+    body: yamlStringify(formik?.values),
     requestOptions: {
       headers: {
         'content-type': 'application/json'

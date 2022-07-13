@@ -27,7 +27,6 @@ import templateFactory from '@templates-library/components/Templates/TemplatesFa
 import { TemplateStudioHeader } from '@templates-library/components/TemplateStudio/TemplateStudioHeader/TemplateStudioHeader'
 import type { GitQueryParams, ModulePathParams, TemplateStudioPathProps } from '@common/interfaces/RouteInterfaces'
 import { TemplateType } from '@templates-library/utils/templatesUtils'
-import { DrawerTypes } from '@templates-library/components/TemplateStudio/TemplateContext/TemplateActions'
 
 import GenericErrorHandler from '@common/pages/GenericErrorHandler/GenericErrorHandler'
 import TemplateYamlView from '@templates-library/components/TemplateStudio/TemplateYamlView/TemplateYamlView'
@@ -156,9 +155,9 @@ export function TemplateStudio(): React.ReactElement {
     }
     setView(newView)
     updateTemplateView({
+      ...templateView,
       isDrawerOpened: false,
-      isYamlEditable: false,
-      drawerData: { type: DrawerTypes.AddStep }
+      isYamlEditable: false
     })
     return true
   }

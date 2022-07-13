@@ -129,7 +129,7 @@ const getOverviewContent = ({
   tags?: tagsType
 }): Content[] => [
   {
-    label: getString('triggers.triggerConfigurationPanel.triggerName'),
+    label: getString('common.triggerName'),
     value: name
   },
   {

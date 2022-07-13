@@ -27,7 +27,6 @@ import { VariablesHeader } from '@pipeline/components/PipelineStudio/PipelineVar
 import MonitoredServiceCard from '@pipeline/components/PipelineStudio/PipelineVariables/Cards/MonitoredServiceCard'
 import { TemplateType } from '@templates-library/utils/templatesUtils'
 import { PipelineCardPanel } from '@pipeline/components/PipelineStudio/PipelineVariables/PipelineVariables'
-import { DrawerTypes } from '../TemplateContext/TemplateActions'
 import css from '@pipeline/components/PipelineStudio/PipelineVariables/PipelineVariables.module.scss'
 
 const TemplateVariables: React.FC = (): JSX.Element => {
@@ -54,11 +53,11 @@ const TemplateVariables: React.FC = (): JSX.Element => {
 
   async function applyChanges(): Promise<void> {
     await updateTemplate(templateAtState)
-    updateTemplateView({ ...templateView, isDrawerOpened: false, drawerData: { type: DrawerTypes.AddStep } })
+    updateTemplateView({ ...templateView, isDrawerOpened: false })
   }
 
   async function discardChanges(): Promise<void> {
-    updateTemplateView({ ...templateView, isDrawerOpened: false, drawerData: { type: DrawerTypes.AddStep } })
+    updateTemplateView({ ...templateView, isDrawerOpened: false })
   }
 
   if (initLoading) {

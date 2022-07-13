@@ -19,6 +19,7 @@ export const RightBar = (): JSX.Element => {
   const {
     state: {
       templateView: {
+        isDrawerOpened,
         drawerData: { type }
       },
       templateView,
@@ -46,7 +47,7 @@ export const RightBar = (): JSX.Element => {
   return (
     <div className={css.rightBar}>
       <Button
-        className={cx(css.iconButton, { [css.selected]: type === DrawerTypes.TemplateInputs })}
+        className={cx(css.iconButton, { [css.selected]: isDrawerOpened && type === DrawerTypes.TemplateInputs })}
         onClick={openTemplatesInputDrawer}
         variation={ButtonVariation.TERTIARY}
         font={{ weight: 'semi-bold', size: 'xsmall' }}
@@ -58,7 +59,7 @@ export const RightBar = (): JSX.Element => {
         disabled={isUpdated}
       />
       <Button
-        className={cx(css.iconButton, { [css.selected]: type === DrawerTypes.TemplateVariables })}
+        className={cx(css.iconButton, { [css.selected]: isDrawerOpened && type === DrawerTypes.TemplateVariables })}
         onClick={openVariablesDrawer}
         variation={ButtonVariation.TERTIARY}
         font={{ weight: 'semi-bold', size: 'xsmall' }}

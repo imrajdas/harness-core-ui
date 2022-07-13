@@ -94,13 +94,13 @@ export const Deployments: React.FC = () => {
   const columns = useMemo(() => {
     return [
       {
-        Header: getString('environment'),
+        Header: getString('cd.serviceDashboard.headers.environment'),
         id: 'envName',
         width: '35%',
         Cell: RenderEnvironment
       },
       {
-        Header: getString('cd.artifactVersion'),
+        Header: getString('cd.serviceDashboard.headers.artifactVersion'),
         id: 'artifactList',
         width: '65%',
         Cell: RenderArtifactVersion

@@ -111,23 +111,27 @@ function DeployInfrastructures({
   )
 
   useEffect(() => {
-    if (!infrastructureInputsLoading && infrastructureInputsResponse?.data?.inputSetTemplateYaml) {
-      const parsedInfrastructureDefinitionYaml = parse(
-        defaultTo(infrastructureInputsResponse?.data?.inputSetTemplateYaml, '{}')
-      )
+    if (!infrastructureInputsLoading) {
+      if (infrastructureInputsResponse?.data?.inputSetTemplateYaml) {
+        const parsedInfrastructureDefinitionYaml = parse(
+          defaultTo(infrastructureInputsResponse?.data?.inputSetTemplateYaml, '{}')
+        )
 
-      if (path) {
-        formik?.setFieldValue(
-          `${path}.infrastructureDefinitions[0]`,
-          clearRuntimeInput(parsedInfrastructureDefinitionYaml.infrastructureDefinitions[0])
-        )
-        updateTemplate(
-          parsedInfrastructureDefinitionYaml.infrastructureDefinitions[0],
-          `${path}.infrastructureDefinitions[0]`
-        )
-      } else {
-        formik?.setFieldValue('infrastructureInputs', parsedInfrastructureDefinitionYaml)
+        if (path) {
+          formik?.setFieldValue(
+            `${path}.infrastructureDefinitions[0]`,
+            clearRuntimeInput(parsedInfrastructureDefinitionYaml.infrastructureDefinitions[0])
+          )
+          updateTemplate(
+            parsedInfrastructureDefinitionYaml.infrastructureDefinitions[0],
+            `${path}.infrastructureDefinitions[0]`
+          )
+        } else {
+          formik?.setFieldValue('infrastructureInputs', parsedInfrastructureDefinitionYaml)
+        }
       }
+    } else {
+      formik?.setFieldValue('infrastructureInputs', undefined)
     }
   }, [infrastructureInputsLoading])
 

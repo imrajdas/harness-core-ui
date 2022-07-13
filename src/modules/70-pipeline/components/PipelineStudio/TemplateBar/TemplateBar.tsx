@@ -139,7 +139,17 @@ export function TemplateBar(props: TemplateBarProps): JSX.Element {
         backdropClassName={css.templateYamlPreviewDialogBackdrop}
       >
         <Container className={css.templateYamlPreviewContainer}>
-          <TemplateYaml templateYaml={defaultTo(selectedTemplate?.yaml, '')} withoutHeader />
+          <TemplateYaml
+            templateYaml={defaultTo(selectedTemplate?.yaml, '')}
+            withoutHeader
+            overrideEditorOptions={{
+              scrollbar: {
+                useShadows: false,
+                handleMouseWheel: true
+              },
+              scrollBeyondLastLine: true
+            }}
+          />
         </Container>
       </Dialog>
     ),

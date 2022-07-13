@@ -118,7 +118,7 @@ queueStep:
   keyRequired: Resource Key is required
   scopeRequired: Scope is required
   scopePlaceholder: Select Scope
-  scope: Scope (to release constraint)
+  scope: Run next queued execution after completion of
   queuedExecutions: Queued Executions
   queuedByResourceKey: 'Queued by Resource Key:'
 jenkinsStep:
@@ -471,7 +471,7 @@ execution:
     abortStage: Abort Stage
     downloadLogs: Download logs
     viewCompiledYaml: View Compiled YAML
-    compareYaml: Compare YAML
+    compareExecutions: Compare Executions
   layouts:
     bottom: Align to bottom
     right: Align to right
@@ -1105,7 +1105,7 @@ serviceDeploymentTypes:
   serverlessGoogleFunctions: Serverless Google Functions
   awsSAM: AWS SAM
   azureFunctions: Azure Functions
-  azureWebApps: Azure Web Apps
+  azureWebApp: Azure Web Apps
 noArtifactPaths: No artifact paths found with given Artifact Directory
 stageDataDeleteWarningTitle: Discard Stage Data
 serviceDataDeleteWarningTitle: Discard Service Data
@@ -1134,6 +1134,7 @@ cannotRunInvalidPipeline: Cannot run the pipeline because it's invalid, please r
 cannotAddTriggerInvalidPipeline: Cannot add a trigger because pipeline is invalid, please review the configuration.
 cannotAddInputSetInvalidPipeline: Cannot add an input set because pipeline is invalid, please review the configuration.
 cannotEditTriggerInvalidPipeline: Cannot edit the trigger because pipeline is invalid, please review the configuration.
+parentStageDeleteWarning: "Warning: this Stage's settings are propagated to another Stage(s) in this Pipeline ({{propagatingStages}}). If you delete this Stage, you must update the other Stages' settings or the Pipeline will fail."
 outOfSyncErrorStrip:
   reconcile: Reconcile
   unsyncedTemplateInfo: Some template(s) referenced in this {{entity}} have gone out of sync.
@@ -1176,3 +1177,5 @@ codeSource: 'Code Source'
 recentTenExecutions: 'Recent 10 Executions'
 lastExecution: 'Last Execution'
 lastModified: 'Last Modified'
+executionId: Execution Id
+lastExecutedBy: Last Executed By

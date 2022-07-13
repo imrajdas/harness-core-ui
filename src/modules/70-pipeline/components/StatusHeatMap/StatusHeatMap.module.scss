@@ -7,85 +7,58 @@
 
 .statusHeatMap {
   display: flex;
-  align-items: center;
+  align-items: end;
   column-gap: var(--spacing-2);
   line-height: 0;
-
   &Cell {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     border-radius: 2px;
     flex: 0 0 auto;
     outline: none;
-    background-color: var(--grey-200);
-    &:hover,
-    &:focus {
-      box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--grey-200) 0px 0px 0px 4px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    &[data-status='failed'],
-    &[data-status='errored'],
-    &[data-status='rejected'],
-    &[data-status='suspended'],
-    &[data-status='approvalrejected'] {
+    &[data-primary-state='default'] {
+      height: 12px;
+      background-color: var(--grey-200);
       &:hover,
       &:focus {
-        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--red-400) 0px 0px 0px 4px;
+        box-shadow: var(--white) 0px 0px 0px 2px, var(--grey-200) 0px 0px 0px 4px;
       }
-      background-color: var(--red-400);
     }
 
-    &[data-status='skipped'],
-    &[data-status='queued'],
-    &[data-status='aborted'],
-    &[data-status='discontinuing'],
-    &[data-status='expired'],
-    &[data-status='notstarted'] {
+    &[data-primary-state='success'] {
+      background-color: var(--green-500);
       &:hover,
       &:focus {
-        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--grey-300) 0px 0px 0px 4px;
+        box-shadow: var(--white) 0px 0px 0px 2px, var(--green-500) 0px 0px 0px 4px;
       }
-      background-color: var(--grey-300);
     }
 
-    &[data-status='success'],
-    &[data-status='ignorefailed'] {
+    &[data-primary-state='failed'] {
+      background-color: var(--red-200);
       &:hover,
       &:focus {
-        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--green-600) 0px 0px 0px 4px;
+        box-shadow: var(--white) 0px 0px 0px 2px, var(--red-200) 0px 0px 0px 4px;
       }
-      background-color: var(--green-600);
     }
 
-    &[data-status='running'],
-    &[data-status='asyncwaiting'],
-    &[data-status='taskwaiting'],
-    &[data-status='timedwaiting'] {
+    &[data-primary-state='paused'] {
+      background-color: var(--orange-200);
       &:hover,
       &:focus {
-        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--primary-7) 0px 0px 0px 4px;
+        box-shadow: var(--white) 0px 0px 0px 2px, var(--orange-200) 0px 0px 0px 4px;
       }
-      background-color: var(--primary-7);
     }
 
-    &[data-status='resourcewaiting'],
-    &[data-status='approvalwaiting'],
-    &[data-status='interventionwaiting'],
-    &[data-status='inputwaiting'] {
+    &[data-primary-state='running'] {
+      background-color: var(--primary-3);
       &:hover,
       &:focus {
-        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--yellow-500) 0px 0px 0px 4px;
+        box-shadow: var(--white) 0px 0px 0px 2px, var(--primary-3) 0px 0px 0px 4px;
       }
-      background-color: var(--yellow-500);
-    }
-
-    &[data-status='pausing'],
-    &[data-status='paused'] {
-      &:hover,
-      &:focus {
-        box-shadow: var(--primary-bg) 0px 0px 0px 2px, var(--primary-2) 0px 0px 0px 4px;
-      }
-      background-color: var(--primary-2);
     }
   }
 }

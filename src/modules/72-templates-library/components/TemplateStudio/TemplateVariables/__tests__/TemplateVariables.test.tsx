@@ -199,7 +199,7 @@ describe('<TemplateVariables /> tests', () => {
       fireEvent.click(getByRole('button', { name: 'pipeline.discard' }))
     })
     expect(templateContext.updateTemplateView).toBeCalledWith({
-      drawerData: { type: DrawerTypes.AddStep },
+      drawerData: { data: { paletteData: { onSelection: expect.anything() } }, type: DrawerTypes.TemplateVariables },
       isDrawerOpened: false,
       isYamlEditable: false
     })
@@ -215,7 +215,7 @@ describe('<TemplateVariables /> tests', () => {
     })
     expect(templateContext.updateTemplate).toBeCalledWith(updatedTemplate)
     expect(templateContext.updateTemplateView).toBeCalledWith({
-      drawerData: { type: DrawerTypes.AddStep },
+      drawerData: { data: { paletteData: { onSelection: expect.anything() } }, type: DrawerTypes.TemplateVariables },
       isDrawerOpened: false,
       isYamlEditable: false
     })

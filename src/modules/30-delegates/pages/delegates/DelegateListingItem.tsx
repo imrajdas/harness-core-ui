@@ -20,7 +20,7 @@ import {
   useConfirmationDialog,
   Icon
 } from '@wings-software/uicore'
-import { Color } from '@harness/design-system'
+import { Color, FontVariation } from '@harness/design-system'
 import { Menu, MenuItem, Classes, Position } from '@blueprintjs/core'
 import { useStrings } from 'framework/strings'
 import { useDeleteDelegateGroupByIdentifier, DelegateGroupDetails } from 'services/portal'
@@ -85,8 +85,21 @@ const RenderColumnMenu = ({ delegate, setOpenTroubleshoter }: delTroubleshoterPr
     queryParams: { accountId: accountId, orgId: orgIdentifier, projectId: projectIdentifier }
   })
 
+  const deleteDelegateDialogContent = (
+    <>
+      <Text font={{ variation: FontVariation.BODY }} margin={{ bottom: 'medium' }}>
+        {getString('delegates.infoForDeleteDelegate')}
+      </Text>
+      <Text font={{ variation: FontVariation.BODY }}>
+        {getString('delegates.questionForceDeleteDelegate', {
+          name: groupName
+        })}
+      </Text>
+    </>
+  )
+
   const forceDeleteDialog = useConfirmationDialog({
-    contentText: `${getString('delegates.questionForceDeleteDelegate')} ${groupName}`,
+    contentText: deleteDelegateDialogContent,
     titleText: getString('delegate.deleteDelegate'),
     confirmButtonText: getString('delete'),
     cancelButtonText: getString('cancel'),

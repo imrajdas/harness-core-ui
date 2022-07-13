@@ -12,6 +12,7 @@ import { TemplateContext } from '@templates-library/components/TemplateStudio/Te
 import { RightBar } from '@templates-library/components/TemplateStudio/RightBar/RightBar'
 import { getTemplateContextMock } from '@templates-library/components/TemplateStudio/__tests__/stateMock'
 import { TemplateType } from '@templates-library/utils/templatesUtils'
+import { DrawerTypes } from '@templates-library/components/TemplateStudio/TemplateContext/TemplateActions'
 
 jest.mock('@templates-library/components/TemplateStudio/RightDrawer/RightDrawer', () => ({
   ...(jest.requireActual('@templates-library/components/TemplateStudio/RightDrawer/RightDrawer') as any),
@@ -23,7 +24,7 @@ jest.mock('@templates-library/components/TemplateStudio/RightDrawer/RightDrawer'
 const stepTemplateContextMock = getTemplateContextMock(TemplateType.Step)
 
 describe('RightBar', () => {
-  test('renders correctly', () => {
+  test('should match snapshot', () => {
     const { container } = render(
       <TestWrapper>
         <TemplateContext.Provider value={stepTemplateContextMock}>
@@ -33,7 +34,30 @@ describe('RightBar', () => {
     )
     expect(container).toMatchSnapshot()
   })
-  test('clicking on Variables should open variables view in right drawer', async () => {
+
+  test('should open variales panel on clicking variables button', async () => {
+    const { getByText } = render(
+      <TestWrapper>
+        <TemplateContext.Provider value={stepTemplateContextMock}>
+          <RightBar />
+        </TemplateContext.Provider>
+      </TestWrapper>
+    )
+    const variableBtn = getByText('pipeline.templateInputs')
+    act(() => {
+      fireEvent.click(variableBtn)
+    })
+    await waitFor(() => expect(stepTemplateContextMock.updateTemplateView).toHaveBeenCalled())
+    expect(stepTemplateContextMock.updateTemplateView).toHaveBeenCalledWith({
+      drawerData: {
+        type: DrawerTypes.TemplateInputs
+      },
+      isDrawerOpened: true,
+      isYamlEditable: false
+    })
+  })
+
+  test('should open inputs panel on clicking inputs button', async () => {
     const { getByText } = render(
       <TestWrapper>
         <TemplateContext.Provider value={stepTemplateContextMock}>
@@ -48,7 +72,7 @@ describe('RightBar', () => {
     await waitFor(() => expect(stepTemplateContextMock.updateTemplateView).toHaveBeenCalled())
     expect(stepTemplateContextMock.updateTemplateView).toHaveBeenCalledWith({
       drawerData: {
-        type: 'TemplateVariables'
+        type: DrawerTypes.TemplateVariables
       },
       isDrawerOpened: true,
       isYamlEditable: false

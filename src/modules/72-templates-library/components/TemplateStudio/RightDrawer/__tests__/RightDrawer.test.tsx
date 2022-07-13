@@ -14,8 +14,6 @@ import { TemplateType } from '@templates-library/utils/templatesUtils'
 import { TestWrapper } from '@common/utils/testUtils'
 import { TemplateContext } from '@templates-library/components/TemplateStudio/TemplateContext/TemplateContext'
 import { DrawerTypes } from '@templates-library/components/TemplateStudio/TemplateContext/TemplateActions'
-import type { StepPaletteProps } from '@pipeline/components/PipelineStudio/StepPalette/StepPalette'
-import { StepType } from '@pipeline/components/PipelineSteps/PipelineStepInterface'
 import routes from '@common/RouteDefinitions'
 import { accountPathProps, pipelineModuleParams, templatePathProps } from '@common/utils/routeUtils'
 import { RightDrawer } from '../RightDrawer'
@@ -30,22 +28,6 @@ jest.mock('@blueprintjs/core', () => ({
   )
 }))
 
-jest.mock('@pipeline/components/PipelineStudio/StepPalette/StepPalette', () => ({
-  StepPalette: (props: StepPaletteProps) => {
-    return (
-      <div className="step-palette-mock">
-        <button
-          onClick={() => {
-            props.onSelect({ name: 'HTTP Step', type: StepType.HTTP, icon: 'http-step' })
-          }}
-        >
-          Select Step
-        </button>
-      </div>
-    )
-  }
-}))
-
 jest.mock('@templates-library/components/TemplateStudio/TemplateVariables/TemplateVariables', () => ({
   __esModule: true,
   default: () => {
@@ -53,9 +35,10 @@ jest.mock('@templates-library/components/TemplateStudio/TemplateVariables/Templa
   }
 }))
 
-jest.mock('@templates-library/components/TemplateInputs/TemplateInputs', () => ({
-  TemplateInputs: () => {
-    return <div className="template-inputs-mock"></div>
+jest.mock('@templates-library/components/TemplateStudio/TemplateInputsWrapper/TemplateInputsWrapper', () => ({
+  ...jest.requireActual('@templates-library/components/TemplateStudio/TemplateInputsWrapper/TemplateInputsWrapper'),
+  TemplateInputsWrapper: () => {
+    return <div className="template-wrapper-inputs-mock"></div>
   }
 }))
 
@@ -81,7 +64,7 @@ describe('<RightDrawer /> tests', () => {
     jest.clearAllMocks()
   })
 
-  test('should match snapshot for AddStep drawer type', () => {
+  test('should match snapshot for TemplateVariables drawer type', () => {
     const { container } = render(
       <TestWrapper path={PATH} pathParams={PATH_PARAMS}>
         <TemplateContext.Provider value={stepTemplateContextMock}>
@@ -95,20 +78,6 @@ describe('<RightDrawer /> tests', () => {
   test('should match snapshot for TemplateInputs drawer type', () => {
     const templateContext = produce(stepTemplateContextMock, draft => {
       set(draft, 'state.templateView.drawerData.type', DrawerTypes.TemplateInputs)
-    })
-    const { container } = render(
-      <TestWrapper path={PATH} pathParams={PATH_PARAMS}>
-        <TemplateContext.Provider value={templateContext}>
-          <RightDrawer />
-        </TemplateContext.Provider>
-      </TestWrapper>
-    )
-    expect(container).toMatchSnapshot()
-  })
-
-  test('should match snapshot for TemplateVariables drawer type', () => {
-    const templateContext = produce(stepTemplateContextMock, draft => {
-      set(draft, 'state.templateView.drawerData.type', DrawerTypes.TemplateVariables)
     })
     const { container } = render(
       <TestWrapper path={PATH} pathParams={PATH_PARAMS}>
@@ -134,86 +103,8 @@ describe('<RightDrawer /> tests', () => {
     })
     expect(stepTemplateContextMock.updateTemplateView).toBeCalledWith(
       expect.objectContaining({
-        drawerData: { type: DrawerTypes.AddStep },
         isDrawerOpened: false
       })
     )
-  })
-
-  test('should work on step selection 1', async () => {
-    const { container } = render(
-      <TestWrapper path={PATH} pathParams={PATH_PARAMS}>
-        <TemplateContext.Provider value={stepTemplateContextMock}>
-          <RightDrawer />
-        </TemplateContext.Provider>
-      </TestWrapper>
-    )
-
-    const selectStepButton = getByRole(container, 'button', { name: 'Select Step' })
-    await act(async () => {
-      fireEvent.click(selectStepButton)
-    })
-    expect.anything()
-  })
-
-  test('should work on step selection 2', async () => {
-    const templateContextMock = produce(stepTemplateContextMock, draft => {
-      set(draft, 'state.templateView.drawerData.data', {})
-    })
-    const { container } = render(
-      <TestWrapper path={PATH} pathParams={PATH_PARAMS}>
-        <TemplateContext.Provider value={templateContextMock}>
-          <RightDrawer />
-        </TemplateContext.Provider>
-      </TestWrapper>
-    )
-
-    const selectStepButton = getByRole(container, 'button', { name: 'Select Step' })
-    await act(async () => {
-      fireEvent.click(selectStepButton)
-    })
-    expect.anything()
-  })
-
-  test('should work on step selection 3', async () => {
-    const templateContextMock = produce(stepTemplateContextMock, draft => {
-      set(draft, 'state.templateView.drawerData.data.paletteData', {})
-    })
-    const { container } = render(
-      <TestWrapper path={PATH} pathParams={PATH_PARAMS}>
-        <TemplateContext.Provider value={templateContextMock}>
-          <RightDrawer />
-        </TemplateContext.Provider>
-      </TestWrapper>
-    )
-
-    const selectStepButton = getByRole(container, 'button', { name: 'Select Step' })
-    await act(async () => {
-      fireEvent.click(selectStepButton)
-    })
-    expect.anything()
-  })
-
-  test('should work on step selection 4', async () => {
-    const templateContextMock = produce(stepTemplateContextMock, draft => {
-      set(draft, 'state.templateView.drawerData.data.paletteData.onSelection', jest.fn())
-    })
-    const { container } = render(
-      <TestWrapper path={PATH} pathParams={PATH_PARAMS}>
-        <TemplateContext.Provider value={templateContextMock}>
-          <RightDrawer />
-        </TemplateContext.Provider>
-      </TestWrapper>
-    )
-
-    const selectStepButton = getByRole(container, 'button', { name: 'Select Step' })
-    await act(async () => {
-      fireEvent.click(selectStepButton)
-    })
-    expect(templateContextMock.state.templateView.drawerData.data?.paletteData?.onSelection).toBeCalledWith({
-      identifier: '',
-      name: '',
-      type: 'Http'
-    })
   })
 })

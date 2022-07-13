@@ -68,7 +68,6 @@ tooltip:
   defaultGitSyncBranchOnly: Triggers can be added to a Pipeline in the default branch only
 triggerConfigurationPanel:
   title: 'Trigger Configuration: On New Webhook'
-  triggerName: 'Trigger Name'
   listenOnNewWebhook: 'Listen on New Webhook'
   payloadType: 'Payload Type'
   event: 'Event'

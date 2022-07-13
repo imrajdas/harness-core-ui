@@ -289,7 +289,7 @@ exports[`Test Trigger Details Page Test should test snapshot view 1`] = `
                     class="StyledProps--font StyledProps--main"
                     style="font-size: 12px;"
                   >
-                    triggers.triggerConfigurationPanel.triggerName
+                    common.triggerName
                   </p>
                   <p
                     class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--color StyledProps--color-black"

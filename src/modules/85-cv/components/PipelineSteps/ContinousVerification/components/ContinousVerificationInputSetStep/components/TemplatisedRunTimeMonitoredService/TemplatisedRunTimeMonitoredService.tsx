@@ -26,7 +26,7 @@ import { getMultiTypeInputProps } from '../../../ContinousVerificationWidget/com
 import { getRunTimeInputsFromHealthSource } from './TemplatisedRunTimeMonitoredService.utils'
 import css from './TemplatisedRunTimeMonitoredService.module.scss'
 
-interface TemplatisedRunTimeMonitoredServiceServiceProps {
+export interface TemplatisedRunTimeMonitoredServiceProps {
   prefix: string
   monitoredService?: VerifyStepMonitoredService
   expressions: string[]
@@ -34,7 +34,7 @@ interface TemplatisedRunTimeMonitoredServiceServiceProps {
 }
 
 export default function TemplatisedRunTimeMonitoredService(
-  props: TemplatisedRunTimeMonitoredServiceServiceProps
+  props: TemplatisedRunTimeMonitoredServiceProps
 ): JSX.Element {
   const { prefix, monitoredService, expressions, allowableTypes } = props
   const { accountId, projectIdentifier, orgIdentifier } = useParams<PipelineType<ProjectPathProps>>()

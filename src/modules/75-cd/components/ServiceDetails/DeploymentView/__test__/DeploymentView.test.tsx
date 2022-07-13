@@ -26,8 +26,8 @@ describe('DeploymentView ', () => {
     )
 
     //check if table header are visible
-    expect(getByText('environment')).toBeTruthy()
-    expect(getByText('cd.artifactVersion')).toBeTruthy()
+    expect(getByText('cd.serviceDashboard.headers.environment')).toBeTruthy()
+    expect(getByText('cd.serviceDashboard.headers.artifactVersion')).toBeTruthy()
 
     //check if table rows are visible
 

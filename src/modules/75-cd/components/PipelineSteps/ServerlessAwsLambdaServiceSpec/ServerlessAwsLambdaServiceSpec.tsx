@@ -37,7 +37,6 @@ import {
 } from '../K8sServiceSpec/K8sServiceSpecVariablesForm'
 import { KubernetesServiceSpecInputSetMode } from '../K8sServiceSpec/KubernetesServiceSpecInputSetMode'
 import KubernetesServiceSpecEditable from '../K8sServiceSpec/K8sServiceSpecForms/KubernetesServiceSpecEditable'
-import { getYamlData } from '../K8sServiceSpec/ArtifactSource/artifactSourceUtils'
 
 const logger = loggerFor(ModuleName.CD)
 const tagExists = (value: unknown): boolean => typeof value === 'number' || !isEmpty(value)
@@ -184,7 +183,7 @@ export class ServerlessAwsLambdaServiceSpec extends Step<ServiceSpec> {
             pipelineIdentifier: pipelineObj.identifier,
             fqnPath: path
           },
-          body: yamlStringify(getYamlData(pipelineObj))
+          body: yamlStringify(pipelineObj)
         }).then(response => {
           return (
             response?.data?.buildDetailsList?.map(buildDetails => ({

@@ -60,7 +60,7 @@ export enum ServiceDeploymentType {
   ServerlessGoogleFunctions = 'ServerlessGoogleFunctions',
   AmazonSAM = 'AwsSAM',
   AzureFunctions = 'AzureFunctions',
-  AzureWebApps = 'AzureWebApps'
+  AzureWebApp = 'AzureWebApp'
 }
 
 export type ServerlessGCPInfrastructure = Infrastructure & {

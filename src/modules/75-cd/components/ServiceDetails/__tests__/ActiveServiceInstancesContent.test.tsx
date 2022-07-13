@@ -6,10 +6,9 @@
  */
 
 import React from 'react'
-import { act, render, fireEvent } from '@testing-library/react'
-import { findDialogContainer, TestWrapper } from '@common/utils/testUtils'
+import { fireEvent, render } from '@testing-library/react'
+import { TestWrapper } from '@common/utils/testUtils'
 import * as cdngServices from 'services/cd-ng'
-import * as useFeatureFlagMock from '@common/hooks/useFeatureFlag'
 import dataMock from '../DeploymentView/dataMock.json'
 import { ActiveServiceInstances } from '../ActiveServiceInstances/ActiveServiceInstances'
 
@@ -32,7 +31,6 @@ const noData = {
   status: 'SUCCESS',
   data: {}
 }
-jest.spyOn(useFeatureFlagMock, 'useFeatureFlag').mockReturnValue(true) // FeatureFlag.SERVICE_DASHBOARD_V2
 jest.spyOn(cdngServices, 'useGetActiveServiceInstanceSummary').mockImplementation(() => {
   return {
     loading: false,
@@ -78,6 +76,7 @@ describe('ActiveServiceInstancesContent', () => {
     )
     expect(getByText('Retry')).toBeTruthy()
     expect(container).toMatchSnapshot()
+    fireEvent.click(getByText('Retry'))
   })
 
   test('should render loading', () => {
@@ -110,56 +109,6 @@ describe('ActiveServiceInstancesContent', () => {
   })
 })
 
-describe('ActiveInstance Details Dialog', () => {
-  test('Open details dialog', async () => {
-    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
-      return { loading: false, error: false, data: mockData, refetch: jest.fn() } as any
-    })
-    const { getByText } = render(
-      <TestWrapper>
-        <ActiveServiceInstances />
-      </TestWrapper>
-    )
-
-    const moreDetailsButton = getByText('cd.serviceDashboard.moreDetails')
-    await act(async () => {
-      fireEvent.click(moreDetailsButton!)
-    })
-
-    const popup = findDialogContainer()
-    expect(popup).toBeTruthy()
-    expect(popup).toMatchSnapshot()
-  })
-
-  test('Expand all sections in dialog', async () => {
-    jest.spyOn(cdngServices, 'useGetEnvBuildInstanceCount').mockImplementation(() => {
-      return { loading: false, error: false, data: mockData, refetch: jest.fn() } as any
-    })
-    const { getByText } = render(
-      <TestWrapper>
-        <ActiveServiceInstances />
-      </TestWrapper>
-    )
-
-    const moreDetailsButton = getByText('cd.serviceDashboard.moreDetails')
-    await act(async () => {
-      fireEvent.click(moreDetailsButton!)
-    })
-
-    const popup = findDialogContainer()
-    expect(popup).toBeTruthy()
-
-    const expandButtons = document.querySelectorAll('.bp3-icon')
-    await act(async () => {
-      expandButtons.forEach(expandButton => {
-        fireEvent.click(expandButton)
-      })
-    })
-
-    expect(popup).toMatchSnapshot()
-  })
-})
-
 //tests differents default states of tab according to the returned api response
 
 describe('ActiveInstance Tab states', () => {
@@ -180,7 +129,7 @@ describe('ActiveInstance Tab states', () => {
     )
 
     // activeInstance Tab should be visible
-    expect(getByText('common.instanceLabel')).toBeTruthy()
+    expect(getByText('cd.serviceDashboard.headers.instances')).toBeTruthy()
   })
 
   //tab should be defaulted to deployments
@@ -204,8 +153,8 @@ describe('ActiveInstance Tab states', () => {
       </TestWrapper>
     )
     //check if table header are visible
-    expect(getByText('environment')).toBeTruthy()
-    expect(getByText('cd.artifactVersion')).toBeTruthy()
+    expect(getByText('cd.serviceDashboard.headers.environment')).toBeTruthy()
+    expect(getByText('cd.serviceDashboard.headers.artifactVersion')).toBeTruthy()
 
     //check if table rows of deployments are visible
 

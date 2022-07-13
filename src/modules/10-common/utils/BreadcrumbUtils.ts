@@ -11,7 +11,7 @@ import { getScopeFromDTO } from '@common/components/EntityReference/EntityRefere
 import { Scope } from '@common/interfaces/SecretsInterface'
 import routes from '@common/RouteDefinitions'
 
-interface GetLinkForAccountResourcesProps {
+export interface GetLinkForAccountResourcesProps {
   accountId: string
   orgIdentifier?: string
   projectIdentifier?: string

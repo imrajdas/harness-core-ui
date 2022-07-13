@@ -6,6 +6,8 @@
  */
 
 import type React from 'react'
+import type { Breadcrumb } from '@wings-software/uicore'
+import type { GetLinkForAccountResourcesProps } from '@common/utils/BreadcrumbUtils'
 import type {
   DeployEnvironmentProps,
   NewEditEnvironmentModalProps
@@ -16,6 +18,7 @@ import type {
 } from '@cd/components/PipelineSteps/DeployServiceStep/DeployServiceInterface'
 
 export interface GitOpsCustomMicroFrontendProps {
+  getLinkForAccountResources(props: GetLinkForAccountResourcesProps): Breadcrumb[]
   customComponents: {
     DeployServiceWidget: React.ComponentType<DeployServiceProps>
     DeployEnvironmentWidget: React.ComponentType<DeployEnvironmentProps>

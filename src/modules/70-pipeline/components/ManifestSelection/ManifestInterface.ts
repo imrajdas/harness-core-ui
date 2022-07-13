@@ -7,13 +7,7 @@
 
 import type { MultiTypeInputType, SelectOption } from '@wings-software/uicore'
 import type { ConnectorSelectedValue } from '@connectors/components/ConnectorReferenceField/ConnectorReferenceField'
-import type {
-  HarnessStoreFile,
-  ManifestConfig,
-  ManifestConfigWrapper,
-  PageConnectorResponse,
-  ServiceDefinition
-} from 'services/cd-ng'
+import type { ManifestConfig, ManifestConfigWrapper, PageConnectorResponse, ServiceDefinition } from 'services/cd-ng'
 import type { StageElementWrapper } from '@pipeline/utils/pipelineTypes'
 import type { PipelineInfoConfig, StageElementConfig } from 'services/pipeline-ng'
 
@@ -202,8 +196,8 @@ export interface HarnessFileStoreDataType {
 }
 export interface HarnessFileStoreFormData {
   identifier: string
-  files: HarnessStoreFile[]
-  valuesPaths: HarnessStoreFile[]
+  files: any[]
+  valuesPaths: any[]
 }
 export interface CustomManifestManifestDataType {
   identifier: string

@@ -7,9 +7,8 @@
 
 import { getMultiTypeFromValue, MultiTypeInputType, SelectOption } from '@harness/uicore'
 import type { FormikValues } from 'formik'
-import { defaultTo, get, isEmpty, unset } from 'lodash-es'
+import { get, isEmpty, unset } from 'lodash-es'
 import type { GetDataError } from 'restful-react'
-import { parse } from 'yaml'
 import {
   PRIMARY_ARTIFACT,
   TriggerDefaultFieldList,
@@ -24,10 +23,8 @@ import type {
   GcrBuildDetailsDTO,
   NexusBuildDetailsDTO
 } from 'services/cd-ng'
-import type { PipelineInfoConfig } from 'services/pipeline-ng'
 import { checkIfQueryParamsisNotEmpty, RegistryHostNames } from '@pipeline/components/ArtifactsSelection/ArtifactUtils'
 import type { ArtifactType } from '@pipeline/components/ArtifactsSelection/ArtifactInterface'
-import { clearRuntimeInput } from '@pipeline/utils/runPipelineUtils'
 
 export const DefaultParam = 'defaultParam'
 
@@ -91,18 +88,6 @@ export const isFieldfromTriggerTabDisabled = (
 
 export const getTagError = (fetchTagsError: GetDataError<any> | null): string =>
   get(fetchTagsError, 'data.message', null)
-
-export const getYamlData = (formikValues: Record<string, any>): PipelineInfoConfig =>
-  clearRuntimeInput(
-    parse(
-      defaultTo(
-        JSON.stringify({
-          pipeline: formikValues
-        }),
-        ''
-      )
-    )
-  )
 
 export const getPrimaryInitialValues = (
   initialValues: K8SDirectServiceStep,

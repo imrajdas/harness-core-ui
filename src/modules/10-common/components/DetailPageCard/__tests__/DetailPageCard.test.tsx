@@ -26,7 +26,7 @@ describe('DetailPageCard tests', () => {
           title={result.current.getString('overview')}
           content={[
             {
-              label: result.current.getString('triggers.triggerConfigurationPanel.triggerName'),
+              label: result.current.getString('common.triggerName'),
               value: 'name'
             },
             {

@@ -25,7 +25,6 @@ import {
   getFinalQueryParamValue,
   getFqnPath,
   getImagePath,
-  getYamlData,
   isArtifactSourceRuntime,
   isFieldfromTriggerTabDisabled,
   isNewServiceEnvEntity,
@@ -83,7 +82,7 @@ const Content = (props: DockerRenderContent): React.ReactElement => {
     refetch: fetchTags,
     error: fetchTagsError
   } = useMutateAsGet(useGetBuildDetailsForDockerWithYaml, {
-    body: yamlStringify(getYamlData(formik?.values)),
+    body: yamlStringify(formik?.values),
     requestOptions: {
       headers: {
         'content-type': 'application/json'

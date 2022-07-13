@@ -68,7 +68,7 @@ export interface ExecutionActionsProps {
   isPipelineInvalid?: boolean
   source: ExecutionPathProps['source']
   onViewCompiledYaml?: () => void
-  onCompareYaml?: () => void
+  onCompareExecutions?: () => void
 }
 function getValidExecutionActions(canExecute: boolean, executionStatus?: ExecutionStatus) {
   return {
@@ -143,7 +143,7 @@ export default function ExecutionActions(props: ExecutionActionsProps): React.Re
     showEditButton = true,
     isPipelineInvalid,
     onViewCompiledYaml,
-    onCompareYaml
+    onCompareExecutions
   } = props
   const {
     orgIdentifier,
@@ -387,10 +387,10 @@ export default function ExecutionActions(props: ExecutionActionsProps): React.Re
             {onViewCompiledYaml && (
               <MenuItem text={getString('pipeline.execution.actions.viewCompiledYaml')} onClick={onViewCompiledYaml} />
             )}
-            {onCompareYaml && (
+            {onCompareExecutions && (
               <MenuItem
-                text={getString('pipeline.execution.actions.compareYaml')}
-                onClick={onCompareYaml}
+                text={getString('pipeline.execution.actions.compareExecutions')}
+                onClick={onCompareExecutions}
                 disabled={isCompareMode}
               />
             )}

@@ -7,15 +7,22 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
+  readonly bottom: string
   readonly bottombutton: string
   readonly communityTooltip: string
   readonly helpCenterIcon: string
+  readonly icon: string
+  readonly iconFilled: string
   readonly iconSize: string
   readonly marginTop: string
   readonly menuItem: string
   readonly middleregion: string
   readonly onHover: string
   readonly resourceCenter: string
+  readonly sectionTitle: string
+  readonly tile: string
+  readonly tileContainer: string
+  readonly tiles: string
   readonly title: string
   readonly txtAlignCenter: string
   readonly university: string

@@ -11,139 +11,143 @@ exports[`<TemplateSelectorLeftView> tests should match snapshot 1`] = `
       style="height: 100%;"
     >
       <div
-        class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
+        class="StyledProps--font StyledProps--main"
       >
         <div
-          class="breadcrumbs"
-        >
-          <div>
-            <a
-              class="breadcrumb"
-              href="/account/accountId/cd/orgs/default/projects/Yogesh_Test/setup/resources/templates"
-            >
-              common.templates
-            </a>
-            <span
-              class="bp3-icon StyledProps--main separator"
-              data-icon="main-chevron-right"
-            >
-              <svg
-                height="11"
-                viewBox="0 0 8 14"
-                width="11"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.7 6.3l-6-6C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7L5.6 7 .3 12.3c-.2.2-.3.4-.3.7 0 .6.4 1 1 1 .3 0 .5-.1.7-.3l6-6c.2-.2.3-.4.3-.7s-.1-.5-.3-.7z"
-                  fill="#4d5969"
-                />
-              </svg>
-            </span>
-          </div>
-          <div>
-            <span
-              class="lastBreadcrumb"
-            >
-              templatesLibrary.templatesLabel
-            </span>
-          </div>
-        </div>
-        <div
-          class="StyledProps--font StyledProps--main"
+          class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+            class="breadcrumbs"
+          >
+            <div>
+              <a
+                class="breadcrumb"
+                href="/account/accountId/cd/orgs/default/projects/Yogesh_Test/setup/resources/templates"
+              >
+                common.templates
+              </a>
+              <span
+                class="bp3-icon StyledProps--main separator"
+                data-icon="main-chevron-right"
+              >
+                <svg
+                  height="11"
+                  viewBox="0 0 8 14"
+                  width="11"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.7 6.3l-6-6C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7L5.6 7 .3 12.3c-.2.2-.3.4-.3.7 0 .6.4 1 1 1 .3 0 .5-.1.7-.3l6-6c.2-.2.3-.4.3-.7s-.1-.5-.3-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div>
+              <span
+                class="lastBreadcrumb"
+              >
+                templatesLibrary.templatesLabel
+              </span>
+            </div>
+          </div>
+          <div
+            class="StyledProps--font StyledProps--main"
           >
             <div
-              class="bp3-popover-wrapper DropDown--main"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
             >
               <div
-                class="bp3-popover-target"
+                class="bp3-popover-wrapper DropDown--main"
               >
                 <div
-                  class=""
+                  class="bp3-popover-target"
                 >
                   <div
-                    class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder DropDown--minWidth StyledProps--flex"
-                    data-testid="dropdown-button"
-                    style="min-width: 130px;"
+                    class=""
                   >
                     <div
-                      class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
+                      class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder DropDown--minWidth StyledProps--flex"
+                      data-testid="dropdown-button"
+                      style="min-width: 130px;"
                     >
-                      <p
-                        class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
-                        data-testid="dropdown-value"
-                        style="--text-line-clamp: 1;"
+                      <div
+                        class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
                       >
-                        all
-                      </p>
-                    </div>
-                    <div
-                      class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
-                    >
-                      <span
-                        class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
-                        data-icon="main-chevron-down"
-                      >
-                        <svg
-                          height="8"
-                          viewBox="0 0 14 8"
-                          width="8"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <p
+                          class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
+                          data-testid="dropdown-value"
+                          style="--text-line-clamp: 1;"
                         >
-                          <path
-                            d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
-                            fill="#4d5969"
-                          />
-                        </svg>
-                      </span>
+                          all
+                        </p>
+                      </div>
+                      <div
+                        class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
+                          data-icon="main-chevron-down"
+                        >
+                          <svg
+                            height="8"
+                            viewBox="0 0 14 8"
+                            width="8"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="bp3-input-group ui-search-box ExpandingSearchInput--main searchBox  ExpandingSearchInput--alwaysExpanded ExpandingSearchInput--light"
-              data-name=""
-            >
-              <span
-                class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
-                data-icon="thinner-search"
+              <div
+                class="bp3-input-group ui-search-box ExpandingSearchInput--main searchBox  ExpandingSearchInput--alwaysExpanded ExpandingSearchInput--light"
+                data-name=""
               >
-                <svg
-                  fill="none"
-                  height="14"
-                  viewBox="0 0 16 16"
-                  width="14"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
+                  data-icon="thinner-search"
                 >
-                  <path
-                    d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <input
-                class="bp3-input  ExpandingSearchInput--filter"
-                dir="auto"
-                placeholder="Search"
-                style="padding-right: 38px;"
-                type="search"
-                value=""
-              />
+                  <svg
+                    fill="none"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    width="14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <input
+                  class="bp3-input  ExpandingSearchInput--filter"
+                  dir="auto"
+                  placeholder="Search"
+                  style="padding-right: 38px;"
+                  type="search"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div
-        class="StyledProps--font StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
-        style="overflow: auto; position: relative; height: 100%;"
+        class="StyledProps--font StyledProps--main mainContainer StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
+        style="height: 100%;"
       >
         <div
-          class="Layout--vertical StyledProps--main"
+          class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
           style="height: 100%;"
         >
           <div
@@ -155,10 +159,7 @@ exports[`<TemplateSelectorLeftView> tests should match snapshot 1`] = `
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold StyledProps--color StyledProps--color-grey800"
               >
-                COMMON.TEMPLATES
-                 (
-                1
-                )
+                COMMON.TEMPLATES (1)
               </p>
               <div
                 class="StyledProps--font StyledProps--main"
@@ -280,8 +281,7 @@ exports[`<TemplateSelectorLeftView> tests should match snapshot 1`] = `
             </div>
           </div>
           <div
-            class="StyledProps--font StyledProps--main"
-            style="flex-grow: 1;"
+            class="StyledProps--font StyledProps--main templatesContainer"
           >
             <div
               class="templates-view-mock"
@@ -305,139 +305,143 @@ exports[`<TemplateSelectorLeftView> tests should render error view correctly 1`]
       style="height: 100%;"
     >
       <div
-        class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
+        class="StyledProps--font StyledProps--main"
       >
         <div
-          class="breadcrumbs"
-        >
-          <div>
-            <a
-              class="breadcrumb"
-              href="/account/accountId/cd/orgs/default/projects/Yogesh_Test/setup/resources/templates"
-            >
-              common.templates
-            </a>
-            <span
-              class="bp3-icon StyledProps--main separator"
-              data-icon="main-chevron-right"
-            >
-              <svg
-                height="11"
-                viewBox="0 0 8 14"
-                width="11"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.7 6.3l-6-6C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7L5.6 7 .3 12.3c-.2.2-.3.4-.3.7 0 .6.4 1 1 1 .3 0 .5-.1.7-.3l6-6c.2-.2.3-.4.3-.7s-.1-.5-.3-.7z"
-                  fill="#4d5969"
-                />
-              </svg>
-            </span>
-          </div>
-          <div>
-            <span
-              class="lastBreadcrumb"
-            >
-              templatesLibrary.templatesLabel
-            </span>
-          </div>
-        </div>
-        <div
-          class="StyledProps--font StyledProps--main"
+          class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+            class="breadcrumbs"
+          >
+            <div>
+              <a
+                class="breadcrumb"
+                href="/account/accountId/cd/orgs/default/projects/Yogesh_Test/setup/resources/templates"
+              >
+                common.templates
+              </a>
+              <span
+                class="bp3-icon StyledProps--main separator"
+                data-icon="main-chevron-right"
+              >
+                <svg
+                  height="11"
+                  viewBox="0 0 8 14"
+                  width="11"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.7 6.3l-6-6C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7L5.6 7 .3 12.3c-.2.2-.3.4-.3.7 0 .6.4 1 1 1 .3 0 .5-.1.7-.3l6-6c.2-.2.3-.4.3-.7s-.1-.5-.3-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div>
+              <span
+                class="lastBreadcrumb"
+              >
+                templatesLibrary.templatesLabel
+              </span>
+            </div>
+          </div>
+          <div
+            class="StyledProps--font StyledProps--main"
           >
             <div
-              class="bp3-popover-wrapper DropDown--main"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
             >
               <div
-                class="bp3-popover-target"
+                class="bp3-popover-wrapper DropDown--main"
               >
                 <div
-                  class=""
+                  class="bp3-popover-target"
                 >
                   <div
-                    class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder DropDown--minWidth StyledProps--flex"
-                    data-testid="dropdown-button"
-                    style="min-width: 130px;"
+                    class=""
                   >
                     <div
-                      class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
+                      class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder DropDown--minWidth StyledProps--flex"
+                      data-testid="dropdown-button"
+                      style="min-width: 130px;"
                     >
-                      <p
-                        class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
-                        data-testid="dropdown-value"
-                        style="--text-line-clamp: 1;"
+                      <div
+                        class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
                       >
-                        all
-                      </p>
-                    </div>
-                    <div
-                      class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
-                    >
-                      <span
-                        class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
-                        data-icon="main-chevron-down"
-                      >
-                        <svg
-                          height="8"
-                          viewBox="0 0 14 8"
-                          width="8"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <p
+                          class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
+                          data-testid="dropdown-value"
+                          style="--text-line-clamp: 1;"
                         >
-                          <path
-                            d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
-                            fill="#4d5969"
-                          />
-                        </svg>
-                      </span>
+                          all
+                        </p>
+                      </div>
+                      <div
+                        class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
+                          data-icon="main-chevron-down"
+                        >
+                          <svg
+                            height="8"
+                            viewBox="0 0 14 8"
+                            width="8"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="bp3-input-group ui-search-box ExpandingSearchInput--main searchBox  ExpandingSearchInput--alwaysExpanded ExpandingSearchInput--light"
-              data-name=""
-            >
-              <span
-                class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
-                data-icon="thinner-search"
+              <div
+                class="bp3-input-group ui-search-box ExpandingSearchInput--main searchBox  ExpandingSearchInput--alwaysExpanded ExpandingSearchInput--light"
+                data-name=""
               >
-                <svg
-                  fill="none"
-                  height="14"
-                  viewBox="0 0 16 16"
-                  width="14"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
+                  data-icon="thinner-search"
                 >
-                  <path
-                    d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <input
-                class="bp3-input  ExpandingSearchInput--filter"
-                dir="auto"
-                placeholder="Search"
-                style="padding-right: 38px;"
-                type="search"
-                value=""
-              />
+                  <svg
+                    fill="none"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    width="14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <input
+                  class="bp3-input  ExpandingSearchInput--filter"
+                  dir="auto"
+                  placeholder="Search"
+                  style="padding-right: 38px;"
+                  type="search"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div
-        class="StyledProps--font StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
-        style="overflow: auto; position: relative; height: 100%;"
+        class="StyledProps--font StyledProps--main mainContainer StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
+        style="height: 100%;"
       >
         <div
-          class="Layout--vertical StyledProps--main"
+          class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
           style="height: 100%;"
         >
           <div
@@ -449,9 +453,7 @@ exports[`<TemplateSelectorLeftView> tests should render error view correctly 1`]
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold StyledProps--color StyledProps--color-grey800"
               >
-                COMMON.TEMPLATES
-                 (
-                )
+                
               </p>
               <div
                 class="StyledProps--font StyledProps--main"
@@ -573,47 +575,51 @@ exports[`<TemplateSelectorLeftView> tests should render error view correctly 1`]
             </div>
           </div>
           <div
-            class="StyledProps--font StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
-            style="width: 100%; height: 100%;"
+            class="StyledProps--font StyledProps--main templatesContainer"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
-              style="align-items: center; width: 500px;"
+              class="StyledProps--font StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+              style="width: 100%; height: 100%;"
             >
-              <span
-                class="bp3-icon bp3-icon-error StyledProps--main StyledProps--color StyledProps--color-red500"
-                icon="error"
-              >
-                <svg
-                  data-icon="error"
-                  height="32"
-                  viewBox="0 0 20 20"
-                  width="32"
-                >
-                  <desc>
-                    error
-                  </desc>
-                  <path
-                    d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm1 16H9v-2h2v2zm0-3H9V4h2v9z"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </span>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-align-center StyledProps--color StyledProps--color-red500"
-              >
-                someerror
-              </p>
-              <button
-                class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--variation Button--variation-primary"
-                type="button"
+              <div
+                class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
+                style="align-items: center; width: 500px;"
               >
                 <span
-                  class="bp3-button-text"
+                  class="bp3-icon bp3-icon-error StyledProps--main StyledProps--color StyledProps--color-red500"
+                  icon="error"
                 >
-                  Retry
+                  <svg
+                    data-icon="error"
+                    height="32"
+                    viewBox="0 0 20 20"
+                    width="32"
+                  >
+                    <desc>
+                      error
+                    </desc>
+                    <path
+                      d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm1 16H9v-2h2v2zm0-3H9V4h2v9z"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </span>
-              </button>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-align-center StyledProps--color StyledProps--color-red500"
+                >
+                  someerror
+                </p>
+                <button
+                  class="bp3-button Button--button StyledProps--font StyledProps--main Button--with-current-color Button--variation Button--variation-primary"
+                  type="button"
+                >
+                  <span
+                    class="bp3-button-text"
+                  >
+                    Retry
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -634,139 +640,143 @@ exports[`<TemplateSelectorLeftView> tests should render loading view correctly 1
       style="height: 100%;"
     >
       <div
-        class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
+        class="StyledProps--font StyledProps--main"
       >
         <div
-          class="breadcrumbs"
-        >
-          <div>
-            <a
-              class="breadcrumb"
-              href="/account/accountId/cd/orgs/default/projects/Yogesh_Test/setup/resources/templates"
-            >
-              common.templates
-            </a>
-            <span
-              class="bp3-icon StyledProps--main separator"
-              data-icon="main-chevron-right"
-            >
-              <svg
-                height="11"
-                viewBox="0 0 8 14"
-                width="11"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.7 6.3l-6-6C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7L5.6 7 .3 12.3c-.2.2-.3.4-.3.7 0 .6.4 1 1 1 .3 0 .5-.1.7-.3l6-6c.2-.2.3-.4.3-.7s-.1-.5-.3-.7z"
-                  fill="#4d5969"
-                />
-              </svg>
-            </span>
-          </div>
-          <div>
-            <span
-              class="lastBreadcrumb"
-            >
-              templatesLibrary.templatesLabel
-            </span>
-          </div>
-        </div>
-        <div
-          class="StyledProps--font StyledProps--main"
+          class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+            class="breadcrumbs"
+          >
+            <div>
+              <a
+                class="breadcrumb"
+                href="/account/accountId/cd/orgs/default/projects/Yogesh_Test/setup/resources/templates"
+              >
+                common.templates
+              </a>
+              <span
+                class="bp3-icon StyledProps--main separator"
+                data-icon="main-chevron-right"
+              >
+                <svg
+                  height="11"
+                  viewBox="0 0 8 14"
+                  width="11"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.7 6.3l-6-6C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7L5.6 7 .3 12.3c-.2.2-.3.4-.3.7 0 .6.4 1 1 1 .3 0 .5-.1.7-.3l6-6c.2-.2.3-.4.3-.7s-.1-.5-.3-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div>
+              <span
+                class="lastBreadcrumb"
+              >
+                templatesLibrary.templatesLabel
+              </span>
+            </div>
+          </div>
+          <div
+            class="StyledProps--font StyledProps--main"
           >
             <div
-              class="bp3-popover-wrapper DropDown--main"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
             >
               <div
-                class="bp3-popover-target"
+                class="bp3-popover-wrapper DropDown--main"
               >
                 <div
-                  class=""
+                  class="bp3-popover-target"
                 >
                   <div
-                    class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder DropDown--minWidth StyledProps--flex"
-                    data-testid="dropdown-button"
-                    style="min-width: 130px;"
+                    class=""
                   >
                     <div
-                      class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
+                      class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder DropDown--minWidth StyledProps--flex"
+                      data-testid="dropdown-button"
+                      style="min-width: 130px;"
                     >
-                      <p
-                        class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
-                        data-testid="dropdown-value"
-                        style="--text-line-clamp: 1;"
+                      <div
+                        class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
                       >
-                        all
-                      </p>
-                    </div>
-                    <div
-                      class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
-                    >
-                      <span
-                        class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
-                        data-icon="main-chevron-down"
-                      >
-                        <svg
-                          height="8"
-                          viewBox="0 0 14 8"
-                          width="8"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <p
+                          class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
+                          data-testid="dropdown-value"
+                          style="--text-line-clamp: 1;"
                         >
-                          <path
-                            d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
-                            fill="#4d5969"
-                          />
-                        </svg>
-                      </span>
+                          all
+                        </p>
+                      </div>
+                      <div
+                        class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
+                          data-icon="main-chevron-down"
+                        >
+                          <svg
+                            height="8"
+                            viewBox="0 0 14 8"
+                            width="8"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="bp3-input-group ui-search-box ExpandingSearchInput--main searchBox  ExpandingSearchInput--alwaysExpanded ExpandingSearchInput--light"
-              data-name=""
-            >
-              <span
-                class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
-                data-icon="thinner-search"
+              <div
+                class="bp3-input-group ui-search-box ExpandingSearchInput--main searchBox  ExpandingSearchInput--alwaysExpanded ExpandingSearchInput--light"
+                data-name=""
               >
-                <svg
-                  fill="none"
-                  height="14"
-                  viewBox="0 0 16 16"
-                  width="14"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
+                  data-icon="thinner-search"
                 >
-                  <path
-                    d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <input
-                class="bp3-input  ExpandingSearchInput--filter"
-                dir="auto"
-                placeholder="Search"
-                style="padding-right: 38px;"
-                type="search"
-                value=""
-              />
+                  <svg
+                    fill="none"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    width="14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <input
+                  class="bp3-input  ExpandingSearchInput--filter"
+                  dir="auto"
+                  placeholder="Search"
+                  style="padding-right: 38px;"
+                  type="search"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div
-        class="StyledProps--font StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
-        style="overflow: auto; position: relative; height: 100%;"
+        class="StyledProps--font StyledProps--main mainContainer StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
+        style="height: 100%;"
       >
         <div
-          class="Layout--vertical StyledProps--main"
+          class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
           style="height: 100%;"
         >
           <div
@@ -778,9 +788,7 @@ exports[`<TemplateSelectorLeftView> tests should render loading view correctly 1
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold StyledProps--color StyledProps--color-grey800"
               >
-                COMMON.TEMPLATES
-                 (
-                )
+                
               </p>
               <div
                 class="StyledProps--font StyledProps--main"
@@ -902,78 +910,82 @@ exports[`<TemplateSelectorLeftView> tests should render loading view correctly 1
             </div>
           </div>
           <div
-            class="StyledProps--font StyledProps--main PageSpinner--spinner StyledProps--flex StyledProps--flex-align-center-center"
+            class="StyledProps--font StyledProps--main templatesContainer"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-medium StyledProps--main PageSpinner--content"
-              style="align-items: center; width: 500px;"
+              class="StyledProps--font StyledProps--main PageSpinner--spinner StyledProps--flex StyledProps--flex-align-center-center"
             >
-              <span
-                class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey600"
-                data-icon="steps-spinner"
+              <div
+                class="Layout--vertical Layout--layout-spacing-medium StyledProps--main PageSpinner--content"
+                style="align-items: center; width: 500px;"
               >
-                <svg
-                  height="32"
-                  viewBox="0 0 128 128"
-                  width="32"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey600"
+                  data-icon="steps-spinner"
                 >
-                  <g>
-                    <path
-                      d="M122.5 69.25H96.47a33.1 33.1 0 000-10.5h26.05a5.25 5.25 0 010 10.5z"
-                      fill="#ff8e02"
-                    />
-                    <path
-                      d="M112.04 97.83L89.47 84.8a33.1 33.1 0 005.25-9.1l22.57 13.03a5.25 5.25 0 01-5.28 9.1zM88.68 117.35L75.65 94.78a33.1 33.1 0 009.1-5.25l13.02 22.57a5.25 5.25 0 11-9.1 5.25zM58.7 122.57V96.5a33.1 33.1 0 0010.5 0v26.07a5.25 5.25 0 01-10.5 0zM30.1 112.1l13.04-22.57a33.1 33.1 0 009.1 5.25L39.2 117.35a5.25 5.25 0 11-9.1-5.25zM10.6 88.74L33.16 75.7a33.1 33.1 0 005.25 9.1L15.88 97.83a5.25 5.25 0 11-5.25-9.1z"
-                      fill="#ffddb3"
-                      fill-opacity="0.3"
-                    />
-                    <path
-                      d="M5.37 58.75h26.06a33.1 33.1 0 000 10.5H5.37a5.25 5.25 0 010-10.5z"
-                      fill="#ffd29a"
-                      fill-opacity="0.4"
-                    />
-                    <path
-                      d="M15.85 30.17L38.4 43.2a33.1 33.1 0 00-5.24 9.1L10.6 39.25a5.25 5.25 0 115.25-9.1z"
-                      fill="#ffc680"
-                      fill-opacity="0.5"
-                    />
-                    <path
-                      d="M39.2 10.65l13.03 22.57a33.1 33.1 0 00-9.1 5.25l-13-22.57a5.25 5.25 0 119.1-5.25z"
-                      fill="#ffbb67"
-                      fill-opacity="0.6"
-                    />
-                    <path
-                      d="M69.2 5.43V31.5a33.1 33.1 0 00-10.5 0V5.42a5.25 5.25 0 1110.5 0z"
-                      fill="#ffb04d"
-                      fill-opacity="0.7"
-                    />
-                    <path
-                      d="M97.77 15.9L84.75 38.47a33.1 33.1 0 00-9.1-5.25l13.03-22.57a5.25 5.25 0 119.1 5.25z"
-                      fill="#ffa535"
-                      fill-opacity="0.8"
-                    />
-                    <path
-                      d="M117.3 39.26L94.7 52.3a33.1 33.1 0 00-5.25-9.1l22.57-13.03a5.25 5.25 0 015.25 9.1z"
-                      fill="#ff991b"
-                      fill-opacity="0.9"
-                    />
-                    <animatetransform
-                      attributeName="transform"
-                      calcMode="discrete"
-                      dur="1200ms"
-                      repeatCount="indefinite"
-                      type="rotate"
-                      values="0 64 64;30 64 64;60 64 64;90 64 64;120 64 64;150 64 64;180 64 64;210 64 64;240 64 64;270 64 64;300 64 64;330 64 64"
-                    />
-                  </g>
-                </svg>
-              </span>
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-medium StyledProps--font-align-center StyledProps--color StyledProps--color-grey600"
-              >
-                Loading, please wait...
-              </p>
+                  <svg
+                    height="32"
+                    viewBox="0 0 128 128"
+                    width="32"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g>
+                      <path
+                        d="M122.5 69.25H96.47a33.1 33.1 0 000-10.5h26.05a5.25 5.25 0 010 10.5z"
+                        fill="#ff8e02"
+                      />
+                      <path
+                        d="M112.04 97.83L89.47 84.8a33.1 33.1 0 005.25-9.1l22.57 13.03a5.25 5.25 0 01-5.28 9.1zM88.68 117.35L75.65 94.78a33.1 33.1 0 009.1-5.25l13.02 22.57a5.25 5.25 0 11-9.1 5.25zM58.7 122.57V96.5a33.1 33.1 0 0010.5 0v26.07a5.25 5.25 0 01-10.5 0zM30.1 112.1l13.04-22.57a33.1 33.1 0 009.1 5.25L39.2 117.35a5.25 5.25 0 11-9.1-5.25zM10.6 88.74L33.16 75.7a33.1 33.1 0 005.25 9.1L15.88 97.83a5.25 5.25 0 11-5.25-9.1z"
+                        fill="#ffddb3"
+                        fill-opacity="0.3"
+                      />
+                      <path
+                        d="M5.37 58.75h26.06a33.1 33.1 0 000 10.5H5.37a5.25 5.25 0 010-10.5z"
+                        fill="#ffd29a"
+                        fill-opacity="0.4"
+                      />
+                      <path
+                        d="M15.85 30.17L38.4 43.2a33.1 33.1 0 00-5.24 9.1L10.6 39.25a5.25 5.25 0 115.25-9.1z"
+                        fill="#ffc680"
+                        fill-opacity="0.5"
+                      />
+                      <path
+                        d="M39.2 10.65l13.03 22.57a33.1 33.1 0 00-9.1 5.25l-13-22.57a5.25 5.25 0 119.1-5.25z"
+                        fill="#ffbb67"
+                        fill-opacity="0.6"
+                      />
+                      <path
+                        d="M69.2 5.43V31.5a33.1 33.1 0 00-10.5 0V5.42a5.25 5.25 0 1110.5 0z"
+                        fill="#ffb04d"
+                        fill-opacity="0.7"
+                      />
+                      <path
+                        d="M97.77 15.9L84.75 38.47a33.1 33.1 0 00-9.1-5.25l13.03-22.57a5.25 5.25 0 119.1 5.25z"
+                        fill="#ffa535"
+                        fill-opacity="0.8"
+                      />
+                      <path
+                        d="M117.3 39.26L94.7 52.3a33.1 33.1 0 00-5.25-9.1l22.57-13.03a5.25 5.25 0 015.25 9.1z"
+                        fill="#ff991b"
+                        fill-opacity="0.9"
+                      />
+                      <animatetransform
+                        attributeName="transform"
+                        calcMode="discrete"
+                        dur="1200ms"
+                        repeatCount="indefinite"
+                        type="rotate"
+                        values="0 64 64;30 64 64;60 64 64;90 64 64;120 64 64;150 64 64;180 64 64;210 64 64;240 64 64;270 64 64;300 64 64;330 64 64"
+                      />
+                    </g>
+                  </svg>
+                </span>
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-size-medium StyledProps--font-align-center StyledProps--color StyledProps--color-grey600"
+                >
+                  Loading, please wait...
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -994,139 +1006,143 @@ exports[`<TemplateSelectorLeftView> tests should render no results view correctl
       style="height: 100%;"
     >
       <div
-        class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
+        class="StyledProps--font StyledProps--main"
       >
         <div
-          class="breadcrumbs"
-        >
-          <div>
-            <a
-              class="breadcrumb"
-              href="/account/accountId/cd/orgs/default/projects/Yogesh_Test/setup/resources/templates"
-            >
-              common.templates
-            </a>
-            <span
-              class="bp3-icon StyledProps--main separator"
-              data-icon="main-chevron-right"
-            >
-              <svg
-                height="11"
-                viewBox="0 0 8 14"
-                width="11"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.7 6.3l-6-6C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7L5.6 7 .3 12.3c-.2.2-.3.4-.3.7 0 .6.4 1 1 1 .3 0 .5-.1.7-.3l6-6c.2-.2.3-.4.3-.7s-.1-.5-.3-.7z"
-                  fill="#4d5969"
-                />
-              </svg>
-            </span>
-          </div>
-          <div>
-            <span
-              class="lastBreadcrumb"
-            >
-              templatesLibrary.templatesLabel
-            </span>
-          </div>
-        </div>
-        <div
-          class="StyledProps--font StyledProps--main"
+          class="Layout--vertical Layout--layout-spacing-small StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
         >
           <div
-            class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
+            class="breadcrumbs"
+          >
+            <div>
+              <a
+                class="breadcrumb"
+                href="/account/accountId/cd/orgs/default/projects/Yogesh_Test/setup/resources/templates"
+              >
+                common.templates
+              </a>
+              <span
+                class="bp3-icon StyledProps--main separator"
+                data-icon="main-chevron-right"
+              >
+                <svg
+                  height="11"
+                  viewBox="0 0 8 14"
+                  width="11"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.7 6.3l-6-6C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7L5.6 7 .3 12.3c-.2.2-.3.4-.3.7 0 .6.4 1 1 1 .3 0 .5-.1.7-.3l6-6c.2-.2.3-.4.3-.7s-.1-.5-.3-.7z"
+                    fill="#4d5969"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div>
+              <span
+                class="lastBreadcrumb"
+              >
+                templatesLibrary.templatesLabel
+              </span>
+            </div>
+          </div>
+          <div
+            class="StyledProps--font StyledProps--main"
           >
             <div
-              class="bp3-popover-wrapper DropDown--main"
+              class="Layout--horizontal Layout--layout-spacing-small StyledProps--main"
             >
               <div
-                class="bp3-popover-target"
+                class="bp3-popover-wrapper DropDown--main"
               >
                 <div
-                  class=""
+                  class="bp3-popover-target"
                 >
                   <div
-                    class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder DropDown--minWidth StyledProps--flex"
-                    data-testid="dropdown-button"
-                    style="min-width: 130px;"
+                    class=""
                   >
                     <div
-                      class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
+                      class="Layout--horizontal StyledProps--main DropDown--dropdownButton DropDown--withBorder DropDown--minWidth StyledProps--flex"
+                      data-testid="dropdown-button"
+                      style="min-width: 130px;"
                     >
-                      <p
-                        class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
-                        data-testid="dropdown-value"
-                        style="--text-line-clamp: 1;"
+                      <div
+                        class="Layout--horizontal StyledProps--main DropDown--labelWrapper StyledProps--flex"
                       >
-                        all
-                      </p>
-                    </div>
-                    <div
-                      class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
-                    >
-                      <span
-                        class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
-                        data-icon="main-chevron-down"
-                      >
-                        <svg
-                          height="8"
-                          viewBox="0 0 14 8"
-                          width="8"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <p
+                          class="StyledProps--font Text--lineclamp StyledProps--main DropDown--label"
+                          data-testid="dropdown-value"
+                          style="--text-line-clamp: 1;"
                         >
-                          <path
-                            d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
-                            fill="#4d5969"
-                          />
-                        </svg>
-                      </span>
+                          all
+                        </p>
+                      </div>
+                      <div
+                        class="Layout--horizontal StyledProps--main DropDown--btnWrapper StyledProps--flex"
+                      >
+                        <span
+                          class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-grey400"
+                          data-icon="main-chevron-down"
+                        >
+                          <svg
+                            height="8"
+                            viewBox="0 0 14 8"
+                            width="8"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13 0c-.3 0-.5.1-.7.3L7 5.6 1.7.3C1.5.1 1.3 0 1 0 .4 0 0 .4 0 1c0 .3.1.5.3.7l6 6c.2.2.4.3.7.3s.5-.1.7-.3l6-6c.2-.2.3-.4.3-.7 0-.6-.4-1-1-1z"
+                              fill="#4d5969"
+                            />
+                          </svg>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="bp3-input-group ui-search-box ExpandingSearchInput--main searchBox  ExpandingSearchInput--alwaysExpanded ExpandingSearchInput--light"
-              data-name=""
-            >
-              <span
-                class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
-                data-icon="thinner-search"
+              <div
+                class="bp3-input-group ui-search-box ExpandingSearchInput--main searchBox  ExpandingSearchInput--alwaysExpanded ExpandingSearchInput--light"
+                data-name=""
               >
-                <svg
-                  fill="none"
-                  height="14"
-                  viewBox="0 0 16 16"
-                  width="14"
-                  xmlns="http://www.w3.org/2000/svg"
+                <span
+                  class="bp3-icon StyledProps--main ExpandingSearchInput--icon StyledProps--color StyledProps--color-grey700"
+                  data-icon="thinner-search"
                 >
-                  <path
-                    d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <input
-                class="bp3-input  ExpandingSearchInput--filter"
-                dir="auto"
-                placeholder="Search"
-                style="padding-right: 38px;"
-                type="search"
-                value=""
-              />
+                  <svg
+                    fill="none"
+                    height="14"
+                    viewBox="0 0 16 16"
+                    width="14"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M7.125 13.25c1.617 0 3.32-.695 4.375-1.75L15 15l-3.5-3.5c1.021-1.005 1.75-2.894 1.75-4.375a6.125 6.125 0 10-6.125 6.125z"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <input
+                  class="bp3-input  ExpandingSearchInput--filter"
+                  dir="auto"
+                  placeholder="Search"
+                  style="padding-right: 38px;"
+                  type="search"
+                  value=""
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div
-        class="StyledProps--font StyledProps--main StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
-        style="overflow: auto; position: relative; height: 100%;"
+        class="StyledProps--font StyledProps--main mainContainer StyledProps--padding-left-xxlarge StyledProps--padding-right-xxlarge"
+        style="height: 100%;"
       >
         <div
-          class="Layout--vertical StyledProps--main"
+          class="Layout--vertical Layout--layout-spacing-medium StyledProps--main"
           style="height: 100%;"
         >
           <div
@@ -1138,9 +1154,7 @@ exports[`<TemplateSelectorLeftView> tests should render no results view correctl
               <p
                 class="StyledProps--font StyledProps--main StyledProps--font-size-xsmall StyledProps--font-weight-bold StyledProps--color StyledProps--color-grey800"
               >
-                COMMON.TEMPLATES
-                 (
-                )
+                
               </p>
               <div
                 class="StyledProps--font StyledProps--main"
@@ -1262,22 +1276,26 @@ exports[`<TemplateSelectorLeftView> tests should render no results view correctl
             </div>
           </div>
           <div
-            class="StyledProps--font StyledProps--main"
-            style="height: 100%;"
+            class="StyledProps--font StyledProps--main templatesContainer"
           >
             <div
-              class="Layout--vertical Layout--layout-spacing-large StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+              class="StyledProps--font StyledProps--main"
               style="height: 100%;"
             >
-              <img
-                src="test-file-stub"
-                width="117px"
-              />
-              <p
-                class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey700"
+              <div
+                class="Layout--vertical Layout--layout-spacing-large StyledProps--main StyledProps--flex StyledProps--flex-align-center-center"
+                style="height: 100%;"
               >
-                There are no templates
-              </p>
+                <img
+                  src="test-file-stub"
+                  width="117px"
+                />
+                <p
+                  class="StyledProps--font StyledProps--main StyledProps--font-size-small StyledProps--color StyledProps--color-grey700"
+                >
+                  There are no templates
+                </p>
+              </div>
             </div>
           </div>
         </div>

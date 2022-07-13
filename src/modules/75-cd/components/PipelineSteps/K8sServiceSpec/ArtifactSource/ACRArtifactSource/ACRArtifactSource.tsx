@@ -41,7 +41,6 @@ import {
   getDefaultQueryParam,
   getFinalQueryParamValue,
   getFqnPath,
-  getYamlData,
   isArtifactSourceRuntime,
   isFieldfromTriggerTabDisabled,
   isNewServiceEnvEntity,
@@ -122,7 +121,7 @@ const Content = (props: ACRRenderContent): JSX.Element => {
     refetch: fetchTags,
     error: fetchTagsError
   } = useMutateAsGet(useGetBuildDetailsForAcrArtifactWithYaml, {
-    body: yamlStringify(getYamlData(formik?.values)),
+    body: yamlStringify(formik?.values),
     requestOptions: {
       headers: {
         'content-type': 'application/json'

@@ -29,13 +29,11 @@ export enum TemplateActions {
 }
 
 export enum DrawerTypes {
-  AddStep = 'AddCommand',
   TemplateVariables = 'TemplateVariables',
   TemplateInputs = 'TemplateInputs'
 }
 
 export const DrawerSizes: Record<DrawerTypes, React.CSSProperties['width']> = {
-  [DrawerTypes.AddStep]: 700,
   [DrawerTypes.TemplateVariables]: 876,
   [DrawerTypes.TemplateInputs]: 876
 }

@@ -7,7 +7,7 @@
  */
 
 import { Classes, Menu, PopoverInteractionKind, Position } from '@blueprintjs/core'
-import { Color, FontVariation } from '@harness/design-system'
+import { Color } from '@harness/design-system'
 import { Button, Icon, Layout, Popover, Text, useToggleOpen, Container, TagsPopover } from '@harness/uicore'
 import defaultTo from 'lodash-es/defaultTo'
 import { useParams, Link } from 'react-router-dom'
@@ -30,9 +30,20 @@ import { Badge } from '@pipeline/pages/utils/Badge/Badge'
 import { getReadableDateTime } from '@common/utils/dateUtils'
 import type { PMSPipelineSummaryResponse } from 'services/pipeline-ng'
 import { ClonePipelineForm } from '@pipeline/pages/pipelines/views/ClonePipelineForm/ClonePipelineForm'
+import ExecutionStatusLabel from '@pipeline/components/ExecutionStatusLabel/ExecutionStatusLabel'
+import type { ExecutionStatus } from '@pipeline/utils/statusHelpers'
 import { getRouteProps } from '../PipelineListUtils'
 import type { PipelineListPagePathParams } from '../types'
 import css from './PipelineListTable.module.scss'
+
+const LabeValue = ({ label, value }: { label: string; value: string | undefined }) => {
+  return (
+    <Layout.Horizontal spacing="small">
+      <Text color={Color.GREY_200}>{label}:</Text>
+      <Text color={Color.WHITE}>{value}</Text>
+    </Layout.Horizontal>
+  )
+}
 
 export const CodeSourceCell: Renderer<CellProps<PMSPipelineSummaryResponse>> = ({ row }) => {
   const { gitDetails } = row.original
@@ -42,29 +53,31 @@ export const CodeSourceCell: Renderer<CellProps<PMSPipelineSummaryResponse>> = (
 
   return (
     <div className={css.storeTypeColumnContainer}>
-      <div className={css.storeTypeColumn}>
-        <Icon name={isRemote ? 'remote-setup' : 'repository'} size={16} color={Color.GREY_800} />
-        <Text
-          margin={{ left: 'xsmall' }}
-          font={{ variation: FontVariation.SMALL }}
-          color={Color.GREY_800}
-          tooltipProps={{ isDark: true, disabled: !isRemote }}
-          tooltip={
-            <Layout.Vertical spacing="medium" padding="medium" style={{ maxWidth: 400 }}>
-              <Layout.Horizontal spacing="medium">
-                <Icon name="github" size={16} color={Color.WHITE} />
-                <Text color={Color.WHITE}>{gitDetails?.repoName || gitDetails?.repoIdentifier}</Text>
-              </Layout.Horizontal>
-              <Layout.Horizontal spacing="medium">
-                <Icon name="file" size={16} color={Color.WHITE} />
-                <Text color={Color.WHITE}>{gitDetails?.filePath}</Text>
-              </Layout.Horizontal>
-            </Layout.Vertical>
-          }
-        >
-          {isRemote ? getString('repository') : getString('inline')}
-        </Text>
-      </div>
+      <Popover
+        disabled={!isRemote}
+        position={Position.TOP}
+        interactionKind={PopoverInteractionKind.HOVER}
+        className={Classes.DARK}
+        content={
+          <Layout.Vertical spacing="medium" padding="medium" style={{ maxWidth: 400 }}>
+            <Layout.Horizontal spacing="small">
+              <Icon name="github" size={16} color={Color.GREY_200} />
+              <Text color={Color.WHITE}>{gitDetails?.repoName || gitDetails?.repoIdentifier}</Text>
+            </Layout.Horizontal>
+            <Layout.Horizontal spacing="small">
+              <Icon name="remotefile" size={16} color={Color.GREY_200} />
+              <Text color={Color.WHITE}>{gitDetails?.filePath}</Text>
+            </Layout.Horizontal>
+          </Layout.Vertical>
+        }
+      >
+        <div className={css.storeTypeColumn}>
+          <Icon name={isRemote ? 'remote-setup' : 'repository'} size={12} color={Color.GREY_800} />
+          <Text margin={{ left: 'xsmall' }} font={{ size: 'small' }} color={Color.GREY_800}>
+            {isRemote ? getString('repository') : getString('inline')}
+          </Text>
+        </div>
+      </Popover>
     </div>
   )
 }
@@ -74,10 +87,12 @@ export const LastExecutionCell: Renderer<CellProps<PMSPipelineSummaryResponse>> 
   const lastExecutionTs = data.executionSummaryInfo?.lastExecutionTs
   return (
     <Layout.Horizontal spacing="small" style={{ alignItems: 'center' }}>
-      <div className={css.avatar}>O</div>
+      <div className={css.avatar}>OL</div>
       <Layout.Vertical spacing="small">
-        <Text color={Color.GREY_600}>OliviaLee@gmail.com</Text>
-        <Text font={{ size: 'small' }} color={Color.GREY_400}>
+        <Text color={Color.GREY_600} font={{ size: 'small' }}>
+          OliviaLee@gmail.com
+        </Text>
+        <Text color={Color.GREY_400} font={{ size: 'small' }}>
           {lastExecutionTs ? <ReactTimeago date={lastExecutionTs} /> : 'This pipeline never ran'}
         </Text>
       </Layout.Vertical>
@@ -87,7 +102,11 @@ export const LastExecutionCell: Renderer<CellProps<PMSPipelineSummaryResponse>> 
 
 export const LastModifiedCell: Renderer<CellProps<PMSPipelineSummaryResponse>> = ({ row }) => {
   const data = row.original
-  return <Text color={Color.GREY_600}>{getReadableDateTime(data.lastUpdatedAt)}</Text>
+  return (
+    <Text color={Color.GREY_600} font={{ size: 'small' }}>
+      {getReadableDateTime(data.lastUpdatedAt)}
+    </Text>
+  )
 }
 
 export const MenuCell: Renderer<CellProps<PMSPipelineSummaryResponse>> = ({ row, column }) => {
@@ -215,24 +234,23 @@ export const PipelineNameCell: Renderer<CellProps<PMSPipelineSummaryResponse>> =
         <Layout.Horizontal spacing="medium">
           <Link to={routes.toPipelines(getRouteProps(pathParams, data))}>
             <Text
-              font={{ variation: FontVariation.BODY2 }}
-              color={Color.GREY_800}
+              font={{ size: 'normal' }}
+              color={Color.PRIMARY_7}
               tooltipProps={{ isDark: true }}
               tooltip={
                 <Layout.Vertical spacing="medium" padding="medium" style={{ maxWidth: 400 }}>
-                  <Text color={Color.WHITE}>{getString('nameLabel', { name: data.name })}</Text>
-                  <Text color={Color.WHITE}>{getString('idLabel', { id: data.identifier })}</Text>
-                  <Text color={Color.WHITE}>{getString('descriptionLabel', { description: data.description })}</Text>
+                  <LabeValue label={getString('name')} value={data.name} />
+                  <LabeValue label={getString('common.ID')} value={data.identifier} />
+                  {data.description && <LabeValue label={getString('description')} value={data.description} />}
                 </Layout.Vertical>
               }
             >
               {data.name}
             </Text>
           </Link>
-
           {data.tags && Object.keys(data.tags || {}).length ? <TagsPopover tags={data.tags} /> : null}
         </Layout.Horizontal>
-        <Text tooltipProps={{ position: Position.BOTTOM }} color={Color.GREY_400} font="small">
+        <Text color={Color.GREY_400} font="small">
           {getString('idLabel', { id: data.identifier })}
         </Text>
       </Layout.Vertical>
@@ -252,37 +270,45 @@ export const PipelineNameCell: Renderer<CellProps<PMSPipelineSummaryResponse>> =
 }
 
 export const RecentTenExecutionsCell: Renderer<CellProps<PMSPipelineSummaryResponse>> = () => {
+  const { getString } = useStrings()
+
   // TODO: temp data, replace once BE is ready
-  const statuses = [
-    'skipped',
-    'queued',
-    'errored',
-    'suspended',
-    'success',
-    'ignorefailed',
-    'running',
-    'resourcewaiting',
-    'inputwaiting',
-    'paused'
+  const statuses: ExecutionStatus[] = [
+    'Skipped',
+    'Queued',
+    'Errored',
+    'Suspended',
+    'Success',
+    'IgnoreFailed',
+    'Running',
+    'ResourceWaiting',
+    'InputWaiting',
+    'Paused'
   ]
   const executions = Array(10)
     .fill({})
     .map((_, index) => ({
       executionId: index.toString(),
-      status: index < 6 ? 'success' : statuses[Math.floor(Math.random() * statuses.length)]
+      lastExecutedBy: 'OliviaLee@gmail.com',
+      status: index < 6 ? 'Success' : statuses[Math.floor(Math.random() * statuses.length)],
+      triggerName: 'chart trigger'
     }))
   return (
     <StatusHeatMap
       data={executions}
       getId={i => defaultTo(i.executionId, '')}
-      getStatus={i => defaultTo(i.status, '')}
+      getStatus={i => i.status}
       getPopoverProps={i => ({
-        position: Position.BOTTOM,
+        position: Position.TOP,
         interactionKind: PopoverInteractionKind.HOVER,
         content: (
-          <Layout.Vertical padding="medium" spacing="small">
-            <Text color={Color.WHITE}>Execution Id: {i.executionId}</Text>
-            <Text color={Color.WHITE}>Status: {i.status}</Text>
+          <Layout.Vertical padding="medium" spacing="medium">
+            <div>
+              <ExecutionStatusLabel status={i.status as ExecutionStatus} />
+            </div>
+            <LabeValue label={getString('pipeline.executionId')} value={i.executionId} />
+            <LabeValue label={getString('pipeline.lastExecutedBy')} value={i.status} />
+            <LabeValue label={getString('common.triggerName')} value={i.triggerName} />
           </Layout.Vertical>
         ),
         className: Classes.DARK

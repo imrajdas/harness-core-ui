@@ -26,10 +26,8 @@
   padding: 8px 16px 16px 16px !important;
   background: var(--white);
 
-  :global {
-    div[class*='ActiveServiceInstances-module_instanceTable'] {
-      margin-top: -46px;
-    }
+  :global(.TableV2--table) {
+    margin-top: -46px;
   }
 }
 
@@ -46,9 +44,7 @@
   :global(.Layout--horizontal) {
     width: inherit;
   }
-  :global {
-    div[class*='ActiveServiceInstances-module_instanceTable'] {
-      margin-top: -27px;
-    }
+  :global(.TableV2--table) {
+    margin-top: -27px;
   }
 }

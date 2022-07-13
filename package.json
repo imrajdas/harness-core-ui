@@ -59,7 +59,7 @@
     "@emotion/styled": "^10.0.27",
     "@harness/design-system": "1.0.0",
     "@harness/help-panel": "1.8.0",
-    "@harness/icons": "^1.37.0",
+    "@harness/icons": "^1.39.0",
     "@harness/monaco-yaml": "^1.0.0",
     "@harness/ng-tooltip": "^1.31.2",
     "@harness/telemetry": "^1.0.42",

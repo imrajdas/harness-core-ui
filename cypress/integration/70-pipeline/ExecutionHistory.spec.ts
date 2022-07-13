@@ -304,7 +304,7 @@ describe('Pipeline Execution History', () => {
     })
       .first()
       .click()
-    cy.findByText('Compare YAML').click()
+    cy.findByText('Compare Executions').click()
     cy.findByRole('button', {
       name: /compare/i
     }).should('be.disabled')

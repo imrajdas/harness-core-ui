@@ -19,15 +19,16 @@ import {
   DrawerTypes,
   TemplateActions
 } from '@templates-library/components/TemplateStudio/TemplateContext/TemplateActions'
-import type { Failure, StepElementConfig } from 'services/cd-ng'
+import type { Failure } from 'services/cd-ng'
 import type { YamlBuilderHandlerBinding } from '@common/interfaces/YAMLBuilderProps'
 import { DefaultNewTemplateId, DefaultNewVersionLabel, DefaultTemplate } from 'framework/Templates/templates'
+import type { StepData } from '@pipeline/components/AbstractSteps/AbstractStepFactory'
 
 export interface DrawerData extends Omit<IDrawerProps, 'isOpen'> {
   type: DrawerTypes
   data?: {
     paletteData?: {
-      onSelection?: (stepOrGroup: StepElementConfig) => void
+      onSelection?: (step: StepData) => void
     }
   }
 }
@@ -70,7 +71,7 @@ export const initialState: TemplateReducerState = {
     isDrawerOpened: false,
     isYamlEditable: false,
     drawerData: {
-      type: DrawerTypes.AddStep
+      type: DrawerTypes.TemplateVariables
     }
   },
   isLoading: false,

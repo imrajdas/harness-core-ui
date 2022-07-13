@@ -457,8 +457,8 @@ describe('Test Pipeline Deployment list', () => {
     })[0]
     expect(moreOptions).toBeInTheDocument()
     userEvent.click(moreOptions)
-    const compareYaml = await screen.findByText('pipeline.execution.actions.compareYaml')
-    userEvent.click(compareYaml)
+    const compareExecutions = await screen.findByText('pipeline.execution.actions.compareExecutions')
+    userEvent.click(compareExecutions)
 
     expect(screen.getByText('pipeline.execution.compareExecutionsTitle')).toBeInTheDocument()
     const compareButton = screen.getByRole('button', {

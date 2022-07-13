@@ -15,10 +15,10 @@ import type { GetDataError } from 'restful-react'
 import { PageSpinner, Table } from '@common/components'
 import type { EnvBuildIdAndInstanceCountInfo } from 'services/cd-ng'
 import { useStrings } from 'framework/strings'
-import { ActiveServiceInstancePopover } from '@cd/components/ServiceDetails/ActiveServiceInstances/ActiveServiceInstancePopover'
 import MostActiveServicesEmptyState from '@cd/icons/MostActiveServicesEmptyState.svg'
 import { numberFormatter } from '@cd/components/Services/common'
-import css from '@cd/components/ServiceDetails/ActiveServiceInstances/ActiveServiceInstances.module.scss'
+import { ActiveServiceInstancePopover } from './ActiveServiceInstancePopover'
+import css from './ActiveServiceInstances.module.scss'
 
 const TOTAL_VISIBLE_BUILDS = 5
 const TOTAL_VISIBLE_INSTANCES = 10
@@ -81,7 +81,7 @@ const getTableData = (
   return tableData
 }
 
-const getShortTableData = (envBuildIdAndInstanceCountInfo?: EnvBuildIdAndInstanceCountInfo[]): TableRowData[] => {
+const getSummaryRowData = (envBuildIdAndInstanceCountInfo?: EnvBuildIdAndInstanceCountInfo[]): TableRowData[] => {
   const tableData: TableRowData[] = []
   if (!envBuildIdAndInstanceCountInfo) {
     return tableData
@@ -220,14 +220,14 @@ export const ActiveServiceInstancesContent = (
   props: React.PropsWithChildren<{
     hideHeaders?: boolean
     columnsWidth?: string[]
-    shortTable?: boolean
+    summaryRow?: boolean
     loading?: boolean
     data?: EnvBuildIdAndInstanceCountInfo[]
     error?: GetDataError<unknown> | null
     refetch?: () => Promise<void>
   }>
 ): React.ReactElement => {
-  const { hideHeaders = false, columnsWidth = [], shortTable = false, loading = false, data, error, refetch } = props
+  const { hideHeaders = false, columnsWidth = [], summaryRow = false, loading = false, data, error, refetch } = props
   const { getString } = useStrings()
 
   // this state holds how many builds are visible for each environment, it updates as we click on show more button
@@ -248,30 +248,30 @@ export const ActiveServiceInstancesContent = (
   }, [])
 
   const tableData: TableRowData[] = useMemo(() => {
-    if (shortTable) {
-      return getShortTableData(data)
+    if (summaryRow) {
+      return getSummaryRowData(data)
     } else {
       return getTableData(data, visibleBuildCount)
     }
-  }, [data, shortTable, visibleBuildCount])
+  }, [data, summaryRow, visibleBuildCount])
 
   const columns = useMemo(() => {
     const columnsArray = [
       {
-        Header: getString('environment'),
+        Header: getString('cd.serviceDashboard.headers.environment'),
         id: 'service',
         width: columnsWidth[0] || '20%',
         Cell: RenderEnvironment
       },
       {
-        Header: getString('cd.artifactVersion'),
+        Header: getString('cd.serviceDashboard.headers.artifactVersion'),
         id: 'type',
         width: columnsWidth[1] || '25%',
         Cell: RenderBuildName,
         expandBuilds
       },
       {
-        Header: getString('common.instanceLabel'),
+        Header: getString('cd.serviceDashboard.headers.instances'),
         id: 'serviceInstances',
         width: columnsWidth[2] || '10%',
         Cell: RenderInstanceCount

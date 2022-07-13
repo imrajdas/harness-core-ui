@@ -22,7 +22,7 @@ import * as Yup from 'yup'
 import { defaultTo, get } from 'lodash-es'
 import { v4 as nameSpace, v5 as uuid } from 'uuid'
 import { useStrings } from 'framework/strings'
-import type { ConnectorConfigDTO, HarnessStoreFile, ManifestConfig, ManifestConfigWrapper } from 'services/cd-ng'
+import type { ConnectorConfigDTO, ManifestConfig, ManifestConfigWrapper } from 'services/cd-ng'
 import FileStoreSelectField from '@filestore/components/FileStoreSelectField/FileStoreSelectField'
 import MultiTypeFieldSelector from '@common/components/MultiTypeFieldSelector/MultiTypeFieldSelector'
 import { ManifestDataType, ManifestIdentifierValidation, ManifestStoreMap } from '../../Manifesthelper'
@@ -95,15 +95,13 @@ function HarnessFileStore({
                 files:
                   typeof formData.files === 'string'
                     ? formData.files
-                    : defaultTo(formData.files, []).map((file: HarnessStoreFile) => `${file.scope}:${file.path}`)
+                    : defaultTo(formData.files, []).map((file: any) => `${file.scope}:${file.path}`)
               }
             },
             valuesPaths:
               typeof formData.valuesPaths === 'string'
                 ? formData.valuesPaths
-                : defaultTo(formData.valuesPaths, []).map(
-                    (valueObj: HarnessStoreFile) => `${valueObj.scope}:${valueObj.path}`
-                  )
+                : defaultTo(formData.valuesPaths, []).map((valueObj: any) => `${valueObj.scope}:${valueObj.path}`)
           }
         }
       }

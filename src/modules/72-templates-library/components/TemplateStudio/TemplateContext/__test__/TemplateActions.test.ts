@@ -45,7 +45,7 @@ describe('TemplateActions test', () => {
       isDrawerOpened: false,
       isYamlEditable: true,
       drawerData: {
-        type: DrawerTypes.AddStep
+        type: DrawerTypes.TemplateVariables
       }
     }
     const newState = TemplateReducer(initialState, {

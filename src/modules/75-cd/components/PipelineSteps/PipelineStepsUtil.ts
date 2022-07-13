@@ -33,7 +33,7 @@ export enum InfraDeploymentType {
   AmazonSAM = 'AwsSAM',
   AzureFunctions = 'AzureFunctions',
   SshWinRmAzure = 'SshWinRmAzure',
-  AzureWebApps = 'AzureWebApps'
+  AzureWebApp = 'AzureWebApp'
 }
 
 export const deploymentTypeToInfraTypeMap = {

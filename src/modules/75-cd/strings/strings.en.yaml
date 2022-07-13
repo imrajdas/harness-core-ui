@@ -173,6 +173,14 @@ serviceDashboard:
   instanceDetails: Instance Details
   instancesDetails: Instances Details
   moreDetails: More Details >
+  headers:
+    artifactVersion: Artifact Version
+    environment: '{{$.environment}}'
+    infrastructures: Infrastructures
+    infras: Infras
+    clusters: '{{$.common.clusters}}'
+    instances: '{{$.instanceFieldOptions.instances}}'
+    pipelineExecution: Pipeline Execution
   pod: pod
   function: function
   deployedAt: Deployed At
@@ -271,7 +279,6 @@ serviceList:
   noIdentifier: Selected service does not have any identifier associated with it.
 artifactRepoTooltip: Enter the name of the repository where the artifact source is located.
 serverlessDeployCommandOptions: Serverless Deploy Command Options
-artifactVersion: ARTIFACT VERSION
 useConnectorCredentials: 'Use Connector Credentials'
 configurationVariable: Configuration Variable
 overrideValue: Override Value

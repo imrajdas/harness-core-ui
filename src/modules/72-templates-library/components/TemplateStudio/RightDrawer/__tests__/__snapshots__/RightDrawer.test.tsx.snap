@@ -1,52 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<RightDrawer /> tests should match snapshot for AddStep drawer type 1`] = `
-<div>
-  <div
-    class="drawer-mock"
-  >
-    <button
-      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main almostFullScreenCloseBtn Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
-      type="button"
-    >
-      <span
-        class="bp3-icon bp3-icon-cross StyledProps--main"
-        icon="cross"
-      >
-        <svg
-          data-icon="cross"
-          height="16"
-          viewBox="0 0 16 16"
-          width="16"
-        >
-          <desc>
-            cross
-          </desc>
-          <path
-            d="M9.41 8l3.29-3.29c.19-.18.3-.43.3-.71a1.003 1.003 0 00-1.71-.71L8 6.59l-3.29-3.3a1.003 1.003 0 00-1.42 1.42L6.59 8 3.3 11.29c-.19.18-.3.43-.3.71a1.003 1.003 0 001.71.71L8 9.41l3.29 3.29c.18.19.43.3.71.3a1.003 1.003 0 00.71-1.71L9.41 8z"
-            fill-rule="evenodd"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="step-palette-mock"
-    >
-      <button>
-        Select Step
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`<RightDrawer /> tests should match snapshot for TemplateInputs drawer type 1`] = `
 <div>
   <div
     class="drawer-mock"
   >
     <button
-      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main almostFullScreenCloseBtn Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main closeButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
       type="button"
     >
       <span
@@ -70,49 +30,8 @@ exports[`<RightDrawer /> tests should match snapshot for TemplateInputs drawer t
       </span>
     </button>
     <div
-      class="Layout--vertical StyledProps--main"
-    >
-      <div
-        class="Layout--horizontal StyledProps--main StyledProps--padding-xlarge StyledProps--border StyledProps--border-bottom StyledProps--border-color-grey200"
-      >
-        <span
-          class="bp3-icon StyledProps--main StyledProps--color StyledProps--color-primary7 StyledProps--margin-right-small"
-          data-icon="template-inputs"
-        >
-          <svg
-            height="24"
-            viewBox="0 0 32 32"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M2.987 7.02a3 3 0 013-3h20.025a3 3 0 013 3v17.96a3 3 0 01-3 3H5.987a3 3 0 01-3-3v-5.638h2v5.639a1 1 0 001 1h20.025a1 1 0 001-1V7.02a1 1 0 00-1-1H5.987a1 1 0 00-1 1v5.673h-2V7.02z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-            <path
-              clip-rule="evenodd"
-              d="M12.184 12.446a1 1 0 011.399-.21l4.02 2.968a1 1 0 01.006 1.604l-4.02 3.016a1 1 0 11-1.2-1.6l1.62-1.216H2.988v-2h10.984l-1.576-1.164a1 1 0 01-.21-1.398z"
-              fill="currentColor"
-              fill-rule="evenodd"
-            />
-          </svg>
-        </span>
-        <p
-          class="StyledProps--font StyledProps--main StyledProps--font-variation-h4"
-        >
-          pipeline.templateInputs
-        </p>
-      </div>
-      <div
-        class="StyledProps--font StyledProps--main templateInputsContainer"
-      >
-        <div
-          class="template-inputs-mock"
-        />
-      </div>
-    </div>
+      class="template-wrapper-inputs-mock"
+    />
   </div>
 </div>
 `;
@@ -123,7 +42,7 @@ exports[`<RightDrawer /> tests should match snapshot for TemplateVariables drawe
     class="drawer-mock"
   >
     <button
-      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main almostFullScreenCloseBtn Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
+      class="bp3-button bp3-minimal Button--button StyledProps--font StyledProps--main closeButton Button--with-current-color Button--iconOnly Button--without-shadow Button--withLeftIcon"
       type="button"
     >
       <span

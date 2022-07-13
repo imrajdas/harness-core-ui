@@ -25,7 +25,6 @@ import {
   getFinalQueryParamValue,
   getFqnPath,
   getImagePath,
-  getYamlData,
   isArtifactSourceRuntime,
   isFieldfromTriggerTabDisabled,
   isNewServiceEnvEntity,
@@ -87,7 +86,7 @@ const Content = (props: ECRRenderContent): JSX.Element => {
     refetch: refetchTags,
     error: fetchTagsError
   } = useMutateAsGet(useGetBuildDetailsForEcrWithYaml, {
-    body: yamlStringify(getYamlData(formik?.values)),
+    body: yamlStringify(formik?.values),
     requestOptions: {
       headers: {
         'content-type': 'application/json'

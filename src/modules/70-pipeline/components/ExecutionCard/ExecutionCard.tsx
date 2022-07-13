@@ -299,7 +299,7 @@ export default function ExecutionCard(props: ExecutionCardProps): React.ReactEle
                   isPipelineInvalid={isPipelineInvalid}
                   canEdit={canEdit}
                   onViewCompiledYaml={onViewCompiledYaml}
-                  onCompareYaml={() => addToCompare(pipelineExecution)}
+                  onCompareExecutions={() => addToCompare(pipelineExecution)}
                   source={source}
                   canExecute={canExecute}
                   canRetry={pipelineExecution.canRetry}

@@ -612,9 +612,15 @@ export interface StringsMap {
   'common.resourceCenter.communityLevelUp': string
   'common.resourceCenter.communitySlack': string
   'common.resourceCenter.feedback.submit': string
+  'common.resourceCenter.productUpdates.earlyAcess': string
+  'common.resourceCenter.productUpdates.title': string
+  'common.resourceCenter.productUpdates.whatsnew': string
   'common.resourceCenter.ticketmenu.submitDesc': string
+  'common.resourceCenter.ticketmenu.submitTicket': string
   'common.resourceCenter.ticketmenu.tickets': string
   'common.resourceCenter.ticketmenu.ticketsDesc': string
+  'common.resourceCenter.ticketmenu.title': string
+  'common.resourceCenter.ticketmenu.viewTicket': string
   'common.resourceCenter.title': string
   'common.resourceGroupLabel': string
   'common.resourceLabel': string
@@ -775,6 +781,7 @@ export interface StringsMap {
   'common.trialInProgress': string
   'common.trialInProgressDescription': string
   'common.triggerLabel': string
+  'common.triggerName': string
   'common.triggersLabel': string
   'common.unlimited': string
   'common.unsavedChanges': string
@@ -1233,6 +1240,7 @@ export interface StringsMap {
   'delegates.delegatesTitle': string
   'delegates.downloadYAMLFile': string
   'delegates.harnessDocs': string
+  'delegates.infoForDeleteDelegate': string
   'delegates.lastUpdated': string
   'delegates.newDelegate': string
   'delegates.newDelegateConfigWizard.overviewTitle': string
@@ -2891,7 +2899,7 @@ export interface StringsMap {
   'pipeline.estimatedTimeRemaining': string
   'pipeline.execution.actions.abortPipeline': string
   'pipeline.execution.actions.abortStage': string
-  'pipeline.execution.actions.compareYaml': string
+  'pipeline.execution.actions.compareExecutions': string
   'pipeline.execution.actions.downloadLogs': string
   'pipeline.execution.actions.pausePipeline': string
   'pipeline.execution.actions.pauseStage': string
@@ -2936,6 +2944,7 @@ export interface StringsMap {
   'pipeline.executionFilters.labels.Success': string
   'pipeline.executionFilters.labels.Waiting': string
   'pipeline.executionFrequency': string
+  'pipeline.executionId': string
   'pipeline.executionList.EnvironmentsText': string
   'pipeline.executionList.artifactDeployedText': string
   'pipeline.executionList.servicesDeployedText': string
@@ -3151,6 +3160,7 @@ export interface StringsMap {
   'pipeline.jiraUpdateStep.validations.status': string
   'pipeline.keyPlaceholder': string
   'pipeline.kubernetesStep.workload': string
+  'pipeline.lastExecutedBy': string
   'pipeline.lastExecution': string
   'pipeline.lastModified': string
   'pipeline.lastSevenDays': string
@@ -3286,6 +3296,7 @@ export interface StringsMap {
   'pipeline.overrideSets.overrideSetPlaceholder': string
   'pipeline.parallelSelectedStages': string
   'pipeline.parallelStages': string
+  'pipeline.parentStageDeleteWarning': string
   'pipeline.pipelineInputPanel.automaticallyExtractedFromText': string
   'pipeline.pipelineInputPanel.existing': string
   'pipeline.pipelineInputPanel.noRuntimeInputs': string
@@ -3383,7 +3394,7 @@ export interface StringsMap {
   'pipeline.serviceDeploymentTypes.awsLambda': string
   'pipeline.serviceDeploymentTypes.awsSAM': string
   'pipeline.serviceDeploymentTypes.azureFunctions': string
-  'pipeline.serviceDeploymentTypes.azureWebApps': string
+  'pipeline.serviceDeploymentTypes.azureWebApp': string
   'pipeline.serviceDeploymentTypes.deployDifferentLabel': string
   'pipeline.serviceDeploymentTypes.kubernetes': string
   'pipeline.serviceDeploymentTypes.pcf': string
@@ -3800,7 +3811,6 @@ export interface StringsMap {
   'triggers.triggerConfigurationPanel.listenOnNewWebhook': string
   'triggers.triggerConfigurationPanel.payloadType': string
   'triggers.triggerConfigurationPanel.title': string
-  'triggers.triggerConfigurationPanel.triggerName': string
   'triggers.triggerCouldNotBeSavedContent': string
   'triggers.triggerCouldNotBeSavedGenericError': string
   'triggers.triggerCouldNotBeSavedTitle': string
@@ -3843,7 +3853,6 @@ export interface StringsMap {
   'cd.artifactName': string
   'cd.artifactPaths': string
   'cd.artifactRepoTooltip': string
-  'cd.artifactVersion': string
   'cd.azureWebAppRollbackDescription': string
   'cd.azureWebAppSwapSlotDescription': string
   'cd.backEndConfig': string
@@ -4047,6 +4056,13 @@ export interface StringsMap {
   'cd.serviceDashboard.executionId': string
   'cd.serviceDashboard.frequency': string
   'cd.serviceDashboard.function': string
+  'cd.serviceDashboard.headers.artifactVersion': string
+  'cd.serviceDashboard.headers.clusters': string
+  'cd.serviceDashboard.headers.environment': string
+  'cd.serviceDashboard.headers.infras': string
+  'cd.serviceDashboard.headers.infrastructures': string
+  'cd.serviceDashboard.headers.instances': string
+  'cd.serviceDashboard.headers.pipelineExecution': string
   'cd.serviceDashboard.helmChartDetails': string
   'cd.serviceDashboard.helmChartName': string
   'cd.serviceDashboard.helmRopoUrl': string

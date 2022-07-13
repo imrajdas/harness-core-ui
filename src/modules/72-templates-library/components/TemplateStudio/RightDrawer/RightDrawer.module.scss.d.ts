@@ -7,16 +7,7 @@
  **/
 // this is an auto-generated file, do not update this manually
 declare const styles: {
-  readonly almostFullScreen: string
-  readonly almostFullScreenCloseBtn: string
-  readonly almostFullScreenPortal: string
-  readonly applyChanges: string
-  readonly discard: string
-  readonly fullScreen: string
-  readonly main: string
-  readonly showRighDrawer: string
-  readonly stepConfig: string
-  readonly templateInputsContainer: string
-  readonly title: string
+  readonly closeButton: string
+  readonly studioDrawer: string
 }
 export default styles
