@@ -314,13 +314,10 @@ export default function AddEditServiceOverride({
 
   const handleYamlChange = useCallback((): void => {
     const parsedYaml = parse(defaultTo(yamlHandler?.getLatestYaml(), '{}'))
-    const anyVariableNameEmpty = parsedYaml.serviceOverrides.variables?.find((serviceVariable: any) =>
-      isEmpty(serviceVariable.name)
+    const anyVariableEmpty = parsedYaml.serviceOverrides.variables?.find(
+      (serviceVariable: any) => isEmpty(serviceVariable.name) || isEmpty(serviceVariable.value)
     )
-    const anyVariableValueEmpty = parsedYaml.serviceOverrides.variables?.find((serviceVariable: any) =>
-      isEmpty(serviceVariable.value)
-    )
-    if (isEqual(existingJSON, parsedYaml) || anyVariableNameEmpty || anyVariableValueEmpty) {
+    if (isEqual(existingJSON, parsedYaml) || anyVariableEmpty) {
       setIsModified(false)
     } else {
       setIsModified(true)
