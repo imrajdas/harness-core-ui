@@ -7,7 +7,6 @@
 
 import React from 'react'
 import { MultiTypeInputType, NestedAccordionPanel, Text } from '@wings-software/uicore'
-import cx from 'classnames'
 import { FontVariation, Color } from '@harness/design-system'
 import { defaultTo } from 'lodash-es'
 import type { StepElementConfig } from 'services/cd-ng'
@@ -98,7 +97,7 @@ export function StepCardPanel(props: StepCardProps): React.ReactElement {
           </Text>
         </VariableAccordionSummary>
       }
-      summaryClassName={cx(css.variableBorderBottom, css.accordianSummaryL3)}
+      summaryClassName={css.accordianSummaryL3}
       details={<StepCard {...props} />}
     />
   )
@@ -181,7 +180,7 @@ export function StepGroupCardPanel(props: StepGroupCardProps): React.ReactElemen
           </Text>
         </VariableAccordionSummary>
       }
-      summaryClassName={cx(css.variableBorderBottom, css.accordianSummaryL2)}
+      summaryClassName={css.accordianSummaryL2}
       details={<StepGroupCard {...props} />}
     />
   )
