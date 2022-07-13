@@ -11,7 +11,13 @@ import type { MultiTypeInputType } from '@harness/uicore'
 import { TestWrapper } from '@common/utils/testUtils'
 
 import SelectMonitoredServiceType, { SelectMonitoredServiceTypeProps } from '../SelectMonitoredServiceType'
-import { mockedFormikWithTemplatesData } from './SelectMonitoredServiceType.mock'
+import {
+  mockedFormikWithTemplatesData,
+  mockedTemplateData,
+  mockedTemplateInputYaml,
+  updatedSpecs
+} from './SelectMonitoredServiceType.mock'
+import { getUpdatedSpecs } from '../SelectMonitoredServiceType.utils'
 
 jest.mock('services/cv', () => {
   return {
@@ -90,5 +96,11 @@ describe('Unit tests for SelectMonitoredServiceType', () => {
     const { queryByText } = render(<WrapperComponent {...props} />)
     const useTemplateButton = queryByText('common.useTemplate')
     expect(useTemplateButton).toBeInTheDocument()
+  })
+
+  test('Validate getUpdatedSpecs method', () => {
+    expect(getUpdatedSpecs(mockedFormikWithTemplatesData.values, mockedTemplateInputYaml, mockedTemplateData)).toEqual(
+      updatedSpecs
+    )
   })
 })
