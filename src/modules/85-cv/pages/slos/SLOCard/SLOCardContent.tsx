@@ -6,10 +6,11 @@
  */
 
 import React, { useCallback, useState } from 'react'
-import { Layout, Container, Heading, PillToggle, PillToggleProps, Text, Card, Icon } from '@harness/uicore'
+import { Layout, Container, Heading, PillToggle, PillToggleProps, Text, Card } from '@harness/uicore'
 import { Color, FontVariation } from '@harness/design-system'
 import { PageSpinner } from '@common/components'
 import { useStrings } from 'framework/strings'
+import UserHint from '@cv/pages/components/UserHint/UserHint'
 import { getErrorBudgetGaugeOptions } from '../CVSLOListingPage.utils'
 import { SLOCardContentProps, SLOCardToggleViews } from '../CVSLOsListingPage.types'
 import TimeRangeFilter from './TimeRangeFilter'
@@ -109,12 +110,7 @@ const SLOCardContent: React.FC<SLOCardContentProps> = props => {
               </Layout.Vertical>
               <Container style={{ overflow: 'auto' }} className={css.flexGrowOne}>
                 {showUserHint && (
-                  <Layout.Horizontal margin={{ top: 'small' }} data-testid="SLOCard_UserHint_SLO">
-                    <Icon margin={{ right: 'small' }} name="main-issue" color={Color.PRIMARY_7} />
-                    <Text color={Color.GREY_600} font={{ variation: FontVariation.SMALL }}>
-                      {getString('cv.sloGraphUserHint')}
-                    </Text>
-                  </Layout.Horizontal>
+                  <UserHint userMessage={getString('cv.sloGraphUserHint')} dataTestId="SLOCard_UserHint_SLO" />
                 )}
                 <SLOTargetChartWithChangeTimeline
                   {...props}
@@ -165,12 +161,7 @@ const SLOCardContent: React.FC<SLOCardContentProps> = props => {
                 )}
               </Container>
               {showUserHint && (
-                <Layout.Horizontal margin={{ top: 'small' }} data-testid="SLOCard_UserHint_ErrorBudget">
-                  <Icon margin={{ right: 'small' }} name="main-issue" color={Color.PRIMARY_7} />
-                  <Text color={Color.GREY_600} font={{ variation: FontVariation.SMALL }}>
-                    {getString('cv.sloGraphUserHint')}
-                  </Text>
-                </Layout.Horizontal>
+                <UserHint userMessage={getString('cv.sloGraphUserHint')} dataTestId="SLOCard_UserHint_ErrorBudget" />
               )}
               <SLOTargetChartWithChangeTimeline
                 {...props}
