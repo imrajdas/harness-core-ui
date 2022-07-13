@@ -197,7 +197,7 @@ describe('<TemplateStudioSubHeaderLeftView /> tests', () => {
       })
     })
 
-    const saveBtn = getByRole(modal, 'button', { name: 'save' })
+    const saveBtn = getByRole(modal, 'button', { name: 'continue' })
     act(() => {
       fireEvent.click(saveBtn)
     })

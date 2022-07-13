@@ -71,7 +71,8 @@ export function SaveTemplatePopover({ getErrors }: SaveTemplatePopoverProps): Re
             gitDetails={
               (templateToSave.identifier === DefaultNewTemplateId ? undefined : gitDetails) as IGitContextFormProps
             }
-            isEdit={templateToSave.identifier !== DefaultNewTemplateId}
+            allowScopeChange={templateToSave.identifier === DefaultNewTemplateId}
+            submitButtonLabel={isGitSyncEnabled ? getString('continue') : getString('save')}
           />
         )}
       </Dialog>

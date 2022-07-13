@@ -52,7 +52,8 @@ export function useSaveAsTemplate({
             onClose={hideConfigModal}
             modalProps={modalProps}
             gitDetails={{ repoIdentifier, branch } as IGitContextFormProps}
-            isEdit={false}
+            allowScopeChange={true}
+            submitButtonLabel={isGitSyncEnabled ? getString('continue') : getString('save')}
           />
         )}
       </Dialog>

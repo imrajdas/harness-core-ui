@@ -26,7 +26,8 @@ const getProps = (): ConfigModalProps => ({
     repoIdentifier: 'test_repo',
     branch: 'test_branch',
     getDefaultFromOtherRepo: true
-  }
+  },
+  submitButtonLabel: 'start'
 })
 
 describe('CREATE MODE', () => {

@@ -102,7 +102,10 @@ export const TemplateStudioSubHeaderLeftView: (props: TemplateStudioSubHeaderLef
             onClose={onCloseCreate}
             modalProps={modalProps}
             gitDetails={(templateIdentifier === DefaultNewTemplateId ? undefined : gitDetails) as IGitContextFormProps}
-            isEdit={templateIdentifier !== DefaultNewTemplateId}
+            allowScopeChange={templateIdentifier === DefaultNewTemplateId}
+            submitButtonLabel={
+              template.identifier === DefaultNewTemplateId ? getString('start') : getString('continue')
+            }
           />
         )}
       </Dialog>
@@ -139,7 +142,7 @@ export const TemplateStudioSubHeaderLeftView: (props: TemplateStudioSubHeaderLef
 
       try {
         await updateTemplate(template)
-        updateGitDetails({ ...gitDetails, ...updatedGitDetails } || {}).then(() => {
+        updateGitDetails(isEmpty(updatedGitDetails) ? {} : { ...gitDetails, ...updatedGitDetails }).then(() => {
           updateQueryParams(
             { repoIdentifier: updatedGitDetails?.repoIdentifier, branch: updatedGitDetails?.branch },
             { skipNulls: true }
@@ -150,7 +153,7 @@ export const TemplateStudioSubHeaderLeftView: (props: TemplateStudioSubHeaderLef
         return { status: 'ERROR' }
       }
     },
-    [template]
+    [template, gitDetails]
   )
 
   const goToTemplateVersion = async (versionLabel: string): Promise<void> => {

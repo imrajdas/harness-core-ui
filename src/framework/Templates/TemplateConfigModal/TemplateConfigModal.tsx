@@ -88,7 +88,8 @@ export interface ConfigModalProps {
   onClose: () => void
   modalProps: ModalProps
   gitDetails?: IGitContextFormProps
-  isEdit?: boolean
+  allowScopeChange?: boolean
+  submitButtonLabel: string
 }
 
 interface BasicDetailsInterface extends ConfigModalProps {
@@ -98,7 +99,17 @@ interface BasicDetailsInterface extends ConfigModalProps {
 const MAX_VERSION_LABEL_LENGTH = 63
 
 const BasicTemplateDetails = (props: BasicDetailsInterface): JSX.Element => {
-  const { initialValues, setPreviewValues, onClose, modalProps, gitDetails, isEdit } = props
+  const { getString } = useStrings()
+
+  const {
+    initialValues,
+    setPreviewValues,
+    onClose,
+    modalProps,
+    gitDetails,
+    allowScopeChange = false,
+    submitButtonLabel
+  } = props
   const {
     title,
     disabledFields = [],
@@ -108,7 +119,6 @@ const BasicTemplateDetails = (props: BasicDetailsInterface): JSX.Element => {
     onFailure,
     lastPublishedVersion
   } = modalProps
-  const { getString } = useStrings()
   const { isGitSyncEnabled } = useAppStore()
   const currentTemplateType = initialValues.type
   const formName = `create${currentTemplateType}Template`
@@ -135,34 +145,30 @@ const BasicTemplateDetails = (props: BasicDetailsInterface): JSX.Element => {
     }
   ]
 
-  const onSubmit = React.useCallback((values: TemplateConfigValues) => {
-    setLoading(true)
-    promise(omit(values, 'repo', 'branch', 'comment'), {
-      isEdit: false,
-      ...(!isEmpty(values.repo) && { updatedGitDetails: { repoIdentifier: values.repo, branch: values.branch } }),
-      ...(!isEmpty(values.comment) && { comment: values.comment })
-    })
-      .then(response => {
-        setLoading(false)
-        if (response && response.status === 'SUCCESS') {
-          onSuccess?.(values)
-          onClose()
-        } else {
-          throw response
-        }
+  const onSubmit = React.useCallback(
+    (values: TemplateConfigValues) => {
+      setLoading(true)
+      promise(omit(values, 'repo', 'branch', 'comment'), {
+        isEdit: false,
+        ...(!isEmpty(values.repo) && { updatedGitDetails: { repoIdentifier: values.repo, branch: values.branch } }),
+        ...(!isEmpty(values.comment) && { comment: values.comment })
       })
-      .catch(error => {
-        setLoading(false)
-        onFailure?.(error)
-      })
-  }, [])
-
-  const getSaveButtonText = React.useCallback((): string => {
-    if (isEdit || initialValues.identifier !== DefaultNewTemplateId) {
-      return getString('continue')
-    }
-    return getString('start')
-  }, [isEdit, getString])
+        .then(response => {
+          setLoading(false)
+          if (response && response.status === 'SUCCESS') {
+            onSuccess?.(values)
+            onClose()
+          } else {
+            throw response
+          }
+        })
+        .catch(error => {
+          setLoading(false)
+          onFailure?.(error)
+        })
+    },
+    [onSuccess, onClose, onFailure]
+  )
 
   const onScopeChange = React.useCallback(
     (item: SelectOption, formik: FormikProps<TemplateConfigValues>) => {
@@ -309,7 +315,7 @@ const BasicTemplateDetails = (props: BasicDetailsInterface): JSX.Element => {
                             </Layout.Horizontal>
                           </Container>
                         )}
-                        {!isEdit && scope === Scope.PROJECT && (
+                        {allowScopeChange && scope === Scope.PROJECT && (
                           <Container className={Classes.FORM_GROUP} width={160} margin={{ bottom: 'medium' }}>
                             <label className={Classes.LABEL}>
                               {getString('templatesLibrary.templateSettingsModal.scopeLabel')}
@@ -344,7 +350,7 @@ const BasicTemplateDetails = (props: BasicDetailsInterface): JSX.Element => {
                 <Container>
                   <Layout.Horizontal spacing="small" flex={{ alignItems: 'flex-end', justifyContent: 'flex-start' }}>
                     <RbacButton
-                      text={getSaveButtonText()}
+                      text={submitButtonLabel}
                       type="submit"
                       variation={ButtonVariation.PRIMARY}
                       permission={{
