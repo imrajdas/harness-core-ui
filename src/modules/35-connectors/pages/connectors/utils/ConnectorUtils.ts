@@ -1001,7 +1001,7 @@ export const buildVaultPayload = (formData: FormData): BuildVaultPayloadReturnTy
       secretEngineVersion:
         formData.engineType === 'manual' ? formData.secretEngineVersion : formData.secretEngine?.split('@@@')[1],
       k8sAuthEndpoint:
-        formData.accessType === HashiCorpVaultAccessTypes.K8s_AUTH ? formData?.k8sAuthEndpoint : undefined,
+        formData.accessType === HashiCorpVaultAccessTypes.K8s_AUTH ? formData.k8sAuthEndpoint : undefined,
       vaultK8sAuthRole:
         formData.accessType === HashiCorpVaultAccessTypes.K8s_AUTH ? formData?.vaultK8sAuthRole : undefined,
       serviceAccountTokenPath:

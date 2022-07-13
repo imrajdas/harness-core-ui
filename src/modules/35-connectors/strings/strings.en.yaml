@@ -245,7 +245,7 @@ hashiCorpVault:
   sinkPath: Sink Path
   sinkPathIsRequired: Sink Path is required
   k8s_auth: 'Kubernetes Auth'
-  k8sAuthEndpoint: Kubernetes Auth Endpoint (optional)
+  k8sAuthEndpoint: Kubernetes Auth Endpoint
   vaultK8sAuthRole: Role Name
   serviceAccountTokenPath: Service Account Token Path
   vaultK8sAuthRoleRequired: Role Required

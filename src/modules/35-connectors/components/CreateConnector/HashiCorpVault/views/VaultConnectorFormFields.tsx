@@ -121,7 +121,10 @@ const VaultConnectorFormFields: React.FC<VaultConnectorFormFieldsProps> = ({ for
         <SecretInput name="authToken" label={getString('token')} connectorTypeContext={'Vault'} />
       ) : formik?.values['accessType'] === HashiCorpVaultAccessTypes.K8s_AUTH ? (
         <>
-          <FormInput.Text name="k8sAuthEndpoint" label={getString('connectors.hashiCorpVault.k8sAuthEndpoint')} />
+          <FormInput.Text
+            name="k8sAuthEndpoint"
+            label={getString('optionalField', { name: getString('connectors.hashiCorpVault.k8sAuthEndpoint') })}
+          />
           <FormInput.Text name="vaultK8sAuthRole" label={getString('connectors.hashiCorpVault.vaultK8sAuthRole')} />
           <FormInput.Text
             name="serviceAccountTokenPath"
