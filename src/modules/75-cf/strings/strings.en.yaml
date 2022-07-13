@@ -300,7 +300,7 @@ targets:
   pageDescription: This list displays targets manually added or impacted by flags.
   uploadError: CSV processing failed
   noTargetForEnv: There are no Targets in this Environment
-  noTargetDescription: <a href="https://docs.harness.io/article/dbk9uoaid3-add-targets#step_add_a_target" target="_blank" rel="noreferrer">Targets</a> are individual evaluations of flags based on attributes you define in our SDKs. For instance, a target can be a single customer or account that toggle a flag.
+  noTargetDescription: <a href="https://docs.harness.io/article/dbk9uoaid3-add-targets#step_add_a_target" target="_blank" rel="noreferrer">Targets</a> are individual evaluations of Flags based on attributes you define in our SDKs. For instance, a Target can be a single customer or account that toggle a Flag.
 targetDetail:
   title: 'Targets: Individual'
   environmentLine: '<strong>Environment</strong>: {{name}}'
@@ -360,7 +360,7 @@ segments:
   idRequired: Target Group identifier is required
   noSegment: There are currently no target groups
   noTargetGroupsForEnv: There are no Target Groups in this Environment
-  noTargetGroupsDescription: <a href="https://docs.harness.io/article/5qz1qrugyk-add-target-groups#manage-target-groups" target="_blank" rel="noreferrer">Target Groups</a> are larger collection of targets used to toggle flags for entire cohorts. For instance, a target group could be an entire country, an early adopter list or an internal team.
+  noTargetGroupsDescription: <a href="https://docs.harness.io/article/5qz1qrugyk-add-target-groups#manage-target-groups" target="_blank" rel="noreferrer">Target Groups</a> are larger collection of Targets used to toggle Flags for entire cohorts. For instance, a Target Group could be an entire country, an early adopter list or an internal team.
   pageDescription: Target Groups allow you to serve flag variations to a list of targets in bulk.
 environments:
   title: '{{ $.environments }}'
@@ -395,7 +395,7 @@ environments:
     keyType: 'Key Type'
     applicableLanguages: 'Applicable Languages:'
     noKeysFoundTitle: There are no SDK keys for this environment
-    noKeysFoundMessage: Create an <a href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_3_create_an_sdk_key" target="_blank" rel="noreferrer"> SDK key</a> for this environment so that your application can connect to our FF client. We support SDK keys for multiple programming languages.
+    noKeysFoundMessage: Create an <a href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_3_create_an_sdk_key" target="_blank" rel="noreferrer"> SDK key</a> for this Environment so that your application can connect to our FF client. We support SDK keys for multiple programming languages.
     redactionWarning: Your secret will be redacted once you leave the page. Please make sure to copy and store your secret.
     lastUsed: 'Last Used'
 auditLogs:
@@ -448,7 +448,7 @@ auditLogs:
     removeClause: A clause was removed
 noEnvironment:
   title: There are no Environments in this Project
-  message: <a href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_2_create_an_environment" target="_blank" rel="noreferrer">Environments</a> are the different places you run your application where you can configure flags - i.e. your dev server, your QA server and your production server
+  message: <a href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_2_create_an_environment" target="_blank" rel="noreferrer">Environments</a> are the different places you run your application where you can configure Flags - i.e. your dev server, your QA server and your production server
 pipeline:
   listing: Pipeline Listing
   rollloutStrategy:
