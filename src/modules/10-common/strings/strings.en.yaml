@@ -296,7 +296,7 @@ repo_provider:
   codecommit: CodeCommit
   awscodecommit: AWS Code Commit
   azureDev: Azure Devops
-  azureRepo: Azure Repo
+  azureRepos: Azure Repos
 gitSync:
   branchFetchFailed: Branch fetch failed
   resourceLabel: '{{resource}} Name'

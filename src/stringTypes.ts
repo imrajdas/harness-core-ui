@@ -592,7 +592,7 @@ export interface StringsMap {
   'common.removeThisVariable': string
   'common.repo_provider.awscodecommit': string
   'common.repo_provider.azureDev': string
-  'common.repo_provider.azureRepo': string
+  'common.repo_provider.azureRepos': string
   'common.repo_provider.bitbucketLabel': string
   'common.repo_provider.codecommit': string
   'common.repo_provider.customLabel': string
