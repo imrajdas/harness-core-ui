@@ -144,10 +144,6 @@ const VaultConfigForm: React.FC<StepProps<StepDetailsProps> & ConnectorDetailsPr
             is: HashiCorpVaultAccessTypes.AWS_IAM,
             then: Yup.string().trim().required(getString('validation.regionRequired'))
           }),
-          k8sAuthEndpoint: Yup.string().when('accessType', {
-            is: HashiCorpVaultAccessTypes.K8s_AUTH,
-            then: Yup.string().trim()
-          }),
           vaultK8sAuthRole: Yup.string().when('accessType', {
             is: HashiCorpVaultAccessTypes.K8s_AUTH,
             then: Yup.string().trim().required(getString('connectors.hashiCorpVault.vaultK8sAuthRoleRequired'))

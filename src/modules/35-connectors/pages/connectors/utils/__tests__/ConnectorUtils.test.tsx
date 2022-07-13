@@ -1061,6 +1061,67 @@ describe('Connector Utils', () => {
         }
       })
     }),
+    test('test buildVaultPayload_withNullAsK8sAuthEndpoint', () => {
+      expect(
+        buildVaultPayload({
+          name: 'Vault 3',
+          identifier: 'Vault_3',
+          description: '',
+          orgIdentifier: null,
+          projectIdentifier: null,
+          tags: {},
+          type: 'Vault',
+          vaultUrl: 'https://vaultqa.harness.io',
+          basePath: '/harness',
+          readOnly: false,
+          default: false,
+          accessType: 'K8s_AUTH',
+          appRoleId: '',
+          useK8sAuth: true,
+          k8sAuthEndpoint: null,
+          serviceAccountTokenPath: 'dummy/serviceaccount/token/path',
+          vaultK8sAuthRole: 'dummyRole',
+          renewalIntervalMinutes: 10,
+          delegateSelectors: [],
+          secretEngine: 'harness@@@2',
+          engineType: 'fetch',
+          secretEngineName: 'harness',
+          secretEngineVersion: 2
+        })
+      ).toEqual({
+        connector: {
+          name: 'Vault 3',
+          description: '',
+          projectIdentifier: null,
+          identifier: 'Vault_3',
+          orgIdentifier: null,
+          tags: {},
+          type: 'Vault',
+          spec: {
+            basePath: '/harness',
+            vaultUrl: 'https://vaultqa.harness.io',
+            readOnly: false,
+            default: false,
+            delegateSelectors: [],
+            xvaultAwsIamServerId: undefined,
+            useAwsIam: false,
+            renewalIntervalMinutes: 10,
+            authToken: undefined,
+            appRoleId: undefined,
+            secretId: undefined,
+            useVaultAgent: false,
+            sinkPath: undefined,
+            secretEngineManuallyConfigured: false,
+            secretEngineName: 'harness',
+            secretEngineVersion: '2',
+            vaultK8sAuthRole: 'dummyRole',
+            k8sAuthEndpoint: null,
+            serviceAccountTokenPath: 'dummy/serviceaccount/token/path',
+            useK8sAuth: true
+          }
+        }
+      })
+    }),
     test('test getIconByEntityType', () => {
       expect(getIconByEntityType(EntityTypes.PROJECT as string)).toEqual('nav-project')
       expect(getIconByEntityType(EntityTypes.PIPELINE as string)).toEqual('pipeline')
