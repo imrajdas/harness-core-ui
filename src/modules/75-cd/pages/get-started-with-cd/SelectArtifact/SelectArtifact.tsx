@@ -166,8 +166,15 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
   }, [selectRepositoryRef.current])
 
   const validateProvideManifestDetails = React.useCallback((): any => {
-    const { identifier } = formikRef?.current?.values || {}
-    if (!identifier) return false
+    const { identifier, commitId, branch, gitFetchType, paths } = formikRef?.current?.values || {}
+    if (!identifier || !paths?.[0]?.path) return false
+    if (identifier) {
+      if (gitFetchType === 'Branch') {
+        if (!branch) return false
+      } else {
+        if (!commitId) return false
+      }
+    }
     return true
   }, [])
 
@@ -291,7 +298,7 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
       gitFetchType: 'Commit',
       branch: undefined,
       commitId: undefined,
-      paths: [],
+      paths: [{ path: '', uuid: uuid('', nameSpace()) }],
       valuesPaths: [],
       artifactType: get(serviceData, 'data.artifactType') || undefined
       // skipResourceVersioning: false,

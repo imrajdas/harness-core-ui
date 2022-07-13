@@ -23,7 +23,7 @@ import {
   getErrorInfoFromErrorObject
 } from '@harness/uicore'
 import type { FormikContextType, FormikProps } from 'formik'
-import { get, set } from 'lodash-es'
+import { defaultTo, get, set } from 'lodash-es'
 import produce from 'immer'
 import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
@@ -83,28 +83,6 @@ const SelectInfrastructureRef = (
   props: SelectInfrastructureProps,
   forwardRef: SelectInfrastructureForwardRef
 ): React.ReactElement => {
-  const defaultInitialFormData: SelectAuthenticationMethodInterface = {
-    authType: AuthTypes.USER_PASSWORD,
-    delegateType: '',
-    masterUrl: '',
-    username: undefined,
-    password: undefined,
-    serviceAccountToken: undefined,
-    oidcIssuerUrl: '',
-    oidcUsername: undefined,
-    oidcPassword: undefined,
-    oidcCleintId: undefined,
-    oidcCleintSecret: undefined,
-    oidcScopes: '',
-    clientKey: undefined,
-    clientKeyCertificate: undefined,
-    clientKeyPassphrase: undefined,
-    clientKeyAlgo: '',
-    clientKeyCACertificate: undefined,
-    connectorName: '',
-    connectorIdentifier: ''
-  }
-
   const { getString } = useStrings()
   const {
     saveEnvironmentData,
@@ -124,6 +102,28 @@ const SelectInfrastructureRef = (
   //   else disableNextBtn()
   // })
 
+  const defaultInitialFormData: SelectAuthenticationMethodInterface = {
+    authType: AuthTypes.USER_PASSWORD,
+    delegateType: defaultTo(get(infrastructureData, 'data.delegateType'), ''),
+    masterUrl: defaultTo(get(infrastructureData, 'data.masterUrl'), ''),
+    username: get(infrastructureData, 'data.username') || '',
+    password: get(infrastructureData, 'data.password') || undefined,
+    serviceAccountToken: get(infrastructureData, 'data.serviceAccountToken') || undefined,
+    oidcIssuerUrl: get(infrastructureData, 'data.oidcIssueUrl') || '',
+    oidcUsername: get(infrastructureData, 'data.oidcIssueUsername') || undefined,
+    oidcPassword: get(infrastructureData, 'data.oidcPassword') || undefined,
+    oidcCleintId: get(infrastructureData, 'data.oidcCleintId') || undefined,
+    oidcCleintSecret: get(infrastructureData, 'data.oidcCleintSecret') || undefined,
+    oidcScopes: get(infrastructureData, 'data.oidcScopes') || '',
+    clientKey: get(infrastructureData, 'data.clientKey') || undefined,
+    clientKeyCertificate: get(infrastructureData, 'data.clientKeyCertificate') || undefined,
+    clientKeyPassphrase: undefined,
+    clientKeyAlgo: get(infrastructureData, 'data.clientKeyAlgo') || '',
+    clientKeyCACertificate: undefined,
+    connectorName: get(infrastructureData, 'infrastructureDefinition.spec.connectorRef') || '',
+    connectorIdentifier: '',
+    delegateSelectors: []
+  }
   const { loading: createEnvLoading, mutate: createEnvironment } = useCreateEnvironmentV2({
     queryParams: {
       accountIdentifier: accountId
@@ -170,7 +170,26 @@ const SelectInfrastructureRef = (
 
   const { showSuccess, showError, clear } = useToaster()
   const handleSubmit = async (values: SelectInfrastructureInterface): Promise<SelectInfrastructureInterface> => {
-    const { envId, infraId, infraType, namespace, connectorIdentifier } = values || {}
+    const {
+      envId,
+      infraId,
+      infraType,
+      namespace,
+      masterUrl,
+      connectorName,
+      delegateType,
+      username,
+      password,
+      serviceAccountToken,
+      oidcCleintId,
+      oidcIssuerUrl,
+      oidcPassword,
+      oidcUsername,
+      oidcCleintSecret,
+      clientKey,
+      clientKeyCertificate,
+      clientKeyAlgo
+    } = values || {}
     if (!infraType) {
       showError(getString('common.validation.fieldIsRequired', { name: 'Infrastructure Type' }))
     } else if (!envId) {
@@ -211,8 +230,22 @@ const SelectInfrastructureRef = (
           set(draft, 'type', infraType)
           set(draft, 'environmentRef', envId)
           set(draft, 'infrastructureDefinition.spec.namespace', namespace)
-          set(draft, 'infrastructureDefinition.spec.connectorRef', connectorIdentifier)
+          set(draft, 'infrastructureDefinition.spec.connectorRef', connectorName)
+          set(draft, 'data.delegateType', delegateType)
+          set(draft, 'data.masterUrl', masterUrl)
+          set(draft, 'data.username', username)
+          set(draft, 'data.password', password)
+          set(draft, 'data.serviceAccountToken', serviceAccountToken)
+          set(draft, 'data.oidcCleintId', oidcCleintId)
+          set(draft, 'data.oidcIssueUrl', oidcIssuerUrl)
+          set(draft, 'data.oidcPassword', oidcPassword)
+          set(draft, 'data.oidcUsername', oidcUsername)
+          set(draft, 'data.oidcCleintSecret', oidcCleintSecret)
+          set(draft, 'data.clientKey', clientKey)
+          set(draft, 'data.clientKeyAlgo', clientKeyAlgo)
+          set(draft, 'data.clientKeyCertificate', clientKeyCertificate)
         })
+
         saveInfrastructureData({
           infrastructure: { ...updatedContextInfra }
         })

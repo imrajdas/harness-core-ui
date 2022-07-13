@@ -20,7 +20,6 @@ import {
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Form, FormikContextType, FormikProps } from 'formik'
 import { useParams } from 'react-router-dom'
-import { defaultTo, set } from 'lodash-es'
 import produce from 'immer'
 import { useStrings } from 'framework/strings'
 import TextReference, { TextReferenceInterface, ValueType } from '@secrets/components/TextReference/TextReference'
@@ -44,6 +43,7 @@ import { getUniqueEntityIdentifier } from '../cdOnboardingUtils'
 import { useCDOnboardingContext } from '../CDOnboardingStore'
 import commonStyles from '@connectors/components/CreateConnector/commonSteps/ConnectorCommonStyles.module.scss'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
+import { set } from 'lodash-es'
 
 interface DelegateSelectorStepData extends BuildPayloadProps {
   delegateSelectors: Array<string>
@@ -81,6 +81,7 @@ export interface SelectAuthenticationMethodInterface {
   clientKeyCertificate: SecretReferenceInterface | void
   clientKeyAlgo: string
   clientKeyCACertificate: SecretReferenceInterface | void
+  delegateSelectors: Array<string>
 }
 
 interface AuthOptionInterface {
@@ -165,26 +166,26 @@ const SelectAuthenticationMethodRef = (
     state: { environment: environmentData }
   } = useCDOnboardingContext()
 
-  const defaultInitialFormData: SelectAuthenticationMethodInterface = {
-    authType: AuthTypes.USER_PASSWORD,
-    delegateType: '',
-    masterUrl: '',
-    username: undefined,
-    password: undefined,
-    serviceAccountToken: undefined,
-    oidcIssuerUrl: '',
-    oidcUsername: undefined,
-    oidcPassword: undefined,
-    oidcCleintId: undefined,
-    oidcCleintSecret: undefined,
-    oidcScopes: '',
-    clientKey: undefined,
-    clientKeyCertificate: undefined,
-    clientKeyPassphrase: undefined,
-    clientKeyAlgo: '',
-    clientKeyCACertificate: undefined,
-    connectorName: ''
-  }
+  // const defaultInitialFormData: SelectAuthenticationMethodInterface = {
+  //   authType: AuthTypes.USER_PASSWORD,
+  //   delegateType: '',
+  //   masterUrl: '',
+  //   username: undefined,
+  //   password: undefined,
+  //   serviceAccountToken: undefined,
+  //   oidcIssuerUrl: '',
+  //   oidcUsername: undefined,
+  //   oidcPassword: undefined,
+  //   oidcCleintId: undefined,
+  //   oidcCleintSecret: undefined,
+  //   oidcScopes: '',
+  //   clientKey: undefined,
+  //   clientKeyCertificate: undefined,
+  //   clientKeyPassphrase: undefined,
+  //   clientKeyAlgo: '',
+  //   clientKeyCACertificate: undefined,
+  //   connectorName: ''
+  // }
 
   const afterSuccessHandler = (response: ResponseConnectorResponse): void => {
     if (response?.status === 'SUCCESS') {
@@ -485,6 +486,7 @@ const SelectAuthenticationMethodRef = (
               text={'Use from a specific harness Delegate'}
               onClick={() => {
                 formikProps?.setFieldValue('delegateType', DelegateTypes.DELEGATE_IN_CLUSTER)
+                setMode(DelegateOptions.DelegateOptionsSelective)
                 setTestConnectionStatus(TestStatus.NOT_INITIATED)
               }}
               intent={DelegateTypes.DELEGATE_IN_CLUSTER === formikProps.values.delegateType ? 'primary' : 'none'}
