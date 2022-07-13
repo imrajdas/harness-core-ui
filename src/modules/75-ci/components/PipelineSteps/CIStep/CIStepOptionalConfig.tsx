@@ -9,7 +9,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { isEmpty, startCase } from 'lodash-es'
 import cx from 'classnames'
-import { Container, Layout, MultiTypeInputType, Text, FormInput } from '@wings-software/uicore'
+import { Container, Layout, MultiTypeInputType, Text, FormInput, SelectOption } from '@wings-software/uicore'
 import { Color } from '@harness/design-system'
 import { useStrings } from 'framework/strings'
 import type { StringsMap } from 'stringTypes'
@@ -31,7 +31,7 @@ import {
   shouldRenderRunTimeInputViewWithAllowedValues,
   useGitScope
 } from '@pipeline/utils/CIUtils'
-import { ConnectorRefWidth } from '@pipeline/utils/constants'
+import { ConnectorRefWidth, sslVerifyOptions } from '@pipeline/utils/constants'
 import { MultiTypeSelectField } from '@common/components/MultiTypeSelect/MultiTypeSelect'
 import { ArchiveFormatOptions } from '../../../constants/Constants'
 import {
@@ -862,6 +862,62 @@ export const CIStepOptionalConfig: React.FC<CIStepOptionalConfigProps> = props =
             },
             fieldPath: 'spec.remoteCacheRepo'
           })}
+        </Container>
+      ) : null}
+
+      {Object.prototype.hasOwnProperty.call(enableFields, 'spec.depth') ? (
+        <div className={cx(css.formGroup, css.lg, css.bottomMargin5)}>
+          {renderMultiTypeTextField({
+            name: `${prefix}spec.depth`,
+            labelKey: 'pipeline.depth',
+            tooltipId: 'depth',
+            inputProps: {
+              multiTextInputProps: {
+                expressions,
+                allowableTypes: isInputSetView ? AllMultiTypeInputTypesForInputSet : AllMultiTypeInputTypesForStep
+              },
+              disabled: readonly
+            },
+            fieldPath: 'spec.depth'
+
+            // allowableTypes: isInputSetView ? AllMultiTypeInputTypesForInputSet : AllMultiTypeInputTypesForStep
+          })}
+        </div>
+      ) : null}
+
+      {Object.prototype.hasOwnProperty.call(enableFields, 'spec.sslVerify') ? (
+        <Container className={cx(css.formGroup, stepCss, css.bottomMargin5)}>
+          <MultiTypeSelectField
+            name={`${prefix}spec.sslVerify`}
+            label={
+              <Layout.Horizontal flex={{ justifyContent: 'flex-start', alignItems: 'baseline' }}>
+                <Text
+                  margin={{ top: 'small' }}
+                  className={css.inpLabel}
+                  color={Color.GREY_600}
+                  font={{ size: 'small', weight: 'semi-bold' }}
+                >
+                  {getString('pipeline.sslVerify')}
+                </Text>
+                &nbsp;
+                {getOptionalSubLabel(getString, 'sslVerify')}
+              </Layout.Horizontal>
+            }
+            multiTypeInputProps={{
+              selectItems: sslVerifyOptions as unknown as SelectOption[],
+              multiTypeInputProps: {
+                expressions,
+                selectProps: {
+                  addClearBtn: true,
+                  items: sslVerifyOptions as unknown as SelectOption[]
+                },
+                allowableTypes: isInputSetView ? AllMultiTypeInputTypesForInputSet : AllMultiTypeInputTypesForStep
+              },
+              disabled: readonly
+            }}
+            useValue
+            disabled={readonly}
+          />
         </Container>
       ) : null}
     </>

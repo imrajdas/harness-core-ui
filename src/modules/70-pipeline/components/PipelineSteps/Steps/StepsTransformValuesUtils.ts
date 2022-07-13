@@ -311,8 +311,12 @@ export function getFormValuesInCorrectFormat<T, U>(formValues: T, fields: Field[
 
     if (type === Types.Numeric) {
       const value = get(formValues, name)
-      const numericValue = parseInt(value)
-      set(values, name, numericValue)
+      if (isRuntimeInput(value)) {
+        set(values, name, value)
+      } else {
+        const numericValue = parseInt(value)
+        set(values, name, numericValue)
+      }
     }
     // Set Select field values
     if (

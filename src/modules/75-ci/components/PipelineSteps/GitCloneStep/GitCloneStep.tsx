@@ -55,6 +55,8 @@ export interface GitCloneStepSpec {
   // imagePullPolicy?: MultiTypeSelectOption
   runAsUser?: string
   resources?: Resources
+  depth?: number
+  sslVerify?: boolean
 }
 
 export interface GitCloneStepData {
