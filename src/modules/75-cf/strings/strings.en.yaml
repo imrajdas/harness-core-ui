@@ -299,7 +299,7 @@ targets:
   deleteTargetSuccess: Target <strong>{{name}}</strong> deleted.
   pageDescription: This list displays targets manually added or impacted by flags.
   uploadError: CSV processing failed
-  noTargetForEnv: There are no Targets in this environment
+  noTargetForEnv: There are no Targets in this Environment
   noTargetDescription: <a href="https://docs.harness.io/article/dbk9uoaid3-add-targets#step_add_a_target" target="_blank" rel="noreferrer">Targets</a> are individual evaluations of flags based on attributes you define in our SDKs. For instance, a target can be a single customer or account that toggle a flag.
 targetDetail:
   title: 'Targets: Individual'
@@ -359,7 +359,7 @@ segments:
   nameRequired: Target Group name is required
   idRequired: Target Group identifier is required
   noSegment: There are currently no target groups
-  noTargetGroupsForEnv: There are no target groups in this environment
+  noTargetGroupsForEnv: There are no Target Groups in this Environment
   noTargetGroupsDescription: <a href="https://docs.harness.io/article/5qz1qrugyk-add-target-groups#manage-target-groups" target="_blank" rel="noreferrer">Target Groups</a> are larger collection of targets used to toggle flags for entire cohorts. For instance, a target group could be an entire country, an early adopter list or an internal team.
   pageDescription: Target Groups allow you to serve flag variations to a list of targets in bulk.
 environments:
@@ -447,7 +447,7 @@ auditLogs:
     updateOffVariation: Off variation updated to '{{variation}}'
     removeClause: A clause was removed
 noEnvironment:
-  title: There are no environments in this project
+  title: There are no Environments in this Project
   message: <a href="https://docs.harness.io/article/1j7pdkqh7j-create-a-feature-flag#step_2_create_an_environment" target="_blank" rel="noreferrer">Environments</a> are the different places you run your application where you can configure flags - i.e. your dev server, your QA server and your production server
 pipeline:
   listing: Pipeline Listing
