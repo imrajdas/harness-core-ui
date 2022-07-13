@@ -60,7 +60,7 @@
     box-shadow: none;
     border: 0;
     padding: 0;
-    margin: 0;
+    margin: 0 0 var(--spacing-2) 0;
   }
   .paddedContainer {
     width: fit-content;
@@ -137,6 +137,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
+  font-size: var(--font-size-small) !important;
 }
 
 .deploymentsEmpty {

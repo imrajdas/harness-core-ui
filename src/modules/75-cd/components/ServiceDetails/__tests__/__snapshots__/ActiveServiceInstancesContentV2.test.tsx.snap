@@ -225,11 +225,12 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             class="StyledProps--font StyledProps--main StyledProps--flex"
                           >
                             <div
-                              class="Layout--horizontal StyledProps--main"
+                              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                              style="width: 100%;"
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="max-width: 120px; --text-line-clamp: 1;"
+                                style="--text-line-clamp: 1;"
                               >
                                 infra-1
                               </p>
@@ -396,11 +397,12 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             class="StyledProps--font StyledProps--main StyledProps--flex"
                           >
                             <div
-                              class="Layout--horizontal StyledProps--main"
+                              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                              style="width: 100%;"
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="max-width: 120px; --text-line-clamp: 1;"
+                                style="--text-line-clamp: 1;"
                               >
                                 infra-2
                               </p>
@@ -521,11 +523,12 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             class="StyledProps--font StyledProps--main StyledProps--flex"
                           >
                             <div
-                              class="Layout--horizontal StyledProps--main"
+                              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                              style="width: 100%;"
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="max-width: 120px; --text-line-clamp: 1;"
+                                style="--text-line-clamp: 1;"
                               >
                                 infra-3
                               </p>
@@ -615,11 +618,12 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             class="StyledProps--font StyledProps--main StyledProps--flex"
                           >
                             <div
-                              class="Layout--horizontal StyledProps--main"
+                              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                              style="width: 100%;"
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="max-width: 120px; --text-line-clamp: 1;"
+                                style="--text-line-clamp: 1;"
                               >
                                 infra-4
                               </p>
@@ -805,11 +809,12 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             class="StyledProps--font StyledProps--main StyledProps--flex"
                           >
                             <div
-                              class="Layout--horizontal StyledProps--main"
+                              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                              style="width: 100%;"
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="max-width: 120px; --text-line-clamp: 1;"
+                                style="--text-line-clamp: 1;"
                               >
                                 infra-5
                               </p>
@@ -899,11 +904,12 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             class="StyledProps--font StyledProps--main StyledProps--flex"
                           >
                             <div
-                              class="Layout--horizontal StyledProps--main"
+                              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                              style="width: 100%;"
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="max-width: 120px; --text-line-clamp: 1;"
+                                style="--text-line-clamp: 1;"
                               >
                                 infra-6
                               </p>
@@ -1024,11 +1030,12 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             class="StyledProps--font StyledProps--main StyledProps--flex"
                           >
                             <div
-                              class="Layout--horizontal StyledProps--main"
+                              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                              style="width: 100%;"
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="max-width: 120px; --text-line-clamp: 1;"
+                                style="--text-line-clamp: 1;"
                               >
                                 infra-7
                               </p>
@@ -1118,11 +1125,12 @@ exports[`ActiveInstance Details Dialog Expand all sections in dialog 1`] = `
                             class="StyledProps--font StyledProps--main StyledProps--flex"
                           >
                             <div
-                              class="Layout--horizontal StyledProps--main"
+                              class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                              style="width: 100%;"
                             >
                               <p
                                 class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                                style="max-width: 120px; --text-line-clamp: 1;"
+                                style="--text-line-clamp: 1;"
                               >
                                 infra-8
                               </p>
@@ -1426,17 +1434,18 @@ exports[`ActiveInstance Details Dialog Open details dialog 1`] = `
                           class="StyledProps--font StyledProps--main StyledProps--flex"
                         >
                           <div
-                            class="Layout--horizontal StyledProps--main"
+                            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                            style="width: 100%;"
                           >
                             <p
                               class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                              style="max-width: 120px; --text-line-clamp: 1;"
+                              style="--text-line-clamp: 1;"
                             >
                               infra-1
                             </p>
                             <p
                               class="StyledProps--font StyledProps--main plusMore StyledProps--font-size-xsmall StyledProps--color StyledProps--color-grey500"
-                              style="line-height: small;"
+                              style="line-height: small; width: 30%;"
                             >
                               + 
                               3
@@ -1691,17 +1700,18 @@ exports[`ActiveInstance Details Dialog Open details dialog 1`] = `
                           class="StyledProps--font StyledProps--main StyledProps--flex"
                         >
                           <div
-                            class="Layout--horizontal StyledProps--main"
+                            class="Layout--horizontal StyledProps--main StyledProps--flex StyledProps--flex-alignItems-center StyledProps--flex-justifyContent-flex-start"
+                            style="width: 100%;"
                           >
                             <p
                               class="StyledProps--font Text--lineclamp StyledProps--main StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--color StyledProps--color-grey800"
-                              style="max-width: 120px; --text-line-clamp: 1;"
+                              style="--text-line-clamp: 1;"
                             >
                               infra-5
                             </p>
                             <p
                               class="StyledProps--font StyledProps--main plusMore StyledProps--font-size-xsmall StyledProps--color StyledProps--color-grey500"
-                              style="line-height: small;"
+                              style="line-height: small; width: 30%;"
                             >
                               + 
                               3
@@ -2133,7 +2143,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                   class="TableV2--cell"
                   colspan="1"
                   role="columnheader"
-                  style="width: 15%;"
+                  style="width: 12%;"
                 >
                   <p
                     class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -2145,7 +2155,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                   class="TableV2--cell"
                   colspan="1"
                   role="columnheader"
-                  style="width: 10%;"
+                  style="width: 8%;"
                 >
                   <p
                     class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -2157,7 +2167,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                   class="TableV2--cell"
                   colspan="1"
                   role="columnheader"
-                  style="width: 27%;"
+                  style="width: 32%;"
                 >
                   <p
                     class="StyledProps--font StyledProps--main StyledProps--font-variation-table-headers"
@@ -2215,7 +2225,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 15%;"
+                      style="width: 12%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer"
@@ -2230,7 +2240,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 10%;"
+                      style="width: 8%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer"
@@ -2245,7 +2255,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 27%;"
+                      style="width: 32%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer hexContainer StyledProps--flex StyledProps--flex-justifyContent-flex-start"
@@ -2382,7 +2392,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 15%;"
+                      style="width: 12%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer"
@@ -2397,7 +2407,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 10%;"
+                      style="width: 8%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer"
@@ -2412,7 +2422,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 27%;"
+                      style="width: 32%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer hexContainer StyledProps--flex StyledProps--flex-justifyContent-flex-start"
@@ -2503,7 +2513,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 15%;"
+                      style="width: 12%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer"
@@ -2518,7 +2528,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 10%;"
+                      style="width: 8%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer"
@@ -2533,7 +2543,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 27%;"
+                      style="width: 32%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer hexContainer StyledProps--flex StyledProps--flex-justifyContent-flex-start"
@@ -2617,7 +2627,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 15%;"
+                      style="width: 12%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer"
@@ -2632,7 +2642,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 10%;"
+                      style="width: 8%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer"
@@ -2647,7 +2657,7 @@ exports[`ActiveServiceInstancesContent should render ActiveServiceInstancesConte
                     <div
                       class="TableV2--cell"
                       role="cell"
-                      style="width: 27%;"
+                      style="width: 32%;"
                     >
                       <div
                         class="StyledProps--font StyledProps--main paddedContainer hexContainer StyledProps--flex StyledProps--flex-justifyContent-flex-start"

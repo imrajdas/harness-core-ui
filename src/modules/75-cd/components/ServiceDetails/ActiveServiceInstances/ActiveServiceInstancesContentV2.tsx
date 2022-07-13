@@ -137,7 +137,7 @@ export const RenderArtifactVersion: Renderer<CellProps<TableRowData>> = ({
 }) => {
   return showArtifact ? (
     <Text
-      style={{ maxWidth: '200px' }}
+      style={{ maxWidth: '200px', paddingRight: 'var(--spacing-5)' }}
       font={{ size: 'small', weight: 'semi-bold' }}
       lineClamp={1}
       color={Color.GREY_800}
@@ -186,9 +186,9 @@ export const RenderInfra: Renderer<CellProps<TableRowData>> = ({
 }) => {
   return infraName ? (
     <Container flex>
-      <Layout.Horizontal>
+      <Layout.Horizontal flex={{ alignItems: 'center', justifyContent: 'flex-start' }} width={'100%'}>
         <Text
-          style={{ maxWidth: '120px' }}
+          style={{ paddingRight: 'var(--spacing-2)' }}
           font={{ size: 'small', weight: 'semi-bold' }}
           lineClamp={1}
           color={Color.GREY_800}
@@ -201,6 +201,7 @@ export const RenderInfra: Renderer<CellProps<TableRowData>> = ({
             style={{ lineHeight: 'small' }}
             className={css.plusMore}
             color={Color.GREY_500}
+            width={'30%'}
           >
             + {totalInfras - 1}
           </Text>
@@ -378,21 +379,21 @@ const columnsProperties = {
   },
   infras: {
     width: {
-      preview: '15%',
+      preview: '12%',
       summary: '17%',
       full: '17%'
     }
   },
   instancesCount: {
     width: {
-      preview: '10%',
+      preview: '8%',
       summary: '5%',
       full: '5%'
     }
   },
   instances: {
     width: {
-      preview: '27%',
+      preview: '32%',
       summary: '28%',
       full: '28%'
     }
