@@ -90,6 +90,7 @@ export const environmentRoute = `#/account/${accountId}/cd/orgs/${orgIdentifier}
 export const servicesRoute = `#/account/${accountId}/cd/orgs/${orgIdentifier}/projects/${projectId}/services`
 export const pipelinesRoute = `#/account/${accountId}/cd/orgs/${orgIdentifier}/projects/${projectId}/pipelines`
 export const triggersRoute = `#/account/${accountId}/cd/orgs/${orgIdentifier}/projects/${projectId}/pipelines/${pipelineIdentifier}/triggers`
+export const templatesListRoute = `#/account/${accountId}/cd/orgs/${orgIdentifier}/projects/${projectId}/setup/resources/templates`
 
 export interface ValidObject {
   resourceName: StepResourceObject[]

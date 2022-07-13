@@ -1,0 +1,150 @@
+{
+  "status": "SUCCESS",
+  "data": {
+    "content": [
+      {
+        "accountIdentifier": "px7xd_BFRCi-pfWPYXVjvw",
+        "referredEntity": {
+          "type": "Template",
+          "entityRef": {
+            "accountIdentifier": "px7xd_BFRCi-pfWPYXVjvw",
+            "orgIdentifier": "default",
+            "projectIdentifier": "Samarth_testing",
+            "identifier": "reference_step_template",
+            "versionLabel": "v3",
+            "repoIdentifier": null,
+            "branch": null,
+            "isDefault": true,
+            "scope": "project",
+            "default": true
+          },
+          "name": ""
+        },
+        "referredByEntity": {
+          "type": "Template",
+          "entityRef": {
+            "accountIdentifier": "px7xd_BFRCi-pfWPYXVjvw",
+            "orgIdentifier": "default",
+            "projectIdentifier": "Samarth_testing",
+            "identifier": "stage_temp",
+            "versionLabel": "v34",
+            "repoIdentifier": null,
+            "branch": null,
+            "isDefault": true,
+            "scope": "project",
+            "default": true
+          },
+          "name": "stage temp"
+        },
+        "detail": null,
+        "createdAt": 1657699029313
+      },
+      {
+        "accountIdentifier": "px7xd_BFRCi-pfWPYXVjvw",
+        "referredEntity": {
+          "type": "Template",
+          "entityRef": {
+            "accountIdentifier": "px7xd_BFRCi-pfWPYXVjvw",
+            "orgIdentifier": "default",
+            "projectIdentifier": "Samarth_testing",
+            "identifier": "reference_step_template",
+            "versionLabel": "v3",
+            "repoIdentifier": null,
+            "branch": null,
+            "isDefault": true,
+            "scope": "project",
+            "default": true
+          },
+          "name": ""
+        },
+        "referredByEntity": {
+          "type": "Template",
+          "entityRef": {
+            "accountIdentifier": "px7xd_BFRCi-pfWPYXVjvw",
+            "orgIdentifier": "default",
+            "projectIdentifier": "Samarth_testing",
+            "identifier": "pipeline_temp_latest",
+            "versionLabel": "32",
+            "repoIdentifier": null,
+            "branch": null,
+            "isDefault": true,
+            "scope": "project",
+            "default": true
+          },
+          "name": "pipeline temp latest"
+        },
+        "detail": null,
+        "createdAt": 1657698990599
+      },
+      {
+        "accountIdentifier": "px7xd_BFRCi-pfWPYXVjvw",
+        "referredEntity": {
+          "type": "Template",
+          "entityRef": {
+            "accountIdentifier": "px7xd_BFRCi-pfWPYXVjvw",
+            "orgIdentifier": "default",
+            "projectIdentifier": "Samarth_testing",
+            "identifier": "reference_step_template",
+            "versionLabel": "v3",
+            "repoIdentifier": null,
+            "branch": null,
+            "isDefault": true,
+            "scope": "project",
+            "default": true
+          },
+          "name": ""
+        },
+        "referredByEntity": {
+          "type": "Pipelines",
+          "entityRef": {
+            "scope": "project",
+            "identifier": "original_pipeline",
+            "accountIdentifier": "px7xd_BFRCi-pfWPYXVjvw",
+            "orgIdentifier": "default",
+            "projectIdentifier": "Samarth_testing",
+            "metadata": {},
+            "repoIdentifier": null,
+            "branch": null,
+            "isDefault": true,
+            "fullyQualifiedScopeIdentifier": "px7xd_BFRCi-pfWPYXVjvw/default/Samarth_testing",
+            "default": true
+          },
+          "name": "original pipeline"
+        },
+        "detail": {
+          "type": "EntityReferredByPipelineSetupUsageDetail",
+          "identifier": "sdd",
+          "referenceType": "STAGE_IDENTIFIER"
+        },
+        "createdAt": 1657698870088
+      }
+    ],
+    "pageable": {
+      "sort": {
+        "sorted": true,
+        "unsorted": false,
+        "empty": false
+      },
+      "pageSize": 4,
+      "pageNumber": 0,
+      "offset": 0,
+      "paged": true,
+      "unpaged": false
+    },
+    "last": true,
+    "totalElements": 3,
+    "totalPages": 1,
+    "sort": {
+      "sorted": true,
+      "unsorted": false,
+      "empty": false
+    },
+    "first": true,
+    "number": 0,
+    "numberOfElements": 3,
+    "size": 4,
+    "empty": false
+  },
+  "metaData": null,
+  "correlationId": "411d10af-52ef-429c-bd3e-36c4f7715a94"
+}
