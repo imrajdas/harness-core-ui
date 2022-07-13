@@ -91,7 +91,14 @@ export const renderConnectorAndRepoName = ({
     <Container className={css.bottomMargin3}>
       <FormMultiTypeConnectorField
         name="connectorRef"
-        type={[Connectors.GIT, Connectors.GITHUB, Connectors.GITLAB, Connectors.BITBUCKET, Connectors.AWS_CODECOMMIT]}
+        type={[
+          Connectors.GIT,
+          Connectors.GITHUB,
+          Connectors.GITLAB,
+          Connectors.BITBUCKET,
+          Connectors.AWS_CODECOMMIT,
+          Connectors.AZURE_REPO
+        ]}
         label={getString('connector')}
         width={getConnectorWidth({ connectorWidth, connectorRef: values.connectorRef })}
         error={errors?.connectorRef}
