@@ -5,14 +5,11 @@
  * https://polyformproject.org/wp-content/uploads/2020/06/PolyForm-Shield-1.0.0.txt.
  */
 
-import { templatesListRoute, gitSyncEnabledCall } from '../../support/70-pipeline/constants'
+import { templatesListRoute, gitSyncEnabledCall, templatesListCall, templatesListCallWithListType, templateReferencesCall } from '../../support/70-pipeline/constants'
 
 describe('Template Reference By', () => {
 
-    const templatesListCall =
-        '/template/api/templates/list?routingId=accountId&accountIdentifier=accountId&projectIdentifier=project1&orgIdentifier=default&templateListType=LastUpdated&searchTerm=&page=0&sort=lastUpdatedAt%2CDESC&size=20'
-    const templateReferencesCall =
-        '/ng/api/entitySetupUsage/v2?routingId=accountId&accountIdentifier=accountId&referredEntityFQN=accountId%2Fdefault%2Fproject1%2FCypress_Template_Example_1%2FVersion1%2F&referredEntityType=Template&pageIndex=0&pageSize=4'
+
 
     beforeEach(() => {
         cy.on('uncaught:exception', () => {
@@ -22,7 +19,7 @@ describe('Template Reference By', () => {
         })
         cy.intercept('GET', gitSyncEnabledCall, { connectivityMode: null, gitSyncEnabled: false })
         cy.intercept('POST', templatesListCall, { fixture: 'template/api/templatesList' }).as('templatesListCall')
-        cy.intercept('POST', '/template/api/templates/list?routingId=accountId&accountIdentifier=px7xd_BFRCi-pfWPYXVjvw&orgIdentifier=default&projectIdentifier=Kapil&templateListType=All&module=cd', { fixture: 'template/api/templatesList' }).as('templatesListCallForDrawer')
+        cy.intercept('POST', templatesListCallWithListType, { fixture: 'template/api/templatesList' }).as('templatesListCallForDrawer')
         cy.initializeRoute()
         cy.visit(templatesListRoute, {
             timeout: 30000
