@@ -9,7 +9,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import cx from 'classnames'
 import { Card, Text, Tag, Icon, IconName } from '@wings-software/uicore'
-import { Color } from '@harness/design-system'
+import { Color, FontVariation } from '@harness/design-system'
 import css from './GlanceCard.module.scss'
 
 export interface GlanceCardProps {
@@ -43,7 +43,7 @@ const GlanceCard: React.FC<GlanceCardProps> = ({
       <Icon name={iconName} color={styling ? Color.PRIMARY_7 : Color.GREY_600} className={css.icon} size={iconSize} />
       <Text
         color={styling ? Color.PRIMARY_9 : Color.BLACK}
-        font={{ size: 'large', weight: 'bold' }}
+        font={{ variation: FontVariation.H3 }}
         className={cx(css.lineClamp, css.lineHeight, { [css.title]: styling })}
         lineClamp={number && number > 999 ? 1 : undefined}
       >

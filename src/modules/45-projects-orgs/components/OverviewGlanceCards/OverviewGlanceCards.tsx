@@ -56,13 +56,14 @@ const getDataForCard = (
       glanceCardData = {
         title: projectsTitleId,
         iconName: 'nav-project',
-        iconSize: 16
+        iconSize: 20
       }
       break
     case OverviewGalanceCard.SERVICES:
       glanceCardData = {
         title: serviceTitleId,
-        iconName: 'services'
+        iconName: 'services',
+        iconSize: 22
       }
       break
     case OverviewGalanceCard.ENV:
@@ -74,8 +75,7 @@ const getDataForCard = (
     case OverviewGalanceCard.PIPELINES:
       glanceCardData = {
         title: pipelineTitleId,
-        iconName: 'pipeline',
-        iconSize: 38
+        iconName: 'pipeline'
       }
   }
   glanceCardData.number = countDetails.count
@@ -94,7 +94,7 @@ const RenderGlanceCard: React.FC<RenderGlanceCardProps> = props => {
       <Icon name="spinner" size={24} color={Color.PRIMARY_7} />
     </Card>
   ) : (
-    <GlanceCard {...data} styling={data.title === projectsTitleId} title={getString(data.title)} />
+    <GlanceCard {...data} styling={false} title={getString(data.title)} />
   )
 }
 

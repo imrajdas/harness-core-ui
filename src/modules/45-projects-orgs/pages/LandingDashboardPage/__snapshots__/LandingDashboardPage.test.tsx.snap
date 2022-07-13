@@ -191,16 +191,16 @@ exports[`Landing Dashboard Page render landing page and welcome page by swtich 1
               class="Layout--vertical Layout--layout-spacing-large StyledProps--main"
             >
               <div
-                class="bp3-card bp3-elevation-0 Card--card card styledCard"
+                class="bp3-card bp3-elevation-0 Card--card card"
               >
                 <span
-                  class="bp3-icon StyledProps--main icon StyledProps--color StyledProps--color-primary7"
+                  class="bp3-icon StyledProps--main icon StyledProps--color StyledProps--color-grey600"
                   data-icon="nav-project"
                 >
                   <svg
-                    height="16"
+                    height="20"
                     viewBox="0 0 16 16"
-                    width="16"
+                    width="20"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
@@ -212,12 +212,12 @@ exports[`Landing Dashboard Page render landing page and welcome page by swtich 1
                   </svg>
                 </span>
                 <p
-                  class="StyledProps--font StyledProps--main lineClamp lineHeight title StyledProps--color StyledProps--color-primary9 StyledProps--font-size-large StyledProps--font-weight-bold"
+                  class="StyledProps--font StyledProps--main lineClamp lineHeight StyledProps--color StyledProps--color-black StyledProps--font-variation-h3"
                 >
                   145
                 </p>
                 <p
-                  class="StyledProps--font Text--lineclamp StyledProps--main lineClamp StyledProps--color StyledProps--color-black StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--margin-top-small"
+                  class="StyledProps--font Text--lineclamp StyledProps--main lineClamp StyledProps--color StyledProps--color-grey600 StyledProps--font-size-small StyledProps--font-weight-semi-bold StyledProps--margin-top-small"
                   style="--text-line-clamp: 1;"
                 >
                   projectsText
@@ -226,7 +226,7 @@ exports[`Landing Dashboard Page render landing page and welcome page by swtich 1
                   class="Tag--main"
                 >
                   <span
-                    class="bp3-tag tagClassName whiteTag"
+                    class="bp3-tag tagClassName"
                   >
                     <span
                       class="bp3-text-overflow-ellipsis bp3-fill"
@@ -244,27 +244,22 @@ exports[`Landing Dashboard Page render landing page and welcome page by swtich 1
                   data-icon="infrastructure"
                 >
                   <svg
+                    fill="currentColor"
                     height="24"
-                    viewBox="0 0 16 16"
+                    viewBox="0 0 24 24"
                     width="24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       clip-rule="evenodd"
-                      d="M12.543 5.377L8 2.755 3.458 5.377v5.246L8 13.245l4.543-2.622V5.377zM8.5 1.89a1 1 0 00-1 0L2.958 4.51a1 1 0 00-.5.866v5.246a1 1 0 00.5.866L7.5 14.11a1 1 0 001 0l4.543-2.622a1 1 0 00.5-.866V5.377a1 1 0 00-.5-.866L8.5 1.89z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M10.233 6.71L8 5.422l-2.233 1.29V9.29L8 10.58l2.233-1.29V6.711zM8.5 4.556a1 1 0 00-1 0l-2.233 1.29a1 1 0 00-.5.866V9.29a1 1 0 00.5.866l2.233 1.29a1 1 0 001 0l2.233-1.29a1 1 0 00.5-.866V6.711a1 1 0 00-.5-.866L8.5 4.555z"
-                      fill="currentColor"
+                      d="M11.15 10.822l2.091-3.623-2.091-3.624H6.966L4.874 7.2l2.092 3.623h4.184zm2.944-4.106l-.004-.007-2.092-3.623a.98.98 0 00-.848-.49H6.966a.98.98 0 00-.848.49L4.026 6.709a.98.98 0 000 .98l2.092 3.623.007.012-.007.013-2.092 3.623a.98.98 0 000 .98l2.092 3.623a.98.98 0 00.848.49h4.184a.98.98 0 00.848-.49l2.092-3.623.01-.018h4.194a.98.98 0 00.849-.49l2.091-3.623a.98.98 0 000-.98l-2.091-3.623a.98.98 0 00-.849-.49h-4.2zM11.15 19.073l2.091-3.623-2.091-3.623H6.966L4.874 15.45l2.092 3.623h4.184zm9.236-7.754l-2.092 3.623h-4.183l-2.092-3.623 2.092-3.623h4.183l2.092 3.623z"
+                      fill="#4F5162"
                       fill-rule="evenodd"
                     />
                   </svg>
                 </span>
                 <p
-                  class="StyledProps--font StyledProps--main lineClamp lineHeight StyledProps--color StyledProps--color-black StyledProps--font-size-large StyledProps--font-weight-bold"
+                  class="StyledProps--font StyledProps--main lineClamp lineHeight StyledProps--color StyledProps--color-black StyledProps--font-variation-h3"
                 >
                   11
                 </p>
@@ -287,21 +282,22 @@ exports[`Landing Dashboard Page render landing page and welcome page by swtich 1
                   data-icon="services"
                 >
                   <svg
-                    height="24"
-                    viewBox="0 0 16 16"
-                    width="24"
+                    fill="currentColor"
+                    height="22"
+                    viewBox="0 0 25 24"
+                    width="22"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
                       clip-rule="evenodd"
-                      d="M6.74 2.098a.6.6 0 01.6-.6h1.2a.6.6 0 01.6.6v1.4a4.57 4.57 0 011.083.448l.996-.993a.6.6 0 01.847 0l.85.847a.6.6 0 010 .85l-.993.99c.191.333.342.692.445 1.071h1.408a.6.6 0 01.6.6v1.2a.6.6 0 01-.6.6h-1.408a4.54 4.54 0 01-.447 1.073l.994.99a.6.6 0 010 .85l-.85.846a.6.6 0 01-.848 0l-.996-.992a4.574 4.574 0 01-1.08.445v1.401a.6.6 0 01-.6.6h-1.2a.6.6 0 01-.6-.6v-1.4a4.573 4.573 0 01-1.082-.447l-.996.992a.6.6 0 01-.847 0l-.85-.846a.6.6 0 010-.85l.993-.99a4.536 4.536 0 01-.447-1.072H2.106a.6.6 0 01-.6-.6v-1.2a.6.6 0 01.6-.6h1.406a4.52 4.52 0 01.446-1.072l-.993-.989a.6.6 0 010-.85l.85-.847a.6.6 0 01.847 0l.996.992c.336-.192.7-.343 1.083-.446V2.098zm.8.2v1.353a.607.607 0 01-.47.59c-.402.094-.78.252-1.122.462a.607.607 0 01-.747-.084L4.24 3.66l-.567.565.96.956a.607.607 0 01.084.75c-.21.339-.368.713-.463 1.111a.607.607 0 01-.588.47h-1.36v.8h1.36c.29 0 .526.204.588.468.095.399.253.773.463 1.112a.607.607 0 01-.084.75l-.96.955.567.565.963-.959a.607.607 0 01.747-.084c.341.21.719.369 1.121.463.265.061.47.297.47.589v1.353h.8v-1.353a.61.61 0 01.47-.59 3.773 3.773 0 001.121-.462.607.607 0 01.747.085l.963.959.567-.565-.96-.955a.607.607 0 01-.084-.75c.21-.34.369-.714.463-1.113a.607.607 0 01.59-.469h1.359v-.8h-1.36a.607.607 0 01-.589-.469 3.735 3.735 0 00-.462-1.11.607.607 0 01.085-.75l.96-.957-.567-.564-.963.959a.607.607 0 01-.747.084A3.773 3.773 0 008.81 4.24a.607.607 0 01-.47-.59V2.298h-.8zM8.016 6.1a1.9 1.9 0 100 3.8 1.9 1.9 0 000-3.8zM5.315 8a2.7 2.7 0 115.4 0 2.7 2.7 0 01-5.4 0z"
-                      fill="currentColor"
+                      d="M10.52 2.991a1 1 0 011-1h2a1 1 0 011 1v1.241l.003.004c.004.005.011.01.022.013a7.953 7.953 0 012.019.837c.01.006.018.007.024.006h.005l.878-.879a1 1 0 011.414 0L20.3 5.627a1 1 0 010 1.415l-.879.878v.002l-.001.003c0 .006 0 .015.006.024.366.624.65 1.301.836 2.018.003.01.009.018.014.022a.015.015 0 00.003.002h1.242a1 1 0 011 1v2a1 1 0 01-1 1h-1.242l-.003.003a.042.042 0 00-.014.022 7.954 7.954 0 01-.838 2.02.041.041 0 00-.006.025v.004l.878.878a1 1 0 010 1.414l-1.414 1.414a1 1 0 01-1.414 0l-.879-.878h-.001l-.003-.001c-.006 0-.015 0-.025.006-.622.365-1.3.648-2.015.835a.043.043 0 00-.022.013l-.003.004v1.241a1 1 0 01-1 1h-2a1 1 0 01-1-1V19.75l-.002-.004a.042.042 0 00-.022-.013 7.956 7.956 0 01-2.017-.837.041.041 0 00-.025-.006l-.004.001-.878.879a1 1 0 01-1.415 0l-1.414-1.415a1 1 0 010-1.414l.878-.878.001-.004c0-.006 0-.016-.006-.025a7.955 7.955 0 01-.837-2.018.042.042 0 00-.013-.022.012.012 0 00-.004-.003H3.521a1 1 0 01-1-1v-2a1 1 0 011-1h1.241l.004-.002a.042.042 0 00.013-.022c.187-.717.47-1.394.836-2.018a.041.041 0 00.006-.024V7.92l-.88-.879a1 1 0 010-1.414l1.415-1.414a1 1 0 011.414 0l.878.879h.005c.006.001.015 0 .025-.005a7.955 7.955 0 012.018-.837.042.042 0 00.022-.014.015.015 0 00.002-.004v-1.24zm3 0h-2v1.241c0 .482-.337.872-.771.985a6.955 6.955 0 00-1.765.732c-.388.227-.902.19-1.243-.15l-.878-.879-1.414 1.414.879.88c.34.34.377.854.15 1.241a6.955 6.955 0 00-.731 1.764 1.024 1.024 0 01-.985.772H3.521v2h1.241c.482 0 .872.338.985.772a6.93 6.93 0 00.732 1.765c.227.387.19.902-.15 1.242l-.879.878 1.415 1.414.878-.878c.34-.34.855-.377 1.242-.15.545.32 1.137.568 1.764.731.434.113.771.503.771.985v1.241h2V19.75c0-.482.338-.872.772-.985a6.958 6.958 0 001.763-.73c.387-.227.901-.19 1.242.15l.878.88 1.414-1.415-.877-.877a1.024 1.024 0 01-.15-1.243c.32-.546.569-1.14.733-1.767.113-.434.503-.772.984-.772h1.242v-2h-1.242c-.481 0-.871-.337-.984-.772a6.952 6.952 0 00-.732-1.764 1.024 1.024 0 01.15-1.242l.88-.879-1.415-1.414-.878.879c-.34.34-.855.377-1.242.15a6.956 6.956 0 00-1.766-.732 1.024 1.024 0 01-.772-.985v-1.24zM12.477 7.53c-2.487 0-4.5 2.008-4.5 4.48 0 2.472 2.013 4.48 4.5 4.48 2.488 0 4.501-2.008 4.501-4.48 0-2.472-2.013-4.48-4.5-4.48zm-5.5 4.48c0-3.028 2.464-5.48 5.5-5.48 3.037 0 5.501 2.452 5.501 5.48 0 3.029-2.465 5.48-5.5 5.48-3.037 0-5.502-2.451-5.502-5.48z"
+                      fill="#4F5162"
                       fill-rule="evenodd"
                     />
                   </svg>
                 </span>
                 <p
-                  class="StyledProps--font StyledProps--main lineClamp lineHeight StyledProps--color StyledProps--color-black StyledProps--font-size-large StyledProps--font-weight-bold"
+                  class="StyledProps--font StyledProps--main lineClamp lineHeight StyledProps--color StyledProps--color-black StyledProps--font-variation-h3"
                 >
                   11
                 </p>
@@ -320,20 +316,22 @@ exports[`Landing Dashboard Page render landing page and welcome page by swtich 1
                   data-icon="pipeline"
                 >
                   <svg
-                    height="38"
-                    viewBox="0 0 38 16"
-                    width="38"
+                    fill="currentColor"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M23.71.966a1 1 0 01.068.067L26.475 4H30V3a1 1 0 011-1h6a1 1 0 011 1v3a1 1 0 01-1 1h-6a1 1 0 01-1-1V5h-3.31l-2.912 3.203a1 1 0 01-1.48 0L19.384 5H18v1a1 1 0 01-1 1h-6a1 1 0 01-1-1V5H8v1a1 1 0 01-1 1H1a1 1 0 01-1-1V3a1 1 0 011-1h6a1 1 0 011 1v1h2V3a1 1 0 011-1h6a1 1 0 011 1v1h1.599l2.699-2.967A1 1 0 0123.71.966zm.04 1.31a1 1 0 00-1.414 0l-1.768 1.767a1 1 0 000 1.414l1.768 1.768a1 1 0 001.414 0l1.768-1.768a1 1 0 000-1.414zM6 3H2a1 1 0 00-1 1v1a1 1 0 001 1h4a1 1 0 001-1V4a1 1 0 00-1-1zm10 0h-4a1 1 0 00-1 1v1a1 1 0 001 1h4a1 1 0 001-1V4a1 1 0 00-1-1zm20 0h-4a1 1 0 00-1 1v1a1 1 0 001 1h4a1 1 0 001-1V4a1 1 0 00-1-1zm-19 8a1 1 0 011 1v3a1 1 0 01-1 1h-6a1 1 0 01-1-1v-3a1 1 0 011-1h6zm-1 1h-4a1 1 0 00-1 1v1a1 1 0 001 1h4a1 1 0 001-1v-1a1 1 0 00-1-1z"
-                      fill="#25A6F7"
+                      clip-rule="evenodd"
+                      d="M9.86 9.78c.043.074.096.143.16.207l1.414 1.414a.999.999 0 00.208.16v2.445h-1.5a1 1 0 00-1 1v.5H5.5v-4.448H7a1 1 0 001-1V9.78h1.86zm-.719 6.726h-3.64a1 1 0 01-1-1v-4.448H3a1 1 0 01-1-1v-2a1 1 0 011-1h4.002a1 1 0 011 1v.722H9.86a.982.982 0 01.16-.207l1.414-1.414a1 1 0 011.415 0l1.414 1.414c.063.063.116.133.16.207h1.575v-.786a1 1 0 011-1H21a1 1 0 011 1v2a1 1 0 01-1 1h-4.002a1 1 0 01-1-1V9.78h-1.576a1.002 1.002 0 01-.159.207L12.848 11.4a1.004 1.004 0 01-.206.159v2.446h1.5a1 1 0 011 1v2a1 1 0 01-1 1h-4a1 1 0 01-1-1v-.5zm4.415-7.226l-1.415 1.414-1.414-1.414 1.414-1.414 1.415 1.414zM7.002 8.058H3v2h4.002v-2zM21 7.994h-4.002v2H21v-2zm-10.859 7.012h4.002v2H10.14v-2z"
+                      fill="#4F5162"
                       fill-rule="evenodd"
                     />
                   </svg>
                 </span>
                 <p
-                  class="StyledProps--font StyledProps--main lineClamp lineHeight StyledProps--color StyledProps--color-black StyledProps--font-size-large StyledProps--font-weight-bold"
+                  class="StyledProps--font StyledProps--main lineClamp lineHeight StyledProps--color StyledProps--color-black StyledProps--font-variation-h3"
                 >
                   13
                 </p>
