@@ -148,17 +148,26 @@ exports[`FeatureFlagsDetailPage FeatureFlagsDetailPage should render data correc
                   data-icon="Options"
                 >
                   <svg
-                    fill="none"
+                    fill="currentColor"
                     height="16"
                     viewBox="0 0 4 16"
                     width="16"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path
-                      clip-rule="evenodd"
-                      d="M2 12.5a1 1 0 100 2 1 1 0 000-2zm-2 1a2 2 0 114 0 2 2 0 01-4 0zm2-12a1 1 0 100 2 1 1 0 000-2zm-2 1a2 2 0 114 0 2 2 0 01-4 0zM2 7a1 1 0 100 2 1 1 0 000-2zM0 8a2 2 0 114 0 2 2 0 01-4 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
+                    <circle
+                      cx="2"
+                      cy="2"
+                      r="1.5"
+                    />
+                    <circle
+                      cx="2"
+                      cy="8"
+                      r="1.5"
+                    />
+                    <circle
+                      cx="2"
+                      cy="14"
+                      r="1.5"
                     />
                   </svg>
                 </span>
@@ -367,27 +376,21 @@ exports[`FeatureFlagsDetailPage FeatureFlagsDetailPage should render data correc
                 type="button"
               >
                 <span
-                  class="bp3-icon StyledProps--main"
-                  data-icon="Edit"
+                  class="bp3-icon bp3-icon-edit StyledProps--main"
+                  icon="edit"
                 >
                   <svg
+                    data-icon="edit"
                     height="16"
                     viewBox="0 0 16 16"
                     width="16"
-                    xmlns="http://www.w3.org/2000/svg"
                   >
+                    <desc>
+                      edit
+                    </desc>
                     <path
-                      clip-rule="evenodd"
-                      d="M11.207.485a.5.5 0 01.354-.146 3.5 3.5 0 013.5 3.5.5.5 0 01-.146.353l-11 11a.5.5 0 01-.354.147h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.146-.354l11-11zm.553.862L1.061 12.046v2.293h2.293l10.7-10.7a2.5 2.5 0 00-2.294-2.292z"
-                      fill="currentColor"
+                      d="M3.25 10.26l2.47 2.47 6.69-6.69-2.46-2.48-6.7 6.7zM.99 14.99l3.86-1.39-2.46-2.44-1.4 3.83zm12.25-14c-.48 0-.92.2-1.24.51l-1.44 1.44 2.47 2.47 1.44-1.44c.32-.32.51-.75.51-1.24.01-.95-.77-1.74-1.74-1.74z"
                       fill-rule="evenodd"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M11.89 2.646a.5.5 0 010 .708L8.353 6.889a.5.5 0 01-.708-.707l3.536-3.536a.5.5 0 01.707 0z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      opacity="0.3"
                     />
                   </svg>
                 </span>
