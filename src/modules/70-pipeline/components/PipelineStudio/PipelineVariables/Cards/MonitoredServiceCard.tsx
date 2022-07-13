@@ -105,7 +105,6 @@ export default function MonitoredServiceCard(props: MonitoredServiceCardProps): 
             collapseProps={{
               keepChildrenMounted: true
             }}
-            summaryClassName={css.variableBorderBottom}
             details={
               <StepWidget<CustomVariablesData, CustomVariableEditableExtraProps>
                 factory={stepsFactory}

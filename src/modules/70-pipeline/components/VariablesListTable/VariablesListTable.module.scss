@@ -75,31 +75,6 @@
   }
 }
 
-.variable-border-bottom {
-  position: relative;
-  height: 32px;
-  &:before {
-    position: absolute;
-    width: 100%;
-    bottom: -1px;
-    content: '';
-    border-bottom: solid 1px;
-    border-color: var(--grey-200);
-    height: 1px;
-    left: 100%;
-  }
-  &:after {
-    position: absolute;
-    width: 100%;
-    bottom: -1px;
-    content: '';
-    border-bottom: solid 1px;
-    border-color: var(--grey-200);
-    height: 1px;
-    right: 0;
-  }
-}
-
 .copyOptionTextInput {
   :global {
     .bp3-input {

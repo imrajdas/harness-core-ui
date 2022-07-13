@@ -74,7 +74,6 @@ export default function PipelineCard(props: PipelineCardProps): React.ReactEleme
             </Text>
           </VariableAccordionSummary>
         }
-        summaryClassName={css.variableBorderBottom}
         details={
           <StepWidget<CustomVariablesData, CustomVariableEditableExtraProps>
             factory={stepsFactory}

@@ -1322,7 +1322,7 @@ exports[`StepWidget tests variablesForm 1`] = `
     id="undefined.Artifacts-panel"
   >
     <div
-      class="Accordion--summary variableBorderBottom accordianSummaryL3"
+      class="Accordion--summary accordianSummaryL3"
       data-testid="undefined.Artifacts-summary"
     >
       <div
@@ -1419,7 +1419,7 @@ exports[`StepWidget tests variablesForm 1`] = `
     id="undefined.Manifests-panel"
   >
     <div
-      class="Accordion--summary variableBorderBottom accordianSummaryL3"
+      class="Accordion--summary accordianSummaryL3"
       data-testid="undefined.Manifests-summary"
     >
       <div
@@ -1516,7 +1516,7 @@ exports[`StepWidget tests variablesForm 1`] = `
     id="undefined.Variables-panel"
   >
     <div
-      class="Accordion--summary variableBorderBottom accordianSummaryL2"
+      class="Accordion--summary accordianSummaryL2"
       data-testid="undefined.Variables-summary"
     >
       <div

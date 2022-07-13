@@ -451,7 +451,7 @@ exports[`<PipelineVariables /> tests snapshot test 1`] = `
                     id="pipeline.variables-panel"
                   >
                     <div
-                      class="Accordion--summary variableBorderBottom"
+                      class="Accordion--summary"
                       data-testid="pipeline.variables-summary"
                     >
                       <div
@@ -1062,7 +1062,7 @@ exports[`<PipelineVariables /> tests snapshot test 1`] = `
                             id="pipeline.stage_1.variables-panel"
                           >
                             <div
-                              class="Accordion--summary variableBorderBottom"
+                              class="Accordion--summary"
                               data-testid="pipeline.stage_1.variables-summary"
                             >
                               <div
@@ -1866,7 +1866,7 @@ exports[`<PipelineVariables /> tests snapshot test 1`] = `
                             id="pipeline.stage_1.Execution-panel"
                           >
                             <div
-                              class="Accordion--summary variableBorderBottom accordianSummaryL1"
+                              class="Accordion--summary accordianSummaryL1"
                               data-testid="pipeline.stage_1.Execution-summary"
                             >
                               <div
@@ -2683,7 +2683,7 @@ exports[`<PipelineVariables /> tests snapshot test 1`] = `
                             id="pipeline.stage_2.variables-panel"
                           >
                             <div
-                              class="Accordion--summary variableBorderBottom"
+                              class="Accordion--summary"
                               data-testid="pipeline.stage_2.variables-summary"
                             >
                               <div
@@ -3165,7 +3165,7 @@ exports[`<PipelineVariables /> tests snapshot test 1`] = `
                             id="pipeline.stage_2.Execution-panel"
                           >
                             <div
-                              class="Accordion--summary variableBorderBottom accordianSummaryL1"
+                              class="Accordion--summary accordianSummaryL1"
                               data-testid="pipeline.stage_2.Execution-summary"
                             >
                               <div
@@ -3563,7 +3563,7 @@ exports[`<PipelineVariables /> tests snapshot test 1`] = `
                             id="pipeline.parallel_stage_.variables-panel"
                           >
                             <div
-                              class="Accordion--summary variableBorderBottom"
+                              class="Accordion--summary"
                               data-testid="pipeline.parallel_stage_.variables-summary"
                             >
                               <div
@@ -4045,7 +4045,7 @@ exports[`<PipelineVariables /> tests snapshot test 1`] = `
                             id="pipeline.parallel_stage_.Execution-panel"
                           >
                             <div
-                              class="Accordion--summary variableBorderBottom accordianSummaryL1"
+                              class="Accordion--summary accordianSummaryL1"
                               data-testid="pipeline.parallel_stage_.Execution-summary"
                             >
                               <div
@@ -4443,7 +4443,7 @@ exports[`<PipelineVariables /> tests snapshot test 1`] = `
                             id="pipeline.parallel_stage_2.variables-panel"
                           >
                             <div
-                              class="Accordion--summary variableBorderBottom"
+                              class="Accordion--summary"
                               data-testid="pipeline.parallel_stage_2.variables-summary"
                             >
                               <div
@@ -4925,7 +4925,7 @@ exports[`<PipelineVariables /> tests snapshot test 1`] = `
                             id="pipeline.parallel_stage_2.Execution-panel"
                           >
                             <div
-                              class="Accordion--summary variableBorderBottom accordianSummaryL1"
+                              class="Accordion--summary accordianSummaryL1"
                               data-testid="pipeline.parallel_stage_2.Execution-summary"
                             >
                               <div

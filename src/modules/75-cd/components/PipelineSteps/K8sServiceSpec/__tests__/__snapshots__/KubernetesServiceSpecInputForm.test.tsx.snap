@@ -3124,7 +3124,7 @@ exports[`INPUT VARIABLE VIEW renders the input variable view: input variabe mode
     id="undefined.Variables-panel"
   >
     <div
-      class="Accordion--summary variableBorderBottom accordianSummaryL2"
+      class="Accordion--summary accordianSummaryL2"
       data-testid="undefined.Variables-summary"
     >
       <div

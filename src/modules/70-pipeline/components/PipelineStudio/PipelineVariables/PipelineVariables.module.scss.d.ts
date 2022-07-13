@@ -43,7 +43,6 @@ declare const styles: {
   readonly stagesTree: string
   readonly tagSection: string
   readonly title: string
-  readonly variableBorderBottom: string
   readonly variableCard: string
   readonly variableList: string
   readonly variableListHeader: string

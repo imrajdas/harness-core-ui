@@ -154,7 +154,6 @@ export default function StageCard(props: StageCardProps): React.ReactElement {
             collapseProps={{
               keepChildrenMounted: true
             }}
-            summaryClassName={css.variableBorderBottom}
             details={
               <StepWidget<CustomVariablesData, CustomVariableEditableExtraProps>
                 factory={stepsFactory}

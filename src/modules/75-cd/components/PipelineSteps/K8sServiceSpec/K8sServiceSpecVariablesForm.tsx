@@ -70,7 +70,7 @@ export function K8sServiceSpecVariablesForm(props: K8sServiceSpecVariablesFormPr
               </Text>
             </VariableAccordionSummary>
           }
-          summaryClassName={cx(css.variableBorderBottom, pipelineVariableCss.accordianSummaryL3)}
+          summaryClassName={pipelineVariableCss.accordianSummaryL3}
           details={
             variablesData?.artifacts && (
               <>
@@ -87,7 +87,7 @@ export function K8sServiceSpecVariablesForm(props: K8sServiceSpecVariablesFormPr
                       </Text>
                     </VariableAccordionSummary>
                   }
-                  summaryClassName={cx(css.variableBorderBottom, pipelineVariableCss.accordianSummaryL3)}
+                  summaryClassName={pipelineVariableCss.accordianSummaryL3}
                   details={
                     <VariablesListTable
                       className={pipelineVariableCss.variablePaddingL3}
@@ -112,7 +112,7 @@ export function K8sServiceSpecVariablesForm(props: K8sServiceSpecVariablesFormPr
                           </Text>
                         </VariableAccordionSummary>
                       }
-                      summaryClassName={cx(css.variableBorderBottom, pipelineVariableCss.accordianSummaryL3)}
+                      summaryClassName={pipelineVariableCss.accordianSummaryL3}
                       details={
                         Array.isArray(sidecarArtifactVariables) &&
                         sidecarArtifactVariables.map(({ sidecar }, index) => {
@@ -148,7 +148,7 @@ export function K8sServiceSpecVariablesForm(props: K8sServiceSpecVariablesFormPr
               </Text>
             </VariableAccordionSummary>
           }
-          summaryClassName={cx(css.variableBorderBottom, pipelineVariableCss.accordianSummaryL3)}
+          summaryClassName={pipelineVariableCss.accordianSummaryL3}
           details={
             !!manifestsVariables?.length && (
               <>
@@ -178,7 +178,7 @@ export function K8sServiceSpecVariablesForm(props: K8sServiceSpecVariablesFormPr
             </Text>
           </VariableAccordionSummary>
         }
-        summaryClassName={cx(css.variableBorderBottom, pipelineVariableCss.accordianSummaryL2)}
+        summaryClassName={pipelineVariableCss.accordianSummaryL2}
         details={
           <StepWidget<CustomVariablesData, CustomVariableEditableExtraProps>
             factory={stepsFactory}

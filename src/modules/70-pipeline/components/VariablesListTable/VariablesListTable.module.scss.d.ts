@@ -16,7 +16,6 @@ declare const styles: {
   readonly selectedSearchText: string
   readonly tagsValueSection: string
   readonly valueSection: string
-  readonly variableBorderBottom: string
   readonly variableListRow: string
   readonly variableListRowItem: string
   readonly variablesListTable: string

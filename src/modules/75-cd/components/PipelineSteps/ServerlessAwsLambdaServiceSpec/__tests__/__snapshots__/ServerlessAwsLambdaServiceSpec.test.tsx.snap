@@ -148,7 +148,7 @@ exports[`ServerlessAwsLambdaServiceSpec tests When stepViewType is InputVariable
     id="undefined.Variables-panel"
   >
     <div
-      class="Accordion--summary variableBorderBottom accordianSummaryL2"
+      class="Accordion--summary accordianSummaryL2"
       data-testid="undefined.Variables-summary"
     >
       <div

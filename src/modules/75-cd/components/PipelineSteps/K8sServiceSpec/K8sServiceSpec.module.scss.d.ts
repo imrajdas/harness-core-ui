@@ -38,7 +38,6 @@ declare const styles: {
   readonly subheading: string
   readonly tabHeading: string
   readonly tabSubHeading: string
-  readonly variableBorderBottom: string
   readonly verticalSpacingInput: string
   readonly width25: string
   readonly width400: string

@@ -222,29 +222,6 @@
 .nopadleft {
   padding-left: 0;
 }
-.variable-border-bottom {
-  position: relative;
-  &:before {
-    position: absolute;
-    width: 100%;
-    bottom: -1px;
-    content: '';
-    border-bottom: solid 1px;
-    border-color: var(--grey-200);
-    height: 1px;
-    left: 100%;
-  }
-  &:after {
-    position: absolute;
-    width: 100%;
-    bottom: -1px;
-    content: '';
-    border-bottom: solid 1px;
-    border-color: var(--grey-200);
-    height: 1px;
-    right: 100%;
-  }
-}
 
 .margin-indent-xlarge {
   margin-left: var(--spacing-xlarge);
