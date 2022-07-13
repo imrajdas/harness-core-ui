@@ -137,7 +137,7 @@ const SelectRepositoryRef = (
       return (
         <Layout.Horizontal flex={{ justifyContent: 'flex-start' }} spacing="small" padding={{ top: 'large' }}>
           <Icon name="steps-spinner" color="primary7" size={25} />
-          <Text font={{ variation: FontVariation.H6 }}>{getString('cd.getStarted.fetchingRepos')}</Text>
+          <Text font={{ variation: FontVariation.H6 }}>{getString('common.getStarted.fetchingRepos')}</Text>
         </Layout.Horizontal>
       )
     }
@@ -155,11 +155,11 @@ const SelectRepositoryRef = (
 
   return (
     <Layout.Vertical spacing="small">
-      <Text font={{ variation: FontVariation.BODY2 }}>{getString('cd.getStarted.codebaseHelptext')}</Text>
+      <Text font={{ variation: FontVariation.BODY2 }}>{getString('common.getStarted.codebaseHelptext')}</Text>
       <Container padding={{ top: 'small' }} className={cx(css.repositories)}>
         <TextInput
           leftIcon="search"
-          placeholder={getString('cd.getStarted.searchRepo')}
+          placeholder={getString('common.getStarted.searchRepo')}
           className={css.repositorySearch}
           leftIconProps={{ name: 'search', size: 18, padding: 'xsmall' }}
           onChange={e => {
@@ -172,7 +172,7 @@ const SelectRepositoryRef = (
           <Container padding={{ top: 'xsmall' }}>
             <FormError
               name={'repository'}
-              errorMessage={getString('cd.getStarted.plsChoose', {
+              errorMessage={getString('common.getStarted.plsChoose', {
                 field: `a ${getString('repository').toLowerCase()}`
               })}
             />

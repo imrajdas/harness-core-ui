@@ -24,7 +24,7 @@ const renderComponent = () => {
         module: 'cd'
       }}
     >
-      <SelectWorkload enableNextBtn={jest.fn()} disableNextBtn={jest.fn()} />
+      <SelectWorkload enableNextBtn={jest.fn()} disableNextBtn={jest.fn()} onSuccess={jest.fn()} />
     </TestWrapper>
   )
 }

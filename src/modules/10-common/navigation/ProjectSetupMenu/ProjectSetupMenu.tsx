@@ -10,11 +10,11 @@ import { Layout } from '@wings-software/uicore'
 import { useParams } from 'react-router-dom'
 import routes from '@common/RouteDefinitions'
 import { useFeatureFlags } from '@common/hooks/useFeatureFlag'
-import { useHostedBuilds } from '@common/hooks/useHostedBuild'
+// import { useHostedBuilds } from '@common/hooks/useHostedBuild'
 import type { GovernancePathProps, Module, PipelineType, ProjectPathProps } from '@common/interfaces/RouteInterfaces'
 import { useStrings } from 'framework/strings'
 import { useAnyEnterpriseLicense } from '@common/hooks/useModuleLicenses'
-import { useSideNavContext } from 'framework/SideNavStore/SideNavContext'
+// import { useSideNavContext } from 'framework/SideNavStore/SideNavContext'
 import { SidebarLink } from '../SideNav/SideNav'
 import NavExpandable from '../NavExpandable/NavExpandable'
 
@@ -27,8 +27,8 @@ const ProjectSetupMenu: React.FC<ProjectSetupMenuProps> = ({ module }) => {
   const { accountId, orgIdentifier, projectIdentifier } = useParams<PipelineType<ProjectPathProps>>()
   const { NG_TEMPLATES, OPA_PIPELINE_GOVERNANCE, NG_VARIABLES, CVNG_TEMPLATE_MONITORED_SERVICE, NG_FILE_STORE } =
     useFeatureFlags()
-  const { showGetStartedTabInMainMenu } = useSideNavContext()
-  const { enabledHostedBuildsForFreeUsers } = useHostedBuilds()
+  // const { showGetStartedTabInMainMenu } = useSideNavContext()
+  // const { enabledHostedBuildsForFreeUsers } = useHostedBuilds()
   const params = { accountId, orgIdentifier, projectIdentifier, module }
   const isCIorCDorSTO = module === 'ci' || module === 'cd' || module === 'sto'
   const isCIorCD = module === 'ci' || module === 'cd'

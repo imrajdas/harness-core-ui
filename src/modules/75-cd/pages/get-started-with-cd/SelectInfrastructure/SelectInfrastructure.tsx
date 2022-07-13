@@ -363,7 +363,7 @@ const SelectInfrastructureRef = (
                   <FormError
                     className={defaultCss.marginTop}
                     name={'infraType'}
-                    errorMessage={getString('cd.getStarted.plsChoose', {
+                    errorMessage={getString('common.getStarted.plsChoose', {
                       field: `${getString('infrastructureText')}`
                     })}
                   />

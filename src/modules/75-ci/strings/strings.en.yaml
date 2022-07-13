@@ -170,25 +170,14 @@ getStartedWithCI:
   onCloudLabel: on Cloud
   onPremLabel: On-prem
   codeRepo: Which code repository do you use?
-  authMethod: Select your Authentication method
-  accessTokenLabel: Access Token
-  codeRepoLabel: Code repository
   authMethodLabel: Authentication method
   createPipeline: Create Pipeline
-  gitProviderURLs:
-    github: 'https://github.com/account/'
-    gitlab: 'https://gitlab.com/account/'
-    bitbucket: 'https://bitbucket.org/'
-  codebaseHelptext: Harness will clone your codebase to your build infrastructure at Pipeline runtime.
-  searchRepo: Search Repository
-  learnMoreAboutPermissions: Learn more about the required permissions
-  verifyConnection: Verify connection before you can continue
-  appPassword: Application Password
-  apiUrlLabel: API URL
   provisioningSuccessful: Provisioning successful
   provisioningFailed: Provisioning failed
   setUpAuth: Set up Authentication
   genericGit: Generic Git
+  plsChoose: 'Please choose {{field}}'
+  fieldIsMissing: '{{field}} is missing'
   startProvisioning: Start Provisioning
   provisioningHelpText: Provision the '{{ $.ci.getStartedWithCI.hostedByHarness }}' Infrastructure (~2 mins)
   carousel:

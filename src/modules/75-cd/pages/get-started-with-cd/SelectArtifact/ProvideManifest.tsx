@@ -8,6 +8,7 @@
 import { FormInput, Layout, MultiTypeInputType } from '@harness/uicore'
 import { Form, FormikContextType, FormikProps } from 'formik'
 import React, { useEffect, useRef } from 'react'
+import { v4 as nameSpace, v5 as uuid } from 'uuid'
 import { useStrings } from 'framework/strings'
 import DragnDropPaths from '@pipeline/components/ManifestSelection/DragnDropPaths'
 import type { ManifestConfig, ManifestConfigWrapper } from 'services/cd-ng'
@@ -118,6 +119,7 @@ const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideMani
             fieldPath="paths"
             pathLabel={getString('fileFolderPathText')}
             placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
+            defaultValue={{ path: '', uuid: uuid('', nameSpace()) }}
           />
         </div>
         <div>
@@ -128,6 +130,7 @@ const ProvideManifestRef = (props: ProvideManifestProps, forwardRef: ProvideMani
             placeholder={getString('pipeline.manifestType.manifestPathPlaceholder')}
             expressions={[]}
             allowableTypes={[MultiTypeInputType.FIXED]}
+            defaultValue={{ path: '', uuid: uuid('', nameSpace()) }}
           />
         </div>
       </Layout.Vertical>

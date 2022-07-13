@@ -95,7 +95,7 @@ describe('Test SelectGitProvider component', () => {
     expect(gitProviderCards[0].classList.contains('Card--selected')).toBe(true)
 
     expect(getByText('common.oAuthLabel')).toBeInTheDocument()
-    expect(getByText('ci.getStartedWithCI.accessTokenLabel')).toBeInTheDocument()
+    expect(getByText('common.getStarted.accessTokenLabel')).toBeInTheDocument()
   })
 
   test('User selects Github provider and Access Token authentication method', async () => {

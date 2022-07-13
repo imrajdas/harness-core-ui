@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react'
 import cx from 'classnames'
-import { Text, FontVariation, Icon, Layout, Button, ButtonVariation, Container } from '@harness/uicore'
+import { Text, FontVariation, Icon, Layout, Button, ButtonVariation } from '@harness/uicore'
 import type { IconProps } from '@harness/icons'
 import { useParams } from 'react-router-dom'
 import { useStrings } from 'framework/strings'
@@ -16,6 +16,7 @@ import type { GitQueryParams, ProjectPathProps, ServicePathProps } from '@common
 import { useQueryParams } from '@common/hooks'
 import { DeployProvisioningWizard } from './DeployProvisioningWizard/DeployProvisioningWizard'
 import bgImageURL from '../home/images/cd.svg'
+import bgBannerImageURL from '../home/images/cd-onboarding-banner.svg'
 import { CDOnboardingProvider } from './CDOnboardingStore'
 import css from './GetStartedWithCD.module.scss'
 
@@ -54,25 +55,29 @@ export default function GetStartedWithCI(): React.ReactElement {
             {getString('cd.continuous')}
           </Text>
         </Layout.Horizontal>
-        <Layout.Vertical flex margin={{ bottom: 'large' }}>
-          <Text font={{ variation: FontVariation.H2 }}>{getString('cd.getStarted.firstPipeline')}</Text>
+        <Layout.Vertical flex margin={{ top: 'large', bottom: 'large' }}>
+          <Text font={{ variation: FontVariation.H2, weight: 'bold' }}>
+            {getString('common.getStarted.firstPipeline')}
+          </Text>
         </Layout.Vertical>
         <Layout.Vertical className={css.vertical}>
-          <Text font={{ variation: FontVariation.SMALL }}>{getString('cd.getStarted.quicklyCreate')}</Text>
+          <Text font={{ variation: FontVariation.FORM_SUB_SECTION }}>
+            {getString('common.getStarted.quicklyCreate')}
+          </Text>
         </Layout.Vertical>
         <Layout.Vertical className={css.vertical}>
-          <Layout.Horizontal padding={{ top: 'xxlarge', bottom: 'xlarge' }}>
+          <Layout.Horizontal padding={{ top: 'xxlarge', bottom: 'xxlarge' }}>
             {renderBuildPipelineStep({
               iconProps: {
                 name: 'services',
                 size: 20,
                 className: cx(css.icon, css.iconPadding)
               },
-              label: 'cd.getStarted.selectWorkload'
+              label: 'common.getStarted.selectWorkload'
             })}
             {renderBuildPipelineStep({
-              iconProps: { name: 'ci-infra', size: 20, className: cx(css.icon, css.paddingXSmall) },
-              label: 'cd.getStarted.selectArtifact'
+              iconProps: { name: 'ci-infra', size: 20, className: cx(css.icon, css.iconPadding) },
+              label: 'common.getStarted.selectArtifact'
             })}
             {renderBuildPipelineStep({
               iconProps: {
@@ -80,30 +85,32 @@ export default function GetStartedWithCI(): React.ReactElement {
                 size: 20,
                 className: cx(css.icon, css.iconPadding)
               },
-              label: 'cd.getStarted.selectInfra'
+              label: 'common.getStarted.selectInfra'
             })}
             {renderBuildPipelineStep({
               iconProps: {
                 name: 'ci-build-pipeline',
                 size: 20,
-                className: cx(css.icon, css.iconPaddingSmall)
+                className: cx(css.icon, css.iconPadding)
               },
-              label: 'cd.getStarted.buildPipeline',
+              label: 'common.getStarted.buildPipeline',
               isLastStep: true
             })}
           </Layout.Horizontal>
         </Layout.Vertical>
         <Layout.Vertical className={css.vertical}>
-          <Container padding={{ top: 'small', bottom: 'large' }}>
+          {/* <Container padding={{ top: 'small', bottom: 'large' }}>
             <Container className={cx(css.separator, css.horizontal)} />
-          </Container>
+          </Container> */}
           <Button
             variation={ButtonVariation.PRIMARY}
-            className={css.createPipeline}
+            className={cx(css.createPipeline, css.vertical)}
             onClick={() => setShowWizard(true)}
-            text={getString('common.createPipeline')}
+            text={getString('getStarted')}
           />
         </Layout.Vertical>
+
+        <img src={bgBannerImageURL} className={css.bannerImage} />
       </Layout.Vertical>
       <img src={bgImageURL} className={css.image} />
     </>

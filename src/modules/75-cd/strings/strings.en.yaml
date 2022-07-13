@@ -388,40 +388,4 @@ getStartedWithCD:
   setupDelegate: Setup Delegate
   delegateInfo: Delegates are worker processes that run on your infrastructure to execute tasks on behalf of the Harness platform.
   setupaNewDelegate: + Setup a New Delegate
-gitOpsCluster: 'GitOps Clusters'
-selectGitopsCluster: 'Select GitOps Clusters to add to Environment'
-clustersSelected: 'Clusters Selected'
-selectClusterLabel: 'Select Cluster(s)'
-noLinkedClusters: 'No Linked Clusters Available'
-selectedLabel: 'Selected'
-successfullyLinkedClusters: 'SuccessFully Linked Clusters'
-unLink: 'UnLink'
-unLinkedCluster: 'Unlinked Successfully'
-overrideYaml: Override Yaml Values
-manifestId: Manifest Id
-azureWebAppRollbackDescription: Rollback to the last successfully deployed app.
-getStarted:
-  firstPipeline: 'Let’s get you started with your first Pipeline!'
-  buildPipeline: Build Pipeline
-  quicklyCreate: Quickly create a Pipeline using your own codebase and our intuitive visual editor.
-  selectWorkload: Select Workload
-  selectArtifact: Select Artifact
-  selectInfra: Select Infrastructure
-  searchRepo: Search Repository
-  codeRepoLabel: Code repository
-  fetchingRepos: Please wait while we fetch repositories...
-  plsChoose: 'Please choose {{field}}'
-  learnMoreAboutPermissions: Learn more about the required permissions
-  verifyConnection: Verify connection before you can continue
-  accessTokenLabel: Access Token
-  appPassword: Application Password
-  apiUrlLabel: API URL
-  codebaseHelptext: Harness will clone your codebase to your build infrastructure at Pipeline runtime.
-  fieldIsMissing: '{{field}} is missing'
-  gitProviderURLs:
-    github: 'https://github.com/account/'
-    gitlab: 'https://gitlab.com/account/'
-    bitbucket: 'https://bitbucket.org/'
 serviceName: Service Name
-authMethod: Select your Authentication method
-selectYourRepo: Select your Repository

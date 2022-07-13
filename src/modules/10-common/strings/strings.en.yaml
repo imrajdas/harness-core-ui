@@ -928,3 +928,29 @@ nameOnCard: Name on card
 cardNumber: Card number
 perDeveloper: per developer
 triggerName: Trigger Name
+
+# Onboarding
+getStarted:
+  firstPipeline: 'Let’s get you started with your first Pipeline!'
+  buildPipeline: Build Pipeline
+  quicklyCreate: Quickly create a Pipeline using your own codebase and our intuitive visual editor.
+  selectWorkload: Select Workload
+  selectArtifact: Select Artifact
+  selectInfra: Select Infrastructure
+  fetchingRepos: Please wait while we fetch repositories...
+  plsChoose: 'Please choose {{field}}'
+  fieldIsMissing: '{{field}} is missing'
+  gitProviderURLs:
+    github: 'https://github.com/account/'
+    gitlab: 'https://gitlab.com/account/'
+    bitbucket: 'https://bitbucket.org/'
+  authMethod: Select your Authentication method
+  accessTokenLabel: Access Token
+  codeRepoLabel: Code repository
+  codebaseHelptext: Harness will clone your codebase to your build infrastructure at Pipeline runtime.
+  searchRepo: Search Repository
+  learnMoreAboutPermissions: Learn more about the required permissions
+  verifyConnection: Verify connection before you can continue
+  appPassword: Application Password
+  apiUrlLabel: API URL
+selectYourRepo: Select your Repository
