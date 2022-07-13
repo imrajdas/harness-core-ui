@@ -185,11 +185,9 @@ const SelectGitProviderRef = (
           return
         }
         if (event.origin !== getBackendServerUrl() && !isEnvironmentAllowedForOAuth()) {
-          markOAuthAsFailed()
           return
         }
         if (!event || !event.data) {
-          markOAuthAsFailed()
           return
         }
         const { accessTokenRef, refreshTokenRef, status, errorMessage } = event.data
