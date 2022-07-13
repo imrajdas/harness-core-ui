@@ -162,6 +162,8 @@ describe('SegmentsPage', () => {
   })
 
   test('SegmentsPage should render data correctly', async () => {
+    const tableHeaders = ['CF.SHARED.SEGMENT', 'IDENTIFIER', 'CF.TARGETS.CREATEDDATE']
+
     mockImport('services/cf', {
       useGetAllSegments: () => ({
         data: {
@@ -172,7 +174,7 @@ describe('SegmentsPage', () => {
               excluded: [],
               identifier: 'segment1',
               included: [],
-              name: 'segment1',
+              name: 'segment1 name',
               rules: []
             }
           ]
@@ -193,7 +195,7 @@ describe('SegmentsPage', () => {
       })
     })
 
-    const { container } = render(
+    render(
       <TestWrapper
         path="/account/:accountId/cf/orgs/:orgIdentifier/projects/:projectIdentifier/feature-flags"
         pathParams={{ accountId: 'dummy', orgIdentifier: 'dummy', projectIdentifier: 'dummy' }}
@@ -202,7 +204,11 @@ describe('SegmentsPage', () => {
       </TestWrapper>
     )
 
-    expect(container).toMatchSnapshot()
+    expect(screen.getByText('segment1 name')).toBeInTheDocument()
+    expect(screen.getByText('segment1')).toBeInTheDocument()
+    tableHeaders.forEach(header => {
+      expect(screen.getByText(header)).toBeInTheDocument()
+    })
   })
 
   test('No data view should be rendered', async () => {
