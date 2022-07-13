@@ -77,3 +77,9 @@ export const getMultiSelectFromOptions = (values?: any[]): SelectOption[] | unde
     return { label: item.name ?? item, value: item.identifier ?? item }
   })
 }
+
+export const getMultiSelectEnvTypeFromOptions = (values?: ('PreProduction' | 'Production')[]): any[] | undefined => {
+  return values?.map(item => {
+    return { label: item, value: item }
+  })
+}
