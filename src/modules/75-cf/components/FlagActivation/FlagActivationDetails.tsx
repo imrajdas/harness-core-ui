@@ -96,7 +96,7 @@ const VariationsList: React.FC<{
           onSuccess={onEditSuccess}
           minimal
           intent="primary"
-          icon="edit"
+          icon="Edit"
           disabled={featureFlag.archived}
           setGovernanceMetadata={setGovernanceMetadata}
         />

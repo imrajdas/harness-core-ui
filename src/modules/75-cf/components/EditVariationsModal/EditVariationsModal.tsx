@@ -359,7 +359,7 @@ export const EditVariationsModal: React.FC<EditVariationsModalProps> = ({
                     text={cancelButtonTitle || getString('cancel')}
                     minimal
                     onClick={hideModal}
-                    variation={ButtonVariation.SECONDARY}
+                    variation={ButtonVariation.TERTIARY}
                   />
                   <FlexExpander />
                   {patchLoading && <Icon intent={Intent.PRIMARY} name="spinner" size={16} />}
