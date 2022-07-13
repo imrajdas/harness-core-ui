@@ -55,10 +55,10 @@ export default function GetStartedWithCI(): React.ReactElement {
           </Text>
         </Layout.Horizontal>
         <Layout.Vertical flex margin={{ bottom: 'large' }}>
-          <Text font={{ variation: FontVariation.H2 }}>{getString('common.getStarted.firstPipeline')}</Text>
+          <Text font={{ variation: FontVariation.H2 }}>{getString('cd.getStarted.firstPipeline')}</Text>
         </Layout.Vertical>
         <Layout.Vertical className={css.vertical}>
-          <Text font={{ variation: FontVariation.SMALL }}>{getString('common.getStarted.quicklyCreate')}</Text>
+          <Text font={{ variation: FontVariation.SMALL }}>{getString('cd.getStarted.quicklyCreate')}</Text>
         </Layout.Vertical>
         <Layout.Vertical className={css.vertical}>
           <Layout.Horizontal padding={{ top: 'xxlarge', bottom: 'xlarge' }}>
@@ -68,11 +68,11 @@ export default function GetStartedWithCI(): React.ReactElement {
                 size: 20,
                 className: cx(css.icon, css.iconPadding)
               },
-              label: 'common.getStarted.selectWorkload'
+              label: 'cd.getStarted.selectWorkload'
             })}
             {renderBuildPipelineStep({
               iconProps: { name: 'ci-infra', size: 20, className: cx(css.icon, css.paddingXSmall) },
-              label: 'common.getStarted.selectArtifact'
+              label: 'cd.getStarted.selectArtifact'
             })}
             {renderBuildPipelineStep({
               iconProps: {
@@ -80,7 +80,7 @@ export default function GetStartedWithCI(): React.ReactElement {
                 size: 20,
                 className: cx(css.icon, css.iconPadding)
               },
-              label: 'common.getStarted.selectInfra'
+              label: 'cd.getStarted.selectInfra'
             })}
             {renderBuildPipelineStep({
               iconProps: {
@@ -88,7 +88,7 @@ export default function GetStartedWithCI(): React.ReactElement {
                 size: 20,
                 className: cx(css.icon, css.iconPaddingSmall)
               },
-              label: 'common.getStarted.buildPipeline',
+              label: 'cd.getStarted.buildPipeline',
               isLastStep: true
             })}
           </Layout.Horizontal>

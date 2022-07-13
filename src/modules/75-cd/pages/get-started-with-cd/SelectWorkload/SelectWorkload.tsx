@@ -255,7 +255,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
 
                           <FormInput.Text
                             tooltipProps={{ dataTooltipId: 'specifyYourService' }}
-                            label={getString('common.serviceName')}
+                            label={getString('cd.serviceName')}
                             name="serviceRef"
                             className={css.formInput}
                           />
@@ -263,7 +263,7 @@ const SelectWorkloadRef = (props: SelectWorkloadProps, forwardRef: SelectWorkloa
                             <FormError
                               name={'serviceRef'}
                               errorMessage={getString('fieldRequired', {
-                                field: getString('common.serviceName')
+                                field: getString('cd.serviceName')
                               })}
                             />
                           ) : null}

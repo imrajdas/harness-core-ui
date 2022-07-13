@@ -58,7 +58,6 @@ export interface StringsMap {
   'common.artifactTag': string
   'common.at': string
   'common.auditTrail': string
-  'common.authMethod': string
   'common.aws': string
   'common.azure': string
   'common.azureConnector': string
@@ -284,26 +283,6 @@ export interface StringsMap {
   'common.genericErrors.inviteExpired': string
   'common.genericErrors.licenseCallFailed': string
   'common.genericErrors.unauthorized': string
-  'common.getStarted.accessTokenLabel': string
-  'common.getStarted.apiUrlLabel': string
-  'common.getStarted.appPassword': string
-  'common.getStarted.buildPipeline': string
-  'common.getStarted.codeRepoLabel': string
-  'common.getStarted.codebaseHelptext': string
-  'common.getStarted.fetchingRepos': string
-  'common.getStarted.fieldIsMissing': string
-  'common.getStarted.firstPipeline': string
-  'common.getStarted.gitProviderURLs.bitbucket': string
-  'common.getStarted.gitProviderURLs.github': string
-  'common.getStarted.gitProviderURLs.gitlab': string
-  'common.getStarted.learnMoreAboutPermissions': string
-  'common.getStarted.plsChoose': string
-  'common.getStarted.quicklyCreate': string
-  'common.getStarted.searchRepo': string
-  'common.getStarted.selectArtifact': string
-  'common.getStarted.selectInfra': string
-  'common.getStarted.selectWorkload': string
-  'common.getStarted.verifyConnection': string
   'common.git.APIAccessDescription': string
   'common.git.APIAuthentication': string
   'common.git.addUserCredentialLabel': string
@@ -670,7 +649,6 @@ export interface StringsMap {
   'common.selectType': string
   'common.selectUserGroups': string
   'common.selectVersion': string
-  'common.selectYourRepo': string
   'common.selected': string
   'common.serviceCreated': string
   'common.serviceOverrides': string
@@ -3878,6 +3856,8 @@ export interface StringsMap {
   'cd.artifactName': string
   'cd.artifactPaths': string
   'cd.artifactRepoTooltip': string
+  'cd.artifactVersion': string
+  'cd.authMethod': string
   'cd.azureWebAppRollbackDescription': string
   'cd.azureWebAppSwapSlotDescription': string
   'cd.backEndConfig': string
@@ -3983,6 +3963,26 @@ export interface StringsMap {
   'cd.featureRestriction.banners.serviceWarningActive': string
   'cd.filePathPlaceholder': string
   'cd.filePathRequired': string
+  'cd.getStarted.accessTokenLabel': string
+  'cd.getStarted.apiUrlLabel': string
+  'cd.getStarted.appPassword': string
+  'cd.getStarted.buildPipeline': string
+  'cd.getStarted.codeRepoLabel': string
+  'cd.getStarted.codebaseHelptext': string
+  'cd.getStarted.fetchingRepos': string
+  'cd.getStarted.fieldIsMissing': string
+  'cd.getStarted.firstPipeline': string
+  'cd.getStarted.gitProviderURLs.bitbucket': string
+  'cd.getStarted.gitProviderURLs.github': string
+  'cd.getStarted.gitProviderURLs.gitlab': string
+  'cd.getStarted.learnMoreAboutPermissions': string
+  'cd.getStarted.plsChoose': string
+  'cd.getStarted.quicklyCreate': string
+  'cd.getStarted.searchRepo': string
+  'cd.getStarted.selectArtifact': string
+  'cd.getStarted.selectInfra': string
+  'cd.getStarted.selectWorkload': string
+  'cd.getStarted.verifyConnection': string
   'cd.getStartedWithCD.artifactLocation': string
   'cd.getStartedWithCD.artifactManifest': string
   'cd.getStartedWithCD.artifactManifestContent': string
@@ -4090,6 +4090,7 @@ export interface StringsMap {
   'cd.selectClusterLabel': string
   'cd.selectGitopsCluster': string
   'cd.selectRepository': string
+  'cd.selectYourRepo': string
   'cd.selectedLabel': string
   'cd.serverlessDeployCommandOptions': string
   'cd.serviceCreated': string
@@ -4142,6 +4143,7 @@ export interface StringsMap {
   'cd.serviceDashboard.totalServices': string
   'cd.serviceDashboard.unitDay': string
   'cd.serviceList.noIdentifier': string
+  'cd.serviceName': string
   'cd.serviceOverrides.deleted': string
   'cd.serviceOverrides.deletedOneVariable': string
   'cd.serviceOverrides.helperText': string

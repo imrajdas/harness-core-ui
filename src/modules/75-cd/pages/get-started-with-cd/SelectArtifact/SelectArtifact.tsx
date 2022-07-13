@@ -346,7 +346,7 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
                 {formikProps.touched.artifactType && !formikProps.values.artifactType ? (
                   <FormError
                     name={'artifactType'}
-                    errorMessage={getString('common.getStarted.plsChoose', {
+                    errorMessage={getString('cd.getStarted.plsChoose', {
                       field: `your ${getString('pipeline.artifactsSelection.artifactType')}`
                     })}
                   />
@@ -394,7 +394,7 @@ const SelectArtifactRef = (props: SelectArtifactProps, forwardRef: SelectArtifac
                     id="selectYourRepo"
                     summary={
                       <Layout.Horizontal flex={{ alignItems: 'center' }}>
-                        <Text font={{ variation: FontVariation.H5 }}>{getString('common.selectYourRepo')}</Text>
+                        <Text font={{ variation: FontVariation.H5 }}>{getString('cd.selectYourRepo')}</Text>
                         {openProvideManifestAccordion() ? (
                           <Icon name="success-tick" size={20} className={css.accordionStatus} />
                         ) : !selectRepositoryRef?.current?.repository?.name ? (
