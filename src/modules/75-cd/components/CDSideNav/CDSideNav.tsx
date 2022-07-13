@@ -66,7 +66,7 @@ export default function CDSideNav(): React.ReactElement {
   const module = 'cd'
   const { updateAppStore, selectedProject } = useAppStore()
   const { ARGO_PHASE1, ARGO_PHASE2_MANAGED } = useFeatureFlags()
-  const CIE_HOSTED_BUILDS = true
+  // const CIE_HOSTED_BUILDS = true
   const CI_OVERVIEW_PAGE = true
   const { getString } = useStrings()
   const { experience } = useQueryParams<{ experience?: ModuleLicenseType }>()
@@ -86,7 +86,10 @@ export default function CDSideNav(): React.ReactElement {
   })
 
   React.useEffect(() => {
-    if (CIE_HOSTED_BUILDS && selectedProject?.identifier) {
+    if (
+      // CIE_HOSTED_BUILDS &&
+      selectedProject?.identifier
+    ) {
       fetchPipelines()
     }
 
@@ -102,6 +105,19 @@ export default function CDSideNav(): React.ReactElement {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchPipelinesData])
+
+  React.useEffect(() => {
+    if (showGetStartedTabInMainMenu) {
+      history.replace(
+        routes.toGetStartedWithCD({
+          projectIdentifier,
+          orgIdentifier,
+          accountId,
+          module
+        })
+      )
+    }
+  }, [showGetStartedTabInMainMenu, history, module, accountId, orgIdentifier, projectIdentifier])
 
   return (
     <Layout.Vertical spacing="small">
@@ -210,7 +226,7 @@ export default function CDSideNav(): React.ReactElement {
           {showGetStartedTabInMainMenu && (
             <SidebarLink label={getString('getStarted')} to={routes.toGetStartedWithCI({ ...params, module })} />
           )}
-          {!showGetStartedTabInMainMenu && CI_OVERVIEW_PAGE && !isCommunity && (
+          {!showGetStartedTabInMainMenu && CI_OVERVIEW_PAGE && (
             <SidebarLink label="Overview" to={routes.toProjectOverview({ ...params, module })} />
           )}
           <SidebarLink label="Deployments" to={routes.toDeployments({ ...params, module })} />

@@ -15,7 +15,7 @@ const pathParams = { accountId: 'accountId', orgIdentifier: 'orgId', projectIden
 const renderComponent = () => {
   return (
     <TestWrapper
-      path={routes.toGetStartedWithCI({
+      path={routes.toGetStartedWithCD({
         ...pathParams,
         module: 'cd'
       })}

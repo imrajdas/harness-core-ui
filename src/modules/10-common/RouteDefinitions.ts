@@ -707,6 +707,10 @@ const routes = {
     ({ orgIdentifier, projectIdentifier, module }: PipelineType<ProjectPathProps>) =>
       `/${module}/orgs/${orgIdentifier}/projects/${projectIdentifier}/get-started`
   ),
+  toGetStartedWithCD: withAccountId(
+    ({ orgIdentifier, projectIdentifier, module }: PipelineType<ProjectPathProps>) =>
+      `/${module}/orgs/${orgIdentifier}/projects/${projectIdentifier}/get-started`
+  ),
   toPipelineStudio: withAccountId(
     ({
       orgIdentifier,

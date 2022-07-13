@@ -8,19 +8,18 @@
 // this is an auto-generated file, do not update this manually
 declare const styles: {
   readonly arrow: string
-  readonly bannerImage: string
+  readonly buildImg: string
   readonly buildYourOwnPipeline: string
-  readonly cdIcon: string
-  readonly cdName: string
-  readonly createPipeline: string
-  readonly horizontal: string
+  readonly buttonRow: string
+  readonly ciIcon: string
+  readonly ciLogo: string
   readonly icon: string
   readonly iconPadding: string
   readonly iconPaddingSmall: string
   readonly image: string
-  readonly nextLevel: string
+  readonly label: string
+  readonly learnMore: string
   readonly paddingXSmall: string
-  readonly separator: string
-  readonly vertical: string
+  readonly topPage: string
 }
 export default styles
