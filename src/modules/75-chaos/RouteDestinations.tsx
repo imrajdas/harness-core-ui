@@ -62,6 +62,7 @@ import DelegateDetails from '@delegates/pages/delegates/DelegateDetails'
 import DelegateProfileDetails from '@delegates/pages/delegates/DelegateConfigurationDetailPage'
 import DelegateTokens from '@delegates/components/DelegateTokens/DelegateTokens'
 import CreateSecretFromYamlPage from '@secrets/pages/createSecretFromYaml/CreateSecretFromYamlPage'
+import { validateYAMLWithSchema } from '@common/utils/YamlUtils'
 import ChaosHomePage from './pages/home/ChaosHomePage'
 import type { ChaosCustomMicroFrontendProps } from './interfaces/Chaos.types'
 import ChaosSideNav from './components/ChaosSideNav/ChaosSideNav'
@@ -438,7 +439,8 @@ export default (
         ChildApp={ChaosMicroFrontend}
         customComponents={{
           ConnectorReferenceField,
-          OverviewChartsWithToggle
+          OverviewChartsWithToggle,
+          validateYAMLWithSchema
         }}
       />
     </RouteWithLayout>
