@@ -240,7 +240,7 @@ describe('SegmentsPage', () => {
       </TestWrapper>
     )
 
-    expect(document.querySelector('[data-testid="nodata-image"]')).toBeInTheDocument()
+    expect(screen.getByTestId('nodata-image')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'plus cf.segments.create' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'cf.segments.noTargetGroupsForEnv' })).toBeInTheDocument()
   })
@@ -274,7 +274,7 @@ describe('SegmentsPage', () => {
       </TestWrapper>
     )
 
-    expect(document.querySelector('[data-testid="nodata-image"]')).toBeInTheDocument()
+    expect(screen.getByTestId('nodata-image')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'plus newEnvironment' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'cf.noEnvironment.title' })).toBeInTheDocument()
   })

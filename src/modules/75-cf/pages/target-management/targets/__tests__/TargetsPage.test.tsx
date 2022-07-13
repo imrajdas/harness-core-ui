@@ -155,7 +155,7 @@ describe('TargetsPage', () => {
 
     renderComponent()
 
-    expect(document.querySelector('[data-testid="nodata-image"]')).toBeInTheDocument()
+    expect(screen.getByTestId('nodata-image')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'plus newEnvironment' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'cf.noEnvironment.title' })).toBeInTheDocument()
   })
@@ -187,7 +187,7 @@ describe('TargetsPage', () => {
 
     renderComponent()
 
-    expect(document.querySelector('[data-testid="nodata-image"]')).toBeInTheDocument()
+    expect(screen.getByTestId('nodata-image')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'plus cf.targets.create' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'cf.targets.noTargetForEnv' })).toBeInTheDocument()
   })

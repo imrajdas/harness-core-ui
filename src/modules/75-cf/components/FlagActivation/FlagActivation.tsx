@@ -438,9 +438,8 @@ const FlagActivation: React.FC<FlagActivationProps> = props => {
 
   if (noEnvironmentExists) {
     return (
-      <Container style={{ height: '100%', display: 'grid', alignItems: 'center' }}>
+      <Container flex={{ align: 'center-center' }} height="100%">
         <NoEnvironment
-          style={{ marginTop: '-100px' }}
           onCreated={response => {
             history.replace(
               withActiveEnvironment(

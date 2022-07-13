@@ -190,7 +190,7 @@ describe('EnvironmentsPage', () => {
 
     renderComponent()
 
-    expect(document.querySelector('[data-testid="nodata-image"]')).toBeInTheDocument()
+    expect(screen.getByTestId('nodata-image')).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'plus newEnvironment' })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'cf.noEnvironment.title' })).toBeInTheDocument()
   })

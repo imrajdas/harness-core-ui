@@ -6,13 +6,12 @@
  */
 
 import React from 'react'
-import type { ContainerProps } from '@harness/uicore/dist/components/Container/Container'
 import { String, useStrings } from 'framework/strings'
 import EmptyContent from './EmptyContent.svg'
 import EnvironmentDialog, { EnvironmentDialogProps } from '../CreateEnvironmentDialog/EnvironmentDialog'
 import { NoData } from '../NoData/NoData'
 
-export interface NoEnvironmentProps extends ContainerProps {
+export interface NoEnvironmentProps {
   onCreated: EnvironmentDialogProps['onCreate']
 }
 
