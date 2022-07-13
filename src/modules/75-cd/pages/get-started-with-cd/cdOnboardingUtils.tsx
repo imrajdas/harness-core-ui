@@ -35,8 +35,8 @@ export const newEnvironmentState = {
     type: 'PreProduction' as 'PreProduction' | 'Production'
   },
   infrastructure: {
-    name: 'test_infra',
-    identifier: 'test_infra',
+    name: 'sample_infrastructure',
+    identifier: 'sample_infrastructure',
     description: '',
     tags: {},
     type: '', //infraType

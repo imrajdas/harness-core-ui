@@ -47,8 +47,8 @@ import {
 } from './SelectAuthenticationMethod'
 import { useCDOnboardingContext } from '../CDOnboardingStore'
 import { cleanEnvironmentDataUtil, getUniqueEntityIdentifier, newEnvironmentState } from '../cdOnboardingUtils'
-import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
-
+import defaultCss from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
+import css from './SelectInfrastructure.module.scss'
 export interface SelectInfrastructureRef {
   values: SelectInfrastructureInterface
   setFieldTouched(
@@ -131,7 +131,15 @@ const SelectInfrastructureRef = (
   })
 
   const openSetUpDelegateAccordion = (): boolean | undefined => {
-    return selectAuthenticationMethodRef?.current?.validate()
+    const validate = selectAuthenticationMethodRef?.current?.validate()
+    if (validate) {
+      props.enableNextBtn()
+      return true
+    } else {
+      props.disableNextBtn()
+
+      return false
+    }
   }
 
   const setForwardRef = ({ values, setFieldTouched }: Omit<SelectInfrastructureRef, 'validate'>): void => {
@@ -304,7 +312,7 @@ const SelectInfrastructureRef = (
     return Promise.resolve({} as SelectInfrastructureInterface)
   }
 
-  const borderBottom = <div className={css.repoborderBottom} />
+  const borderBottom = <div className={defaultCss.repoborderBottom} />
 
   if (createEnvLoading) {
     return <PageSpinner />
@@ -328,16 +336,16 @@ const SelectInfrastructureRef = (
           formikRef.current = formikProps
           return (
             <Form>
-              <Container padding={{ top: 'xxlarge', bottom: 'xxxlarge' }}>
+              <Container className={css.workloadType}>
                 <CardSelect
                   data={InfrastructureTypes}
                   cornerSelected={true}
-                  className={css.icons}
-                  cardClassName={css.serviceDeploymentTypeCard}
+                  className={defaultCss.icons}
+                  cardClassName={defaultCss.serviceDeploymentTypeCard}
                   renderItem={(item: InfrastructureType) => (
                     <>
                       <Layout.Vertical flex>
-                        <Icon name={item.icon} size={30} flex className={css.serviceDeploymentTypeIcon} />
+                        <Icon name={item.icon} size={30} flex className={defaultCss.serviceDeploymentTypeIcon} />
 
                         <Text font={{ variation: FontVariation.SMALL_SEMI }} padding={{ top: 'xxlarge' }} width={78}>
                           {getString(item.label)}
@@ -353,7 +361,7 @@ const SelectInfrastructureRef = (
                 />
                 {formikProps.touched.infraType && !formikProps.values.infraType ? (
                   <FormError
-                    className={css.marginTop}
+                    className={defaultCss.marginTop}
                     name={'infraType'}
                     errorMessage={getString('common.getStarted.plsChoose', {
                       field: `${getString('infrastructureText')}`
@@ -361,42 +369,45 @@ const SelectInfrastructureRef = (
                   />
                 ) : null}
               </Container>
-              <Layout.Vertical padding={{ top: 'xxlarge', bottom: 'xxlarge' }}>
+              <Layout.Horizontal className={css.infraInputs}>
                 <FormInput.Text
                   tooltipProps={{ dataTooltipId: 'specifyYourEnvironment' }}
                   label={getString('cd.getStartedWithCD.envName')}
                   name="envId"
-                  className={css.formInput}
+                  className={defaultCss.formInput}
                 />
                 <FormInput.Text
                   // tooltipProps={{ dataTooltipId: 'specifyYourEnvironment' }}
                   label={getString('infrastructureText')}
                   name="infraId"
-                  className={css.formInput}
+                  className={defaultCss.formInput}
                 />
                 <FormInput.Text
                   tooltipProps={{ dataTooltipId: 'gcpInfraNamespace' }}
                   label={getString('common.namespace')}
                   placeholder={getString('pipeline.infraSpecifications.namespacePlaceholder')}
                   name="namespace"
-                  className={css.formInput}
+                  className={defaultCss.formInput}
                 />
-              </Layout.Vertical>
+              </Layout.Horizontal>
               {borderBottom}
               {infrastructureType &&
               formikRef?.current?.values?.envId &&
               formikRef?.current?.values?.infraId &&
               formikRef?.current?.values?.namespace ? (
-                <Accordion className={css.accordion} activeId={infrastructureType ? 'authMethod' : 'setUpDelegate'}>
+                <Accordion
+                  className={defaultCss.accordion}
+                  activeId={infrastructureType ? 'authMethod' : 'setUpDelegate'}
+                >
                   <Accordion.Panel
                     id="authMethod"
                     summary={
-                      <Layout.Horizontal width={500}>
+                      <Layout.Horizontal flex={{ alignItems: 'center' }}>
                         <Text font={{ variation: FontVariation.H5 }}>{'Connect to your Kubernetes cluster'}</Text>
                         {openSetUpDelegateAccordion() ? (
-                          <Icon name="success-tick" size={20} className={css.accordionStatus} />
+                          <Icon name="success-tick" size={20} className={defaultCss.accordionStatus} />
                         ) : (
-                          <Icon name="danger-icon" size={20} className={css.accordionStatus} />
+                          <Icon name="danger-icon" size={20} className={defaultCss.accordionStatus} />
                         )}
                       </Layout.Horizontal>
                     }

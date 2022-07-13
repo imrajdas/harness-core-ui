@@ -114,13 +114,14 @@
 }
 
 .repositories {
-  height: 63vh;
+  max-height: 63vh;
+  height: fit-content;
   width: 676px;
 }
 
 .repositoryTable {
   height: fit-content;
-  max-height: 85%;
+  max-height: 30vh;
   overflow-y: scroll;
   border-radius: 8px;
   border: 1px solid var(--grey-200);
@@ -218,4 +219,7 @@
 .authFormField {
   width: 320px;
   margin-top: 20px;
+}
+.noDelegateWarning {
+  max-width: 480px;
 }

@@ -29,6 +29,7 @@ declare const styles: {
   readonly main: string
   readonly marginTop: string
   readonly modal: string
+  readonly noDelegateWarning: string
   readonly repoCard: string
   readonly repoborderBottom: string
   readonly repositories: string

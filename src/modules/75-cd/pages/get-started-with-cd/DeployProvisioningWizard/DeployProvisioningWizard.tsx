@@ -34,6 +34,11 @@ import { useCDOnboardingContext } from '../CDOnboardingStore'
 import { DEFAULT_PIPELINE_PAYLOAD, getUniqueEntityIdentifier } from '../cdOnboardingUtils'
 import css from './DeployProvisioningWizard.module.scss'
 
+export interface PipelineRefPayload {
+  serviceRef: string
+  environmentRef: string
+  infraStructureRef: string
+}
 export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> = props => {
   const { lastConfiguredWizardStepId = DeployProvisiongWizardStepId.SelectWorkload } = props
   const { getString } = useStrings()
@@ -48,7 +53,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
   // const [showError, setShowError] = useState<boolean>(false)
   const { accountId, projectIdentifier, orgIdentifier } = useParams<ProjectPathProps>()
   // const history = useHistory()
-  const [showPageLoader] = useState<boolean>(false)
+  const [showPageLoader, setShowPageLoader] = useState<boolean>(false)
 
   const [wizardStepStatus, setWizardStepStatus] = useState<Map<DeployProvisiongWizardStepId, StepStatus>>(
     new Map<DeployProvisiongWizardStepId, StepStatus>([
@@ -63,15 +68,11 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
   } = useCDOnboardingContext()
 
   const constructPipelinePayload = React.useCallback(
-    (repository: UserRepoResponse, data): string | undefined => {
+    (repository: UserRepoResponse, data: PipelineRefPayload): string | undefined => {
       const { name: repoName, namespace } = repository
       const { serviceRef, environmentRef, infraStructureRef } = data
 
-      if (
-        !repoName ||
-        !namespace
-        // || !selectGitProviderRef.current?.validatedConnector?.identifier
-      ) {
+      if (!repoName || !namespace || !serviceRef || !environmentRef || !infraStructureRef) {
         return
       }
 
@@ -82,7 +83,6 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       )}_${getUniqueEntityIdentifier(repoName)}` // pipeline identifier cannot have spaces
       payload.pipeline.projectIdentifier = projectIdentifier
       payload.pipeline.orgIdentifier = orgIdentifier
-      // payload.pipeline.stages[0].stage.spec.deploymentType = get(serviceData, 'serviceDefinition.type')
       payload.pipeline.stages[0].stage.spec.service.serviceRef = serviceRef
       payload.pipeline.stages[0].stage.spec.environment.environmentRef = environmentRef
       payload.pipeline.stages[0].stage.spec.environment.infrastructureDefinitions[0].identifier = infraStructureRef
@@ -96,7 +96,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
     [projectIdentifier, orgIdentifier]
   )
 
-  const setupPipeline = (data: any) => {
+  const setupPipeline = (data: PipelineRefPayload): void => {
     try {
       createPipelineV2Promise({
         body: constructPipelinePayload(get(serviceData, 'data.repoValues'), data) || '',
@@ -110,6 +110,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
         const { status } = createPipelineResponse
         if (status === Status.SUCCESS && createPipelineResponse?.data?.identifier) {
           if (createPipelineResponse?.data?.identifier) {
+            setShowPageLoader(false)
             history.push(
               routes.toPipelineStudio({
                 accountId: accountId,
@@ -125,7 +126,6 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       })
     } catch (e) {
       setDisableBtn(false)
-      // setShowPageLoader(false)
     }
   }
 
@@ -183,8 +183,6 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
               updateStepStatus([DeployProvisiongWizardStepId.SelectInfrastructure], StepStatus.InProgress)
               updateStepStatus([DeployProvisiongWizardStepId.CreatePipeline], StepStatus.ToDo)
             }}
-            // showError={showError}
-            // validatedConnectorRef={selectGitProviderRef.current?.validatedConnector?.identifier}
             disableNextBtn={() => setDisableBtn(true)}
             enableNextBtn={() => setDisableBtn(false)}
           />
@@ -211,7 +209,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       {
         stepRender: (
           <SelectInfrastructure
-            onSuccess={(data: any) => {
+            onSuccess={(data: PipelineRefPayload) => {
               setupPipeline(data)
               updateStepStatus(
                 [
@@ -242,6 +240,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
           const { submitForm } = selectInfrastructureRef.current || {}
 
           try {
+            setShowPageLoader(true)
             submitForm?.()
           } catch (_e) {
             // catch any errors and do nothing
@@ -308,7 +307,7 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
         flex={{ justifyContent: 'space-between', alignItems: 'flex-start' }}
         height="90%"
       >
-        <Layout.Vertical width="100%" height="80%" className={css.main}>
+        <Layout.Vertical width="100%" height="90%" className={css.main}>
           {stepRender}
         </Layout.Vertical>
         <Layout.Horizontal

@@ -18,9 +18,8 @@ import {
   Text
 } from '@harness/uicore'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { Form, FormikContextType, FormikProps } from 'formik'
+import { Form, FormikProps } from 'formik'
 import { useParams } from 'react-router-dom'
-import produce from 'immer'
 import { useStrings } from 'framework/strings'
 import TextReference, { TextReferenceInterface, ValueType } from '@secrets/components/TextReference/TextReference'
 import type { SecretReferenceInterface } from '@secrets/utils/SecretField'
@@ -40,10 +39,8 @@ import useCreateEditConnector, { BuildPayloadProps } from '@connectors/hooks/use
 import VerifyOutOfClusterDelegate from '@connectors/common/VerifyOutOfClusterDelegate/VerifyOutOfClusterDelegate'
 import { CLIENT_KEY_ALGO_OPTIONS } from '../DeployProvisioningWizard/Constants'
 import { getUniqueEntityIdentifier } from '../cdOnboardingUtils'
-import { useCDOnboardingContext } from '../CDOnboardingStore'
 import commonStyles from '@connectors/components/CreateConnector/commonSteps/ConnectorCommonStyles.module.scss'
 import css from '../DeployProvisioningWizard/DeployProvisioningWizard.module.scss'
-import { set } from 'lodash-es'
 
 interface DelegateSelectorStepData extends BuildPayloadProps {
   delegateSelectors: Array<string>
@@ -104,7 +101,6 @@ const SelectAuthenticationMethodRef = (
 ): React.ReactElement => {
   const scrollRef = useRef<Element>()
   const { getString } = useStrings()
-  const formikRef = useRef<FormikContextType<SelectAuthenticationMethodInterface>>()
   const { formikProps } = props
   const validateAuthMethodSetup = (): boolean => {
     const {
@@ -161,31 +157,29 @@ const SelectAuthenticationMethodRef = (
   const [testConnectionStatus, setTestConnectionStatus] = useState<TestStatus>(TestStatus.NOT_INITIATED)
   const [testConnectionErrors, setTestConnectionErrors] = useState<ResponseMessage[]>()
 
-  const {
-    saveEnvironmentData,
-    state: { environment: environmentData }
-  } = useCDOnboardingContext()
-
-  // const defaultInitialFormData: SelectAuthenticationMethodInterface = {
-  //   authType: AuthTypes.USER_PASSWORD,
-  //   delegateType: '',
-  //   masterUrl: '',
-  //   username: undefined,
-  //   password: undefined,
-  //   serviceAccountToken: undefined,
-  //   oidcIssuerUrl: '',
-  //   oidcUsername: undefined,
-  //   oidcPassword: undefined,
-  //   oidcCleintId: undefined,
-  //   oidcCleintSecret: undefined,
-  //   oidcScopes: '',
-  //   clientKey: undefined,
-  //   clientKeyCertificate: undefined,
-  //   clientKeyPassphrase: undefined,
-  //   clientKeyAlgo: '',
-  //   clientKeyCACertificate: undefined,
-  //   connectorName: ''
-  // }
+  const NoMatchingDelegateWarning: React.FC<{ delegatesFound: DelegatesFoundState; delegateSelectors: string[] }> =
+    () => {
+      if (delegatesFound === DelegatesFoundState.ActivelyConnected) {
+        return <></>
+      }
+      const message =
+        delegatesFound === DelegatesFoundState.NotConnected
+          ? getString('connectors.delegate.noMatchingDelegatesActive')
+          : getString('connectors.delegate.noMatchingDelegate', { tags: delegateSelectors.join(', ') })
+      const dataName =
+        delegatesFound === DelegatesFoundState.NotConnected ? 'delegateNoActiveMatchWarning' : 'delegateNoMatchWarning'
+      return (
+        <Text
+          icon="warning-sign"
+          iconProps={{ margin: { right: 'xsmall' }, color: Color.YELLOW_900 }}
+          font={{ size: 'small', weight: 'semi-bold' }}
+          data-name={dataName}
+          className={css.noDelegateWarning}
+        >
+          {message}
+        </Text>
+      )
+    }
 
   const afterSuccessHandler = (response: ResponseConnectorResponse): void => {
     if (response?.status === 'SUCCESS') {
@@ -220,11 +214,11 @@ const SelectAuthenticationMethodRef = (
       case TestStatus.FAILED:
       case TestStatus.NOT_INITIATED:
         return (
-          <Layout.Vertical>
+          <Layout.Vertical padding={{ top: 'medium' }}>
             <Button
               variation={ButtonVariation.PRIMARY}
               text={getString('common.smtp.testConnection')}
-              width={300}
+              width={180}
               type="submit"
               disabled={
                 (isDelegateSelectorMandatory() && delegateSelectors.length === 0) ||
@@ -235,7 +229,6 @@ const SelectAuthenticationMethodRef = (
                 if (validateAuthMethodSetup()) {
                   setTestConnectionStatus(TestStatus.IN_PROGRESS)
                   setTestConnectionErrors([])
-                  // formikRef.current?.submitForm()
                   const authValues = formikProps?.values
 
                   const connectorIdentifier = getUniqueEntityIdentifier(authValues.connectorName)
@@ -302,12 +295,12 @@ const SelectAuthenticationMethodRef = (
   }
 
   useEffect(() => {
-    if (formikRef.current?.values && formikRef.current?.setFieldTouched) {
+    if (formikProps?.values) {
       setForwardRef({
-        values: formikRef.current.values
+        values: formikProps.values
       })
     }
-  }, [formikRef.current?.values])
+  }, [formikProps?.values])
 
   const authOptions: Array<AuthOptionInterface> = [
     {
@@ -328,15 +321,15 @@ const SelectAuthenticationMethodRef = (
     }
   ]
 
-  const renderK8AuthForm = useCallback((props: FormikProps<SelectAuthenticationMethodInterface>): JSX.Element => {
-    switch (props.values.authType) {
+  const renderK8AuthForm = useCallback((): JSX.Element => {
+    switch (formikProps.values.authType) {
       case AuthTypes.USER_PASSWORD:
         return (
           <Container width={'42%'}>
             <TextReference
               name="username"
               stringId="username"
-              type={props.values.username ? props.values.username?.type : ValueType.TEXT}
+              type={formikProps.values.username ? formikProps.values.username?.type : ValueType.TEXT}
             />
             <SecretInput name={'password'} label={getString('password')} />
           </Container>
@@ -361,7 +354,7 @@ const SelectAuthenticationMethodRef = (
                 <TextReference
                   name="oidcUsername"
                   stringId="connectors.k8.OIDCUsername"
-                  type={props.values.oidcUsername ? props.values.oidcUsername.type : ValueType.TEXT}
+                  type={formikProps.values.oidcUsername ? formikProps.values.oidcUsername.type : ValueType.TEXT}
                 />
 
                 <SecretInput name={'oidcPassword'} label={getString('connectors.k8.OIDCPassword')} />
@@ -399,9 +392,9 @@ const SelectAuthenticationMethodRef = (
                   value={
                     // If we pass the value as undefined, formik will kick in and value will be updated as per uicore logic
                     // If we've added a custom value, then just add it as a label value pair
-                    CLIENT_KEY_ALGO_OPTIONS.find(opt => opt.value === props.values.clientKeyAlgo)
+                    CLIENT_KEY_ALGO_OPTIONS.find(opt => opt.value === formikProps.values.clientKeyAlgo)
                       ? undefined
-                      : { label: props.values.clientKeyAlgo, value: props.values.clientKeyAlgo }
+                      : { label: formikProps.values.clientKeyAlgo, value: formikProps.values.clientKeyAlgo }
                   }
                   selectProps={{
                     allowCreatingNewItems: true,
@@ -422,45 +415,8 @@ const SelectAuthenticationMethodRef = (
     }
   }, [])
 
-  const handleSubmit = async (
-    values: SelectAuthenticationMethodInterface
-  ): Promise<SelectAuthenticationMethodInterface> => {
-    const connectorData = {
-      ...values,
-      name: values.connectorName,
-      identifier: getUniqueEntityIdentifier(values.connectorName),
-      projectIdentifier: projectIdentifier,
-      orgIdentifier: orgIdentifier,
-      delegateSelectors: mode === DelegateOptions.DelegateOptionsAny ? [] : delegateSelectors
-    }
-    onInitiate({
-      connectorFormData: connectorData,
-      buildPayload: buildKubPayload
-    })
-
-    const updatedContextService = produce(environmentData as any, (draft: any) => {
-      set(draft, 'data.authValue', connectorData)
-    })
-
-    saveEnvironmentData({ environment: updatedContextService })
-    const data = props?.onSuccess?.(connectorData) || {}
-    return Promise.resolve(data as any)
-  }
-
   return (
     <Layout.Vertical width="70%">
-      {/* <Formik<SelectAuthenticationMethodInterface>
-        initialValues={{
-          ...defaultInitialFormData,
-          connectorName: defaultTo(authValues?.connectorName, '')
-        }}
-        formName="infraAuthentication"
-        onSubmit={handleSubmit}
-      >
-        {formikProps => {
-          formikRef.current = formikProps
-
-          return ( */}
       <Form>
         <Layout.Vertical>
           <FormInput.Text
@@ -525,7 +481,7 @@ const SelectAuthenticationMethodRef = (
                   className={commonStyles.authTypeSelect}
                 />
               </Container>
-              {renderK8AuthForm(formikProps)}
+              {renderK8AuthForm()}
             </Layout.Vertical>
           ) : (
             <></>
@@ -547,23 +503,23 @@ const SelectAuthenticationMethodRef = (
                 orgIdentifier={orgIdentifier}
                 projectIdentifier={projectIdentifier}
               />
+              <NoMatchingDelegateWarning delegatesFound={delegatesFound} delegateSelectors={delegateSelectors} />
               <TestConnection />
 
               {testConnectionStatus === TestStatus.SUCCESS || testConnectionStatus === TestStatus.FAILED ? (
-                <VerifyOutOfClusterDelegate
-                  name={getString('connectors.stepThreeName')}
-                  connectorInfo={connectorResponse?.data?.connector}
-                  type={Connectors.KUBERNETES_CLUSTER}
-                  setIsEditMode={() => false}
-                />
+                <div style={{ paddingTop: '15px' }}>
+                  <VerifyOutOfClusterDelegate
+                    name={getString('connectors.stepThreeName')}
+                    connectorInfo={connectorResponse?.data?.connector}
+                    type={Connectors.KUBERNETES_CLUSTER}
+                    setIsEditMode={() => false}
+                  />
+                </div>
               ) : null}
             </>
           ) : null}
         </Layout.Vertical>
       </Form>
-      {/* ) */}
-      {/* }} */}
-      {/* </Formik> */}
     </Layout.Vertical>
   )
 }
