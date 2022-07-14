@@ -92,7 +92,7 @@ export default function RouteDestinations(): React.ReactElement {
       {connectorRoutes.props.children}
       {tempatesRoutes.props.children}
       {userProfileRoutes.props.children}
-      {CHAOS_ENABLED ? ChaosRoutes.props.children : null}
+      {CHAOS_ENABLED ? ChaosRoutes().props.children : null}
       {CING_ENABLED ? CIRoutes.props.children : null}
       {CDNG_ENABLED ? CDRoutes.props.children : null}
       {CVNG_ENABLED ? CVRoutes.props.children : null}
