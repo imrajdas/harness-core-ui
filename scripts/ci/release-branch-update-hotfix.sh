@@ -5,7 +5,7 @@
 
 KEYS=`git log --pretty=oneline --abbrev-commit |\
       awk "/${PREVIOUS_CUT_COMMIT_MESSAGE}/ {exit} {print}" |\
-      grep -o -iE '(ART|BT|CCE|CCM|CDS|CE|CI|COMP|CV|CVNG|DEL|DOC|DX|ER|FFM|OPS|OPA|PIP|PL|SEC|STO|SWAT|GTM|ONP|PIE|LWG)-[0-9]+' | sort | uniq`
+      grep -o -iE '(ART|BT|CCE|CCM|CDS|CE|CI|COMP|CV|CVNG|DEL|DOC|DX|ER|FFM|OPS|OPA|PIP|PL|SEC|STO|SWAT|GTM|ONP|PIE|LWG|CHAOS)-[0-9]+' | sort | uniq`
 
 
 LABEL="HOTFIX"

@@ -6,13 +6,13 @@
 
 set +e
 
-PR_MESSAGE=`echo "${ghprbPullTitle}" | grep -iE '(feat|fix|chore|refactor): \[(PLG|ART|BT|CCE|CCM|CDB|CDS|CE|CI|COMP|SRM|DEL|DOC|DX|ER|FFM|OPA|OPS|PIP|PL|SEC|STO|SWAT|GTM|ONP|PIE|LWG|GIT|OENG|BG)-[0-9]+]:'`
+PR_MESSAGE=`echo "${ghprbPullTitle}" | grep -iE '(feat|fix|chore|refactor): \[(PLG|ART|BT|CCE|CCM|CDB|CDS|CE|CI|COMP|SRM|DEL|DOC|DX|ER|FFM|OPA|OPS|PIP|PL|SEC|STO|SWAT|GTM|ONP|PIE|LWG|GIT|OENG|BG|CHAOS)-[0-9]+]:'`
 echo "PR message is : ${PR_MESSAGE}"
 
 if [ -z "$PR_MESSAGE" ]
 then
     echo The PR title \"${ghprbPullTitle}\"
     echo "does not match the expectations"
-    echo 'Make sure that your message starts with [PLG|ART|BT|CCE|CCM|CDB|CDS|CE|CI|COMP|SRM|DEL|DOC|DX|ER|FFM|OPS|PIP|PL|SEC|STO|SWAT|GTM|ONP|OPA|ART|PIE|LWG|GIT|OENG|BG-<number>]: <description>'
+    echo 'Make sure that your message starts with [PLG|ART|BT|CCE|CCM|CDB|CDS|CE|CI|COMP|SRM|DEL|DOC|DX|ER|FFM|OPS|PIP|PL|SEC|STO|SWAT|GTM|ONP|OPA|ART|PIE|LWG|GIT|OENG|BG|CHAOS-<number>]: <description>'
     exit 1
 fi
