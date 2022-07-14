@@ -33,6 +33,7 @@ import { SelectArtifact, SelectArtifactRef } from '../SelectArtifact/SelectArtif
 import { useCDOnboardingContext } from '../CDOnboardingStore'
 import { DEFAULT_PIPELINE_PAYLOAD, getUniqueEntityIdentifier } from '../cdOnboardingUtils'
 import css from './DeployProvisioningWizard.module.scss'
+import { StringUtils } from '@common/exports'
 
 export interface PipelineRefPayload {
   serviceRef: string
@@ -75,12 +76,12 @@ export const DeployProvisioningWizard: React.FC<DeployProvisioningWizardProps> =
       if (!repoName || !namespace || !serviceRef || !environmentRef || !infraStructureRef) {
         return
       }
-
+      const uniquePipelineId = getUniqueEntityIdentifier(repoName)
       const payload = DEFAULT_PIPELINE_PAYLOAD
-      payload.pipeline.name = `${getString('buildText')} ${repoName}`
+      payload.pipeline.name = `${getString('buildText')}_${StringUtils.getIdentifierFromName(repoName)}`
       payload.pipeline.identifier = `${getString(
         'pipelineSteps.deploy.create.deployStageName'
-      )}_${getUniqueEntityIdentifier(repoName)}` // pipeline identifier cannot have spaces
+      )}_${StringUtils.getIdentifierFromName(uniquePipelineId)}` // pipeline identifier cannot have spaces
       payload.pipeline.projectIdentifier = projectIdentifier
       payload.pipeline.orgIdentifier = orgIdentifier
       payload.pipeline.stages[0].stage.spec.service.serviceRef = serviceRef
