@@ -28,10 +28,12 @@ export const getHasFilters = ({
 }): boolean => {
   return [queryParams.filters, filterIdentifier].some(filter => filter !== undefined)
 }
-export interface EnvironmentsFilterFormType extends Omit<EnvironmentFilterProperties, 'environmentNames'> {
+export interface EnvironmentsFilterFormType
+  extends Omit<EnvironmentFilterProperties, 'environmentTypes' | 'environmentNames'> {
   environmentName?: string
   environments?: MultiSelectOption[]
   environmentTags?: Record<string, any>
+  environmentTypes?: MultiSelectOption[]
 }
 
 export const createRequestBodyPayload = ({
@@ -75,11 +77,5 @@ export const getFilterByIdentifier = (identifier: string, filters?: FilterDTO[])
 export const getMultiSelectFromOptions = (values?: any[]): SelectOption[] | undefined => {
   return values?.map(item => {
     return { label: item.name ?? item, value: item.identifier ?? item }
-  })
-}
-
-export const getMultiSelectEnvTypeFromOptions = (values?: ('PreProduction' | 'Production')[]): any[] | undefined => {
-  return values?.map(item => {
-    return { label: item, value: item }
   })
 }

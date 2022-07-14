@@ -42,7 +42,6 @@ import {
   createRequestBodyPayload,
   EnvironmentsFilterFormType,
   getFilterByIdentifier,
-  getMultiSelectEnvTypeFromOptions,
   getMultiSelectFromOptions
 } from './filterUtils'
 import type { PageQueryParams } from '../PageTemplate/PageTemplate'
@@ -231,7 +230,7 @@ export default function EnvironmentsFilters(): React.ReactElement {
               (obj: Record<string, any>, item: NGTag) => Object.assign(obj, { [item.key]: item.value }),
               {}
             ),
-            environmentTypes: getMultiSelectEnvTypeFromOptions(environmentTypes),
+            environmentTypes: getMultiSelectFromOptions(environmentTypes),
             environments: getMultiSelectFromOptions(environmentIdentifiers)
           },
           metadata: { name, filterVisibility, identifier, filterProperties: {} }
